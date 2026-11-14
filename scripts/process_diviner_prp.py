@@ -46,7 +46,7 @@ def fetch_product_label(session: requests.Session) -> tuple[dict, str]:
     if table is None:
         raise RuntimeError("Diviner PDS4 label has no Table_Character section")
     records = int(table.findtext("pds:records", default="0", namespaces=ns))
-    record_length = int(table.findtext("pds:record_length", default="0", namespaces=ns))
+    record_length = int(table.findtext(".//pds:record_length", default="0", namespaces=ns))
     file_name = root.findtext(".//pds:File/pds:file_name", default="", namespaces=ns)
 
     fields = {}
