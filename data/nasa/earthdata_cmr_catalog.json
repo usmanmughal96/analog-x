@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-14T14:57:34+00:00",
+  "generated_at_utc": "2026-11-14T14:58:06+00:00",
   "provider": "NASA Earthdata / Common Metadata Repository (CMR)",
   "api": "https://cmr.earthdata.nasa.gov/search",
   "access": "Public collection/granule metadata search; granule data access can require Earthdata Login depending on provider and endpoint.",
@@ -220,7 +220,7 @@
   },
   "site_granules": {
     "koh_i_sultan": {
-      "query_url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=MOD11A2&version=061&bounding_box=62.70%2C29.00%2C62.90%2C29.20&temporal=2026-08-01T00%3A00%3A00Z%2C2026-11-14T23%3A59%3A59Z&page_size=10&sort_key=-start_date",
+      "query_url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=MOD11A2&version=061&temporal=2026-08-01T00%3A00%3A00Z%2C2026-11-14T23%3A59%3A59Z&page_size=10&sort_key=-start_date&bounding_box=62.70%2C29.00%2C62.90%2C29.20",
       "short_name": "MOD11A2",
       "version": "061",
       "returned_count": 10,
@@ -953,7 +953,7 @@
       }
     },
     "hispar_glacier": {
-      "query_url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=MOD11A2&version=061&bounding_box=75.12%2C36.02%2C75.34%2C36.22&temporal=2026-08-01T00%3A00%3A00Z%2C2026-11-14T23%3A59%3A59Z&page_size=10&sort_key=-start_date",
+      "query_url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=MOD11A2&version=061&temporal=2026-08-01T00%3A00%3A00Z%2C2026-11-14T23%3A59%3A59Z&page_size=10&sort_key=-start_date&bounding_box=75.12%2C36.02%2C75.34%2C36.22",
       "short_name": "MOD11A2",
       "version": "061",
       "returned_count": 10,
@@ -1688,24 +1688,130 @@
   },
   "site_aerosol_granules": {
     "koh_i_sultan": {
-      "query_url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=M2T1NXAER&version=5.12.4&bounding_box=62.70%2C29.00%2C62.90%2C29.20&temporal=2026-11-01T00%3A00%3A00Z%2C2026-11-14T23%3A59%3A59Z&page_size=10&sort_key=-start_date",
+      "query_url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=M2T1NXAER&version=5.12.4&temporal=2026-10-01T00%3A00%3A00Z%2C2026-11-01T23%3A59%3A59Z&page_size=10&sort_key=-start_date",
       "short_name": "M2T1NXAER",
       "version": "5.12.4",
-      "returned_count": 0,
-      "items": [],
-      "status": "no granules returned",
+      "returned_count": 1,
+      "items": [
+        {
+          "id": "G4379180606-GES_DISC",
+          "producer_granule_id": "MERRA2_400.tavg1_2d_aer_Nx.20261001.nc4",
+          "title": "M2T1NXAER.5.12.4:MERRA2_400.tavg1_2d_aer_Nx.20261001.nc4",
+          "time_start": "2026-10-01T00:00:00.000Z",
+          "time_end": "2026-10-01T23:59:59.000Z",
+          "day_night_flag": "UNSPECIFIED",
+          "cloud_cover": null,
+          "granule_size": "481.37492656707764",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MERRA2_400.tavg1_2d_aer_Nx.20261001.nc4",
+              "href": "https://data.gesdisc.earthdata.nasa.gov/data/MERRA2/M2T1NXAER.5.12.4/2026/10/MERRA2_400.tavg1_2d_aer_Nx.20261001.nc4"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.gesdisc.earthdata.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C1276812830-GES_DISC/granules/M2T1NXAER.5.12.4%3AMERRA2_400.tavg1_2d_aer_Nx.20261001.nc4"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/data/catalog/ges-disc-gpm-3gproff16ssmis-07"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://goldsmr4.gesdisc.eosdis.nasa.gov/data/MERRA2/M2T1NXAER.5.12.4/"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C1276812830-GES_DISC"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": null,
+              "href": "https://cmr.earthdata.nasa.gov/virtual-directory/collections/C1276812830-GES_DISC"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://gmao.gsfc.nasa.gov/gmao-products/merra-2/documentation_merra-2/"
+            }
+          ]
+        }
+      ],
+      "status": "granules_found",
       "site": {
         "name": "Koh-i-Sultan / Chagai, Pakistan",
         "bbox": "62.70,29.00,62.90,29.20"
       }
     },
     "hispar_glacier": {
-      "query_url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=M2T1NXAER&version=5.12.4&bounding_box=75.12%2C36.02%2C75.34%2C36.22&temporal=2026-11-01T00%3A00%3A00Z%2C2026-11-14T23%3A59%3A59Z&page_size=10&sort_key=-start_date",
+      "query_url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=M2T1NXAER&version=5.12.4&temporal=2026-10-01T00%3A00%3A00Z%2C2026-11-01T23%3A59%3A59Z&page_size=10&sort_key=-start_date",
       "short_name": "M2T1NXAER",
       "version": "5.12.4",
-      "returned_count": 0,
-      "items": [],
-      "status": "no granules returned",
+      "returned_count": 1,
+      "items": [
+        {
+          "id": "G4379180606-GES_DISC",
+          "producer_granule_id": "MERRA2_400.tavg1_2d_aer_Nx.20261001.nc4",
+          "title": "M2T1NXAER.5.12.4:MERRA2_400.tavg1_2d_aer_Nx.20261001.nc4",
+          "time_start": "2026-10-01T00:00:00.000Z",
+          "time_end": "2026-10-01T23:59:59.000Z",
+          "day_night_flag": "UNSPECIFIED",
+          "cloud_cover": null,
+          "granule_size": "481.37492656707764",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MERRA2_400.tavg1_2d_aer_Nx.20261001.nc4",
+              "href": "https://data.gesdisc.earthdata.nasa.gov/data/MERRA2/M2T1NXAER.5.12.4/2026/10/MERRA2_400.tavg1_2d_aer_Nx.20261001.nc4"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.gesdisc.earthdata.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C1276812830-GES_DISC/granules/M2T1NXAER.5.12.4%3AMERRA2_400.tavg1_2d_aer_Nx.20261001.nc4"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/data/catalog/ges-disc-gpm-3gproff16ssmis-07"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://goldsmr4.gesdisc.eosdis.nasa.gov/data/MERRA2/M2T1NXAER.5.12.4/"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C1276812830-GES_DISC"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": null,
+              "href": "https://cmr.earthdata.nasa.gov/virtual-directory/collections/C1276812830-GES_DISC"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://gmao.gsfc.nasa.gov/gmao-products/merra-2/documentation_merra-2/"
+            }
+          ]
+        }
+      ],
+      "status": "granules_found",
       "site": {
         "name": "Hispar Glacier / Karakoram, Pakistan",
         "bbox": "75.12,36.02,75.34,36.22"
