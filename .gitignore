@@ -1,4 +1,11 @@
-# Raw satellite and planetary raster files (download separately; respect source terms)
+# Secrets / local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Raw and downloaded satellite/planetary data
 data/raw/
 *.IMG
 *.img
