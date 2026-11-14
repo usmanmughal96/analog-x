@@ -17,7 +17,7 @@ import numpy as np
 import requests
 import rasterio
 from PIL import Image
-from pyproj import Transformer
+from pyproj import CRS, Transformer
 from rasterio.windows import from_bounds
 
 ROOT = Path(__file__).resolve().parents[1]
