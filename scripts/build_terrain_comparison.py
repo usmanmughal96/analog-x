@@ -169,7 +169,7 @@ def get_earth_dem(site_id,site,items,token):
     # Fixed 30 km square. The STAC search window is expanded to include
     # neighbouring 1-degree DEM tiles when the AOI crosses a tile edge.
     half=WINDOW_HALF_M
-    lat_delta=half/111320.0
+    lat_delta=half/110574.0
     lon_delta=half/(111320.0*math.cos(math.radians(lat)))
     bbox=[lon-lon_delta,lat-lat_delta,lon+lon_delta,lat+lat_delta]
     sources=[]; opened=[]
@@ -178,7 +178,14 @@ def get_earth_dem(site_id,site,items,token):
             href=item.get("asset_href")
             if not href:continue
             signed=signed_href(href,token)
-            ds=rasterio.open("/vsicurl/"+signed)
+            with rasterio.Env(
+              GDAL_DISABLE_READDIR_ON_OPEN="EMPTY_DIR",
+              CPL_VSIL_CURL_ALLOWED_EXTENSIONS=".tif",
+              GDAL_HTTP_MAX_RETRY="3",
+              GDAL_HTTP_RETRY_DELAY="1",
+              GDAL_CACHEMAX=256
+            ):
+              ds=rasterio.open("/vsicurl/"+signed)
             opened.append(ds)
             # Include only tiles intersecting the required geographic window.
             if ds.crs and ds.crs.to_epsg()==4326:
@@ -262,7 +269,7 @@ def main():
           "east_west_at_target":MARS_RADIUS_M*math.pi/180/MOLA_PPD*math.cos(math.radians(NILI["latitude"]))}},
       "earth_sites":{},
       "comparison":{"status":"descriptors only","not_a_geological_equivalence_claim":True,
-        "interpretation":"Compare slope and local-relief distributions at similar coarse spatial support. Do not compare absolute elevation across different vertical datums. This is not a rover-safety or landing-suitability assessment.",
+        "interpretation":"Compare slope and local-relief distributions at similar coarse spatial support. Do not compare absolute elevation across different vertical datums or Earth DSM and Mars areoid height. This is not a rover-safety or landing-suitability assessment.",
         "spatial_support_note":"MOLA 64 px/degree is approximately 0.93 km north-south and 0.91 km east-west near Nili Patera. Copernicus DEM GLO-30 is a DSM averaged to 0.925 km. The 30 km windows are a local terrain sample, not the entire Syrtis Major quadrangle."}
     }
     try:
@@ -283,7 +290,7 @@ def main():
       items=entry.get("items",[])
       try:
         z,valid,stats,meta=get_earth_dem(key,site,items,token)
-        stats["terrain_window"]["half_width_m"]=WINDOW_HALF_M if "terrain_window" in stats else None
+        stats["window_half_width_m"]=WINDOW_HALF_M
         result["earth_sites"][key]={
           "site":site,"status":"processed","source":meta,"terrain_metrics":stats,
           "preview_path":f"{key}_copdem_hillshade.png"
