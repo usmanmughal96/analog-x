@@ -50,6 +50,7 @@
 @media(max-width:600px){.labCampaign{margin-left:10px;margin-right:10px}}
 </style>
 <link rel='stylesheet' href='./assets/analogx-labs.css'>
+<link rel='stylesheet' href='./assets/analogx-scout.css'>
 </head>
 <body>
 <div class="app">
@@ -64,6 +65,7 @@
   <div class="navitem" data-scroll="terrain"><span class="navicon">⌁</span><span>Terrain Profiles</span></div>
   <div class="navitem" data-scroll="readiness"><span class="navicon">☷</span><span>Evidence Gaps</span></div>
   <div class="navitem" data-scroll="discoveryLab"><span class="navicon">◎</span><span>Discovery Atlas</span></div>
+  <div class="navitem" data-scroll="coordinateScout"><span class="navicon">⌖</span><span>Global Scout</span></div>
   <div class="navitem" data-scroll="agentBay"><span class="navicon">✧</span><span>Agent Science</span></div>
   <div class="navlabel" style="margin-top:12px">Research</div>
   <div class="navitem" data-action="method"><span class="navicon">⌘</span><span>Methodology</span></div>
@@ -204,6 +206,28 @@
     <div class="axGameOptions" id="axGameOptions"></div><div class="axGameFeedback" id="axGameFeedback"></div>
     <div class="axGameFoot"><small id="axGameProgress">MISSION 01 / 03</small><button class="axMiniBtn" id="axGameNext">NEXT FIELD CHALLENGE ↗</button></div>
    </div>
+  </section>
+
+
+  <section class="card" id="coordinateScout" style="margin-top:12px">
+   <div class="cardhead"><div><div class="cardtitle">GLOBAL COORDINATE SCOUT / OPEN-DATA FIELD RECONNAISSANCE</div><div class="cardhint">Query a new Earth location directly · NASA POWER + Sentinel-2 L2A + Copernicus DEM STAC</div></div><span class="statuspill gold" id="axScoutStatus">WORKER NOT CONNECTED</span></div>
+   <div class="axIntro">Move beyond the curated candidate pins. Enter any Earth coordinate and a study radius to discover current public climate and satellite-data coverage. The scan produces a first-pass evidence dossier—not a planetary similarity score or a verified geological interpretation.</div>
+   <div class="axScoutGrid">
+    <div class="axField"><label for="axScoutLat">Latitude · WGS84</label><input id="axScoutLat" type="number" min="-89.9" max="89.9" step="0.000001" value="28.583333"></div>
+    <div class="axField"><label for="axScoutLon">Longitude · WGS84</label><input id="axScoutLon" type="number" min="-180" max="180" step="0.000001" value="62.633333"></div>
+    <div class="axField"><label for="axScoutRadius">Study radius</label><select id="axScoutRadius"><option value="5">5 km radius</option><option value="10" selected>10 km radius</option><option value="20">20 km radius</option><option value="30">30 km radius</option><option value="50">50 km radius</option></select></div>
+   </div>
+   <div class="axScoutActions">
+    <button class="axBtn" id="axScoutRun" disabled>SCAN NASA + EARTH OBSERVATION DATA ↗</button>
+    <button class="axBtn secondary" id="axScoutUseCandidate">USE SELECTED CANDIDATE</button>
+    <button class="axBtn secondary" id="axScoutAskDirector" disabled>ASK MISSION DIRECTOR ABOUT THIS AREA</button>
+    <span class="axAgentStatus" id="axScoutHint">Connect a Cloudflare Worker to activate the live public-data scan.</span>
+   </div>
+   <div class="axScoutLayout">
+    <div class="axMapBox"><div class="axMapHead"><b>SCOUT STUDY WINDOW / WGS84</b><small id="axScoutMapLabel">28.583333° N · 62.633333° E</small></div><div id="axScoutMap"></div><div class="axMapLegend"><span><i class="axDot lead"></i> User-selected centre</span><span><i class="axDot"></i> Approximate search window</span></div></div>
+    <div class="axScoutResults" id="axScoutResults"><div class="axScoutPlaceholder"><b>READY FOR A GLOBAL DATA SCAN</b><p>Start with the prefilled Chagai playa midpoint or choose any Earth coordinate. The scout queries three open data services and reports acquisition metadata, units, and limits.</p><div class="axScoutSource"><span>NASA POWER / monthly climate</span><span>Sentinel-2 L2A / scene discovery</span><span>Copernicus DEM GLO-30 / tile discovery</span></div></div></div>
+   </div>
+   <div class="axScoutFoot">The radius creates an approximate rectangular bounding box; it is not a geological boundary. NASA POWER is gridded climatology. STAC scene cloud cover is not an AOI-specific cloud mask. Copernicus catalogue tiles are not terrain metrics until downloaded, mosaicked, resampled and quality-screened. <a href="https://power.larc.nasa.gov/docs/services/api/temporal/climatology/" target="_blank" rel="noopener">NASA POWER docs ↗</a> · <a href="https://planetarycomputer.microsoft.com/docs/quickstarts/using-stac/" target="_blank" rel="noopener">Planetary Computer STAC ↗</a></div>
   </section>
 
   <section class="card" id="agentBay" style="margin-top:12px">
