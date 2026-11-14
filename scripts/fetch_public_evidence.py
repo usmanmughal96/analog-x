@@ -128,6 +128,43 @@ def get_scene_set(site_id,site):
         results.append({"window":label,"datetime_range":window,"status":"error","error":str(exc),"items":[]})
     return results
 
+
+def copernicus_dem_search(site):
+    body={
+      "collections":["cop-dem-glo-30"],
+      "bbox":site["bbox"],
+      "limit":20
+    }
+    r=session.post(SEARCH,json=body,timeout=(20,90))
+    if r.status_code!=200:
+      raise RuntimeError(f"Copernicus DEM STAC HTTP {r.status_code}: {r.text[:1000]}")
+    payload=r.json()
+    if payload.get("type")!="FeatureCollection":
+      raise RuntimeError("Copernicus DEM STAC response was not a FeatureCollection")
+    items=[]
+    for item in payload.get("features",[]):
+      assets=item.get("assets",{})
+      data=assets.get("data",{})
+      if not data.get("href"):
+        continue
+      props=item.get("properties",{})
+      items.append({
+        "id":item.get("id"),
+        "collection":item.get("collection"),
+        "bbox":item.get("bbox"),
+        "geometry":item.get("geometry"),
+        "datetime":props.get("datetime"),
+        "proj:epsg":props.get("proj:epsg"),
+        "proj:shape":props.get("proj:shape"),
+        "proj:transform":props.get("proj:transform"),
+        "gsd":props.get("gsd"),
+        "asset_key":"data",
+        "asset_href":data.get("href"),
+        "asset_type":data.get("type"),
+        "license":item.get("properties",{}).get("license") or "Copernicus DEM GLO-30 terms; see collection licence"
+      })
+    return items
+
 def try_evk2():
     try:
       r=session.get(EVK2_RECORD,timeout=(20,60))
@@ -166,11 +203,31 @@ def main():
         "data_access_note":"The GeoNetwork catalogue lists four glacier-inventory records, one shapefile format, and two records marked downloadable. Confirm the individual record's access conditions and reuse licence before republishing geometry."
       }
     }
+    catalog["planetary_computer"]["sites"]={}
+    catalog["copernicus_dem"]={
+      "provider":"Copernicus DEM GLO-30 hosted by Microsoft Planetary Computer",
+      "collection":"cop-dem-glo-30",
+      "collection_url":STAC+"/collections/cop-dem-glo-30",
+      "access":"Public STAC metadata; Sentinel/Copernicus data licence applies",
+      "sites":{}
+    }
     for site_id,site in SITES.items():
       catalog["planetary_computer"]["sites"][site_id]={
         "site":site,
         "scene_searches":get_scene_set(site_id,site)
       }
+      try:
+        dem_items=copernicus_dem_search(site)
+        catalog["copernicus_dem"]["sites"][site_id]={
+          "site":site,
+          "item_count":len(dem_items),
+          "items":dem_items,
+          "status":"metadata discovered" if dem_items else "no DEM items returned"
+        }
+      except Exception as exc:
+        catalog["copernicus_dem"]["sites"][site_id]={
+          "site":site,"item_count":0,"items":[],"status":"search error","error":str(exc)
+        }
     (OUT/"public_scene_catalog.json").write_text(json.dumps(catalog,indent=2,allow_nan=False)+"\n",encoding="utf-8")
     (OUT/"README.md").write_text(
       "# Pakistan analog evidence catalogue\n\n"
