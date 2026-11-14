@@ -1,0 +1,9 @@
+{
+  "koh": {"name":"Koh-i-Sultan / Chagai","country":"Pakistan","latitude":29.1,"longitude":62.8,"environment":"Volcanic field"},
+  "dallol": {"name":"Dallol / Danakil","country":"Ethiopia","latitude":14.24,"longitude":40.30,"environment":"Hydrothermal / evaporite"},
+  "atacama": {"name":"Atacama Desert","country":"Chile","latitude":-23.5,"longitude":-68.2,"environment":"Hyperarid desert"},
+  "mcmurdo": {"name":"McMurdo Dry Valleys","country":"Antarctica","latitude":-77.5,"longitude":161.8,"environment":"Cold polar desert"},
+  "haughton": {"name":"Haughton impact structure","country":"Canada","latitude":75.37,"longitude":-89.68,"environment":"Impact crater / polar desert"},
+  "iceland": {"name":"Icelandic volcanic fields","country":"Iceland","latitude":63.88,"longitude":-22.27,"environment":"Basaltic volcanic terrain"},
+  "death": {"name":"Death Valley region","country":"United States","latitude":36.24,"longitude":-116.82,"environment":"Arid basin / alluvial fans"}
+}
