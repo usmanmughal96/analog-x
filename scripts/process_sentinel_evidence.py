@@ -198,8 +198,8 @@ def main():
   cloud_shadow_classes=np.isin(np.rint(scl).astype(np.int16),[0,1,3,8,9,10])
   base_valid=np.isfinite(refl["B11"])&np.isfinite(refl["B12"])&np.isfinite(refl["B04"])&np.isfinite(refl["B02"])&np.isfinite(refl["B08"])&np.isfinite(refl["B03"])
   base_valid &= ~cloud_shadow_classes
-  ndvi=ratio(refl["B08"]-refl["B04"],refl["B08"]+refl["B04"])
-  ndsi=ratio(refl["B03"]-refl["B11"],refl["B03"]+refl["B11"])
+  ndvi=ratio(refl["B08"],refl["B04"])
+  ndsi=ratio(refl["B03"],refl["B11"])
   bsi_num=(refl["B11"]+refl["B04"])-(refl["B08"]+refl["B02"])
   bsi_den=(refl["B11"]+refl["B04"])+(refl["B08"]+refl["B02"])
   bsi=np.full(shape,np.nan,dtype=np.float32)
@@ -207,7 +207,7 @@ def main():
   bsi[good]=bsi_num[good]/bsi_den[good]
   swir_ratio=safe_ratio(refl["B11"],refl["B12"])
   iron_proxy=safe_ratio(refl["B04"],refl["B02"])
-  ndmi=ratio(refl["B08"]-refl["B11"],refl["B08"]+refl["B11"])
+  ndmi=ratio(refl["B08"],refl["B11"])
   index_arrays={"NDVI":ndvi,"NDSI":ndsi,"BSI":bsi,"SWIR1_SWIR2_ratio":swir_ratio,"Red_Blue_ratio":iron_proxy,"NDMI":ndmi}
   for k in index_arrays:
    index_arrays[k]=np.where(base_valid,index_arrays[k],np.nan)
