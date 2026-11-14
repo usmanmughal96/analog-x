@@ -1,0 +1,56 @@
+/* ANALOG-X Discovery Atlas + Agent Bay */
+#discoveryLab,#agentBay{margin-top:12px}
+.axIntro{padding:12px 14px 0;color:#90aabb;font-size:9px;line-height:1.6}
+.axToolbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;padding:12px 14px;align-items:end}
+.axField label{display:block;color:#7f9eb0;font-size:8px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:5px}
+.axField select,.axField input,.axField textarea{width:100%;border:1px solid #28536b;background:#071b2b;color:#dceef4;border-radius:7px;padding:9px 10px;font:inherit;font-size:10px;min-height:36px}
+.axSplit{display:grid;grid-template-columns:minmax(300px,1fr) minmax(380px,1.2fr);gap:10px;padding:0 14px 12px}
+.axMapBox{border:1px solid #1a4057;background:#061522;border-radius:9px;overflow:hidden;min-width:0}
+.axMapHead{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 10px;background:#091c2c;border-bottom:1px solid #17384d}
+.axMapHead b{font-size:9px;color:#d5e8ef}.axMapHead small{font-size:8px;color:#7d9cad}
+#axDiscoveryMap{height:340px;width:100%;background:#071927}
+.axMapLegend{display:flex;gap:12px;flex-wrap:wrap;padding:8px 10px;color:#7996a7;font-size:8px;border-top:1px solid #15354a}
+.axMapLegend span{display:flex;align-items:center;gap:5px}.axDot{width:8px;height:8px;border-radius:50%;display:inline-block;background:#45d1bd}.axDot.lead{background:#e6bc78}
+.axCards{display:grid;grid-template-columns:1fr 1fr;gap:7px;align-content:start;max-height:395px;overflow:auto;padding-right:2px}
+.axCard{border:1px solid #1b4057;background:#081d2c;border-radius:8px;padding:9px;min-width:0;transition:border-color .18s,transform .18s}
+.axCard:hover{border-color:#3188a9;transform:translateY(-1px)}.axCard.selected{border-color:#32b9db;background:#0a2637}
+.axCardTop{display:flex;justify-content:space-between;align-items:flex-start;gap:6px}.axCard h4{margin:0;color:#e1eff4;font-size:9px;line-height:1.4}
+.axCard p{color:#819dad;font-size:8px;line-height:1.5;margin:6px 0}
+.axPills{display:flex;gap:4px;flex-wrap:wrap;margin:5px 0}.axPill{border:1px solid #21485e;background:#0b2536;color:#8fb6c7;padding:3px 5px;border-radius:5px;font-size:7px}
+.axEvidence{display:flex;gap:4px;flex-wrap:wrap;color:#7ea1b3;font-size:7px;margin:7px 0}.axEvidence span{padding:3px 5px;border:1px solid #24465a;border-radius:5px;background:#0a2232}
+.axCardFoot{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-top:8px}
+.axMiniBtn{border:1px solid #23556d;background:#0b2b40;color:#9cdded;border-radius:6px;padding:5px 7px;font-size:7px;font-weight:850;cursor:pointer}
+.axCheck{display:flex;gap:4px;align-items:center;color:#9ab3c1;font-size:7px}.axCheck input,.axCandidate input{accent-color:#2ab9d8}
+.axDossier{margin:0 14px 12px;padding:11px 12px;border:1px solid #1a455d;background:#082338;border-radius:8px;display:grid;grid-template-columns:1.1fr 1fr;gap:10px}
+.axDossier h4{margin:0 0 5px;color:#d6eaf1;font-size:9px}.axDossier p,.axDossier li{margin:3px 0;color:#8aa8b8;font-size:8px;line-height:1.6}.axDossier ul{padding-left:15px;margin:5px 0}
+.axLinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;font-size:8px}.axLinks a{color:#70d5f3}
+.axGame{margin:0 14px 13px;border:1px solid #34516a;background:linear-gradient(120deg,#0a2538,#091b2a);border-radius:9px;padding:12px;position:relative;overflow:hidden}
+.axGame:after{content:"";position:absolute;right:-35px;top:-75px;width:170px;height:170px;border:1px solid #1e7188;border-radius:50%;opacity:.18;pointer-events:none}
+.axEyebrow{color:#75dff6;font-size:7px;letter-spacing:.16em;font-weight:900}.axGame h3{margin:5px 0;color:#e5f4f9;font-size:12px}.axGame p{margin:0;color:#8ba8b8;font-size:8px;line-height:1.6;max-width:900px}
+.axGameOptions{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.axGameOption{border:1px solid #2a526b;background:#0a1d2b;color:#b8d5e0;border-radius:7px;padding:8px 10px;font-size:8px;cursor:pointer;transition:.15s}
+.axGameOption:hover{border-color:#53c7e7;color:white;transform:translateY(-1px)}.axGameOption.correct{border-color:#2d9c82;background:#0b302b;color:#8cebd2}.axGameOption.wrong{border-color:#926c3d;background:#2b2418;color:#f0cb8b}
+.axGameFeedback{margin-top:9px;padding:9px 10px;border-left:2px solid #35b99b;background:#071b2a;color:#a9c4d0;font-size:8px;line-height:1.6;display:none}
+.axGameFoot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px}.axGameFoot small{color:#6f8fa4;font-size:7px}
+.axAgentOrb{height:25px;width:25px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#61e6e9,#0a5772 65%,#081827);box-shadow:0 0 18px #1bc3d440;animation:axPulse 2.8s ease-in-out infinite}
+@keyframes axPulse{0%,100%{box-shadow:0 0 8px #1bc3d430;transform:scale(1)}50%{box-shadow:0 0 22px #1bc3d480;transform:scale(1.05)}}
+.axAgentHead{display:flex;align-items:center;gap:10px}.axAgentControls{display:grid;grid-template-columns:1.2fr auto;gap:9px;padding:12px 14px;align-items:end}
+.axAgentControls .axField{min-width:0}.axHint{font-size:7px;color:#67879a;margin-top:4px}
+.axAgentUrlRow{display:flex;gap:7px;align-items:end}.axAgentUrlRow .axField{flex:1}
+.axPromptWrap{padding:0 14px 10px}.axPrompt{min-height:68px;resize:vertical;line-height:1.5}
+.axMissionGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:0 14px 11px}
+.axCandidates{display:flex;gap:5px;flex-wrap:wrap;padding:0 14px 11px}
+.axCandidate{display:flex;gap:5px;align-items:center;border:1px solid #20475e;background:#081e2d;color:#9db8c6;padding:5px 7px;border-radius:6px;font-size:7px}
+.axActions{display:flex;gap:7px;align-items:center;flex-wrap:wrap;padding:0 14px 12px}
+.axBtn{border:1px solid #2b7898;background:#0c344a;color:#a9e8f8;border-radius:7px;padding:9px 11px;font-size:8px;font-weight:900;letter-spacing:.06em;cursor:pointer;min-height:36px}
+.axBtn:hover{background:#11465f;border-color:#4fc7e7}.axBtn.secondary{border-color:#27536a;background:#0b2536;color:#a7c5d3}.axBtn:disabled{opacity:.45;cursor:not-allowed}
+.axAgentStatus{font-size:8px;color:#7ea2b5;margin-left:auto}
+.axRoster{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;padding:0 14px 12px}
+.axNode{border:1px solid #1b4056;background:#081d2b;border-radius:7px;padding:8px;min-width:0}.axNode .nodeDot{width:6px;height:6px;display:inline-block;border-radius:50%;background:#46d6b2;box-shadow:0 0 7px #46d6b288;margin-right:5px}
+.axNode b{display:block;color:#d5e8ef;font-size:8px;margin-bottom:5px}.axNode small{color:#7393a6;font-size:7px;line-height:1.5;display:block}
+.axOutput{margin:0 14px 13px;border:1px solid #1d455b;background:#061a28;border-radius:9px;overflow:hidden;min-height:90px}
+.axOutputHead{display:flex;align-items:center;justify-content:space-between;padding:9px 11px;background:#091f30;border-bottom:1px solid #193e53}.axOutputHead b{color:#dcecf2;font-size:9px}
+.axOutputBody{padding:12px;color:#a8c1ce;font-size:9px;line-height:1.7;white-space:normal}.axOutputBody h4{font-size:9px;color:#80dff0;margin:10px 0 4px}.axOutputBody p{margin:5px 0}.axOutputBody ul{padding-left:16px;margin:5px 0}.axOutputBody li{margin:3px 0}
+.axTrace{border-top:1px solid #18394b;padding:9px 11px;color:#6f91a4;font-size:7px;line-height:1.6}.axTrace summary{cursor:pointer;color:#8eb9ca;font-size:8px;font-weight:800}.axTrace pre{white-space:pre-wrap;max-height:200px;overflow:auto;color:#7f9ead;font-size:7px}
+.axLoading{height:3px;background:linear-gradient(90deg,#1a6887,#54e7d1,#1a6887);background-size:200% 100%;animation:axLoad 1.2s linear infinite}@keyframes axLoad{from{background-position:0 0}to{background-position:200% 0}}
+@media(max-width:950px){.axSplit{grid-template-columns:1fr}.axCards{max-height:330px}.axRoster{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.axToolbar,.axMissionGrid{grid-template-columns:1fr}.axSplit{padding-left:10px;padding-right:10px}.axCards{grid-template-columns:1fr}.axDossier{margin-left:10px;margin-right:10px;grid-template-columns:1fr}.axGame{margin-left:10px;margin-right:10px}.axAgentControls{grid-template-columns:1fr}.axAgentUrlRow{align-items:stretch;flex-direction:column}.axRoster{grid-template-columns:1fr 1fr}.axActions{align-items:stretch}.axAgentStatus{width:100%;margin:4px 0 0}}
