@@ -1,21 +1,24 @@
-# Data and source register
+# Data Sources
 
-| Source | Intended role | Status in current public prototype |
+| Source | Role | Current implementation |
 |---|---|---|
-| NASA GIBS MODIS Terra | Earth true-colour/AOD browse context | Service linked; browse only; no pixel analysis claimed |
-| NASA MOLA MEGDR + observation count | Mars elevation and coverage | Source linked; processing script included; raw files not processed |
-| NASADEM/SRTM | Earth elevation around Koh-i-Sultan | Source linked; exact tile not processed |
-| USGS Open-File Report 75-550 | Regional Chagai geology | Regional context; map frame does not contain Koh-i-Sultan point |
-| USGS Syrtis Major MC-13 | Martian geological reference | Regional quadrangle context |
-| Smithsonian Global Volcanism Program | Koh-i-Sultan catalogue context | Reference link |
-| SUPARCO Space4Climate | Potential Pakistan Earth-observation context | Not ingested; product-level access, coverage and licence unverified |
+| NASA POWER Climatology API | Earth temperature, humidity, precipitation, wind and solar resource | **Live browser API calls** for each selected coordinate |
+| NASA MOLA MEGDR | Mars topography and observation counts | Reference link; no raw raster processed in live app |
+| NASA LRO Diviner | Lunar surface temperature, including polar contexts | Reference link; no raw raster processed in live app |
+| NASA LRO / LOLA | Lunar altimetry | Reference link; no raw raster processed in live app |
+| NASA GIBS / Worldview | Earth imagery and environmental browse layers | Reference pathway; no pixel analytics claimed in current app |
+| NASADEM / SRTM | Earth elevation | Future terrain-analysis pathway; not in live climate index |
+| Smithsonian GVP Sultan | Koh-i-Sultan catalogue context | Curated site metadata, volcano number 232801 |
+| USGS Syrtis Major MC-13 | Martian geological reference | Curated reference |
+| USGS OFR 75-550 | Chagai regional geology | Regional context; not a site-scale map for the catalogue point |
+| SUPARCO Space4Climate | Potential Pakistan Earth-observation source | Not ingested; product-level access, coverage and reuse terms unverified |
 
-## Links
-- NASA GIBS API: https://nasa-gibs.github.io/gibs-api-docs/access-basics/
-- NASA MOLA: https://pds-geosciences.wustl.edu/missions/mgs/megdr.html
-- NASA Earthdata search (NASADEM): https://search.earthdata.nasa.gov/search?q=NASADEM
-- USGS Chagai report: https://pubs.usgs.gov/publication/ofr75550
-- Smithsonian Koh-i-Sultan: https://volcano.si.edu/volcano.cfm?vn=232050
-- SUPARCO Space4Climate: https://space4climate.gov.pk/
+## NASA POWER parameters
+Standard climate scan (AG community): `T2M,T2M_MAX,T2M_MIN,RH2M,WS10M,PRECTOTCORR`.
 
-Check each provider's current licence and citation requirements before redistributing data or imagery. The repository's MIT licence applies only to original project code and text, not third-party products.
+Solar task (RE community): `ALLSKY_SFC_SW_DWN`.
+
+Official API documentation: https://power.larc.nasa.gov/docs/services/api/temporal/climatology/
+
+## Interpretation
+NASA POWER provides gridded Earth climatology. It is not an on-site station, rock-surface temperature, dust emission, mineralogy or subsurface resource product. Third-party datasets and imagery retain their own source terms.
