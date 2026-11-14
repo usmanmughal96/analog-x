@@ -14,6 +14,7 @@ Status is explicit:
 | Microsoft Planetary Computer STAC, Sentinel-2 L2A | Discover scenes over Koh-i-Sultan and Hispar | data/pakistan/public_scene_catalog.json | Metadata discovery is not full archive completeness |
 | Sentinel-2 L2A visual COGs | 768×768 clipped RGB quicklooks | data/pakistan/quicklooks/*.png and index.json | RGB browse product; no geology/mineral classification |
 | NASA DSCOVR / EPIC | Optional full-disc Earth context image | data/nasa/epic_latest.png, epic_latest.json | Global context only; not a site metric |
+| NASA Earthdata / CMR | MODIS LST, MODIS land-cover and MERRA-2 aerosol collection/granule catalogue discovery | data/nasa/earthdata_cmr_catalog.json | Catalogue metadata only; protected granule files not downloaded/decoded |
 | Copernicus DEM GLO-30 DSM | Earth terrain surface for Koh-i-Sultan and Hispar | data/terrain/terrain_comparison.json and two derived hillshade PNGs | Copernicus Digital Surface Model (includes surface objects); 30 m source averaged to about 925 m |
 | MGS MOLA MEGDR 64 pixels/degree | Mars terrain around Nili Patera, Syrtis Major | data/terrain/terrain_comparison.json and MOLA hillshade PNG | Only 50.53% valid observation coverage in current 30 km window; 87 complete 3×3 neighborhoods |
 
@@ -61,13 +62,13 @@ Current Nili Patera observation coverage: 567 / 1,122 cells (50.53%); 87 complet
 
 | Dataset | Intended role | Current state |
 |---|---|---|
-| NASA LRO LOLA | Lunar elevation/topography | PDS source linked; raw raster not processed |
-| NASA LRO Diviner | Lunar surface temperature, including polar environments | PDS source linked; raw raster not processed |
+| NASA LRO LOLA | Lunar south-pole elevation, slope, counts and uncertainty | PGDA product 78 documented; integration diagnostic in data/moon/lola_access_diagnostic.json | 5 m site files returned HTTP 403 or failed remote range reads; no lunar values integrated. PGDA large-area product 90 is a future access candidate.
+| NASA LRO Diviner | Lunar surface temperature and south-polar resource context | PDS polar-resource product identified; no raster/table processed |
 | NASA Global Volcano Hazard Frequency and Distribution | Historical volcano hazard frequency grid | Official data page linked; grid not ingested; historical events 79–2000, 2.5 arc-minute context, not current hazard intelligence |
 | NASA GIBS / Worldview | Earth global imagery/context | GIBS VIIRS tile layer displayed on map; visual context only |
 | NASADEM / SRTM / other DEMs | Earth elevation | Alternate sources identified; Copernicus DEM is the terrain input in this release |
 | USGS Syrtis Major MC-13 | Mars regional geological reference | Map linked; not a site-scale terrain hazard model |
-| USGS OFR 75-550 | Chagai regional geology context | Reference only; not a site-scale mapping layer |
+| USGS OFR 75-550 | Chagai / Koh-i-Sultan geological context | Official report linked and cited; it maps the Koh-i-Sultan Volcanic Group as agglomerate, tuff and andesitic lava. No spatial geology layer ingested. |
 
 ## Access notes
 
@@ -78,3 +79,7 @@ Google Earth Engine is optional for a later phase. It requires a Google Cloud pr
 ## Source caveats
 
 NASA POWER is not a weather station. T2M is not rock/surface temperature. WS10M is not dust emission. PRECTOTCORR is not water/ice availability. Sentinel-2 RGB does not establish mineralogy. Copernicus DEM is a DSM rather than a bare-earth DEM. MOLA terrain statistics rely on 50.53% observed coverage in the selected Nili Patera window. A public portal is not proof that data may be bulk downloaded or redistributed.
+
+## Resource matrix
+
+For the complete source-by-source status of NASA Earthdata Search, Worldview/GIBS, PDS, LRO LOLA and Diviner, CSA RADARSAT-1/RCM, ESA Copernicus Data Space, ESA Open Science Catalogue, JAXA G-Portal, and Pakistan agency portals, see [RESOURCE_INTEGRATION_MATRIX.md](RESOURCE_INTEGRATION_MATRIX.md).
