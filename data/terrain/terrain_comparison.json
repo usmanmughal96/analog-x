@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-14T16:15:02+00:00",
+  "generated_at_utc": "2026-11-14T16:19:04+00:00",
   "method": "Earth Copernicus DEM GLO-30 DSM averaged to 925 m; Mars MOLA MEGDR 64 pixels/degree. Both use approximately 30 km square windows and terrain derivatives computed in metres.",
   "planetary_target": {
     "name": "Nili Patera, Syrtis Major quadrangle, Mars",
@@ -207,8 +207,59 @@
         "longitude": 62.633333,
         "catalog_key": "chagai_small_playas"
       },
-      "status": "processing_failed",
-      "error": "No Copernicus DEM items in STAC catalog for chagai_small_playas"
+      "status": "processed",
+      "source": {
+        "collection": "cop-dem-glo-30",
+        "source_item_ids": [
+          "Copernicus_DSM_COG_10_N28_00_E062_00_DEM"
+        ],
+        "asset_hrefs": [
+          "https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N28_00_E062_00_DEM.tif"
+        ],
+        "source_crs": "EPSG:4326",
+        "analysis_crs": "EPSG:32641",
+        "native_resolution_m_approx": 30,
+        "analysis_resolution_m": 925.0,
+        "window_size_m": [
+          29600.0,
+          29600.0
+        ],
+        "centre_wgs84": [
+          62.633333,
+          28.583333
+        ],
+        "dem_type": "Digital Surface Model (DSM)"
+      },
+      "terrain_metrics": {
+        "valid_cell_count": 1024,
+        "complete_3x3_neighbourhood_count": 900,
+        "elevation_m_relative_to_product_datum": {
+          "p10": 556.2041076660156,
+          "median": 591.1271057128906,
+          "p90": 626.1355102539062,
+          "range_p90_minus_p10": 69.9314025878906
+        },
+        "slope_deg": {
+          "median": 0.3966543374317767,
+          "p90": 1.0095103718732363,
+          "p95": 1.2416131659425123
+        },
+        "3x3_local_relief_m": {
+          "median": 16.96905517578125,
+          "p90": 38.7901611328125
+        },
+        "slope_fraction": {
+          "under_5_deg_percent": 100.0,
+          "under_10_deg_percent": 100.0,
+          "over_20_deg_percent": 0.0
+        },
+        "coverage": {
+          "valid_percent": 100.0,
+          "total_cells": 1024
+        },
+        "window_half_width_m": 15000.0
+      },
+      "preview_path": "chagai_small_playas_copdem_hillshade.png"
     },
     "hamun_i_mashkel": {
       "site": {
@@ -217,8 +268,61 @@
         "longitude": 62.91667,
         "catalog_key": "hamun_i_mashkel"
       },
-      "status": "processing_failed",
-      "error": "No Copernicus DEM items in STAC catalog for hamun_i_mashkel"
+      "status": "processed",
+      "source": {
+        "collection": "cop-dem-glo-30",
+        "source_item_ids": [
+          "Copernicus_DSM_COG_10_N28_00_E063_00_DEM",
+          "Copernicus_DSM_COG_10_N28_00_E062_00_DEM"
+        ],
+        "asset_hrefs": [
+          "https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N28_00_E063_00_DEM.tif",
+          "https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N28_00_E062_00_DEM.tif"
+        ],
+        "source_crs": "EPSG:4326",
+        "analysis_crs": "EPSG:32641",
+        "native_resolution_m_approx": 30,
+        "analysis_resolution_m": 925.0,
+        "window_size_m": [
+          29600.0,
+          29600.0
+        ],
+        "centre_wgs84": [
+          62.91667,
+          28.25
+        ],
+        "dem_type": "Digital Surface Model (DSM)"
+      },
+      "terrain_metrics": {
+        "valid_cell_count": 1024,
+        "complete_3x3_neighbourhood_count": 900,
+        "elevation_m_relative_to_product_datum": {
+          "p10": 493.86488342285156,
+          "median": 494.65008544921875,
+          "p90": 498.8367065429688,
+          "range_p90_minus_p10": 4.971823120117222
+        },
+        "slope_deg": {
+          "median": 0.006523320375316654,
+          "p90": 0.09646678853970264,
+          "p95": 0.24596368291077964
+        },
+        "3x3_local_relief_m": {
+          "median": 0.2817840576171875,
+          "p90": 4.9090820312500085
+        },
+        "slope_fraction": {
+          "under_5_deg_percent": 100.0,
+          "under_10_deg_percent": 100.0,
+          "over_20_deg_percent": 0.0
+        },
+        "coverage": {
+          "valid_percent": 100.0,
+          "total_cells": 1024
+        },
+        "window_half_width_m": 15000.0
+      },
+      "preview_path": "hamun_i_mashkel_copdem_hillshade.png"
     }
   },
   "comparison": {
