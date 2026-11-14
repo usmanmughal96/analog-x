@@ -1,0 +1,1690 @@
+{
+  "generated_at_utc": "2026-11-14T14:55:40+00:00",
+  "provider": "NASA Earthdata / Common Metadata Repository (CMR)",
+  "api": "https://cmr.earthdata.nasa.gov/search",
+  "access": "Public collection/granule metadata search; granule data access can require Earthdata Login depending on provider and endpoint.",
+  "collections": {
+    "MOD11A2": {
+      "query_url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=MOD11A2&page_size=10&version=061",
+      "count": 1,
+      "collections": [
+        {
+          "id": "C2269056084-LPCLOUD",
+          "title": "MODIS/Terra Land Surface Temperature/Emissivity 8-Day L3 Global 1km SIN Grid V061",
+          "short_name": "MOD11A2",
+          "version_id": "061",
+          "summary": "The Terra Moderate Resolution Imaging Spectroradiometer (MODIS) Land Surface Temperature/Emissivity 8-Day (MOD11A2) Version 6.1 product provides an average 8-day per-pixel Land Surface Temperature and Emissivity (LST&E) with a 1 kilometer (km) spatial resolution in a 1,200 by 1,200 km grid. Each pixel value in the MOD11A2 is a simple average of all the corresponding [MOD11A1](https://doi.org/10.5067/MODIS/MOD11A1.061) LST pixels collected within that 8-day period. The 8-day compositing period was chosen because twice that period is the exact ground track repeat period of the Terra and Aqua platforms. Provided along with the daytime and nighttime surface temperature bands are associated quality control assessments, observation times, view zenith angles, and clear-sky coverages along with bands 31 and 32 emissivities from land cover types.\n\nKnown Issues\n* For complete information about known issues please refer to the [MODIS/VIIRS Land Quality Assessment website](https://landweb.modaps.eosdis.nasa.gov/knownissue?sensor=MODIS&sat=Terra&as=61).",
+          "time_start": "2000-02-18T00:00:00.000Z",
+          "time_end": null,
+          "data_center": "LPCLOUD",
+          "archive_center": "LP DAAC",
+          "coordinate_system": "CARTESIAN",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://appeears.earthdatacloud.nasa.gov/"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": null,
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2024185.h10v08.061.2024195060925/BROWSE.MOD11A2.A2024185.h10v08.061.2024195020926.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": null,
+              "href": "https://worldview.earthdata.nasa.gov/images/layers/previews/geographic/MODIS_Terra_L3_Land_Surface_Temp_8Day_Day.jpg"
+            }
+          ]
+        }
+      ],
+      "status": "found",
+      "role": "Terra MODIS 8-day land-surface temperature and emissivity"
+    },
+    "MYD11A2": {
+      "query_url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=MYD11A2&page_size=10&version=061",
+      "count": 1,
+      "collections": [
+        {
+          "id": "C2269057787-LPCLOUD",
+          "title": "MODIS/Aqua Land Surface Temperature/Emissivity 8-Day L3 Global 1km SIN Grid V061",
+          "short_name": "MYD11A2",
+          "version_id": "061",
+          "summary": "The Aqua Moderate Resolution Imaging Spectroradiometer (MODIS) Land Surface Temperature/Emissivity 8-Day (MYD11A2) Version 6.1 product provides an average 8-day per-pixel Land Surface Temperature and Emissivity (LST&E) with a 1 kilometer (km) spatial resolution in a 1,200 by 1,200 km grid. Each pixel value in the MYD11A2 is a simple average of all the corresponding [MYD11A1](https://doi.org/10.5067/MODIS/MYD11A1.061) LST pixels collected within that 8-day period. The 8-day compositing period was chosen because twice that period is the exact ground track repeat period of the Terra and Aqua platforms. Provided along with the daytime and nighttime surface temperature bands are associated quality control assessments, observation times, view zenith angles, and clear-sky coverages along with bands 31 and 32 emissivities from land cover types.\n\nKnown Issues\n* For complete information about known issues please refer to the [MODIS/VIIRS Land Quality Assessment website](https://landweb.modaps.eosdis.nasa.gov/knownissue?sensor=MODIS&sat=Aqua&as=61).",
+          "time_start": "2002-07-04T00:00:00.000Z",
+          "time_end": null,
+          "data_center": "LPCLOUD",
+          "archive_center": "LP DAAC",
+          "coordinate_system": "CARTESIAN",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MYD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269057787-LPCLOUD"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://appeears.earthdatacloud.nasa.gov/"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": null,
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MYD11A2.061/MYD11A2.A2024185.h20v08.061.2024195055027/BROWSE.MYD11A2.A2024185.h20v08.061.2024195015027.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": null,
+              "href": "https://worldview.earthdata.nasa.gov/images/layers/previews/geographic/MODIS_Aqua_L3_Land_Surface_Temp_8Day_Day.jpg"
+            }
+          ]
+        }
+      ],
+      "status": "found",
+      "role": "Aqua MODIS 8-day land-surface temperature and emissivity"
+    },
+    "MCD12Q1": {
+      "query_url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=MCD12Q1&page_size=10&version=061",
+      "count": 1,
+      "collections": [
+        {
+          "id": "C2484079608-LPCLOUD",
+          "title": "MODIS/Terra+Aqua Land Cover Type Yearly L3 Global 500m SIN Grid V061",
+          "short_name": "MCD12Q1",
+          "version_id": "061",
+          "summary": "The Terra and Aqua combined Moderate Resolution Imaging Spectroradiometer (MODIS) Land Cover Type (MCD12Q1) Version 6.1 data product provides global land cover types at yearly intervals. The MCD12Q1 Version 6.1 data product is derived using supervised classifications of MODIS Terra and Aqua reflectance data. Land cover types are derived from the International Geosphere-Biosphere Programme (IGBP), University of Maryland (UMD), Leaf Area Index (LAI), BIOME-Biogeochemical Cycles (BGC), and Plant Functional Types (PFT) classification schemes. The supervised classifications then undergo additional post-processing that incorporate prior knowledge and ancillary information to further refine specific classes. Additional land cover property assessment layers are provided by the Food and Agriculture Organization (FAO) Land Cover Classification System (LCCS) for land cover, land use, and surface hydrology.\n \nLayers for Land Cover Type 1-5, Land Cover Property 1-3, Land Cover Property Assessment 1-3, Land Cover Quality Control (QC), and a Land Water Mask are provided in each MCD12Q1 Version 6.1 Hierarchical Data Format 4 (HDF4) file.\n\nKnown Issues\n\n* The \"units\" field is missing in the metadata, however, this information can be found in Table 1 of the User Guide.\n* The MCD12Q1.061 land cover data product is derived using supervised classification of MODIS Terra and Aqua reflectance data. The classification algorithm uses labeled training samples selected globally to represent land cover categories derived under the IGBP, UMD, LAI, BIOME-BGC, and PFT classification schemes. These training samples were selected to represent land classes, best suited over a certain period. However, due to lack of funding, the science team was not able to keep the training database updated over the course of the years, and some of these training sites could well have undergone changes in their land cover characteristics, especially after 2021. Hence users are urged to maintain caution while using the V6.1/MCD12Q1 land cover layers for 2021 and beyond. More information on this known issue can be found in the [Land Data Products Operational Products (LDOPE) Quality Assessment](https://landweb.modaps.eosdis.nasa.gov/displayissue?id=781).\n* Known issues are described in Section 2.2 of the User Guide.\n* For complete information about known issues please refer to the [MODIS/VIIRS Land Quality Assessment website](https://landweb.modaps.eosdis.nasa.gov/knownissue?sensor=MODIS&sat=TerraAqua&as=61).",
+          "time_start": "2001-01-01T00:00:00.000Z",
+          "time_end": null,
+          "data_center": "LPCLOUD",
+          "archive_center": "LP DAAC",
+          "coordinate_system": "CARTESIAN",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2484079608-LPCLOUD"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://appeears.earthdatacloud.nasa.gov/"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MCD12Q1.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": null,
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MCD12Q1.061/MCD12Q1.A2021001.h13v09.061.2022216034955/BROWSE.MCD12Q1.A2021001.h13v09.061.2022216034955.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": null,
+              "href": "https://worldview.earthdata.nasa.gov/images/layers/previews/geographic/MODIS_Combined_L3_IGBP_Land_Cover_Type_Annual.jpg"
+            }
+          ]
+        }
+      ],
+      "status": "found",
+      "role": "Annual global land-cover type"
+    },
+    "M2T1NXAER": {
+      "query_url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=M2T1NXAER&page_size=10",
+      "count": 1,
+      "collections": [
+        {
+          "id": "C1276812830-GES_DISC",
+          "title": "MERRA-2 tavg1_2d_aer_Nx: 2d,1-Hourly,Time-averaged,Single-Level,Assimilation,Aerosol Diagnostics 0.625 x 0.5 degree V5.12.4 (M2T1NXAER)",
+          "short_name": "M2T1NXAER",
+          "version_id": "5.12.4",
+          "summary": "M2T1NXAER (or  tavg1_2d_aer_Nx) is an hourly time-averaged 2-dimensional data collection in Modern-Era Retrospective analysis for Research and Applications version 2 (MERRA-2).  This collection consists of assimilated aerosol diagnostics, such as column mass density of aerosol components (black carbon, dust, sea salt, sulfate, and organic carbon), surface mass concentration of aerosol components, and total extinction (and scattering ) aerosol optical thickness (AOT) at 550 nm.  The total PM1.0, PM2.5, and PM10 may be derived with the formula described in the FAQs under the Documentation tab of this page.  The data field is time-stamped with the central time of an hour starting from 00:30 UTC, e.g.: 00:30, 01:30, \u2026 , 23:30 UTC.\n\nMERRA-2 is the latest version of global atmospheric reanalysis for the satellite era produced by NASA Global Modeling and Assimilation Office (GMAO) using the Goddard Earth Observing System Model (GEOS) version 5.12.4.  The dataset covers the period of 1980-present with the latency of ~3 weeks after the end of a month. \n\nData Reprocessing:  Please check \u201cRecords of MERRA-2 Data Reprocessing and Service Changes\u201d linked from the \u201cDocumentation\u201d tab on this page.  Note that a reprocessed data filename is different from the original file.\n\nMERRA-2 Mailing List: Sign up to receive information on reprocessing of data, changing of tools and services, as well as data announcements from GMAO. Contact the GES DISC Help Desk (gsfc-dl-help-disc@mail.nasa.gov) to be added to the list.\n\nQuestions: If you have a question, please read \"MERRA-2 File Specification Document\",  \u201cMERRA-2 Data Access \u2013 Quick Start Guide\u201d, and FAQs linked from the \u201dDocumentation\u201d tab on this page.  If that does not answer your question, you may post your question to the NASA Earthdata Forum (forum.earthdata.nasa.gov) or email the GES DISC Help Desk (gsfc-dl-help-disc@mail.nasa.gov).",
+          "time_start": "1980-01-01T00:00:00.000Z",
+          "time_end": null,
+          "data_center": "GES_DISC",
+          "archive_center": "NASA/GSFC/SED/ESD/TISL/GESDISC",
+          "coordinate_system": "CARTESIAN",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": null,
+              "href": "https://docserver.gesdisc.eosdis.nasa.gov/public/project/Images/M2T1NXAER_5.12.4.png"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/data/catalog/ges-disc-gpm-3gproff16ssmis-07"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://goldsmr4.gesdisc.eosdis.nasa.gov/data/MERRA2/M2T1NXAER.5.12.4/"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": null,
+              "href": "https://giovanni.gsfc.nasa.gov/giovanni/#dataKeyword=M2T1NXAER"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C1276812830-GES_DISC"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": null,
+              "href": "https://cmr.earthdata.nasa.gov/virtual-directory/collections/C1276812830-GES_DISC"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://gmao.gsfc.nasa.gov/gmao-products/merra-2/documentation_merra-2/"
+            }
+          ]
+        }
+      ],
+      "status": "found",
+      "role": "MERRA-2 hourly aerosol diagnostics, including dust-related fields"
+    }
+  },
+  "site_granules": {
+    "koh_i_sultan": {
+      "query_url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=MOD11A2&version=061&bounding_box=62.70%2C29.00%2C62.90%2C29.20&temporal=2026-08-01T00%3A00%3A00Z%2C2026-11-14T23%3A59%3A59Z&page_size=10&sort_key=-start_date",
+      "returned_count": 10,
+      "items": [
+        {
+          "id": "G4407651606-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026305.h23v06.061.2026314143112",
+          "title": "MOD11A2.A2026305.h23v06.061.2026314143112",
+          "time_start": "2026-11-01T00:00:00.000Z",
+          "time_end": "2026-11-08T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "4.784332275390625",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026305.h23v06.061.2026314143112.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/MOD11A2.A2026305.h23v06.061.2026314143112.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026305.h23v06.061.2026314143112"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026305.h23v06.061.2026314143112.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/MOD11A2.A2026305.h23v06.061.2026314143112.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/MOD11A2.A2026305.h23v06.061.2026314143112.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4399586205-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026297.h23v06.061.2026307172638",
+          "title": "MOD11A2.A2026297.h23v06.061.2026307172638",
+          "time_start": "2026-10-24T00:00:00.000Z",
+          "time_end": "2026-10-31T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "4.983170509338379",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026297.h23v06.061.2026307172638.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026297.h23v06.061.2026307172638/MOD11A2.A2026297.h23v06.061.2026307172638.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026297.h23v06.061.2026307172638"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026297.h23v06.061.2026307172638.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026297.h23v06.061.2026307172638/MOD11A2.A2026297.h23v06.061.2026307172638.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026297.h23v06.061.2026307172638/MOD11A2.A2026297.h23v06.061.2026307172638.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026297.h23v06.061.2026307122640.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026297.h23v06.061.2026307172638/BROWSE.MOD11A2.A2026297.h23v06.061.2026307122640.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026297.h23v06.061.2026307122640.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026297.h23v06.061.2026307172638/BROWSE.MOD11A2.A2026297.h23v06.061.2026307122640.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026297.h23v06.061.2026307172638/BROWSE.MOD11A2.A2026297.h23v06.061.2026307122640.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026297.h23v06.061.2026307172638/BROWSE.MOD11A2.A2026297.h23v06.061.2026307122640.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4390930984-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026289.h23v06.061.2026300173342",
+          "title": "MOD11A2.A2026289.h23v06.061.2026300173342",
+          "time_start": "2026-10-16T00:00:00.000Z",
+          "time_end": "2026-10-23T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "4.6521406173706055",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026289.h23v06.061.2026300173342.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026289.h23v06.061.2026300173342/MOD11A2.A2026289.h23v06.061.2026300173342.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026289.h23v06.061.2026300173342"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026289.h23v06.061.2026300173342.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026289.h23v06.061.2026300173342/MOD11A2.A2026289.h23v06.061.2026300173342.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026289.h23v06.061.2026300173342/MOD11A2.A2026289.h23v06.061.2026300173342.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026289.h23v06.061.2026300133347.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026289.h23v06.061.2026300173342/BROWSE.MOD11A2.A2026289.h23v06.061.2026300133347.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026289.h23v06.061.2026300133347.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026289.h23v06.061.2026300173342/BROWSE.MOD11A2.A2026289.h23v06.061.2026300133347.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026289.h23v06.061.2026300173342/BROWSE.MOD11A2.A2026289.h23v06.061.2026300133347.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026289.h23v06.061.2026300173342/BROWSE.MOD11A2.A2026289.h23v06.061.2026300133347.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4372168388-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026281.h23v06.061.2026290035626",
+          "title": "MOD11A2.A2026281.h23v06.061.2026290035626",
+          "time_start": "2026-10-08T00:00:00.000Z",
+          "time_end": "2026-10-15T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "4.827792167663574",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026281.h23v06.061.2026290035626.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026281.h23v06.061.2026290035626/MOD11A2.A2026281.h23v06.061.2026290035626.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026281.h23v06.061.2026290035626"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026281.h23v06.061.2026290035626.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026281.h23v06.061.2026290035626/MOD11A2.A2026281.h23v06.061.2026290035626.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026281.h23v06.061.2026290035626/MOD11A2.A2026281.h23v06.061.2026290035626.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026281.h23v06.061.2026289235628.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h23v06.061.2026290035626/BROWSE.MOD11A2.A2026281.h23v06.061.2026289235628.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026281.h23v06.061.2026289235628.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h23v06.061.2026290035626/BROWSE.MOD11A2.A2026281.h23v06.061.2026289235628.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h23v06.061.2026290035626/BROWSE.MOD11A2.A2026281.h23v06.061.2026289235628.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h23v06.061.2026290035626/BROWSE.MOD11A2.A2026281.h23v06.061.2026289235628.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4362565750-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026273.h23v06.061.2026286144506",
+          "title": "MOD11A2.A2026273.h23v06.061.2026286144506",
+          "time_start": "2026-09-30T00:00:00.000Z",
+          "time_end": "2026-10-07T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "4.488865852355957",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026273.h23v06.061.2026286144506.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026273.h23v06.061.2026286144506/MOD11A2.A2026273.h23v06.061.2026286144506.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026273.h23v06.061.2026286144506"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026273.h23v06.061.2026286144506.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026273.h23v06.061.2026286144506/MOD11A2.A2026273.h23v06.061.2026286144506.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026273.h23v06.061.2026286144506/MOD11A2.A2026273.h23v06.061.2026286144506.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026273.h23v06.061.2026286104508.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h23v06.061.2026286144506/BROWSE.MOD11A2.A2026273.h23v06.061.2026286104508.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026273.h23v06.061.2026286104508.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h23v06.061.2026286144506/BROWSE.MOD11A2.A2026273.h23v06.061.2026286104508.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h23v06.061.2026286144506/BROWSE.MOD11A2.A2026273.h23v06.061.2026286104508.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h23v06.061.2026286144506/BROWSE.MOD11A2.A2026273.h23v06.061.2026286104508.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4340635522-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026265.h23v06.061.2026278022103",
+          "title": "MOD11A2.A2026265.h23v06.061.2026278022103",
+          "time_start": "2026-09-22T00:00:00.000Z",
+          "time_end": "2026-09-29T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "4.383676528930664",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026265.h23v06.061.2026278022103.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026265.h23v06.061.2026278022103/MOD11A2.A2026265.h23v06.061.2026278022103.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026265.h23v06.061.2026278022103"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026265.h23v06.061.2026278022103.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026265.h23v06.061.2026278022103/MOD11A2.A2026265.h23v06.061.2026278022103.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026265.h23v06.061.2026278022103/MOD11A2.A2026265.h23v06.061.2026278022103.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026265.h23v06.061.2026277222105.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026265.h23v06.061.2026278022103/BROWSE.MOD11A2.A2026265.h23v06.061.2026277222105.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026265.h23v06.061.2026277222105.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026265.h23v06.061.2026278022103/BROWSE.MOD11A2.A2026265.h23v06.061.2026277222105.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026265.h23v06.061.2026278022103/BROWSE.MOD11A2.A2026265.h23v06.061.2026277222105.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026265.h23v06.061.2026278022103/BROWSE.MOD11A2.A2026265.h23v06.061.2026277222105.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4320489957-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026257.h23v06.061.2026266040238",
+          "title": "MOD11A2.A2026257.h23v06.061.2026266040238",
+          "time_start": "2026-09-14T00:00:00.000Z",
+          "time_end": "2026-09-21T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "4.506163597106934",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026257.h23v06.061.2026266040238.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026257.h23v06.061.2026266040238/MOD11A2.A2026257.h23v06.061.2026266040238.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026257.h23v06.061.2026266040238"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026257.h23v06.061.2026266040238.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026257.h23v06.061.2026266040238/MOD11A2.A2026257.h23v06.061.2026266040238.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026257.h23v06.061.2026266040238/MOD11A2.A2026257.h23v06.061.2026266040238.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026257.h23v06.061.2026266000239.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026257.h23v06.061.2026266040238/BROWSE.MOD11A2.A2026257.h23v06.061.2026266000239.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026257.h23v06.061.2026266000239.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026257.h23v06.061.2026266040238/BROWSE.MOD11A2.A2026257.h23v06.061.2026266000239.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026257.h23v06.061.2026266040238/BROWSE.MOD11A2.A2026257.h23v06.061.2026266000239.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026257.h23v06.061.2026266040238/BROWSE.MOD11A2.A2026257.h23v06.061.2026266000239.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4311250659-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026249.h23v06.061.2026258034125",
+          "title": "MOD11A2.A2026249.h23v06.061.2026258034125",
+          "time_start": "2026-09-06T00:00:00.000Z",
+          "time_end": "2026-09-13T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "4.568761825561523",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026249.h23v06.061.2026258034125.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026249.h23v06.061.2026258034125/MOD11A2.A2026249.h23v06.061.2026258034125.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026249.h23v06.061.2026258034125"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026249.h23v06.061.2026258034125.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026249.h23v06.061.2026258034125/MOD11A2.A2026249.h23v06.061.2026258034125.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026249.h23v06.061.2026258034125/MOD11A2.A2026249.h23v06.061.2026258034125.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026249.h23v06.061.2026257234126.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026249.h23v06.061.2026258034125/BROWSE.MOD11A2.A2026249.h23v06.061.2026257234126.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026249.h23v06.061.2026257234126.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026249.h23v06.061.2026258034125/BROWSE.MOD11A2.A2026249.h23v06.061.2026257234126.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026249.h23v06.061.2026258034125/BROWSE.MOD11A2.A2026249.h23v06.061.2026257234126.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026249.h23v06.061.2026258034125/BROWSE.MOD11A2.A2026249.h23v06.061.2026257234126.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4303252479-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026241.h23v06.061.2026252034103",
+          "title": "MOD11A2.A2026241.h23v06.061.2026252034103",
+          "time_start": "2026-08-29T00:00:00.000Z",
+          "time_end": "2026-09-05T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "4.688692092895508",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026241.h23v06.061.2026252034103.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026241.h23v06.061.2026252034103/MOD11A2.A2026241.h23v06.061.2026252034103.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026241.h23v06.061.2026252034103"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026241.h23v06.061.2026252034103.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026241.h23v06.061.2026252034103/MOD11A2.A2026241.h23v06.061.2026252034103.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026241.h23v06.061.2026252034103/MOD11A2.A2026241.h23v06.061.2026252034103.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026241.h23v06.061.2026251234104.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026241.h23v06.061.2026252034103/BROWSE.MOD11A2.A2026241.h23v06.061.2026251234104.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026241.h23v06.061.2026251234104.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026241.h23v06.061.2026252034103/BROWSE.MOD11A2.A2026241.h23v06.061.2026251234104.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026241.h23v06.061.2026252034103/BROWSE.MOD11A2.A2026241.h23v06.061.2026251234104.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026241.h23v06.061.2026252034103/BROWSE.MOD11A2.A2026241.h23v06.061.2026251234104.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4293187686-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026233.h23v06.061.2026243021829",
+          "title": "MOD11A2.A2026233.h23v06.061.2026243021829",
+          "time_start": "2026-08-21T00:00:00.000Z",
+          "time_end": "2026-08-28T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "4.736167907714844",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026233.h23v06.061.2026243021829.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026233.h23v06.061.2026243021829/MOD11A2.A2026233.h23v06.061.2026243021829.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026233.h23v06.061.2026243021829"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026233.h23v06.061.2026243021829.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026233.h23v06.061.2026243021829/MOD11A2.A2026233.h23v06.061.2026243021829.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026233.h23v06.061.2026243021829/MOD11A2.A2026233.h23v06.061.2026243021829.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026233.h23v06.061.2026242221830.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026233.h23v06.061.2026243021829/BROWSE.MOD11A2.A2026233.h23v06.061.2026242221830.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026233.h23v06.061.2026242221830.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026233.h23v06.061.2026243021829/BROWSE.MOD11A2.A2026233.h23v06.061.2026242221830.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026233.h23v06.061.2026243021829/BROWSE.MOD11A2.A2026233.h23v06.061.2026242221830.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026233.h23v06.061.2026243021829/BROWSE.MOD11A2.A2026233.h23v06.061.2026242221830.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        }
+      ],
+      "status": "granules_found",
+      "site": {
+        "name": "Koh-i-Sultan / Chagai, Pakistan",
+        "bbox": "62.70,29.00,62.90,29.20"
+      }
+    },
+    "hispar_glacier": {
+      "query_url": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=MOD11A2&version=061&bounding_box=75.12%2C36.02%2C75.34%2C36.22&temporal=2026-08-01T00%3A00%3A00Z%2C2026-11-14T23%3A59%3A59Z&page_size=10&sort_key=-start_date",
+      "returned_count": 10,
+      "items": [
+        {
+          "id": "G4407672628-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026305.h24v05.061.2026314143533",
+          "title": "MOD11A2.A2026305.h24v05.061.2026314143533",
+          "time_start": "2026-11-01T00:00:00.000Z",
+          "time_end": "2026-11-08T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "8.264732360839844",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026305.h24v05.061.2026314143533.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026305.h24v05.061.2026314143533/MOD11A2.A2026305.h24v05.061.2026314143533.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026305.h24v05.061.2026314143533"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026305.h24v05.061.2026314143533.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026305.h24v05.061.2026314143533/MOD11A2.A2026305.h24v05.061.2026314143533.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026305.h24v05.061.2026314143533/MOD11A2.A2026305.h24v05.061.2026314143533.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026305.h24v05.061.2026314093534.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h24v05.061.2026314143533/BROWSE.MOD11A2.A2026305.h24v05.061.2026314093534.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026305.h24v05.061.2026314093534.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h24v05.061.2026314143533/BROWSE.MOD11A2.A2026305.h24v05.061.2026314093534.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h24v05.061.2026314143533/BROWSE.MOD11A2.A2026305.h24v05.061.2026314093534.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h24v05.061.2026314143533/BROWSE.MOD11A2.A2026305.h24v05.061.2026314093534.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4399490270-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026297.h24v05.061.2026307170732",
+          "title": "MOD11A2.A2026297.h24v05.061.2026307170732",
+          "time_start": "2026-10-24T00:00:00.000Z",
+          "time_end": "2026-10-31T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "8.268261909484863",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026297.h24v05.061.2026307170732.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026297.h24v05.061.2026307170732/MOD11A2.A2026297.h24v05.061.2026307170732.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026297.h24v05.061.2026307170732"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026297.h24v05.061.2026307170732.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026297.h24v05.061.2026307170732/MOD11A2.A2026297.h24v05.061.2026307170732.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026297.h24v05.061.2026307170732/MOD11A2.A2026297.h24v05.061.2026307170732.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026297.h24v05.061.2026307120737.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026297.h24v05.061.2026307170732/BROWSE.MOD11A2.A2026297.h24v05.061.2026307120737.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026297.h24v05.061.2026307120737.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026297.h24v05.061.2026307170732/BROWSE.MOD11A2.A2026297.h24v05.061.2026307120737.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026297.h24v05.061.2026307170732/BROWSE.MOD11A2.A2026297.h24v05.061.2026307120737.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026297.h24v05.061.2026307170732/BROWSE.MOD11A2.A2026297.h24v05.061.2026307120737.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4391031781-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026289.h24v05.061.2026300185404",
+          "title": "MOD11A2.A2026289.h24v05.061.2026300185404",
+          "time_start": "2026-10-16T00:00:00.000Z",
+          "time_end": "2026-10-23T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "8.255194664001465",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026289.h24v05.061.2026300185404.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026289.h24v05.061.2026300185404/MOD11A2.A2026289.h24v05.061.2026300185404.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026289.h24v05.061.2026300185404"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026289.h24v05.061.2026300185404.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026289.h24v05.061.2026300185404/MOD11A2.A2026289.h24v05.061.2026300185404.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026289.h24v05.061.2026300185404/MOD11A2.A2026289.h24v05.061.2026300185404.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026289.h24v05.061.2026300145450.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026289.h24v05.061.2026300185404/BROWSE.MOD11A2.A2026289.h24v05.061.2026300145450.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026289.h24v05.061.2026300145450.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026289.h24v05.061.2026300185404/BROWSE.MOD11A2.A2026289.h24v05.061.2026300145450.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026289.h24v05.061.2026300185404/BROWSE.MOD11A2.A2026289.h24v05.061.2026300145450.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026289.h24v05.061.2026300185404/BROWSE.MOD11A2.A2026289.h24v05.061.2026300145450.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4372107821-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026281.h24v05.061.2026290035338",
+          "title": "MOD11A2.A2026281.h24v05.061.2026290035338",
+          "time_start": "2026-10-08T00:00:00.000Z",
+          "time_end": "2026-10-15T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "8.739948272705078",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026281.h24v05.061.2026290035338.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026281.h24v05.061.2026290035338/MOD11A2.A2026281.h24v05.061.2026290035338.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026281.h24v05.061.2026290035338"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026281.h24v05.061.2026290035338.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026281.h24v05.061.2026290035338/MOD11A2.A2026281.h24v05.061.2026290035338.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026281.h24v05.061.2026290035338/MOD11A2.A2026281.h24v05.061.2026290035338.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026281.h24v05.061.2026289235339.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h24v05.061.2026290035338/BROWSE.MOD11A2.A2026281.h24v05.061.2026289235339.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026281.h24v05.061.2026289235339.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h24v05.061.2026290035338/BROWSE.MOD11A2.A2026281.h24v05.061.2026289235339.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h24v05.061.2026290035338/BROWSE.MOD11A2.A2026281.h24v05.061.2026289235339.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h24v05.061.2026290035338/BROWSE.MOD11A2.A2026281.h24v05.061.2026289235339.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4362586773-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026273.h24v05.061.2026286144749",
+          "title": "MOD11A2.A2026273.h24v05.061.2026286144749",
+          "time_start": "2026-09-30T00:00:00.000Z",
+          "time_end": "2026-10-07T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "7.616816520690918",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026273.h24v05.061.2026286144749.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026273.h24v05.061.2026286144749/MOD11A2.A2026273.h24v05.061.2026286144749.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026273.h24v05.061.2026286144749"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026273.h24v05.061.2026286144749.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026273.h24v05.061.2026286144749/MOD11A2.A2026273.h24v05.061.2026286144749.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026273.h24v05.061.2026286144749/MOD11A2.A2026273.h24v05.061.2026286144749.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026273.h24v05.061.2026286104750.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h24v05.061.2026286144749/BROWSE.MOD11A2.A2026273.h24v05.061.2026286104750.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026273.h24v05.061.2026286104750.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h24v05.061.2026286144749/BROWSE.MOD11A2.A2026273.h24v05.061.2026286104750.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h24v05.061.2026286144749/BROWSE.MOD11A2.A2026273.h24v05.061.2026286104750.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h24v05.061.2026286144749/BROWSE.MOD11A2.A2026273.h24v05.061.2026286104750.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4340832268-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026265.h24v05.061.2026278022727",
+          "title": "MOD11A2.A2026265.h24v05.061.2026278022727",
+          "time_start": "2026-09-22T00:00:00.000Z",
+          "time_end": "2026-09-29T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "8.324233055114746",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026265.h24v05.061.2026278022727.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026265.h24v05.061.2026278022727/MOD11A2.A2026265.h24v05.061.2026278022727.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026265.h24v05.061.2026278022727"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026265.h24v05.061.2026278022727.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026265.h24v05.061.2026278022727/MOD11A2.A2026265.h24v05.061.2026278022727.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026265.h24v05.061.2026278022727/MOD11A2.A2026265.h24v05.061.2026278022727.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026265.h24v05.061.2026277222728.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026265.h24v05.061.2026278022727/BROWSE.MOD11A2.A2026265.h24v05.061.2026277222728.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026265.h24v05.061.2026277222728.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026265.h24v05.061.2026278022727/BROWSE.MOD11A2.A2026265.h24v05.061.2026277222728.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026265.h24v05.061.2026278022727/BROWSE.MOD11A2.A2026265.h24v05.061.2026277222728.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026265.h24v05.061.2026278022727/BROWSE.MOD11A2.A2026265.h24v05.061.2026277222728.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4320499503-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026257.h24v05.061.2026266035709",
+          "title": "MOD11A2.A2026257.h24v05.061.2026266035709",
+          "time_start": "2026-09-14T00:00:00.000Z",
+          "time_end": "2026-09-21T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "8.339981079101562",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026257.h24v05.061.2026266035709.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026257.h24v05.061.2026266035709/MOD11A2.A2026257.h24v05.061.2026266035709.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026257.h24v05.061.2026266035709"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026257.h24v05.061.2026266035709.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026257.h24v05.061.2026266035709/MOD11A2.A2026257.h24v05.061.2026266035709.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026257.h24v05.061.2026266035709/MOD11A2.A2026257.h24v05.061.2026266035709.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026257.h24v05.061.2026265235709.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026257.h24v05.061.2026266035709/BROWSE.MOD11A2.A2026257.h24v05.061.2026265235709.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026257.h24v05.061.2026265235709.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026257.h24v05.061.2026266035709/BROWSE.MOD11A2.A2026257.h24v05.061.2026265235709.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026257.h24v05.061.2026266035709/BROWSE.MOD11A2.A2026257.h24v05.061.2026265235709.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026257.h24v05.061.2026266035709/BROWSE.MOD11A2.A2026257.h24v05.061.2026265235709.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4311269635-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026249.h24v05.061.2026258034216",
+          "title": "MOD11A2.A2026249.h24v05.061.2026258034216",
+          "time_start": "2026-09-06T00:00:00.000Z",
+          "time_end": "2026-09-13T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "8.248641014099121",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026249.h24v05.061.2026258034216.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026249.h24v05.061.2026258034216/MOD11A2.A2026249.h24v05.061.2026258034216.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026249.h24v05.061.2026258034216"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026249.h24v05.061.2026258034216.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026249.h24v05.061.2026258034216/MOD11A2.A2026249.h24v05.061.2026258034216.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026249.h24v05.061.2026258034216/MOD11A2.A2026249.h24v05.061.2026258034216.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026249.h24v05.061.2026257234217.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026249.h24v05.061.2026258034216/BROWSE.MOD11A2.A2026249.h24v05.061.2026257234217.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026249.h24v05.061.2026257234217.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026249.h24v05.061.2026258034216/BROWSE.MOD11A2.A2026249.h24v05.061.2026257234217.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026249.h24v05.061.2026258034216/BROWSE.MOD11A2.A2026249.h24v05.061.2026257234217.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026249.h24v05.061.2026258034216/BROWSE.MOD11A2.A2026249.h24v05.061.2026257234217.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4303262717-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026241.h24v05.061.2026252032022",
+          "title": "MOD11A2.A2026241.h24v05.061.2026252032022",
+          "time_start": "2026-08-29T00:00:00.000Z",
+          "time_end": "2026-09-05T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "8.446686744689941",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026241.h24v05.061.2026252032022.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026241.h24v05.061.2026252032022/MOD11A2.A2026241.h24v05.061.2026252032022.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026241.h24v05.061.2026252032022"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026241.h24v05.061.2026252032022.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026241.h24v05.061.2026252032022/MOD11A2.A2026241.h24v05.061.2026252032022.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026241.h24v05.061.2026252032022/MOD11A2.A2026241.h24v05.061.2026252032022.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026241.h24v05.061.2026251232022.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026241.h24v05.061.2026252032022/BROWSE.MOD11A2.A2026241.h24v05.061.2026251232022.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026241.h24v05.061.2026251232022.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026241.h24v05.061.2026252032022/BROWSE.MOD11A2.A2026241.h24v05.061.2026251232022.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026241.h24v05.061.2026252032022/BROWSE.MOD11A2.A2026241.h24v05.061.2026251232022.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026241.h24v05.061.2026252032022/BROWSE.MOD11A2.A2026241.h24v05.061.2026251232022.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        },
+        {
+          "id": "G4293172067-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026233.h24v05.061.2026243022216",
+          "title": "MOD11A2.A2026233.h24v05.061.2026243022216",
+          "time_start": "2026-08-21T00:00:00.000Z",
+          "time_end": "2026-08-28T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "cloud_cover": null,
+          "granule_size": "8.370566368103027",
+          "links": [
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": "Download MOD11A2.A2026233.h24v05.061.2026243022216.hdf",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026233.h24v05.061.2026243022216/MOD11A2.A2026233.h24v05.061.2026243022216.hdf"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+              "title": "OPeNDAP request URL (GET DATA : OPENDAP DATA)",
+              "href": "https://opendap.earthdata.nasa.gov/collections/C2269056084-LPCLOUD/granules/MOD11A2.A2026233.h24v05.061.2026243022216"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "Download MOD11A2.A2026233.h24v05.061.2026243022216.cmr.xml (EXTENDED METADATA)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD11A2.061/MOD11A2.A2026233.h24v05.061.2026243022216/MOD11A2.A2026233.h24v05.061.2026243022216.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "This link provides direct download access via S3 to the granule (EXTENDED METADATA)",
+              "href": "s3://lp-prod-protected/MOD11A2.061/MOD11A2.A2026233.h24v05.061.2026243022216/MOD11A2.A2026233.h24v05.061.2026243022216.cmr.xml"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026233.h24v05.061.2026242222217.1.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026233.h24v05.061.2026243022216/BROWSE.MOD11A2.A2026233.h24v05.061.2026242222217.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "Download BROWSE.MOD11A2.A2026233.h24v05.061.2026242222217.2.jpg",
+              "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026233.h24v05.061.2026243022216/BROWSE.MOD11A2.A2026233.h24v05.061.2026242222217.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026233.h24v05.061.2026243022216/BROWSE.MOD11A2.A2026233.h24v05.061.2026242222217.1.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+              "title": "This link provides direct download access via S3 to the granule",
+              "href": "s3://lp-prod-public/MOD11A2.061/MOD11A2.A2026233.h24v05.061.2026243022216/BROWSE.MOD11A2.A2026233.h24v05.061.2026242222217.2.jpg"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://doi.org/10.5067/MODIS/MOD11A2.061"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+              "title": null,
+              "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+            },
+            {
+              "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+              "title": null,
+              "href": "https://search.earthdata.nasa.gov/search/granules?p=C2269056084-LPCLOUD"
+            }
+          ]
+        }
+      ],
+      "status": "granules_found",
+      "site": {
+        "name": "Hispar Glacier / Karakoram, Pakistan",
+        "bbox": "75.12,36.02,75.34,36.22"
+      }
+    }
+  },
+  "limitations": [
+    "This is catalogue and granule discovery, not ingestion of MODIS measurements.",
+    "MOD11A2 is an 8-day land-surface-temperature product; its scale factors, QA flags, day/night bands and fill values must be decoded before scientific use.",
+    "Granule discovery alone does not prove that all science assets are anonymously downloadable."
+  ]
+}
