@@ -1,36 +1,41 @@
-# NASA Project Page — ANALOG-X
+# NASA Space Apps Project Submission — ANALOG-X
 
-## Project Name
-ANALOG-X — Mission-to-Field Planetary Analog Planner
+## Project title
+ANALOG-X — Pakistan Analog Evidence Operations Atlas
 
-## High-Level Project Summary
-ANALOG-X turns a Moon or Mars exploration objective into an actionable Earth field-campaign plan. Users select a planetary reference and field task, screen candidate Earth environments with live NASA POWER climatology, compare temperature, humidity, precipitation, wind and (for solar tasks) solar resource, identify promising field months, and generate a downloadable field-test plan with protocols, equipment, data provenance and non-transferable planetary conditions.
+## One-line summary
+A Pakistan-first, source-traceable planetary analog evidence console that combines NASA climate snapshots, Sentinel-2 scene discovery and existing institutional research to characterize candidate Earth field environments and expose what still needs validation before calling them useful Moon/Mars analogs.
 
-The relative Field-Campaign Index ranks only the Earth candidates selected by the user for the chosen field task. It is not a Moon/Mars similarity score, geological equivalence, landing-safety rating or mission-site recommendation. Geological evidence is maintained separately from the climate calculations.
+## Project description
+The 2026 challenge asks participants to use open Earth, Moon and Mars data from NASA and other space agencies to identify and characterize terrestrial analogs for future bases and landing sites. Existing candidate environments are not all fully characterized. ANALOG-X responds by focusing on evidence readiness for two contrasting Pakistan case studies rather than presenting another universal similarity leaderboard.
 
-Flagship Pakistan candidate: Koh-i-Sultan, Chagai, with established and alternative environments included for comparison. NASA MOLA and LRO Diviner/LOLA, USGS Syrtis Major MC-13 and SUPARCO Space4Climate are identified as planetary/local data pathways; raw planetary rasters and SUPARCO products are not claimed as processed or integrated in this build.
+The first study area is Koh-i-Sultan in Chagai, a Smithsonian-catalogued volcanic-field candidate. NASA POWER climatology is fetched for this coordinate and Sentinel-2 L2A scenes are discovered through Microsoft Planetary Computer. A true-colour scene preview is clipped to the study bounding box. The intended field workflow is volcanic outcrop reconnaissance, sample-context logging and satellite-to-field validation. The product does not claim that Koh-i-Sultan is compositionally equivalent to Syrtis Major or a validated Mars analog.
 
-## Link to Project Demo
-https://usmanmughal96.github.io/analog-x/demo.html
+The second study area is the Hispar Glacier/Karakoram region. NASA POWER data and Sentinel-2 L2A scene discovery/preview support a cryosphere image-interpretation and field-validation case study. EvK2CNR has already published a Pakistan glacier inventory of 13,032 glaciers covering 13,546.93 km² and reports Sentinel-2 mapping, multitemporal analysis and field-validation activity. ANALOG-X credits this baseline rather than claiming to discover or remap Pakistan's glaciers.
 
-## Link to Final Project
+The public console shows actual NASA POWER snapshots for eight locations; actual Sentinel-2 scene IDs, capture dates, MGRS tiles and true-colour previews for the two Pakistan study areas; a NASA EPIC full-disc Earth context image; official sources and explicit data integration states. It separates integrated data from metadata-only discovery, portals reviewed and planetary datasets that are linked but not yet processed.
+
+## Project URL
 https://usmanmughal96.github.io/analog-x/
 
-## Detailed Description
-The challenge asks teams to discover and characterize terrestrial analogs, explain which characteristics are useful, identify where analogies break down and show how the location or process can prepare exploration. ANALOG-X operationalizes that requirement as a mission-to-field workflow.
+## Demo URL
+https://usmanmughal96.github.io/analog-x/demo.html
 
-Users select Mars Syrtis Major, Mars Jezero or lunar south-polar/Shackleton context; select volcanic geology/sample-context work, rover-traverse workflow, wind/dust experiments, thermal equipment trials or solar-powered field operations; and choose candidate Earth sites or enter custom coordinates. The browser fetches NASA POWER point climatology at each selected coordinate. It summarizes 2-m air temperature, monthly maximum/minimum air temperature, relative humidity, corrected precipitation and 10-m wind. Solar tasks also request all-sky surface shortwave radiation. The app calculates a transparent, task-specific relative Field-Campaign Index across successful candidates, suggests months from monthly climatology and generates a field-test card with protocol, equipment, source observations and non-transferable planetary conditions.
+## Source repository
+https://github.com/usmanmughal96/analog-x
 
-The tool explicitly separates measured Earth meteorology from curated geological evidence and planetary reference products. It does not infer geology from weather or claim Earth reproduces lunar vacuum, reduced gravity, radiation, polar shadow cycles or Martian pressure. Raw MOLA/Diviner/LOLA raster analysis is not claimed in this version. SUPARCO data are not claimed as ingested.
+## Data and methods
+NASA POWER Climatology API (RE community) is queried server-side by a reproducible GitHub Actions pipeline for T2M, T2M_MAX, T2M_MIN, RH2M, WS10M, PRECTOTCORR and ALLSKY_SFC_SW_DWN. The original returned response, monthly values, metrics, timestamp and request URL are committed as JSON. Eight site records are currently present.
 
-## Use of Super Intelligence
-See `docs/AI_DISCLOSURE.md`. Disclose the actual use of AI-assisted early brainstorming, concept refinement, code assistance, drafting and documentation. Do not state that the initial idea was wholly unaided. The Local Lead was informed and reportedly approved proceeding; this does not replace any organizer interpretation of SI requirements.
+Microsoft Planetary Computer's public STAC API is queried for Sentinel-2 L2A scenes over Koh-i-Sultan and Hispar. The pipeline records acquisition date, platform, MGRS tile, cloud fraction, footprints and asset references. It uses a public SAS token to read true-colour COG assets and create clipped previews. This requires no Planetary Computer account.
 
-## NASA Data and Resources
-NASA POWER Climatology API is used live to retrieve Earth meteorology/solar climatology. NASA PDS MOLA, LRO Diviner/LOLA and NASA GIBS/Worldview are linked as planetary/Earth reference resources; raw planetary rasters are not processed by this build.
+NASA DSCOVR/EPIC provides optional global Earth imagery via the public GSFC endpoint. This image is not used for site-level analysis.
 
-## Other References
-Smithsonian Global Volcanism Program Sultan catalogue (232801); USGS Syrtis Major MC-13; USGS OFR 75-550; NASA Planetary Analog Explorer; NASA Iceland fieldwork; SUPARCO Space4Climate as a potential local data source, not yet integrated.
+## Existing institutional work
+SUPARCO, UN-SPIDER and NDMA already operate important disaster/remote-sensing systems and practices. EvK2CNR already published Pakistan glacier inventory work. ANALOG-X does not seek to replace them. It links their work as baselines and records which products can be accessed and integrated under open-data terms. No public DisasterWatch or Space4Climate machine-readable data API is claimed in this release.
 
-## Before Submission
-Run at least one live scan from the public app, capture a screenshot of actual API results, generate a field-test plan and verify the app/demo URLs in a private browser. Do not claim raster-derived planetary comparisons or SUPARCO integration unless completed and documented.
+## Science integrity and limitations
+No raw MOLA, LOLA or Diviner raster comparison is claimed in the current build. No geology or mineralogy is inferred from Sentinel-2 RGB images. No universal planetary similarity score is reported. Local permits, field access, geology mapping and on-site measurements remain necessary. See docs/DATA_SOURCES.md, docs/AGENCY_DATA_AUDIT.md, docs/METHODOLOGY.md and docs/LIMITATIONS.md.
+
+## AI-use disclosure
+See docs/AI_DISCLOSURE.md. AI assistance was used for brainstorming, code support, documentation and presentation preparation. The team remains responsible for reviewing and validating scientific content.
