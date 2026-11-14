@@ -74,15 +74,16 @@ def main():
   result["pds4_product_candidates"][path]=probe(s,PDS4_MIRROR_BASE+path,read_text=path.lower().endswith(".xml"))
  fmt=result["pds3_format_files"].get("DLRE_PRP.FMT",{}).get("text") or result["pds3_format_files"].get("mirror/DLRE_PRP.FMT",{}).get("text") or ""
  columns=[]
- for block in re.findall(r"(?ims)^\\s*OBJECT\\s*=\\s*COLUMN(.*?)^\\s*END_OBJECT\\s*=\\s*COLUMN",fmt):
+ for block in re.findall(r"(?ims)^\s*OBJECT\s*=\s*COLUMN(.*?)^\s*END_OBJECT\s*=\s*COLUMN",fmt):
   def field(name):
-   m=re.search(r"(?im)^\\s*"+re.escape(name)+r"\\s*=\\s*(.+)$",block)
+   m=re.search(r"(?im)^\s*"+re.escape(name)+r"\s*=\s*(.+)$",block)
    return m.group(1).strip().strip('"') if m else None
-  columns.append({"name":field("NAME"),"unit":field("UNIT"),"data_type":field("DATA_TYPE"),"format":field("FORMAT"),"description":field("DESCRIPTION")})
+  columns.append({"name":field("NAME"),"unit":field("UNIT"),"data_type":field("DATA_TYPE"),"format":field("FORMAT"),"missing_constant":field("MISSING_CONSTANT"),"description":field("DESCRIPTION")})
  result["format_columns"]=columns
- result["interpretation_status"]="field units and descriptions retrieved" if columns and all(x.get("unit") for x in columns if x.get("name") in {"temp_avg","temp_max","ice_depth"}) else "format metadata still incomplete; do not interpret numeric fields"
+ target_columns={x.get("name"):x for x in columns if x.get("name") in {"temp_avg","temp_max","ice_depth"}}
+ result["interpretation_status"]="field units and missing-value definitions retrieved" if all(target_columns.get(k,{}).get("unit") and target_columns.get(k,{}).get("missing_constant") is not None for k in ("temp_avg","temp_max","ice_depth")) else "format metadata still incomplete; do not interpret numeric fields"
  outdir=Path("data/moon/diviner_prp_diagnostic");outdir.mkdir(parents=True,exist_ok=True)
- (outdir/"report.json").write_text(json.dumps(result,indent=2)+"\\n",encoding="utf-8")
+ (outdir/"report.json").write_text(json.dumps(result,indent=2)+"\n",encoding="utf-8")
  def summarize(group):
   return {k:{kk:v.get(kk) for kk in ("head_status","content_length","get_status","range_status","error")} for k,v in group.items()}
  print(json.dumps({"pds4":summarize(result["pds4"]),"pds3":summarize(result["pds3_alternative"]),
