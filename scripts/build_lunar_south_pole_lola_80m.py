@@ -13,7 +13,10 @@ from pathlib import Path
 import requests
 import numpy as np
 import rasterio
-from rasterio.windows import Window
+from rasterio.windows import Window, transform as window_transform
+from rasterio.transform import from_origin
+from rasterio.warp import reproject
+from rasterio.enums import Resampling
 from pyproj import CRS as PyCRS, Transformer
 from scipy.ndimage import maximum_filter,minimum_filter
 from PIL import Image
@@ -94,7 +97,7 @@ def main():
   if row<0 or col<0 or row>=dem.height or col>=dem.width:
    raise RuntimeError(f"Shackleton target maps outside LOLA 80 m grid: row={row}, col={col}")
   # 12 km half-width gives a 24 km x 24 km local base-area context.
-  half_m=12000
+  half_m=14800
   pixels=int(round(half_m/80))
   col_off=max(0,col-pixels)
   row_off=max(0,row-pixels)
@@ -129,6 +132,63 @@ def main():
   valid_elev=elev[valid]
   count_vals=n[count_valid]
   observed=count_positive
+  # Aggregate the native 80 m LOLA elevation grid to the same approximately
+  # 925 m cell support used for the Earth/Mars profiles. The 370x370 native
+  # pixel window spans 29.6 km; the 32x32 coarse grid spans the same footprint.
+  coarse_res=925.0
+  coarse_rows=32
+  coarse_cols=32
+  src_transform=window_transform(window,dem.transform)
+  coarse_transform=from_origin(src_transform.c,src_transform.f,coarse_res,coarse_res)
+  coarse_elev=np.full((coarse_rows,coarse_cols),np.nan,dtype=np.float32)
+  reproject(
+   source=elev.astype(np.float32),destination=coarse_elev,
+   src_transform=src_transform,src_crs=dem.crs,
+   dst_transform=coarse_transform,dst_crs=dem.crs,
+   src_nodata=np.nan,dst_nodata=np.nan,
+   resampling=Resampling.average,num_threads=2
+  )
+  coarse_valid=np.isfinite(coarse_elev)
+  if coarse_valid.sum()<100:
+   raise RuntimeError(f"Too few valid lunar cells after aggregation to {coarse_res} m")
+  coarse_fill=np.where(coarse_valid,coarse_elev,np.nanmedian(coarse_elev[coarse_valid]))
+  cy,cx=np.gradient(coarse_fill,coarse_res,coarse_res)
+  coarse_slope=np.degrees(np.arctan(np.hypot(cx,cy)))
+  coarse_complete=minimum_filter(coarse_valid.astype(np.uint8),size=3,mode="constant",cval=0)==1
+  coarse_relief=maximum_filter(coarse_fill,size=3,mode="nearest")-minimum_filter(coarse_fill,size=3,mode="nearest")
+  # Aggregate the positive-return mask separately. It is support metadata,
+  # not an elevation nodata mask.
+  return_fraction=np.zeros((coarse_rows,coarse_cols),dtype=np.float32)
+  reproject(
+   source=(n>0).astype(np.float32),destination=return_fraction,
+   src_transform=src_transform,src_crs=dem.crs,
+   dst_transform=coarse_transform,dst_crs=dem.crs,
+   src_nodata=None,dst_nodata=0,
+   resampling=Resampling.average,num_threads=2
+  )
+  coarse_support={
+   "pixel_size_m":coarse_res,"rows":coarse_rows,"columns":coarse_cols,
+   "window_extent_m":[coarse_cols*coarse_res,coarse_rows*coarse_res],
+   "valid_elevation_cells":int(coarse_valid.sum()),
+   "total_cells":int(coarse_valid.size),
+   "elevation_coverage_percent":round(float(coarse_valid.mean()*100),3),
+   "slope_deg":{
+    "median":float(np.median(coarse_slope[coarse_complete])),
+    "p90":float(np.percentile(coarse_slope[coarse_complete],90)),
+    "p95":float(np.percentile(coarse_slope[coarse_complete],95)),
+    "valid_3x3_neighbourhoods":int(coarse_complete.sum())
+   },
+   "3x3_local_relief_m_2775m_footprint":{
+    "median":float(np.median(coarse_relief[coarse_complete])),
+    "p90":float(np.percentile(coarse_relief[coarse_complete],90)),
+    "p95":float(np.percentile(coarse_relief[coarse_complete],95))
+   },
+   "ldec_positive_return_support":{
+    "mean_native_pixel_fraction_per_coarse_cell_percent":float(np.mean(return_fraction[coarse_valid])*100),
+    "coarse_cells_with_any_positive_returns":int(np.sum(return_fraction>0)),
+    "coarse_cells_total":int(return_fraction.size)
+   }
+  }
   # A small grayscale browse preview uses elevation only; no colour ramp is
   # assigned scientific meaning.
   lo,hi=np.percentile(valid_elev,[2,98])
@@ -147,8 +207,10 @@ def main():
     "target_raster_row_col":[int(row),int(col)],
     "window_pixel_size":[int(window.width),int(window.height)],
     "window_extent_m":[int(window.width*80),int(window.height*80)],
+    "native_support_m":80,"coarse_comparison_support_m":925,
     "window_bounds":[float(window.col_off),float(window.row_off),float(window.col_off+window.width),float(window.row_off+window.height)],
     "dem_and_count_grid_aligned":grid_equal},
+   "matched_coarse_support_approx_925m":coarse_support,
    "terrain_metrics":{
     "elevation_relative_to_1737_4km_sphere_m":summary(valid_elev),
     "slope_deg_from_80m_dem":slope_stats,
