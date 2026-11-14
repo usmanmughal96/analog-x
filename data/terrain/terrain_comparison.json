@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-14T14:36:30+00:00",
+  "generated_at_utc": "2026-11-14T16:03:40+00:00",
   "method": "Earth Copernicus DEM GLO-30 DSM averaged to 925 m; Mars MOLA MEGDR 64 pixels/degree. Both use approximately 30 km square windows and terrain derivatives computed in metres.",
   "planetary_target": {
     "name": "Nili Patera, Syrtis Major quadrangle, Mars",
@@ -199,6 +199,26 @@
         "window_half_width_m": 15000.0
       },
       "preview_path": "hispar_glacier_copdem_hillshade.png"
+    },
+    "chagai_small_playas": {
+      "site": {
+        "name": "Chagai small salt playas near Nok Kundi, Pakistan",
+        "latitude": 28.583333,
+        "longitude": 62.633333,
+        "catalog_key": "chagai_small_playas"
+      },
+      "status": "processing_failed",
+      "error": "No Copernicus DEM items in STAC catalog for chagai_small_playas"
+    },
+    "hamun_i_mashkel": {
+      "site": {
+        "name": "Hamun-i-Mashkel playa / Kharan Basin, Pakistan",
+        "latitude": 28.25,
+        "longitude": 62.91667,
+        "catalog_key": "hamun_i_mashkel"
+      },
+      "status": "processing_failed",
+      "error": "No Copernicus DEM items in STAC catalog for hamun_i_mashkel"
     }
   },
   "comparison": {
