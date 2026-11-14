@@ -10,12 +10,12 @@ Status is explicit:
 
 | Provider / product | Use in ANALOG-X | Stored output | Current limits |
 |---|---|---|---|
-| NASA POWER Climatology API (RE community) | Monthly/annual Earth climate context for eight coordinates | data/power/*.json, data/power/index.json | Gridded climatology; not local station data |
-| Microsoft Planetary Computer STAC, Sentinel-2 L2A | Discover scenes over Koh-i-Sultan and Hispar | data/pakistan/public_scene_catalog.json | Metadata discovery is not full archive completeness |
+| NASA POWER Climatology API (RE community) | Monthly/annual Earth climate context for ten coordinates | data/power/*.json, data/power/index.json | Gridded climatology; not local station data |
+| Microsoft Planetary Computer STAC, Sentinel-2 L2A | Discover scenes over four Pakistan windows: Koh-i-Sultan, Hispar, Chagai small playas and Hamun-i-Mashkel | data/pakistan/public_scene_catalog.json | Metadata discovery is not full archive completeness |
 | Sentinel-2 L2A visual COGs | 768×768 clipped RGB quicklooks | data/pakistan/quicklooks/*.png and index.json | RGB browse product; no geology/mineral classification |
 | NASA DSCOVR / EPIC | Optional full-disc Earth context image | data/nasa/epic_latest.png, epic_latest.json | Global context only; not a site metric |
 | NASA Earthdata / CMR | MODIS LST, MODIS land-cover and MERRA-2 aerosol collection/granule catalogue discovery | data/nasa/earthdata_cmr_catalog.json | Catalogue metadata only; protected granule files not downloaded/decoded |
-| Copernicus DEM GLO-30 DSM | Earth terrain surface for Koh-i-Sultan and Hispar | data/terrain/terrain_comparison.json and two derived hillshade PNGs | Copernicus Digital Surface Model (includes surface objects); 30 m source averaged to about 925 m |
+| Copernicus DEM GLO-30 DSM | Earth terrain surface for four Pakistan windows: Koh-i-Sultan, Hispar Glacier, Chagai small playas and Hamun-i-Mashkel | data/terrain/terrain_comparison.json and four derived hillshade PNGs | Copernicus Digital Surface Model (includes surface objects); 30 m source averaged to about 925 m |
 | MGS MOLA MEGDR 64 pixels/degree | Mars terrain around Nili Patera, Syrtis Major | data/terrain/terrain_comparison.json and MOLA hillshade PNG | Only 50.53% valid observation coverage in current 30 km window; 87 complete 3×3 neighborhoods |
 
 ### NASA POWER variables
@@ -31,13 +31,33 @@ NASA POWER climatology API: https://power.larc.nasa.gov/docs/services/api/tempor
 ### Matched-scale terrain processing
 - Earth DSM: Copernicus DEM GLO-30, accessed through the Microsoft Planetary Computer STAC catalogue and public SAS token flow.
 - Mars: MOLA MEGDR 64 ppd topography and counts, Nili Patera centre 8.90°N, 67.00°E.
-- Study windows: approximately 30 km square at Koh-i-Sultan, Hispar and Nili Patera.
+- Study windows: approximately 30 km square at Koh-i-Sultan, Hispar, Chagai small playas, Hamun-i-Mashkel and Nili Patera.
 - Analysis support: Earth DSM averaged to 925 m; MOLA native pixel spacing around Nili Patera is approximately 926 m north-south and 915 m east-west.
 - Derived descriptors: median/P90/P95 slope, 3×3 local relief, valid-cell coverage and count of complete 3×3 neighborhoods.
 - Absolute elevation percentiles are retained for provenance but must not be compared between Earth DSM and Mars areoid datums.
 - This is a coarse local terrain profile, not a geological-equivalence score, landing-safety rating or rover traversability model.
 
 Current Nili Patera observation coverage: 567 / 1,122 cells (50.53%); 87 complete 3×3 neighborhoods. Its terrain statistics must be interpreted with this coverage limitation.
+
+
+### Balochistan playa candidate evidence (14 November 2026)
+
+- **Chagai small salt playas near Nok Kundi:** study-window centre at 28.583333°N, 62.633333°E, based on the midpoint of two small salt-playa coordinates in NASA NTRS report 19740023693 (28°35′N, 62°36′E and 28°35′N, 62°40′E). The bounding box [62.54, 28.53, 62.73, 28.64] is an analyst-defined data-search AOI, not a surveyed playa polygon.
+- **Hamun-i-Mashkel / Kharan Basin:** approximate place-reference point 28.25°N, 62.91667°E; bounding box [62.82, 28.13, 63.02, 28.33] is an analyst-defined search AOI, not a hydrological boundary.
+- NASA POWER climatology: both have all seven requested parameters in the 12-month snapshot fetched 2026-11-14.
+- Sentinel-2 L2A spectral context:
+  - Chagai: scene S2C_MSIL2A_20251102T063041_R077_T41RMM_20251102T092816, 20 m common grid, 569,772 valid pixels.
+  - Hamun: scene S2C_MSIL2A_20260809T062631_R077_T41RNM_20260809T110108, 20 m common grid, 109,692 valid pixels in a 1,108 × 99 grid. This is a narrow image strip, not full basin coverage.
+  - These are single-scene spectral descriptors; BSI/SWIR/NDMI do not identify evaporite minerals, prove brine, establish salt-crust thickness or reconstruct inundation history.
+- Sentinel-2 RGB quicklooks use separate newer scenes:
+  - Chagai: 2026-09-18, STAC scene cloud-cover metadata 0.000179%.
+  - Hamun: 2026-10-25, STAC scene cloud-cover metadata 0.001989%.
+  - Scene cloud fraction is not a substitute for an AOI-level cloud/shadow mask.
+- Copernicus DEM GLO-30 DSM: both 30 km selected windows have 100% valid output cells at approximately 925 m support.
+  - Chagai: median slope 0.397°, P90 slope 1.010°, P90 3×3 local relief 38.8 m.
+  - Hamun: median slope 0.0065°, P90 slope 0.0965°, P90 3×3 local relief 4.9 m.
+  - These values describe coarse regional terrain windows only, not surface strength, salt-pan thickness, brine, field access, or rover traversability.
+- Historical context: NASA NTRS report 19740023693, https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf. It is a prior report, not a new discovery claim.
 
 ## Metadata discovered / institutional baseline
 
@@ -47,6 +67,13 @@ Current Nili Patera observation coverage: 567 / 1,122 cells (50.53%); 87 complet
 | Microsoft Planetary Computer | Sentinel-2 L2A STAC items | Anonymous scene discovery working; scene IDs, item IDs, asset links, MGRS tiles and acquisition dates stored | Open scene discovery without a user account |
 | Microsoft Planetary Computer | Copernicus DEM GLO-30 STAC items | Tile metadata discovered and corresponding COG assets processed in terrain workflow | DEM metadata provenance is recorded in JSON |
 | NASA EPIC | Natural-colour DSCOVR full-disc images | Public GSFC endpoint working without api.nasa.gov key | Global visual context only |
+
+
+## Candidate discovery and agent evidence layer
+
+- `data/agents/candidate_catalog.json` contains ten curated Earth candidate/reference seeds and separates under-characterized leads from established references. It is not an exhaustive global search and does not claim the two playa leads are new-to-science discoveries.
+- The offline Agent Bay uses deterministic candidate-tag retrieval, NASA POWER climatology, Sentinel-2 spectral-context profiles, Copernicus/MOLA/LOLA terrain profiles and explicit evidence gaps.
+- The optional Cloudflare Worker uses an open-weight model for tool-using synthesis after the deterministic specialists have assembled evidence. It does not produce scientific measurements. Deployment and quota limits are documented in `docs/AGENTIC_AI_SETUP.md`.
 
 ## Official portals reviewed; machine-readable data not verified
 
