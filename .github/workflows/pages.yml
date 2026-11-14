@@ -11,7 +11,25 @@ concurrency:
   group: pages
   cancel-in-progress: true
 jobs:
+  validate:
+    name: Validate app, agent and scientific data contracts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check browser and Worker JavaScript syntax
+        run: |
+          node --check assets/analogx-labs.js
+          node --input-type=module --check < agent-worker/index.js
+      - name: Validate data, UI and agent contracts
+        run: node scripts/validate_project.mjs
+
   deploy:
+    needs: validate
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
