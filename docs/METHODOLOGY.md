@@ -10,7 +10,7 @@ For a proposed Moon/Mars field-rehearsal task, is a candidate Earth site charact
 4. **Visual quicklook.** Use a public SAS token to read cloud-optimized Sentinel-2 true-colour COG assets and clip a preview to the study bounding box.
 5. **Terrain profile.** Use Copernicus DEM GLO-30 DSM for Koh-i-Sultan and Hispar, mosaic neighbouring tiles, project to local UTM and average to approximately 925 m. Use MOLA MEGDR 64 pixels/degree topography and observation-count products around Nili Patera, Syrtis Major. Compute slope and 3×3 local-relief distributions at comparable coarse support.
 6. **Institutional evidence.** Record existing EvK2CNR glacier inventory, NDMA hazard outlooks, SUPARCO/UN-SPIDER recommended practices, Space4Climate and DisasterWatch capabilities with an explicit integration status.
-7. **Planetary reference.** Link MOLA, LOLA, Diviner and USGS Mars geology products. MOLA is processed for the Nili Patera window. The NASA PGDA Site04 LOLA product was tested but source-host HTTP 403/range-read failures blocked ingestion; raw lunar LOLA/Diviner measurements are not processed. NASA's large-area LOLA COG products are a possible alternate route.
+7. **Planetary reference.** MOLA is processed for Nili Patera. Lunar LOLA PDS GDR 80 m elevation and count grids are processed for Shackleton Rim, with a coarse ~925 m profile aggregated for cross-body terrain comparison. The original 5 m PGDA Site04 path was blocked, but the MIT Imbrium mirror provides the 80 m PDS GDR. Diviner thermal / water-ice-permafrost products remain reference-only.
 8. **Field-readiness card.** Convert gaps into validation tasks: georeferenced field stations, ground photos, rock/soil descriptions, local weather loggers, surface-temperature sensors, sample provenance and permissions.
 
 ## Matched-scale terrain method
@@ -58,6 +58,16 @@ The Smithsonian GVP catalogue identifies Sultan as a Pleistocene volcanic field.
 ### Hispar Glacier / Karakoram
 Sentinel-2 scene discovery includes a late-summer 2022 inventory-reference period and recent scenes. A true-colour preview has been clipped to an approximate bounding box near 36.10572°N, 75.23341°E. Copernicus DEM is processed over an approximately 30 km window at matched coarse support. EvK2CNR already published a Pakistan glacier inventory. The project's contribution is to cross-reference existing evidence and show transferability gaps, not to remap Pakistan's glaciers.
 
+## Lunar LOLA terrain method — Shackleton Rim
+
+- Product: NASA LRO LOLA PDS GDR `LDEM_80S_80M` and `LDEC_80S_80M`, 80 m/pixel, Moon ME / DE421 south-polar stereographic projection.
+- Study window: 29.6 km × 29.6 km, centred on the Shackleton Rim R04/Site04 coordinate (-89.7668°, 188.13°E).
+- Native LDEM is an interpolated gridded surface model. Its elevation samples remain valid even when the LDEC count is zero; the count grid is separately summarized as observation support.
+- Native window: 370 × 370 cells; 89,996 of 90,000 cells have positive laser-return counts (99.9956%).
+- Coarse comparison: area-average the 80 m LDEM to a 32 × 32 grid at 925 m, same spatial support as the Earth/Mars coarse windows.
+- Coarse descriptors: median/P90 slope 13.40°/30.94°; P90 3×3 local relief 1,391 m over an approximately 2.775 km footprint.
+- This is a rugged local topographic profile. It does not compute illumination, permanently shadowed-region status, water ice, landing suitability, engineering hazards or permanent-base feasibility.
+
 ## No universal similarity score
 Climate, imagery, terrain and geology have different physical meanings, temporal windows and spatial support. A weighted score would be misleading without a specific mission task, harmonized units/resolution, missing-data accounting, scientifically defensible weights, sensitivity testing and independent domain review. Therefore the current release shows source status, measurements and gaps separately instead of generating a spurious “Mars similarity %”.
 
@@ -66,7 +76,7 @@ Climate, imagery, terrain and geology have different physical meanings, temporal
 - Copernicus DEM GLO-30 is a DSM, not bare-earth terrain.
 - The 925 m analysis is too coarse for rover-scale hazards or field-scale obstacles.
 - Absolute elevations are not compared between Earth DSM and Mars areoid reference.
-- Raw lunar LOLA and Diviner data are not processed.
+- LOLA 80 m elevation/count products are now processed; Diviner annual-temperature and water-ice-permafrost products are not yet processed. The LOLA surface is interpolated and its count map is reported separately.
 - Sentinel-2 true-colour is not mineral classification; spectral indices need cloud/snow/shadow masks and validation.
 - The EvK2CNR glacier inventory is cited, not redistributed.
 - No NDMA or SUPARCO data API or redistribution licence is confirmed.
