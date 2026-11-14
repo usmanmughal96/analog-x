@@ -3,24 +3,29 @@
 ## Public repository
 https://github.com/usmanmughal96/analog-x
 
-Default branch: main. Public visibility confirmed. The repository currently includes a landing page, seven-slide browser demo, documentation, processing scripts, requirements and GitHub Pages workflow.
+Default branch: main. Public visibility and write access confirmed.
 
 ## GitHub Pages
-The workflow is configured at `.github/workflows/pages.yml` and deploys the repository root. GitHub Pages is not yet enabled for this repository. The first workflow attempt failed at the Configure Pages step because GitHub reported that no Pages site exists and the connected integration could not create one.
+GitHub Pages has been enabled by the repository owner. The GitHub Actions workflow successfully passed Configure Pages and Upload site on the current deployment sequence. The latest run is tracked here: https://github.com/usmanmughal96/analog-x/actions
 
-### Owner action required
-1. Open repository Settings → Pages.
-2. Under Build and deployment, select **GitHub Actions** as the source.
-3. Return to Actions and rerun the latest **Deploy static site to GitHub Pages** workflow (or push a new commit).
-4. Wait for a green successful deployment.
-5. Verify both URLs in an incognito browser:
-   - https://usmanmughal96.github.io/analog-x/
-   - https://usmanmughal96.github.io/analog-x/demo.html
+Expected public addresses:
+- https://usmanmughal96.github.io/analog-x/
+- https://usmanmughal96.github.io/analog-x/demo.html
 
-Do not submit these URLs as verified demo links until they load publicly.
+Confirm the latest deployment run is green and test both links in a private browser before submitting to NASA.
+
+## Current application
+The root `index.html` is now the ANALOG-X Mission-to-Field Planner:
+- Mission reference: Mars Syrtis Major, Mars Jezero or lunar south-polar/Shackleton context.
+- Task: geology/sample-context, rover-traverse workflow, wind/dust experiment, thermal equipment trial or solar operations.
+- Candidate environments: Koh-i-Sultan, Dallol, Atacama, McMurdo Dry Valleys, Haughton, Iceland, Death Valley; users can add custom coordinates.
+- Live NASA POWER point climatology requests in the browser.
+- Relative Field-Campaign Index, monthly field-window suggestions, map, CSV/JSON exports and a downloadable field-test plan.
+
+The index is not a planetary similarity score. It ranks only Earth campaign conditions for selected sites and the selected task. Raw MOLA/Diviner/LOLA rasters are not processed by this build. SUPARCO Space4Climate products are not claimed as ingested.
 
 ## Binary deliverables
-The full PDF/PPTX slide deck and technical report are available in the downloadable local submission package. They have not been committed to this repository by the text-only GitHub publishing path. The browser-based seven-slide demo is committed as `demo.html`.
+PDF/PPTX presentation and technical report are in the separately prepared submission package. The browser demo is `demo.html`.
 
-## Scientific state
-The public repository is a reconnaissance prototype. MOLA and NASADEM/SRTM raw raster processing has not been completed. SUPARCO Chagai product access, coverage and licence have not been verified. No computed terrain statistics or numerical analog score is claimed.
+## Remaining validation
+Run the public app in a browser and execute a live NASA POWER scan. Confirm API/CORS availability, inspect returned values and generate one field-test card. Capture screenshots of actual scan results for the NASA submission.
