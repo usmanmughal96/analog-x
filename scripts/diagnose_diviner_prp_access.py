@@ -14,7 +14,7 @@ FILES=[
  "readme.txt"
 ]
 OLD_BASE="https://pds-geosciences.wustl.edu/lro/lro-l-dlre-4-rdr-v1/lrodlr_1001/data/prp/"
-OLD_FILES=["DLRE_PRP_SOUTH.TAB","DLRE_PRP_SOUTH.LBL","DLRE_PRP_NORTH.TAB","DLRE_PRP_NORTH.LBL"]
+OLD_FILES=["DLRE_PRP_SOUTH.TAB","DLRE_PRP_SOUTH.LBL","DLRE_PRP_NORTH.TAB","DLRE_PRP_NORTH.LBL","DLRE_PRP.FMT","prpds.cat"]
 def probe(session,url,read_text=False):
  out={"url":url}
  try:
@@ -31,6 +31,11 @@ def probe(session,url,read_text=False):
    r=session.get(url,headers={"Range":"bytes=0-1023"},timeout=(20,60))
    out.update({"range_status":r.status_code,"range_bytes":len(r.content),
      "content_range":r.headers.get("Content-Range")})
+   if key.endswith(".FMT") or key.endswith(".cat"):
+    out["get_status"]=r.status_code
+    out["text"]=r.text[:30000]
+    if r.status_code==206:
+     out["text_range"]=r.text[:30000]
  except Exception as exc:
   out["error"]=repr(exc)
  return out
