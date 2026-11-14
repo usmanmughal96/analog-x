@@ -537,6 +537,7 @@ async function runMissionAgent(env, body, context, candidateIds, agents) {
     { role: "user", content: JSON.stringify({
       question: body.question, mission_target: body.mission_target,
       objective: body.objective, selected_candidates: candidateIds,
+      coordinate_scout: compactAgents.find(x => x.agent === "GLOBAL COORDINATE SCOUT")?.result || null,
       specialist_evidence: compactAgents
     }) }
   ];
@@ -577,7 +578,8 @@ export default {
     if (!allowedOrigin(origin, env)) return jsonResponse({ error: "Origin not allowed" }, 403, cors);
     if (request.method === "GET" && url.pathname === "/health") {
       return jsonResponse({
-        ok: !!env.AI, service: "ANALOG-X Agent API", model: MODEL,
+        ok: true, ai_enabled: !!env.AI, scout_enabled: true,
+        service: "ANALOG-X Agent API", model: MODEL,
         free_tier_note: "Cloudflare Workers AI Free allocation is limited to 10,000 Neurons/day; requests may be throttled or fail when the account quota is exhausted.",
         data_base_url: env.DATA_BASE_URL || DEFAULT_DATA_BASE,
         ai_enabled: !!env.AI,
@@ -622,13 +624,18 @@ export default {
       const selection = candidateIds.length ? candidateIds : ["chagai_small_playas","hamun_i_mashkel","koh_i_sultan","hispar_glacier"];
       const context = await loadContext(env, selection);
       const agents = specialistReports(context, missionTarget, selection);
+      let coordinateScout = null;
+      if (body.scout_coordinates && typeof body.scout_coordinates === "object") {
+        coordinateScout = await scoutEarthCoordinate(body.scout_coordinates);
+        agents.unshift({ agent: "GLOBAL COORDINATE SCOUT", status: "live NASA / Planetary Computer API retrieval", result: coordinateScout });
+      }
       const modelResult = await runMissionAgent(env, {
         question, mission_target: missionTarget, objective
       }, context, selection, agents);
       return jsonResponse({
         ok: true, mode: "cloudflare-workers-ai",
         model: MODEL, mission_target: missionTarget, objective,
-        question, candidates: selection, agents, ...modelResult,
+        question, candidates: selection, agents, coordinate_scout: coordinateScout, ...modelResult,
         data_generated_at_utc: {
           power: context.powerIndex.generated_at_utc,
           terrain: context.terrain.generated_at_utc,
