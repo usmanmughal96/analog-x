@@ -38,6 +38,20 @@ const TOOL_DEFINITIONS = [
     }
   },
   {
+    name: "scout_earth_coordinate",
+    description: "Search a user-supplied Earth coordinate and radius against the NASA POWER Climatology API, Microsoft Planetary Computer Sentinel-2 L2A STAC archive and Copernicus DEM GLO-30 STAC catalogue. Returns measured climate context, scene discovery metadata and DEM tile availability. This is a screening scan, not mineral identification or field validation.",
+    parameters: {
+      type: "object",
+      properties: {
+        latitude: { type: "number", description: "WGS84 latitude, -89.9 to 89.9 degrees." },
+        longitude: { type: "number", description: "WGS84 longitude, -180 to 180 degrees." },
+        radius_km: { type: "number", description: "Study-window radius, 1 to 50 km." },
+        mission_target: { type: "string", enum: ["Moon", "Mars", "Both"] }
+      },
+      required: ["latitude", "longitude", "radius_km"]
+    }
+  },
+  {
     name: "read_surface_evidence",
     description: "Read Sentinel-2 L2A spectral-context statistics and source metadata for an Earth candidate. Indices are screening descriptors, not mineral identification or validated ice boundaries.",
     parameters: {
@@ -291,7 +305,180 @@ function specialistReports(context, missionTarget, candidateIds) {
   ];
 }
 
-async function executeTool(name, args, context, missionTarget, candidateIds) {
+
+const PLANETARY_COMPUTER_STAC = "https://planetarycomputer.microsoft.com/api/stac/v1/search";
+const NASA_POWER_CLIMATOLOGY = "https://power.larc.nasa.gov/api/temporal/climatology/point";
+
+function validateScoutInput(input) {
+  const latitude = Number(input?.latitude);
+  const longitude = Number(input?.longitude);
+  const radiusKm = Number(input?.radius_km ?? 10);
+  if (!Number.isFinite(latitude) || latitude < -89.9 || latitude > 89.9) {
+    throw new Error("Latitude must be between -89.9 and 89.9 degrees.");
+  }
+  if (!Number.isFinite(longitude) || longitude < -180 || longitude > 180) {
+    throw new Error("Longitude must be between -180 and 180 degrees.");
+  }
+  if (!Number.isFinite(radiusKm) || radiusKm < 1 || radiusKm > 50) {
+    throw new Error("Study radius must be between 1 and 50 km.");
+  }
+  return { latitude, longitude, radius_km: radiusKm };
+}
+
+function scoutBbox({ latitude, longitude, radius_km }) {
+  const latDelta = radius_km / 110.574;
+  const cosLat = Math.max(0.05, Math.cos(latitude * Math.PI / 180));
+  const lonDelta = Math.min(180, radius_km / (111.320 * cosLat));
+  const south = Math.max(-89.9, latitude - latDelta);
+  const north = Math.min(89.9, latitude + latDelta);
+  const west = Math.max(-180, longitude - lonDelta);
+  const east = Math.min(180, longitude + lonDelta);
+  return [west, south, east, north];
+}
+
+async function fetchPowerClimatology(latitude, longitude) {
+  const url = new URL(NASA_POWER_CLIMATOLOGY);
+  url.searchParams.set("parameters", "T2M,T2M_MAX,T2M_MIN,RH2M,WS10M,PRECTOTCORR,ALLSKY_SFC_SW_DWN");
+  url.searchParams.set("community", "RE");
+  url.searchParams.set("longitude", longitude.toFixed(5));
+  url.searchParams.set("latitude", latitude.toFixed(5));
+  url.searchParams.set("format", "JSON");
+  const response = await fetch(url.toString(), { headers: { "Accept": "application/json" } });
+  if (!response.ok) throw new Error("NASA POWER returned HTTP " + response.status);
+  const payload = await response.json();
+  const block = payload?.properties?.parameter;
+  if (!block || typeof block !== "object" || !block.T2M) {
+    throw new Error("NASA POWER returned no usable climatology parameter block.");
+  }
+  const months = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+  const monthly = months.map(month => ({
+    month,
+    temperature_c: Number.isFinite(block.T2M?.[month]) ? block.T2M[month] : null,
+    max_temperature_c: Number.isFinite(block.T2M_MAX?.[month]) ? block.T2M_MAX[month] : null,
+    min_temperature_c: Number.isFinite(block.T2M_MIN?.[month]) ? block.T2M_MIN[month] : null,
+    relative_humidity_percent: Number.isFinite(block.RH2M?.[month]) ? block.RH2M[month] : null,
+    wind_10m_ms: Number.isFinite(block.WS10M?.[month]) ? block.WS10M[month] : null,
+    precipitation_mm_day: Number.isFinite(block.PRECTOTCORR?.[month]) ? block.PRECTOTCORR[month] : null,
+    solar_kwh_m2_day: Number.isFinite(block.ALLSKY_SFC_SW_DWN?.[month]) ? block.ALLSKY_SFC_SW_DWN[month] : null
+  }));
+  const driest = monthly.filter(x => Number.isFinite(x.precipitation_mm_day))
+    .slice().sort((a,b) => a.precipitation_mm_day - b.precipitation_mm_day).slice(0,3);
+  const annual = key => Number.isFinite(block[key]?.ANN) ? block[key].ANN : null;
+  return {
+    provider: "NASA POWER Climatology API",
+    endpoint: url.toString(),
+    community: "RE",
+    fetched_at_utc: new Date().toISOString(),
+    annual: {
+      mean_air_temperature_c: annual("T2M"),
+      mean_relative_humidity_percent: annual("RH2M"),
+      mean_wind_10m_ms: annual("WS10M"),
+      mean_precipitation_mm_day: annual("PRECTOTCORR"),
+      mean_all_sky_solar_kwh_m2_day: annual("ALLSKY_SFC_SW_DWN")
+    },
+    driest_climatological_months: driest,
+    monthly,
+    interpretation: "Long-term gridded climatology; not a station record, forecast, rock/surface temperature, dust flux or accessible water/ice measurement."
+  };
+}
+
+async function postStacSearch(collection, bbox, datetime) {
+  const response = await fetch(PLANETARY_COMPUTER_STAC, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/geo+json, application/json" },
+    body: JSON.stringify({
+      collections: [collection],
+      bbox,
+      ...(datetime ? { datetime } : {}),
+      limit: 50
+    })
+  });
+  if (!response.ok) throw new Error("Planetary Computer STAC " + collection + " returned HTTP " + response.status);
+  return response.json();
+}
+
+async function scoutEarthCoordinate(input) {
+  const point = validateScoutInput(input);
+  const bbox = scoutBbox(point);
+  const end = new Date();
+  const start = new Date(end.getTime() - 24 * 30 * 24 * 60 * 60 * 1000);
+  const datetime = start.toISOString() + "/" + end.toISOString();
+  const results = await Promise.allSettled([
+    fetchPowerClimatology(point.latitude, point.longitude),
+    postStacSearch("sentinel-2-l2a", bbox, datetime),
+    postStacSearch("cop-dem-glo-30", bbox, null)
+  ]);
+  const [powerResult, sentinelResult, demResult] = results;
+  const sentinel = sentinelResult.status === "fulfilled" ? sentinelResult.value : null;
+  const dem = demResult.status === "fulfilled" ? demResult.value : null;
+  const features = Array.isArray(sentinel?.features) ? sentinel.features : [];
+  const scenes = features.map(item => {
+    const props = item.properties || {};
+    return {
+      id: item.id,
+      datetime: props.datetime || null,
+      platform: props.platform || props["constellation"] || null,
+      cloud_cover_percent: Number.isFinite(props["eo:cloud_cover"]) ? props["eo:cloud_cover"] : null,
+      mgrs_tile: props["s2:mgrs_tile"] || props["mgrs:utm_zone"] || null,
+      item_url: item.links?.find(link => link.rel === "self")?.href || null,
+      collection: item.collection || "sentinel-2-l2a"
+    };
+  });
+  const best = scenes.slice().sort((a,b) => {
+    const av = Number.isFinite(a.cloud_cover_percent) ? a.cloud_cover_percent : 999;
+    const bv = Number.isFinite(b.cloud_cover_percent) ? b.cloud_cover_percent : 999;
+    return av - bv || String(b.datetime || "").localeCompare(String(a.datetime || ""));
+  }).slice(0,5);
+  const demFeatures = Array.isArray(dem?.features) ? dem.features : [];
+  return {
+    status: "screening scan complete",
+    coordinate: { latitude: point.latitude, longitude: point.longitude, crs: "WGS84" },
+    study_window: { radius_km: point.radius_km, bbox_wgs84: bbox, construction: "Approximate rectangular search window from the user-supplied radius; not a site boundary." },
+    generated_at_utc: new Date().toISOString(),
+    evidence: {
+      nasa_power: powerResult.status === "fulfilled"
+        ? { status: "integrated response", data: powerResult.value }
+        : { status: "unavailable", error: String(powerResult.reason?.message || powerResult.reason) },
+      sentinel_2_l2a: sentinel
+        ? {
+            status: "catalogue metadata discovered",
+            collection: "sentinel-2-l2a",
+            time_window_utc: datetime,
+            returned_items: features.length,
+            number_matched: sentinel.numberMatched ?? sentinel.context?.matched ?? null,
+            best_scene_candidates: best,
+            source: "Microsoft Planetary Computer public STAC API",
+            limits: "Catalogue metadata only. A scene cloud percentage is not an AOI cloud mask. No mineral classification, validated ice boundary or spectral change analysis is performed by this scout."
+          }
+        : { status: "unavailable", error: String(sentinelResult.reason?.message || sentinelResult.reason) },
+      copernicus_dem: dem
+        ? {
+            status: "catalogue metadata discovered",
+            collection: "cop-dem-glo-30",
+            returned_items: demFeatures.length,
+            number_matched: dem.numberMatched ?? dem.context?.matched ?? null,
+            tiles: demFeatures.slice(0,12).map(item => ({
+              id: item.id,
+              bbox: item.bbox || null,
+              gsd_m: item.properties?.gsd ?? null,
+              epsg: item.properties?.["proj:epsg"] ?? null
+            })),
+            source: "Microsoft Planetary Computer / Copernicus DEM GLO-30",
+            limits: "DEM catalogue discovery only. No raster has been downloaded, mosaicked or analysed for this coordinate by the scout."
+          }
+        : { status: "unavailable", error: String(demResult.reason?.message || demResult.reason) }
+    },
+    next_measurements: [
+      "Inspect the best Sentinel-2 scenes with AOI-specific cloud/shadow masks and compare multiple acquisition dates.",
+      "Retrieve and process Copernicus DEM or a higher-resolution local DEM; report support, nodata coverage and terrain uncertainty.",
+      "Obtain primary-source geology and material evidence before assigning mineralogy or resource prospectivity.",
+      "Plan field validation, instrument checks, access permissions and local safety review."
+    ],
+    decision_boundary: "This is a coordinate-level open-data discovery scan, not an analog designation, similarity probability, field-access guarantee or mission safety assessment."
+  };
+}
+
+async function executeTool(name, args, context, missionTarget, candidateIds, env) {
   switch (name) {
     case "get_candidate_inventory":
       return inventoryFor(context, args.mission_target || missionTarget, args.discovery_tier || "all");
@@ -301,6 +488,8 @@ async function executeTool(name, args, context, missionTarget, candidateIds) {
       return campaignFor(context, args.site_id);
     case "read_surface_evidence":
       return surfaceFor(context, args.site_id);
+    case "scout_earth_coordinate":
+      return scoutEarthCoordinate(args);
     default:
       throw new Error("Tool not allow-listed: " + name);
   }
@@ -334,6 +523,7 @@ async function runMissionAgent(env, body, context, candidateIds, agents) {
     "Mission target: " + body.mission_target + ". Experiment: " + body.objective + ".",
     "You have four specialist reports (terrain morphology, climate campaign, surface/process, evidence integrity).",
     "You may call the provided tools to inspect raw evidence. Use tools before reaching a recommendation.",
+    "If the user supplies a new Earth coordinate, call scout_earth_coordinate before assessing it. Never invent coordinates; request them only when the task lacks a supplied location.",
     "Only use numerical evidence returned by tools or specialist reports. Preserve units, dates, spatial support and coverage.",
     "Separate measurement, inference and hypothesis. Never invent a source, measurement or site property.",
     "Do not call Earth/Moon/Mars locations identical. Do not claim a candidate is newly discovered or validated unless the evidence explicitly supports it.",
@@ -363,7 +553,7 @@ async function runMissionAgent(env, body, context, candidateIds, agents) {
     for (const call of calls.slice(0, 3)) {
       const name = call.name || call.function?.name;
       const args = parseToolArgs(call);
-      const result = await executeTool(name, args, context, body.mission_target, candidateIds);
+      const result = await executeTool(name, args, context, body.mission_target, candidateIds, env);
       trace.push({ tool: name, arguments: args, result });
       messages.push({ role: "tool", content: JSON.stringify({ name, result }) });
     }
@@ -390,12 +580,14 @@ export default {
         ok: !!env.AI, service: "ANALOG-X Agent API", model: MODEL,
         free_tier_note: "Cloudflare Workers AI Free allocation is limited to 10,000 Neurons/day; requests may be throttled or fail when the account quota is exhausted.",
         data_base_url: env.DATA_BASE_URL || DEFAULT_DATA_BASE,
-        capabilities: ["multi-agent evidence analysis", "function calling", "NASA POWER campaign windows", "Sentinel-2 spectral context", "Earth-Moon-Mars terrain comparison"],
-        version: "1.0.0"
+        ai_enabled: !!env.AI,
+        scout_enabled: true,
+        capabilities: ["global coordinate scout", "NASA POWER live climatology", "Sentinel-2 L2A STAC discovery", "Copernicus DEM STAC discovery", "multi-agent evidence analysis", "function calling", "candidate inventory", "Earth-Moon-Mars terrain comparison"],
+        version: "1.1.0"
       }, 200, cors);
     }
-    if (request.method !== "POST" || url.pathname !== "/analyze") {
-      return jsonResponse({ error: "Use GET /health or POST /analyze" }, 404, cors);
+    if (request.method !== "POST" || !["/analyze", "/scout"].includes(url.pathname)) {
+      return jsonResponse({ error: "Use GET /health, POST /scout or POST /analyze" }, 404, cors);
     }
     const clientIp = request.headers.get("CF-Connecting-IP") || "anonymous";
     if (env.MISSION_RATE_LIMIT) {
@@ -407,12 +599,21 @@ export default {
     let body;
     try { body = await request.json(); }
     catch { return jsonResponse({ error: "Request body must be valid JSON." }, 400, cors); }
+    if (url.pathname === "/scout") {
+      try {
+        const scout = await scoutEarthCoordinate(body);
+        return jsonResponse({ ok: true, scout }, 200, cors);
+      } catch (error) {
+        return jsonResponse({ ok: false, error: String(error?.message || error) }, 400, cors);
+      }
+    }
     const question = String(body.question || "").trim();
     const missionTarget = ["Moon","Mars","Both"].includes(body.mission_target) ? body.mission_target : "Mars";
     const objective = String(body.objective || "mission-specific field rehearsal").slice(0, 180);
     if (question.length < 8 || question.length > MAX_PROMPT) {
       return jsonResponse({ error: "Question must contain 8–800 characters." }, 400, cors);
     }
+    if (!env.AI) return jsonResponse({ ok: false, error: "Workers AI binding is not enabled. The /scout data endpoint is available independently; connect AI in the Cloudflare Worker to run the Mission Director." }, 503, cors);
     try {
       const catalog = await fetchJson(env.DATA_BASE_URL || DEFAULT_DATA_BASE, "/data/agents/candidate_catalog.json");
       const validIds = new Set((catalog.candidate_sites || []).map(x => x.id));
