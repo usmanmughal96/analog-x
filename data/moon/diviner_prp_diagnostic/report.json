@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-14T15:19:19+00:00",
+  "generated_at_utc": "2026-11-14T15:19:52+00:00",
   "provider": "NASA PDS4 / LRO Diviner derived bundle",
   "base": "https://pds.nasa.gov/data/pds4/releases/geo/lro_diviner_derived1-20260918/",
   "pds4": {
@@ -55,7 +55,7 @@
       "range_status": 206,
       "range_bytes": 1024,
       "content_range": "bytes 0-1023/604800210",
-      "error": "NameError(\"name 'key' is not defined\")"
+      "range_text": "      tri1_x,       tri1_y,       tri1_z,       tri2_x,       tri2_y,       tri2_z,       tri3_x,       tri3_y,       tri3_z,        tri_clon,        tri_clat,        tri_calt, temp_avg, temp_max,   ice_depth\r\n   299.52036,   -299.52036,  -1685.56519,    299.02863,   -299.52850,  -1685.65479,    299.03738,   -299.03738,  -1685.74780,   -45.015949249,   -75.905227661,     0.579086423,  162.934,  272.164,  -999.00000\r\n   299.52036,   -299.52036,  -1685.56519,    299.03738,   -299.03738,  -1685.74780,    299.52960,   -299.02975,  -1685.66101,   -44.984050751,   -75.905227661,     0.581244111,  162.969,  272.136,  -999.00000\r\n   299.52960,   -299.02975,  -1685.66101,    299.03738,   -299.03738,  -1685.74780,    299.04599,   -298.54782,  -1685.83972,   -44.968128204,   -75.916862488,     0.586974800,  162.151,  270.967,  -999.00000\r\n   299.52960,   -299.02975,  -1685.66101,    299.04599,   -298.54782,  -1685.83972,    299.53876,   -298.54074,  -1685.75610,   -44.936260223,   -75.916839600,     0.589973807,  162.12"
     },
     "DLRE_PRP_SOUTH.LBL": {
       "url": "https://pds-geosciences.wustl.edu/lro/lro-l-dlre-4-rdr-v1/lrodlr_1001/data/prp/DLRE_PRP_SOUTH.LBL",
@@ -77,7 +77,7 @@
       "range_status": 206,
       "range_bytes": 1024,
       "content_range": "bytes 0-1023/604800210",
-      "error": "NameError(\"name 'key' is not defined\")"
+      "range_text": "      tri1_x,       tri1_y,       tri1_z,       tri2_x,       tri2_y,       tri2_z,       tri3_x,       tri3_y,       tri3_z,        tri_clon,        tri_clat,        tri_calt, temp_avg, temp_max,   ice_depth\r\n   298.84216,   -298.84216,   1684.64722,    298.83215,   -299.33167,   1684.54712,    299.32120,   -299.32120,   1684.44446,   -45.015949249,    75.905227661,    -0.564945281,  167.004,  277.952,  -999.00000\r\n   299.33179,   -298.83224,   1684.54773,    298.84216,   -298.84216,   1684.64722,    299.32120,   -299.32120,   1684.44446,   -44.984050751,    75.905227661,    -0.564754903,  167.022,  277.958,  -999.00000\r\n   298.85220,   -298.35437,   1684.74731,    298.84216,   -298.84216,   1684.64722,    299.33179,   -298.83224,   1684.54773,   -44.968128204,    75.916862488,    -0.549228489,  166.375,  277.046,  -999.00000\r\n   299.34265,   -298.34528,   1684.65234,    298.85220,   -298.35437,   1684.74731,    299.33179,   -298.83224,   1684.54773,   -44.936260223,    75.916839600,    -0.547327518,  166.31"
     },
     "DLRE_PRP_NORTH.LBL": {
       "url": "https://pds-geosciences.wustl.edu/lro/lro-l-dlre-4-rdr-v1/lrodlr_1001/data/prp/DLRE_PRP_NORTH.LBL",
@@ -99,7 +99,7 @@
       "range_status": 404,
       "range_bytes": 12265,
       "content_range": null,
-      "error": "NameError(\"name 'key' is not defined\")"
+      "format_get_status": 404
     },
     "prpds.cat": {
       "url": "https://pds-geosciences.wustl.edu/lro/lro-l-dlre-4-rdr-v1/lrodlr_1001/data/prp/prpds.cat",
@@ -111,7 +111,7 @@
       "range_status": 404,
       "range_bytes": 12265,
       "content_range": null,
-      "error": "NameError(\"name 'key' is not defined\")"
+      "format_get_status": 404
     }
   }
 }
