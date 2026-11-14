@@ -273,7 +273,7 @@ async function runLocal(){
 }
 async function runCloud(){
  if(!state.connected){$("axAgentStatus").textContent="Connect and test the Worker endpoint first.";return;}
- const req=requestData();if(req.candidate_ids.length===0){$("axAgentStatus").textContent="Select at least one Earth site.";return;}
+ const req=requestData();if(req.candidate_ids.length===0&&!req.scout_coordinates){$("axAgentStatus").textContent="Select at least one Earth site or run a coordinate scout first.";return;}
  const endpoint=$("axAgentEndpoint").value.trim().replace(/\/$/,"");
  $("axAgentRunCloud").disabled=true;$("axAgentRunLocal").disabled=true;pill($("axAgentOutputStatus"),"AGENTS ACTIVE","gold");$("axAgentOutput").innerHTML="<div class='axLoading'></div><p>Mission Director is inspecting published evidence and may call data tools…</p>";
  try{
