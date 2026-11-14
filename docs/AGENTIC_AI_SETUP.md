@@ -44,3 +44,10 @@ The public site includes a deterministic, offline evidence mode. It reads the pu
 - Candidate records are a curated screening seed set, not an exhaustive global search.
 - The two Chagai playa AOIs are historical leads. Modern remote-sensing screens and field validation are required before making geological or resource claims.
 - A model-generated recommendation is not scientific evidence. Every factual claim must trace back to the deterministic specialist reports and linked datasets.
+
+
+## Decision logic and target handling
+
+The deterministic specialist reports run before the Mission Director. The candidate decision rule is documented in [DECISION_ENGINE.md](DECISION_ENGINE.md). The model is instructed to treat the reports and allow-listed tool results as the evidence base, distinguish measurement from inference, and never invent mineralogy, brine, ice access, dust flux, safety or a similarity percentage.
+
+When **Moon + Mars** is selected, the terrain tool returns two independent comparisons (Shackleton Rim and Nili Patera); it must not blend them into a single score. Tool calling is limited to one explicit retrieval round (up to three allow-listed calls) followed by a synthesis pass. The Worker returns the tool trace and model usage metadata with the brief.
