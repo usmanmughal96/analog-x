@@ -14,7 +14,7 @@ import requests
 import numpy as np
 import rasterio
 from rasterio.windows import Window
-from pyproj import Transformer
+from pyproj import CRS as PyCRS, Transformer
 from scipy.ndimage import maximum_filter,minimum_filter
 from PIL import Image
 
@@ -84,7 +84,8 @@ def main():
   # This is a Moon-centred custom CRS, not Earth EPSG:4326. Transform
   # longitude/latitude in the DEM's own lunar geodetic CRS to its stereographic
   # map CRS so the target is not inadvertently interpreted on an Earth ellipsoid.
-  lunar_geographic=dem.crs.geodetic_crs
+  moon_projected_crs=PyCRS.from_wkt(dem.crs.to_wkt())
+  lunar_geographic=moon_projected_crs.geodetic_crs
   if lunar_geographic is None:
    raise RuntimeError("LOLA JP2 has no lunar geodetic base CRS")
   transformer=Transformer.from_crs(lunar_geographic,dem.crs,always_xy=True)
