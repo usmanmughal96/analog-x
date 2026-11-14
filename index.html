@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ANALOG-X | Mission-to-Field Planner</title><meta name="description" content="Screen Earth field environments with live NASA POWER climatology and create mission-specific field-test plans.">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ANALOG-X | Mission-to-Field Planner</title><meta name="description" content="Use NASA POWER Earth climatology snapshots and source-traceable candidate evidence to plan mission-specific field trials.">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
 :root{--ink:#17262c;--navy:#102b38;--teal:#12685f;--mint:#e3f0e9;--gold:#d8b57d;--paper:#f4f5f1;--line:#dce4df;--muted:#69777a;--white:#fff;--warn:#8b5d27}
@@ -9,7 +9,7 @@
 @media print{.nav,.hero,.btn,.custom{display:none!important}body{background:white}.plan{background:#fff;color:#111;border:1px solid #bbb}.plan p,.planblock ul{color:#333}.planblock{border:1px solid #bbb}.planblock h4{color:#333}}
 </style></head><body>
 <header class="wrap nav"><div class="brand"><i>AX</i> ANALOG-X <span class="kicker">Mission-to-Field Planner</span></div><small>NASA Space Apps 2026 · Team X Æ A-Xii</small></header>
-<header class="hero"><div class="wrap heroGrid"><div><div class="eyebrow">Planetary goal → Earth field experiment</div><h1>Make the analog useful before you go.</h1><p>Screen candidate Earth environments with live NASA observations, identify when field conditions are suitable, and create a practical mission-rehearsal plan with clear scientific limits.</p><div class="stats"><div><strong>Live</strong><small>NASA POWER data</small></div><div><strong>7</strong><small>Earth candidates</small></div><div><strong>1 click</strong><small>Field test plan</small></div></div></div><aside class="heroCard"><b>What the tool actually does</b><span>01 · Fetches real Earth climatology for selected coordinates.<br><br>02 · Compares locations against the chosen field-task requirements.<br><br>03 · Finds suitable campaign months.<br><br>04 · Exports a practical test protocol, equipment list and planetary non-transferables.</span><p class="tiny">It does not invent a Mars similarity score. The index ranks Earth campaign conditions only.</p></aside></div></header>
+<header class="hero"><div class="wrap heroGrid"><div><div class="eyebrow">Planetary goal → Earth field experiment</div><h1>Make the analog useful before you go.</h1><p>Screen candidate Earth environments with live NASA observations, identify when field conditions are suitable, and create a practical mission-rehearsal plan with clear scientific limits.</p><div class="stats"><div><strong>Updated</strong><small>NASA POWER snapshots</small></div><div><strong>7</strong><small>Earth candidates</small></div><div><strong>1 click</strong><small>Field test plan</small></div></div></div><aside class="heroCard"><b>What the tool actually does</b><span>01 · Fetches real Earth climatology for selected coordinates.<br><br>02 · Compares locations against the chosen field-task requirements.<br><br>03 · Finds suitable campaign months.<br><br>04 · Exports a practical test protocol, equipment list and planetary non-transferables.</span><p class="tiny">It does not invent a Mars similarity score. The index ranks Earth campaign conditions only.</p></aside></div></header>
 <main>
 <section class="wrap section" id="planner"><div class="head"><div><div class="kicker">01 / Configure</div><h2>Choose the mission task and candidate environments.</h2></div><p>This turns the challenge from a static map into a research decision: where to rehearse, when to go, what to measure and what still requires a laboratory or planetary dataset.</p></div>
 <div class="card">
@@ -24,7 +24,7 @@
 <div class="field"><label for="customLon">Longitude</label><input id="customLon" type="number" step=".0001" min="-180" max="180" placeholder="62.8"></div>
 <button class="btn secondary" id="addSite">Add location</button>
 </div>
-<div class="runrow"><button class="btn" id="runScan">Run live NASA Earth-site scan</button><button class="btn secondary" id="clearScan">Clear</button><span class="status" id="scanStatus">Ready · choose locations and run the scan.</span></div>
+<div class="runrow"><button class="btn" id="runScan">Run NASA Earth-site screen</button><button class="btn secondary" id="clearScan">Clear</button><span class="status" id="scanStatus">Ready · choose locations and run the scan.</span></div>
 <div class="notice warn"><b>Scientific boundary:</b> NASA POWER provides gridded/reanalysis-based Earth meteorology and solar climatology. It does not measure lithology, dust deposition, rover traction, subsurface ice or lunar/Martian surface conditions.</div>
 </div></section>
 
@@ -37,13 +37,13 @@
 </section>
 
 <section class="wrap section" id="method"><div class="head"><div><div class="kicker">03 / Why this is different</div><h2>Measured climate. Separate geology. Honest transfer limits.</h2></div><p>The index measures campaign conditions, not whether a rock or planet is equivalent.</p></div><div class="evidences">
-<article class="evidence"><span class="badge">Measured</span><h3>NASA POWER live data</h3><p>2-m air temperature, humidity, precipitation and 10-m wind. Solar radiation is requested for solar campaigns.</p></article>
+<article class="evidence"><span class="badge">Measured</span><h3>NASA POWER data snapshots</h3><p>2-m air temperature, humidity, precipitation and 10-m wind. Solar radiation is requested for solar campaigns.</p></article>
 <article class="evidence"><span class="badge">Curated</span><h3>Geological context</h3><p>Published source descriptions remain separate. NASA POWER weather variables do not infer volcanic lithology or mineral composition.</p></article>
 <article class="evidence"><span class="badge">Actionable</span><h3>Field-test generator</h3><p>Converts the task into a protocol, equipment list, best climatological months and specific things that still require lab testing.</p></article>
 </div><div class="notice" style="margin-top:13px"><b>Index meaning:</b> min–max normalized across the successful sites selected in one scan. Its formula changes by task. It is not a probability, absolute suitability threshold, planetary match, landing-safety score or geological ranking. Fewer than two successful sites means no rank.</div></section>
 
-<section class="wrap section" id="sources"><div class="head"><div><div class="kicker">04 / Provenance</div><h2>Sources behind the workflow.</h2></div><p>NASA POWER is used live. Planetary archives and geology references are linked, but their rasters are not represented as processed by this build.</p></div><div class="evidences">
-<article class="evidence"><span class="badge">Live NASA API</span><h3>NASA POWER Climatology</h3><p>T2M, T2M_MAX, T2M_MIN, RH2M, WS10M, PRECTOTCORR; solar tasks also request ALLSKY_SFC_SW_DWN.</p><a href="https://power.larc.nasa.gov/docs/services/api/temporal/climatology/" target="_blank">API docs ↗</a></article>
+<section class="wrap section" id="sources"><div class="head"><div><div class="kicker">04 / Provenance</div><h2>Sources behind the workflow.</h2></div><p>NASA POWER snapshots are generated server-side. Planetary archives and geology references are linked, but their rasters are not represented as processed by this build.</p></div><div class="evidences">
+<article class="evidence"><span class="badge">NASA API snapshot</span><h3>NASA POWER Climatology</h3><p>T2M, T2M_MAX, T2M_MIN, RH2M, WS10M, PRECTOTCORR; solar tasks also request ALLSKY_SFC_SW_DWN.</p><a href="https://power.larc.nasa.gov/docs/services/api/temporal/climatology/" target="_blank">API docs ↗</a></article>
 <article class="evidence"><span class="badge">Mars</span><h3>NASA MOLA / PDS</h3><p>Mars topography and observation count products. Global 4 px/degree MOLA is regional context, not rover hazard resolution.</p><a href="https://pds-geosciences.wustl.edu/missions/mgs/megdr.html" target="_blank">MOLA archive ↗</a></article>
 <article class="evidence"><span class="badge">Moon</span><h3>NASA LRO Diviner & LOLA</h3><p>Diviner surface temperature and LOLA altimetry are the relevant planetary reference families for lunar polar thermal/terrain work.</p><a href="https://pds-geosciences.wustl.edu/missions/lro/diviner.htm" target="_blank">Diviner ↗</a> · <a href="https://pds-geosciences.wustl.edu/missions/lro/" target="_blank">LRO PDS ↗</a></article>
 <article class="evidence"><span class="badge">Earth imagery</span><h3>NASA GIBS / Worldview</h3><p>Browse satellite imagery and environmental layers. Visual context is not mineral classification or dust deposition.</p><a href="https://nasa-gibs.github.io/gibs-api-docs/access-basics/" target="_blank">GIBS ↗</a> · <a href="https://worldview.earthdata.nasa.gov/" target="_blank">Worldview ↗</a></article>
@@ -148,9 +148,82 @@ async function fetchSite(site,solar){
     }
   };
 }
-function norm(arr,x,inv){const v=arr.filter(Number.isFinite);if(v.length<2)return 50;const lo=Math.min(...v),hi=Math.max(...v);if(hi-lo<1e-8)return 50;const n=(x-lo)/(hi-lo);return Math.round((inv?1-n:n)*100);}
-function score(rows,task){const m=rows.map(x=>x.metrics);return rows.map((r,i)=>{const dry=.55*norm(m.map(x=>x.precip),m[i].precip,true)+.45*norm(m.map(x=>x.rh),m[i].rh,true);const comfort=100*Math.max(0,1-Math.abs(m[i].temp-22)/28);let s=null,parts={};if(task==="geology"){s=.65*dry+.35*comfort;parts={dryness:dry,temperatureComfort:comfort};}if(task==="rover"){s=.45*dry+.25*(100-norm(m.map(x=>x.wind),m[i].wind,false))+.30*comfort;parts={dryness:dry,moderateWind:100-norm(m.map(x=>x.wind),m[i].wind,false),temperatureComfort:comfort};}if(task==="dust"){s=.55*norm(m.map(x=>x.wind),m[i].wind,false)+.45*dry;parts={windExposure:norm(m.map(x=>x.wind),m[i].wind,false),dryness:dry};}if(task==="thermal"){s=.65*norm(m.map(x=>x.dailyRange),m[i].dailyRange,false)+.35*norm(m.map(x=>x.seasonalSpan),m[i].seasonalSpan,false);parts={diurnalRange:norm(m.map(x=>x.dailyRange),m[i].dailyRange,false),seasonalSpan:norm(m.map(x=>x.seasonalSpan),m[i].seasonalSpan,false)};}if(task==="solar"){const vals=m.map(x=>x.solar);parts={solarResource:m[i].solar===null?null:norm(vals,m[i].solar,false)};s=parts.solarResource;}return Object.assign({},r,{score:s===null?null:Math.round(s),parts:parts});});}
-function monthScores(row,task){const a=row.monthly.filter(x=>x.temp!==null&&x.temp!==undefined);if(task==="solar"&&a.every(x=>x.solar===null))return[];const p=a.map(x=>x.precip),h=a.map(x=>x.rh),w=a.map(x=>x.wind),temps=a.map(x=>x.temp),solar=a.map(x=>x.solar),ranges=a.map(x=>x.tmax-x.tmin);return a.map(x=>{const dry=.55*norm(p,x.precip,true)+.45*norm(h,x.rh,true),comfort=100*Math.max(0,1-Math.abs(x.temp-22)/28);let s=0;if(task==="geology")s=.65*dry+.35*comfort;if(task==="rover")s=.45*dry+.25*(100-norm(w,x.wind,false))+.30*comfort;if(task==="dust")s=.55*norm(w,x.wind,false)+.45*dry;if(task==="thermal")s=.65*norm(ranges,x.tmax-x.tmin,false)+.35*norm(temps,x.temp,false);if(task==="solar")s=norm(solar,x.solar,false);return{month:x.month,score:Math.round(s),temp:x.temp,precip:x.precip,rh:x.rh,wind:x.wind,solar:x.solar};}).sort((x,y)=>y.score-x.score);}
+function norm(arr,x,inv){
+ const v=arr.filter(Number.isFinite);
+ if(!Number.isFinite(x)||v.length<2)return null;
+ const lo=Math.min(...v),hi=Math.max(...v);
+ if(!Number.isFinite(lo)||!Number.isFinite(hi))return null;
+ if(hi-lo<1e-8)return 50;
+ const n=(x-lo)/(hi-lo);
+ return Math.round((inv?1-n:n)*100);
+}
+const REQUIRED={
+ geology:["temp","rh","precip"],
+ rover:["temp","rh","precip","wind"],
+ dust:["rh","precip","wind"],
+ thermal:["dailyRange","seasonalSpan"],
+ solar:["solar"]
+};
+function isFiniteMetric(row,key){return Number.isFinite(row.metrics && row.metrics[key]);}
+function score(rows,task){
+ const required=REQUIRED[task]||[];
+ const complete=rows.filter(r=>required.every(k=>isFiniteMetric(r,k)));
+ return rows.map(r=>{
+  if(complete.length<2 || !required.every(k=>isFiniteMetric(r,k))){
+   const missing=required.filter(k=>!isFiniteMetric(r,k));
+   return Object.assign({},r,{score:null,parts:{},scoreReason:complete.length<2?"Fewer than two complete candidates for this task.":"Missing task inputs: "+missing.join(", ")});
+  }
+  const m=complete.map(x=>x.metrics),i=complete.indexOf(r);
+  const dry=.55*norm(m.map(x=>x.precip),r.metrics.precip,true)+.45*norm(m.map(x=>x.rh),r.metrics.rh,true);
+  const comfort=100*Math.max(0,1-Math.abs(r.metrics.temp-22)/28);
+  let s=null,parts={};
+  if(task==="geology"){s=.65*dry+.35*comfort;parts={dryness:dry,temperatureComfort:Math.round(comfort)};}
+  if(task==="rover"){
+   const moderateWind=100-norm(m.map(x=>x.wind),r.metrics.wind,false);
+   s=.45*dry+.25*moderateWind+.30*comfort;parts={dryness:dry,moderateWind:moderateWind,temperatureComfort:Math.round(comfort)};
+  }
+  if(task==="dust"){
+   const wind=norm(m.map(x=>x.wind),r.metrics.wind,false);
+   s=.55*wind+.45*dry;parts={windExposure:wind,dryness:dry};
+  }
+  if(task==="thermal"){
+   const diurnal=norm(m.map(x=>x.dailyRange),r.metrics.dailyRange,false);
+   const seasonal=norm(m.map(x=>x.seasonalSpan),r.metrics.seasonalSpan,false);
+   if(diurnal!==null&&seasonal!==null){s=.65*diurnal+.35*seasonal;parts={diurnalRange:diurnal,seasonalSpan:seasonal};}
+  }
+  if(task==="solar"){
+   const solar=norm(m.map(x=>x.solar),r.metrics.solar,false);
+   if(solar!==null){s=solar;parts={solarResource:solar};}
+  }
+  return Object.assign({},r,{score:s===null?null:Math.round(s),parts:parts,scoreReason:s===null?"Required component metrics could not be compared.":null});
+ });
+}
+function monthScores(row,task){
+ const monthly=row.monthly||[];
+ const monthReady=monthly.filter(x=>{
+  if(task==="geology")return [x.temp,x.rh,x.precip].every(Number.isFinite);
+  if(task==="rover")return [x.temp,x.rh,x.precip,x.wind].every(Number.isFinite);
+  if(task==="dust")return [x.rh,x.precip,x.wind].every(Number.isFinite);
+  if(task==="thermal")return [x.temp,x.tmax,x.tmin].every(Number.isFinite);
+  if(task==="solar")return Number.isFinite(x.solar);
+  return false;
+ });
+ if(monthReady.length<2)return [];
+ const p=monthReady.map(x=>x.precip),h=monthReady.map(x=>x.rh),w=monthReady.map(x=>x.wind),
+       temps=monthReady.map(x=>x.temp),solar=monthReady.map(x=>x.solar),
+       ranges=monthReady.map(x=>x.tmax-x.tmin);
+ return monthReady.map(x=>{
+  const dry=.55*norm(p,x.precip,true)+.45*norm(h,x.rh,true);
+  const comfort=100*Math.max(0,1-Math.abs(x.temp-22)/28);
+  let s=null;
+  if(task==="geology")s=.65*dry+.35*comfort;
+  if(task==="rover")s=.45*dry+.25*(100-norm(w,x.wind,false))+.30*comfort;
+  if(task==="dust")s=.55*norm(w,x.wind,false)+.45*dry;
+  if(task==="thermal")s=.65*norm(ranges,x.tmax-x.tmin,false)+.35*norm(temps,x.temp,false);
+  if(task==="solar")s=norm(solar,x.solar,false);
+  return {month:x.month,score:s===null?null:Math.round(s),temp:x.temp,precip:x.precip,rh:x.rh,wind:x.wind,solar:x.solar};
+ }).filter(x=>x.score!==null).sort((a,b)=>b.score-a.score);
+}
 function fmt(v,u){return v===null||v===undefined||!Number.isFinite(v)?"—":v.toFixed(1)+(u||"");}
 function status(s,type){$("scanStatus").textContent=s;$("scanStatus").style.color=type==="err"?"#973f30":type==="ok"?"#12685f":"#69777a";}
 function initMap(){if(!window.L)return;map=L.map("map",{scrollWheelZoom:false}).setView([15,0],2);L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:17,attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);}
@@ -161,11 +234,11 @@ function render(rows,task){$("results").classList.remove("hidden");const good=ro
  const body=$("resultRows");body.innerHTML="";rows.slice().sort((a,b)=>(b.score??-1)-(a.score??-1)).forEach((r,i)=>{const bestm=monthScores(r,task).slice(0,3).map(x=>x.month).join(", ")||"—",tr=document.createElement("tr");tr.innerHTML="<td class='rank'>"+(r.score===null?"—":i+1)+"</td><td><b>"+esc(r.site.name)+"</b><div class='tiny'>"+esc(r.site.country)+" · "+esc(r.site.type)+"</div></td><td>"+(r.score===null?"Not scored":"<b>"+r.score+"/100</b><div class='bar'><i style='width:"+r.score+"%'></i></div>")+"</td><td>"+fmt(r.metrics.temp," °C")+"</td><td>"+fmt(r.metrics.rh," %")+"</td><td>"+fmt(r.metrics.precip," mm/day")+"</td><td>"+fmt(r.metrics.wind," m/s")+"</td><td>"+fmt(r.metrics.dailyRange," °C")+"</td><td>"+esc(bestm)+"</td>";body.appendChild(tr);});
  const formulas={geology:"Index = 65% dryness (55% inverse precipitation + 45% inverse RH) + 35% air-temperature comfort around 22°C.",rover:"Index = 45% dryness + 25% inverse wind + 30% air-temperature comfort. No rover traction is modelled.",dust:"Index = 55% relative wind exposure + 45% dryness. This is not dust flux.",thermal:"Index = 65% mean monthly diurnal air-temperature range + 35% seasonal mean-temperature span.",solar:"Index = relative NASA POWER ALLSKY_SFC_SW_DWN among successful sites."};$("indexExplanation").textContent=formulas[task]+" Normalized only across successful candidates selected for this scan. Not a planetary similarity or site-safety score.";bars("tempChart",rows,"temp"," °C");bars("windChart",rows,"wind"," m/s");
  const select=$("planSite");select.innerHTML="";good.forEach(r=>{const o=document.createElement("option");o.value=r.site.id;o.textContent=r.site.name+" · "+(r.score===null?"—":r.score+"/100");select.appendChild(o);});if(best)select.value=best.site.id;$("results").scrollIntoView({behavior:"smooth",block:"start"});updateMap(rows);}
-async function run(){const chosen=selected(),task=$("task").value;if(chosen.length<2){status("Select at least two candidate sites to calculate a relative index.","err");return;}const btn=$("runScan");btn.disabled=true;btn.textContent="Scanning NASA POWER…";$("results").classList.add("hidden");results=[];let done=0;const failed=[],res=new Array(chosen.length);status("Fetching live NASA POWER climatology for "+chosen.length+" coordinates…");
+async function run(){const chosen=selected(),task=$("task").value;if(chosen.length<2){status("Select at least two candidate sites to calculate a relative index.","err");return;}const btn=$("runScan");btn.disabled=true;btn.textContent="Loading NASA POWER snapshots…";$("results").classList.add("hidden");results=[];let done=0;const failed=[],res=new Array(chosen.length);status("Loading stored NASA POWER snapshots for "+chosen.length+" coordinates…");
  let cursor=0;async function worker(){while(cursor<chosen.length){const i=cursor++,site=chosen[i];try{res[i]=await fetchSite(site,task==="solar");}catch(e){failed.push(site.name+": "+(e.message||String(e)));res[i]=null;}done++;status("NASA POWER responses: "+done+"/"+chosen.length+" · "+failed.length+" unavailable");}}
- try{await Promise.all([worker(),worker(),worker()]);const good=res.filter(Boolean);if(!good.length)throw Error("No NASA POWER response was usable. Check network access and retry.");results=score(good,task);render(results,task);status("Live scan complete: "+good.length+"/"+chosen.length+" locations. "+(failed.length?failed.length+" unavailable; see run note.":"All selected sites returned data."),"ok");
+ try{await Promise.all([worker(),worker(),worker()]);const good=res.filter(Boolean);if(!good.length)throw Error("No usable NASA POWER snapshots were available: "+failed.join(" | "));results=score(good,task);render(results,task);status("Snapshot scan complete: "+good.length+"/"+chosen.length+" locations. "+(failed.length?failed.length+" unavailable; see run note.":"All selected sites returned data."),"ok");
  const n=document.createElement("div");n.className="notice"+(failed.length?" warn":"");n.innerHTML="<b>Run record:</b> "+new Date().toISOString()+" · NASA POWER Climatology API · "+good.length+" successful responses · "+(failed.length?"Unavailable: "+failed.map(esc).join("; "):"All selected locations returned data.")+" · Browser cache up to 12 hours."; $("resultRows").closest(".tablebox").after(n);
- }catch(e){status(e.message||"Scan failed.","err");}finally{btn.disabled=false;btn.textContent="Run live NASA Earth-site scan";}}
+ }catch(e){status(e.message||"Scan failed.","err");}finally{btn.disabled=false;btn.textContent="Run NASA Earth-site screen";}}
 function addSite(){const name=$("customName").value.trim(),lat=Number($("customLat").value),lon=Number($("customLon").value);if(!name||!Number.isFinite(lat)||!Number.isFinite(lon)||lat<-90||lat>90||lon<-180||lon>180){status("Enter a name and valid coordinates (lat -90..90, lon -180..180).","err");return;}custom.push({id:"custom-"+Date.now(),name:name,country:"User supplied",lat:lat,lon:lon,type:"User-defined",tag:"Custom candidate",note:"Location supplied by user; not independently verified."});renderSites();$("customName").value="";$("customLat").value="";$("customLon").value="";status("Added "+name+" to the next scan.","ok");}
 function addList(id,a){const ul=$(id);ul.innerHTML="";a.forEach(x=>{const li=document.createElement("li");li.textContent=x;ul.appendChild(li);});}
 function buildPlan(){if(!results.length){status("Run the NASA scan first.","err");return;}const r=results.find(x=>x.site.id===$("planSite").value);if(!r)return;const task=$("task").value,t=T[task],p=P[$("target").value],months=monthScores(r,task).slice(0,3),days=Number($("planDuration").value);
