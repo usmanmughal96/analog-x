@@ -1,11 +1,15 @@
-# Limitations and scientific safeguards
+# Scientific and Operational Limitations
 
-- Koh-i-Sultan's volcanic-arc setting is not equivalent to Syrtis Major's Martian volcanic province.
-- The USGS Western Chagai Hills map frame does not include the Koh-i-Sultan catalogue coordinate; it is regional context, not a site map.
-- Syrtis Major MC-13 is a large quadrangle, not a landing-site polygon.
-- No raw NASADEM/SRTM or MOLA rasters have been processed in this build. No terrain metrics or numerical similarity scores are claimed.
-- NASA GIBS MODIS layers are browse visualizations only. Aerosol optical depth is not ground-level dust concentration.
-- SUPARCO Space4Climate product availability, Chagai spatial coverage, API/download access and reuse licence have not been verified. No SUPARCO product is claimed as ingested.
-- Sentinel-2 or other multispectral reflectance alone does not prove mineral composition.
-- Earth cannot reproduce Martian pressure, radiation, gravity, electrostatic conditions or the full thermal environment.
-- Any future quantitative comparison must account for resolution, projection, observation coverage, seasonality, sensor differences and uncertainty.
+- The Field-Campaign Index is a relative Earth campaign-planning metric, not a planetary similarity score or suitability certification.
+- Scores are min–max normalized within the candidate locations selected for one scan; they change when the candidate set changes.
+- NASA POWER is gridded climatology, not local field-station observations.
+- T2M is 2-m air temperature, not surface or rock temperature.
+- WS10M is not friction velocity, dust emission or dust deposition.
+- PRECTOTCORR is precipitation, not water/ice resource abundance.
+- ALLSKY_SFC_SW_DWN is Earth's weather-affected solar resource, not lunar illumination.
+- Weather data do not classify geology, mineralogy, terrain roughness, caves, ice or subsurface resources.
+- The app does not calculate rover traction, landing safety or route traversability.
+- Raw MOLA, Diviner and LOLA rasters are not processed in the live browser app.
+- SUPARCO Space4Climate is a potential data pathway; no Chagai-specific product is claimed as integrated.
+- Earth cannot reproduce lunar vacuum, reduced gravity, radiation, permanently shadowed regions or Martian atmospheric pressure.
+- Candidate site metadata are screening leads. Confirm local access, permits, protected-area rules and field safety before any expedition.
