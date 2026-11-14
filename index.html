@@ -90,18 +90,63 @@ function getParam(j,k){const p=j&&j.properties&&j.properties.parameter&&j.proper
 function avg(a){const v=a.filter(Number.isFinite);return v.length?v.reduce((x,y)=>x+y,0)/v.length:null;}
 function max(a){const v=a.filter(Number.isFinite);return v.length?Math.max.apply(null,v):null;}
 function min(a){const v=a.filter(Number.isFinite);return v.length?Math.min.apply(null,v):null;}
-async function fetchJson(url){const c=new AbortController(),timer=setTimeout(()=>c.abort(),35000);try{const r=await fetch(url,{mode:"cors",headers:{Accept:"application/json"},signal:c.signal});if(!r.ok)throw Error("NASA POWER HTTP "+r.status);const j=await r.json();if(j.messages&&j.messages.length)throw Error(j.messages.join("; "));return j;}finally{clearTimeout(timer);}}
+async function fetchJson(url){
+  const controller=new AbortController();
+  const timer=setTimeout(()=>controller.abort(),20000);
+  try{
+    const response=await fetch(url,{headers:{Accept:"application/json"},signal:controller.signal,cache:"no-store"});
+    if(!response.ok) throw new Error("Published NASA data file returned HTTP "+response.status+" ("+url+").");
+    return await response.json();
+  }catch(error){
+    if(error.name==="AbortError") throw new Error("Timed out loading the published NASA POWER snapshot. Check the Pages deployment and retry.");
+    throw new Error(error.message||String(error));
+  }finally{clearTimeout(timer);}
+}
 async function fetchSite(site,solar){
- const url=api(site,false),key="ax-power-v4-"+site.lat+"-"+site.lon+"-"+solar;
- try{const c=localStorage.getItem(key);if(c){const o=JSON.parse(c);if(Date.now()-o.time<43200000)return Object.assign(o.data,{cache:"12-hour local cache"});}}catch(e){}
- const j=await fetchJson(url),names=["T2M","T2M_MAX","T2M_MIN","RH2M","WS10M","PRECTOTCORR"],p={};names.forEach(k=>p[k]=getParam(j,k));
- if(!p.T2M||p.T2M.ann===null)throw Error("No valid NASA POWER T2M value returned.");
- let sol=null,solarUrl=null;if(solar){solarUrl=api(site,true);sol=getParam(await fetchJson(solarUrl),"ALLSKY_SFC_SW_DWN");}
- const monthly=M.map((m,i)=>({month:m,temp:p.T2M.months[i],tmax:p.T2M_MAX&&p.T2M_MAX.months[i],tmin:p.T2M_MIN&&p.T2M_MIN.months[i],rh:p.RH2M&&p.RH2M.months[i],wind:p.WS10M&&p.WS10M.months[i],precip:p.PRECTOTCORR&&p.PRECTOTCORR.months[i],solar:sol&&sol.months[i]}));
- const daily=monthly.map(x=>x.tmax!==null&&x.tmax!==undefined&&x.tmin!==null&&x.tmin!==undefined?x.tmax-x.tmin:null);
- const data={site:site,monthly:monthly,apiUrl:url,solarApiUrl:solarUrl,cache:"Fresh NASA POWER response",metrics:{temp:p.T2M.ann,tmax:p.T2M_MAX&&p.T2M_MAX.ann,tmin:p.T2M_MIN&&p.T2M_MIN.ann,rh:p.RH2M&&p.RH2M.ann,wind:p.WS10M&&p.WS10M.ann,precip:p.PRECTOTCORR&&p.PRECTOTCORR.ann,solar:sol&&sol.ann,dailyRange:avg(daily),seasonalSpan:max(p.T2M.months)-min(p.T2M.months)}};
- try{localStorage.setItem(key,JSON.stringify({time:Date.now(),data:data}));}catch(e){}
- return data;
+  if(String(site.id).startsWith("custom-")){
+    throw new Error("Custom coordinates are not in the published NASA snapshot yet. This release scans the seven verified built-in candidate coordinates.");
+  }
+  const url="./data/power/"+encodeURIComponent(site.id)+".json";
+  const pack=await fetchJson(url);
+  if(!pack || !pack.raw_power_response || !pack.source){
+    throw new Error("The NASA POWER snapshot for "+site.name+" is incomplete. Refresh the repository data workflow.");
+  }
+  const j=pack.raw_power_response;
+  const names=["T2M","T2M_MAX","T2M_MIN","RH2M","WS10M","PRECTOTCORR","ALLSKY_SFC_SW_DWN"],p={};
+  names.forEach(k=>p[k]=getParam(j,k));
+  if(!p.T2M || p.T2M.ann===null) throw new Error("NASA POWER snapshot has no valid T2M for "+site.name+".");
+  const monthly=M.map((m,i)=>({
+    month:m,
+    temp:p.T2M.months[i],
+    tmax:p.T2M_MAX ? p.T2M_MAX.months[i] : null,
+    tmin:p.T2M_MIN ? p.T2M_MIN.months[i] : null,
+    rh:p.RH2M ? p.RH2M.months[i] : null,
+    wind:p.WS10M ? p.WS10M.months[i] : null,
+    precip:p.PRECTOTCORR ? p.PRECTOTCORR.months[i] : null,
+    solar:p.ALLSKY_SFC_SW_DWN ? p.ALLSKY_SFC_SW_DWN.months[i] : null
+  }));
+  const ranges=monthly.map(x=>(Number.isFinite(x.tmax)&&Number.isFinite(x.tmin))?x.tmax-x.tmin:null).filter(Number.isFinite);
+  const tvals=monthly.map(x=>x.temp).filter(Number.isFinite);
+  return {
+    site:site,
+    monthly:monthly,
+    apiUrl:pack.source.request_url,
+    solarApiUrl:pack.source.request_url,
+    cache:"NASA POWER server-side snapshot · fetched "+pack.source.fetched_at_utc,
+    snapshotAt:pack.source.fetched_at_utc,
+    missingParameters:pack.missing_parameters||[],
+    metrics:{
+      temp:p.T2M.ann,
+      tmax:p.T2M_MAX ? p.T2M_MAX.ann : null,
+      tmin:p.T2M_MIN ? p.T2M_MIN.ann : null,
+      rh:p.RH2M ? p.RH2M.ann : null,
+      wind:p.WS10M ? p.WS10M.ann : null,
+      precip:p.PRECTOTCORR ? p.PRECTOTCORR.ann : null,
+      solar:p.ALLSKY_SFC_SW_DWN ? p.ALLSKY_SFC_SW_DWN.ann : null,
+      dailyRange:ranges.length ? ranges.reduce((a,b)=>a+b,0)/ranges.length : null,
+      seasonalSpan:tvals.length>1 ? Math.max(...tvals)-Math.min(...tvals) : null
+    }
+  };
 }
 function norm(arr,x,inv){const v=arr.filter(Number.isFinite);if(v.length<2)return 50;const lo=Math.min(...v),hi=Math.max(...v);if(hi-lo<1e-8)return 50;const n=(x-lo)/(hi-lo);return Math.round((inv?1-n:n)*100);}
 function score(rows,task){const m=rows.map(x=>x.metrics);return rows.map((r,i)=>{const dry=.55*norm(m.map(x=>x.precip),m[i].precip,true)+.45*norm(m.map(x=>x.rh),m[i].rh,true);const comfort=100*Math.max(0,1-Math.abs(m[i].temp-22)/28);let s=null,parts={};if(task==="geology"){s=.65*dry+.35*comfort;parts={dryness:dry,temperatureComfort:comfort};}if(task==="rover"){s=.45*dry+.25*(100-norm(m.map(x=>x.wind),m[i].wind,false))+.30*comfort;parts={dryness:dry,moderateWind:100-norm(m.map(x=>x.wind),m[i].wind,false),temperatureComfort:comfort};}if(task==="dust"){s=.55*norm(m.map(x=>x.wind),m[i].wind,false)+.45*dry;parts={windExposure:norm(m.map(x=>x.wind),m[i].wind,false),dryness:dry};}if(task==="thermal"){s=.65*norm(m.map(x=>x.dailyRange),m[i].dailyRange,false)+.35*norm(m.map(x=>x.seasonalSpan),m[i].seasonalSpan,false);parts={diurnalRange:norm(m.map(x=>x.dailyRange),m[i].dailyRange,false),seasonalSpan:norm(m.map(x=>x.seasonalSpan),m[i].seasonalSpan,false)};}if(task==="solar"){const vals=m.map(x=>x.solar);parts={solarResource:m[i].solar===null?null:norm(vals,m[i].solar,false)};s=parts.solarResource;}return Object.assign({},r,{score:s===null?null:Math.round(s),parts:parts});});}
