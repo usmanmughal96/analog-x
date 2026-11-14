@@ -1,0 +1,18 @@
+name = "analog-x-agent"
+main = "index.js"
+compatibility_date = "2026-11-14"
+workers_dev = true
+
+[vars]
+DATA_BASE_URL = "https://usmanmughal96.github.io/analog-x"
+ALLOWED_ORIGINS = "https://usmanmughal96.github.io"
+
+[ai]
+binding = "AI"
+
+[[ratelimits]]
+name = "MISSION_RATE_LIMIT"
+namespace_id = "871114"
+[ratelimits.simple]
+limit = 8
+period = 60
