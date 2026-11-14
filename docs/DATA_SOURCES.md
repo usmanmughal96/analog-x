@@ -63,7 +63,7 @@ Current Nili Patera observation coverage: 567 / 1,122 cells (50.53%); 87 complet
 | Dataset | Intended role | Current state |
 |---|---|---|
 | NASA LRO LOLA | Lunar south-pole elevation, slope, counts and uncertainty | PGDA product 78 documented; integration diagnostic in data/moon/lola_access_diagnostic.json | 5 m site files returned HTTP 403 or failed remote range reads; no lunar values integrated. PGDA large-area product 90 is a future access candidate.
-| NASA LRO Diviner | Lunar surface temperature and south-polar resource context | PDS polar-resource product identified; no raster/table processed |
+| NASA LRO Diviner | Lunar annual surface temperature, annual maximum surface temperature and estimated water-ice-permafrost depth | PDS Polar Resource Product V2.0 identified; not yet ingested |
 | NASA Global Volcano Hazard Frequency and Distribution | Historical volcano hazard frequency grid | Official data page linked; grid not ingested; historical events 79–2000, 2.5 arc-minute context, not current hazard intelligence |
 | NASA GIBS / Worldview | Earth global imagery/context | GIBS VIIRS tile layer displayed on map; visual context only |
 | NASADEM / SRTM / other DEMs | Earth elevation | Alternate sources identified; Copernicus DEM is the terrain input in this release |
@@ -83,3 +83,12 @@ NASA POWER is not a weather station. T2M is not rock/surface temperature. WS10M 
 ## Resource matrix
 
 For the complete source-by-source status of NASA Earthdata Search, Worldview/GIBS, PDS, LRO LOLA and Diviner, CSA RADARSAT-1/RCM, ESA Copernicus Data Space, ESA Open Science Catalogue, JAXA G-Portal, and Pakistan agency portals, see [RESOURCE_INTEGRATION_MATRIX.md](RESOURCE_INTEGRATION_MATRIX.md).
+
+### Lunar matched-support profile (Shackleton Rim)
+- Product: NASA LRO LOLA PDS GDR LDEM_80S_80M and matching LDEC_80S_80M, hosted by MIT Imbrium mirror.
+- Native window: 29.6 × 29.6 km at 80 m/pixel (370 × 370 cells).
+- Native LDEM: interpolated gridded surface; 90,000/90,000 elevation cells present. LDEC has positive returns in 89,996/90,000 cells (99.9956%). The count map is observational support, not an elevation-validity mask.
+- Coarse profile: aggregated by area averaging to 925 m (32 × 32 cells) over the same window as the Earth/Mars coarse profiles.
+- Coarse descriptors: median slope 13.40°, P90 slope 30.94°, P90 3×3 local relief 1,391 m; the relief footprint is approximately 2.775 km.
+- Interpretation: this selected Shackleton Rim window is rugged. This is not an illumination/PSR, water-ice, landing-safety or habitat-suitability analysis.
+- Diviner thermal and water-ice-permafrost products remain reference-only.
