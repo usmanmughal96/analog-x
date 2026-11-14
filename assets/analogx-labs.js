@@ -3,7 +3,7 @@
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const POWER_FILE={koh_i_sultan:"koh",koh:"koh",hispar_glacier:"hispar_glacier"};
-const state={catalog:null,powerIndex:null,terrain:null,imagery:null,powers:{},selected:"chagai_small_playas",map:null,markers:{},endpoint:"",connected:false,brief:null,game:0,answered:false};
+const state={catalog:null,powerIndex:null,terrain:null,imagery:null,lunar:null,powers:{},selected:"chagai_small_playas",map:null,markers:{},endpoint:"",connected:false,brief:null,game:0,answered:false};
 const scenarios=[
  {target:"Mars",objective:"playa",title:"MISSION 01 / MARS EVAPORITE RECONNAISSANCE",question:"A Mars team wants to rehearse mapping dry playa surfaces, possible evaporite accumulations and sediment transport. Which Pakistan field lead should be investigated first?",options:[["chagai_small_playas","Chagai small salt playas near Nok Kundi"],["hispar_glacier","Hispar Glacier / Karakoram"],["koh_i_sultan","Koh-i-Sultan volcanic field"],["hamun_i_mashkel","Hamun-i-Mashkel playa"]],correct:"chagai_small_playas",why:"The NASA 1974 report identifies two small salt-surfaced playas near Nok Kundi and discusses possible evaporite/brine context. This is a historical lead, not modern proof of mineralogy or brine. Hamun-i-Mashkel is a broader basin-scale comparator. Both need field verification."},
  {target:"Mars",objective:"volcanic",title:"MISSION 02 / MARS VOLCANIC FIELD MAPPING",question:"Which Pakistan site has mapped volcanic units that can support rehearsal of outcrop logging and orbital-to-ground field mapping?",options:[["koh_i_sultan","Koh-i-Sultan / Chagai"],["hamun_i_mashkel","Hamun-i-Mashkel playa"],["hispar_glacier","Hispar Glacier"],["chagai_small_playas","Chagai small salt playas"]],correct:"koh_i_sultan",why:"USGS maps Koh-i-Sultan as agglomerate, tuff and andesitic lava. That supports volcanic-process rehearsal, but it is not a basaltic composition match to Syrtis Major. Ground samples and site-scale mineral mapping are still missing."},
@@ -17,8 +17,8 @@ function selectedIds(){return [...document.querySelectorAll("[data-ax-site]:chec
 function findSite(id){return state.catalog?.candidate_sites?.find(x=>x.id===id);}
 async function load(){
  try{
-  const [c,p,t,i]=await Promise.all([json("./data/agents/candidate_catalog.json"),json("./data/power/index.json"),json("./data/terrain/terrain_comparison.json"),json("./data/pakistan/imagery/index.json")]);
-  state.catalog=c;state.powerIndex=p;state.terrain=t;state.imagery=i;
+  const [c,p,t,i,l]=await Promise.all([json("./data/agents/candidate_catalog.json"),json("./data/power/index.json"),json("./data/terrain/terrain_comparison.json"),json("./data/pakistan/imagery/index.json"),json("./data/moon/shackleton_lola_80m.json")]);
+  state.catalog=c;state.powerIndex=p;state.terrain=t;state.imagery=i;state.lunar=l;
   await Promise.all(c.candidate_sites.map(async s=>{try{state.powers[s.id]=await json("./data/power/"+idPower(s.id)+".json");}catch{state.powers[s.id]=null;}}));
   pill($("axDiscoveryStatus"),c.candidate_sites.length+" CANDIDATE SEEDS","blue");
   render();renderAgentChoices();renderGame();
@@ -36,7 +36,7 @@ function render(){
  $("axMapCount").textContent=currentSites.length+" / "+state.catalog.candidate_sites.length+" sites";
  $("axCards").innerHTML=currentSites.map(s=>{
   const e=layers(s.id),lead=s.discovery_tier==="under_characterized_candidate";
-  return "<article class='axCard "+(state.selected===s.id?"selected":"")+"' data-ax-card='"+esc(s.id)+"'><div class='axCardTop'><h4>"+esc(s.name)+"</h4><span class='statuspill "+(lead?"gold":"gray")+"'>"+(lead?"RESEARCH LEAD":"REFERENCE")+"</span></div><p>"+esc(s.region||s.country)+" · "+esc((s.environment_tags||[]).slice(0,3).join(" / "))+"</p><div class='axPills'><span class='axPill'>"+esc(s.candidate_status||"candidate")+"</span><span class='axPill'>"+esc((s.mission_targets||[]).join(" + "))+"</span></div><div class='axEvidence'><span>Climate "+(e.power?"✓":"—")+"</span><span>Sentinel "+(e.spectral?"✓":"—")+"</span><span>Terrain "+(e.terrain?"✓":"—")+"</span><span>Source "+(e.reference?"✓":"—")+"</span></div><div class='axCardFoot'><button class='axMiniBtn' data-ax-inspect='"+esc(s.id)+"'>INSPECT DOSSIER ↗</button><label class='axCheck'><input type='checkbox' data-ax-site value='"+esc(s.id)+"' "+(["chagai_small_playas","hamun_i_mashkel","koh_i_sultan","hispar_glacier"].includes(s.id)?"checked":"")+"> Agent set</label></div></article>";
+  return "<article class='axCard "+(state.selected===s.id?"selected":"")+"' data-ax-card='"+esc(s.id)+"'><div class='axCardTop'><h4>"+esc(s.name)+"</h4><span class='statuspill "+(lead?"gold":"gray")+"'>"+(lead?"RESEARCH LEAD":"REFERENCE")+"</span></div><p>"+esc(s.region||s.country)+" · "+esc((s.environment_tags||[]).slice(0,3).join(" / "))+"</p><div class='axPills'><span class='axPill'>"+esc(s.candidate_status||"candidate")+"</span><span class='axPill'>"+esc((s.mission_targets||[]).join(" + "))+"</span></div><div class='axEvidence'><span>Climate "+(e.power?"✓":"—")+"</span><span>Sentinel "+(e.spectral?"✓":"—")+"</span><span>Terrain "+(e.terrain?"✓":"—")+"</span><span>Source "+(e.reference?"✓":"—")+"</span></div><div class='axCardFoot'><button class='axMiniBtn' data-ax-inspect='"+esc(s.id)+"'>INSPECT DOSSIER ↗</button><label class='axCheck'><input type='checkbox' data-ax-site-card value='"+esc(s.id)+"' "+(["chagai_small_playas","hamun_i_mashkel","koh_i_sultan","hispar_glacier"].includes(s.id)?"checked":"")+"> Agent set</label></div></article>";
  }).join("")||"<div class='axCard'>No candidate matches these filters.</div>";
  renderMap(currentSites);
  if(!currentSites.some(s=>s.id===state.selected))state.selected=currentSites[0]?.id;
@@ -61,7 +61,7 @@ function dossier(id){
  if(state.map&&state.markers[id])state.markers[id].openPopup();
 }
 function renderAgentChoices(){
- $("axAgentCandidates").innerHTML=state.catalog.candidate_sites.map(s=>"<label class='axCandidate'><input type='checkbox' data-ax-site value='"+esc(s.id)+"' "+(["chagai_small_playas","hamun_i_mashkel","koh_i_sultan","hispar_glacier"].includes(s.id)?"checked":"")+"> "+esc(s.name)+"</label>").join("");
+ $("axAgentCandidates").innerHTML=state.catalog.candidate_sites.map(s=>"<label class='axCandidate'><input type='checkbox' data-ax-site-card value='"+esc(s.id)+"' "+(["chagai_small_playas","hamun_i_mashkel","koh_i_sultan","hispar_glacier"].includes(s.id)?"checked":"")+"> "+esc(s.name)+"</label>").join("");
 }
 function renderGame(){
  const q=scenarios[state.game];state.answered=false;
@@ -104,6 +104,54 @@ function renderLocal(result){
  const gaps=result.scientific_gaps.map(x=>"<li>"+esc(x)+"</li>").join("");
  return "<h4>DECISION SIGNAL</h4><p>"+esc(result.decision)+"</p><h4>MOST TASK-RELEVANT LEADS</h4><ul>"+(list||"<li>No matching candidate.</li>")+"</ul><h4>EVIDENCE MATRIX</h4><div style='overflow-x:auto'><table class='labTable'><thead><tr><th>Earth site</th><th>Task tags</th><th>Layers present</th><th>3 driest months (climatology)</th></tr></thead><tbody>"+matrix+"</tbody></table></div><h4>SCIENTIFIC GAPS / STOP CONDITIONS</h4><ul>"+gaps+"</ul><p><small>Method: "+esc(result.method)+"</small></p>";
 }
+
+function targetTerrain(mission){
+ if(mission==="Moon"){
+  const m=state.lunar?.matched_coarse_support_approx_925m;
+  if(!m?.slope_deg||!m["3x3_local_relief_m_2775m_footprint"])return null;
+  return {name:state.lunar.site?.name||"Shackleton Rim / Moon",median_slope_deg:m.slope_deg.median,p90_slope_deg:m.slope_deg.p90,p90_local_relief_m:m["3x3_local_relief_m_2775m_footprint"].p90,support_m:m.pixel_size_m,coverage_percent:m.elevation_coverage_percent,return_support_percent:m.ldec_positive_return_support?.mean_native_pixel_fraction_per_coarse_cell_percent};
+ }
+ const m=state.terrain?.planetary_target?.terrain_metrics;
+ if(!m?.slope_deg||!m["3x3_local_relief_m"])return null;
+ return {name:state.terrain.planetary_target.name,median_slope_deg:m.slope_deg.median,p90_slope_deg:m.slope_deg.p90,p90_local_relief_m:m["3x3_local_relief_m"].p90,support_m:925,coverage_percent:m.coverage?.valid_percent,complete_neighbourhoods:m.complete_3x3_neighbourhood_count};
+}
+function terrainComparison(ids,mission){
+ const targets=mission==="Both"?["Moon","Mars"]:[mission];
+ return targets.map(targetName=>{
+  const target=targetTerrain(targetName);
+  if(!target)return {mission_target:targetName,status:"planetary terrain reference unavailable"};
+  const profiles=ids.map(id=>({id,rec:state.terrain?.earth_sites?.[id]})).filter(x=>x.rec?.status==="processed"&&x.rec.terrain_metrics);
+  const metrics=profiles.map(({id,rec})=>{const m=rec.terrain_metrics;return {id,name:rec.site?.name||id,median_slope_deg:m.slope_deg.median,p90_slope_deg:m.slope_deg.p90,p90_local_relief_m:m["3x3_local_relief_m"].p90,coverage_percent:m.coverage?.valid_percent};});
+  const fields=["median_slope_deg","p90_slope_deg","p90_local_relief_m"];
+  const differences=metrics.map(site=>({id:site.id,name:site.name,differences:Object.fromEntries(fields.map(k=>[k,Math.abs(site[k]-target[k])]))}));
+  const closest=Object.fromEntries(fields.map(k=>{const valid=differences.filter(x=>Number.isFinite(x.differences[k]));const min=valid.length?Math.min(...valid.map(x=>x.differences[k])):null;return [k,valid.filter(x=>x.differences[k]===min).map(x=>x.name)];}));
+  return {mission_target:targetName,planetary_reference:target,earth_profiles:metrics,absolute_differences:differences,closest_per_descriptor:closest,interpretation:"Regional terrain descriptors only; a numerically closer profile does not establish geological, mineralogical or operational equivalence."};
+ });
+}
+function localAnalysisWithTerrain(req){
+ const ids=req.candidate_ids.length?req.candidate_ids:["chagai_small_playas","hamun_i_mashkel","koh_i_sultan","hispar_glacier"];
+ const rows=ids.map(id=>siteSummary(id,req.objective)).sort((a,b)=>b.matched_environment_tags.length-a.matched_environment_tags.length);
+ const top=rows[0],ties=rows.filter(x=>x.matched_environment_tags.length===top.matched_environment_tags.length);
+ return {mode:"offline deterministic evidence review",question:req.question,mission_target:req.mission_target,objective:req.objective,
+  decision:"Task-tag match and evidence availability are reported separately. There is no universal analog score. Terrain is compared by measured descriptor, not collapsed into one ranking.",
+  most_task_relevant:ties.map(x=>({id:x.id,name:x.name,tags:x.matched_environment_tags,evidence:x.evidence})),
+  candidate_matrix:rows,terrain_comparisons:terrainComparison(ids,req.mission_target),
+  data_timestamps:{power:state.powerIndex?.generated_at_utc,terrain:state.terrain?.generated_at_utc,imagery:state.imagery?.generated_at_utc},
+  scientific_gaps:["Chagai salt-playa coordinates are historical reference points; verify the AOI against current imagery and geology.","Sentinel-2 indices are spectral screening descriptors, not mineral identification, brine chemistry, or validated glacier outlines.","NASA POWER is gridded climate climatology, not an on-site station or field forecast.","Nili Patera MOLA observed-cell coverage is limited; lunar LOLA is interpolated and return counts are not an illumination or ice map.","New Chagai playa Copernicus terrain processing is still pending in the published profile.","Field ground truth, permits, access/safety review and specialist validation are mandatory before a campaign."],
+  method:"Count of directly matching environment tags is a transparent retrieval heuristic, not a calibrated similarity score. Climate, Sentinel, terrain and source completeness remain separate evidence layers."
+ };
+}
+function renderLocalWithTerrain(result){
+ const list=result.most_task_relevant.map(s=>"<li><b>"+esc(s.name)+"</b> — "+esc(s.tags.join(", ")||"no direct tag match")+"; evidence "+Object.values(s.evidence).filter(Boolean).length+"/4</li>").join("");
+ const matrix=result.candidate_matrix.map(s=>"<tr><td>"+esc(s.name)+"</td><td>"+esc(s.matched_environment_tags.join(", ")||"—")+"</td><td>"+Object.values(s.evidence).filter(Boolean).length+"/4</td><td>"+esc(s.campaign.map(x=>x.month+" ("+fmt(x.precip_mm_day)+" mm/day)").join(", ")||"—")+"</td></tr>").join("");
+ const terrain=result.terrain_comparisons.map(t=>{
+  const rows=(t.earth_profiles||[]).map(s=>"<tr><td>"+esc(s.name)+"</td><td>"+fmt(s.median_slope_deg)+"°</td><td>"+fmt(s.p90_slope_deg)+"°</td><td>"+fmt(s.p90_local_relief_m,0)+" m</td><td>"+fmt(s.coverage_percent,1)+"%</td></tr>").join("");
+  const closest=Object.entries(t.closest_per_descriptor||{}).map(([k,v])=>"<li>"+esc(k.replaceAll("_"," "))+": "+esc(v.join(", ")||"no processed Earth profile")+"</li>").join("");
+  return "<h4>"+esc(t.mission_target)+" / "+esc(t.planetary_reference?.name||"Terrain unavailable")+"</h4><p>"+esc(t.interpretation||t.status||"")+"</p><table class='labTable'><thead><tr><th>Earth site</th><th>Median slope</th><th>P90 slope</th><th>P90 local relief</th><th>Coverage</th></tr></thead><tbody>"+(rows||"<tr><td colspan='5'>No processed Earth terrain profiles for this selection.</td></tr>")+"</tbody></table><ul>"+closest+"</ul>";
+ }).join("");
+ const gaps=result.scientific_gaps.map(x=>"<li>"+esc(x)+"</li>").join("");
+ return "<h4>DECISION SIGNAL</h4><p>"+esc(result.decision)+"</p><h4>MOST TASK-RELEVANT LEADS</h4><ul>"+(list||"<li>No matching candidate.</li>")+"</ul><h4>EARTH / PLANETARY TERRAIN EVIDENCE</h4>"+terrain+"<h4>EVIDENCE MATRIX</h4><table class='labTable'><thead><tr><th>Earth site</th><th>Task tags</th><th>Layers present</th><th>3 driest months (climatology)</th></tr></thead><tbody>"+matrix+"</tbody></table><h4>SCIENTIFIC GAPS / STOP CONDITIONS</h4><ul>"+gaps+"</ul><p><small>Method: "+esc(result.method)+"</small></p>";
+}
 function endpointSaved(){try{return localStorage.getItem("analogx_agent_endpoint")||"";}catch{return "";}}
 async function testEndpoint(show=true){
  const endpoint=$("axAgentEndpoint").value.trim().replace(/\/$/,"");
@@ -120,7 +168,7 @@ function renderOutput(content,asHtml=true){$("axAgentOutput").innerHTML=asHtml?c
 async function runLocal(){
  const req=requestData();if(req.question.length<8){$("axAgentStatus").textContent="Enter a research question first.";return;}
  $("axAgentRunLocal").disabled=true;$("axAgentRunCloud").disabled=true;pill($("axAgentOutputStatus"),"ANALYSING","gold");$("axAgentOutput").innerHTML="<div class='axLoading'></div><p>Running terrain, climate, surface and evidence-integrity analysts…</p>";
- try{const result=localAnalysis(req);state.brief=result;renderOutput(renderLocal(result));pill($("axAgentOutputStatus"),"OFFLINE REVIEW COMPLETE","blue");$("axAgentStatus").textContent="Completed locally · no API/LLM call";$("axAgentTraceText").textContent=JSON.stringify({method:result.method,candidates:result.candidate_matrix.map(x=>({id:x.id,evidence:x.evidence,matched_tags:x.matched_environment_tags})),timestamps:result.data_timestamps},null,2);}
+ try{const result=localAnalysisWithTerrain(req);state.brief=result;renderOutput(renderLocalWithTerrain(result));pill($("axAgentOutputStatus"),"OFFLINE REVIEW COMPLETE","blue");$("axAgentStatus").textContent="Completed locally · no API/LLM call";$("axAgentTraceText").textContent=JSON.stringify({method:result.method,candidates:result.candidate_matrix.map(x=>({id:x.id,evidence:x.evidence,matched_tags:x.matched_environment_tags})),timestamps:result.data_timestamps},null,2);}
  catch(e){renderOutput("Offline review failed: "+e.message,false);pill($("axAgentOutputStatus"),"REVIEW FAILED","gold");}
  finally{$("axAgentRunLocal").disabled=false;$("axAgentRunCloud").disabled=!state.connected;}
 }
