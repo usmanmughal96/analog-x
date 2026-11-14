@@ -31,6 +31,10 @@
 .axGameOption:hover{border-color:#53c7e7;color:white;transform:translateY(-1px)}.axGameOption.correct{border-color:#2d9c82;background:#0b302b;color:#8cebd2}.axGameOption.wrong{border-color:#926c3d;background:#2b2418;color:#f0cb8b}
 .axGameFeedback{margin-top:9px;padding:9px 10px;border-left:2px solid #35b99b;background:#071b2a;color:#a9c4d0;font-size:8px;line-height:1.6;display:none}
 .axGameFoot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px}.axGameFoot small{color:#6f8fa4;font-size:7px}
+.axGameActions{display:flex;gap:7px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+.axGameActions .axMiniBtn:disabled{opacity:.35;cursor:not-allowed;border-color:#294354;color:#648094}
+@media(max-width:600px){.axGameActions{width:100%;justify-content:stretch}.axGameActions .axMiniBtn{flex:1}.axGameFoot{align-items:flex-start;flex-direction:column}}
+
 .axAgentOrb{height:25px;width:25px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#61e6e9,#0a5772 65%,#081827);box-shadow:0 0 18px #1bc3d440;animation:axPulse 2.8s ease-in-out infinite}
 @keyframes axPulse{0%,100%{box-shadow:0 0 8px #1bc3d430;transform:scale(1)}50%{box-shadow:0 0 22px #1bc3d480;transform:scale(1.05)}}
 .axAgentHead{display:flex;align-items:center;gap:10px}.axAgentControls{display:grid;grid-template-columns:1.2fr auto;gap:9px;padding:12px 14px;align-items:end}
