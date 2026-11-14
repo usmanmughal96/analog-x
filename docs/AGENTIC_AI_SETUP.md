@@ -2,7 +2,7 @@
 
 ## What this deploys
 
-A server-side Worker that runs the ANALOG-X Mission Director with an open-weight model, `@cf/openai/gpt-oss-20b`, hosted by Cloudflare Workers AI. The Worker calls allow-listed evidence tools for the candidate inventory, NASA POWER monthly climatology, Sentinel-2 spectral context and Earth/Moon/Mars terrain profiles. Four specialist evidence agents run first; the model then uses tool calling to adjudicate the evidence and produce a mission-specific decision brief.
+A server-side Worker that runs the ANALOG-X Mission Director with an open-weight model, `@cf/openai/gpt-oss-20b`, hosted by Cloudflare Workers AI. The Worker exposes two separate paths: `POST /scout` performs a no-LLM global coordinate scan using the public NASA POWER climatology endpoint plus Microsoft Planetary Computer STAC searches for Sentinel-2 L2A and Copernicus DEM GLO-30; `POST /analyze` runs the tool-using Mission Director over specialist evidence and can repeat a supplied coordinate scan. The AI tool list includes candidate inventory, terrain comparison, campaign windows, Sentinel-2 context and coordinate scouting. Four specialist evidence agents run first; the model then uses tool calling to adjudicate the evidence and produce a mission-specific decision brief.
 
 The browser never receives an AI provider secret. Requests are restricted by CORS to the published ANALOG-X site, limited by a per-IP rate-limit binding, and constrained to a small JSON payload. The Worker does not store chat history or write prompt text to project files.
 
@@ -27,20 +27,20 @@ Cloudflare states that standard Workers AI inference uses zero data retention an
    - `CLOUDFLARE_ACCOUNT_ID` (secret; the account identifier from Cloudflare)
 4. Open **Actions → Deploy ANALOG-X Agent API (Cloudflare Workers AI) → Run workflow**.
 5. Open the successful workflow log. Wrangler prints the deployed `workers.dev` URL, typically `https://analog-x-agent.<your-subdomain>.workers.dev`.
-6. Open that URL plus `/health` in a browser. It should return `ok: true`.
+6. Open that URL plus `/health` in a browser. It should return `ok: true` and show `scout_enabled: true`. If the AI binding is configured, `ai_enabled` is true; it is safe for the endpoint to return `ai_enabled: false` while the live `/scout` service is still available. In that case, the UI enables Coordinate Scout but keeps cloud Mission Director disabled.
 7. In ANALOG-X's Agent Bay, paste the Worker base URL (without `/analyze`) into **Agent endpoint**, choose **Connect & test**, and save it in that browser.
 
 No Gemini/OpenAI API key is needed. The GitHub Actions secrets are used only to deploy the Worker; the Workers AI binding runs inference inside Cloudflare.
 
 ## Local fallback
 
-The public site includes a deterministic, offline evidence mode. It reads the published JSON datasets directly and can compare evidence, campaign months and candidate completeness without any Worker, API key or LLM. The cloud agent adds natural-language synthesis and tool selection; it does not replace the measured-data layer.
+The public site includes a deterministic, offline evidence mode. It reads the published JSON datasets directly and can compare evidence, campaign months, terrain profiles and candidate completeness without any Worker, API key or LLM. Global Coordinate Scout requires the deployed Worker proxy, but does not require the AI binding or model inference; it can be used without spending Workers AI Neurons. The cloud agent adds natural-language synthesis and tool selection; it does not replace the measured-data layer.
 
 ## Limitations
 
-- The 10,000-Neuron daily allocation is shared by the Cloudflare account and may not support unrestricted public traffic.
+- The 10,000-Neuron daily allocation is shared by the Cloudflare account and may not support unrestricted public traffic. Current model pricing lists gpt-oss-20b at 18,182 input Neurons and 27,273 output Neurons per million tokens; the free 10,000-Neuron daily allowance is account-wide and requests fail when exhausted rather than automatically becoming paid usage on the Workers Free plan.
 - Cloudflare's built-in rate limit is approximate and enforced per Cloudflare location, not a strict global quota.
-- The Worker is a public research endpoint; CORS is not authentication. Do not put private or sensitive information in the prompt.
+- The Worker is a public research endpoint; CORS is not authentication. Do not put private or sensitive information in the prompt. Its simple rate limit is approximate and per Cloudflare location; it is not a strict global abuse-control system.
 - Candidate records are a curated screening seed set, not an exhaustive global search.
 - The two Chagai playa AOIs are historical leads. Modern remote-sensing screens and field validation are required before making geological or resource claims.
 - A model-generated recommendation is not scientific evidence. Every factual claim must trace back to the deterministic specialist reports and linked datasets.
