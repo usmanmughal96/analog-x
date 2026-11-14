@@ -42,7 +42,12 @@ for (const site of sites) {
 
 assert.equal(power.record_count, Object.keys(power.records || {}).length, "NASA POWER index count does not match records");
 assert(power.record_count >= sites.length, "NASA POWER does not cover all catalogue seeds");
-for (const id of siteIds) assert(power.records[id], `NASA POWER record missing: ${id}`);
+const powerAliases = { koh_i_sultan: "koh" };
+for (const id of siteIds) {
+  const powerId = powerAliases[id] || id;
+  assert(power.records[powerId], `NASA POWER record missing for ${id} (expected key: ${powerId})`);
+}
+assert(appJs.includes('koh_i_sultan:"koh"'), "Legacy Koh-i-Sultan POWER alias must remain explicit in the app");
 
 const pakistanSites = ["koh_i_sultan", "hispar_glacier", "chagai_small_playas", "hamun_i_mashkel"];
 for (const id of pakistanSites) {
