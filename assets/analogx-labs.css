@@ -54,3 +54,18 @@
 .axLoading{height:3px;background:linear-gradient(90deg,#1a6887,#54e7d1,#1a6887);background-size:200% 100%;animation:axLoad 1.2s linear infinite}@keyframes axLoad{from{background-position:0 0}to{background-position:200% 0}}
 @media(max-width:950px){.axSplit{grid-template-columns:1fr}.axCards{max-height:330px}.axRoster{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.axToolbar,.axMissionGrid{grid-template-columns:1fr}.axSplit{padding-left:10px;padding-right:10px}.axCards{grid-template-columns:1fr}.axDossier{margin-left:10px;margin-right:10px;grid-template-columns:1fr}.axGame{margin-left:10px;margin-right:10px}.axAgentControls{grid-template-columns:1fr}.axAgentUrlRow{align-items:stretch;flex-direction:column}.axRoster{grid-template-columns:1fr 1fr}.axActions{align-items:stretch}.axAgentStatus{width:100%;margin:4px 0 0}}
+
+
+.axGameLearning{margin-top:10px;max-width:520px;padding:9px 10px;border:1px solid #234b62;background:#071b29;border-radius:8px}
+.axGameLearningTop{display:flex;justify-content:space-between;gap:8px;color:#83a8bb;font-size:7px;letter-spacing:.08em;font-weight:850}
+.axGameLearningTop b{color:#78e1d1}
+.axGameProgressTrack{height:5px;border-radius:8px;overflow:hidden;background:#142e3d;margin-top:8px}
+.axGameProgressTrack i{display:block;height:100%;width:0;background:linear-gradient(90deg,#31a7d0,#49e0bc);border-radius:8px;transition:width .35s ease}
+.axGameLearning small{display:block;margin-top:6px;color:#6f8fa2;font-size:7px}
+.axDecisionCard{border:1px solid #28536b;background:#081e2e;border-radius:8px;padding:10px 11px;margin:7px 0}
+.axDecisionTop{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.axDecisionTop b{font-size:9px;color:#e0eff4}
+.axDecisionCard p{font-size:8px;color:#91aebd;line-height:1.6;margin:6px 0}
+.axDecisionCard p b{color:#c5dfe8}
+.axDecisionCard .axLinks{margin-top:7px}
+.axDecisionCard .axPill{white-space:nowrap}
