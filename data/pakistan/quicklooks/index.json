@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-14T14:18:38+00:00",
+  "generated_at_utc": "2026-11-14T14:22:45+00:00",
   "provider": "Microsoft Planetary Computer / Sentinel-2 L2A",
   "results": {
     "koh_i_sultan": {
@@ -26,7 +26,7 @@
       "source_item": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2C_MSIL2A_20260908T062631_R077_T41RMN_20260908T105514",
       "source_asset": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/41/R/MN/2026/09/08/S2C_MSIL2A_20260908T062631_N0512_R077_T41RMN_20260908T105514.SAFE/GRANULE/L2A_T41RMN_A010486_20260908T064109/IMG_DATA/R10m/T41RMN_20260908T062631_TCI_10m.tif",
       "license": "Copernicus Sentinel data terms; see STAC collection metadata",
-      "generated_at_utc": "2026-11-14T14:18:38+00:00"
+      "generated_at_utc": "2026-11-14T14:22:45+00:00"
     },
     "hispar_glacier": {
       "site_id": "hispar_glacier",
@@ -52,7 +52,7 @@
       "source_item": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2C_MSIL2A_20261023T053901_R005_T43SEA_20261023T084205",
       "source_asset": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/43/S/EA/2026/10/23/S2C_MSIL2A_20261023T053901_N0513_R005_T43SEA_20261023T084205.SAFE/GRANULE/L2A_T43SEA_A011129_20261023T054822/IMG_DATA/R10m/T43SEA_20261023T053901_TCI_10m.tif",
       "license": "Copernicus Sentinel data terms; see STAC collection metadata",
-      "generated_at_utc": "2026-11-14T14:18:38+00:00"
+      "generated_at_utc": "2026-11-14T14:22:45+00:00"
     }
   },
   "note": "RGB previews are clipped from Sentinel-2 L2A visual COGs. They are browse products, not geological classification or field validation."
