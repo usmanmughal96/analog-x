@@ -37,12 +37,12 @@ DIVINER_XML_URL = (
 WAC_PRODUCTS = {
     "time_weighted": (
         "https://pds.lroc.im-ldi.com/data/LRO-L-LROC-5-RDR-V1.0/"
-        "LROLRC_2001/DATA/BDR/WAC_POLE/WAC_POLE_ILL_TWI_SOUTH/"
+        "LROLRC_2001/EXTRAS/BROWSE/WAC_POLE/WAC_POLE_ILL_TWI_SOUTH/"
         "WAC_POLE_ILL_TWI_SOUTH_100M.TIF"
     ),
     "percentage_based": (
         "https://pds.lroc.im-ldi.com/data/LRO-L-LROC-5-RDR-V1.0/"
-        "LROLRC_2001/DATA/BDR/WAC_POLE/WAC_POLE_ILL_PCT_SOUTH/"
+        "LROLRC_2001/EXTRAS/BROWSE/WAC_POLE/WAC_POLE_ILL_PCT_SOUTH/"
         "WAC_POLE_ILL_PCT_SOUTH_100M.TIF"
     ),
 }
@@ -222,8 +222,8 @@ def process_diviner() -> dict:
 
     avg_k = distribution(temp_avg)
     max_k = distribution(temp_max)
-    avg_c = {k: (v - 273.15 if isinstance(v, (int, float)) else v) for k, v in avg_k.items()}
-    max_c = {k: (v - 273.15 if isinstance(v, (int, float)) else v) for k, v in max_k.items()}
+    avg_c = {k: (v if k == "count" else v - 273.15) for k, v in avg_k.items()}
+    max_c = {k: (v if k == "count" else v - 273.15) for k, v in max_k.items()}
 
     return {
         "status": "processed",
@@ -304,9 +304,9 @@ def process_diviner() -> dict:
 
 def parse_illumination_label(text: str) -> dict:
     out = {}
+    import re
     for key in ("CORE_NULL", "CORE_VALID_MINIMUM", "CORE_VALID_MAXIMUM", "CORE_MULTIPLIER", "CORE_BASE"):
-        import re
-        m = re.search(r"(?im)^\\s*" + key + r"\\s*=\\s*([^\\r\\n]+)", text)
+        m = re.search(r"(?im)^\s*" + key + r"\s*=\s*([^\r\n]+)", text)
         if m:
             out[key.lower()] = m.group(1).strip().strip('"')
     return out
@@ -315,32 +315,21 @@ def parse_illumination_label(text: str) -> dict:
 def summarize_illumination(name: str, url: str, window_values: np.ma.MaskedArray, tags: dict, label_url: str) -> dict:
     values = np.asarray(window_values.filled(np.nan), dtype=float)
     mask = np.ma.getmaskarray(window_values) | ~np.isfinite(values)
-    null_value = tags.get("core_null")
+    null_value = tags.get("nodata")
+    if null_value is None:
+        null_value = tags.get("core_null")
     if null_value is not None:
         try:
             mask |= np.isclose(values, float(null_value))
-        except ValueError:
+        except (TypeError, ValueError):
             pass
     values = values[~mask]
-    values = values[(values >= 0) & (values <= 255)]
+    # LROC defines the byte raster as an illumination percentage (0–100).
+    # Values >100 are fill/reserved codes, not an alternate 0–255 percentage scale.
+    values = values[(values >= 0) & (values <= 100)]
     if values.size == 0:
         raise RuntimeError(f"No valid illumination pixels in Shackleton window for {name}")
 
-    # PDS WAC illumination rasters are stored as percentage values in an 8-bit grid.
-    # A 0–255 range is only rescaled if the product label declares it.
-    maximum = float(np.nanmax(values))
-    scale_note = "native values interpreted as percent (PDS 8-bit percentage product)"
-    if maximum > 100.5:
-        multiplier = float(tags.get("core_multiplier", 1.0))
-        base = float(tags.get("core_base", 0.0))
-        values = (values * multiplier) + base
-        if float(np.nanmax(values)) > 100.5:
-            values = values / 255.0 * 100.0
-            scale_note = "8-bit values normalized to percent; verify against PDS label scale"
-        else:
-            scale_note = "applied PDS core multiplier/base"
-
-    values = np.clip(values, 0, 100)
     pct = lambda threshold, op: float(np.mean(op(values, threshold)) * 100.0)
     return {
         "status": "processed",
@@ -348,7 +337,7 @@ def summarize_illumination(name: str, url: str, window_values: np.ma.MaskedArray
         "provider": "NASA LRO Camera (LROC) WAC",
         "resolution_m_per_pixel": 100,
         "source_url": url,
-        "label_url": label_url,
+        "product_reference": label_url,
         "valid_pixel_count": int(values.size),
         "illumination_percent": {
             "min": float(np.min(values)),
@@ -367,7 +356,7 @@ def summarize_illumination(name: str, url: str, window_values: np.ma.MaskedArray
             "center_longitude_east_deg": CENTER_LON_EAST_DEG,
             "shape": "29.6 km × 29.6 km projected window",
         },
-        "scale_interpretation": scale_note,
+        "scale_interpretation": "Native product byte values interpreted as percentage (0–100); fill values above 100 excluded.",
         "limitations": [
             "WAC product is based on one lunar year of observations from 15 Feb 2010 to 5 Feb 2011, with supplementary observations/interpolation.",
             "It is a historical observational illumination-frequency product, not a current or future mission ephemeris simulation.",
@@ -378,10 +367,10 @@ def summarize_illumination(name: str, url: str, window_values: np.ma.MaskedArray
 
 
 def process_wac_product(name: str, url: str) -> tuple[dict, np.ndarray]:
-    label_url = WAC_LABELS[name]
-    label_text = download_text(label_url)
-    label_tags = parse_illumination_label(label_text)
-
+    # The 100 m browse GeoTIFF carries the embedded map projection and nodata.
+    product_reference = "https://data.lroc.im-ldi.com/lroc/view_rdr_product/" + (
+        "WAC_POLE_ILL_TWI_SOUTH_100M" if name == "time_weighted" else "WAC_POLE_ILL_PCT_SOUTH_100M"
+    )
     response = SESSION.get(url, stream=True, timeout=(30, 180))
     response.raise_for_status()
     temp_path = DIAG_DIR / f"{name}.tif"
@@ -402,46 +391,17 @@ def process_wac_product(name: str, url: str) -> tuple[dict, np.ndarray]:
         window = from_bounds(cx - half_m, cy - half_m, cx + half_m, cy + half_m, transform=ds.transform)
         data = ds.read(1, window=window, boundless=True, masked=True)
         tags = dict(ds.tags())
-        tags.update(label_tags)
-        summary = summarize_illumination(name, url, data, tags, label_url)
+        summary = summarize_illumination(name, url, data, tags, product_reference)
         summary["raster"] = {
             "crs": str(ds.crs),
             "native_bounds": [float(x) for x in ds.bounds],
             "native_resolution": [float(x) for x in ds.res],
             "window_shape_rows_cols": [int(data.shape[0]), int(data.shape[1])],
             "window_center_projected_m": [float(cx), float(cy)],
-            "label_scale_metadata": label_tags,
+            "nodata": ds.nodata,
         }
         preview = data.filled(np.nan).astype(float)
-        # Clip and scale the preview to percent values for a legible scientific thumbnail.
-        preview = np.clip(preview, 0, 100)
         return summary, preview
-
-
-def make_preview(values: np.ndarray) -> None:
-    valid = np.isfinite(values)
-    clipped = np.nan_to_num(values, nan=0.0)
-    # Dark navy (low light) -> muted blue-green -> warm pale mint (high light).
-    stops = [
-        (0.0, (16, 24, 37)),
-        (0.25, (35, 67, 83)),
-        (0.50, (48, 124, 125)),
-        (0.75, (111, 177, 153)),
-        (1.0, (220, 224, 190)),
-    ]
-    colors = np.zeros((*clipped.shape, 3), dtype=np.uint8)
-    normalized = np.clip(clipped / 100.0, 0, 1)
-    for idx in range(len(stops) - 1):
-        low, color0 = stops[idx]
-        high, color1 = stops[idx + 1]
-        where = (normalized >= low) & (normalized <= high)
-        t = ((normalized[where] - low) / (high - low))[:, None]
-        c0, c1 = np.array(color0), np.array(color1)
-        colors[where] = (c0 + (c1 - c0) * t).astype(np.uint8)
-    colors[~valid] = (7, 12, 20)
-    img = Image.fromarray(colors, mode="RGB")
-    img = img.resize((768, 768), Image.Resampling.NEAREST)
-    img.save(PREVIEW_PATH, optimize=True)
 
 
 def main() -> None:
