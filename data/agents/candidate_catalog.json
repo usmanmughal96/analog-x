@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "title": "ANALOG-X Earth candidate discovery seeds",
-  "generated_at_utc": "2026-11-14T00:00:00Z",
+  "generated_at_utc": "2026-11-14T16:14:16.204Z",
   "scope_note": "This is a curated, evidence-linked candidate seed set for reproducible screening, not a complete global search and not a claim that any site is a newly discovered or validated planetary analog. Locations are study-area reference points, not field boundaries or access permissions.",
   "discovery_rules": [
     "Separate well-known analog references from under-characterized candidate leads.",
@@ -42,12 +42,12 @@
         "orbital-to-ground spectral screening",
         "field sampling and provenance workflows"
       ],
-      "hypothesis": "A pair of small salt-surfaced playas described southwest of Nok Kundi may offer a focused Pakistan field site for studying evaporite accumulation, sediment transport and dry-playa surface mapping relevant to selected Martian sedimentary-process questions.",
+      "hypothesis": "A pair of small salt-surfaced playas southwest of Nok Kundi may provide a focused Pakistan field site for rehearsing evaporite/salt-crust mapping, playa sedimentology and orbital-to-ground validation relevant to selected Martian sedimentary-process questions. The currently processed Sentinel-2 ratios are only screening context; no salt mineral or brine has been identified.",
       "evidence_status": {
-        "historical_geologic_context": "NASA technical report identifies two small salt-surfaced playas and discusses potential evaporite/brine context",
-        "nasa_power": "Queued for ingestion",
-        "sentinel2": "Queued for STAC search and spectral screening",
-        "copernicus_dem": "Queued for terrain screening",
+        "historical_geologic_context": "NASA NTRS report 19740023693 identifies two small salt-surfaced playas at the reported coordinates; historical lead only",
+        "nasa_power": "Integrated: 12-month NASA POWER climatology snapshot fetched 2026-11-14",
+        "sentinel2": "Integrated: 2025-11-02 Sentinel-2C L2A 20 m spectral-context profile, 569,772 valid pixels; indices are not mineral identification",
+        "copernicus_dem": "Pending: public STAC Copernicus DEM catalogue refresh and terrain processing",
         "field_validation": "Required"
       },
       "coordinate_method": "Reference point is the midpoint of two coordinate locations printed in the NASA report (28°35′ N, 62°36′ E and 28°35′ N, 62°40′ E). The displayed bounding box is an analyst-defined search window, not a measured playa polygon.",
@@ -97,12 +97,12 @@
         "remote sensing / field validation",
         "sediment and salt sampling"
       ],
-      "hypothesis": "The closed Kharan drainage basin and mostly dry Hamun-i-Mashkel playa may provide a process analogue for investigating evaporite accumulation and repeated wetting-drying sedimentary settings on Mars.",
+      "hypothesis": "Hamun-i-Mashkel is a regional closed-basin playa lead for rehearsing intermittent-lake/playa sediment mapping and wetting-drying process documentation. The current Sentinel-2 sample supports only a single-date spectral screen, not a brine, mineral or hydrologic classification.",
       "evidence_status": {
-        "historical_geologic_context": "NASA report describes the playa and regional sand-transport/salinity context; basin-level facts require current local verification",
-        "nasa_power": "Queued for ingestion",
-        "sentinel2": "Queued for STAC search and spectral screening",
-        "copernicus_dem": "Queued for terrain screening",
+        "historical_geologic_context": "NASA NTRS report 19740023693 discusses the playa and possible saline/evaporite context; basin-level facts need current local verification",
+        "nasa_power": "Integrated: 12-month NASA POWER climatology snapshot fetched 2026-11-14",
+        "sentinel2": "Integrated: 2026-08-09 Sentinel-2C L2A 20 m spectral-context profile, 109,692 valid pixels; current AOI is narrow and should be reviewed",
+        "copernicus_dem": "Pending: public STAC Copernicus DEM catalogue refresh and terrain processing",
         "field_validation": "Required"
       },
       "coordinate_method": "Approximate place-reference coordinate used for data discovery; not a playa boundary. Confirm the AOI against a current hydrology/landform map before field use.",
