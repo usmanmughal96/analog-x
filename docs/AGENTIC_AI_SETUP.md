@@ -51,3 +51,8 @@ The public site includes a deterministic, offline evidence mode. It reads the pu
 The deterministic specialist reports run before the Mission Director. The candidate decision rule is documented in [DECISION_ENGINE.md](DECISION_ENGINE.md). The model is instructed to treat the reports and allow-listed tool results as the evidence base, distinguish measurement from inference, and never invent mineralogy, brine, ice access, dust flux, safety or a similarity percentage.
 
 When **Moon + Mars** is selected, the terrain tool returns two independent comparisons (Shackleton Rim and Nili Patera); it must not blend them into a single score. Tool calling is limited to one explicit retrieval round (up to three allow-listed calls) followed by a synthesis pass. The Worker returns the tool trace and model usage metadata with the brief.
+
+
+## gpt-oss tool-call reliability
+
+The Mission Director handles both Workers AI's structured tool-call response and the documented gpt-oss edge case where a function call may be returned as JSON text with an empty structured tool-call array. Text recovery is deliberately narrow: it accepts JSON objects/arrays only, rejects any name outside the five-tool allow-list, and passes the recovered arguments through the same server-side tool executor. This is not an unrestricted code-execution path.
