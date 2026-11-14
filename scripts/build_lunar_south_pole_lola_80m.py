@@ -14,7 +14,7 @@ import requests
 import numpy as np
 import rasterio
 from rasterio.windows import Window
-from rasterio.warp import transform as transform_xy
+from pyproj import Transformer
 from scipy.ndimage import maximum_filter,minimum_filter
 from PIL import Image
 
@@ -81,9 +81,14 @@ def main():
    raise RuntimeError("LOLA DEM and count JP2s do not share identical raster geometry: "
     +json.dumps({"dem":[dem.width,dem.height,str(dem.crs),str(dem.transform)],
                  "count":[cnt.width,cnt.height,str(cnt.crs),str(cnt.transform)]}))
-  # Transform target lon/lat into the JP2 raster CRS.
-  xys=transform_xy("EPSG:4326",dem.crs,[SITE["longitude_east_deg"]],[SITE["latitude_south_deg"]])
-  x,y=float(xys[0][0]),float(xys[1][0])
+  # This is a Moon-centred custom CRS, not Earth EPSG:4326. Transform
+  # longitude/latitude in the DEM's own lunar geodetic CRS to its stereographic
+  # map CRS so the target is not inadvertently interpreted on an Earth ellipsoid.
+  lunar_geographic=dem.crs.geodetic_crs
+  if lunar_geographic is None:
+   raise RuntimeError("LOLA JP2 has no lunar geodetic base CRS")
+  transformer=Transformer.from_crs(lunar_geographic,dem.crs,always_xy=True)
+  x,y=transformer.transform(SITE["longitude_east_deg"],SITE["latitude_south_deg"])
   row,col=dem.index(x,y)
   if row<0 or col<0 or row>=dem.height or col>=dem.width:
    raise RuntimeError(f"Shackleton target maps outside LOLA 80 m grid: row={row}, col={col}")
