@@ -1,0 +1,18 @@
+# Raw satellite and planetary raster files (download separately; respect source terms)
+data/raw/
+*.IMG
+*.img
+*.tif
+*.tiff
+*.vrt
+*.aux.xml
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Generated analytical outputs should be reviewed before committing
+outputs/*_summary.json
+outputs/*_metrics.json
