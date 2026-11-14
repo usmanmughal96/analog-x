@@ -36,6 +36,20 @@ SITES={
   "window":"2022-09-01T00:00:00Z/2022-10-01T23:59:59Z",
   "role":"Cryosphere / snow-ice and debris-context screen",
   "interpretation":"NDSI and Sentinel-2 Scene Classification Layer provide a screening view of snow/ice and cloud/shadow context, not a validated glacier boundary or mass-balance result."
+ },
+ "chagai_small_playas":{
+  "name":"Chagai small salt playas near Nok Kundi",
+  "bbox":[62.54,28.53,62.73,28.64],
+  "window":"2024-01-01T00:00:00Z/2026-11-14T23:59:59Z",
+  "role":"Evaporite / salt-playa and sedimentary-process screen",
+  "interpretation":"Bare-surface and SWIR context can help plan field checks of salt-pan and sedimentary units. Spectral indices do not establish evaporite mineralogy, brine chemistry or Mars equivalence. This AOI is based on two historical NASA report coordinates and needs modern ground verification."
+ },
+ "hamun_i_mashkel":{
+  "name":"Hamun-i-Mashkel playa / Kharan Basin",
+  "bbox":[62.82,28.13,63.02,28.33],
+  "window":"2024-01-01T00:00:00Z/2026-11-14T23:59:59Z",
+  "role":"Closed-basin playa / intermittent-lake spectral-context screen",
+  "interpretation":"Bare-surface, wetness and seasonal spectral context can inform playa process reconnaissance. NDMI/NDSI do not identify brines or minerals; a single Sentinel scene cannot characterize intermittent inundation."
  }
 }
 
