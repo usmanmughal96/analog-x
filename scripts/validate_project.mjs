@@ -10,7 +10,7 @@ const power = JSON.parse(read("data/power/index.json"));
 const terrain = JSON.parse(read("data/terrain/terrain_comparison.json"));
 const lunar = JSON.parse(read("data/moon/shackleton_lola_80m.json"));
 
-const ids = [...html.matchAll(/\\bid=["']([^"']+)["']/g)].map((m) => m[1]);
+const ids = [...html.matchAll(/\bid=["']([^"']+)["']/g)].map((m) => m[1]);
 const duplicates = ids.filter((id, i) => ids.indexOf(id) !== i);
 assert.equal(duplicates.length, 0, "HTML contains duplicate element IDs");
 
