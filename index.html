@@ -53,32 +53,81 @@
 <link rel='stylesheet' href='./assets/analogx-scout.css'>
 </head>
 <body>
+<div class="launchScreen" id="launchScreen" role="status" aria-live="polite" aria-label="Opening ANALOG-X planetary research portal">
+ <div class="launchStars"></div>
+ <div class="launchPanel">
+  <div class="launchEyebrow">PLANETARY FIELD RESEARCH / INITIALISING</div>
+  <div class="launchPlanetWrap">
+   <div class="launchOrbit launchOrbitOne"></div><div class="launchOrbit launchOrbitTwo"></div>
+   <div class="launchPlanet">
+    <svg viewBox="0 0 220 220" aria-hidden="true">
+     <defs><radialGradient id="launchEarthFill" cx="34%" cy="28%" r="80%"><stop offset="0" stop-color="#e4ead0"/><stop offset=".28" stop-color="#679f91"/><stop offset=".7" stop-color="#1d565d"/><stop offset="1" stop-color="#0b202b"/></radialGradient><clipPath id="launchEarthClip"><circle cx="110" cy="110" r="86"/></clipPath></defs>
+     <circle cx="110" cy="110" r="86" fill="url(#launchEarthFill)"/>
+     <g clip-path="url(#launchEarthClip)" fill="#b7c6a0" opacity=".85"><path d="M37 65l17-17 23 6 8 18-14 9-4 17-19 4-12-13zM105 43l23-7 19 14-4 18-14 7-3 20-22-3-9-18 7-16zM146 111l22 1 14 16-10 24-15 7-16-17 3-17zM62 123l17-7 18 16-2 23-19 15-15-24z"/></g>
+     <circle cx="110" cy="110" r="86" fill="none" stroke="#a8e2d1" stroke-opacity=".55"/>
+     <path d="M25 109h170M110 24c-24 22-34 52-34 86s10 64 34 86M110 24c24 22 34 52 34 86s-10 64-34 86" fill="none" stroke="#d6f0df" stroke-opacity=".18"/>
+    </svg>
+   </div>
+   <div class="launchMoon"></div><div class="launchSignal"></div>
+  </div>
+  <div class="launchWordmark">ANALOG<span>—</span>X</div>
+  <div class="launchSubtitle">Earth is the rehearsal ground for the next worlds.</div>
+  <div class="launchStatus" id="launchStatus">Linking Earth · Moon · Mars evidence</div>
+  <div class="launchProgress"><i></i></div>
+  <div class="launchFoot"><span>OPEN DATA / FIELD SCIENCE / EXPLORATION</span><div><button class="launchAudio" id="soundToggleLaunch" aria-pressed="false">♫ SOUND OFF</button><button class="launchEnter" id="launchSkip">ENTER PORTAL ↗</button></div></div>
+ </div>
+</div>
 <div class="app">
 <aside class="sidebar">
  <div class="brand"><div class="brandmark">AX</div><div class="brandname">ANALOG-X<small>PLANETARY EVIDENCE OPS</small></div></div>
- <div class="navgroup">
-  <div class="navlabel">Operations</div>
-  <div class="navitem active" data-scroll="overview"><span class="navicon">◫</span><span>Mission Control</span></div>
-  <div class="navitem" data-scroll="sites"><span class="navicon">⌖</span><span>Analog Sites</span></div>
-  <div class="navitem" data-scroll="imagery"><span class="navicon">▧</span><span>Earth Imagery</span></div>
-  <div class="navitem" data-scroll="sources"><span class="navicon">◈</span><span>Data Sources</span></div>
-  <div class="navitem" data-scroll="terrain"><span class="navicon">⌁</span><span>Terrain Profiles</span></div>
-  <div class="navitem" data-scroll="readiness"><span class="navicon">☷</span><span>Evidence Gaps</span></div>
-  <div class="navitem" data-scroll="discoveryLab"><span class="navicon">◎</span><span>Discovery Atlas</span></div>
-  <div class="navitem" data-scroll="coordinateScout"><span class="navicon">⌖</span><span>Global Scout</span></div>
-  <div class="navitem" data-scroll="agentBay"><span class="navicon">✧</span><span>Agent Science</span></div>
-  <div class="navlabel" style="margin-top:12px">Research</div>
-  <div class="navitem" data-action="method"><span class="navicon">⌘</span><span>Methodology</span></div>
-  <div class="navitem" data-action="submission"><span class="navicon">▤</span><span>NASA Submission</span></div>
+ <div class="navgroup" aria-label="Main navigation">
+  <div class="navlabel">Explore</div>
+  <div class="navitem active" data-scroll="overview"><span class="navicon">⌂</span><span>Start here</span></div>
+  <div class="navitem" data-scroll="discoveryLab"><span class="navicon">⌖</span><span>Earth sites</span></div>
+  <div class="navitem" data-scroll="imagery"><span class="navicon">▧</span><span>Earth imagery</span></div>
+  <div class="navitem" data-scroll="terrain"><span class="navicon">◒</span><span>Moon & Mars</span></div>
+  <div class="navlabel" style="margin-top:15px">Take action</div>
+  <div class="navitem" data-scroll="agentBay"><span class="navicon">✧</span><span>Mission assistant</span></div>
+  <div class="navitem" data-scroll="fieldSchool"><span class="navicon">◎</span><span>Field School</span></div>
+  <div class="navitem" data-scroll="challengeCoverage"><span class="navicon">☷</span><span>Challenge coverage</span></div>
+  <div class="navitem" data-scroll="sources"><span class="navicon">◈</span><span>Data sources</span></div>
+  <div class="navlabel" style="margin-top:15px">Reference</div>
+  <div class="navitem" data-action="method"><span class="navicon">⌘</span><span>How it works</span></div>
+  <div class="navitem" data-action="submission"><span class="navicon">▤</span><span>Submission brief</span></div>
  </div>
- <div class="sidefoot"><div><span class="dot"></span><b>DATA PIPELINE ONLINE</b></div><div class="small">NASA POWER snapshots<br>Sentinel-2 STAC metadata<br>Pakistan case-study atlas<br><br><span style="color:#547689">Independent research prototype</span></div></div>
+ <div class="sidefoot"><div><span class="dot"></span><b>RESEARCH WORKSPACE</b></div><div class="small">Open planetary data · evidence-first decisions<br><span style="color:#78928d">Independent prototype · not a NASA product</span></div></div>
 </aside>
 <div class="workspace">
  <header class="topbar">
-  <div class="top-left"><div class="sectionname">Evidence Operations <span style="color:#577b90;font-weight:400">/ Pakistan Analog Atlas</span></div><span class="online"><span class="dot" style="width:6px;height:6px"></span> ONLINE</span></div>
-  <div class="top-right"><div class="topmeta" id="utcClock">UTC --:--:--</div><div class="topchip">◉ GLOBAL / PAKISTAN VIEW</div><div class="operator"><div class="avatar">AX</div><span>RESEARCH<br><b style="color:#8caaba;font-weight:500">ANALYST</b></span></div></div>
+  <div class="top-left"><button class="mobileMenuButton" id="mobileMenuButton" aria-label="Open navigation" aria-expanded="false">☰</button><div class="sectionname" id="activeSectionName">Mission Control <span style="color:#7f9b92;font-weight:400">/ Earth analog research</span></div><span class="online"><span class="dot" style="width:6px;height:6px"></span> WORKSPACE</span></div>
+  <div class="top-right"><div class="topmeta" id="utcClock">UTC --:--:--</div><button class="soundToggleTop" id="soundToggleTop" aria-pressed="false">♫ SOUND OFF</button><div class="operator"><div class="avatar">AX</div><span>FIELD<br><b style="color:#8caaba;font-weight:500">RESEARCH</b></span></div></div>
  </header>
  <main class="main" id="overview">
+  <section class="welcomeHero" aria-labelledby="welcomeTitle">
+   <div class="welcomeCopy">
+    <div class="welcomeEyebrow"><span class="welcomePulse"></span> ANALOG-X / PLANETARY FIELD LAB</div>
+    <h1 id="welcomeTitle">Earth is the rehearsal ground for the <em>next worlds.</em></h1>
+    <p>Before astronauts and robots explore the Moon or Mars, scientists test mission tasks on Earth. ANALOG-X helps find the right places, compare real evidence, and understand where the comparison breaks down.</p>
+    <div class="welcomeDefinition">A planetary <b>analog</b> is not an Earth copy of another world. It is a place or process that helps rehearse one specific exploration task.</div>
+    <div class="welcomeActions">
+     <button class="welcomePrimary" id="heroExploreSites">EXPLORE EARTH SITES <span>↗</span></button>
+     <button class="welcomeSecondary" id="heroExplain">HOW IT WORKS <span>→</span></button>
+     <button class="welcomeSecondary" id="heroAskAgent">ASK THE MISSION ASSISTANT <span>✧</span></button>
+    </div>
+   </div>
+   <div class="welcomeVisual" aria-label="Earth, Moon and Mars exploration concept">
+    <div class="welcomeOrbit welcomeOrbitA"></div><div class="welcomeOrbit welcomeOrbitB"></div>
+    <div class="welcomeEarth"><div class="welcomeEarthLand"></div><span>EARTH</span></div>
+    <div class="welcomeMoon"><span>MOON</span></div><div class="welcomeMars"><span>MARS</span></div>
+    <div class="welcomeVisualCaption">ONE PLANET / MANY FIELD REHEARSALS</div>
+   </div>
+   <div class="welcomeSteps">
+    <div><span>01</span><b>Choose a mission</b><small>Moon base or Mars exploration</small></div>
+    <div><span>02</span><b>Choose a task</b><small>Ice, terrain, geology or field methods</small></div>
+    <div><span>03</span><b>Compare evidence</b><small>Climate, imagery, terrain and sources</small></div>
+    <div><span>04</span><b>Plan the next test</b><small>See gaps before making a claim</small></div>
+   </div>
+  </section>
   <div class="toolbar"><div class="crumb">PROJECT / <b>ANALOG-X</b> / <b>MISSION CONTROL</b></div><div class="actions"><button class="selectbtn active" id="btnPakistan">Pakistan sector</button><button class="ghostbtn" id="btnGlobal">Global context</button><button class="ghostbtn" id="btnReport">Field-test card ↗</button></div></div>
   <section class="grid-main">
    <article class="card mapcard">
@@ -158,7 +207,7 @@
      <div class="timeline">
       <div class="timelinehead"><b>DATA ACQUISITION WORKFLOW</b><span id="snapshotDate">SNAPSHOT DATE —</span></div>
       <div class="steps">
-       <div class="step"><div class="stepdot">✓</div><b>Climate</b><small>NASA POWER<br>8/8 site snapshots</small></div>
+       <div class="step"><div class="stepdot">✓</div><b>Climate</b><small>NASA POWER<br>10/10 candidate coordinates</small></div>
        <div class="step"><div class="stepdot">✓</div><b>Scene Search</b><small>Sentinel-2<br>metadata</small></div>
        <div class="step warn" id="quickStep"><div class="stepdot">!</div><b>Quicklooks</b><small>COG preview<br>status</small></div>
        <div class="step"><div class="stepdot">✓</div><b>Terrain</b><small>CopDEM / MOLA<br>coarse profile</small></div>
@@ -200,7 +249,7 @@
     <div class="axCards" id="axCards"><div class="axCard">Loading evidence-linked candidate records…</div></div>
    </div>
    <div class="axDossier" id="axDossier"><div><h4>SELECT A CANDIDATE TO INSPECT ITS DOSSIER</h4><p>Choose a map marker or card to inspect the working hypothesis, source references and outstanding evidence.</p></div><div><h4>EVIDENCE COMPLETENESS</h4><p>Climate · Sentinel-2 surface context · terrain · source references.</p></div></div>
-   <div class="axGame">
+   <div class="axGame" id="fieldSchool">
     <div class="axEyebrow">MISSION SIMULATOR / FIELD-METHOD TRAINING</div><h3 id="axGameTitle">Choose the right Earth field rehearsal</h3>
     <p id="axGameQuestion">A short, playable science exercise. The best answer is a task-specific rehearsal choice—not a claim that Earth reproduces the Moon or Mars.</p>
     <div class="axGameLearning"><div class="axGameLearningTop"><span>FIELD SCHOOL / <b id="axGameRank">RESEARCH TRAINEE</b></span><b id="axGameXp">0 XP</b></div><div class="axGameProgressTrack"><i id="axGameProgressBar"></i></div><small id="axGameScore">0/3 missions cleared · 0 correct · 0 current streak</small></div>
@@ -286,17 +335,17 @@
   </section>
 
   <section class="card coveragepanel" id="challengeCoverage">
-   <div class="cardhead"><div><div class="cardtitle">NASA CHALLENGE / OBJECTIVE COVERAGE</div><div class="cardhint">What the current release demonstrates—and which science dimensions remain open</div></div><span class="statuspill gold">WORKING PROTOTYPE / PARTIAL COVERAGE</span></div>
+   <div class="cardhead"><div><div class="cardtitle">NASA CHALLENGE / OBJECTIVE COVERAGE</div><div class="cardhint">A transparent evidence ledger: integrated data, useful comparisons and open science</div></div><span class="statuspill gold" id="challengeCoverageStatus">EVIDENCE-FIRST PROTOTYPE</span></div>
    <div class="coverageGrid">
-    <div class="coverageItem"><b>EARTH OBSERVATIONS / INTEGRATED</b><p>NASA POWER climatology for ten coordinates; Sentinel-2 L2A scene discovery, spectral-context screens and RGB quicklooks for four Pakistan windows; Copernicus DEM GLO-30 terrain profiles for four Pakistan windows; NASA CMR catalogue discovery only for MODIS/MERRA-2.</p><span class="statuspill">10 CLIMATE / 4 EO WINDOWS / 4 TERRAIN</span></div>
-    <div class="coverageItem"><b>GLOBAL ANALOG DISCOVERY / SEED ATLAS</b><p>Ten curated candidate/reference sites, including two under-characterized Balochistan playa leads with NASA historical context and modern screening evidence. Six global references have primary-source links. This is a curated seed atlas, not an exhaustive Earth search or a claim of new-to-science discovery.</p><span class="statuspill">10 SEEDS / 2 RESEARCH LEADS</span></div>
-    <div class="coverageItem"><b>MARS / NILI PATERA</b><p>MOLA 64 ppd terrain descriptors are compared with Pakistan profiles at ~925 m support. The selected 30 km MOLA window has only 50.53% observed cells (567/1,122) and 87 complete 3×3 neighborhoods.</p><span class="statuspill gold">PARTIAL / LIMITED COVERAGE</span></div>
-    <div class="coverageItem"><b>PERMANENT LUNAR BASE / SHACKLETON</b><p>LOLA 80 m elevation and observation-count grids are processed around Shackleton Rim and aggregated to ~925 m. Diviner PRP V2.0 collection/table access is verified, but temperature/ice-depth fields are not interpreted or mapped. Illumination and permanently shadowed-region mapping remain outstanding.</p><span class="statuspill gold">LOLA INTEGRATED / DIVINER PROCESSING PENDING</span></div>
-    <div class="coverageItem"><b>GEOLOGY / SURFACE MATERIALS</b><p>Koh-i-Sultan has USGS regional geology (agglomerate, tuff and andesitic lava); the Balochistan playa leads have historical context plus modern EO screening. No site-scale mineral classification, lab chemistry, brine confirmation, crust-thickness survey or field samples are integrated.</p><span class="statuspill gold">REFERENCE + SCREENING / FIELD VALIDATION NEEDED</span></div>
-    <div class="coverageItem"><b>ENVIRONMENT / RESOURCES / OPERATIONS</b><p>Gridded air-climate and solar/wind/precipitation context is available. Local dust flux, surface/rock temperature, accessible water/ice, radiation, illumination, resource prospectivity, subsurface structure and rover-scale strength/trafficability are not calculated.</p><span class="statuspill gold">PARTIAL / MULTIPLE GAPS</span></div>
-    <div class="coverageItem"><b>DECISION / AGENTIC / LEARNING UX</b><p>Offline specialist agents and strict/exploratory evidence triage work without an LLM. The Field School simulator teaches mission methods. Optional gpt-oss-20b Mission Director and live Coordinate Scout require the owner to deploy the Cloudflare Worker; it is not yet a live service.</p><span class="statuspill">OFFLINE AGENTS LIVE / CLOUD SETUP PENDING</span></div>
+    <div class="coverageItem"><b>EARTH / MULTI-SOURCE OBSERVATIONS</b><p>NASA POWER climatology for 10 coordinates; Sentinel-2 L2A scene discovery, spectral-context screens and RGB previews for four Pakistan windows; Copernicus DEM GLO-30 terrain profiles for all four. MODIS/MERRA-2 are still catalogue discovery, not processed measurements.</p><span class="statuspill">10 CLIMATE / 4 EO WINDOWS / 4 TERRAIN</span></div>
+    <div class="coverageItem"><b>GLOBAL CANDIDATE DISCOVERY</b><p>Ten provenance-linked Earth seeds, including two under-characterized Balochistan playa leads. The atlas looks beyond the well-known sites but remains a curated seed set—not an exhaustive global search or a new-to-science discovery claim.</p><span class="statuspill">10 SEEDS / 2 RESEARCH LEADS</span></div>
+    <div class="coverageItem"><b>MARS / NILI PATERA</b><p>MOLA 64 ppd terrain descriptors compared with the Earth windows at ~925 m support. The 30 km MOLA sample has 50.53% observed-cell coverage (567/1,122) and 87 complete 3×3 neighborhoods; keep that caveat beside every comparison.</p><span class="statuspill gold">INTEGRATED / LIMITED COVERAGE</span></div>
+    <div class="coverageItem"><b>PERMANENT LUNAR BASE / SHACKLETON</b><p>LOLA 80 m elevation, return support and matched ~925 m terrain are integrated. Diviner PRP V2.0 and LROC WAC 100 m illumination processing are being added for a 29.6 km Shackleton window; the panel will show the source-based temperature, ice-stability and illumination summaries once the processing run completes. These historical products are not current mission forecasts.</p><span class="statuspill gold" id="lunarResourceStatus">LOLA INTEGRATED / DIVINER + WAC PROCESSING</span><div class="lunarResourceSummary" id="lunarResourceSummary">Annual thermal/ice-stability and observed-illumination summaries are not loaded yet.</div></div>
+    <div class="coverageItem"><b>GEOLOGY / SURFACE MATERIALS</b><p>USGS regional mapping identifies Koh-i-Sultan agglomerate, tuff and andesitic lava. Chagai's historic salt-playa report, modern Sentinel-2 screening and terrain context support a process-rehearsal hypothesis. Site-scale mineral identification, laboratory chemistry, brine confirmation and field samples remain open.</p><span class="statuspill gold">REGIONAL GEOLOGY / FIELD VALIDATION OPEN</span></div>
+    <div class="coverageItem"><b>ENVIRONMENT / RESOURCES / OPERATIONS</b><p>Earth gridded climate and solar/wind/precipitation context plus lunar thermal/illumination screening help frame mission tasks. Local dust flux, radiation, current ephemeris, subsurface structure, resource concentration, extractability and rover-scale surface strength are not established.</p><span class="statuspill gold">MULTI-DIMENSIONAL / PARTIAL</span></div>
+    <div class="coverageItem"><b>DECISION / AGENTIC / PUBLIC LEARNING</b><p>Offline specialist agents, strict/exploratory evidence triage, a live-data coordinate scout (Worker required), an optional open-weight Mission Director (Cloudflare deployment required) and the four-stage Field School connect evidence with an explainable next action.</p><span class="statuspill">OFFLINE AGENTS / OPTIONAL CLOUD AI</span></div>
    </div>
-   <div class="terrainWarning" style="margin-top:0">This portal is a research and field-rehearsal decision aid, not an official landing-site selection system. A ~925 m terrain profile is regional context, not rover-scale hazard analysis. Earth cannot reproduce lunar vacuum/reduced gravity or Mars' thin atmosphere and radiation environment; field access, permits, ground truth and specialist review remain essential.</div>
+   <div class="terrainWarning" style="margin-top:0">This is a research and field-rehearsal decision aid—not an official landing-site selection or safety system. ~925 m terrain profiles are regional context, not rover-scale hazard analysis. WAC low-illumination pixels are not formal PSR boundaries; Diviner ice-stability depth is model-derived, not a direct ice-abundance measurement. Earth cannot reproduce lunar vacuum/reduced gravity or Mars' thin atmosphere and radiation environment. Ground truth, access, permits and specialist review remain necessary.</div>
   </section>
 
   <section class="card sourcepanel" id="sources">
