@@ -4,20 +4,20 @@
 For a proposed Moon/Mars field-rehearsal task, is a candidate Earth site characterized by traceable, sufficiently resolved environmental and imagery evidence—and what must still be measured on the ground or retrieved from planetary archives before anyone can claim the analogy is useful?
 
 ## Work packages
-1. **Candidate definition.** Use a documented coordinate or area of interest with provenance. A catalogue point is not a surveyed site boundary.
+1. **Candidate definition.** Maintain a provenance-linked seed set of ten Earth environments: two under-characterized Balochistan playa leads, two Pakistan reference case studies and six established global reference sites. A catalogue point or analyst-defined search window is not a surveyed site boundary; the seed set is not an exhaustive global discovery scan.
 2. **Earth climate context.** Retrieve NASA POWER climatology, preserve original responses, source URL, variables, units, monthly values and fetch time.
 3. **Satellite scene discovery.** Query Microsoft Planetary Computer STAC for Sentinel-2 L2A items. Preserve item IDs, dates, MGRS tiles, cloud percentages, footprints and asset links.
 4. **Visual quicklook.** Use a public SAS token to read cloud-optimized Sentinel-2 true-colour COG assets and clip a preview to the study bounding box.
-5. **Terrain profile.** Use Copernicus DEM GLO-30 DSM for Koh-i-Sultan and Hispar, mosaic neighbouring tiles, project to local UTM and average to approximately 925 m. Use MOLA MEGDR 64 pixels/degree topography and observation-count products around Nili Patera, Syrtis Major. Compute slope and 3×3 local-relief distributions at comparable coarse support.
+5. **Terrain profile.** Use Copernicus DEM GLO-30 DSM for four Pakistan windows—Koh-i-Sultan, Hispar Glacier, Chagai small salt playas and Hamun-i-Mashkel—mosaic neighbouring tiles, project to local UTM and average to approximately 925 m. Use MOLA MEGDR 64 pixels/degree topography and observation-count products around Nili Patera, Syrtis Major. Compute slope and 3×3 local-relief distributions at comparable coarse support. Process a separate lunar LOLA 80 m Shackleton Rim window and aggregate it to ~925 m for regional descriptor comparison.
 6. **Institutional evidence.** Record existing EvK2CNR glacier inventory, NDMA hazard outlooks, SUPARCO/UN-SPIDER recommended practices, Space4Climate and DisasterWatch capabilities with an explicit integration status.
-7. **Planetary reference.** MOLA is processed for Nili Patera. Lunar LOLA PDS GDR 80 m elevation and count grids are processed for Shackleton Rim, with a coarse ~925 m profile aggregated for cross-body terrain comparison. The original 5 m PGDA Site04 path was blocked, but the MIT Imbrium mirror provides the 80 m PDS GDR. Diviner thermal / water-ice-permafrost products remain reference-only.
+7. **Planetary reference.** MOLA is processed for Nili Patera. Lunar LOLA PDS GDR 80 m elevation and count grids are processed for Shackleton Rim, with a coarse ~925 m profile aggregated for cross-body terrain comparison. The original 5 m PGDA Site04 path was blocked, but the MIT Imbrium mirror provides the 80 m PDS GDR. Diviner PRP V2.0 collection metadata and south-polar table range access are verified, but field units/semantics and site-level thermal/ice-depth statistics remain unprocessed.
 8. **Field-readiness card.** Convert gaps into validation tasks: georeferenced field stations, ground photos, rock/soil descriptions, local weather loggers, surface-temperature sensors, sample provenance and permissions.
 
 ## Matched-scale terrain method
 
 ### Earth inputs
 - Copernicus DEM GLO-30 Digital Surface Model (DSM), accessed as Cloud-Optimized GeoTIFF assets through Microsoft Planetary Computer STAC and public SAS token access.
-- Koh-i-Sultan and Hispar windows are approximately 30 km × 30 km.
+- Four Pakistan windows—Koh-i-Sultan, Hispar Glacier, Chagai small salt playas and Hamun-i-Mashkel—are approximately 30 km × 30 km.
 - Earth data is mosaicked across adjacent one-degree tiles, reprojected to the local UTM zone and averaged to 925 m cells.
 
 ### Mars input
@@ -39,6 +39,8 @@ The 3×3 local-relief descriptor has an approximate footprint of 2.8 km at this 
 ### Current result and quality warning
 - Koh-i-Sultan: 100% valid cells in its 1,024-cell window.
 - Hispar: 100% valid cells in its 1,024-cell window.
+- Chagai small salt playas: 100% valid cells in its 1,024-cell window (median slope 0.397°, P90 slope 1.010°, P90 local relief 38.8 m).
+- Hamun-i-Mashkel: 100% valid cells in its 1,024-cell window (median slope 0.0065°, P90 slope 0.0965°, P90 local relief 4.9 m).
 - Nili Patera: 567 of 1,122 MOLA cells observed (50.53%); only 87 complete 3×3 neighborhoods remain for slope/relief derivatives.
 
 Nili Patera's coverage is materially lower than the Earth windows. Its summary is useful as a provisional regional profile, but any site-to-site interpretation should be treated as limited and reviewed with a higher-resolution or complementary Mars product before drawing a conclusion.
@@ -70,6 +72,25 @@ Sentinel-2 scene discovery includes a late-summer 2022 inventory-reference perio
 
 ## No universal similarity score
 Climate, imagery, terrain and geology have different physical meanings, temporal windows and spatial support. A weighted score would be misleading without a specific mission task, harmonized units/resolution, missing-data accounting, scientifically defensible weights, sensitivity testing and independent domain review. Therefore the current release shows source status, measurements and gaps separately instead of generating a spurious “Mars similarity %”.
+
+
+## Mission-specific decision support (Agent Bay)
+
+The offline decision engine reads the curated candidate catalogue and current published evidence. It does not use an LLM to calculate a score.
+
+### Inputs kept separate
+- **Mission eligibility:** candidate record lists Moon, Mars or both.
+- **Documented task overlap:** selected experiment is matched against each site's documented rehearsal tasks and environment tags.
+- **Evidence layers:** NASA POWER climatology, Sentinel-2 spectral-context profile, processed Copernicus terrain profile and traceable source references are displayed independently.
+- **Candidate class:** an under-characterized research lead remains distinct from an established/reference site.
+- **Planning context:** three lowest-precipitation NASA POWER climatology months are shown with air temperature and 10 m wind; they are not weather forecasts.
+
+### Strict and exploratory policies
+- **Strict:** a candidate must be eligible for the selected mission, have at least one documented rehearsal-task overlap, a source reference, NASA POWER context, and either a site-specific Sentinel-2 profile or a processed terrain profile.
+- **Exploratory:** environmental-tag matches and reference sites may be shown even when that strict evidence threshold is not met. They remain hypotheses or reference baselines.
+
+### Ordering and interpretation
+The shortlist is ordered by documented task overlap, then under-characterized leads before established references, then by the number of evidence layers present. Ties are retained. This is a transparent retrieval/triage rule, not a calibrated analog similarity metric, confidence probability, landing suitability or rover-safety rating. For a Moon + Mars request, the terrain tool returns separate Moon and Mars comparisons. The Field School XP system is a learning aid and never influences a scientific decision.
 
 ## Known limitations
 - Nili Patera MOLA coverage is only 50.53% in the selected window; slope/relief statistics use 87 complete neighborhoods.
