@@ -53,3 +53,7 @@ Its differentiating contribution is a Pakistan-first evidence operations workflo
 ## Novelty and validation boundary
 
 The current release has identified a potentially under-characterized field-rehearsal candidate, but it has not proved that Koh-i-Sultan is a new-to-science analog site. The published USGS Chagai geology and existing regional alteration studies are prior work. A competition-grade novelty claim requires a clearly bounded field area, a comparison target tied to a mission task, site-scale lithology/alteration evidence, QA-screened multi-sensor analysis and a plan for field validation. Hispar is a known glacier region and is retained as a cryosphere workflow comparator, not as the new discovery.
+
+## Permanent lunar-base terrain reference
+
+ANALOG-X now includes a separate lunar terrain reference: NASA LRO LOLA PDS GDR 80 m elevation and count grids around Shackleton Rim. The 29.6 km window is area-averaged to 925 m for a common-support terrain profile. This adds actual lunar topography to the portal, but it does not make Hispar a permanently shadowed-region analog. Diviner annual temperature / water-ice-permafrost products, illumination analysis, neutron data, and resource mapping remain outstanding. The Shackleton window has median/P90 slope of 13.40°/30.94° and P90 3×3 local relief of 1,391 m at coarse support; it should be treated as rugged terrain context, not a base recommendation.
