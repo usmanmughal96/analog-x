@@ -16,7 +16,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: global-pakistan-evidence
+  group: analogx-repository-data-refresh
   cancel-in-progress: false
 
 jobs:
