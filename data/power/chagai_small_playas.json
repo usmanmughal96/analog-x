@@ -1,0 +1,353 @@
+{
+  "schema_version": "1.0",
+  "site": {
+    "id": "chagai_small_playas",
+    "name": "Chagai small salt playas near Nok Kundi",
+    "country": "Pakistan",
+    "latitude": 28.583333,
+    "longitude": 62.633333,
+    "environment": "Arid salt playa / evaporite and brine-process candidate"
+  },
+  "source": {
+    "provider": "NASA Langley Research Center POWER",
+    "product": "Climatology API / point",
+    "community": "RE",
+    "parameters_requested": [
+      "T2M",
+      "T2M_MAX",
+      "T2M_MIN",
+      "RH2M",
+      "WS10M",
+      "PRECTOTCORR",
+      "ALLSKY_SFC_SW_DWN"
+    ],
+    "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=62.633333&latitude=28.583333&format=JSON",
+    "request_mode": "one multi-parameter request",
+    "fetched_at_utc": "2026-11-14T16:03:20+00:00",
+    "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
+    "community_documentation": "https://power.larc.nasa.gov/docs/methodology/communities/",
+    "parameter_errors": {}
+  },
+  "metrics": {
+    "temp": 24.29,
+    "tmax": 49.22,
+    "tmin": -7.5,
+    "rh": 22.61,
+    "wind": 4.68,
+    "precip": 0.22,
+    "solar": 6.0149,
+    "dailyRange": 35.324999999999996,
+    "seasonalSpan": 24.4
+  },
+  "monthly": [
+    {
+      "month": "JAN",
+      "temp": 11.21,
+      "tmax": 30.65,
+      "tmin": -7.5,
+      "rh": 40.57,
+      "wind": 3.61,
+      "precip": 0.38,
+      "solar": 4.0229,
+      "diurnal_air_temp_range": 38.15
+    },
+    {
+      "month": "FEB",
+      "temp": 14.31,
+      "tmax": 35.4,
+      "tmin": -6.11,
+      "rh": 36.46,
+      "wind": 4.07,
+      "precip": 0.33,
+      "solar": 4.7501,
+      "diurnal_air_temp_range": 41.51
+    },
+    {
+      "month": "MAR",
+      "temp": 20.38,
+      "tmax": 40.48,
+      "tmin": 0.34,
+      "rh": 28.84,
+      "wind": 3.98,
+      "precip": 0.35,
+      "solar": 5.8738,
+      "diurnal_air_temp_range": 40.13999999999999
+    },
+    {
+      "month": "APR",
+      "temp": 26.82,
+      "tmax": 42.86,
+      "tmin": 3.82,
+      "rh": 21.04,
+      "wind": 4.32,
+      "precip": 0.13,
+      "solar": 6.8383,
+      "diurnal_air_temp_range": 39.04
+    },
+    {
+      "month": "MAY",
+      "temp": 32.06,
+      "tmax": 46.5,
+      "tmin": 9.73,
+      "rh": 14.97,
+      "wind": 4.84,
+      "precip": 0.13,
+      "solar": 7.4546,
+      "diurnal_air_temp_range": 36.769999999999996
+    },
+    {
+      "month": "JUN",
+      "temp": 34.55,
+      "tmax": 49.22,
+      "tmin": 17.51,
+      "rh": 12.41,
+      "wind": 6.12,
+      "precip": 0.14,
+      "solar": 7.8768,
+      "diurnal_air_temp_range": 31.709999999999997
+    },
+    {
+      "month": "JUL",
+      "temp": 35.61,
+      "tmax": 48.43,
+      "tmin": 21.29,
+      "rh": 12.87,
+      "wind": 6.08,
+      "precip": 0.05,
+      "solar": 7.441,
+      "diurnal_air_temp_range": 27.14
+    },
+    {
+      "month": "AUG",
+      "temp": 33.27,
+      "tmax": 48.25,
+      "tmin": 17.13,
+      "rh": 12.83,
+      "wind": 5.97,
+      "precip": 0.19,
+      "solar": 7.2886,
+      "diurnal_air_temp_range": 31.12
+    },
+    {
+      "month": "SEP",
+      "temp": 29.11,
+      "tmax": 44.04,
+      "tmin": 12.01,
+      "rh": 11.72,
+      "wind": 5.5,
+      "precip": 0.01,
+      "solar": 6.6972,
+      "diurnal_air_temp_range": 32.03
+    },
+    {
+      "month": "OCT",
+      "temp": 24.21,
+      "tmax": 40.18,
+      "tmin": 6.75,
+      "rh": 17.23,
+      "wind": 4.32,
+      "precip": 0.08,
+      "solar": 5.561,
+      "diurnal_air_temp_range": 33.43
+    },
+    {
+      "month": "NOV",
+      "temp": 17.51,
+      "tmax": 35.97,
+      "tmin": -0.62,
+      "rh": 27.64,
+      "wind": 3.69,
+      "precip": 0.63,
+      "solar": 4.4638,
+      "diurnal_air_temp_range": 36.589999999999996
+    },
+    {
+      "month": "DEC",
+      "temp": 11.94,
+      "tmax": 30.78,
+      "tmin": -5.49,
+      "rh": 35.5,
+      "wind": 3.61,
+      "precip": 0.18,
+      "solar": 3.8544,
+      "diurnal_air_temp_range": 36.27
+    }
+  ],
+  "missing_parameters": [],
+  "raw_power_response": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        62.633,
+        28.583,
+        692.58
+      ]
+    },
+    "properties": {
+      "parameter": {
+        "ALLSKY_SFC_SW_DWN": {
+          "JAN": 4.0229,
+          "FEB": 4.7501,
+          "MAR": 5.8738,
+          "APR": 6.8383,
+          "MAY": 7.4546,
+          "JUN": 7.8768,
+          "JUL": 7.441,
+          "AUG": 7.2886,
+          "SEP": 6.6972,
+          "OCT": 5.561,
+          "NOV": 4.4638,
+          "DEC": 3.8544,
+          "ANN": 6.0149
+        },
+        "PRECTOTCORR": {
+          "JAN": 0.38,
+          "FEB": 0.33,
+          "MAR": 0.35,
+          "APR": 0.13,
+          "MAY": 0.13,
+          "JUN": 0.14,
+          "JUL": 0.05,
+          "AUG": 0.19,
+          "SEP": 0.01,
+          "OCT": 0.08,
+          "NOV": 0.63,
+          "DEC": 0.18,
+          "ANN": 0.22
+        },
+        "RH2M": {
+          "JAN": 40.57,
+          "FEB": 36.46,
+          "MAR": 28.84,
+          "APR": 21.04,
+          "MAY": 14.97,
+          "JUN": 12.41,
+          "JUL": 12.87,
+          "AUG": 12.83,
+          "SEP": 11.72,
+          "OCT": 17.23,
+          "NOV": 27.64,
+          "DEC": 35.5,
+          "ANN": 22.61
+        },
+        "T2M": {
+          "JAN": 11.21,
+          "FEB": 14.31,
+          "MAR": 20.38,
+          "APR": 26.82,
+          "MAY": 32.06,
+          "JUN": 34.55,
+          "JUL": 35.61,
+          "AUG": 33.27,
+          "SEP": 29.11,
+          "OCT": 24.21,
+          "NOV": 17.51,
+          "DEC": 11.94,
+          "ANN": 24.29
+        },
+        "T2M_MAX": {
+          "JAN": 30.65,
+          "FEB": 35.4,
+          "MAR": 40.48,
+          "APR": 42.86,
+          "MAY": 46.5,
+          "JUN": 49.22,
+          "JUL": 48.43,
+          "AUG": 48.25,
+          "SEP": 44.04,
+          "OCT": 40.18,
+          "NOV": 35.97,
+          "DEC": 30.78,
+          "ANN": 49.22
+        },
+        "T2M_MIN": {
+          "JAN": -7.5,
+          "FEB": -6.11,
+          "MAR": 0.34,
+          "APR": 3.82,
+          "MAY": 9.73,
+          "JUN": 17.51,
+          "JUL": 21.29,
+          "AUG": 17.13,
+          "SEP": 12.01,
+          "OCT": 6.75,
+          "NOV": -0.62,
+          "DEC": -5.49,
+          "ANN": -7.5
+        },
+        "WS10M": {
+          "JAN": 3.61,
+          "FEB": 4.07,
+          "MAR": 3.98,
+          "APR": 4.32,
+          "MAY": 4.84,
+          "JUN": 6.12,
+          "JUL": 6.08,
+          "AUG": 5.97,
+          "SEP": 5.5,
+          "OCT": 4.32,
+          "NOV": 3.69,
+          "DEC": 3.61,
+          "ANN": 4.68
+        }
+      }
+    },
+    "header": {
+      "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
+      "api": {
+        "version": "v2.10.1",
+        "name": "POWER Climatology API"
+      },
+      "sources": [
+        "SYN1DEG",
+        "MERRA2",
+        "POWER"
+      ],
+      "fill_value": -999.0,
+      "time_standard": "LST",
+      "range": "25-year Meteorological and Solar Monthly & Annual Climatologies (January 2001 - December 2025)"
+    },
+    "messages": [
+      "The requested parameters are retrieved from a pre-computed climatological period (January 2001 - December 2025)"
+    ],
+    "parameters": {
+      "ALLSKY_SFC_SW_DWN": {
+        "units": "kW-hr/m^2/day",
+        "longname": "All Sky Surface Shortwave Downward Irradiance"
+      },
+      "PRECTOTCORR": {
+        "units": "mm/day",
+        "longname": "Precipitation Corrected"
+      },
+      "RH2M": {
+        "units": "%",
+        "longname": "Relative Humidity at 2 Meters"
+      },
+      "T2M": {
+        "units": "C",
+        "longname": "Temperature at 2 Meters"
+      },
+      "T2M_MAX": {
+        "units": "C",
+        "longname": "Temperature at 2 Meters Maximum"
+      },
+      "T2M_MIN": {
+        "units": "C",
+        "longname": "Temperature at 2 Meters Minimum"
+      },
+      "WS10M": {
+        "units": "m/s",
+        "longname": "Wind Speed at 10 Meters"
+      }
+    },
+    "times": {
+      "data": 0.32,
+      "process": 0.04
+    }
+  },
+  "quality": {
+    "valid_parameter_count": 7,
+    "note": "Null means unavailable or missing. NASA POWER is gridded climatology, not a local weather station."
+  }
+}
