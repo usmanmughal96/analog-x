@@ -17,7 +17,7 @@ assert.equal(duplicates.length, 0, "HTML contains duplicate element IDs");
 for (const id of [
   "discoveryLab", "coordinateScout", "agentBay", "axAgentCandidates",
   "axAgentRunLocal", "axAgentRunCloud", "axGameXp", "axGameProgressBar",
-  "axScoutRun", "missionLab"
+  "axScoutRun", "axGameToDirector", "missionLab"
 ]) assert(ids.includes(id), `Missing required UI element: ${id}`);
 
 assert(html.includes("./assets/analogx-labs.js"), "Main app does not load its agent/atlas code");
@@ -27,6 +27,9 @@ assert(appJs.includes("function localAnalysisWithTerrain"), "Offline decision en
 assert(appJs.includes("function syncCandidateSelection"), "Candidate selectors are not wired together");
 assert(appJs.includes("function formatAgentMarkdown"), "Safe Mission Director Markdown renderer missing");
 assert(appJs.includes("function saveGameProgress"), "Field School progress persistence missing");
+assert(appJs.includes("MISSION 04 / TERRAIN DATA QUALITY"), "Terrain quality training challenge missing");
+assert(appJs.includes('runLocal();'), "Field School handoff to the local Mission Director missing");
+
 
 const sites = catalog.candidate_sites || [];
 assert(sites.length >= 10, "Expected the ten curated Earth candidate/reference seeds");
