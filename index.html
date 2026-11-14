@@ -870,7 +870,7 @@ function axPlayPortalCue(){
   oscillator.type="sine";oscillator.frequency.setValueAtTime(frequency,now+delay);
   oscillator.frequency.exponentialRampToValueAtTime(frequency*.985,now+delay+duration);
   gain.gain.setValueAtTime(.0001,now+delay);
-  gain.gain.linearRampToValueAtTime(.075,now+delay+.045);
+  gain.gain.linearRampToValueAtTime(.2,now+delay+.045);
   gain.gain.exponentialRampToValueAtTime(.0001,now+delay+duration);
   oscillator.connect(gain);gain.connect(master);
   oscillator.start(now+delay);oscillator.stop(now+delay+duration+.03);
@@ -888,7 +888,7 @@ function axSetSound(enabled,playCue=false){
   if(!axLaunchAudio.master)return;
   const now=context.currentTime;
   axLaunchAudio.master.gain.cancelScheduledValues(now);
-  axLaunchAudio.master.gain.setTargetAtTime(axLaunchAudio.enabled?.024:.0001,now,.22);
+  axLaunchAudio.master.gain.setTargetAtTime(axLaunchAudio.enabled?.11:.0001,now,.22);
   if(axLaunchAudio.enabled&&playCue)axPlayPortalCue();
  }).catch(()=>{});
  axAudioButtons();
