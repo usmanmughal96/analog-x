@@ -11,7 +11,7 @@ from pathlib import Path
 import rasterio
 from rasterio.windows import Window
 
-BASE="https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/Site04/"
+BASE="https://core2.gsfc.nasa.gov/PGDA/LOLA_5mpp/Site04/"
 FILES={
  "elevation":"Site04_final_adj_5mpp_surf.tif",
  "counts":"Site04_final_adj_5mpp_ldec.tif",
