@@ -15,7 +15,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: nasa-power-snapshot
+  group: analogx-repository-data-refresh
   cancel-in-progress: false
 
 jobs:
