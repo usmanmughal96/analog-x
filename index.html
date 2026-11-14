@@ -317,7 +317,9 @@ function renderCmr(){
  const found=Object.values(collections).filter(x=>x.status==="found").length;
  const koh=cmrData.site_granules?.koh_i_sultan?.returned_count||0;
  const hispar=cmrData.site_granules?.hispar_glacier?.returned_count||0;
- summary.textContent=found+" of "+Object.keys(collections).length+" NASA collections discovered; MOD11A2 8-day land-surface-temperature granules: "+koh+" for Koh-i-Sultan and "+hispar+" for Hispar. Protected data URLs require Earthdata Login; measurements are not yet decoded.";
+ const aerosol=cmrData.site_aerosol_granules||{};
+ const uniqueAerosol=new Set(Object.values(aerosol).flatMap(x=>(x.items||[]).map(g=>g.id))).size;
+ summary.textContent=found+"/"+Object.keys(collections).length+" NASA collections found. MOD11A2 8-day land-surface-temperature catalogue: "+koh+" granule records over Koh-i-Sultan and "+hispar+" over Hispar. MERRA-2 aerosol catalogue: "+uniqueAerosol+" distinct global October 2026 granule(s); it is not clipped to either Pakistan site. These are discovery records, not retrieved temperature/aerosol measurements. Protected LP DAAC/GES DISC assets need Earthdata Login and authorization.";
 }
 function renderTerrain(){
  if(!terrainData){statusPill($("terrainStatus"),"TERRAIN PENDING","gold");return;}
