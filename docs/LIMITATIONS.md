@@ -27,7 +27,9 @@
 - No Earth site reproduces lunar vacuum, reduced gravity, radiation or permanently shadowed-region conditions.
 - Earth cannot reproduce the thin CO₂ Martian atmosphere, Martian dust electrostatics or reduced gravity.
 - An Earth glacier is not a lunar permanently shadowed region and is not a substitute for Diviner/LOLA analysis.
-- Raw lunar LOLA and Diviner rasters are not processed in this release.
+- Lunar LOLA 80 m GDR terrain is integrated for a 29.6 km Shackleton Rim window; the LDEM is interpolated and LDEC counts are separate observational support. It is not an illumination/PSR or water-ice analysis.
+- Diviner polar annual-temperature and water-ice-permafrost products remain unprocessed.
+- The Shackleton coarse profile at 925 m has median/P90 slope 13.40°/30.94° and P90 local relief 1,391 m; the selected window is rugged and does not demonstrate a suitable base area.
 
 ## Institutional data
 - EvK2CNR's Pakistan Glacier Inventory and glacial-lake work already exist; ANALOG-X does not claim their discovery or national remapping.
