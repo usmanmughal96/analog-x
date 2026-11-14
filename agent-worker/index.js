@@ -511,11 +511,60 @@ async function executeTool(name, args, context, missionTarget, candidateIds, env
   }
 }
 
+const ALLOWED_TOOL_NAMES = new Set(TOOL_DEFINITIONS.map(tool => tool.name));
+
+function normalizeToolCall(call) {
+  const name = call?.name || call?.function?.name;
+  if (typeof name !== "string" || !ALLOWED_TOOL_NAMES.has(name)) return null;
+  const args = parseToolArgs(call);
+  return { name, arguments: args };
+}
+
+function parseLeakedToolCalls(text) {
+  if (typeof text !== "string") return [];
+  let candidate = text.trim();
+  if (candidate.startsWith("```")) {
+    candidate = candidate.replace(/^```(?:json)?s*/i, "").replace(/s*```$/, "").trim();
+  }
+  if (!candidate.startsWith("{") && !candidate.startsWith("[")) return [];
+  let parsed;
+  try { parsed = JSON.parse(candidate); } catch { return []; }
+  const items = Array.isArray(parsed) ? parsed : [parsed];
+  return items.slice(0, 3).map(item => {
+    if (!item || typeof item !== "object" || Array.isArray(item)) return null;
+    const name = item.name || item.function?.name;
+    if (typeof name !== "string" || !ALLOWED_TOOL_NAMES.has(name)) return null;
+    let args = item.arguments ?? item.function?.arguments ?? item.parameters;
+    if (typeof args === "string") {
+      try { args = JSON.parse(args); } catch { return null; }
+    }
+    if (args === undefined) {
+      args = { ...item };
+      delete args.name;
+      delete args.id;
+      delete args.type;
+      delete args.function;
+    }
+    if (!args || typeof args !== "object" || Array.isArray(args)) return null;
+    return { name, arguments: args, recovered_from_text: true };
+  }).filter(Boolean);
+}
+
 function extractToolCalls(result) {
-  return result?.tool_calls ||
+  const structured = result?.tool_calls ||
     result?.response?.tool_calls ||
     result?.choices?.[0]?.message?.tool_calls ||
     [];
+  if (Array.isArray(structured) && structured.length) {
+    const normalized = structured.map(normalizeToolCall).filter(Boolean);
+    if (normalized.length) return normalized.slice(0, 3);
+  }
+  const rawText = result?.response ??
+    result?.result?.response ??
+    result?.choices?.[0]?.message?.content ??
+    result?.output_text ??
+    "";
+  return parseLeakedToolCalls(rawText);
 }
 
 function extractText(result) {
