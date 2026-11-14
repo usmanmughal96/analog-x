@@ -94,7 +94,7 @@ The repository now records a successful public PDS4 PRP V2.0 collection discover
 
 | Dataset | Intended role | Current state |
 |---|---|---|
-| NASA LRO LOLA | Lunar south-pole elevation, slope, counts and uncertainty | PGDA product 78 documented; integration diagnostic in data/moon/lola_access_diagnostic.json | 5 m site files returned HTTP 403 or failed remote range reads; no lunar values integrated. PGDA large-area product 90 is a future access candidate.
+| NASA LRO LOLA | Lunar south-pole elevation, slope, counts and uncertainty | Integrated: NASA LRO LOLA PDS GDR `LDEM_80S_80M` and matching `LDEC_80S_80M` processed around Shackleton Rim; native 80 m profile and ~925 m matched-support aggregate stored in `data/moon/shackleton_lola_80m.json` | DEM is interpolated; return counts describe measurement support, not illumination, permanently shadowed regions, ice or landing safety. The original 5 m PGDA Site04 access route remained unavailable. |
 | NASA LRO Diviner | Polar resource product table with thermal and ice-depth fields (`temp_avg`, `temp_max`, `ice_depth`) | PDS4 PRP V2.0 collection metadata and PDS3 south-polar table range access verified; 604.8 MB table is not yet ingested or statistically processed. Units/field semantics still require authoritative SIS/FMT confirmation. Diagnostic: `data/moon/diviner_prp_diagnostic/report.json` |
 | NASA Global Volcano Hazard Frequency and Distribution | Historical volcano hazard frequency grid | Official data page linked; grid not ingested; historical events 79–2000, 2.5 arc-minute context, not current hazard intelligence |
 | NASA GIBS / Worldview | Earth global imagery/context | GIBS VIIRS tile layer displayed on map; visual context only |
