@@ -401,7 +401,8 @@ async function scoutEarthCoordinate(input) {
   const point = validateScoutInput(input);
   const bbox = scoutBbox(point);
   const end = new Date();
-  const start = new Date(end.getTime() - 24 * 30 * 24 * 60 * 60 * 1000);
+  const start = new Date(end);
+  start.setUTCFullYear(start.getUTCFullYear() - 2);
   const datetime = start.toISOString() + "/" + end.toISOString();
   const results = await Promise.allSettled([
     fetchPowerClimatology(point.latitude, point.longitude),
