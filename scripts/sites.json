@@ -54,5 +54,12 @@
     "latitude": 36.10572,
     "longitude": 75.23341,
     "environment": "High-altitude cryosphere / glacier"
+  },
+  "hispar_glacier": {
+    "name": "Hispar Glacier / Karakoram",
+    "country": "Pakistan",
+    "latitude": 36.10572,
+    "longitude": 75.23341,
+    "environment": "Cold-region cryosphere"
   }
 }
