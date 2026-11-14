@@ -130,7 +130,13 @@ The STAC API is publicly accessible without an account. Some Azure-hosted Cloud-
 
 Sentinel-2 RGB is not geology or mineral classification. Copernicus DEM GLO-30 is a Digital Surface Model; it includes surface objects and is not a bare-earth model. All terrain products require CRS, support and nodata validation.
 
-## 7. NASA / planetary data sources
+## 7. NASA Earthdata Search / CMR and surface-environment datasets
+
+The CMR search API was queried from the repository's scheduled workflow. It returned catalogue records for Terra MODIS MOD11A2 V061 (8-day land-surface temperature/emissivity, 1 km), Aqua MYD11A2 V061, MODIS annual land cover MCD12Q1 V061, and MERRA-2 hourly aerosol diagnostics M2T1NXAER V5.12.4. Ten MOD11A2 granule metadata records were discovered over each Pakistan study bounding box. One global October 2026 MERRA-2 aerosol granule record was discovered; it is not spatially clipped to Pakistan.
+
+These are **catalogue-discovery results only**. The MODIS and MERRA-2 science files have not been downloaded and decoded; protected LP DAAC/GES DISC links require Earthdata Login and provider authorization. The portal must not label them as integrated temperature/aerosol measurements until arrays, QA flags, scale factors, units and AOI statistics have been processed.
+
+## 8. NASA / planetary data sources
 
 Official pathways:
 - MOLA MEGDR: https://pds-geosciences.wustl.edu/missions/mgs/megdr.html
@@ -142,11 +148,13 @@ Official pathways:
 
 The MOLA archive has MEGDR topography products at 4, 16, 32, 64 and 128 pixels/degree, and polar products at 128, 256 and 512 pixels/degree. MOLA 64 ppd is selected for the initial Nili Patera regional terrain-profile test. This is intentionally coarse-scale and is not rover-hazard resolution.
 
+For the Moon, PGDA product 78 documents 5 m/pixel LOLA site products including elevation, count, slope and uncertainty at Shackleton Rim and other south-pole sites. Our Site04 remote-access test failed: some primary-host assets returned HTTP 403 and the elevation COG failed byte-range reads; the alternate core2 hostname did not resolve in the runner. PGDA product 90 offers large-area south-polar COG products at 80 m/pixel and finer grids, and is a more promising future access route, but has not yet been processed. Diviner polar resource products include annual surface-temperature and estimated water-ice-permafrost-depth layers, but remain reference-only in this build.
+
 NASA's Global Volcano Hazard Frequency and Distribution is a historical event-frequency product, not real-time volcanic activity or site-scale geology. It is a reference layer only in this release.
 
 Raw lunar LOLA and Diviner products are linked for later work; they are not yet processed in the current comparison.
 
-## 8. Is the underlying idea already solved?
+## 9. Is the underlying idea already solved?
 
 Public 2026 challenge entries already demonstrate:
 - mission-brief-to-experiment/site planning and explicit analogy limits (ODYSSEY);
@@ -161,7 +169,7 @@ Therefore ANALOG-X does not claim that “Earth analog ranking” or “multi-so
 
 Its defensible contribution is narrower: a Pakistan-first evidence operations workflow with actual, reproducible NASA/Planetary Computer data, two contrasting Pakistani field-study areas, institutional data reuse, matched-scale terrain profiles when validated, and transparent data gaps/transferability limits.
 
-## 9. Open work and requested institutional access
+## 10. Open work and requested institutional access
 
 To improve the project without duplicating agency platforms, request or verify:
 1. SUPARCO Chagai regional Sentinel-2/SAR, land-cover, geological and climate products, including product dates, resolution, metadata and reuse licence.
@@ -172,3 +180,7 @@ To improve the project without duplicating agency platforms, request or verify:
 6. A planetary geologist's review of the selected Nili Patera / Koh-i-Sultan and lunar / Hispar experiment-transferability framing.
 
 No portal-only dataset is promoted to “integrated” until a real downloadable/queried product is acquired, parsed, validated, timestamped and cited.
+
+## 11. Resource-by-resource integration record
+
+See RESOURCE_INTEGRATION_MATRIX.md for the precise status of NASA Earthdata Search, Worldview/GIBS, PDS/LRO/LOLA/Diviner, CSA RADARSAT-1/RCM, ESA Copernicus Data Space, ESA Open Science Catalogue, JAXA G-Portal and Pakistan institutional portals. The matrix distinguishes product ingestion from catalogue discovery and links only what has actually been verified.
