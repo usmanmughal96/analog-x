@@ -31,11 +31,12 @@ def probe(session,url,read_text=False):
    r=session.get(url,headers={"Range":"bytes=0-1023"},timeout=(20,60))
    out.update({"range_status":r.status_code,"range_bytes":len(r.content),
      "content_range":r.headers.get("Content-Range")})
-   if key.endswith(".FMT") or key.endswith(".cat"):
-    out["get_status"]=r.status_code
-    out["text"]=r.text[:30000]
-    if r.status_code==206:
-     out["text_range"]=r.text[:30000]
+   if url.upper().endswith(".FMT") or url.lower().endswith(".cat"):
+    full=session.get(url,timeout=(20,90))
+    out["format_get_status"]=full.status_code
+    if full.status_code==200:out["text"]=full.text[:30000]
+   if url.upper().endswith(".TAB"):
+    out["range_text"]=r.text[:1024]
  except Exception as exc:
   out["error"]=repr(exc)
  return out
