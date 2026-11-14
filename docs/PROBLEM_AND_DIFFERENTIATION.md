@@ -9,7 +9,7 @@ Planetary analog field campaigns need more than a list of visually similar lands
 ## Current Pakistan case studies
 
 ### Koh-i-Sultan / Chagai
-A Smithsonian-catalogued volcanic-field candidate for outcrop reconnaissance, sample-context logging and remote-sensing-to-ground validation. Sentinel-2 L2A scenes and true-colour previews are integrated. Copernicus DEM GLO-30 DSM has been processed for an approximately 30 km window at about 925 m terrain support. The site is not claimed to be basaltically equivalent to Syrtis Major or a validated Mars analog.
+A Smithsonian-catalogued Pleistocene volcanic-field candidate for volcanic/hydrothermal reconnaissance, alteration mapping, outcrop logging and remote-sensing-to-ground validation. USGS OFR 75-550 maps the Koh-i-Sultan Volcanic Group as agglomerate, tuff and andesitic lava. Sentinel-2 L2A scenes and true-colour previews are integrated. Copernicus DEM GLO-30 DSM has been processed for an approximately 30 km window at about 925 m terrain support. This is a volcanic-process/workflow candidate, not a basaltic composition match to Syrtis Major or a validated Mars analog. The regional USGS report is cited, but a site-scale geology raster, mineral map and field samples are not integrated.
 
 ### Hispar Glacier / Karakoram
 A cryosphere case study for ice/debris image interpretation and field-data validation. Sentinel-2 scenes and true-colour previews are integrated; Copernicus DEM terrain descriptors are processed at the same approximate support as the Mars profile. EvK2CNR already published a Pakistan inventory of 13,032 glaciers and a preliminary glacial-lake inventory. ANALOG-X credits those baselines rather than claiming to discover or remap Pakistan's glaciers. An Earth glacier does not reproduce lunar permanently shadowed-region conditions.
@@ -24,7 +24,7 @@ The current MOLA window contains 567 observed cells of 1,122 (50.53%) and only 8
 
 Public 2026 challenge submissions already include mission-to-experiment/site planners and terrain/lighting matching tools. ANALOG-X does not claim that analog ranking, multi-source dashboards or terrain similarity are globally unsolved.
 
-Its differentiating contribution is a Pakistan-first evidence operations workflow:
+Its differentiating contribution is a Pakistan-first evidence operations workflow, not a claim that Koh-i-Sultan is a previously unknown volcano or that a new analog has already been scientifically validated:
 - NASA POWER climate snapshots for eight coordinates;
 - Sentinel-2 L2A scene discovery and clipped RGB previews over two Pakistan case studies;
 - Copernicus DEM GLO-30 and MOLA 64 ppd terrain descriptors at matched coarse support;
@@ -49,3 +49,7 @@ Its differentiating contribution is a Pakistan-first evidence operations workflo
 - Portal reviewed: official portal checked; open machine-readable access/reuse is not verified.
 - Reference only: official dataset linked but not processed.
 - Field validation required: remote sensing cannot establish the site-level claim alone.
+
+## Novelty and validation boundary
+
+The current release has identified a potentially under-characterized field-rehearsal candidate, but it has not proved that Koh-i-Sultan is a new-to-science analog site. The published USGS Chagai geology and existing regional alteration studies are prior work. A competition-grade novelty claim requires a clearly bounded field area, a comparison target tied to a mission task, site-scale lithology/alteration evidence, QA-screened multi-sensor analysis and a plan for field validation. Hispar is a known glacier region and is retained as a cryosphere workflow comparator, not as the new discovery.
