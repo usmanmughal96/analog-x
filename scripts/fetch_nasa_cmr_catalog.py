@@ -72,11 +72,10 @@ def collection_search(spec):
  return {"query_url":url,"count":len(results),"collections":results,
          "status":"found" if results else "no matching collection"}
 
-def granule_search(site_id,site):
+def granule_search(site_id,site,short_name="MOD11A2",version="061",temporal="2026-08-01T00:00:00Z,2026-11-14T23:59:59Z"):
  params={
-  "short_name":"MOD11A2","version":"061","bounding_box":site["bbox"],
-  "temporal":"2026-08-01T00:00:00Z,2026-11-14T23:59:59Z",
-  "page_size":10,"sort_key":"-start_date"
+  "short_name":short_name,"version":version,"bounding_box":site["bbox"],
+  "temporal":temporal,"page_size":10,"sort_key":"-start_date"
  }
  data,url=request_json("granules.json",params)
  entries=data.get("feed",{}).get("entry",[])
@@ -90,7 +89,8 @@ def granule_search(site_id,site):
    "cloud_cover":e.get("cloud_cover"),"granule_size":e.get("granule_size"),
    "links":links
   })
- return {"query_url":url,"returned_count":len(items),"items":items,
+ return {"query_url":url,"short_name":short_name,"version":version,
+         "returned_count":len(items),"items":items,
          "status":"granules_found" if items else "no granules returned"}
  
 def main():
@@ -102,6 +102,7 @@ def main():
   "access":"Public collection/granule metadata search; granule data access can require Earthdata Login depending on provider and endpoint.",
   "collections":{},
   "site_granules":{},
+  "site_aerosol_granules":{},
   "limitations":[
    "This is catalogue and granule discovery, not ingestion of MODIS measurements.",
    "MOD11A2 is an 8-day land-surface-temperature product; its scale factors, QA flags, day/night bands and fill values must be decoded before scientific use.",
@@ -120,16 +121,25 @@ def main():
    failures.append(spec["short_name"])
  for site_id,site in SITES.items():
   try:
-   r=granule_search(site_id,site)
+   r=granule_search(site_id,site,"MOD11A2","061","2026-08-01T00:00:00Z,2026-11-14T23:59:59Z")
    r["site"]=site
    out["site_granules"][site_id]=r
-   print(f"[GRANULES] {site_id}: {r['returned_count']} MOD11A2 granules",flush=True)
+   print(f"[GRANULES] {site_id}: {r['returned_count']} MOD11A2 LST granules",flush=True)
   except Exception as exc:
    out["site_granules"][site_id]={"status":"search_error","site":site,"error":str(exc)}
-   failures.append("granules:"+site_id)
+   failures.append("MOD11A2:"+site_id)
+  try:
+   a=granule_search(site_id,site,"M2T1NXAER","5.12.4","2026-11-01T00:00:00Z,2026-11-14T23:59:59Z")
+   a["site"]=site
+   out["site_aerosol_granules"][site_id]=a
+   print(f"[AEROSOL] {site_id}: {a['returned_count']} MERRA-2 aerosol granules",flush=True)
+  except Exception as exc:
+   out["site_aerosol_granules"][site_id]={"status":"search_error","site":site,"error":str(exc)}
+   failures.append("M2T1NXAER:"+site_id)
  (OUT/"earthdata_cmr_catalog.json").write_text(json.dumps(out,indent=2,allow_nan=False)+"\n",encoding="utf-8")
  print(json.dumps({"collection_counts":{k:v.get("count") for k,v in out["collections"].items()},
   "site_granule_counts":{k:v.get("returned_count") for k,v in out["site_granules"].items()},
+  "site_aerosol_counts":{k:v.get("returned_count") for k,v in out["site_aerosol_granules"].items()},
   "failures":failures},indent=2),flush=True)
  # A CMR outage should be visible, but it should not break unrelated data feeds.
  return 0
