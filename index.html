@@ -81,7 +81,7 @@
      <div class="cardhead"><div class="cardtitle">DATA SYSTEMS / SOURCE HEALTH</div><span class="statuspill blue" id="systemHealth">CHECKING</span></div>
      <div class="detailbody" style="padding-top:10px">
       <div class="sourcegrid">
-       <div class="sourcebox"><div class="sourceboxhead"><b>NASA POWER</b><span class="source-state">VERIFIED</span></div><p>7/7 site climatology snapshots · all 7 parameters present.</p></div>
+       <div class="sourcebox"><div class="sourceboxhead"><b>NASA POWER</b><span class="source-state">VERIFIED</span></div><p>8/8 site climatology snapshots · all 7 parameters present.</p></div>
        <div class="sourcebox"><div class="sourceboxhead"><b>PLANETARY COMPUTER</b><span class="source-state blue">DISCOVERED</span></div><p>Sentinel-2 L2A metadata for Koh-i-Sultan and Hispar.</p></div>
        <div class="sourcebox"><div class="sourceboxhead"><b>NASA GIBS</b><span class="source-state blue">PUBLIC</span></div><p>Open WMTS/WMS imagery layers for global context.</p></div>
        <div class="sourcebox"><div class="sourceboxhead"><b>EVK2CNR</b><span class="source-state gold">BASELINE</span></div><p>Pakistan glacier inventory exists; no polygon file redistributed by this build.</p></div>
@@ -327,7 +327,7 @@ async function loadAll(){
   loadJson("./data/pakistan/quicklooks/index.json"),
   loadJson("./data/nasa/epic_latest.json")
  ]);
- const paths=["koh","dallol","atacama","mcmurdo","haughton","iceland","death"];
+ const paths=["koh","dallol","atacama","mcmurdo","haughton","iceland","death","hispar_glacier"];
  paths.forEach((key,i)=>{if(tasks[i].status==="fulfilled")power[key]=tasks[i].value;});
  if(tasks[0].status==="fulfilled")power.koh=tasks[0].value;
  if(tasks[7].status==="fulfilled")catalog=tasks[7].value;
