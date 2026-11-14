@@ -33,12 +33,15 @@ def request_params(lat,lon,params):
         payload=response.json()
     except ValueError:
         return None,url,"NASA POWER response was not JSON"
-    messages=payload.get("messages") or []
-    if messages:
-        return None,url,"; ".join(map(str,messages))
+    # NASA POWER "messages" may contain informational provenance such as
+    # the climatology period. Treat the response as successful when the
+    # requested parameter block exists; only classify messages as errors when
+    # no usable data block is present.
     block=payload.get("properties",{}).get("parameter",{})
     if not isinstance(block,dict) or not block:
-        return None,url,"No properties.parameter object in response"
+        messages=payload.get("messages") or []
+        details="; ".join(map(str,messages)) if messages else "No properties.parameter object in response"
+        return None,url,details
     return payload,url,None
 
 def clean(v):
