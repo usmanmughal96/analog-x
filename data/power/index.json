@@ -1,0 +1,172 @@
+{
+  "schema_version": "1.0",
+  "provider": "NASA POWER Climatology API",
+  "community": "RE",
+  "generated_at_utc": "2026-11-14T13:46:51+00:00",
+  "record_count": 7,
+  "candidate_count": 7,
+  "records": {
+    "koh": {
+      "file": "koh.json",
+      "site": {
+        "id": "koh",
+        "name": "Koh-i-Sultan / Chagai",
+        "country": "Pakistan",
+        "latitude": 29.1,
+        "longitude": 62.8,
+        "environment": "Volcanic field"
+      },
+      "fetched_at_utc": "2026-11-14T13:46:48+00:00",
+      "valid_parameters": [
+        "T2M",
+        "T2M_MAX",
+        "T2M_MIN",
+        "RH2M",
+        "WS10M",
+        "PRECTOTCORR",
+        "ALLSKY_SFC_SW_DWN"
+      ],
+      "missing_parameters": [],
+      "request_mode": "one multi-parameter request"
+    },
+    "dallol": {
+      "file": "dallol.json",
+      "site": {
+        "id": "dallol",
+        "name": "Dallol / Danakil",
+        "country": "Ethiopia",
+        "latitude": 14.24,
+        "longitude": 40.3,
+        "environment": "Hydrothermal / evaporite"
+      },
+      "fetched_at_utc": "2026-11-14T13:46:49+00:00",
+      "valid_parameters": [
+        "T2M",
+        "T2M_MAX",
+        "T2M_MIN",
+        "RH2M",
+        "WS10M",
+        "PRECTOTCORR",
+        "ALLSKY_SFC_SW_DWN"
+      ],
+      "missing_parameters": [],
+      "request_mode": "one multi-parameter request"
+    },
+    "atacama": {
+      "file": "atacama.json",
+      "site": {
+        "id": "atacama",
+        "name": "Atacama Desert",
+        "country": "Chile",
+        "latitude": -23.5,
+        "longitude": -68.2,
+        "environment": "Hyperarid desert"
+      },
+      "fetched_at_utc": "2026-11-14T13:46:49+00:00",
+      "valid_parameters": [
+        "T2M",
+        "T2M_MAX",
+        "T2M_MIN",
+        "RH2M",
+        "WS10M",
+        "PRECTOTCORR",
+        "ALLSKY_SFC_SW_DWN"
+      ],
+      "missing_parameters": [],
+      "request_mode": "one multi-parameter request"
+    },
+    "mcmurdo": {
+      "file": "mcmurdo.json",
+      "site": {
+        "id": "mcmurdo",
+        "name": "McMurdo Dry Valleys",
+        "country": "Antarctica",
+        "latitude": -77.5,
+        "longitude": 161.8,
+        "environment": "Cold polar desert"
+      },
+      "fetched_at_utc": "2026-11-14T13:46:50+00:00",
+      "valid_parameters": [
+        "T2M",
+        "T2M_MAX",
+        "T2M_MIN",
+        "RH2M",
+        "WS10M",
+        "PRECTOTCORR",
+        "ALLSKY_SFC_SW_DWN"
+      ],
+      "missing_parameters": [],
+      "request_mode": "one multi-parameter request"
+    },
+    "haughton": {
+      "file": "haughton.json",
+      "site": {
+        "id": "haughton",
+        "name": "Haughton impact structure",
+        "country": "Canada",
+        "latitude": 75.37,
+        "longitude": -89.68,
+        "environment": "Impact crater / polar desert"
+      },
+      "fetched_at_utc": "2026-11-14T13:46:50+00:00",
+      "valid_parameters": [
+        "T2M",
+        "T2M_MAX",
+        "T2M_MIN",
+        "RH2M",
+        "WS10M",
+        "PRECTOTCORR",
+        "ALLSKY_SFC_SW_DWN"
+      ],
+      "missing_parameters": [],
+      "request_mode": "one multi-parameter request"
+    },
+    "iceland": {
+      "file": "iceland.json",
+      "site": {
+        "id": "iceland",
+        "name": "Icelandic volcanic fields",
+        "country": "Iceland",
+        "latitude": 63.88,
+        "longitude": -22.27,
+        "environment": "Basaltic volcanic terrain"
+      },
+      "fetched_at_utc": "2026-11-14T13:46:50+00:00",
+      "valid_parameters": [
+        "T2M",
+        "T2M_MAX",
+        "T2M_MIN",
+        "RH2M",
+        "WS10M",
+        "PRECTOTCORR",
+        "ALLSKY_SFC_SW_DWN"
+      ],
+      "missing_parameters": [],
+      "request_mode": "one multi-parameter request"
+    },
+    "death": {
+      "file": "death.json",
+      "site": {
+        "id": "death",
+        "name": "Death Valley region",
+        "country": "United States",
+        "latitude": 36.24,
+        "longitude": -116.82,
+        "environment": "Arid basin / alluvial fans"
+      },
+      "fetched_at_utc": "2026-11-14T13:46:51+00:00",
+      "valid_parameters": [
+        "T2M",
+        "T2M_MAX",
+        "T2M_MIN",
+        "RH2M",
+        "WS10M",
+        "PRECTOTCORR",
+        "ALLSKY_SFC_SW_DWN"
+      ],
+      "missing_parameters": [],
+      "request_mode": "one multi-parameter request"
+    }
+  },
+  "errors": {}
+}
