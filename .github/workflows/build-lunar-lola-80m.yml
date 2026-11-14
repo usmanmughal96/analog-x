@@ -37,7 +37,7 @@ jobs:
           key: analogx-lola-80m-south-pole-gdr-v1
 
       - name: Install geospatial dependencies
-        run: python -m pip install --upgrade requests rasterio numpy scipy pillow
+        run: python -m pip install --upgrade requests rasterio numpy scipy pillow pyproj
 
       - name: Build Shackleton Rim LOLA profile
         run: python scripts/build_lunar_south_pole_lola_80m.py
