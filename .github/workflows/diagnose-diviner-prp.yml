@@ -1,0 +1,42 @@
+name: Diagnose NASA Diviner polar resource product access
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/diagnose_diviner_prp_access.py"
+      - ".github/workflows/diagnose-diviner-prp.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: analogx-repository-data-refresh
+  cancel-in-progress: false
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install requests
+        run: python -m pip install --upgrade requests
+      - name: Probe Diviner PDS4 and PDS3 routes
+        run: python scripts/diagnose_diviner_prp_access.py
+      - name: Commit access diagnostic
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/moon/diviner_prp_diagnostic/report.json
+          git commit -m "Add Diviner polar resource product access diagnostic"
+          git pull --rebase origin main
+          git push
