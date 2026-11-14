@@ -1,0 +1,236 @@
+{
+  "generated_at_utc": "2026-11-14T14:36:30+00:00",
+  "method": "Earth Copernicus DEM GLO-30 DSM averaged to 925 m; Mars MOLA MEGDR 64 pixels/degree. Both use approximately 30 km square windows and terrain derivatives computed in metres.",
+  "planetary_target": {
+    "name": "Nili Patera, Syrtis Major quadrangle, Mars",
+    "latitude": 8.9,
+    "longitude": 67.0,
+    "source_gazetteer": "https://planetarynames.wr.usgs.gov/Feature/4272",
+    "context_image": "https://themis.asu.edu/zoom-20260617a",
+    "dataset": "MGS MOLA MEGDR topography and counts 64 pixels/degree",
+    "topography_source": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg064/megt90n000gb.img",
+    "counts_source": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg064/megc90n000gb.img",
+    "pixel_spacing_m": {
+      "north_south": 926.1671488016597,
+      "east_west_at_target": 915.0159720101055
+    },
+    "window": {
+      "window_lat_lon_deg": [
+        8.646940927128272,
+        66.74385693018546,
+        9.153059072871729,
+        67.25614306981454
+      ],
+      "row_range": [
+        5174,
+        5207
+      ],
+      "column_range": [
+        4271,
+        4305
+      ],
+      "pixel_spacing_x_m": 915.0159720101055,
+      "pixel_spacing_y_m": 926.1671488016597,
+      "cells": [
+        33,
+        34
+      ],
+      "observed_cells": 567,
+      "total_cells": 1122,
+      "valid_observation_coverage_percent": 50.53
+    },
+    "terrain_metrics": {
+      "valid_cell_count": 567,
+      "complete_3x3_neighbourhood_count": 87,
+      "elevation_m_relative_to_product_datum": {
+        "p10": 169.6,
+        "median": 298.0,
+        "p90": 456.40000000000003,
+        "range_p90_minus_p10": 286.80000000000007
+      },
+      "slope_deg": {
+        "median": 1.8722606759233367,
+        "p90": 2.707616867558408,
+        "p95": 4.895525774556492
+      },
+      "3x3_local_relief_m": {
+        "median": 77.0,
+        "p90": 154.40000000000006
+      },
+      "slope_fraction": {
+        "under_5_deg_percent": 94.25287356321839,
+        "under_10_deg_percent": 97.70114942528735,
+        "over_20_deg_percent": 0.0
+      },
+      "coverage": {
+        "valid_percent": 50.53,
+        "total_cells": 1122
+      }
+    },
+    "preview_path": "nili_patera_mola_hillshade.png"
+  },
+  "earth_sites": {
+    "koh_i_sultan": {
+      "site": {
+        "name": "Koh-i-Sultan / Chagai, Pakistan",
+        "latitude": 29.1,
+        "longitude": 62.8,
+        "catalog_key": "koh_i_sultan"
+      },
+      "status": "processed",
+      "source": {
+        "collection": "cop-dem-glo-30",
+        "source_item_ids": [
+          "Copernicus_DSM_COG_10_N29_00_E063_00_DEM",
+          "Copernicus_DSM_COG_10_N29_00_E062_00_DEM",
+          "Copernicus_DSM_COG_10_N28_00_E063_00_DEM",
+          "Copernicus_DSM_COG_10_N28_00_E062_00_DEM"
+        ],
+        "asset_hrefs": [
+          "https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N29_00_E063_00_DEM.tif",
+          "https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N29_00_E062_00_DEM.tif",
+          "https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N28_00_E063_00_DEM.tif",
+          "https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N28_00_E062_00_DEM.tif"
+        ],
+        "source_crs": "EPSG:4326",
+        "analysis_crs": "EPSG:32641",
+        "native_resolution_m_approx": 30,
+        "analysis_resolution_m": 925.0,
+        "window_size_m": [
+          29600.0,
+          29600.0
+        ],
+        "centre_wgs84": [
+          62.8,
+          29.1
+        ],
+        "dem_type": "Digital Surface Model (DSM)"
+      },
+      "terrain_metrics": {
+        "valid_cell_count": 1024,
+        "complete_3x3_neighbourhood_count": 900,
+        "elevation_m_relative_to_product_datum": {
+          "p10": 985.2243041992188,
+          "median": 1280.735107421875,
+          "p90": 1656.5621459960937,
+          "range_p90_minus_p10": 671.337841796875
+        },
+        "slope_deg": {
+          "median": 2.7333626721946516,
+          "p90": 5.662798394056884,
+          "p95": 7.145833674531486
+        },
+        "3x3_local_relief_m": {
+          "median": 122.82879638671875,
+          "p90": 246.40473632812507
+        },
+        "slope_fraction": {
+          "under_5_deg_percent": 86.11111111111111,
+          "under_10_deg_percent": 99.55555555555556,
+          "over_20_deg_percent": 0.0
+        },
+        "coverage": {
+          "valid_percent": 100.0,
+          "total_cells": 1024
+        },
+        "window_half_width_m": 15000.0
+      },
+      "preview_path": "koh_i_sultan_copdem_hillshade.png"
+    },
+    "hispar_glacier": {
+      "site": {
+        "name": "Hispar Glacier / Karakoram, Pakistan",
+        "latitude": 36.10572,
+        "longitude": 75.23341,
+        "catalog_key": "hispar_glacier"
+      },
+      "status": "processed",
+      "source": {
+        "collection": "cop-dem-glo-30",
+        "source_item_ids": [
+          "Copernicus_DSM_COG_10_N36_00_E075_00_DEM",
+          "Copernicus_DSM_COG_10_N35_00_E075_00_DEM"
+        ],
+        "asset_hrefs": [
+          "https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N36_00_E075_00_DEM.tif",
+          "https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N35_00_E075_00_DEM.tif"
+        ],
+        "source_crs": "EPSG:4326",
+        "analysis_crs": "EPSG:32643",
+        "native_resolution_m_approx": 30,
+        "analysis_resolution_m": 925.0,
+        "window_size_m": [
+          29600.0,
+          29600.0
+        ],
+        "centre_wgs84": [
+          75.23341,
+          36.10572
+        ],
+        "dem_type": "Digital Surface Model (DSM)"
+      },
+      "terrain_metrics": {
+        "valid_cell_count": 1024,
+        "complete_3x3_neighbourhood_count": 900,
+        "elevation_m_relative_to_product_datum": {
+          "p10": 4053.8544921875,
+          "median": 4799.156494140625,
+          "p90": 5790.661962890626,
+          "range_p90_minus_p10": 1736.8074707031255
+        },
+        "slope_deg": {
+          "median": 18.254706525984986,
+          "p90": 29.697712260731866,
+          "p95": 34.239493202186495
+        },
+        "3x3_local_relief_m": {
+          "median": 802.447509765625,
+          "p90": 1308.9645019531251
+        },
+        "slope_fraction": {
+          "under_5_deg_percent": 7.333333333333333,
+          "under_10_deg_percent": 18.555555555555557,
+          "over_20_deg_percent": 41.77777777777778
+        },
+        "coverage": {
+          "valid_percent": 100.0,
+          "total_cells": 1024
+        },
+        "window_half_width_m": 15000.0
+      },
+      "preview_path": "hispar_glacier_copdem_hillshade.png"
+    }
+  },
+  "comparison": {
+    "status": "descriptors only",
+    "not_a_geological_equivalence_claim": true,
+    "interpretation": "Compare slope and local-relief distributions at similar coarse spatial support. Do not compare absolute elevation across different vertical datums or Earth DSM and Mars areoid height. This is not a rover-safety or landing-suitability assessment.",
+    "spatial_support_note": "MOLA 64 px/degree is approximately 0.93 km north-south and 0.91 km east-west near Nili Patera. Copernicus DEM GLO-30 is a DSM averaged to 0.925 km. The 30 km windows are a local terrain sample, not the entire Syrtis Major quadrangle."
+  },
+  "mola_product_metadata": {
+    "label_summary": {
+      "rows": 5760,
+      "columns": 11520,
+      "topography_sample_bits": 16,
+      "topography_sample_type": "MSB_INTEGER",
+      "counts_sample_bits": 8,
+      "counts_sample_type": "UNSIGNED_INTEGER",
+      "scale_factor": 1.0,
+      "offset": 0.0,
+      "pixels_per_degree": 64,
+      "tile_latitude_range_deg": [
+        0,
+        90
+      ],
+      "tile_longitude_range_deg": [
+        0,
+        180
+      ],
+      "topography_label": "PDS_VERSION_ID                = PDS3\nRECORD_TYPE                   = FIXED_LENGTH\nFILE_RECORDS                  = 5760\nRECORD_BYTES                  = 23040\n^IMAGE                        = \"MEGT90N000GB.IMG\"\nDATA_SET_ID                   = \"MGS-M-MOLA-5-MEGDR-L3-V1.0\"\nPRODUCT_ID                    = \"MEGT90N000GB.IMG\"\nSPACECRAFT_NAME               = \"MARS GLOBAL SURVEYOR\"\nINSTRUMENT_ID                 = MOLA\nINSTRUMENT_NAME               = \"MARS ORBITER LASER ALTIMETER\"\nTARGET_NAME                   = MARS\nSTART_TIME                    = 1997-09-15T19:10:00.000\nSTOP_TIME                     = 2001-06-30T11:10:40.000\nSTART_ORBIT_NUMBER            = 3\nSTOP_ORBIT_NUMBER             = 20333\nPRODUCT_CREATION_TIME         = 2003-03-21T01:00:00\nPRODUCT_VERSION_ID            = \"2.0\"\nPRODUCER_ID                   = MGS_MOLA_TEAM\nPRODUCER_FULL_NAME            = \"DAVID E. SMITH\"\nPRODUCER_INSTITUTION_NAME     = \"GODDARD SPACE FLIGHT CENTER\"\nDESCRIPTION                   = \"This data product is a topographic\n map of Mars at a resolution of 0.015625 (1/64) by 0.015625 degrees,\n based on altimetry data acquired by the Mars Global Surveyor MOLA\n instrument and accumulated over the course of the primary and\n extended mission. The MOLA Precision Experiment Data Records (PEDRs)\n are the source for this data set. The map is in the form of a binary\n table with one row for each 0.015625-degree latitude. Map coordinates\n use the IAU2000 reference system, and areoid defined by the Goddard\n Mars potential model GMM3 (mgm1025) evaluated to degree and order\n 50. The binned data include all MOLA nadir",
+      "counts_label": "PDS_VERSION_ID                = PDS3\nRECORD_TYPE                   = FIXED_LENGTH\nFILE_RECORDS                  = 5760\nRECORD_BYTES                  = 11520\n^IMAGE                        = \"MEGC90N000GB.IMG\"\nDATA_SET_ID                   = \"MGS-M-MOLA-5-MEGDR-L3-V1.0\"\nPRODUCT_ID                    = \"MEGC90N000GB.IMG\"\nSPACECRAFT_NAME               = \"MARS GLOBAL SURVEYOR\"\nINSTRUMENT_ID                 = MOLA\nINSTRUMENT_NAME               = \"MARS ORBITER LASER ALTIMETER\"\nTARGET_NAME                   = MARS\nSTART_TIME                    = 1997-09-15T19:10:00.000\nSTOP_TIME                     = 2001-06-30T11:10:40.000\nSTART_ORBIT_NUMBER            = 3\nSTOP_ORBIT_NUMBER             = 20333\nPRODUCT_CREATION_TIME         = 2003-03-21T01:00:00\nPRODUCT_VERSION_ID            = \"2.0\"\nPRODUCER_ID                   = MGS_MOLA_TEAM\nPRODUCER_FULL_NAME            = \"DAVID E. SMITH\"\nPRODUCER_INSTITUTIO"
+    },
+    "source_product": "MGS MOLA MEGDR 64 pixels/degree",
+    "product_version": "PDS MEGDR final archive",
+    "no_raw_raster_committed": true
+  }
+}
