@@ -127,6 +127,11 @@ def fetch_site(site_id,site):
 
 def main():
     OUT.mkdir(parents=True,exist_ok=True)
+    # Remove stale per-site JSON files when a candidate is renamed or removed.
+    valid_files={f"{site_id}.json" for site_id in SITES}
+    for stale in OUT.glob("*.json"):
+        if stale.name not in valid_files and stale.name!="index.json":
+            stale.unlink()
     records,failures={},{}
     for site_id,site in SITES.items():
         try:
