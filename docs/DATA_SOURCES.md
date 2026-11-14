@@ -58,12 +58,17 @@ Current Nili Patera observation coverage: 567 / 1,122 cells (50.53%); 87 complet
 | SACCS / SUPARCO | Spatial planning / climate applications portal | Public portal; no usable API/schema verified |
 | EvK2CNR Geoportal | SHARE/GeoNetwork catalogue and Pakistan glacier inventory records | Selected metadata endpoint returned HTML; official vector file is not redistributed here |
 
+
+
+### NASA LRO Diviner PRP access diagnostic
+The repository now records a successful public PDS4 PRP V2.0 collection discovery and public range access to the legacy PDS3 south-polar table. Its header exposes triangle coordinates/centroids plus `temp_avg`, `temp_max` and `ice_depth`. The table is approximately 604.8 MB (2,880,000 fixed-width records). This is **access validation only**: the field units, no-data conventions, interpretation, and Shackleton-window statistics have not yet been processed. Do not display the sample temperature or ice-depth fields as validated lunar thermal/resource metrics until the product SIS/FMT metadata is confirmed.
+
 ## Reference-only NASA / planetary datasets
 
 | Dataset | Intended role | Current state |
 |---|---|---|
 | NASA LRO LOLA | Lunar south-pole elevation, slope, counts and uncertainty | PGDA product 78 documented; integration diagnostic in data/moon/lola_access_diagnostic.json | 5 m site files returned HTTP 403 or failed remote range reads; no lunar values integrated. PGDA large-area product 90 is a future access candidate.
-| NASA LRO Diviner | Lunar annual surface temperature, annual maximum surface temperature and estimated water-ice-permafrost depth | PDS Polar Resource Product V2.0 identified; not yet ingested |
+| NASA LRO Diviner | Polar resource product table with thermal and ice-depth fields (`temp_avg`, `temp_max`, `ice_depth`) | PDS4 PRP V2.0 collection metadata and PDS3 south-polar table range access verified; 604.8 MB table is not yet ingested or statistically processed. Units/field semantics still require authoritative SIS/FMT confirmation. Diagnostic: `data/moon/diviner_prp_diagnostic/report.json` |
 | NASA Global Volcano Hazard Frequency and Distribution | Historical volcano hazard frequency grid | Official data page linked; grid not ingested; historical events 79–2000, 2.5 arc-minute context, not current hazard intelligence |
 | NASA GIBS / Worldview | Earth global imagery/context | GIBS VIIRS tile layer displayed on map; visual context only |
 | NASADEM / SRTM / other DEMs | Earth elevation | Alternate sources identified; Copernicus DEM is the terrain input in this release |
