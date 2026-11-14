@@ -72,11 +72,10 @@ def collection_search(spec):
  return {"query_url":url,"count":len(results),"collections":results,
          "status":"found" if results else "no matching collection"}
 
-def granule_search(site_id,site,short_name="MOD11A2",version="061",temporal="2026-08-01T00:00:00Z,2026-11-14T23:59:59Z"):
- params={
-  "short_name":short_name,"version":version,"bounding_box":site["bbox"],
-  "temporal":temporal,"page_size":10,"sort_key":"-start_date"
- }
+def granule_search(site_id,site,short_name="MOD11A2",version="061",temporal="2026-08-01T00:00:00Z,2026-11-14T23:59:59Z",spatial=True):
+ params={"short_name":short_name,"version":version,
+  "temporal":temporal,"page_size":10,"sort_key":"-start_date"}
+ if spatial:params["bounding_box"]=site["bbox"]
  data,url=request_json("granules.json",params)
  entries=data.get("feed",{}).get("entry",[])
  items=[]
@@ -129,7 +128,7 @@ def main():
    out["site_granules"][site_id]={"status":"search_error","site":site,"error":str(exc)}
    failures.append("MOD11A2:"+site_id)
   try:
-   a=granule_search(site_id,site,"M2T1NXAER","5.12.4","2026-11-01T00:00:00Z,2026-11-14T23:59:59Z")
+   a=granule_search(site_id,site,"M2T1NXAER","5.12.4","2026-10-01T00:00:00Z,2026-11-01T23:59:59Z",spatial=False)
    a["site"]=site
    out["site_aerosol_granules"][site_id]=a
    print(f"[AEROSOL] {site_id}: {a['returned_count']} MERRA-2 aerosol granules",flush=True)
