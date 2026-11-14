@@ -10,7 +10,7 @@ For a proposed Moon/Mars field-rehearsal task, is a candidate Earth site charact
 4. **Visual quicklook.** Use a public SAS token to read cloud-optimized Sentinel-2 true-colour COG assets and clip a preview to the study bounding box.
 5. **Terrain profile.** Use Copernicus DEM GLO-30 DSM for Koh-i-Sultan and Hispar, mosaic neighbouring tiles, project to local UTM and average to approximately 925 m. Use MOLA MEGDR 64 pixels/degree topography and observation-count products around Nili Patera, Syrtis Major. Compute slope and 3×3 local-relief distributions at comparable coarse support.
 6. **Institutional evidence.** Record existing EvK2CNR glacier inventory, NDMA hazard outlooks, SUPARCO/UN-SPIDER recommended practices, Space4Climate and DisasterWatch capabilities with an explicit integration status.
-7. **Planetary reference.** Link MOLA, LOLA, Diviner and USGS Mars geology products. MOLA is now processed for the Nili Patera window. Raw lunar LOLA/Diviner products are not processed.
+7. **Planetary reference.** Link MOLA, LOLA, Diviner and USGS Mars geology products. MOLA is processed for the Nili Patera window. The NASA PGDA Site04 LOLA product was tested but source-host HTTP 403/range-read failures blocked ingestion; raw lunar LOLA/Diviner measurements are not processed. NASA's large-area LOLA COG products are a possible alternate route.
 8. **Field-readiness card.** Convert gaps into validation tasks: georeferenced field stations, ground photos, rock/soil descriptions, local weather loggers, surface-temperature sensors, sample provenance and permissions.
 
 ## Matched-scale terrain method
@@ -53,7 +53,7 @@ Nili Patera's coverage is materially lower than the Earth windows. Its summary i
 ## Study areas
 
 ### Koh-i-Sultan / Chagai
-The Smithsonian GVP catalogue identifies Sultan as a volcanic field. The current NASA POWER point is 29.1°N, 62.8°E. Sentinel-2 L2A scenes are discovered in MGRS tile 41RMN and a true-colour preview has been clipped to the stated study bounding box. Copernicus DEM GLO-30 is processed over an approximately 30 km window at matched coarse support to MOLA. This supports reconnaissance and field documentation workflows, not a claim of Syrtis basalt equivalence. Geological field validation and site-scale terrain data remain required.
+The Smithsonian GVP catalogue identifies Sultan as a Pleistocene volcanic field. USGS Open-File Report 75-550 maps the Koh-i-Sultan Volcanic Group as agglomerate, tuff and andesitic lava. The current NASA POWER point is 29.1°N, 62.8°E. Sentinel-2 L2A scenes are discovered in MGRS tile 41RMN and a true-colour preview has been clipped to the stated study bounding box. Copernicus DEM GLO-30 is processed over an approximately 30 km window at matched coarse support to MOLA. The defensible rehearsal themes are volcanic/hydrothermal reconnaissance, alteration mapping, outcrop logging and satellite-to-field validation. This is not a basaltic composition match to Syrtis Major. The USGS report is a regional reference, not a newly ingested geology raster; site-scale mineral mapping, field samples and specialist validation remain required.
 
 ### Hispar Glacier / Karakoram
 Sentinel-2 scene discovery includes a late-summer 2022 inventory-reference period and recent scenes. A true-colour preview has been clipped to an approximate bounding box near 36.10572°N, 75.23341°E. Copernicus DEM is processed over an approximately 30 km window at matched coarse support. EvK2CNR already published a Pakistan glacier inventory. The project's contribution is to cross-reference existing evidence and show transferability gaps, not to remap Pakistan's glaciers.
@@ -72,3 +72,7 @@ Climate, imagery, terrain and geology have different physical meanings, temporal
 - No NDMA or SUPARCO data API or redistribution licence is confirmed.
 - Candidate AOIs are approximate and are not permissions or survey boundaries.
 - Climate data are gridded climatology, not local conditions at the field site.
+
+## NASA Earthdata discovery status
+
+CMR returned collection metadata for MOD11A2, MYD11A2, MCD12Q1 and MERRA-2 M2T1NXAER. The app stores ten MOD11A2 granule metadata records over each Pakistan study box and one global October 2026 MERRA-2 granule record. No MODIS or MERRA-2 scientific arrays are decoded in this release. A metadata link must not be presented as a measured temperature or dust field.
