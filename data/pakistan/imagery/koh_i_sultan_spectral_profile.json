@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "site": {
+    "id": "koh_i_sultan",
+    "name": "Koh-i-Sultan / Chagai",
+    "bbox_wgs84": [
+      62.7,
+      29.0,
+      62.9,
+      29.2
+    ],
+    "role": "Volcanic outcrop / arid terrain spectral-context screen"
+  },
+  "scene": {
+    "provider": "Copernicus Sentinel-2 L2A hosted on Microsoft Planetary Computer",
+    "collection": "sentinel-2-l2a",
+    "item_id": "S2C_MSIL2A_20260908T062631_R077_T41RMN_20260908T105514",
+    "datetime": "2026-09-08T06:26:31.025000Z",
+    "platform": "Sentinel-2C",
+    "mgrs_tile": "41RMN",
+    "cloud_cover_percent": 5.4e-05,
+    "processing_baseline": "05.12",
+    "stac_item_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2C_MSIL2A_20260908T062631_R077_T41RMN_20260908T105514",
+    "source_collection_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a"
+  },
+  "processing": {
+    "analysis_grid_m": 20,
+    "grid_crs": "EPSG:32641",
+    "rows": 1110,
+    "columns": 975,
+    "cloud_shadow_mask_scl_classes": [
+      0,
+      1,
+      3,
+      8,
+      9,
+      10
+    ],
+    "masked_pixel_percent": 26.28,
+    "valid_pixel_count": 797804,
+    "snow_ice_scl_class_11_percent_of_all_pixels": 0.0,
+    "ndsi_gt_0_4_percent_of_valid_pixels": 0.0,
+    "note": "20 m common grid. 10 m bands were resampled to the B11 20 m grid. Indices are spectral screening descriptors, not mineral identifications, calibrated abundances or validated glacier boundaries."
+  },
+  "indices": {
+    "NDVI": {
+      "valid_pixels": 797804,
+      "p02": 0.0150346864387393,
+      "p25": 0.025405559688806534,
+      "median": 0.031521646305918694,
+      "p75": 0.03808261826634407,
+      "p98": 0.0528060695528984
+    },
+    "NDSI": {
+      "valid_pixels": 797804,
+      "p02": -0.26055947244167327,
+      "p25": -0.18710314482450485,
+      "median": -0.16138141602277756,
+      "p75": -0.1387787163257599,
+      "p98": -0.09437347233295444
+    },
+    "BSI": {
+      "valid_pixels": 797804,
+      "p02": 0.061856468841433525,
+      "p25": 0.08326871506869793,
+      "median": 0.09379354119300842,
+      "p75": 0.10553412325680256,
+      "p98": 0.15123094946146
+    },
+    "SWIR1_SWIR2_ratio": {
+      "valid_pixels": 797804,
+      "p02": 1.0142929697036742,
+      "p25": 1.0364294052124023,
+      "median": 1.0507984161376953,
+      "p75": 1.0713777244091034,
+      "p98": 1.238296213150024
+    },
+    "Red_Blue_ratio": {
+      "valid_pixels": 797804,
+      "p02": 1.248767201900482,
+      "p25": 1.2985884547233582,
+      "median": 1.3257096409797668,
+      "p75": 1.3607402443885803,
+      "p98": 1.5299671387672418
+    },
+    "NDMI": {
+      "valid_pixels": 797804,
+      "p02": -0.13142991989850997,
+      "p25": -0.07364735007286072,
+      "median": -0.05775548703968525,
+      "p75": -0.04279091116040945,
+      "p98": -0.000797723904252103
+    }
+  },
+  "interpretation_note": "Bare-surface, vegetation and SWIR contrast indicators can help target field observations. These bands do not identify minerals or prove Mars analog equivalence.",
+  "attribution": "Contains modified Copernicus Sentinel data; Sentinel-2 L2A hosted by Microsoft Planetary Computer. See Copernicus data terms and collection metadata.",
+  "generated_at_utc": "2026-11-14T14:09:32+00:00",
+  "assets": {
+    "true_color_png": "imagery/koh_i_sultan_true_color.png",
+    "index_png": "imagery/koh_i_sultan_index_screen.png"
+  }
+}

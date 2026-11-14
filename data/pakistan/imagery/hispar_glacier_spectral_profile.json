@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "site": {
+    "id": "hispar_glacier",
+    "name": "Hispar Glacier / Karakoram",
+    "bbox_wgs84": [
+      75.12,
+      36.02,
+      75.34,
+      36.22
+    ],
+    "role": "Cryosphere / snow-ice and debris-context screen"
+  },
+  "scene": {
+    "provider": "Copernicus Sentinel-2 L2A hosted on Microsoft Planetary Computer",
+    "collection": "sentinel-2-l2a",
+    "item_id": "S2A_MSIL2A_20220927T054651_R048_T43SEA_20240730T100302",
+    "datetime": "2022-09-27T05:46:51.024000Z",
+    "platform": "Sentinel-2A",
+    "mgrs_tile": "43SEA",
+    "cloud_cover_percent": 0.10048,
+    "processing_baseline": "05.10",
+    "stac_item_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2A_MSIL2A_20220927T054651_R048_T43SEA_20240730T100302",
+    "source_collection_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a"
+  },
+  "processing": {
+    "analysis_grid_m": 20,
+    "grid_crs": "EPSG:32643",
+    "rows": 909,
+    "columns": 993,
+    "cloud_shadow_mask_scl_classes": [
+      0,
+      1,
+      3,
+      8,
+      9,
+      10
+    ],
+    "masked_pixel_percent": 0.1,
+    "valid_pixel_count": 901728,
+    "snow_ice_scl_class_11_percent_of_all_pixels": 43.96,
+    "ndsi_gt_0_4_percent_of_valid_pixels": 36.94,
+    "note": "20 m common grid. 10 m bands were resampled to the B11 20 m grid. Indices are spectral screening descriptors, not mineral identifications, calibrated abundances or validated glacier boundaries."
+  },
+  "indices": {
+    "NDVI": {
+      "valid_pixels": 901728,
+      "p02": -0.06074282556772232,
+      "p25": -0.029353992082178593,
+      "median": -0.006671362556517124,
+      "p75": 0.012195531511679292,
+      "p98": 0.10853533923625945
+    },
+    "NDSI": {
+      "valid_pixels": 901728,
+      "p02": -0.28655834376811984,
+      "p25": -0.11932048946619034,
+      "median": 0.0219583660364151,
+      "p75": 0.6001666188240051,
+      "p98": 0.7535642969608307
+    },
+    "BSI": {
+      "valid_pixels": 901728,
+      "p02": -0.2523258596658707,
+      "p25": -0.21431736275553703,
+      "median": 0.011738053523004055,
+      "p75": 0.08486234582960606,
+      "p98": 0.14350889891386026
+    },
+    "SWIR1_SWIR2_ratio": {
+      "valid_pixels": 901728,
+      "p02": 0.9187334382534027,
+      "p25": 0.9780722856521606,
+      "median": 1.003582239151001,
+      "p75": 1.0362473726272583,
+      "p98": 1.1327373218536376
+    },
+    "Red_Blue_ratio": {
+      "valid_pixels": 901728,
+      "p02": 0.900333251953125,
+      "p25": 1.018317550420761,
+      "median": 1.10732501745224,
+      "p75": 1.2010447978973389,
+      "p98": 1.3278791975975035
+    },
+    "NDMI": {
+      "valid_pixels": 901728,
+      "p02": -0.1640889471769333,
+      "p25": -0.07872659154236317,
+      "median": 0.030255306512117386,
+      "p75": 0.5754223167896271,
+      "p98": 0.7323992800712585
+    }
+  },
+  "interpretation_note": "NDSI and Sentinel-2 Scene Classification Layer provide a screening view of snow/ice and cloud/shadow context, not a validated glacier boundary or mass-balance result.",
+  "attribution": "Contains modified Copernicus Sentinel data; Sentinel-2 L2A hosted by Microsoft Planetary Computer. See Copernicus data terms and collection metadata.",
+  "generated_at_utc": "2026-11-14T14:09:42+00:00",
+  "assets": {
+    "true_color_png": "imagery/hispar_glacier_true_color.png",
+    "index_png": "imagery/hispar_glacier_index_screen.png"
+  }
+}
