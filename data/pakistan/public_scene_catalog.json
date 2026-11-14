@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-14T14:29:33+00:00",
+  "generated_at_utc": "2026-11-14T14:31:13+00:00",
   "planetary_computer": {
     "provider": "Microsoft Planetary Computer",
     "stac_api": "https://planetarycomputer.microsoft.com/api/stac/v1",
@@ -4785,8 +4785,64 @@
           "role": "Volcanic outcrop mapping and sample-context workflow candidate",
           "coordinate_note": "Smithsonian GVP catalogue coordinate; not a surveyed field boundary."
         },
-        "item_count": 2,
+        "item_count": 4,
         "items": [
+          {
+            "id": "Copernicus_DSM_COG_10_N29_00_E063_00_DEM",
+            "collection": "cop-dem-glo-30",
+            "bbox": [
+              62.99986111111111,
+              29.000138888888888,
+              63.99986111111111,
+              30.000138888888888
+            ],
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    63.99986111,
+                    29.00013889
+                  ],
+                  [
+                    63.99986111,
+                    30.00013889
+                  ],
+                  [
+                    62.99986111,
+                    30.00013889
+                  ],
+                  [
+                    62.99986111,
+                    29.00013889
+                  ],
+                  [
+                    63.99986111,
+                    29.00013889
+                  ]
+                ]
+              ]
+            },
+            "datetime": "2021-04-22T00:00:00Z",
+            "proj:epsg": 4326,
+            "proj:shape": [
+              3600,
+              3600
+            ],
+            "proj:transform": [
+              0.0002777777777777778,
+              0.0,
+              62.99986111111111,
+              0.0,
+              -0.0002777777777777778,
+              30.000138888888888
+            ],
+            "gsd": 30,
+            "asset_key": "data",
+            "asset_href": "https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N29_00_E063_00_DEM.tif",
+            "asset_type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "license": "Copernicus DEM GLO-30 terms; see collection licence"
+          },
           {
             "id": "Copernicus_DSM_COG_10_N29_00_E062_00_DEM",
             "collection": "cop-dem-glo-30",
@@ -4840,6 +4896,62 @@
             "gsd": 30,
             "asset_key": "data",
             "asset_href": "https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N29_00_E062_00_DEM.tif",
+            "asset_type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "license": "Copernicus DEM GLO-30 terms; see collection licence"
+          },
+          {
+            "id": "Copernicus_DSM_COG_10_N28_00_E063_00_DEM",
+            "collection": "cop-dem-glo-30",
+            "bbox": [
+              62.99986111111111,
+              28.000138888888888,
+              63.99986111111111,
+              29.000138888888888
+            ],
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    63.99986111,
+                    28.00013889
+                  ],
+                  [
+                    63.99986111,
+                    29.00013889
+                  ],
+                  [
+                    62.99986111,
+                    29.00013889
+                  ],
+                  [
+                    62.99986111,
+                    28.00013889
+                  ],
+                  [
+                    63.99986111,
+                    28.00013889
+                  ]
+                ]
+              ]
+            },
+            "datetime": "2021-04-22T00:00:00Z",
+            "proj:epsg": 4326,
+            "proj:shape": [
+              3600,
+              3600
+            ],
+            "proj:transform": [
+              0.0002777777777777778,
+              0.0,
+              62.99986111111111,
+              0.0,
+              -0.0002777777777777778,
+              29.000138888888888
+            ],
+            "gsd": 30,
+            "asset_key": "data",
+            "asset_href": "https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N28_00_E063_00_DEM.tif",
             "asset_type": "image/tiff; application=geotiff; profile=cloud-optimized",
             "license": "Copernicus DEM GLO-30 terms; see collection licence"
           },
@@ -4917,7 +5029,7 @@
           "role": "Cryosphere imaging, debris/ice boundary interpretation and sensor/sample-handling workflow candidate",
           "coordinate_note": "Approximate gazetteer reference point for scene discovery, not an official EvK2CNR glacier centroid or field-access point."
         },
-        "item_count": 1,
+        "item_count": 2,
         "items": [
           {
             "id": "Copernicus_DSM_COG_10_N36_00_E075_00_DEM",
@@ -4972,6 +5084,62 @@
             "gsd": 30,
             "asset_key": "data",
             "asset_href": "https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N36_00_E075_00_DEM.tif",
+            "asset_type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "license": "Copernicus DEM GLO-30 terms; see collection licence"
+          },
+          {
+            "id": "Copernicus_DSM_COG_10_N35_00_E075_00_DEM",
+            "collection": "cop-dem-glo-30",
+            "bbox": [
+              74.99986111111112,
+              35.00013888888889,
+              75.99986111111112,
+              36.00013888888889
+            ],
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    75.99986111,
+                    35.00013889
+                  ],
+                  [
+                    75.99986111,
+                    36.00013889
+                  ],
+                  [
+                    74.99986111,
+                    36.00013889
+                  ],
+                  [
+                    74.99986111,
+                    35.00013889
+                  ],
+                  [
+                    75.99986111,
+                    35.00013889
+                  ]
+                ]
+              ]
+            },
+            "datetime": "2021-04-22T00:00:00Z",
+            "proj:epsg": 4326,
+            "proj:shape": [
+              3600,
+              3600
+            ],
+            "proj:transform": [
+              0.0002777777777777778,
+              0.0,
+              74.99986111111112,
+              0.0,
+              -0.0002777777777777778,
+              36.00013888888889
+            ],
+            "gsd": 30,
+            "asset_key": "data",
+            "asset_href": "https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N35_00_E075_00_DEM.tif",
             "asset_type": "image/tiff; application=geotiff; profile=cloud-optimized",
             "license": "Copernicus DEM GLO-30 terms; see collection licence"
           }
