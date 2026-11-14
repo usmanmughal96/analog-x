@@ -1,46 +1,93 @@
-# ANALOG-X — Mission-to-Field Planner
+# ANALOG-X — Pakistan Analog Evidence Operations
 
-NASA Space Apps Challenge 2026 · Team **X Æ A-Xii** · Participant: **Muhammad Usman Mughal**
+**NASA Space Apps Challenge 2026** · Team **X Æ A-Xii** · Participant **Muhammad Usman Mughal**
 
-## What it does
+## Live project
+- Evidence Operations console: https://usmanmughal96.github.io/analog-x/
+- Seven-slide project demo: https://usmanmughal96.github.io/analog-x/demo.html
+- Source repository: https://github.com/usmanmughal96/analog-x
 
-ANALOG-X turns a Moon/Mars exploration objective into an actionable Earth field-campaign plan.
+## What the product does
+ANALOG-X is a Pakistan-first evidence and field-readiness atlas for candidate terrestrial environments relevant to Moon/Mars exploration fieldwork.
 
-1. Select a planetary reference: Mars Syrtis Major, Mars Jezero or the lunar south-polar/Shackleton context.
-2. Choose a field task: volcanic geology/sample-context work, rover-traverse workflow, wind/dust experiments, thermal-stress trials or solar-powered operations.
-3. Select candidate Earth environments or add custom coordinates.
-4. Fetch live NASA POWER climatology for the selected coordinates.
-5. Compare measured Earth meteorology, calculate a transparent relative Field-Campaign Index, and identify candidate field months.
-6. Generate and download a field-test plan containing protocol, equipment, evidence and non-transferable planetary conditions.
+The current console focuses on two contrasting Pakistan case studies:
 
-**Important:** the index ranks Earth field-campaign conditions among the selected candidates. It is not a Moon/Mars similarity score, geological equivalence, safety rating or landing-site recommendation.
+1. **Koh-i-Sultan / Chagai** — a Smithsonian-catalogued volcanic-field candidate for outcrop reconnaissance, sample-context logging and remote-sensing-to-ground validation.
+2. **Hispar Glacier / Karakoram** — a cryosphere case study for ice/debris mapping, remote-sensing interpretation and field-data validation.
 
-## Live links
-- Application: https://usmanmughal96.github.io/analog-x/
-- Seven-slide demo: https://usmanmughal96.github.io/analog-x/demo.html
-- Repository: https://github.com/usmanmughal96/analog-x
+It assembles verified climate snapshots, Sentinel-2 scene metadata and true-colour previews, planetary references, local institutional baselines and explicit data gaps. It does not claim that either Earth location is a complete Moon/Mars analog.
 
-## Live data
-NASA POWER Climatology API:
-- T2M, T2M_MAX, T2M_MIN
-- RH2M
-- WS10M
-- PRECTOTCORR
-- ALLSKY_SFC_SW_DWN for solar tasks
+## Verified integrations
 
-The app requests data in the user's browser, caches responses locally for up to 12 hours and reports failed sites rather than fabricating values.
+### NASA POWER
+Server-side GitHub Actions fetch the public NASA POWER Climatology API for eight coordinates: Koh-i-Sultan, Hispar Glacier, Dallol, Atacama, McMurdo Dry Valleys, Haughton impact structure, Iceland and Death Valley.
 
-## Planetary and geology references
-NASA MOLA, NASA LRO Diviner/LOLA, USGS Syrtis Major MC-13, Smithsonian Global Volcanism Program Sultan record, USGS Chagai geology and SUPARCO Space4Climate. The live climate index does not process raw planetary rasters. SUPARCO data are not claimed as ingested.
+Variables include T2M, T2M_MAX, T2M_MIN, RH2M, WS10M, PRECTOTCORR and ALLSKY_SFC_SW_DWN. The current committed index has eight records and no failed sites. Records include the original source response, request URL, community, timestamps, monthly values, metrics and missing-parameter information.
 
-## Scientific limits
-NASA POWER climatology is gridded Earth meteorology, not a field weather station or surface-temperature record. Wind at 10 m is not dust flux. The app does not infer geology, mineralogy, water/ice, rover traction or planetary environmental equivalence. See `docs/ALGORITHM.md`, `docs/METHODOLOGY.md` and `docs/LIMITATIONS.md`.
+NASA POWER is gridded climatology, not a ground weather station.
 
-## Repository structure
-- `index.html` — interactive mission-to-field planner.
-- `demo.html` — seven-slide browser demo.
-- `docs/` — method, algorithm, sources, limitations, AI disclosure and NASA submission copy.
-- `science/` — separate MOLA/DEM processing scripts for future raster analysis.
+### Microsoft Planetary Computer / Sentinel-2 L2A
+The anonymous STAC API is queried for Koh-i-Sultan and Hispar study windows. The pipeline discovers scenes, records acquisition date, platform, cloud fraction, MGRS tile and asset provenance, then obtains a public SAS token and clips 768×768 true-colour previews from COG assets.
 
-## License
-Original project code and text: MIT. Third-party datasets and imagery retain provider terms.
+Current previews:
+- data/pakistan/quicklooks/koh_i_sultan.png
+- data/pakistan/quicklooks/hispar_glacier.png
+
+This is RGB visual evidence, not mineral classification or field validation. Copernicus Sentinel data terms apply.
+
+### NASA DSCOVR / EPIC
+The pipeline retrieves an optional full-disc natural-colour Earth image from the public GSFC EPIC endpoint. It is global context only and is not used in site-scale metrics. This endpoint does not need an api.nasa.gov key.
+
+## Institutional and planetary evidence
+- **EvK2CNR:** Existing Pakistan Glacier Inventory: 13,032 glaciers, combined area 13,546.93 km². We acknowledge and link this prior work; the project does not claim to have discovered or remapped those glaciers.
+- **SUPARCO / UN-SPIDER:** Official remote-sensing and disaster-monitoring capabilities, recommended practices, DisasterWatch and NatCat are documented. No public bulk-data/API integration from DisasterWatch or Space4Climate has yet been verified.
+- **NDMA:** Official hazard projections, disaster early-warning documents and the 2026 Vulnerable Glaciers and Glacial Lakes Atlas listing are linked as existing institutional work. No redistributable geospatial layer has yet been ingested.
+- **NASA MOLA / LRO LOLA / Diviner:** Planetary data pathways are identified, but raw rasters are not processed by the current public console.
+- **NASA Global Volcano Hazard Frequency:** Historical coarse grid is linked as context only; it is not current volcano alerting or site-scale geology.
+
+See docs/AGENCY_DATA_AUDIT.md for source status and docs/DATA_SOURCES.md for provenance.
+
+## What is differentiated
+Other public 2026 entries already demonstrate broad Earth/Moon/Mars matching, experiment-specific ranking, topographic similarity, or evidence-gap reporting. ANALOG-X does not claim those concepts are globally unsolved.
+
+Our narrower contribution is a **Pakistan-first evidence-readiness workflow**:
+- actual multi-source records for two contrasting Pakistan case studies;
+- a traceable Sentinel-2 scene-to-preview pipeline;
+- a clear distinction between integrated data, discovered metadata, reviewed portals and linked references;
+- reuse and attribution of existing national glacier/disaster work;
+- explicit field validation tasks and non-transferability limits.
+
+A single universal analog score is deliberately withheld until Earth and planetary datasets can be harmonized to defensible spatial/temporal support and a scientist validates the method.
+
+## Run the data pipelines
+NASA POWER:
+    python -m pip install --upgrade requests
+    python scripts/fetch_nasa_power.py
+
+Scene discovery and previews:
+    python -m pip install --upgrade requests rasterio pillow numpy
+    python scripts/fetch_public_evidence.py
+    python scripts/build_scene_quicklooks.py
+
+Optional EPIC global image:
+    python scripts/fetch_nasa_epic.py
+
+Automated workflows:
+- .github/workflows/fetch-nasa-power.yml
+- .github/workflows/fetch-public-evidence.yml
+
+The data workflows share a concurrency lock and rebase before pushing to avoid interrupted commits. Weekly refresh is configured.
+
+## Credentials
+The current NASA POWER, NASA GIBS, Microsoft Planetary Computer STAC/SAS and direct NASA EPIC workflows do not need the api.nasa.gov key. A NASA API key pasted into a chat should be considered exposed and rotated before future use. Never commit a key or put it in browser JavaScript. See docs/DATA_ACCESS_AND_SECURITY.md.
+
+## Limitations
+- No raw MOLA, LOLA or Diviner raster-derived comparison is claimed in the current release.
+- No Chagai mineralogy or Syrtis Major equivalence is inferred from RGB imagery.
+- No official EvK2CNR glacier shapefile is redistributed in this repository.
+- NDMA, SUPARCO DisasterWatch and Space4Climate are portal/reference status until data endpoints, access terms and product licences are verified.
+- NASA POWER is gridded climate context, not local instrumentation.
+- Field access, permits and site-level geology require independent validation.
+
+## Licence
+Original project code and text are MIT-licensed. NASA, Copernicus, Microsoft, USGS, EvK2CNR and other third-party products retain their original terms and attribution.
