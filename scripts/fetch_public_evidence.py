@@ -21,6 +21,7 @@ SEARCH=STAC+"/search"
 EVK2_UUID="60565650-b68d-4db2-8873-53b94b4ed56b"
 EVK2_RECORD=f"https://geoportal.mountaingenius.org/geonetwork/srv/api/records/{EVK2_UUID}"
 
+# Candidate coordinates define analyst screening AOIs; they are not surveyed site polygons or field-access points.
 SITES={
  "koh_i_sultan":{
    "name":"Koh-i-Sultan / Chagai",
