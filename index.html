@@ -109,11 +109,7 @@
     <h1 id="welcomeTitle">Earth is the rehearsal ground for the <em>next worlds.</em></h1>
     <p>Before astronauts and robots explore the Moon or Mars, scientists test mission tasks on Earth. ANALOG-X helps find the right places, compare real evidence, and understand where the comparison breaks down.</p>
     <div class="welcomeDefinition">A planetary <b>analog</b> is not an Earth copy of another world. It is a place or process that helps rehearse one specific exploration task.</div>
-    <div class="welcomeActions">
-     <button class="welcomePrimary" id="heroExploreSites">EXPLORE EARTH SITES <span>↗</span></button>
-     <button class="welcomeSecondary" id="heroExplain">HOW IT WORKS <span>→</span></button>
-     <button class="welcomeSecondary" id="heroAskAgent">ASK THE MISSION ASSISTANT <span>✧</span></button>
-    </div>
+
    </div>
    <div class="welcomeVisual" aria-label="Earth, Moon and Mars exploration concept">
     <div class="welcomeOrbit welcomeOrbitA"></div><div class="welcomeOrbit welcomeOrbitB"></div>
@@ -828,14 +824,21 @@ async function loadAll(){
  renderPipeline();renderQuicklooks();renderEpic();renderTerrain();renderLunar();renderCmr();renderSiteData(current);renderMissionLab();
 }
 
-/* Portal entry + optional synthesized ambient sound. Audio starts only after a user gesture. */
-const axLaunchAudio={context:null,master:null,filter:null,oscillators:[],enabled:false,entered:false,timer:null};
+/* Portal entry + original procedural ambient space soundtrack.
+   AudioContext is created/resumed only after a real user interaction. */
+const axLaunchAudio={context:null,master:null,enabled:false,entered:false,timer:null,voices:[],bass:null,chordTimer:null,starTimer:null,starIndex:0};
+const axChords=[
+ {root:73.42,notes:[146.83,174.61,220.00,261.63,329.63]},
+ {root:58.27,notes:[116.54,146.83,174.61,220.00,261.63]},
+ {root:98.00,notes:[146.83,196.00,233.08,293.66,349.23]},
+ {root:110.00,notes:[164.81,220.00,246.94,329.63,369.99]}
+];
 function axAudioButtons(){
  const buttons=[$("soundToggleLaunch"),$("soundToggleTop")].filter(Boolean);
  buttons.forEach(button=>{
   button.setAttribute("aria-pressed",axLaunchAudio.enabled?"true":"false");
-  button.textContent=axLaunchAudio.enabled?"♫ SOUND ON":"♫ SOUND OFF";
-  button.setAttribute("aria-label",axLaunchAudio.enabled?"Turn portal sound off":"Turn portal sound on");
+  button.textContent=axLaunchAudio.enabled?"♫ MUSIC ON":"♫ MUSIC OFF";
+  button.setAttribute("aria-label",axLaunchAudio.enabled?"Turn ambient music off":"Turn ambient music on");
  });
 }
 function axCreateAudio(){
@@ -843,44 +846,99 @@ function axCreateAudio(){
  const AudioContextClass=window.AudioContext||window.webkitAudioContext;
  if(!AudioContextClass)return null;
  const context=new AudioContextClass();
- const master=context.createGain();
- master.gain.value=0.0001;
- const filter=context.createBiquadFilter();
- filter.type="lowpass";filter.frequency.value=360;filter.Q.value=.55;
- filter.connect(master);master.connect(context.destination);
- const pad=[55,82.41,110];
- pad.forEach((frequency,index)=>{
-  const oscillator=context.createOscillator();
-  const voice=context.createGain();
-  oscillator.type=index===2?"triangle":"sine";
-  oscillator.frequency.value=frequency;
-  voice.gain.value=index===0?.34:index===1?.16:.045;
-  oscillator.connect(voice);voice.connect(filter);oscillator.start();
-  axLaunchAudio.oscillators.push(oscillator);
+ const master=context.createGain();master.gain.value=.0001;
+ const compressor=context.createDynamicsCompressor();
+ compressor.threshold.value=-24;compressor.knee.value=18;compressor.ratio.value=3;
+ compressor.attack.value=.08;compressor.release.value=.8;
+ master.connect(compressor);compressor.connect(context.destination);
+
+ const dry=context.createGain();dry.gain.value=.78;dry.connect(master);
+ const convolver=context.createConvolver();
+ const impulseLength=Math.floor(context.sampleRate*3.8);
+ const impulse=context.createBuffer(2,impulseLength,context.sampleRate);
+ for(let channel=0;channel<2;channel++){
+  const data=impulse.getChannelData(channel);
+  for(let i=0;i<impulseLength;i++){
+   const fade=Math.pow(1-i/impulseLength,2.7);
+   data[i]=(Math.random()*2-1)*fade*(channel===0?1:.92);
+  }
+ }
+ convolver.buffer=impulse;
+ const wet=context.createGain();wet.gain.value=.31;convolver.connect(wet);wet.connect(master);
+
+ const padFilter=context.createBiquadFilter();
+ padFilter.type="lowpass";padFilter.frequency.value=1450;padFilter.Q.value=.32;
+ padFilter.connect(dry);padFilter.connect(convolver);
+ const first=axChords[0];
+ first.notes.forEach((frequency,index)=>{
+  const amp=context.createGain();amp.gain.value=.017;
+  const pan=context.createStereoPanner();pan.pan.value=(index-2)*.22;
+  const a=context.createOscillator(),b=context.createOscillator();
+  a.type="sine";b.type="sine";
+  a.frequency.value=frequency;b.frequency.value=frequency;
+  a.detune.value=-4.2;b.detune.value=4.2;
+  a.connect(amp);b.connect(amp);amp.connect(pan);pan.connect(padFilter);
+  a.start();b.start();
+  axLaunchAudio.voices.push({a,b});
  });
- axLaunchAudio.context=context;axLaunchAudio.master=master;axLaunchAudio.filter=filter;
+
+ const bassFilter=context.createBiquadFilter();
+ bassFilter.type="lowpass";bassFilter.frequency.value=135;bassFilter.Q.value=.6;
+ const bassAmp=context.createGain();bassAmp.gain.value=.055;
+ const bass=context.createOscillator();bass.type="sine";bass.frequency.value=first.root/2;
+ bass.connect(bassFilter);bassFilter.connect(bassAmp);bassAmp.connect(dry);bassFilter.connect(convolver);bass.start();
+ axLaunchAudio.bass=bass;
+
+ // Soft, filtered star-wind texture: felt rather than hiss.
+ const noiseBuffer=context.createBuffer(1,context.sampleRate*5,context.sampleRate);
+ const noiseData=noiseBuffer.getChannelData(0);let brown=0;
+ for(let i=0;i<noiseData.length;i++){brown=(brown+.018*(Math.random()*2-1))*.985;noiseData[i]=brown*.55;}
+ const noise=context.createBufferSource();noise.buffer=noiseBuffer;noise.loop=true;
+ const noiseFilter=context.createBiquadFilter();noiseFilter.type="lowpass";noiseFilter.frequency.value=460;
+ const noiseAmp=context.createGain();noiseAmp.gain.value=.008;
+ noise.connect(noiseFilter);noiseFilter.connect(noiseAmp);noiseAmp.connect(dry);noiseFilter.connect(convolver);noise.start();
+
+ axLaunchAudio.context=context;axLaunchAudio.master=master;
+ axLaunchAudio.chordTimer=window.setInterval(()=>{
+  if(!axLaunchAudio.enabled||!axLaunchAudio.context)return;
+  const next=axChords[(axLaunchAudio.chordIndex=(axLaunchAudio.chordIndex+1)%axChords.length)];
+  const now=context.currentTime;
+  axLaunchAudio.voices.forEach((voice,index)=>{
+   voice.a.frequency.setTargetAtTime(next.notes[index],now,3.2);
+   voice.b.frequency.setTargetAtTime(next.notes[index],now,3.2);
+  });
+  bass.frequency.setTargetAtTime(next.root/2,now,4.2);
+  padFilter.frequency.setTargetAtTime(1050+((axLaunchAudio.chordIndex%2)*330),now,5.5);
+ },12000);
+ axLaunchAudio.chordIndex=0;
+
+ const starNotes=[587.33,698.46,880.00,783.99,659.25,523.25,698.46,587.33,987.77,783.99];
+ axLaunchAudio.starTimer=window.setInterval(()=>{
+  if(!axLaunchAudio.enabled||!axLaunchAudio.context)return;
+  const now=context.currentTime;
+  const note=starNotes[axLaunchAudio.starIndex++%starNotes.length];
+  const osc=context.createOscillator(),overtone=context.createOscillator();
+  const envelope=context.createGain(),pan=context.createStereoPanner();
+  osc.type="sine";overtone.type="sine";
+  osc.frequency.setValueAtTime(note,now);
+  overtone.frequency.setValueAtTime(note*2.001,now);
+  pan.pan.value=(axLaunchAudio.starIndex%2===0?.48:-.48);
+  envelope.gain.setValueAtTime(.0001,now);
+  envelope.gain.linearRampToValueAtTime(.012,now+1.1);
+  envelope.gain.setTargetAtTime(.0001,now+2.2,1.25);
+  osc.connect(envelope);overtone.connect(envelope);envelope.connect(pan);
+  pan.connect(dry);pan.connect(convolver);
+  osc.start(now);overtone.start(now);
+  osc.stop(now+7);overtone.stop(now+7);
+ },5700);
+
  return context;
 }
-function axPlayPortalCue(){
- const context=axLaunchAudio.context,master=axLaunchAudio.master;
- if(!context||!master||!axLaunchAudio.enabled)return;
- const now=context.currentTime;
- [[392,0,.42],[587.33,.13,.56],[783.99,.31,.78]].forEach(([frequency,delay,duration])=>{
-  const oscillator=context.createOscillator(),gain=context.createGain();
-  oscillator.type="sine";oscillator.frequency.setValueAtTime(frequency,now+delay);
-  oscillator.frequency.exponentialRampToValueAtTime(frequency*.985,now+delay+duration);
-  gain.gain.setValueAtTime(.0001,now+delay);
-  gain.gain.linearRampToValueAtTime(.2,now+delay+.045);
-  gain.gain.exponentialRampToValueAtTime(.0001,now+delay+duration);
-  oscillator.connect(gain);gain.connect(master);
-  oscillator.start(now+delay);oscillator.stop(now+delay+duration+.03);
- });
-}
-function axSetSound(enabled,playCue=false){
+function axSetSound(enabled){
  const context=axCreateAudio();
  if(!context){
   axLaunchAudio.enabled=false;axAudioButtons();
-  const status=$("launchStatus");if(status)status.textContent="Sound is unavailable in this browser";
+  const status=$("launchStatus");if(status)status.textContent="Audio is unavailable in this browser";
   return false;
  }
  axLaunchAudio.enabled=!!enabled;
@@ -888,8 +946,7 @@ function axSetSound(enabled,playCue=false){
   if(!axLaunchAudio.master)return;
   const now=context.currentTime;
   axLaunchAudio.master.gain.cancelScheduledValues(now);
-  axLaunchAudio.master.gain.setTargetAtTime(axLaunchAudio.enabled?.11:.0001,now,.22);
-  if(axLaunchAudio.enabled&&playCue)axPlayPortalCue();
+  axLaunchAudio.master.gain.setTargetAtTime(axLaunchAudio.enabled?.72:.0001,now,1.25);
  }).catch(()=>{});
  axAudioButtons();
  return true;
@@ -898,8 +955,7 @@ function axEnterPortal(fromUser=false){
  const screen=$("launchScreen");
  if(!screen||axLaunchAudio.entered)return;
  axLaunchAudio.entered=true;
- if(fromUser&&!axLaunchAudio.enabled)axSetSound(true,true);
- else if(axLaunchAudio.enabled)axPlayPortalCue();
+ if(fromUser&&!axLaunchAudio.enabled)axSetSound(true);
  if(axLaunchAudio.timer){clearTimeout(axLaunchAudio.timer);axLaunchAudio.timer=null;}
  screen.classList.add("is-exiting");
  screen.setAttribute("aria-hidden","true");
