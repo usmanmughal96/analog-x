@@ -1,50 +1,46 @@
-# ANALOG-X
+# ANALOG-X — Mission-to-Field Planner
 
-**Mission-Specific Planetary Analog Reconnaissance**  
 NASA Space Apps Challenge 2026 · Team **X Æ A-Xii** · Participant: **Muhammad Usman Mughal**
 
-## Public project links
-- Project landing page: https://usmanmughal96.github.io/analog-x/
-- Seven-slide browser demo: https://usmanmughal96.github.io/analog-x/demo.html
-- Source repository: https://github.com/usmanmughal96/analog-x
+## What it does
 
-> These Pages URLs are expected deployment addresses. Confirm that the GitHub Actions deployment has succeeded before using them in the NASA submission.
+ANALOG-X turns a Moon/Mars exploration objective into an actionable Earth field-campaign plan.
 
-## Research question
-Which aspects of the Koh-i-Sultan volcanic field in Chagai, Pakistan, may inform field-geology methods and robotic geological reconnaissance workflows for Martian volcanic terrain represented by the Syrtis Major MC-13 quadrangle?
+1. Select a planetary reference: Mars Syrtis Major, Mars Jezero or the lunar south-polar/Shackleton context.
+2. Choose a field task: volcanic geology/sample-context work, rover-traverse workflow, wind/dust experiments, thermal-stress trials or solar-powered operations.
+3. Select candidate Earth environments or add custom coordinates.
+4. Fetch live NASA POWER climatology for the selected coordinates.
+5. Compare measured Earth meteorology, calculate a transparent relative Field-Campaign Index, and identify candidate field months.
+6. Generate and download a field-test plan containing protocol, equipment, evidence and non-transferable planetary conditions.
 
-## Scientific integrity
-This is a source-grounded reconnaissance prototype, not a claim that Chagai is a complete Mars analog. It does not display a single planetary-equivalence percentage. Raw MOLA and NASADEM/SRTM rasters have not yet been processed in this public build; therefore no terrain statistics or numerical analog score are claimed. NASA GIBS is a visual browse service only. SUPARCO Space4Climate is a potential data source; no Chagai-specific product has been verified or ingested.
+**Important:** the index ranks Earth field-campaign conditions among the selected candidates. It is not a Moon/Mars similarity score, geological equivalence, safety rating or landing-site recommendation.
+
+## Live links
+- Application: https://usmanmughal96.github.io/analog-x/
+- Seven-slide demo: https://usmanmughal96.github.io/analog-x/demo.html
+- Repository: https://github.com/usmanmughal96/analog-x
+
+## Live data
+NASA POWER Climatology API:
+- T2M, T2M_MAX, T2M_MIN
+- RH2M
+- WS10M
+- PRECTOTCORR
+- ALLSKY_SFC_SW_DWN for solar tasks
+
+The app requests data in the user's browser, caches responses locally for up to 12 hours and reports failed sites rather than fabricating values.
+
+## Planetary and geology references
+NASA MOLA, NASA LRO Diviner/LOLA, USGS Syrtis Major MC-13, Smithsonian Global Volcanism Program Sultan record, USGS Chagai geology and SUPARCO Space4Climate. The live climate index does not process raw planetary rasters. SUPARCO data are not claimed as ingested.
+
+## Scientific limits
+NASA POWER climatology is gridded Earth meteorology, not a field weather station or surface-temperature record. Wind at 10 m is not dust flux. The app does not infer geology, mineralogy, water/ice, rover traction or planetary environmental equivalence. See `docs/ALGORITHM.md`, `docs/METHODOLOGY.md` and `docs/LIMITATIONS.md`.
 
 ## Repository structure
-- `index.html` — public project landing page.
-- `demo.html` — seven-slide browser presentation; use arrow keys or Previous/Next.
-- `docs/` — methodology, data provenance, limitations, AI-use disclosure, NASA submission copy and SUPARCO request draft.
-- `science/` — reproducible MOLA and projected-DEM processing scripts.
-- `app/` — app entry redirect.
-- `presentation/` and `reports/` — pointers to PDF/PPTX deliverables in the complete submission package.
+- `index.html` — interactive mission-to-field planner.
+- `demo.html` — seven-slide browser demo.
+- `docs/` — method, algorithm, sources, limitations, AI disclosure and NASA submission copy.
+- `science/` — separate MOLA/DEM processing scripts for future raster analysis.
 
-## Run the science scripts
-Install dependencies:
-
-```bash
-pip install -r science/requirements.txt
-```
-
-From repository root:
-
-```bash
-python science/analyze_mola.py --out outputs/mola_syrtis_summary.json
-python science/dem_metrics.py /path/to/projected_dem.tif --out outputs/koh_i_sultan_dem_metrics.json
-```
-
-The Earth DEM must have a verified projected CRS in metres. Do not compare fine Earth DEM statistics directly with coarse MOLA 4 px/degree data. See `docs/METHODOLOGY.md` and `docs/LIMITATIONS.md`.
-
-## Data sources
-NASA GIBS, NASA MOLA, NASADEM/SRTM, USGS Chagai regional geology, USGS Syrtis Major MC-13, Smithsonian Global Volcanism Program and SUPARCO Space4Climate. Dataset status and limitations are recorded in `docs/DATA_SOURCES.md`.
-
-## AI-use disclosure
-See `docs/AI_DISCLOSURE.md`. The team discloses AI-assisted brainstorming and development support. AI output is not treated as scientific evidence; claims and data must be independently validated.
-
-## Licence
-Original project code and text are MIT-licensed. Third-party datasets, maps and imagery retain their own provider terms.
+## License
+Original project code and text: MIT. Third-party datasets and imagery retain provider terms.
