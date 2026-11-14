@@ -1,0 +1,52 @@
+name: Build lunar south-pole LOLA terrain profile
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/build_lunar_south_pole_lola_80m.py"
+      - ".github/workflows/build-lunar-lola-80m.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: analogx-repository-data-refresh
+  cancel-in-progress: false
+
+jobs:
+  lunar-profile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout current main
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache public LOLA 80 m polar source files
+        uses: actions/cache@v4
+        with:
+          path: data/raw/lola_mit_80m
+          key: analogx-lola-80m-south-pole-gdr-v1
+
+      - name: Install geospatial dependencies
+        run: python -m pip install --upgrade requests rasterio numpy scipy pillow
+
+      - name: Build Shackleton Rim LOLA profile
+        run: python scripts/build_lunar_south_pole_lola_80m.py
+
+      - name: Commit derived lunar evidence only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/moon/shackleton_lola_80m.json data/moon/shackleton_lola_80m_elevation_preview.png
+          git commit -m "Add Shackleton Rim LOLA 80m terrain profile"
+          git pull --rebase origin main
+          git push
