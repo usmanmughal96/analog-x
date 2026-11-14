@@ -105,7 +105,7 @@ def build_one(site_id,entry,token):
     CPL_VSIL_CURL_ALLOWED_EXTENSIONS=".tif",
     GDAL_HTTP_MAX_RETRY="3",
     GDAL_HTTP_RETRY_DELAY="1",
-    GDAL_CACHEMAX="256"
+    GDAL_CACHEMAX=256
    ):
     with rasterio.open(vsicurl) as src:
      if src.count<3:
