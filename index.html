@@ -871,7 +871,7 @@ function axCreateAudio(){
  padFilter.connect(dry);padFilter.connect(convolver);
  const first=axChords[0];
  first.notes.forEach((frequency,index)=>{
-  const amp=context.createGain();amp.gain.value=.017;
+  const amp=context.createGain();amp.gain.value=.027;
   const pan=context.createStereoPanner();pan.pan.value=(index-2)*.22;
   const a=context.createOscillator(),b=context.createOscillator();
   a.type="sine";b.type="sine";
@@ -884,7 +884,7 @@ function axCreateAudio(){
 
  const bassFilter=context.createBiquadFilter();
  bassFilter.type="lowpass";bassFilter.frequency.value=135;bassFilter.Q.value=.6;
- const bassAmp=context.createGain();bassAmp.gain.value=.055;
+ const bassAmp=context.createGain();bassAmp.gain.value=.08;
  const bass=context.createOscillator();bass.type="sine";bass.frequency.value=first.root/2;
  bass.connect(bassFilter);bassFilter.connect(bassAmp);bassAmp.connect(dry);bassFilter.connect(convolver);bass.start();
  axLaunchAudio.bass=bass;
@@ -895,7 +895,7 @@ function axCreateAudio(){
  for(let i=0;i<noiseData.length;i++){brown=(brown+.018*(Math.random()*2-1))*.985;noiseData[i]=brown*.55;}
  const noise=context.createBufferSource();noise.buffer=noiseBuffer;noise.loop=true;
  const noiseFilter=context.createBiquadFilter();noiseFilter.type="lowpass";noiseFilter.frequency.value=460;
- const noiseAmp=context.createGain();noiseAmp.gain.value=.008;
+ const noiseAmp=context.createGain();noiseAmp.gain.value=.009;
  noise.connect(noiseFilter);noiseFilter.connect(noiseAmp);noiseAmp.connect(dry);noiseFilter.connect(convolver);noise.start();
 
  axLaunchAudio.context=context;axLaunchAudio.master=master;
@@ -924,7 +924,7 @@ function axCreateAudio(){
   overtone.frequency.setValueAtTime(note*2.001,now);
   pan.pan.value=(axLaunchAudio.starIndex%2===0?.48:-.48);
   envelope.gain.setValueAtTime(.0001,now);
-  envelope.gain.linearRampToValueAtTime(.012,now+1.1);
+  envelope.gain.linearRampToValueAtTime(.02,now+1.1);
   envelope.gain.setTargetAtTime(.0001,now+2.2,1.25);
   osc.connect(envelope);overtone.connect(envelope);envelope.connect(pan);
   pan.connect(dry);pan.connect(convolver);
@@ -946,7 +946,7 @@ function axSetSound(enabled){
   if(!axLaunchAudio.master)return;
   const now=context.currentTime;
   axLaunchAudio.master.gain.cancelScheduledValues(now);
-  axLaunchAudio.master.gain.setTargetAtTime(axLaunchAudio.enabled?.72:.0001,now,1.25);
+  axLaunchAudio.master.gain.setTargetAtTime(axLaunchAudio.enabled?.88:.0001,now,1.25);
  }).catch(()=>{});
  axAudioButtons();
  return true;
