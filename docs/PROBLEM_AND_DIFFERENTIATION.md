@@ -4,7 +4,7 @@
 
 Planetary analog field campaigns need more than a list of visually similar landscapes. Before a team can use a terrestrial site to rehearse a specific lunar/Martian science or operations task, it needs compatible, traceable evidence across imagery, terrain, climate and geology—and a clear account of what remains missing or incompatible in scale.
 
-**ANALOG-X addresses this evidence-readiness gap for Pakistan case studies:** it assembles open Earth-observation and environmental records, links them to planetary reference products, records spatial/temporal support and provenance, and converts evidence gaps into targeted field-validation tasks. It deliberately avoids an unvalidated universal planetary-similarity percentage.
+**ANALOG-X addresses this evidence-readiness gap with a Pakistan-first discovery seed atlas and mission-specific evidence workflow:** it assembles open Earth-observation and environmental records, links them to planetary reference products, records spatial/temporal support and provenance, and converts evidence gaps into targeted field-validation tasks. It deliberately avoids an unvalidated universal planetary-similarity percentage.
 
 ## Current Pakistan case studies
 
@@ -13,6 +13,13 @@ A Smithsonian-catalogued Pleistocene volcanic-field candidate for volcanic/hydro
 
 ### Hispar Glacier / Karakoram
 A cryosphere case study for ice/debris image interpretation and field-data validation. Sentinel-2 scenes and true-colour previews are integrated; Copernicus DEM terrain descriptors are processed at the same approximate support as the Mars profile. EvK2CNR already published a Pakistan inventory of 13,032 glaciers and a preliminary glacial-lake inventory. ANALOG-X credits those baselines rather than claiming to discover or remap Pakistan's glaciers. An Earth glacier does not reproduce lunar permanently shadowed-region conditions.
+ 
+### Chagai small salt playas near Nok Kundi — under-characterized research lead
+NASA NTRS report 19740023693 describes two small salt-surfaced playas at 28°35′N, 62°36′E and 28°35′N, 62°40′E and discusses possible evaporite/brine context. ANALOG-X uses their midpoint and an analyst-defined screening AOI, not a measured playa boundary. The selected Copernicus DEM window is processed at ~925 m support (median slope 0.397°, P90 slope 1.010°, P90 3×3 local relief 38.8 m). A Sentinel-2 L2A 20 m profile has 569,772 valid pixels (2025-11-02); the separately displayed RGB quicklook is from 2026-09-18. These outputs support a first-pass salt-playa/sediment-process field plan, but do not identify evaporite minerals, confirm brine, or prove an analog to a particular Martian deposit. Field geology, mineralogical sampling and multi-date surface-change analysis remain outstanding.
+
+### Hamun-i-Mashkel / Kharan Basin — under-characterized regional process candidate
+Hamun-i-Mashkel is retained as a closed-basin/intermittent-playa process candidate with an approximate place-reference point and analyst-defined search window, not a mapped hydrological polygon. Its ~925 m Copernicus DSM window is exceptionally flat (median slope 0.0065°, P90 slope 0.0965°, P90 3×3 local relief 4.9 m). The current Sentinel-2 spectral screen (2026-08-09) contains 109,692 valid pixels in a 1,108 × 99 cell grid; it is a narrow sample, not full basin coverage. A separate 2026-10-25 RGB quicklook provides recent visual context. It may support process rehearsal around playa sedimentation and wetting-drying, but no brine, mineral, inundation history or sediment strength has been measured.
+
 
 ## Mars terrain reference
 
@@ -25,11 +32,13 @@ The current MOLA window contains 567 observed cells of 1,122 (50.53%) and only 8
 Public 2026 challenge submissions already include mission-to-experiment/site planners and terrain/lighting matching tools. ANALOG-X does not claim that analog ranking, multi-source dashboards or terrain similarity are globally unsolved.
 
 Its differentiating contribution is a Pakistan-first evidence operations workflow, not a claim that Koh-i-Sultan is a previously unknown volcano or that a new analog has already been scientifically validated:
-- NASA POWER climate snapshots for eight coordinates;
-- Sentinel-2 L2A scene discovery and clipped RGB previews over two Pakistan case studies;
-- Copernicus DEM GLO-30 and MOLA 64 ppd terrain descriptors at matched coarse support;
+- NASA POWER climate snapshots for ten coordinates;
+- Sentinel-2 L2A scene discovery, clipped RGB previews and 20 m spectral-context profiles over four Pakistan study windows;
+- Copernicus DEM GLO-30 profiles for four Pakistan windows, MOLA 64 ppd at Nili Patera, and LOLA 80 m / 925 m profiles at Shackleton Rim;
 - explicit MOLA observation-count coverage and data-quality warnings;
 - reuse and attribution of existing EvK2CNR, NDMA and SUPARCO/UN-SPIDER work;
+- a map-led candidate discovery atlas that separates under-characterized leads from established references;
+- deterministic specialist agents and an optional tool-using open-weight Mission Director, with a local offline fallback;
 - a clear distinction between integrated data, discovered metadata, reviewed portals and reference-only data;
 - field validation tasks and planetary non-transferability limits.
 
@@ -52,7 +61,7 @@ Its differentiating contribution is a Pakistan-first evidence operations workflo
 
 ## Novelty and validation boundary
 
-The current release has identified a potentially under-characterized field-rehearsal candidate, but it has not proved that Koh-i-Sultan is a new-to-science analog site. The published USGS Chagai geology and existing regional alteration studies are prior work. A competition-grade novelty claim requires a clearly bounded field area, a comparison target tied to a mission task, site-scale lithology/alteration evidence, QA-screened multi-sensor analysis and a plan for field validation. Hispar is a known glacier region and is retained as a cryosphere workflow comparator, not as the new discovery.
+The current release has identified two potentially under-characterized playa-process leads in Balochistan, but has not proved that either is a new-to-science analog site. The NASA 1974 playa report is prior work and must be cited; the current AOIs are approximate screening windows rather than surveyed landform polygons. A competition-grade novelty claim requires confirmation of playa geometry, modern multi-date imagery, site-scale lithology/evaporite evidence, field sampling, comparison to a specific Mars process/site, and a transparent assessment of what differs. Hispar and Koh-i-Sultan remain reference case studies rather than new discoveries.
 
 ## Permanent lunar-base terrain reference
 
