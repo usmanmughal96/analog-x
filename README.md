@@ -55,6 +55,14 @@ Current terrain output:
 
 **Coverage caveat:** the selected Nili Patera MOLA window has 50.53% valid observed-cell coverage (567/1,122 cells) and 87 complete 3×3 neighborhoods. The app flags this as limited coverage. The results are coarse terrain descriptors—not a geological-equivalence score, rover safety assessment or landing suitability rating. Absolute elevation is not compared across different vertical datums. Earth DSM is not bare-earth elevation.
 
+### NASA LRO LOLA / Shackleton Rim
+
+A public NASA LRO LOLA PDS GDR 80 m south-polar elevation grid (LDEM_80S_80M) and matching observation-count grid (LDEC_80S_80M) are processed around Shackleton Rim. The 29.6 × 29.6 km window contains 90,000 native cells; the interpolated elevation surface is valid throughout, and 89,996 cells have positive laser-return counts. The DEM is also averaged to 32 × 32 cells at approximately 925 m support so the coarse terrain profile can be compared with the Earth/Mars profiles.
+
+At ~925 m support the Shackleton window has median slope 13.40°, P90 slope 30.94°, and P90 3×3 local relief 1,391 m (the relief statistic spans a ~2.775 km footprint). These values describe a rugged selected rim window; they do not establish suitability for landing or a permanent base.
+
+The original PGDA 5 m Site04 files were inaccessible from the automated runner. The working 80 m products are read from NASA's LOLA PDS GDR mirror at MIT Imbrium. The surface DEM is interpolated, so LDEC counts are measurement support—not a mask for discarding interpolated elevation. Diviner annual thermal / water-ice-permafrost products and shadow/illumination analysis are not integrated.
+
 ### NASA DSCOVR / EPIC
 The pipeline retrieves an optional full-disc natural-colour Earth image from the public GSFC EPIC endpoint. It is global context only and is not used in site-scale metrics. No api.nasa.gov key is required for this endpoint.
 
@@ -62,7 +70,7 @@ The pipeline retrieves an optional full-disc natural-colour Earth image from the
 - **EvK2CNR:** Existing Pakistan Glacier Inventory: 13,032 glaciers, combined area 13,546.93 km². We acknowledge and link this prior work; the project does not claim to have discovered or remapped those glaciers. EvK2CNR has also published preliminary Pakistan glacial-lake inventory work.
 - **SUPARCO / UN-SPIDER:** Official remote-sensing and disaster-monitoring capabilities, recommended practices, DisasterWatch and NatCat are documented. No public bulk-data/API integration from DisasterWatch or Space4Climate has yet been verified.
 - **NDMA:** Official hazard projections, disaster early warnings and the 2026 Vulnerable Glaciers and Glacial Lakes Atlas listing are linked as existing institutional work. No redistributable geospatial layer has yet been ingested.
-- **NASA LRO LOLA / Diviner:** Lunar data pathways are identified, but raw lunar rasters are not processed in the current release.
+- **NASA LRO LOLA:** An 80 m south-polar LDEM and matched LDEC count map are processed around Shackleton Rim. Native 80 m terrain descriptors and a coarse ~925 m profile are stored. **Diviner** annual surface-temperature and water-ice-permafrost products remain reference-only; illumination/PSR mapping is not yet integrated.
 - **NASA Global Volcano Hazard Frequency:** Historical coarse grid is linked as context only; it is not current volcano alerting or site-scale geology.
 
 See docs/AGENCY_DATA_AUDIT.md for source status, docs/DATA_SOURCES.md for provenance, and docs/RESOURCE_INTEGRATION_MATRIX.md for the status of every NASA and partner resource supplied for the challenge.
@@ -114,7 +122,7 @@ The current NASA POWER, NASA GIBS, Microsoft Planetary Computer STAC/SAS and dir
 - USGS maps Koh-i-Sultan as agglomerate, tuff and andesitic lava; no basaltic equivalence with Syrtis Major is claimed. No site-scale mineral map or field samples are integrated.
 - No official EvK2CNR glacier shapefile is redistributed in this repository.
 - NDMA, SUPARCO DisasterWatch and Space4Climate are portal/reference status until data endpoints, access terms and product licences are verified.
-- Raw lunar LOLA and Diviner rasters are not yet processed.
+- Diviner annual surface-temperature and water-ice-permafrost products are not yet processed. LOLA elevation is interpolated; its LDEC return-count support is reported separately. The Shackleton profile is terrain context, not a landing-safety or base-suitability assessment.
 - NASA Earthdata CMR discovery is not measurement ingestion; MODIS LST and MERRA-2 aerosol granules remain to be downloaded, QA-screened and decoded. NASA POWER is gridded climate context, not local instrumentation.
 - Field access, permits, site-level geology and scientist review remain necessary.
 
