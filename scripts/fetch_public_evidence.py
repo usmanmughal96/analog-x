@@ -37,6 +37,24 @@ SITES={
    "bbox":[75.12,36.02,75.34,36.22],
    "role":"Cryosphere imaging, debris/ice boundary interpretation and sensor/sample-handling workflow candidate",
    "coordinate_note":"Approximate gazetteer reference point for scene discovery, not an official EvK2CNR glacier centroid or field-access point."
+ },
+ "chagai_small_playas":{
+   "name":"Chagai small salt playas near Nok Kundi",
+   "country":"Pakistan",
+   "latitude":28.583333,"longitude":62.633333,
+   "bbox":[62.54,28.53,62.73,28.64],
+   "role":"Under-characterized evaporite / playa-process candidate for Mars paleolake, salt-crust and sedimentary-process field rehearsal",
+   "coordinate_note":"Approximate search-window centre: midpoint of two small salt-surfaced playa coordinates (28°35′N, 62°36′E and 28°35′N, 62°40′E) reported by NASA NTRS 1974 report 19740023693. Bounding box is an analyst-defined screening AOI, not a surveyed site boundary.",
+   "primary_reference":"https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf"
+ },
+ "hamun_i_mashkel":{
+   "name":"Hamun-i-Mashkel playa / Kharan Basin",
+   "country":"Pakistan",
+   "latitude":28.25,"longitude":62.91667,
+   "bbox":[62.82,28.13,63.02,28.33],
+   "role":"Closed-basin playa and intermittent-lake candidate for Mars evaporite / sedimentary process comparison",
+   "coordinate_note":"Approximate gazetteer location for scene discovery; not a hydrological boundary or field-access point.",
+   "primary_reference":"https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf"
  }
 }
 
