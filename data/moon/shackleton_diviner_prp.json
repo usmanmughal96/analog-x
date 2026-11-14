@@ -1,0 +1,275 @@
+{
+  "schema_version": "1.0",
+  "generated_at_utc": "2026-11-14T18:18:39+00:00",
+  "provider": "NASA Lunar Reconnaissance Orbiter / Diviner Lunar Radiometer Experiment",
+  "product": {
+    "pds4_product_title": "LRO Diviner South Polar Resource Product",
+    "logical_identifier": "urn:nasa:pds:lro_diviner_derived1:data_derived_prp:dlre_prp_south",
+    "version_id": "1.0",
+    "file_name": "dlre_prp_south.tab",
+    "records": 2880000,
+    "record_length_bytes": 210,
+    "header_offset_bytes": 210,
+    "fields": {
+      "tri1_x": {
+        "field_number": 1,
+        "start_byte": 1,
+        "field_length_bytes": 12,
+        "unit": "km",
+        "description": "The x coordinate of triangle vertex 1 in a Moon-centered frame (km)",
+        "invalid_constant": null
+      },
+      "tri1_y": {
+        "field_number": 2,
+        "start_byte": 15,
+        "field_length_bytes": 12,
+        "unit": "km",
+        "description": "The y coordinate of triangle vertex 1 in a Moon-centered frame (km)",
+        "invalid_constant": null
+      },
+      "tri1_z": {
+        "field_number": 3,
+        "start_byte": 29,
+        "field_length_bytes": 12,
+        "unit": "km",
+        "description": "The z coordinate of triangle vertex 1 in a Moon-centered frame (km)",
+        "invalid_constant": null
+      },
+      "tri2_x": {
+        "field_number": 4,
+        "start_byte": 43,
+        "field_length_bytes": 12,
+        "unit": "km",
+        "description": "The x coordinate of triangle vertex 2 in a Moon-centered frame (km)",
+        "invalid_constant": null
+      },
+      "tri2_y": {
+        "field_number": 5,
+        "start_byte": 57,
+        "field_length_bytes": 12,
+        "unit": "km",
+        "description": "The y coordinate of triangle vertex 2 in a Moon-centered frame (km)",
+        "invalid_constant": null
+      },
+      "tri2_z": {
+        "field_number": 6,
+        "start_byte": 71,
+        "field_length_bytes": 12,
+        "unit": "km",
+        "description": "The z coordinate of triangle vertex 2 in a Moon-centered frame (km)",
+        "invalid_constant": null
+      },
+      "tri3_x": {
+        "field_number": 7,
+        "start_byte": 85,
+        "field_length_bytes": 12,
+        "unit": "km",
+        "description": "The x coordinate of triangle vertex 3 in a Moon-centered frame (km)",
+        "invalid_constant": null
+      },
+      "tri3_y": {
+        "field_number": 8,
+        "start_byte": 99,
+        "field_length_bytes": 12,
+        "unit": "km",
+        "description": "The y coordinate of triangle vertex 3 in a Moon-centered frame (km)",
+        "invalid_constant": null
+      },
+      "tri3_z": {
+        "field_number": 9,
+        "start_byte": 113,
+        "field_length_bytes": 12,
+        "unit": "km",
+        "description": "The z coordinate of triangle vertex 3 in a Moon-centered frame (km)",
+        "invalid_constant": null
+      },
+      "tri_clon": {
+        "field_number": 10,
+        "start_byte": 127,
+        "field_length_bytes": 15,
+        "unit": "degree",
+        "description": "The planetocentric east longitude of the center of the triangle (degrees)",
+        "invalid_constant": null
+      },
+      "tri_clat": {
+        "field_number": 11,
+        "start_byte": 144,
+        "field_length_bytes": 15,
+        "unit": "degree",
+        "description": "The planetocentric latitude of the center of the triangle (degrees)",
+        "invalid_constant": null
+      },
+      "tri_calt": {
+        "field_number": 12,
+        "start_byte": 161,
+        "field_length_bytes": 15,
+        "unit": "km",
+        "description": "The altitude of the center of the triangle relative to a 1737.4 km radius sphere (km)",
+        "invalid_constant": null
+      },
+      "temp_avg": {
+        "field_number": 13,
+        "start_byte": 178,
+        "field_length_bytes": 8,
+        "unit": "Kelvin",
+        "description": "The annual average temperature (K), calculated at a depth of 2 cm below the surface",
+        "invalid_constant": null
+      },
+      "temp_max": {
+        "field_number": 14,
+        "start_byte": 188,
+        "field_length_bytes": 8,
+        "unit": "Kelvin",
+        "description": "The annual maximum temperature (K), calculated at the surface",
+        "invalid_constant": null
+      },
+      "ice_depth": {
+        "field_number": 15,
+        "start_byte": 198,
+        "field_length_bytes": 11,
+        "unit": "meter",
+        "description": "The calculated depth at which water ice would be sublimated at a rate of 1 kg m-2 per billion years (m). Notes: If the calculated depth at which water ice would be sublimated at a rate of 1 kg m-2 per billion years is zero, then water ice is stable to sublimation at the surface. Also, if the calculated depth at which water ice would be sublimated at a rate of 1 kg m-2 per billion years is greater than 2.8738 meters, then the exclude value of -999.0 is reported.",
+        "invalid_constant": -999.0
+      }
+    },
+    "source_label_url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_prp/dlre_prp_south.xml",
+    "dataset_doi": "10.17189/1520650",
+    "bundle_doi": "10.17189/wj0s-w188"
+  },
+  "aoi": {
+    "name": "Shackleton Rim / R04 Site04 comparison window",
+    "center_latitude_planetocentric_deg": -89.7668,
+    "center_longitude_positive_east_deg": 188.13,
+    "shape": "29.6 km \u00d7 29.6 km square",
+    "projection_method": "Each Diviner triangle centroid is converted to local east/north coordinates using a spherical azimuthal-equidistant calculation on the 1737.4 km lunar reference sphere; rows with |east| and |north| \u2264 14.8 km are selected.",
+    "geometry_note": "This is an analyst-defined comparison window centered on the existing LOLA Shackleton R04 point, not a NASA-designated landing/base boundary."
+  },
+  "source_semantics": {
+    "temp_avg": {
+      "field_number": 13,
+      "start_byte": 178,
+      "field_length_bytes": 8,
+      "unit": "Kelvin",
+      "description": "The annual average temperature (K), calculated at a depth of 2 cm below the surface",
+      "invalid_constant": null
+    },
+    "temp_max": {
+      "field_number": 14,
+      "start_byte": 188,
+      "field_length_bytes": 8,
+      "unit": "Kelvin",
+      "description": "The annual maximum temperature (K), calculated at the surface",
+      "invalid_constant": null
+    },
+    "ice_depth": {
+      "field_number": 15,
+      "start_byte": 198,
+      "field_length_bytes": 11,
+      "unit": "meter",
+      "description": "The calculated depth at which water ice would be sublimated at a rate of 1 kg m-2 per billion years (m). Notes: If the calculated depth at which water ice would be sublimated at a rate of 1 kg m-2 per billion years is zero, then water ice is stable to sublimation at the surface. Also, if the calculated depth at which water ice would be sublimated at a rate of 1 kg m-2 per billion years is greater than 2.8738 meters, then the exclude value of -999.0 is reported.",
+      "invalid_constant": -999.0
+    },
+    "product_context": "PRP V2.0 is derived from thermal-model fits to Diviner observations from the first year of LRO mapping orbit; it is a model-based polar resource product."
+  },
+  "results": {
+    "table_url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_prp/dlre_prp_south.tab",
+    "table_content_length_bytes": 604800210,
+    "declared_records": 2880000,
+    "processed_records": 2880000,
+    "south_polar_candidate_records": 2261956,
+    "aoi_triangle_records": 6823,
+    "aoi_extent_local_aeqd_km": {
+      "east_min": -14.760912609265997,
+      "east_max": 14.760956094523907,
+      "north_min": -14.786165451665454,
+      "north_max": 14.759195009991114,
+      "nominal_side_km": 29.6
+    },
+    "temperature_average_at_2cm_K": {
+      "count": 6823,
+      "unit": "K",
+      "description": "The annual average temperature (K), calculated at a depth of 2 cm below the surface",
+      "minimum": 43.098,
+      "p10": 54.089200000000005,
+      "median": 103.786,
+      "mean": 100.03333958669208,
+      "p90": 146.40019999999998,
+      "maximum": 186.478
+    },
+    "temperature_average_at_2cm_C": {
+      "count": 6823,
+      "unit": "\u00b0C",
+      "description": "Converted from the PDS temperature-average field in kelvin; not a surface temperature.",
+      "minimum": -230.05199999999996,
+      "p10": -219.06079999999997,
+      "median": -169.36399999999998,
+      "mean": -173.11666041330793,
+      "p90": -126.74979999999996,
+      "maximum": -86.67199999999997
+    },
+    "annual_maximum_surface_temperature_K": {
+      "count": 6823,
+      "unit": "K",
+      "description": "The annual maximum temperature (K), calculated at the surface",
+      "minimum": 63.803,
+      "p10": 89.43700000000001,
+      "median": 238.568,
+      "mean": 212.02476256778544,
+      "p90": 294.334,
+      "maximum": 347.804
+    },
+    "annual_maximum_surface_temperature_C": {
+      "count": 6823,
+      "unit": "\u00b0C",
+      "description": "Converted from the PDS annual maximum surface temperature field in kelvin.",
+      "minimum": -209.34699999999998,
+      "p10": -183.71299999999997,
+      "median": -34.581999999999965,
+      "mean": -61.12523743221454,
+      "p90": 21.184000000000037,
+      "maximum": 74.654
+    },
+    "ice_depth_model": {
+      "count": 4309,
+      "unit": "m",
+      "description": "The calculated depth at which water ice would be sublimated at a rate of 1 kg m-2 per billion years (m). Notes: If the calculated depth at which water ice would be sublimated at a rate of 1 kg m-2 per billion years is zero, then water ice is stable to sublimation at the surface. Also, if the calculated depth at which water ice would be sublimated at a rate of 1 kg m-2 per billion years is greater than 2.8738 meters, then the exclude value of -999.0 is reported.",
+      "minimum": -1.0,
+      "p10": -1.0,
+      "median": 0.01486,
+      "mean": -0.19203821768391738,
+      "p90": 0.5185080000000001,
+      "maximum": 1.61245,
+      "valid_count": 4309,
+      "invalid_censored_count": 2514,
+      "invalid_censored_fraction_of_aoi": 0.3684596218672138,
+      "surface_stable_count": 238,
+      "surface_stable_fraction_of_valid": 0.05523323276862381,
+      "surface_stable_fraction_of_all_aoi_triangles": 0.034882016708192874,
+      "invalid_constant": -999.0,
+      "interpretation": "A value of 0 means the thermal model indicates water ice would be stable against sublimation at the surface under the product's stated criterion (1 kg m-2 per billion years). It is not a direct ice detection, abundance, thickness, accessibility or resource-reserve measurement. Values reported as -999 are censored because the calculated depth exceeds 2.8738 m."
+    },
+    "processing_seconds": 12.4
+  },
+  "limitations": [
+    "These are model-derived values from the Diviner PRP V2.0 product, not in-situ ice measurements.",
+    "The product is based on first-year mapping-orbit observations and its thermal-model assumptions; it is not a live forecast.",
+    "ice_depth -999 values mean the modeled depth exceeds 2.8738 m under the product criterion; they are censored, not zero.",
+    "A surface-stable classification is not proof of exposed, accessible, concentrated or mineable ice.",
+    "The AOI is a 29.6 km square comparison window, not a surveyed landing ellipse, habitat footprint or rover traverse plan.",
+    "Illumination, long-duration power, communications, slope hazards, local geology, radiation and access are separate site-selection dimensions."
+  ],
+  "citations": [
+    {
+      "title": "NASA PDS Diviner Polar Resource Product V2.0",
+      "url": "https://ode.rsl.wustl.edu/MArs/pagehelp/Content/Missions_Instruments/Lunar%20Reconnaissance%20Orbiter%20%28LRO%29/DIVINER/PRP.htm"
+    },
+    {
+      "title": "Paige et al. 2010, Diviner observations of the lunar regolith",
+      "url": "https://doi.org/10.1126/science.1187726"
+    },
+    {
+      "title": "NASA PDS4 Diviner derived bundle",
+      "url": "https://pds.nasa.gov/data/pds4/releases/geo/lro_diviner_derived1-20260918/"
+    }
+  ]
+}
