@@ -3,7 +3,7 @@
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const POWER_FILE={koh_i_sultan:"koh",koh:"koh",hispar_glacier:"hispar_glacier"};
-const state={catalog:null,powerIndex:null,terrain:null,imagery:null,lunar:null,powers:{},selected:"chagai_small_playas",map:null,markers:{},endpoint:"",connected:false,brief:null,game:0,answered:false};
+const state={catalog:null,powerIndex:null,terrain:null,imagery:null,lunar:null,powers:{},selected:"chagai_small_playas",map:null,markers:{},endpoint:"",workerAvailable:false,aiEnabled:false,connected:false,brief:null,scoutData:null,scoutMap:null,scoutMarker:null,scoutBounds:null,game:0,answered:false};
 const scenarios=[
  {target:"Mars",objective:"playa",title:"MISSION 01 / MARS EVAPORITE RECONNAISSANCE",question:"A Mars team wants to rehearse mapping dry playa surfaces, possible evaporite accumulations and sediment transport. Which Pakistan field lead should be investigated first?",options:[["chagai_small_playas","Chagai small salt playas near Nok Kundi"],["hispar_glacier","Hispar Glacier / Karakoram"],["koh_i_sultan","Koh-i-Sultan volcanic field"],["hamun_i_mashkel","Hamun-i-Mashkel playa"]],correct:"chagai_small_playas",why:"The NASA 1974 report identifies two small salt-surfaced playas near Nok Kundi and discusses possible evaporite/brine context. This is a historical lead, not modern proof of mineralogy or brine. Hamun-i-Mashkel is a broader basin-scale comparator. Both need field verification."},
  {target:"Mars",objective:"volcanic",title:"MISSION 02 / MARS VOLCANIC FIELD MAPPING",question:"Which Pakistan site has mapped volcanic units that can support rehearsal of outcrop logging and orbital-to-ground field mapping?",options:[["koh_i_sultan","Koh-i-Sultan / Chagai"],["hamun_i_mashkel","Hamun-i-Mashkel playa"],["hispar_glacier","Hispar Glacier"],["chagai_small_playas","Chagai small salt playas"]],correct:"koh_i_sultan",why:"USGS maps Koh-i-Sultan as agglomerate, tuff and andesitic lava. That supports volcanic-process rehearsal, but it is not a basaltic composition match to Syrtis Major. Ground samples and site-scale mineral mapping are still missing."},
@@ -152,23 +152,122 @@ function renderLocalWithTerrain(result){
  const gaps=result.scientific_gaps.map(x=>"<li>"+esc(x)+"</li>").join("");
  return "<h4>DECISION SIGNAL</h4><p>"+esc(result.decision)+"</p><h4>MOST TASK-RELEVANT LEADS</h4><ul>"+(list||"<li>No matching candidate.</li>")+"</ul><h4>EARTH / PLANETARY TERRAIN EVIDENCE</h4>"+terrain+"<h4>EVIDENCE MATRIX</h4><table class='labTable'><thead><tr><th>Earth site</th><th>Task tags</th><th>Layers present</th><th>3 driest months (climatology)</th></tr></thead><tbody>"+matrix+"</tbody></table><h4>SCIENTIFIC GAPS / STOP CONDITIONS</h4><ul>"+gaps+"</ul><p><small>Method: "+esc(result.method)+"</small></p>";
 }
+
+function scoutBboxLocal(lat,lon,radiusKm){
+ const latDelta=radiusKm/110.574,cosLat=Math.max(.05,Math.cos(lat*Math.PI/180)),lonDelta=Math.min(180,radiusKm/(111.32*cosLat));
+ return [Math.max(-180,lon-lonDelta),Math.max(-89.9,lat-latDelta),Math.min(180,lon+lonDelta),Math.min(89.9,lat+latDelta)];
+}
+function updateScoutMap(lat,lon,radiusKm,bbox){
+ if(!window.L||!$("axScoutMap"))return;
+ if(!state.scoutMap){
+  state.scoutMap=L.map("axScoutMap",{zoomControl:false,scrollWheelZoom:false}).setView([lat,lon],7);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:15,attribution:"© OpenStreetMap contributors"}).addTo(state.scoutMap);
+  L.control.zoom({position:"bottomright"}).addTo(state.scoutMap);
+ }
+ if(state.scoutMarker)state.scoutMap.removeLayer(state.scoutMarker);
+ if(state.scoutBounds)state.scoutMap.removeLayer(state.scoutBounds);
+ state.scoutMarker=L.circleMarker([lat,lon],{radius:8,color:"#e6bc78",weight:2,fillColor:"#bc8844",fillOpacity:.9}).bindPopup("<b>Scout coordinate</b><br>"+lat.toFixed(5)+", "+lon.toFixed(5)).addTo(state.scoutMap);
+ const b=bbox||scoutBboxLocal(lat,lon,radiusKm);
+ state.scoutBounds=L.rectangle([[b[1],b[0]],[b[3],b[2]]],{color:"#45d1bd",weight:1,dashArray:"5 5",fillOpacity:.07}).addTo(state.scoutMap);
+ state.scoutMap.setView([lat,lon],Math.max(3,Math.min(12,Math.round(10-Math.log2(radiusKm/5)))));
+ $("axScoutMapLabel").textContent=lat.toFixed(5)+"° "+(lat>=0?"N":"S")+" · "+lon.toFixed(5)+"° "+(lon>=0?"E":"W");
+ setTimeout(()=>state.scoutMap?.invalidateSize(),120);
+}
+function renderScoutResults(scout){
+ const p=scout.evidence?.nasa_power?.data;
+ const s=scout.evidence?.sentinel_2_l2a;
+ const d=scout.evidence?.copernicus_dem;
+ const m=p?.annual||{};
+ const climate=[["Mean air temperature",m.mean_air_temperature_c,"°C"],["Relative humidity",m.mean_relative_humidity_percent,"%"],["Wind at 10 m",m.mean_wind_10m_ms,"m/s"],["Precipitation",m.mean_precipitation_mm_day,"mm/day"],["All-sky solar",m.mean_all_sky_solar_kwh_m2_day,"kWh/m²/day"]];
+ const metricHtml=climate.map(([label,value,unit])=>"<div class='axScoutMetric'><span>"+esc(label)+"</span><b>"+(typeof value==="number"?value.toFixed(2):"—")+"<small>"+unit+"</small></b></div>").join("");
+ const dry=(p?.driest_climatological_months||[]).map(x=>"<tr><td>"+esc(x.month)+"</td><td>"+(Number.isFinite(x.precipitation_mm_day)?x.precipitation_mm_day.toFixed(2):"—")+"</td><td>"+(Number.isFinite(x.temperature_c)?x.temperature_c.toFixed(1):"—")+"</td><td>"+(Number.isFinite(x.wind_10m_ms)?x.wind_10m_ms.toFixed(1):"—")+"</td></tr>").join("");
+ const scenes=(s?.best_scene_candidates||[]).map(x=>"<div class='axScoutScene'><b>"+esc(x.id||"Scene id unavailable")+"</b><small>"+esc(x.datetime||"Date unknown")+" · "+esc(x.platform||"platform unknown")+" · cloud metadata "+(Number.isFinite(x.cloud_cover_percent)?x.cloud_cover_percent.toFixed(2)+"%":"not reported")+" · "+esc(x.mgrs_tile||"tile not reported")+"</small>"+(x.item_url&&/^https:\/\//i.test(x.item_url)?"<a href='"+esc(x.item_url)+"' target='_blank' rel='noopener'>Open STAC item ↗</a>":"")+"</div>").join("");
+ const tiles=(d?.tiles||[]).map(x=>"<tr><td>"+esc(x.id)+"</td><td>"+(Number.isFinite(x.gsd_m)?x.gsd_m+" m":"—")+"</td><td>"+esc(x.epsg||"—")+"</td></tr>").join("");
+ const statusRows=[["NASA POWER",scout.evidence?.nasa_power?.status||"unavailable"],["Sentinel-2 L2A",s?.status||"unavailable"],["Copernicus DEM",d?.status||"unavailable"]];
+ $("axScoutResults").innerHTML="<div class='axScoutSummary'><b>COORDINATE SCAN / "+scout.coordinate.latitude.toFixed(5)+", "+scout.coordinate.longitude.toFixed(5)+"</b><p>Study radius "+scout.study_window.radius_km+" km · WGS84 bbox "+scout.study_window.bbox_wgs84.map(x=>x.toFixed(5)).join(", ")+" · scanned "+new Date(scout.generated_at_utc).toLocaleString()+"</p></div>"+
+  "<div class='axScoutMetrics'>"+metricHtml+"</div>"+
+  "<div class='axScoutBlock'><h4>NASA POWER / LOW-PRECIPITATION CLIMATOLOGICAL MONTHS</h4><table class='axScoutTable'><thead><tr><th>Month</th><th>Precip mm/day</th><th>Air °C</th><th>Wind m/s</th></tr></thead><tbody>"+(dry||"<tr><td colspan='4'>NASA POWER values unavailable.</td></tr>")+"</tbody></table></div>"+
+  "<div class='axScoutBlock'><h4>SENTINEL-2 L2A / RECENT SCENE DISCOVERY</h4><p style='font-size:8px;color:#86a6b8'>"+(s?((s.number_matched??s.returned_items)+" scene records returned/matched in a rolling 24-month search; showing best candidates by reported scene cloud fraction."):"STAC search unavailable.")+"</p>"+(scenes||"<small>No scene metadata returned.</small>")+"</div>"+
+  "<div class='axScoutBlock'><h4>COPERNICUS DEM GLO-30 / CATALOGUE TILES</h4><p style='font-size:8px;color:#86a6b8'>"+(d?(d.number_matched??d.returned_items)+" matching catalogue items. Tiles are not yet processed into a terrain profile.":"DEM STAC search unavailable.")+"</p><table class='axScoutTable'><thead><tr><th>Tile item</th><th>GSD</th><th>EPSG</th></tr></thead><tbody>"+(tiles||"<tr><td colspan='3'>No DEM tile metadata returned.</td></tr>")+"</tbody></table></div>"+
+  "<div class='axScoutWarnings'><b style='color:#b7d3de'>SOURCE STATUS</b><ul>"+statusRows.map(x=>"<li>"+esc(x[0])+": "+esc(x[1])+"</li>").join("")+"</ul><b style='color:#b7d3de'>INTERPRETATION BOUNDARY</b><p>"+esc(scout.decision_boundary)+" NASA POWER is gridded climatology, scene cloud metadata is not an AOI mask, and DEM STAC records are tile discovery rather than terrain metrics.</p></div>";
+}
+async function runCoordinateScout(){
+ const endpoint=$("axAgentEndpoint").value.trim().replace(/\/$/,"");
+ if(!state.workerAvailable||!endpoint){$("axScoutHint").textContent="Connect a Cloudflare Worker first. The scout queries public data and does not require an AI model, but it needs the server endpoint.";return;}
+ const latitude=Number($("axScoutLat").value),longitude=Number($("axScoutLon").value),radius_km=Number($("axScoutRadius").value);
+ if(!Number.isFinite(latitude)||latitude< -89.9||latitude>89.9||!Number.isFinite(longitude)||longitude< -180||longitude>180){$("axScoutHint").textContent="Enter valid WGS84 latitude and longitude.";return;}
+ if(!Number.isFinite(radius_km)||radius_km<1||radius_km>50){$("axScoutHint").textContent="Choose a study radius between 1 and 50 km.";return;}
+ $("axScoutRun").disabled=true;$("axScoutExport").disabled=true;$("axScoutAskDirector").disabled=true;
+ pill($("axScoutStatus"),"QUERYING OPEN DATA","gold");$("axScoutHint").textContent="Querying NASA POWER, Sentinel-2 L2A STAC and Copernicus DEM STAC…";
+ $("axScoutResults").innerHTML="<div class='axLoading'></div><div class='axScoutPlaceholder'><b>GLOBAL SCOUT ACTIVE</b><p>Retrieving live public catalogue records. No AI inference is required.</p></div>";
+ updateScoutMap(latitude,longitude,radius_km);
+ try{
+  const r=await fetch(endpoint+"/scout",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({latitude,longitude,radius_km,mission_target:$("axAgentMission").value})});
+  const data=await r.json();if(!r.ok||!data.ok)throw Error(data.error||"Scout API failed with HTTP "+r.status);
+  state.scoutData=data.scout;renderScoutResults(data.scout);updateScoutMap(latitude,longitude,radius_km,data.scout.study_window.bbox_wgs84);
+  pill($("axScoutStatus"),"OPEN-DATA SCAN COMPLETE","blue");$("axScoutExport").disabled=false;$("axScoutAskDirector").disabled=!state.aiEnabled;
+  const available=Object.values(data.scout.evidence||{}).filter(x=>x.status!=="unavailable").length;
+  $("axScoutHint").textContent=available+"/3 data sources returned evidence. Review scene and coverage limits before treating the area as a candidate.";
+ }catch(e){
+  state.scoutData=null;pill($("axScoutStatus"),"SCOUT FAILED","gold");
+  $("axScoutResults").innerHTML="<div class='axScoutPlaceholder'><b>COORDINATE SCAN UNAVAILABLE</b><p>"+esc(e.message)+"</p><p>Check Worker URL/API status or try another radius. The curated offline atlas remains available.</p></div>";
+  $("axScoutHint").textContent="No result was accepted. Retry after checking the Worker connection.";
+ }finally{$("axScoutRun").disabled=!state.workerAvailable;}
+}
+function useSelectedCandidateForScout(){
+ const s=findSite(state.selected);if(!s)return;
+ $("axScoutLat").value=s.latitude;$("axScoutLon").value=s.longitude;
+ $("coordinateScout").scrollIntoView({behavior:"smooth",block:"start"});
+ updateScoutMap(s.latitude,s.longitude,Number($("axScoutRadius").value));
+ $("axScoutHint").textContent="Loaded "+s.name+". Run a fresh live scan for this location.";
+}
+function askDirectorAboutScout(){
+ if(!state.scoutData)return;
+ $("axAgentQuestion").value="Assess this newly scouted Earth location for a "+$("axAgentMission").value+" field-rehearsal task. Separate measured climate and satellite evidence from hypotheses. Which evidence is promising, what is missing, and which field measurements should come next?";
+ $("agentBay").scrollIntoView({behavior:"smooth",block:"start"});
+ if(state.aiEnabled)runCloud();
+ else $("axAgentStatus").textContent="Scout dossier ready. Mission Director AI is not enabled on this Worker; export the scan or use the offline review.";
+}
+function exportScoutDossier(){
+ if(!state.scoutData)return;
+ const blob=new Blob([JSON.stringify(state.scoutData,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;a.download="ANALOG-X_Global_Coordinate_Scout.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
 function endpointSaved(){try{return localStorage.getItem("analogx_agent_endpoint")||"";}catch{return "";}}
 async function testEndpoint(show=true){
  const endpoint=$("axAgentEndpoint").value.trim().replace(/\/$/,"");
- if(!endpoint){state.connected=false;pill($("axAgentModeStatus"),"LOCAL MODE READY","gold");$("axAgentRunCloud").disabled=true;if(show)$("axAgentStatus").textContent="Paste Worker URL to connect cloud inference.";return false;}
+ if(!endpoint){
+  state.workerAvailable=false;state.aiEnabled=false;state.connected=false;
+  pill($("axAgentModeStatus"),"LOCAL MODE READY","gold");
+  $("axAgentRunCloud").disabled=true;$("axScoutRun").disabled=true;$("axScoutAskDirector").disabled=true;
+  if(show){$("axAgentStatus").textContent="Paste Worker URL to connect global data scouting and cloud inference.";$("axScoutHint").textContent="Connect a Worker to enable the live global data scan.";}
+  return false;
+ }
  try{
   $("axAgentConnect").disabled=true;$("axAgentConnect").textContent="TESTING…";
-  const r=await fetch(endpoint+"/health");if(!r.ok)throw Error("HTTP "+r.status);const h=await r.json();if(!h.ok)throw Error("Workers AI binding unavailable");
-  state.connected=true;state.endpoint=endpoint;localStorage.setItem("analogx_agent_endpoint",endpoint);pill($("axAgentModeStatus"),"WORKERS AI CONNECTED","blue");$("axAgentRunCloud").disabled=false;$("axAgentStatus").textContent=h.model+" · free daily quota applies";return true;
- }catch(e){state.connected=false;$("axAgentRunCloud").disabled=true;pill($("axAgentModeStatus"),"LOCAL MODE / CLOUD OFFLINE","gold");$("axAgentStatus").textContent="Connection failed: "+e.message;if(show)renderOutput("Cloud agent is not connected. The offline science review remains available.");return false;}
- finally{$("axAgentConnect").disabled=false;$("axAgentConnect").textContent="CONNECT & TEST";}
+  const r=await fetch(endpoint+"/health");if(!r.ok)throw Error("HTTP "+r.status);const h=await r.json();if(!h.ok)throw Error("Worker health check failed");
+  state.workerAvailable=true;state.aiEnabled=!!h.ai_enabled;state.connected=state.aiEnabled;state.endpoint=endpoint;localStorage.setItem("analogx_agent_endpoint",endpoint);
+  $("axScoutRun").disabled=false;$("axScoutHint").textContent="Global data scout connected · no AI inference needed for the scan.";
+  $("axScoutAskDirector").disabled=!state.aiEnabled;
+  pill($("axAgentModeStatus"),state.aiEnabled?"WORKERS AI CONNECTED":"SCOUT API READY / AI OFF",state.aiEnabled?"blue":"gold");
+  $("axAgentRunCloud").disabled=!state.aiEnabled;
+  $("axAgentStatus").textContent=state.aiEnabled?(h.model+" · free daily allocation applies"):"Worker connected; offline evidence agents remain active. Enable the AI binding for LLM synthesis.";
+  return true;
+ }catch(e){
+  state.workerAvailable=false;state.aiEnabled=false;state.connected=false;
+  $("axAgentRunCloud").disabled=true;$("axScoutRun").disabled=true;$("axScoutAskDirector").disabled=true;
+  pill($("axAgentModeStatus"),"LOCAL MODE / CLOUD OFFLINE","gold");
+  $("axAgentStatus").textContent="Connection failed: "+e.message;
+  if(show){renderOutput("Worker is not connected. Offline science review remains available.");$("axScoutHint").textContent="Coordinate scout requires a Worker API; the curated offline atlas remains available.";}
+  return false;
+ }finally{$("axAgentConnect").disabled=false;$("axAgentConnect").textContent="CONNECT & TEST";}
 }
-function requestData(){return {question:$("axAgentQuestion").value.trim(),mission_target:$("axAgentMission").value,objective:$("axAgentObjective").value,candidate_ids:[...document.querySelectorAll("[data-ax-site]:checked")].map(x=>x.value).slice(0,5),evidence_mode:$("axAgentEvidenceMode").value};}
+function requestData(){return {question:$("axAgentQuestion").value.trim(),mission_target:$("axAgentMission").value,objective:$("axAgentObjective").value,candidate_ids:[...document.querySelectorAll("[data-ax-site]:checked")].map(x=>x.value).slice(0,5),evidence_mode:$("axAgentEvidenceMode").value,scout_coordinates:state.scoutData?{latitude:state.scoutData.coordinate.latitude,longitude:state.scoutData.coordinate.longitude,radius_km:state.scoutData.study_window.radius_km}:null};}
 function renderOutput(content,asHtml=true){$("axAgentOutput").innerHTML=asHtml?content:"<p>"+esc(content)+"</p>";}
 async function runLocal(){
  const req=requestData();if(req.question.length<8){$("axAgentStatus").textContent="Enter a research question first.";return;}
  $("axAgentRunLocal").disabled=true;$("axAgentRunCloud").disabled=true;pill($("axAgentOutputStatus"),"ANALYSING","gold");$("axAgentOutput").innerHTML="<div class='axLoading'></div><p>Running terrain, climate, surface and evidence-integrity analysts…</p>";
- try{const result=localAnalysisWithTerrain(req);state.brief=result;renderOutput(renderLocalWithTerrain(result));pill($("axAgentOutputStatus"),"OFFLINE REVIEW COMPLETE","blue");$("axAgentStatus").textContent="Completed locally · no API/LLM call";$("axAgentTraceText").textContent=JSON.stringify({method:result.method,candidates:result.candidate_matrix.map(x=>({id:x.id,evidence:x.evidence,matched_tags:x.matched_environment_tags})),timestamps:result.data_timestamps},null,2);}
+ try{const result=localAnalysisWithTerrain(req);if(state.scoutData)result.coordinate_scout=state.scoutData;state.brief=result;renderOutput(renderLocalWithTerrain(result));pill($("axAgentOutputStatus"),"OFFLINE REVIEW COMPLETE","blue");$("axAgentStatus").textContent="Completed locally · no API/LLM call";$("axAgentTraceText").textContent=JSON.stringify({method:result.method,candidates:result.candidate_matrix.map(x=>({id:x.id,evidence:x.evidence,matched_tags:x.matched_environment_tags})),timestamps:result.data_timestamps},null,2);}
  catch(e){renderOutput("Offline review failed: "+e.message,false);pill($("axAgentOutputStatus"),"REVIEW FAILED","gold");}
  finally{$("axAgentRunLocal").disabled=false;$("axAgentRunCloud").disabled=!state.connected;}
 }
@@ -199,7 +298,11 @@ function bind(){
  $("axAgentRunLocal").addEventListener("click",runLocal);
  $("axAgentRunCloud").addEventListener("click",runCloud);
  $("axAgentExport").addEventListener("click",exportBrief);
+ $("axScoutRun").addEventListener("click",runCoordinateScout);
+ $("axScoutUseCandidate").addEventListener("click",useSelectedCandidateForScout);
+ $("axScoutAskDirector").addEventListener("click",askDirectorAboutScout);
+ $("axScoutExport").addEventListener("click",exportScoutDossier);
 }
-async function start(){bind();renderGame();const url=endpointSaved();if(url)$("axAgentEndpoint").value=url;await load();if(url)await testEndpoint(false);$("axAgentRunLocal").click();}
+async function start(){bind();renderGame();const url=endpointSaved();if(url)$("axAgentEndpoint").value=url;await load();if(url)await testEndpoint(false);updateScoutMap(Number($("axScoutLat").value),Number($("axScoutLon").value),Number($("axScoutRadius").value));$("axAgentRunLocal").click();}
 start();
 })();
