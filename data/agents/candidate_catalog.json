@@ -310,7 +310,21 @@
         "nasa_power": "Integrated",
         "site_specific_spectral": "Not integrated in this build"
       },
-      "coordinate_method": "Existing NASA POWER reference point."
+      "coordinate_method": "Existing NASA POWER reference point.",
+      "source_references": [
+        {
+          "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)—An Exceptional Planetary Field Analog on Earth",
+          "publisher": "Astrobiology / peer-reviewed research",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6459281/",
+          "supports": "Field-surveyed hydrothermal alteration, acidic sulfate deposits and Mars-analogue context; not a site-specific ANALOG-X data measurement."
+        },
+        {
+          "title": "A Polyextreme Hydrothermal System Controlled by Iron: The Case of Dallol at the Afar Triangle",
+          "publisher": "ACS Earth and Space Chemistry / peer-reviewed research",
+          "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
+          "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
+        }
+      ]
     },
     {
       "id": "atacama",
@@ -337,7 +351,21 @@
       "evidence_status": {
         "nasa_power": "Integrated"
       },
-      "coordinate_method": "Existing NASA POWER reference point."
+      "coordinate_method": "Existing NASA POWER reference point.",
+      "source_references": [
+        {
+          "title": "Detecting Life in the Ultra-dry Atacama Desert",
+          "publisher": "NASA Jet Propulsion Laboratory",
+          "url": "https://www.jpl.nasa.gov/news/detecting-life-in-the-ultra-dry-atacama-desert/",
+          "supports": "NASA field testing of portable life-detection instrumentation in the Atacama as a Mars-relevant extreme environment."
+        },
+        {
+          "title": "Planetary Analog Explorer",
+          "publisher": "NASA Science",
+          "url": "https://science.nasa.gov/solar-system/analog-explorer/",
+          "supports": "NASA's Atacama–Mars analogue example and field research context."
+        }
+      ]
     },
     {
       "id": "mcmurdo",
@@ -365,7 +393,21 @@
       "evidence_status": {
         "nasa_power": "Integrated"
       },
-      "coordinate_method": "Existing NASA POWER reference point."
+      "coordinate_method": "Existing NASA POWER reference point.",
+      "source_references": [
+        {
+          "title": "Astrobiology Field Sites — McMurdo Dry Valleys",
+          "publisher": "NASA Astrobiology",
+          "url": "https://astrobiology.nasa.gov/research-locations/",
+          "supports": "Identifies the McMurdo Dry Valleys as a cold, dry terrestrial Mars-analogue research location."
+        },
+        {
+          "title": "The McMurdo Dry Valleys of Antarctica: a geological, environmental, and ecological analog to the Martian surface and near surface",
+          "publisher": "U.S. National Science Foundation / scholarly chapter",
+          "url": "https://par.nsf.gov/servlets/purl/10396201",
+          "supports": "Reviews dry-valley geology, environment, ecology, ice and wind processes relevant to Mars."
+        }
+      ]
     },
     {
       "id": "haughton",
@@ -392,7 +434,21 @@
       "evidence_status": {
         "nasa_power": "Integrated"
       },
-      "coordinate_method": "Existing NASA POWER reference point."
+      "coordinate_method": "Existing NASA POWER reference point.",
+      "source_references": [
+        {
+          "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+          "publisher": "NASA Science",
+          "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
+          "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
+        },
+        {
+          "title": "Haughton Mars Project (HMP)",
+          "publisher": "NASA",
+          "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
+          "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
+        }
+      ]
     },
     {
       "id": "iceland",
@@ -419,7 +475,21 @@
       "evidence_status": {
         "nasa_power": "Integrated"
       },
-      "coordinate_method": "Existing NASA POWER reference point."
+      "coordinate_method": "Existing NASA POWER reference point.",
+      "source_references": [
+        {
+          "title": "Planetary Analog Explorer",
+          "publisher": "NASA Science",
+          "url": "https://science.nasa.gov/solar-system/analog-explorer/",
+          "supports": "NASA examples of Icelandic landforms used to study Mars surface processes and lunar subsurface-ice analog contexts."
+        },
+        {
+          "title": "Geological Map of Iceland's Western Volcanic Zone",
+          "publisher": "Icelandic Institute of Natural History",
+          "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
+          "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
+        }
+      ]
     },
     {
       "id": "death",
@@ -446,7 +516,21 @@
       "evidence_status": {
         "nasa_power": "Integrated"
       },
-      "coordinate_method": "Existing NASA POWER reference point."
+      "coordinate_method": "Existing NASA POWER reference point.",
+      "source_references": [
+        {
+          "title": "Salt Flats — Death Valley National Park",
+          "publisher": "U.S. National Park Service",
+          "url": "https://www.nps.gov/deva/learn/nature/salt-flats.htm",
+          "supports": "Explains Badwater Basin salt-flat formation, closed-basin hydrology, evaporative concentration and fragile salt crust."
+        },
+        {
+          "title": "Geologic Formations — Death Valley National Park",
+          "publisher": "U.S. National Park Service",
+          "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
+          "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
+        }
+      ]
     }
   ]
 }
