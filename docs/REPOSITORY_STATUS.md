@@ -7,39 +7,45 @@
 
 ## Frontend
 The root index.html is the dark Evidence Operations console inspired by the supplied mission-control UI reference. It contains:
-- Pakistan study-area map with Koh-i-Sultan and Hispar study markers
-- NASA GIBS true-colour contextual layer
-- NASA POWER climate panels
-- Sentinel-2 scene metadata and true-colour quicklook panels
-- NASA EPIC global image panel
-- evidence readiness / pipeline state
+- Pakistan study-area map with Koh-i-Sultan and Hispar markers
+- NASA GIBS contextual imagery
+- NASA POWER climate panels for both Pakistan sites
+- Sentinel-2 scene metadata and true-colour preview panels
+- NASA EPIC global Earth image
+- matched-scale terrain profile cards for Nili Patera, Koh-i-Sultan and Hispar
+- evidence readiness / pipeline status
 - institutional source and provenance register
-- field validation card JSON export and methodology/submission modals
+- downloadable field-validation card JSON, including available terrain descriptors
 
-The UI avoids fake spacecraft telemetry. It shows real evidence and its actual status.
+The UI avoids fake spacecraft telemetry. It shows actual evidence and its status.
 
 ## Verified datasets and generated assets
 - NASA POWER: 8/8 configured site snapshots, all seven requested parameters present, no errors in the current index.
 - Planetary Computer Sentinel-2 L2A: scene metadata discovered for Koh-i-Sultan and Hispar.
-- Sentinel-2 preview assets generated and committed:
+- Sentinel-2 preview assets:
   - data/pakistan/quicklooks/koh_i_sultan.png
   - data/pakistan/quicklooks/hispar_glacier.png
-- NASA EPIC full-disc image generated and committed:
+- NASA EPIC full-disc image:
   - data/nasa/epic_latest.png
-- Metadata/provenance:
-  - data/power/index.json
-  - data/pakistan/public_scene_catalog.json
-  - data/pakistan/quicklooks/index.json
-  - data/nasa/epic_latest.json
+- Copernicus DEM / MOLA terrain output:
+  - data/terrain/terrain_comparison.json
+  - data/terrain/koh_i_sultan_copdem_hillshade.png
+  - data/terrain/hispar_glacier_copdem_hillshade.png
+  - data/terrain/nili_patera_mola_hillshade.png
 
-## Data pipeline reliability
-The NASA POWER and Pakistan/EPIC data workflows share the same GitHub Actions concurrency group and rebase their commits on the current main branch before pushing. This mitigates concurrent push races. NASA POWER stale site JSONs are removed if a candidate is removed/renamed.
+The terrain pipeline processes Copernicus DEM GLO-30 DSM windows at approximately 925 m support and MOLA MEGDR 64 ppd topography/counts around Nili Patera. Earth windows have 100% valid cells. The Nili Patera MOLA window has 50.53% observed-cell coverage (567/1,122) and 87 complete 3×3 neighborhoods. The application flags this limitation.
+
+## Automated data pipeline reliability
+- NASA POWER, Pakistan/EPIC evidence and terrain workflows share the same GitHub Actions concurrency group.
+- Each repository data workflow rebases before pushing to avoid interrupted push races.
+- NASA POWER stale per-site snapshots are removed when candidate records are removed or renamed.
+- Raw MOLA data are cached in GitHub Actions and are not committed to the public repository.
 
 ## External sources not fully integrated
-- EvK2CNR's existing glacier inventory is acknowledged and linked; the GeoNetwork endpoint returned HTML rather than JSON and the official vector file has not been redistributed.
-- NDMA products and the 2026 Vulnerable Glaciers and Glacial Lakes Atlas are linked as existing institutional evidence; a redistributable geospatial layer was not fetched.
-- SUPARCO DisasterWatch, NatCat and Space4Climate remain official portal/workflow references; no suitable public bulk data endpoint and reuse licence have been verified.
-- NASA MOLA, LOLA and Diviner are linked but raw rasters are not yet processed.
+- EvK2CNR glacier and glacial-lake inventory work is acknowledged and linked; vector geometry is not redistributed here.
+- NDMA 2026 Atlas products are linked as institutional evidence; a redistributable geospatial layer was not fetched.
+- SUPARCO DisasterWatch, NatCat and Space4Climate remain official portal/workflow references; public bulk-data endpoints and reuse licences were not verified.
+- NASA LRO LOLA and Diviner data are linked but raw rasters are not yet processed.
 
 ## Secret handling
-The current integrations do not require the api.nasa.gov key. A key exposed in a chat should be rotated before any future use. The public repository includes only .env.example and ignores populated .env files. Never put API credentials into frontend code.
+The current project integrations do not require the api.nasa.gov key. A key pasted into a chat should be rotated before any future use. The public repository contains only a placeholder environment template and ignores populated .env files. Never put API credentials into frontend code.
