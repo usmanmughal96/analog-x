@@ -61,7 +61,7 @@ function dossier(id){
  if(state.map&&state.markers[id])state.markers[id].openPopup();
 }
 function renderAgentChoices(){
- $("axAgentCandidates").innerHTML=state.catalog.candidate_sites.map(s=>"<label class='axCandidate'><input type='checkbox' data-ax-site-card value='"+esc(s.id)+"' "+(["chagai_small_playas","hamun_i_mashkel","koh_i_sultan","hispar_glacier"].includes(s.id)?"checked":"")+"> "+esc(s.name)+"</label>").join("");
+ $("axAgentCandidates").innerHTML=state.catalog.candidate_sites.map(s=>"<label class='axCandidate'><input type='checkbox' data-ax-site value='"+esc(s.id)+"' "+(["chagai_small_playas","hamun_i_mashkel","koh_i_sultan","hispar_glacier"].includes(s.id)?"checked":"")+"> "+esc(s.name)+"</label>").join("");
 }
 function renderGame(){
  const q=scenarios[state.game];state.answered=false;
