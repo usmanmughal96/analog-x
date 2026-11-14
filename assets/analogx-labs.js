@@ -36,7 +36,7 @@ function render(){
  $("axMapCount").textContent=currentSites.length+" / "+state.catalog.candidate_sites.length+" sites";
  $("axCards").innerHTML=currentSites.map(s=>{
   const e=layers(s.id),lead=s.discovery_tier==="under_characterized_candidate";
-  return "<article class='axCard "+(state.selected===s.id?"selected":"")+"' data-ax-card='"+esc(s.id)+"'><div class='axCardTop'><h4>"+esc(s.name)+"</h4><span class='statuspill "+(lead?"gold":"gray")+"'>"+(lead?"RESEARCH LEAD":"REFERENCE")+"</span></div><p>"+esc(s.region||s.country)+" · "+esc((s.environment_tags||[]).slice(0,3).join(" / "))+"</p><div class='axPills'><span class='axPill'>"+esc(s.candidate_status||"candidate")+"</span><span class='axPill'>"+esc((s.mission_targets||[]).join(" + "))+"</span></div><div class='axEvidence'><span>Climate "+(e.power?"✓":"—")+"</span><span>Sentinel "+(e.spectral?"✓":"—")+"</span><span>Terrain "+(e.terrain?"✓":"—")+"</span><span>Source "+(e.reference?"✓":"—")+"</span></div><div class='axCardFoot'><button class='axMiniBtn' data-ax-inspect='"+esc(s.id)+"'>INSPECT DOSSIER ↗</button><label class='axCheck'><input type='checkbox' data-ax-site-card value='"+esc(s.id)+"' "+(["chagai_small_playas","hamun_i_mashkel","koh_i_sultan","hispar_glacier"].includes(s.id)?"checked":"")+"> Agent set</label></div></article>";
+  return "<article class='axCard "+(state.selected===s.id?"selected":"")+"' data-ax-card='"+esc(s.id)+"'><div class='axCardTop'><h4>"+esc(s.name)+"</h4><span class='statuspill "+(lead?"gold":"gray")+"'>"+(lead?"RESEARCH LEAD":"REFERENCE")+"</span></div><p>"+esc(s.region||s.country)+" · "+esc((s.environment_tags||[]).slice(0,3).join(" / "))+"</p><div class='axPills'><span class='axPill'>"+esc(s.candidate_status||"candidate")+"</span><span class='axPill'>"+esc((s.mission_targets||[]).join(" + "))+"</span></div><div class='axEvidence'><span>Climate "+(e.power?"✓":"—")+"</span><span>Sentinel "+(e.spectral?"✓":"—")+"</span><span>Terrain "+(e.terrain?"✓":"—")+"</span><span>Source "+(e.reference?"✓":"—")+"</span></div><div class='axCardFoot'><button class='axMiniBtn' data-ax-inspect='"+esc(s.id)+"'>INSPECT DOSSIER ↗</button><label class='axCheck'><input type='checkbox' data-ax-site-card value='"+esc(s.id)+"' "+(selectedIds().includes(s.id)?"checked":"")+"> Agent set</label></div></article>";
  }).join("")||"<div class='axCard'>No candidate matches these filters.</div>";
  renderMap(currentSites);
  if(!currentSites.some(s=>s.id===state.selected))state.selected=currentSites[0]?.id;
@@ -60,8 +60,34 @@ function dossier(id){
  $("axDossier").innerHTML="<div><h4>"+esc(s.name)+" / "+esc(s.region||s.country)+"</h4><p>"+esc(s.hypothesis||"Candidate seed with documented environment context.")+"</p><p><b style='color:#b8d9e4'>Evidence layers:</b> "+count+"/4 available · "+(e.power?"NASA POWER":"climate pending")+" · "+(e.spectral?"Sentinel-2 profile":"spectral pending")+" · "+(e.terrain?"terrain processed":"terrain pending")+"</p><ul>"+measured+"</ul><div class='axLinks'>"+links+"</div></div><div><h4>FIELD REHEARSAL / LIMITS</h4><ul>"+tasks+limits+"</ul><p>Coordinates are data-discovery references, not surveyed boundaries, access routes or permission to enter.</p></div>";
  if(state.map&&state.markers[id])state.markers[id].openPopup();
 }
+
+function updateCandidateSelectionStatus(){
+ const count=document.querySelectorAll("[data-ax-site]:checked").length;
+ const status=$("axAgentStatus");if(!status)return;
+ status.textContent=count?count+"/5 Earth sites selected for cloud context · offline review uses the selected set.":"No site filter selected · offline review scans the full "+(state.catalog?.candidate_sites?.length||10)+"-site catalog.";
+}
+function syncCandidateSelection(id,checked,source){
+ const agentBoxes=[...document.querySelectorAll("[data-ax-site]")],agent=agentBoxes.find(x=>x.value===id);
+ if(source==="card"){
+  const selectedCount=agentBoxes.filter(x=>x.checked).length;
+  if(checked&&agent&&!agent.checked&&selectedCount>=5){
+   const card=[...document.querySelectorAll("[data-ax-site-card]")].find(x=>x.value===id);
+   if(card)card.checked=false;
+   $("axAgentStatus").textContent="Cloud context is limited to five selected sites. Clear a selection first.";
+   return false;
+  }
+  if(agent)agent.checked=checked;
+ }else{
+  const selectedCount=agentBoxes.filter(x=>x.checked).length;
+  if(selectedCount>5){source.checked=false;$("axAgentStatus").textContent="Cloud context is limited to five selected sites.";return false;}
+ }
+ document.querySelectorAll("[data-ax-site-card]").forEach(x=>{if(x.value===id)x.checked=checked;});
+ updateCandidateSelectionStatus();return true;
+}
+
 function renderAgentChoices(){
- $("axAgentCandidates").innerHTML=state.catalog.candidate_sites.map(s=>"<label class='axCandidate'><input type='checkbox' data-ax-site value='"+esc(s.id)+"' "+(["chagai_small_playas","hamun_i_mashkel","koh_i_sultan","hispar_glacier"].includes(s.id)?"checked":"")+"> "+esc(s.name)+"</label>").join("");
+ $("axAgentCandidates").innerHTML=state.catalog.candidate_sites.map(s=>"<label class='axCandidate'><input type='checkbox' data-ax-site value='"+esc(s.id)+"'> "+esc(s.name)+"</label>").join("");
+ updateCandidateSelectionStatus();
 }
 
 function loadGameProgress(){
@@ -364,6 +390,20 @@ async function testEndpoint(show=true){
 }
 function requestData(){return {question:$("axAgentQuestion").value.trim(),mission_target:$("axAgentMission").value,objective:$("axAgentObjective").value,candidate_ids:[...document.querySelectorAll("[data-ax-site]:checked")].map(x=>x.value).slice(0,5),evidence_mode:$("axAgentEvidenceMode").value,scout_coordinates:state.scoutData?{latitude:state.scoutData.coordinate.latitude,longitude:state.scoutData.coordinate.longitude,radius_km:state.scoutData.study_window.radius_km}:null};}
 function renderOutput(content,asHtml=true){$("axAgentOutput").innerHTML=asHtml?content:"<p>"+esc(content)+"</p>";}
+function formatAgentMarkdown(markdown){
+ const lines=String(markdown||"").split(/\r?\n/),out=[];let inList=false;
+ const inline=line=>esc(line).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>");
+ for(const raw of lines){
+  const line=raw.trim();
+  if(!line){if(inList){out.push("</ul>");inList=false;}continue;}
+  if(/^#{1,4}\s/.test(line)){if(inList){out.push("</ul>");inList=false;}out.push("<h4>"+inline(line.replace(/^#{1,4}\s*/,""))+"</h4>");continue;}
+  if(/^[-*]\s+/.test(line)){if(!inList){out.push("<ul>");inList=true;}out.push("<li>"+inline(line.replace(/^[-*]\s+/,""))+"</li>");continue;}
+  if(inList){out.push("</ul>");inList=false;}
+  out.push("<p>"+inline(line)+"</p>");
+ }
+ if(inList)out.push("</ul>");
+ return out.join("");
+}
 async function runLocal(){
  const req=requestData();if(req.question.length<8){$("axAgentStatus").textContent="Enter a research question first.";return;}
  $("axAgentRunLocal").disabled=true;$("axAgentRunCloud").disabled=true;pill($("axAgentOutputStatus"),"ANALYSING","gold");$("axAgentOutput").innerHTML="<div class='axLoading'></div><p>Running terrain, climate, surface and evidence-integrity analysts…</p>";
@@ -379,7 +419,7 @@ async function runCloud(){
  try{
   const r=await fetch(endpoint+"/analyze",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(req)});
   const data=await r.json();if(!r.ok||!data.ok)throw Error(data.detail||data.error||"Agent API failed");
-  state.brief=data;renderOutput("<h4>MISSION DIRECTOR DECISION</h4><p>"+esc(data.analysis||"No synthesis returned.")+"</p><h4>SPECIALIST AGENT FINDINGS</h4>"+(data.agents||[]).map(x=>"<p><b>"+esc(x.agent)+"</b><br><code>"+esc(JSON.stringify(x.result))+"</code></p>").join(""));
+  state.brief=data;renderOutput("<h4>MISSION DIRECTOR DECISION</h4>"+formatAgentMarkdown(data.analysis||"No synthesis returned.")+"<h4>SPECIALIST AGENT FINDINGS</h4>"+(data.agents||[]).map(x=>"<p><b>"+esc(x.agent)+"</b><br><code>"+esc(JSON.stringify(x.result))+"</code></p>").join(""));
   pill($("axAgentOutputStatus"),"CLOUD AGENT COMPLETE","blue");$("axAgentStatus").textContent="Completed · "+(data.tool_trace?.length||0)+" tool calls · "+data.model;$("axAgentTraceText").textContent=JSON.stringify({mode:data.mode,model:data.model,data_timestamps:data.data_generated_at_utc,tool_trace:data.tool_trace,disclaimer:data.disclaimer},null,2);
  }catch(e){pill($("axAgentOutputStatus"),"CLOUD UNAVAILABLE","gold");$("axAgentStatus").textContent="Cloud run failed: "+e.message+" · use offline review";renderOutput("Cloud agent could not complete. No cloud recommendation was accepted; run the offline review for source-backed local results.",false);}
  finally{$("axAgentRunCloud").disabled=!state.connected;$("axAgentRunLocal").disabled=false;}
@@ -392,6 +432,8 @@ function bind(){
  ["axMissionFilter","axTierFilter"].forEach(id=>$(id).addEventListener("change",render));
  $("axSearch").addEventListener("input",render);
  $("axCards").addEventListener("click",e=>{const b=e.target.closest("[data-ax-inspect]");if(b){state.selected=b.dataset.axInspect;document.querySelectorAll(".axCard").forEach(x=>x.classList.toggle("selected",x.dataset.axCard===state.selected));dossier(state.selected);}});
+ $("axCards").addEventListener("change",e=>{const cb=e.target.closest("[data-ax-site-card]");if(cb)syncCandidateSelection(cb.value,cb.checked,"card");});
+ document.querySelectorAll("[data-ax-site]").forEach(cb=>cb.addEventListener("change",()=>syncCandidateSelection(cb.value,cb.checked,cb)));
  $("axGameOptions").addEventListener("click",e=>{const b=e.target.closest("[data-ax-game]");if(b)answerGame(b.dataset.axGame);});
  $("axGameNext").addEventListener("click",()=>{state.game=(state.game+1)%scenarios.length;renderGame();});
  $("axAgentConnect").addEventListener("click",()=>testEndpoint(true));
