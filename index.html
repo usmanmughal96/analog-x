@@ -27,6 +27,7 @@
   <div class="navitem" data-scroll="sites"><span class="navicon">⌖</span><span>Analog Sites</span></div>
   <div class="navitem" data-scroll="imagery"><span class="navicon">▧</span><span>Earth Imagery</span></div>
   <div class="navitem" data-scroll="sources"><span class="navicon">◈</span><span>Data Sources</span></div>
+  <div class="navitem" data-scroll="terrain"><span class="navicon">⌁</span><span>Terrain Profiles</span></div>
   <div class="navitem" data-scroll="readiness"><span class="navicon">☷</span><span>Evidence Gaps</span></div>
   <div class="navlabel" style="margin-top:12px">Research</div>
   <div class="navitem" data-action="method"><span class="navicon">⌘</span><span>Methodology</span></div>
@@ -121,7 +122,7 @@
        <div class="step"><div class="stepdot">✓</div><b>Climate</b><small>NASA POWER<br>7/7 sites</small></div>
        <div class="step"><div class="stepdot">✓</div><b>Scene Search</b><small>Sentinel-2<br>metadata</small></div>
        <div class="step warn" id="quickStep"><div class="stepdot">!</div><b>Quicklooks</b><small>COG preview<br>status</small></div>
-       <div class="step pending"><div class="stepdot">○</div><b>Planet Data</b><small>MOLA / LOLA<br>next phase</small></div>
+       <div class="step"><div class="stepdot">✓</div><b>Terrain</b><small>CopDEM / MOLA<br>coarse profile</small></div>
       </div>
      </div>
      <div class="evidence-list">
@@ -147,9 +148,9 @@
   <section class="card sourcepanel" id="sources">
    <div class="cardhead"><div><div class="cardtitle">DATA PROVIDERS / VERIFIED CAPABILITY REGISTER</div><div class="cardhint">What is integrated, what is linked, and what still requires access verification</div></div><span class="statuspill gray">PROVENANCE REGISTER</span></div>
    <div class="sourceitems">
-    <div class="sourceitem"><div class="sourcetype">NASA / LIVE SNAPSHOT</div><b>POWER Climatology</b><p>7 site records, temperature, RH, wind, precipitation and solar resource. Server-side reproducible ingestion.</p><a href="https://power.larc.nasa.gov/docs/services/api/temporal/climatology/" target="_blank">API docs ↗</a></div>
-    <div class="sourceitem"><div class="sourcetype">MICROSOFT / METADATA + COG</div><b>Planetary Computer</b><p>Anonymous STAC search. Sentinel-2 L2A scene metadata and COG true-colour preview workflow.</p><a href="https://planetarycomputer.microsoft.com/docs/concepts/sas/" target="_blank">Access docs ↗</a></div>
-    <div class="sourceitem"><div class="sourcetype">NASA / REFERENCE</div><b>MOLA · LOLA · Diviner</b><p>Mars elevation and lunar elevation/thermal products linked for cross-planet work; raw rasters not yet processed.</p><a href="https://pds.nasa.gov/" target="_blank">PDS archive ↗</a></div>
+    <div class="sourceitem"><div class="sourcetype">NASA / LIVE SNAPSHOT</div><b>POWER Climatology</b><p>8 site records with temperature, RH, wind, precipitation and solar resource. Server-side snapshots are reproducible.</p><a href="https://power.larc.nasa.gov/docs/services/api/temporal/climatology/" target="_blank">API docs ↗</a></div>
+    <div class="sourceitem"><div class="sourcetype">MICROSOFT / INTEGRATED</div><b>Planetary Computer</b><p>Sentinel-2 L2A scenes, true-colour COG previews and Copernicus DEM GLO-30 DSM terrain tiles.</p><a href="https://planetarycomputer.microsoft.com/docs/concepts/sas/" target="_blank">Access docs ↗</a></div>
+    <div class="sourceitem"><div class="sourcetype">NASA / INTEGRATED + REFERENCE</div><b>MOLA · LOLA · Diviner</b><p>MOLA 64 ppd terrain profile processed around Nili Patera. Lunar LOLA/Diviner remain reference-only.</p><a href="https://pds.nasa.gov/" target="_blank">PDS archive ↗</a></div>
     <div class="sourceitem"><div class="sourcetype">PAKISTAN / PORTAL REVIEWED</div><b>SUPARCO Space4Climate</b><p>Climate indicators cover glacier, air quality, forestry, coast, waterways and land cover; direct public data API not verified.</p><a href="https://space4climate.gov.pk/" target="_blank">Portal ↗</a></div>
     <div class="sourceitem"><div class="sourcetype">PAKISTAN / PORTAL REVIEWED</div><b>NDMA / NEOC</b><p>National early-warning projections, global watch, advisories and situation reports already exist; not reinvented here.</p><a href="https://www.ndma.gov.pk/" target="_blank">NDMA ↗</a></div>
     <div class="sourceitem"><div class="sourcetype">UN / METHOD REFERENCE</div><b>UN-SPIDER / UNOOSA</b><p>Proven workflows for flood, drought and fire remote-sensing products, including SUPARCO-developed practices.</p><a href="https://un-spider.org/advisory-support/recommended-practices" target="_blank">Recommended practices ↗</a></div>
