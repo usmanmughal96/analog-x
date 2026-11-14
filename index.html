@@ -49,6 +49,7 @@
 @media(max-width:850px){.labCampaign{grid-template-columns:1fr}}
 @media(max-width:600px){.labCampaign{margin-left:10px;margin-right:10px}}
 </style>
+<link rel='stylesheet' href='./assets/analogx-labs.css'>
 </head>
 <body>
 <div class="app">
@@ -62,6 +63,8 @@
   <div class="navitem" data-scroll="sources"><span class="navicon">◈</span><span>Data Sources</span></div>
   <div class="navitem" data-scroll="terrain"><span class="navicon">⌁</span><span>Terrain Profiles</span></div>
   <div class="navitem" data-scroll="readiness"><span class="navicon">☷</span><span>Evidence Gaps</span></div>
+  <div class="navitem" data-scroll="discoveryLab"><span class="navicon">◎</span><span>Discovery Atlas</span></div>
+  <div class="navitem" data-scroll="agentBay"><span class="navicon">✧</span><span>Agent Science</span></div>
   <div class="navlabel" style="margin-top:12px">Research</div>
   <div class="navitem" data-action="method"><span class="navicon">⌘</span><span>Methodology</span></div>
   <div class="navitem" data-action="submission"><span class="navicon">▤</span><span>NASA Submission</span></div>
@@ -180,6 +183,57 @@
    <div class="terrainWarning" id="terrainCaveat">Coverage and interpretation notes load from the validated terrain output. Terrain profiles are descriptors only—not geological equivalence, rover mobility, landing safety or a Mars similarity percentage. Earth DSM and Mars areoid elevation datums are not compared.</div>
   </section>
 
+
+
+  <section class="card" id="discoveryLab" style="margin-top:12px">
+   <div class="cardhead"><div><div class="cardtitle">ANALOG DISCOVERY ATLAS / GLOBAL CANDIDATE SEARCH</div><div class="cardhint">Curated, source-linked candidate seeds · under-characterized leads are not presented as validated discoveries</div></div><span class="statuspill blue" id="axDiscoveryStatus">LOADING CANDIDATES</span></div>
+   <div class="axIntro">Explore environments by mission and process. This is a reproducible candidate seed atlas—not an exhaustive search of Earth. Every location is labelled by what evidence is actually present and what still requires field validation. The Chagai playa lead comes from a historical NASA report and needs modern confirmation.</div>
+   <div class="axToolbar">
+    <div class="axField"><label for="axMissionFilter">Mission target</label><select id="axMissionFilter"><option value="Both">Moon + Mars</option><option value="Mars">Mars</option><option value="Moon">Moon</option></select></div>
+    <div class="axField"><label for="axTierFilter">Candidate class</label><select id="axTierFilter"><option value="all">All candidate classes</option><option value="under_characterized_candidate">Under-characterized leads</option><option value="established_reference">Established references</option><option value="established_global_reference">Global reference sites</option></select></div>
+    <div class="axField"><label for="axSearch">Find an environment</label><input id="axSearch" placeholder="e.g. playa, glacier, volcanic"></div>
+   </div>
+   <div class="axSplit">
+    <div class="axMapBox"><div class="axMapHead"><b>EARTH CANDIDATE FIELD MAP</b><small id="axMapCount">— sites</small></div><div id="axDiscoveryMap"></div><div class="axMapLegend"><span><i class="axDot lead"></i> Under-characterized research lead</span><span><i class="axDot"></i> Established reference</span></div></div>
+    <div class="axCards" id="axCards"><div class="axCard">Loading evidence-linked candidate records…</div></div>
+   </div>
+   <div class="axDossier" id="axDossier"><div><h4>SELECT A CANDIDATE TO INSPECT ITS DOSSIER</h4><p>Choose a map marker or card to inspect the working hypothesis, source references and outstanding evidence.</p></div><div><h4>EVIDENCE COMPLETENESS</h4><p>Climate · Sentinel-2 surface context · terrain · source references.</p></div></div>
+   <div class="axGame">
+    <div class="axEyebrow">MISSION SIMULATOR / FIELD-METHOD TRAINING</div><h3 id="axGameTitle">Choose the right Earth field rehearsal</h3>
+    <p id="axGameQuestion">A short, playable science exercise. The best answer is a task-specific rehearsal choice—not a claim that Earth reproduces the Moon or Mars.</p>
+    <div class="axGameOptions" id="axGameOptions"></div><div class="axGameFeedback" id="axGameFeedback"></div>
+    <div class="axGameFoot"><small id="axGameProgress">MISSION 01 / 03</small><button class="axMiniBtn" id="axGameNext">NEXT FIELD CHALLENGE ↗</button></div>
+   </div>
+  </section>
+
+  <section class="card" id="agentBay" style="margin-top:12px">
+   <div class="cardhead"><div class="axAgentHead"><div class="axAgentOrb"></div><div><div class="cardtitle">AGENTIC SCIENCE OPERATIONS / MISSION DIRECTOR</div><div class="cardhint">Specialist evidence agents + optional open-weight tool-using LLM · local scientific mode always available</div></div></div><span class="statuspill gold" id="axAgentModeStatus">LOCAL MODE READY</span></div>
+   <div class="axIntro">Ask a research question. Four deterministic evidence specialists inspect terrain, climate, surface context and data completeness. The optional cloud Mission Director can call allow-listed evidence tools and synthesize a decision brief. It cannot create missing measurements.</div>
+   <div class="axAgentControls">
+    <div class="axField"><label for="axAgentEndpoint">Cloudflare Worker endpoint (optional)</label><div class="axAgentUrlRow"><div class="axField"><input id="axAgentEndpoint" type="url" placeholder="https://analog-x-agent.your-subdomain.workers.dev"><div class="axHint">Paste the base URL only. No API key belongs in this browser.</div></div><button class="axBtn secondary" id="axAgentConnect">CONNECT & TEST</button></div></div>
+    <div class="axField"><label>AI deployment</label><a class="axMiniBtn" style="display:inline-block;padding:10px 9px" href="https://github.com/usmanmughal96/analog-x/actions/workflows/deploy-agent-worker.yml" target="_blank" rel="noopener">DEPLOY FREE AGENT API ↗</a><div class="axHint">Setup guide: <a href="./docs/AGENTIC_AI_SETUP.md" target="_blank">Cloudflare Workers AI</a></div></div>
+   </div>
+   <div class="axPromptWrap"><div class="axField"><label for="axAgentQuestion">Mission research question</label><textarea class="axPrompt" id="axAgentQuestion" maxlength="800">For a Mars evaporite and paleolake field-rehearsal campaign, which Pakistan candidate should we investigate first, what evidence supports the choice, and what measurements are still missing?</textarea></div></div>
+   <div class="axMissionGrid">
+    <div class="axField"><label for="axAgentMission">Planetary target</label><select id="axAgentMission"><option value="Mars">Mars</option><option value="Moon">Moon</option><option value="Both">Moon + Mars</option></select></div>
+    <div class="axField"><label for="axAgentObjective">Experiment objective</label><select id="axAgentObjective"><option value="playa">Evaporite / playa / paleolake processes</option><option value="volcanic">Volcanic outcrop / alteration mapping</option><option value="cryosphere">Polar cryosphere / ice-image interpretation</option><option value="terrain">Terrain morphology / traverse field methods</option></select></div>
+    <div class="axField"><label for="axAgentEvidenceMode">Evidence policy</label><select id="axAgentEvidenceMode"><option value="strict">Strict evidence only</option><option value="exploratory">Exploratory hypotheses + clear labels</option></select></div>
+   </div>
+   <div class="axCandidates" id="axAgentCandidates"><span class="axCandidate">Loading candidate choices…</span></div>
+   <div class="axActions">
+    <button class="axBtn" id="axAgentRunCloud" disabled>RUN AGENTIC MISSION DIRECTOR ↗</button>
+    <button class="axBtn secondary" id="axAgentRunLocal">RUN OFFLINE SCIENCE REVIEW</button>
+    <button class="axBtn secondary" id="axAgentExport">EXPORT EVIDENCE BRIEF ↓</button>
+    <span class="axAgentStatus" id="axAgentStatus">Local evidence engine ready · cloud endpoint optional</span>
+   </div>
+   <div class="axRoster">
+    <div class="axNode"><b><i class="nodeDot"></i>Terrain Analyst</b><small>Compares matched-support slope, relief and coverage. No rover safety claims.</small></div>
+    <div class="axNode"><b><i class="nodeDot"></i>Climate Planner</b><small>Extracts NASA POWER seasonal context and campaign windows.</small></div>
+    <div class="axNode"><b><i class="nodeDot"></i>Surface Scientist</b><small>Reads Sentinel-2 indices and process context without mineral misclassification.</small></div>
+    <div class="axNode"><b><i class="nodeDot"></i>Evidence Officer</b><small>Flags missing data, provenance, spatial support and confidence limits.</small></div>
+   </div>
+   <div class="axOutput"><div class="axOutputHead"><b>MISSION DECISION / EVIDENCE BRIEF</b><span class="statuspill gray" id="axAgentOutputStatus">AWAITING ANALYSIS</span></div><div id="axAgentOutput" class="axOutputBody">Run the offline science review immediately, or connect a Cloudflare Worker to activate the open-weight tool-using Mission Director. The measured evidence remains in control of the decision.</div><div class="axTrace"><details><summary>Agent activity log / source trace</summary><pre id="axAgentTraceText">No run yet.</pre></details></div></div>
+  </section>
 
   <section class="card labPanel" id="missionLab">
    <div class="cardhead"><div><div class="cardtitle">MISSION REHEARSAL LAB / EVIDENCE-LED TERRAIN MATCHING</div><div class="cardhint">Compare measured terrain descriptors at approximately common 925 m support · no blended similarity score</div></div><span class="statuspill blue" id="labStatus">LOADING EVIDENCE</span></div>
@@ -703,4 +757,5 @@ function boot(){
 boot();
 })();
 </script>
+<script src='./assets/analogx-labs.js'></script>
 </body></html>
