@@ -1,0 +1,51 @@
+name: Fetch NASA POWER site climatology
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/fetch_nasa_power.py"
+      - "scripts/sites.json"
+      - ".github/workflows/fetch-nasa-power.yml"
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * 1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nasa-power-snapshot
+  cancel-in-progress: false
+
+jobs:
+  fetch-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: python -m pip install --upgrade requests
+
+      - name: Fetch NASA POWER climatology
+        run: python scripts/fetch_nasa_power.py
+
+      - name: Commit data snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/power/
+          if git diff --cached --quiet; then
+            echo "NASA POWER snapshots unchanged."
+            exit 0
+          fi
+          git commit -m "Refresh NASA POWER climatology snapshots"
+          git push
