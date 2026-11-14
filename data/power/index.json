@@ -2,9 +2,9 @@
   "schema_version": "1.0",
   "provider": "NASA POWER Climatology API",
   "community": "RE",
-  "generated_at_utc": "2026-11-14T14:21:10+00:00",
-  "record_count": 9,
-  "candidate_count": 9,
+  "generated_at_utc": "2026-11-14T14:24:26+00:00",
+  "record_count": 8,
+  "candidate_count": 8,
   "records": {
     "koh": {
       "file": "koh.json",
@@ -16,7 +16,7 @@
         "longitude": 62.8,
         "environment": "Volcanic field"
       },
-      "fetched_at_utc": "2026-11-14T14:21:06+00:00",
+      "fetched_at_utc": "2026-11-14T14:24:23+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",
@@ -39,7 +39,7 @@
         "longitude": 40.3,
         "environment": "Hydrothermal / evaporite"
       },
-      "fetched_at_utc": "2026-11-14T14:21:07+00:00",
+      "fetched_at_utc": "2026-11-14T14:24:24+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",
@@ -62,7 +62,7 @@
         "longitude": -68.2,
         "environment": "Hyperarid desert"
       },
-      "fetched_at_utc": "2026-11-14T14:21:07+00:00",
+      "fetched_at_utc": "2026-11-14T14:24:24+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",
@@ -85,7 +85,7 @@
         "longitude": 161.8,
         "environment": "Cold polar desert"
       },
-      "fetched_at_utc": "2026-11-14T14:21:08+00:00",
+      "fetched_at_utc": "2026-11-14T14:24:24+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",
@@ -108,7 +108,7 @@
         "longitude": -89.68,
         "environment": "Impact crater / polar desert"
       },
-      "fetched_at_utc": "2026-11-14T14:21:08+00:00",
+      "fetched_at_utc": "2026-11-14T14:24:25+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",
@@ -131,7 +131,7 @@
         "longitude": -22.27,
         "environment": "Basaltic volcanic terrain"
       },
-      "fetched_at_utc": "2026-11-14T14:21:09+00:00",
+      "fetched_at_utc": "2026-11-14T14:24:25+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",
@@ -154,30 +154,7 @@
         "longitude": -116.82,
         "environment": "Arid basin / alluvial fans"
       },
-      "fetched_at_utc": "2026-11-14T14:21:09+00:00",
-      "valid_parameters": [
-        "T2M",
-        "T2M_MAX",
-        "T2M_MIN",
-        "RH2M",
-        "WS10M",
-        "PRECTOTCORR",
-        "ALLSKY_SFC_SW_DWN"
-      ],
-      "missing_parameters": [],
-      "request_mode": "one multi-parameter request"
-    },
-    "hispar": {
-      "file": "hispar.json",
-      "site": {
-        "id": "hispar",
-        "name": "Hispar Glacier / Karakoram",
-        "country": "Pakistan",
-        "latitude": 36.10572,
-        "longitude": 75.23341,
-        "environment": "High-altitude cryosphere / glacier"
-      },
-      "fetched_at_utc": "2026-11-14T14:21:10+00:00",
+      "fetched_at_utc": "2026-11-14T14:24:26+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",
@@ -200,7 +177,7 @@
         "longitude": 75.23341,
         "environment": "Cold-region cryosphere"
       },
-      "fetched_at_utc": "2026-11-14T14:21:10+00:00",
+      "fetched_at_utc": "2026-11-14T14:24:26+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",
