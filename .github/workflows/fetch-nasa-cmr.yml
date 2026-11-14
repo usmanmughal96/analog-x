@@ -1,0 +1,47 @@
+name: Refresh NASA Earthdata catalogue evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/fetch_nasa_cmr_catalog.py"
+      - ".github/workflows/fetch-nasa-cmr.yml"
+  workflow_dispatch:
+  schedule:
+    - cron: "23 5 * * 1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: analogx-repository-data-refresh
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install requests
+        run: python -m pip install --upgrade requests
+      - name: Search NASA Earthdata CMR
+        run: python scripts/fetch_nasa_cmr_catalog.py
+      - name: Commit CMR catalogue evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/nasa/earthdata_cmr_catalog.json
+          if git diff --cached --quiet; then
+            echo "Earthdata catalogue unchanged."
+            exit 0
+          fi
+          git commit -m "Add NASA Earthdata CMR collection and granule catalog"
+          git pull --rebase origin main
+          git push
