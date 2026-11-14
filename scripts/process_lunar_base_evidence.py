@@ -384,9 +384,21 @@ def process_wac_product(name: str, url: str) -> tuple[dict, np.ndarray]:
     with rasterio.open(temp_path) as ds:
         if ds.crs is None:
             raise RuntimeError(f"{name} WAC GeoTIFF has no CRS; refusing to guess projection.")
-        transformer = Transformer.from_crs("EPSG:4326", ds.crs, always_xy=True)
+        # This raster uses a Moon-centred polar stereographic CRS. Do not
+        # transform Earth WGS84 coordinates into a lunar CRS: PROJ correctly
+        # rejects the Earth/Moon celestial-body mismatch. Re-express the known
+        # planetocentric coordinate on the same spherical lunar datum instead.
+        moon_radius_m = MOON_RADIUS_KM * 1000.0
+        moon_geographic = CRS.from_proj4(
+            f"+proj=longlat +a={moon_radius_m} +b={moon_radius_m} +no_defs +type=crs"
+        )
+        transformer = Transformer.from_crs(moon_geographic, ds.crs, always_xy=True)
         center_lon = CENTER_LON_EAST_DEG if CENTER_LON_EAST_DEG <= 180 else CENTER_LON_EAST_DEG - 360
         cx, cy = transformer.transform(center_lon, CENTER_LAT_DEG)
+        print(
+            f"{name} WAC CRS={ds.crs.to_string()} / {ds.crs.to_proj4()} bounds={ds.bounds} resolution={ds.res} center_px=({cx:.2f},{cy:.2f})",
+            flush=True,
+        )
         half_m = HALF_WINDOW_KM * 1000.0
         window = from_bounds(cx - half_m, cy - half_m, cx + half_m, cy + half_m, transform=ds.transform)
         data = ds.read(1, window=window, boundless=True, masked=True)
