@@ -1,0 +1,58 @@
+name: Build matched-scale Earth-Mars terrain evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/build_terrain_comparison.py"
+      - "scripts/fetch_public_evidence.py"
+      - ".github/workflows/build-terrain-comparison.yml"
+      - "data/pakistan/public_scene_catalog.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: analogx-repository-data-refresh
+  cancel-in-progress: false
+
+jobs:
+  terrain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout current main
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache public MOLA 64 px/degree source tiles
+        uses: actions/cache@v4
+        with:
+          path: data/raw/mars/mola64
+          key: analogx-mola-megdr-64ppd-nili-patera-v1
+
+      - name: Install geospatial dependencies
+        run: python -m pip install --upgrade requests rasterio pillow numpy scipy
+
+      - name: Build matched-scale terrain descriptors
+        run: python scripts/build_terrain_comparison.py
+
+      - name: Commit derived terrain evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/terrain/
+          if git diff --cached --quiet; then
+            echo "Terrain outputs unchanged."
+            exit 0
+          fi
+          git commit -m "Add matched-scale Earth-Mars terrain evidence"
+          git pull --rebase origin main
+          git push
