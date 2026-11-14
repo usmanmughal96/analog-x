@@ -157,7 +157,7 @@
    <div class="coverageGrid">
     <div class="coverageItem"><b>EARTH OBSERVATIONS</b><p>NASA POWER for eight locations; Sentinel-2 L2A scene metadata and previews; Copernicus DEM terrain; NASA CMR MODIS/MERRA-2 catalogue discovery.</p><span class="statuspill">INTEGRATED</span></div>
     <div class="coverageItem"><b>MARS REFERENCE</b><p>MOLA 64 ppd profile around Nili Patera, compared with Pakistan terrain at coarse support. Only 50.53% of MOLA cells are observed.</p><span class="statuspill gold">PARTIAL / LIMITED COVERAGE</span></div>
-    <div class="coverageItem"><b>PERMANENT LUNAR BASE</b><p>NASA LRO LOLA 80 m south-pole DEM and count map processed around Shackleton Rim. Diviner annual temperature and water-ice-permafrost products remain unprocessed; illumination and PSR mapping are also outstanding.</p><span class="statuspill gold">LOLA TERRAIN INTEGRATED / DIVINER PENDING</span></div>
+    <div class="coverageItem"><b>PERMANENT LUNAR BASE</b><p>NASA LRO LOLA 80 m south-pole DEM and count map processed around Shackleton Rim, then aggregated to ~925 m for a common terrain-support comparison with Earth/Mars. Diviner annual temperature and water-ice-permafrost products remain unprocessed; illumination and PSR mapping are also outstanding.</p><span class="statuspill gold">LOLA TERRAIN INTEGRATED / DIVINER PENDING</span></div>
     <div class="coverageItem"><b>GEOLOGY / SURFACE MATERIALS</b><p>USGS maps Koh-i-Sultan as agglomerate, tuff and andesitic lava: useful for volcanic/hydrothermal process rehearsal, not basaltic composition equivalence. No site-scale mineral map or field samples are integrated.</p><span class="statuspill gold">PARTIAL / NEEDS VALIDATION</span></div>
     <div class="coverageItem"><b>ENVIRONMENT / RESOURCES</b><p>Climate, solar, wind, precipitation and temperature context is present. Dust flux, water-ice abundance, illumination, resource prospectivity and subsurface conditions are not calculated.</p><span class="statuspill gold">PARTIAL</span></div>
     <div class="coverageItem"><b>MAP / EXPLANATION / FIELD USE</b><p>Interactive study-area map, evidence provenance, transferability limits, source audit and downloadable field-validation card.</p><span class="statuspill">IMPLEMENTED</span></div>
@@ -173,7 +173,7 @@
     <div class="sourceitem"><div class="sourcetype">NASA / MAP TILES</div><b>Worldview / GIBS</b><p>Open VIIRS true-colour GIBS tiles are used as the map context layer. This is browse imagery, not a science-data download.</p><a href="https://worldview.earthdata.nasa.gov/" target="_blank">Worldview ↗</a> · <a href="https://nasa-gibs.github.io/gibs-api-docs/" target="_blank">GIBS API ↗</a></div>
     <div class="sourceitem"><div class="sourcetype">MICROSOFT / INTEGRATED</div><b>Planetary Computer</b><p>Sentinel-2 L2A scenes, true-colour COG previews and Copernicus DEM GLO-30 DSM terrain tiles.</p><a href="https://planetarycomputer.microsoft.com/docs/concepts/sas/" target="_blank">Access docs ↗</a></div>
     <div class="sourceitem"><div class="sourcetype">NASA / MARS INTEGRATED</div><b>MOLA MEGDR</b><p>64 pixels/degree topography and count-mask profile around Nili Patera. MOLA coverage is limited to 50.53% in this window.</p><a href="https://pds-geosciences.wustl.edu/missions/mgs/megdr.html" target="_blank">PDS MOLA ↗</a></div>
-    <div class="sourceitem"><div class="sourcetype">NASA / LUNAR LOLA INTEGRATED</div><b>LRO LOLA / Diviner</b><p>80 m south-pole elevation and matching observation-count grid processed for Shackleton Rim. Diviner annual temperature and water-ice-permafrost products remain reference-only.</p><a href="https://pds-geosciences.wustl.edu/missions/lro/diviner.htm" target="_blank">Diviner archive ↗</a> · <a href="https://imbrium.mit.edu/DATA/LOLA_GDR/POLAR/JP2/" target="_blank">LOLA 80 m archive ↗</a></div>
+    <div class="sourceitem"><div class="sourcetype">NASA / LUNAR LOLA INTEGRATED</div><b>LRO LOLA / Diviner</b><p>80 m south-pole elevation and matching observation-count grid processed for Shackleton Rim; coarse ~925 m terrain descriptors are also available. Diviner annual temperature and water-ice-permafrost products remain reference-only.</p><a href="https://pds-geosciences.wustl.edu/missions/lro/diviner.htm" target="_blank">Diviner archive ↗</a> · <a href="https://imbrium.mit.edu/DATA/LOLA_GDR/POLAR/JP2/" target="_blank">LOLA 80 m archive ↗</a></div>
     <div class="sourceitem"><div class="sourcetype">CANADA / ACCESS REVIEWED</div><b>RADARSAT-1 / RCM</b><p>CSA's EODMS is the access route. Public products are geographically/product limited; public-user registration is required.</p><a href="https://www.asc-csa.gc.ca/eng/satellites/radarsat/access-to-data/about.asp" target="_blank">Access policy ↗</a></div>
     <div class="sourceitem"><div class="sourcetype">ESA / INDIRECTLY INTEGRATED</div><b>Copernicus Data Space</b><p>Direct STAC, OData, openEO and Sentinel Hub APIs are available. Current Sentinel data are accessed via Microsoft Planetary Computer, not this endpoint.</p><a href="https://dataspace.copernicus.eu/analyse/apis" target="_blank">API catalogue ↗</a></div>
     <div class="sourceitem"><div class="sourcetype">ESA / REFERENCE ONLY</div><b>Open Science Catalogue</b><p>STAC-based research-project, product, workflow and experiment discovery. No catalogue product is ingested in this release.</p><a href="https://opensciencedata.esa.int/" target="_blank">ESA catalogue ↗</a></div>
@@ -362,23 +362,25 @@ function renderTerrain(){
   "Earth/Mars profiles use approximately 925 m support in 30 km windows; the Shackleton Rim lunar profile uses a separate native 80 m grid over 24 × 24 km. Nili Patera MOLA observation coverage is "+
   (Number.isFinite(marsCov)?marsCov.toFixed(1)+"% ("+marsStats.valid_cell_count+" observed cells; "+marsCells+" complete 3×3 neighbourhoods)":"not available")+
   ". Earth sites use a 30 m Copernicus digital surface model averaged to the coarse Mars support. Lunar LOLA is not resolution-matched to those Earth/Mars profiles. The lunar elevation surface is interpolated and its count map reports laser-return support; neither alone establishes illumination, permanently shadowed status, water ice, rover mobility or landing safety. Absolute elevations are not compared across planetary datums.";
- statusPill($("terrainStatus"),marsStats&&earth.koh_i_sultan?.status==="processed"&&earth.hispar_glacier?.status==="processed"?"3 PROFILES PROCESSED":"PARTIAL TERRAIN",marsStats?"":"gold");
+ statusPill($("terrainStatus"),marsStats&&earth.koh_i_sultan?.status==="processed"&&earth.hispar_glacier?.status==="processed"&&lunarData?.matched_coarse_support_approx_925m?"4 PROFILES PROCESSED":"PARTIAL TERRAIN",marsStats?"":"gold");
 }
 function renderLunar(){
  if(!lunarData){
   statusPill($("lunarTerrainCoverage"),"LOLA PENDING","gold");
   return;
  }
- const metrics=lunarData.terrain_metrics||{};
- const slope=metrics.slope_deg_from_80m_dem;
- const relief=metrics["3x3_local_relief_m_240m_footprint"];
- const support=metrics.ldec_count_map;
+ const coarse=lunarData.matched_coarse_support_approx_925m||{};
+ const slope=coarse.slope_deg;
+ const relief=coarse["3x3_local_relief_m_2775m_footprint"];
+ const support=coarse.ldec_positive_return_support;
  if(slope&&relief&&support){
   $("lunarSlopeMedian").textContent=fmt(slope.median,1)+"°";
   $("lunarSlopeP90").textContent=fmt(slope.p90,1)+"°";
   $("lunarReliefP90").textContent=fmt(relief.p90,0)+" m";
-  $("lunarReturnSupport").textContent=fmt(support.coverage_with_positive_returns_percent,2)+"%";
-  statusPill($("lunarTerrainCoverage"),"80 M LOLA / PROCESSED","");
+  $("lunarReturnSupport").textContent=fmt(support.mean_native_pixel_fraction_per_coarse_cell_percent,2)+"%";
+  statusPill($("lunarTerrainCoverage"),"80 M → 925 M / PROCESSED","");
+  const note=document.querySelector("#lunarTerrainCoverage")?.closest(".terrainCard")?.querySelector(".terrainNote");
+  if(note)note.textContent="NASA LRO LOLA · native 80 m south-pole grid aggregated to ~925 m over 29.6 × 29.6 km for comparison with Earth/Mars. Positive-return support is reported separately; LDEM is interpolated.";
  }else{
   statusPill($("lunarTerrainCoverage"),"NO VALID PROFILE","red");
  }
@@ -387,7 +389,7 @@ function renderPipeline(){
  const count=Object.keys(power).length;
  const sceneCount=catalog?Object.keys(catalog.planetary_computer?.sites||{}).length:0;
  const terrainComplete=!!(terrainData?.planetary_target?.terrain_metrics&&terrainData?.earth_sites?.koh_i_sultan?.status==="processed"&&terrainData?.earth_sites?.hispar_glacier?.status==="processed");
- const lunarComplete=!!(lunarData?.terrain_metrics?.slope_deg_from_80m_dem&&lunarData?.terrain_metrics?.ldec_count_map);
+ const lunarComplete=!!(lunarData?.matched_coarse_support_approx_925m?.slope_deg&&lunarData?.matched_coarse_support_approx_925m?.ldec_positive_return_support);
  statusPill($("systemHealth"),count===8&&sceneCount===2&&terrainComplete&&lunarComplete?"DATA VERIFIED":"PARTIAL DATA",count===8&&sceneCount===2&&terrainComplete&&lunarComplete?"":"gold");
  $("snapshotDate").textContent="NASA SNAPSHOT · "+(power.koh?.source?.fetched_at_utc||"—").slice(0,10);
  $("siteCount").textContent="02 STUDY AREAS";
@@ -411,7 +413,7 @@ function showModal(kind){
   const terrainKey=current==="koh"?"koh_i_sultan":"hispar_glacier";
   const terrainSite=terrainData?.earth_sites?.[terrainKey];
   const terrainMars=terrainData?.planetary_target;
-  const plan={project:"ANALOG-X",candidate:s.name,coordinates:{lat:s.lat,lon:s.lon},candidate_type:s.kind,mission_rehearsal:s.theme,climate_snapshot_utc:p?.source?.fetched_at_utc||null,NASA_POWER_metrics:m,terrain_profile:terrainSite?.terrain_metrics||null,terrain_source:terrainSite?.source||null,planetary_reference:terrainMars?.terrain_metrics?{name:terrainMars.name,metrics:terrainMars.terrain_metrics,valid_cell_coverage_percent:terrainMars.terrain_metrics.coverage.valid_percent,complete_3x3_neighbourhood_count:terrainMars.terrain_metrics.complete_3x3_neighbourhood_count}:null,lunar_reference:lunarData?{site:lunarData.site,grid_resolution_m:lunarData.grid.native_pixel_size_m,window_extent_m:lunarData.grid.window_extent_m,terrain_metrics:lunarData.terrain_metrics,method_note:lunarData.method_note}:null,terrain_caveat:terrainData?.comparison?.interpretation||"Terrain profile has not been processed.",lunar_caveat:lunarData?.limitations||["LOLA lunar terrain not loaded."],protocol:s.id==="koh"?["Map volcanic outcrop context and contacts.","Record scale-controlled images and coordinates.","Cross-check remote-sensing interpretation against field observations.","Log lithology/sample provenance and confidence; do not infer basaltic equivalence."]:["Map ice/debris boundaries from satellite imagery.","Ground-check selected boundary points and debris cover.","Record surface/air temperature separately if equipment is available.","Do not infer lunar permanently shadowed-region conditions from an Earth glacier."],not_transferable:s.limit,validation_required:["Validate DEM profile against higher-resolution site data and terrain classes","Primary-source geological mapping and field validation","Review MOLA low-observation coverage and add lunar LOLA/Diviner products","Do not infer rover mobility, landing safety or mineralogical equivalence from the terrain descriptors"]};
+  const plan={project:"ANALOG-X",candidate:s.name,coordinates:{lat:s.lat,lon:s.lon},candidate_type:s.kind,mission_rehearsal:s.theme,climate_snapshot_utc:p?.source?.fetched_at_utc||null,NASA_POWER_metrics:m,terrain_profile:terrainSite?.terrain_metrics||null,terrain_source:terrainSite?.source||null,planetary_reference:terrainMars?.terrain_metrics?{name:terrainMars.name,metrics:terrainMars.terrain_metrics,valid_cell_coverage_percent:terrainMars.terrain_metrics.coverage.valid_percent,complete_3x3_neighbourhood_count:terrainMars.terrain_metrics.complete_3x3_neighbourhood_count}:null,lunar_reference:lunarData?{site:lunarData.site,native_grid_resolution_m:lunarData.grid.native_pixel_size_m,window_extent_m:lunarData.grid.window_extent_m,native_terrain_metrics:lunarData.terrain_metrics,matched_coarse_support_approx_925m:lunarData.matched_coarse_support_approx_925m,method_note:lunarData.method_note}:null,terrain_caveat:terrainData?.comparison?.interpretation||"Terrain profile has not been processed.",lunar_caveat:lunarData?.limitations||["LOLA lunar terrain not loaded."],protocol:s.id==="koh"?["Map volcanic outcrop context and contacts.","Record scale-controlled images and coordinates.","Cross-check remote-sensing interpretation against field observations.","Log lithology/sample provenance and confidence; do not infer basaltic equivalence."]:["Map ice/debris boundaries from satellite imagery.","Ground-check selected boundary points and debris cover.","Record surface/air temperature separately if equipment is available.","Do not infer lunar permanently shadowed-region conditions from an Earth glacier."],not_transferable:s.limit,validation_required:["Validate DEM profile against higher-resolution site data and terrain classes","Primary-source geological mapping and field validation","Review MOLA low-observation coverage and add lunar LOLA/Diviner products","Do not infer rover mobility, landing safety or mineralogical equivalence from the terrain descriptors"]};
   body="<p><b>"+esc(s.name)+"</b></p><p>Mission rehearsal: "+esc(s.theme)+"</p><p>Download an auditable JSON field-validation card with the current NASA POWER metrics and a cautious field protocol.</p><button class='selectbtn' id='downloadCard'>DOWNLOAD FIELD CARD JSON ↓</button>";
   window.currentCard=plan;
  }
