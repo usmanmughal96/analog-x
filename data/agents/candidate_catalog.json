@@ -1,0 +1,404 @@
+{
+  "schema_version": "1.0",
+  "title": "ANALOG-X Earth candidate discovery seeds",
+  "generated_at_utc": "2026-11-14T00:00:00Z",
+  "scope_note": "This is a curated, evidence-linked candidate seed set for reproducible screening, not a complete global search and not a claim that any site is a newly discovered or validated planetary analog. Locations are study-area reference points, not field boundaries or access permissions.",
+  "discovery_rules": [
+    "Separate well-known analog references from under-characterized candidate leads.",
+    "Use the planetary mission and process as the unit of comparison, not visual resemblance alone.",
+    "Display only measured variables with source, date, units, spatial support and quality warnings.",
+    "Do not interpret spectral indices as mineral identification, glacier outlines or brine confirmation.",
+    "Treat a candidate recommendation as a research lead until ground-truthed and reviewed by domain specialists."
+  ],
+  "candidate_sites": [
+    {
+      "id": "chagai_small_playas",
+      "name": "Chagai small salt playas near Nok Kundi",
+      "country": "Pakistan",
+      "region": "Chagai District, Balochistan",
+      "latitude": 28.583333,
+      "longitude": 62.633333,
+      "study_bbox_wgs84": [
+        62.54,
+        28.53,
+        62.73,
+        28.64
+      ],
+      "discovery_tier": "under_characterized_candidate",
+      "candidate_status": "historical_lead_pending_modern_validation",
+      "environment_tags": [
+        "salt playa",
+        "evaporite",
+        "closed-basin",
+        "volcaniclastic sediment transport",
+        "arid"
+      ],
+      "mission_targets": [
+        "Mars"
+      ],
+      "rehearsal_tasks": [
+        "evaporite and salt-crust field mapping",
+        "paleolake/playa sedimentology",
+        "orbital-to-ground spectral screening",
+        "field sampling and provenance workflows"
+      ],
+      "hypothesis": "A pair of small salt-surfaced playas described southwest of Nok Kundi may offer a focused Pakistan field site for studying evaporite accumulation, sediment transport and dry-playa surface mapping relevant to selected Martian sedimentary-process questions.",
+      "evidence_status": {
+        "historical_geologic_context": "NASA technical report identifies two small salt-surfaced playas and discusses potential evaporite/brine context",
+        "nasa_power": "Queued for ingestion",
+        "sentinel2": "Queued for STAC search and spectral screening",
+        "copernicus_dem": "Queued for terrain screening",
+        "field_validation": "Required"
+      },
+      "coordinate_method": "Reference point is the midpoint of two coordinate locations printed in the NASA report (28°35′ N, 62°36′ E and 28°35′ N, 62°40′ E). The displayed bounding box is an analyst-defined search window, not a measured playa polygon.",
+      "source_references": [
+        {
+          "title": "Playas and possible related saline deposits",
+          "publisher": "NASA Technical Reports Server",
+          "report_id": "19740023693",
+          "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
+          "supports": "Historical report describes two small salt-surfaced playas at the stated coordinates and discusses possible evaporite/brine sources; it does not provide modern site validation or a current mineral map."
+        }
+      ],
+      "non_transferable": [
+        "Earth's atmosphere and hydrologic cycle differ from Mars",
+        "A surface salt signature does not establish subsurface brine or present-day liquid water",
+        "No mineral chemistry, depth profile, surface strength or dust transport data are yet available"
+      ]
+    },
+    {
+      "id": "hamun_i_mashkel",
+      "name": "Hamun-i-Mashkel playa / Kharan Basin",
+      "country": "Pakistan",
+      "region": "Kharan Basin, Balochistan",
+      "latitude": 28.25,
+      "longitude": 62.91667,
+      "study_bbox_wgs84": [
+        62.82,
+        28.13,
+        63.02,
+        28.33
+      ],
+      "discovery_tier": "under_characterized_candidate",
+      "candidate_status": "regional_reference_pending_site_characterization",
+      "environment_tags": [
+        "playa",
+        "intermittent lake",
+        "closed basin",
+        "evaporite",
+        "arid"
+      ],
+      "mission_targets": [
+        "Mars"
+      ],
+      "rehearsal_tasks": [
+        "playa sediment mapping",
+        "intermittent inundation and drying-process documentation",
+        "remote sensing / field validation",
+        "sediment and salt sampling"
+      ],
+      "hypothesis": "The closed Kharan drainage basin and mostly dry Hamun-i-Mashkel playa may provide a process analogue for investigating evaporite accumulation and repeated wetting-drying sedimentary settings on Mars.",
+      "evidence_status": {
+        "historical_geologic_context": "NASA report describes the playa and regional sand-transport/salinity context; basin-level facts require current local verification",
+        "nasa_power": "Queued for ingestion",
+        "sentinel2": "Queued for STAC search and spectral screening",
+        "copernicus_dem": "Queued for terrain screening",
+        "field_validation": "Required"
+      },
+      "coordinate_method": "Approximate place-reference coordinate used for data discovery; not a playa boundary. Confirm the AOI against a current hydrology/landform map before field use.",
+      "source_references": [
+        {
+          "title": "Playas and possible related saline deposits",
+          "publisher": "NASA Technical Reports Server",
+          "report_id": "19740023693",
+          "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
+          "supports": "Historical geological and salt-transport context."
+        },
+        {
+          "title": "Hamun-i-Mashkel lake-bed reference",
+          "publisher": "Mapcarta / OpenStreetMap-derived gazetteer",
+          "url": "https://mapcarta.com/15046968",
+          "supports": "Approximate point location only; not scientific landform boundary or material classification."
+        }
+      ],
+      "non_transferable": [
+        "An intermittent Earth playa is not a Martian climate replica",
+        "Surface reflectance cannot prove brine chemistry",
+        "No long-term inundation sequence or subsurface profile is included yet"
+      ]
+    },
+    {
+      "id": "koh_i_sultan",
+      "name": "Koh-i-Sultan / Chagai",
+      "country": "Pakistan",
+      "region": "Chagai District, Balochistan",
+      "latitude": 29.1,
+      "longitude": 62.8,
+      "study_bbox_wgs84": [
+        62.7,
+        29,
+        62.9,
+        29.2
+      ],
+      "discovery_tier": "established_reference",
+      "candidate_status": "partially_characterized",
+      "environment_tags": [
+        "volcanic field",
+        "andesitic lava",
+        "tuff",
+        "agglomerate",
+        "arid"
+      ],
+      "mission_targets": [
+        "Mars"
+      ],
+      "rehearsal_tasks": [
+        "volcanic outcrop logging",
+        "alteration reconnaissance",
+        "orbital-to-ground mapping"
+      ],
+      "hypothesis": "Useful for volcanic-process field rehearsal; the mapped andesitic/tuff/agglomerate geology is not a basaltic composition match to Syrtis Major.",
+      "evidence_status": {
+        "geology": "USGS OFR 75-550 regional map context",
+        "nasa_power": "Integrated",
+        "sentinel2": "Integrated",
+        "terrain": "Integrated",
+        "field_validation": "Required"
+      },
+      "coordinate_method": "Existing study reference point; not a field boundary.",
+      "source_references": [
+        {
+          "title": "Chagai Hills area geology, West Pakistan",
+          "publisher": "USGS",
+          "url": "https://pubs.usgs.gov/publication/ofr75550",
+          "supports": "Regional geological map context."
+        }
+      ],
+      "non_transferable": [
+        "No direct basaltic composition equivalence",
+        "No verified site mineral map or ground samples",
+        "Earth atmosphere, gravity and radiation differ from Mars"
+      ]
+    },
+    {
+      "id": "hispar_glacier",
+      "name": "Hispar Glacier / Karakoram",
+      "country": "Pakistan",
+      "region": "Gilgit-Baltistan",
+      "latitude": 36.10572,
+      "longitude": 75.23341,
+      "study_bbox_wgs84": [
+        75.12,
+        36.02,
+        75.34,
+        36.22
+      ],
+      "discovery_tier": "established_reference",
+      "candidate_status": "partially_characterized",
+      "environment_tags": [
+        "glacier",
+        "ice",
+        "debris-covered ice",
+        "high altitude",
+        "cryosphere"
+      ],
+      "mission_targets": [
+        "Moon",
+        "Mars"
+      ],
+      "rehearsal_tasks": [
+        "snow/ice spectral screening",
+        "debris mapping",
+        "cold-region sensor trials",
+        "remote field workflow"
+      ],
+      "hypothesis": "Useful for cryosphere image interpretation, debris-boundary observation and cold-region instrument practice; it does not reproduce lunar permanently shadowed regions or the Martian atmosphere.",
+      "evidence_status": {
+        "regional_inventory": "Existing EvK2CNR Pakistan Glacier Inventory",
+        "nasa_power": "Integrated",
+        "sentinel2": "Integrated",
+        "terrain": "Integrated",
+        "field_validation": "Required"
+      },
+      "coordinate_method": "Approximate gazetteer reference point, not an official glacier centroid or field-access point.",
+      "source_references": [
+        {
+          "title": "Pakistan Glacier Inventory project",
+          "publisher": "EvK2CNR",
+          "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
+          "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
+        }
+      ],
+      "non_transferable": [
+        "No lunar vacuum or permanently shadowed illumination regime",
+        "Glacier snow/ice does not establish lunar volatile accessibility",
+        "Field access and safety need specialist assessment"
+      ]
+    },
+    {
+      "id": "dallol",
+      "name": "Dallol / Danakil Depression",
+      "country": "Ethiopia",
+      "region": "Afar Depression",
+      "latitude": 14.24,
+      "longitude": 40.3,
+      "discovery_tier": "established_global_reference",
+      "candidate_status": "reference_site",
+      "environment_tags": [
+        "hydrothermal",
+        "evaporite",
+        "extreme aridity",
+        "saline",
+        "volcanic"
+      ],
+      "mission_targets": [
+        "Mars"
+      ],
+      "rehearsal_tasks": [
+        "hydrothermal mineral-environment field methods",
+        "evaporite context mapping"
+      ],
+      "evidence_status": {
+        "nasa_power": "Integrated",
+        "site_specific_spectral": "Not integrated in this build"
+      },
+      "coordinate_method": "Existing NASA POWER reference point."
+    },
+    {
+      "id": "atacama",
+      "name": "Atacama Desert",
+      "country": "Chile",
+      "region": "Antofagasta",
+      "latitude": -23.5,
+      "longitude": -68.2,
+      "discovery_tier": "established_global_reference",
+      "candidate_status": "reference_site",
+      "environment_tags": [
+        "hyperarid",
+        "desert",
+        "salt",
+        "dust"
+      ],
+      "mission_targets": [
+        "Mars"
+      ],
+      "rehearsal_tasks": [
+        "arid field methods",
+        "dust and dry-soil instrument testing"
+      ],
+      "evidence_status": {
+        "nasa_power": "Integrated"
+      },
+      "coordinate_method": "Existing NASA POWER reference point."
+    },
+    {
+      "id": "mcmurdo",
+      "name": "McMurdo Dry Valleys",
+      "country": "Antarctica",
+      "region": "Victoria Land",
+      "latitude": -77.5,
+      "longitude": 161.8,
+      "discovery_tier": "established_global_reference",
+      "candidate_status": "reference_site",
+      "environment_tags": [
+        "polar desert",
+        "cold",
+        "permafrost",
+        "glacial"
+      ],
+      "mission_targets": [
+        "Moon",
+        "Mars"
+      ],
+      "rehearsal_tasks": [
+        "cold-weather instrument trials",
+        "dry-cold field methods"
+      ],
+      "evidence_status": {
+        "nasa_power": "Integrated"
+      },
+      "coordinate_method": "Existing NASA POWER reference point."
+    },
+    {
+      "id": "haughton",
+      "name": "Haughton impact structure",
+      "country": "Canada",
+      "region": "Devon Island, Nunavut",
+      "latitude": 75.37,
+      "longitude": -89.68,
+      "discovery_tier": "established_global_reference",
+      "candidate_status": "reference_site",
+      "environment_tags": [
+        "impact crater",
+        "polar desert",
+        "permafrost"
+      ],
+      "mission_targets": [
+        "Moon",
+        "Mars"
+      ],
+      "rehearsal_tasks": [
+        "impact geology field mapping",
+        "polar field logistics"
+      ],
+      "evidence_status": {
+        "nasa_power": "Integrated"
+      },
+      "coordinate_method": "Existing NASA POWER reference point."
+    },
+    {
+      "id": "iceland",
+      "name": "Icelandic volcanic fields",
+      "country": "Iceland",
+      "region": "Reykjanes",
+      "latitude": 63.88,
+      "longitude": -22.27,
+      "discovery_tier": "established_global_reference",
+      "candidate_status": "reference_site",
+      "environment_tags": [
+        "basaltic volcanism",
+        "lava",
+        "volcanic field"
+      ],
+      "mission_targets": [
+        "Moon",
+        "Mars"
+      ],
+      "rehearsal_tasks": [
+        "basaltic lava morphology",
+        "volcanic terrain mapping"
+      ],
+      "evidence_status": {
+        "nasa_power": "Integrated"
+      },
+      "coordinate_method": "Existing NASA POWER reference point."
+    },
+    {
+      "id": "death",
+      "name": "Death Valley region",
+      "country": "United States",
+      "region": "California/Nevada",
+      "latitude": 36.24,
+      "longitude": -116.82,
+      "discovery_tier": "established_global_reference",
+      "candidate_status": "reference_site",
+      "environment_tags": [
+        "arid basin",
+        "alluvial fans",
+        "salt flat",
+        "dust"
+      ],
+      "mission_targets": [
+        "Mars"
+      ],
+      "rehearsal_tasks": [
+        "alluvial fan mapping",
+        "arid operations"
+      ],
+      "evidence_status": {
+        "nasa_power": "Integrated"
+      },
+      "coordinate_method": "Existing NASA POWER reference point."
+    }
+  ]
+}
