@@ -433,7 +433,7 @@ function bind(){
  $("axSearch").addEventListener("input",render);
  $("axCards").addEventListener("click",e=>{const b=e.target.closest("[data-ax-inspect]");if(b){state.selected=b.dataset.axInspect;document.querySelectorAll(".axCard").forEach(x=>x.classList.toggle("selected",x.dataset.axCard===state.selected));dossier(state.selected);}});
  $("axCards").addEventListener("change",e=>{const cb=e.target.closest("[data-ax-site-card]");if(cb)syncCandidateSelection(cb.value,cb.checked,"card");});
- document.querySelectorAll("[data-ax-site]").forEach(cb=>cb.addEventListener("change",()=>syncCandidateSelection(cb.value,cb.checked,cb)));
+ $("axAgentCandidates").addEventListener("change",e=>{const cb=e.target.closest("[data-ax-site]");if(cb)syncCandidateSelection(cb.value,cb.checked,cb);});
  $("axGameOptions").addEventListener("click",e=>{const b=e.target.closest("[data-ax-game]");if(b)answerGame(b.dataset.axGame);});
  $("axGameNext").addEventListener("click",()=>{state.game=(state.game+1)%scenarios.length;renderGame();});
  $("axAgentConnect").addEventListener("click",()=>testEndpoint(true));
