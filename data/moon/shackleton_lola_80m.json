@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-14T15:10:25+00:00",
+  "generated_at_utc": "2026-11-14T15:12:04+00:00",
   "provider": "NASA LRO LOLA PDS GDR hosted by MIT Imbrium mirror",
   "product": "LDEM_80S_80M and LDEC_80S_80M",
   "source_urls": {
@@ -39,58 +39,58 @@
       3787
     ],
     "window_pixel_size": [
-      3937,
-      4037
+      300,
+      300
     ],
     "window_extent_m": [
-      314960,
-      322960
+      24000,
+      24000
     ],
     "window_bounds": [
       3637.0,
       3737.0,
-      7574.0,
-      7774.0
+      3937.0,
+      4037.0
     ],
     "dem_and_count_grid_aligned": true
   },
   "terrain_metrics": {
     "elevation_relative_to_1737_4km_sphere_m": {
-      "count": 15208631,
-      "min": -5840.5,
-      "p10": -4147.5,
-      "median": -2361.5,
-      "p90": -664.0,
-      "p95": -120.0,
+      "count": 90000,
+      "min": -2869.0,
+      "p10": -2020.6000000000004,
+      "median": 638.0,
+      "p90": 1462.5,
+      "p95": 1608.5,
       "max": 1958.0
     },
     "slope_deg_from_80m_dem": {
-      "count": 15193035,
-      "min": 0.0,
-      "p10": 1.8253340767805772,
-      "median": 6.537972362809424,
-      "p90": 15.535107077107613,
-      "p95": 19.133260994690215,
-      "max": 66.27178813639873
+      "count": 88804,
+      "min": 0.17904872813898817,
+      "p10": 5.930603512432502,
+      "median": 15.943418925458943,
+      "p90": 31.625727606127164,
+      "p95": 32.63751704818038,
+      "max": 38.14416026033731
     },
     "3x3_local_relief_m_240m_footprint": {
-      "count": 15193035,
-      "min": 0.0,
-      "p10": 7.5,
-      "median": 23.5,
-      "p90": 56.5,
-      "p95": 71.0,
-      "max": 398.0
+      "count": 88804,
+      "min": 1.5,
+      "p10": 21.5,
+      "median": 59.0,
+      "p90": 126.0,
+      "p95": 134.5,
+      "max": 167.0
     },
-    "valid_interpolated_elevation_cells": 15208631,
-    "total_window_cells": 15208631,
+    "valid_interpolated_elevation_cells": 90000,
+    "total_window_cells": 90000,
     "ldec_count_map": {
-      "cells_with_positive_lola_returns": 13150493,
-      "cells_with_valid_count_value": 15208631,
-      "coverage_with_positive_returns_percent": 86.47,
-      "mean_returns_per_valid_count_cell": 7.800610850509819,
-      "median_returns_per_valid_count_cell": 5.0,
-      "p90_returns_per_valid_count_cell": 18.0
+      "cells_with_positive_lola_returns": 89996,
+      "cells_with_valid_count_value": 90000,
+      "coverage_with_positive_returns_percent": 100.0,
+      "mean_returns_per_valid_count_cell": 36.6112,
+      "median_returns_per_valid_count_cell": 35.0,
+      "p90_returns_per_valid_count_cell": 58.0
     }
   },
   "method_note": "LDEM is an interpolated gridded surface model. Count=0 does not invalidate an interpolated DEM cell; the LDEC count map is reported separately as measurement support. Elevation is converted from radius by subtracting the 1,737,400 m reference radius after applying the 0.5 m/sample scaling factor. This is a terrain context product, not a shadow/illumination, water-ice, resource, landing-safety or rover-mobility assessment.",
