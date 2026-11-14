@@ -33,7 +33,7 @@ The live portal includes a map-led candidate atlas with ten curated Earth seeds.
 
 The Agent Bay has four deterministic evidence specialists: terrain morphology, climate/campaign planning, surface spectral context and evidence integrity. Its offline review runs without an LLM/API key and exports a JSON decision brief. An optional server-side Cloudflare Workers AI Mission Director uses the open-weight model @cf/openai/gpt-oss-20b and allow-listed tools over the published evidence. The browser stores only the Worker URL, never a provider secret. Cloud inference is not active until the project owner deploys the Worker using the two GitHub Actions secrets described in docs/AGENTIC_AI_SETUP.md. The Workers Free plan has a limited daily inference allocation (10,000 Neurons/day at the time of writing); requests may be throttled or fail when the allowance is exhausted. Model output is not a measurement or validation result.
 
-A short mission simulator teaches task-specific analog selection and transferability limits. It is a training aid, not a scientific validation score.
+The four-stage Field School simulator teaches playa/evaporite, volcanic mapping, lunar cryosphere and terrain-data-quality decisions. Its learning XP is browser-local and does not affect scientific ranking. A completed scenario can be sent straight into the offline Mission Director for evidence review.
 
 ## Verified integrations
 
