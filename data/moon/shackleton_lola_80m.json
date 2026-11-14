@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-14T15:12:04+00:00",
+  "generated_at_utc": "2026-11-14T15:14:47+00:00",
   "provider": "NASA LRO LOLA PDS GDR hosted by MIT Imbrium mirror",
   "product": "LDEM_80S_80M and LDEC_80S_80M",
   "source_urls": {
@@ -39,56 +39,86 @@
       3787
     ],
     "window_pixel_size": [
-      300,
-      300
+      370,
+      370
     ],
     "window_extent_m": [
-      24000,
-      24000
+      29600,
+      29600
     ],
+    "native_support_m": 80,
+    "coarse_comparison_support_m": 925,
     "window_bounds": [
-      3637.0,
-      3737.0,
-      3937.0,
-      4037.0
+      3602.0,
+      3702.0,
+      3972.0,
+      4072.0
     ],
     "dem_and_count_grid_aligned": true
   },
+  "matched_coarse_support_approx_925m": {
+    "pixel_size_m": 925.0,
+    "rows": 32,
+    "columns": 32,
+    "window_extent_m": [
+      29600.0,
+      29600.0
+    ],
+    "valid_elevation_cells": 1024,
+    "total_cells": 1024,
+    "elevation_coverage_percent": 100.0,
+    "slope_deg": {
+      "median": 13.396506309509277,
+      "p90": 30.935405731201172,
+      "p95": 31.61575698852539,
+      "valid_3x3_neighbourhoods": 900
+    },
+    "3x3_local_relief_m_2775m_footprint": {
+      "median": 570.837890625,
+      "p90": 1390.872802734375,
+      "p95": 1494.8409423828125
+    },
+    "ldec_positive_return_support": {
+      "mean_native_pixel_fraction_per_coarse_cell_percent": 99.99488830566406,
+      "coarse_cells_with_any_positive_returns": 1024,
+      "coarse_cells_total": 1024
+    }
+  },
   "terrain_metrics": {
     "elevation_relative_to_1737_4km_sphere_m": {
-      "count": 90000,
+      "count": 136900,
       "min": -2869.0,
-      "p10": -2020.6000000000004,
-      "median": 638.0,
-      "p90": 1462.5,
-      "p95": 1608.5,
+      "p10": -1651.5,
+      "median": 472.5,
+      "p90": 1373.5,
+      "p95": 1547.5,
       "max": 1958.0
     },
     "slope_deg_from_80m_dem": {
-      "count": 88804,
-      "min": 0.17904872813898817,
-      "p10": 5.930603512432502,
-      "median": 15.943418925458943,
-      "p90": 31.625727606127164,
-      "p95": 32.63751704818038,
+      "count": 135424,
+      "min": 0.0,
+      "p10": 5.812153590963241,
+      "median": 14.712291524366417,
+      "p90": 31.20405216506577,
+      "p95": 32.35350264600522,
       "max": 38.14416026033731
     },
     "3x3_local_relief_m_240m_footprint": {
-      "count": 88804,
-      "min": 1.5,
-      "p10": 21.5,
-      "median": 59.0,
-      "p90": 126.0,
-      "p95": 134.5,
+      "count": 135424,
+      "min": 0.5,
+      "p10": 21.0,
+      "median": 54.0,
+      "p90": 124.5,
+      "p95": 133.5,
       "max": 167.0
     },
-    "valid_interpolated_elevation_cells": 90000,
-    "total_window_cells": 90000,
+    "valid_interpolated_elevation_cells": 136900,
+    "total_window_cells": 136900,
     "ldec_count_map": {
-      "cells_with_positive_lola_returns": 89996,
-      "cells_with_valid_count_value": 90000,
-      "coverage_with_positive_returns_percent": 100.0,
-      "mean_returns_per_valid_count_cell": 36.6112,
+      "cells_with_positive_lola_returns": 136893,
+      "cells_with_valid_count_value": 136900,
+      "coverage_with_positive_returns_percent": 99.99,
+      "mean_returns_per_valid_count_cell": 36.67372534696859,
       "median_returns_per_valid_count_cell": 35.0,
       "p90_returns_per_valid_count_cell": 58.0
     }
