@@ -20,6 +20,24 @@
 @media(max-width:1150px){.app{grid-template-columns:70px minmax(0,1fr)}.sidebar .brand{padding:0;justify-content:center}.brandname,.navlabel,.navitem span:not(.navicon),.sidefoot .small{display:none}.navgroup{padding:12px 8px}.navitem{justify-content:center;padding:12px 5px}.sidefoot{text-align:center}.grid-main{grid-template-columns:minmax(0,1.4fr) minmax(310px,1fr)}.sourceitems{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:850px){.grid-main,.lowergrid{grid-template-columns:1fr}.rightstack{grid-template-columns:1fr 1fr;grid-template-rows:auto;min-height:0}.mapcard{min-height:460px}.mapbody,.mapbody #map{min-height:410px}.opsstack{grid-template-columns:1fr 1fr;grid-template-rows:auto}.imagerycard{min-height:0}}
 @media(max-width:600px){.app{grid-template-columns:1fr}.sidebar{position:fixed;left:0;right:0;bottom:0;top:auto;height:58px;width:100%;border-right:0;border-top:1px solid #173a52;flex-direction:row;justify-content:space-around}.sidebar .brand,.sidefoot,.navlabel{display:none}.navgroup{padding:4px;display:flex;gap:3px;align-items:center}.navitem{width:42px;height:42px;margin:0;padding:0}.navitem span:not(.navicon){display:none}.navicon{font-size:15px}.topbar{padding:0 12px;height:58px}.top-left{gap:8px}.sectionname{font-size:11px}.topmeta,.topchip,.operator>span{display:none}.main{padding:10px 9px 70px}.toolbar{align-items:flex-start}.grid-main,.lowergrid{gap:9px}.rightstack,.opsstack{grid-template-columns:1fr;grid-template-rows:auto}.mapcard{min-height:415px}.mapbody,.mapbody #map{min-height:365px}.mapoverlay{width:190px;padding:9px}.imagerycontent{grid-template-columns:1fr}.imagebox{height:155px}.sourceitems{grid-template-columns:1fr 1fr}.researchfooter{display:block}.researchfooter span{display:block;margin-top:4px}.footer{display:block}.footer span{display:block;margin-top:4px}.toolbar .actions{flex-wrap:wrap;justify-content:flex-end}.sourcegrid{grid-template-columns:1fr 1fr}}
+
+.labPanel{margin-top:12px}.labIntro{padding:12px 14px 0;color:#90aabb;font-size:9px;line-height:1.6}
+.labControls{display:grid;grid-template-columns:1fr 1fr auto;gap:9px;padding:12px 14px;align-items:end}
+.labControl label{display:block;color:#7f9eb0;font-size:8px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:5px}
+.labControl select{width:100%;border:1px solid #28536b;background:#071b2b;color:#dceef4;border-radius:7px;padding:9px 10px;font:inherit;font-size:10px;min-height:36px}
+.labButton{border:1px solid #2389ad;background:#0b3348;color:#a8ecfb;border-radius:7px;padding:9px 12px;font-size:9px;font-weight:850;letter-spacing:.05em;cursor:pointer;min-height:36px}
+.labButton:hover{background:#10445e;border-color:#45c8ef}.labSummary{margin:0 14px 10px;padding:11px 12px;border:1px solid #1b536a;background:#082538;border-radius:8px;color:#d7edf4;font-size:10px;line-height:1.6}
+.labSummary b{color:#79e1f7}.labTableWrap{padding:0 14px 12px;overflow-x:auto}.labTable{width:100%;border-collapse:collapse;min-width:760px;font-size:9px}
+.labTable th{padding:9px 8px;color:#7da0b3;text-align:left;text-transform:uppercase;letter-spacing:.07em;font-size:7px;font-weight:850;border-bottom:1px solid #214459;background:#091c2b}
+.labTable td{padding:9px 8px;border-bottom:1px solid #15364b;color:#b9d1dc;white-space:nowrap}.labTable td:first-child{color:#e0eff4;font-weight:800}
+.labDelta{color:#90adbd}.labWinner{display:inline-block;border:1px solid #246a62;background:#0b302d;color:#7ce6c9;border-radius:12px;padding:3px 7px;font-size:7px;font-weight:850}
+.labDecision{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:10px;padding:0 14px 12px}
+.labBox{border:1px solid #183e53;background:#081d2c;border-radius:8px;padding:11px;min-width:0}.labBox h4{margin:0 0 7px;color:#d9ebf1;font-size:9px;letter-spacing:.04em}
+.labBox p,.labBox li{color:#8ca8b8;font-size:8px;line-height:1.6}.labBox ul{margin:7px 0 0;padding-left:16px}.labBox li{margin:4px 0}
+.labFoot{padding:0 14px 13px;color:#6f8fa2;font-size:8px;line-height:1.6}.labFoot a{white-space:nowrap}
+.labTools{display:flex;align-items:center;gap:8px;padding:0 14px 14px;flex-wrap:wrap}.labTools small{color:#7896a8;font-size:8px}
+@media(max-width:850px){.labControls{grid-template-columns:1fr 1fr}.labControls .labButton{grid-column:1/-1}.labDecision{grid-template-columns:1fr}}
+@media(max-width:600px){.labControls{grid-template-columns:1fr}.labControls .labButton{grid-column:auto}.labSummary{margin-left:10px;margin-right:10px}.labTableWrap{padding-left:10px;padding-right:10px}.labDecision{padding-left:10px;padding-right:10px}.labIntro,.labFoot,.labTools{padding-left:10px;padding-right:10px}}
 </style>
 </head>
 <body>
@@ -125,7 +143,7 @@
      <div class="timeline">
       <div class="timelinehead"><b>DATA ACQUISITION WORKFLOW</b><span id="snapshotDate">SNAPSHOT DATE —</span></div>
       <div class="steps">
-       <div class="step"><div class="stepdot">✓</div><b>Climate</b><small>NASA POWER<br>7/7 sites</small></div>
+       <div class="step"><div class="stepdot">✓</div><b>Climate</b><small>NASA POWER<br>8/8 site snapshots</small></div>
        <div class="step"><div class="stepdot">✓</div><b>Scene Search</b><small>Sentinel-2<br>metadata</small></div>
        <div class="step warn" id="quickStep"><div class="stepdot">!</div><b>Quicklooks</b><small>COG preview<br>status</small></div>
        <div class="step"><div class="stepdot">✓</div><b>Terrain</b><small>CopDEM / MOLA<br>coarse profile</small></div>
@@ -152,12 +170,31 @@
    <div class="terrainWarning" id="terrainCaveat">Coverage and interpretation notes load from the validated terrain output. Terrain profiles are descriptors only—not geological equivalence, rover mobility, landing safety or a Mars similarity percentage. Earth DSM and Mars areoid elevation datums are not compared.</div>
   </section>
 
+
+  <section class="card labPanel" id="missionLab">
+   <div class="cardhead"><div><div class="cardtitle">MISSION REHEARSAL LAB / EVIDENCE-LED TERRAIN MATCHING</div><div class="cardhint">Compare measured terrain descriptors at approximately common 925 m support · no blended similarity score</div></div><span class="statuspill blue" id="labStatus">LOADING EVIDENCE</span></div>
+   <div class="labIntro">Choose a planetary reference and the field experiment you want to rehearse. ANALOG-X compares the available Earth and planetary terrain profiles, shows which site is closer on each measured dimension, and turns the evidence into a field protocol.</div>
+   <div class="labControls">
+    <div class="labControl"><label for="labTarget">Planetary reference site</label><select id="labTarget"><option value="moon">Moon · Shackleton Rim / south pole</option><option value="mars">Mars · Nili Patera / Syrtis Major</option></select></div>
+    <div class="labControl"><label for="labObjective">Field experiment</label><select id="labObjective"><option value="terrain">Terrain morphology & traverse documentation</option><option value="cryosphere">Cryosphere / ice-debris mapping rehearsal</option></select></div>
+    <button class="labButton" id="labExport">GENERATE FIELD PROTOCOL ↓</button>
+   </div>
+   <div class="labSummary" id="labSummary">Loading the Earth, Mars and Moon terrain profiles…</div>
+   <div class="labTableWrap"><table class="labTable"><thead><tr><th>Measured descriptor</th><th>Planetary reference</th><th>Koh-i-Sultan</th><th>Δ from target</th><th>Hispar Glacier</th><th>Δ from target</th><th>Closer on this metric</th></tr></thead><tbody id="labMetricRows"><tr><td colspan="7">Waiting for validated terrain files…</td></tr></tbody></table></div>
+   <div class="labDecision">
+    <div class="labBox"><h4 id="labRecommendationTitle">FIELD REHEARSAL RECOMMENDATION</h4><p id="labRecommendation">Select an objective to see which Earth site offers the most relevant documented rehearsal conditions.</p><ul id="labProtocol"></ul></div>
+    <div class="labBox"><h4>INTERPRETATION & LIMITATIONS</h4><p id="labLimits">Terrain descriptors are regional context only. They do not establish landing safety, rover mobility, geological equivalence, or resource availability.</p><p id="labQuality"></p></div>
+   </div>
+   <div class="labFoot">Method: compare absolute differences in median slope, P90 slope, and P90 3×3 local relief (approximately 2.775 km footprint). Earth Copernicus GLO-30 DSM is averaged to ~925 m; Mars MOLA is ~915–926 m near Nili Patera; lunar LOLA 80 m is averaged to ~925 m. A closer numeric descriptor is not proof of a complete analog. <span id="labSourceLinks"><a href="./docs/DATA_SOURCES.md" target="_blank">Data provenance ↗</a></span></div>
+   <div class="labTools"><button class="labButton" id="labExportFooter">DOWNLOAD AUDITABLE PROTOCOL JSON ↓</button><small id="labExportNote">Includes source values, differences, protocol steps and non-transferable conditions.</small></div>
+  </section>
+
   <section class="card coveragepanel" id="challengeCoverage">
    <div class="cardhead"><div><div class="cardtitle">NASA CHALLENGE / OBJECTIVE COVERAGE</div><div class="cardhint">What the current release demonstrates—and what is still outstanding</div></div><span class="statuspill gold">PARTIAL COMPLIANCE</span></div>
    <div class="coverageGrid">
     <div class="coverageItem"><b>EARTH OBSERVATIONS</b><p>NASA POWER for eight locations; Sentinel-2 L2A scene metadata and previews; Copernicus DEM terrain; NASA CMR MODIS/MERRA-2 catalogue discovery.</p><span class="statuspill">INTEGRATED</span></div>
     <div class="coverageItem"><b>MARS REFERENCE</b><p>MOLA 64 ppd profile around Nili Patera, compared with Pakistan terrain at coarse support. Only 50.53% of MOLA cells are observed.</p><span class="statuspill gold">PARTIAL / LIMITED COVERAGE</span></div>
-    <div class="coverageItem"><b>PERMANENT LUNAR BASE</b><p>NASA LRO LOLA 80 m south-pole DEM and count map processed around Shackleton Rim, then aggregated to ~925 m for a common terrain-support comparison with Earth/Mars. Diviner annual temperature and water-ice-permafrost products remain unprocessed; illumination and PSR mapping are also outstanding.</p><span class="statuspill gold">LOLA TERRAIN INTEGRATED / DIVINER PENDING</span></div>
+    <div class="coverageItem"><b>PERMANENT LUNAR BASE</b><p>NASA LRO LOLA 80 m south-pole DEM and count map processed around Shackleton Rim, then aggregated to ~925 m for a common terrain-support comparison with Earth/Mars. Diviner PRP V2.0 collection metadata and south-polar table range access are verified, but site-level temperature / ice-depth statistics are not yet processed; illumination and PSR mapping remain outstanding.</p><span class="statuspill gold">LOLA INTEGRATED / DIVINER ACCESS VERIFIED · PROCESSING PENDING</span></div>
     <div class="coverageItem"><b>GEOLOGY / SURFACE MATERIALS</b><p>USGS maps Koh-i-Sultan as agglomerate, tuff and andesitic lava: useful for volcanic/hydrothermal process rehearsal, not basaltic composition equivalence. No site-scale mineral map or field samples are integrated.</p><span class="statuspill gold">PARTIAL / NEEDS VALIDATION</span></div>
     <div class="coverageItem"><b>ENVIRONMENT / RESOURCES</b><p>Climate, solar, wind, precipitation and temperature context is present. Dust flux, water-ice abundance, illumination, resource prospectivity and subsurface conditions are not calculated.</p><span class="statuspill gold">PARTIAL</span></div>
     <div class="coverageItem"><b>MAP / EXPLANATION / FIELD USE</b><p>Interactive study-area map, evidence provenance, transferability limits, source audit and downloadable field-validation card.</p><span class="statuspill">IMPLEMENTED</span></div>
@@ -385,12 +422,152 @@ function renderLunar(){
   statusPill($("lunarTerrainCoverage"),"NO VALID PROFILE","red");
  }
 }
+
+function labEarthMetrics(key){
+ const rec=terrainData?.earth_sites?.[key],m=rec?.terrain_metrics;
+ if(!m||rec.status!=="processed")return null;
+ return {name:rec.site?.name||key,medianSlope:m.slope_deg?.median,p90Slope:m.slope_deg?.p90,p90Relief:m["3x3_local_relief_m"]?.p90,coverage:m.coverage?.valid_percent,source:rec.source||null};
+}
+function labTargetMetrics(id){
+ if(id==="moon"){
+  const m=lunarData?.matched_coarse_support_approx_925m;
+  if(!m?.slope_deg||!m["3x3_local_relief_m_2775m_footprint"])return null;
+  return {name:lunarData.site?.name||"Shackleton Rim / Moon",medianSlope:m.slope_deg.median,p90Slope:m.slope_deg.p90,p90Relief:m["3x3_local_relief_m_2775m_footprint"].p90,coverage:m.elevation_coverage_percent,returnSupport:m.ldec_positive_return_support?.mean_native_pixel_fraction_per_coarse_cell_percent,source:"NASA LRO LOLA PDS GDR · native 80 m aggregated to ~925 m"};
+ }
+ const m=terrainData?.planetary_target?.terrain_metrics;
+ if(!m?.slope_deg||!m["3x3_local_relief_m"])return null;
+ return {name:terrainData.planetary_target.name||"Nili Patera / Mars",medianSlope:m.slope_deg.median,p90Slope:m.slope_deg.p90,p90Relief:m["3x3_local_relief_m"].p90,coverage:m.coverage?.valid_percent,completeNeighborhoods:m.complete_3x3_neighbourhood_count,source:"MGS MOLA MEGDR · 64 pixels/degree"};
+}
+function updateLabObjectiveOptions(){
+ const target=$("labTarget")?.value||"moon",select=$("labObjective");
+ if(!select)return;
+ const previous=select.value;
+ const opts=target==="moon"
+  ?[["terrain","Terrain morphology & traverse documentation"],["cryosphere","Cryosphere / ice-debris mapping rehearsal"]]
+  :[["terrain","Terrain morphology & traverse documentation"],["volcanic","Volcanic outcrop / alteration mapping rehearsal"]];
+ select.innerHTML=opts.map(([v,label])=>"<option value='"+v+"'>"+label+"</option>").join("");
+ select.value=opts.some(x=>x[0]===previous)?previous:"terrain";
+}
+function labFmt(v,unit,d=1){return typeof v==="number"&&Number.isFinite(v)?v.toFixed(d)+unit:"—";}
+function labDiff(value,target,unit,d=1){
+ if(!Number.isFinite(value)||!Number.isFinite(target))return "—";
+ const delta=Math.abs(value-target),pct=Math.abs(target)>1e-9?delta/Math.abs(target)*100:null;
+ return "Δ "+delta.toFixed(d)+unit+(pct===null?"":" · "+pct.toFixed(1)+"%");
+}
+function labBuildModel(){
+ const targetId=$("labTarget")?.value||"moon",objective=$("labObjective")?.value||"terrain";
+ const target=labTargetMetrics(targetId),koh=labEarthMetrics("koh_i_sultan"),hispar=labEarthMetrics("hispar_glacier");
+ if(!target||!koh||!hispar)return null;
+ const defs=[{key:"medianSlope",label:"Median slope",unit:"°",d:2},{key:"p90Slope",label:"P90 slope",unit:"°",d:2},{key:"p90Relief",label:"P90 3×3 local relief",unit:" m",d:0}];
+ const metrics=defs.map(def=>{
+  const a=Math.abs(koh[def.key]-target[def.key]),b=Math.abs(hispar[def.key]-target[def.key]);
+  return {...def,target:target[def.key],koh:koh[def.key],hispar:hispar[def.key],kohDelta:a,hisparDelta:b,closer:a===b?"Tie":a<b?"Koh-i-Sultan":"Hispar Glacier"};
+ });
+ const wins={koh:metrics.filter(x=>x.closer==="Koh-i-Sultan").length,hispar:metrics.filter(x=>x.closer==="Hispar Glacier").length};
+ let selectedKey="koh_i_sultan",selectionReason="";
+ if(objective==="terrain"){
+  selectedKey=wins.koh===wins.hispar?null:wins.koh>wins.hispar?"koh_i_sultan":"hispar_glacier";
+  selectionReason=selectedKey?(selectedKey==="koh_i_sultan"?"Koh-i-Sultan":"Hispar Glacier")+" is closer on "+Math.max(wins.koh,wins.hispar)+" of the 3 measured terrain descriptors.":"The descriptors are split; there is no single terrain-profile leader.";
+ }else if(objective==="volcanic"){
+  selectedKey="koh_i_sultan";
+  selectionReason="Koh-i-Sultan is selected for the documented volcanic-field context and outcrop-mapping workflow, not because its rock composition is proven equivalent to Mars.";
+ }else if(objective==="cryosphere"){
+  selectedKey="hispar_glacier";
+  selectionReason="Hispar Glacier is selected for cryosphere image interpretation and ice/debris field-validation practice, not as a lunar water-ice or permanently shadowed-region equivalent.";
+ }
+ return {targetId,objective,target,koh,hispar,metrics,wins,selectedKey,selectionReason};
+}
+function labProtocolFor(model){
+ if(!model)return [];
+ if(model.objective==="volcanic")return [
+  "Map volcanic units, outcrop boundaries and alteration-context observations using georeferenced field photographs.",
+  "Record each observation with coordinates, scale, instrument, confidence and sample/context provenance.",
+  "Cross-check remote-sensing interpretations against field observations; use spectroscopy or laboratory assays before making mineral claims.",
+  "Compare the resulting field workflow with planetary volcanic-terrain science questions while explicitly recording compositional differences."
+ ];
+ if(model.objective==="cryosphere")return [
+  "Use the Sentinel-2 scene as a pre-field reference to delineate ice, debris and visible surface boundaries.",
+  "Select accessible validation points and record GNSS position, surface class, debris cover and observation confidence.",
+  "Capture scale-controlled image pairs and log surface and air temperature separately where instruments permit.",
+  "Record seasonal / illumination context; do not infer lunar permanently shadowed-region conditions or accessible water from glacier imagery."
+ ];
+ return model.targetId==="moon"?[
+  "Use the matched-scale terrain profile to identify regional slope and relief zones; do not use 925 m products to select rover-scale paths.",
+  "Plan a field traverse only after reviewing higher-resolution DEMs, access, hazards and site permissions.",
+  "Ground-check selected slope / relief transitions with surveyed positions, clinometer readings and scale-controlled imagery.",
+  "Log route segments, instrument performance, uncertainty and terrain classes separately for comparison with the lunar reference."
+ ]:[
+  "Use the coarse terrain profile to frame a regional reconnaissance plan around the Nili Patera comparison window.",
+  "Map volcanic landforms and outcrop contacts with georeferenced observations; do not infer Mars mineralogy from the Earth DEM.",
+  "Collect field-scale elevation / slope measurements to bridge the gap between 925 m regional descriptors and rover-scale terrain.",
+  "Record where the Earth site differs from the Mars reference, including geology, atmosphere, gravity, radiation and dust behaviour."
+ ];
+}
+function renderMissionLab(){
+ const status=$("labStatus");
+ if(!status)return;
+ const model=labBuildModel();
+ if(!model){
+  statusPill(status,"WAITING FOR TERRAIN DATA","gold");
+  $("labSummary").textContent="One or more Earth / planetary terrain profiles did not load. The comparator will remain unavailable rather than filling gaps with estimates.";
+  $("labMetricRows").innerHTML="<tr><td colspan='7'>Validated terrain data unavailable.</td></tr>";
+  return;
+ }
+ statusPill(status,"COMPARISON READY","");
+ const rows=model.metrics.map(m=>{
+  const chosen=m.closer==="Tie"?"<span class='labWinner'>TIE</span>":"<span class='labWinner'>"+esc(m.closer)+"</span>";
+  return "<tr><td>"+esc(m.label)+"</td><td>"+labFmt(m.target,m.unit,m.d)+"</td><td>"+labFmt(m.koh,m.unit,m.d)+"</td><td class='labDelta'>"+labDiff(m.koh,m.target,m.unit,m.d)+"</td><td>"+labFmt(m.hispar,m.unit,m.d)+"</td><td class='labDelta'>"+labDiff(m.hispar,m.target,m.unit,m.d)+"</td><td>"+chosen+"</td></tr>";
+ }).join("");
+ $("labMetricRows").innerHTML=rows;
+ let heading="No single site leads across the selected terrain descriptors.";
+ if(model.wins.koh>model.wins.hispar)heading="Koh-i-Sultan is closer on "+model.wins.koh+" of 3 terrain descriptors.";
+ if(model.wins.hispar>model.wins.koh)heading="Hispar Glacier is closer on "+model.wins.hispar+" of 3 terrain descriptors.";
+ const median=model.metrics[0],p90=model.metrics[1],relief=model.metrics[2];
+ $("labSummary").innerHTML="<b>"+esc(model.target.name)+"</b> — "+esc(heading)+" The comparison is dimension-by-dimension: "+esc(model.koh.name)+" median-slope Δ "+labFmt(median.kohDelta,"°",2)+", P90-slope Δ "+labFmt(p90.kohDelta,"°",2)+", relief Δ "+labFmt(relief.kohDelta," m",0)+"; "+esc(model.hispar.name)+" median-slope Δ "+labFmt(median.hisparDelta,"°",2)+", P90-slope Δ "+labFmt(p90.hisparDelta,"°",2)+", relief Δ "+labFmt(relief.hisparDelta," m",0)+". These are descriptor differences—not a probability or planetary similarity percentage.";
+ const labels={terrain:"Terrain morphology & traverse documentation",volcanic:"Volcanic outcrop / alteration mapping rehearsal",cryosphere:"Cryosphere / ice-debris mapping rehearsal"};
+ $("labRecommendationTitle").textContent=model.selectedKey==="koh_i_sultan"?"PRIMARY FIELD REHEARSAL / KOH-I-SULTAN":model.selectedKey==="hispar_glacier"?"PRIMARY FIELD REHEARSAL / HISPAR GLACIER":"FIELD REHEARSAL / NO SINGLE LEADER";
+ $("labRecommendation").textContent=(model.selectedKey?(model.selectedKey==="koh_i_sultan"?"Koh-i-Sultan / Chagai":"Hispar Glacier / Karakoram"):"Both Earth profiles remain candidates")+": "+model.selectionReason+" Objective: "+labels[model.objective]+".";
+ $("labProtocol").innerHTML=labProtocolFor(model).map(x=>"<li>"+esc(x)+"</li>").join("");
+ const targetLimits=model.targetId==="mars"
+  ?"MOLA observation coverage in the Nili Patera window is "+labFmt(model.target.coverage,"% ",2)+" ("+model.target.completeNeighborhoods+" complete 3×3 neighbourhoods). Treat this as limited-coverage regional context."
+  :"The lunar LOLA elevation surface is interpolated. Positive-return support is "+labFmt(model.target.returnSupport,"% ",2)+"; this reports laser-return support, not illumination or ice confirmation.";
+ const taskLimit=model.objective==="volcanic"
+  ?"USGS maps Koh-i-Sultan as agglomerate, tuff and andesitic lava. It is a volcanic-process rehearsal site, not a basaltic composition match."
+  :model.objective==="cryosphere"
+  ?"A terrestrial glacier does not reproduce lunar vacuum, gravity, radiation, illumination cycles, permanently shadowed regions or the origin/stability of lunar volatiles."
+  :"The two sites use different planetary DEM products. Similar coarse slope/relief values do not establish matching geology, surface materials, trafficability or rover safety.";
+ $("labLimits").textContent=targetLimits+" "+taskLimit+" Earth Copernicus GLO-30 is a digital surface model; it is not a bare-earth terrain model.";
+ $("labQuality").textContent="Scale / window: approximately 925 m cells over approximately 30 km windows. P90 local relief spans a 3×3-cell footprint (~2.775 km). No elevation values are compared across planetary vertical datums.";
+ window.currentMissionLabModel=model;
+}
+function downloadMissionLabCard(){
+ const m=window.currentMissionLabModel||labBuildModel();
+ if(!m)return;
+ const card={
+  schema_version:"1.0",project:"ANALOG-X",generated_at_utc:new Date().toISOString(),
+  title:"Mission-specific Earth field rehearsal protocol",
+  planetary_reference:{name:m.target.name,body:m.targetId==="moon"?"Moon":"Mars",terrain_metrics:{median_slope_deg:m.target.medianSlope,p90_slope_deg:m.target.p90Slope,p90_3x3_local_relief_m:m.target.p90Relief},data_source:m.target.source,coverage_percent:m.target.coverage,return_support_percent:m.target.returnSupport??null,complete_3x3_neighbourhoods:m.target.completeNeighborhoods??null},
+  experiment:m.objective,
+  earth_candidates:{
+   koh_i_sultan:{name:m.koh.name,metrics:{median_slope_deg:m.koh.medianSlope,p90_slope_deg:m.koh.p90Slope,p90_3x3_local_relief_m:m.koh.p90Relief,valid_cells_percent:m.koh.coverage}},
+   hispar_glacier:{name:m.hispar.name,metrics:{median_slope_deg:m.hispar.medianSlope,p90_slope_deg:m.hispar.p90Slope,p90_3x3_local_relief_m:m.hispar.p90Relief,valid_cells_percent:m.hispar.coverage}}
+  },
+  dimension_differences:m.metrics.map(x=>({descriptor:x.label,reference_value:x.target,koh_i_sultan_value:x.koh,koh_absolute_difference:x.kohDelta,hispar_glacier_value:x.hispar,hispar_absolute_difference:x.hisparDelta,closer_on_this_dimension:x.closer})),
+  terrain_descriptor_wins:m.wins,primary_rehearsal_candidate:m.selectedKey,selection_reason:m.selectionReason,
+  field_protocol:labProtocolFor(m),
+  interpretation_limits:[$("labLimits").textContent,$("labQuality").textContent,"A closer numeric descriptor is not a planetary similarity probability or site safety certification."],
+  provenance:{terrain_comparison:"./data/terrain/terrain_comparison.json",lunar_lola:"./data/moon/shackleton_lola_80m.json",data_sources:"./docs/DATA_SOURCES.md",method:"Absolute differences in three regional descriptors; no composite similarity score."}
+ };
+ const blob=new Blob([JSON.stringify(card,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;a.download="ANALOG-X_Mission_Rehearsal_Protocol.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1200);
+}
+
 function renderPipeline(){
  const count=Object.keys(power).length;
  const sceneCount=catalog?Object.keys(catalog.planetary_computer?.sites||{}).length:0;
  const terrainComplete=!!(terrainData?.planetary_target?.terrain_metrics&&terrainData?.earth_sites?.koh_i_sultan?.status==="processed"&&terrainData?.earth_sites?.hispar_glacier?.status==="processed");
  const lunarComplete=!!(lunarData?.matched_coarse_support_approx_925m?.slope_deg&&lunarData?.matched_coarse_support_approx_925m?.ldec_positive_return_support);
- statusPill($("systemHealth"),count===8&&sceneCount===2&&terrainComplete&&lunarComplete?"DATA VERIFIED":"PARTIAL DATA",count===8&&sceneCount===2&&terrainComplete&&lunarComplete?"":"gold");
+ statusPill($("systemHealth"),count===8&&sceneCount===2&&terrainComplete&&lunarComplete?"CORE EVIDENCE LOADED":"PARTIAL CORE DATA",count===8&&sceneCount===2&&terrainComplete&&lunarComplete?"":"gold");
  $("snapshotDate").textContent="NASA SNAPSHOT · "+(power.koh?.source?.fetched_at_utc||"—").slice(0,10);
  $("siteCount").textContent="02 STUDY AREAS";
 }
@@ -403,10 +580,10 @@ function showModal(kind){
  let title="",body="";
  if(kind==="method"){
   title="ANALOG-X / Evidence-readiness methodology";
-  body="<p><b>Purpose.</b> Establish whether a candidate Earth site has sufficient, traceable, scale-compatible evidence to support a specific planetary field rehearsal—and identify the evidence gap that remains.</p><ul><li><b>Integrated:</b> NASA POWER climatology is fetched and versioned in the repository.</li><li><b>Metadata discovered:</b> Planetary Computer STAC provides Sentinel-2 L2A scene records and asset provenance.</li><li><b>Preview:</b> COG true-colour quicklooks are clipped to the candidate area; previews are not geological classification.</li><li><b>Existing baseline:</b> EvK2CNR has already mapped Pakistan's glacier inventory; ANALOG-X must credit and reuse, not claim to discover, it.</li><li><b>Reference only:</b> Mars MOLA and lunar LOLA/Diviner datasets are linked but not yet processed in this version.</li></ul><p>We intentionally do not calculate a universal Earth-to-Mars similarity percentage from variables with incompatible units or spatial support.</p><a href='./docs/PROBLEM_AND_DIFFERENTIATION.md' target='_blank'>Read full problem statement ↗</a>";
+  body="<p><b>Purpose.</b> Compare Earth field sites with selected lunar/Martian terrain references, then identify which field methods can be rehearsed and where the analogy breaks down.</p><ul><li><b>NASA POWER:</b> eight site climatology snapshots, seven variables per site; gridded climate context, not local station observations.</li><li><b>Sentinel-2:</b> STAC scene discovery plus true-colour previews for Koh-i-Sultan and Hispar; no mineral classification is inferred.</li><li><b>Terrain:</b> Copernicus DEM GLO-30 DSM for two Pakistan sites, MOLA around Nili Patera (50.53% observed-cell coverage), and LOLA around Shackleton Rim (native 80 m plus a ~925 m aggregate).</li><li><b>Mission Rehearsal Lab:</b> compares median slope, P90 slope and P90 local relief dimension-by-dimension; no composite analog probability or safety score is produced.</li><li><b>Diviner:</b> PDS PRP V2.0 collection and south-polar table access have been diagnosed; local site-level thermal/resource statistics are not yet integrated.</li><li><b>Institutional context:</b> EvK2CNR glacier inventory is an existing baseline; SUPARCO/NDMA portals are references until public data access and licences are verified.</li></ul><p>ANALOG-X makes task-specific field-rehearsal recommendations, not claims of complete planetary equivalence.</p><a href='./docs/PROBLEM_AND_DIFFERENTIATION.md' target='_blank'>Read full problem statement ↗</a>";
  }else if(kind==="submission"){
   title="NASA Space Apps / project submission";
-  body="<p><b>Project:</b> ANALOG-X — Pakistan Analog Evidence Operations Atlas.</p><p><b>Core contribution:</b> a source-traceable, multi-source evidence workflow that characterizes candidate sites and exposes missing evidence before an Earth location is called a useful planetary analog.</p><p><b>Demo:</b> this live application. <a href='./demo.html' target='_blank'>Open project presentation ↗</a></p><p><b>Current verified assets:</b> NASA POWER snapshots for eight coordinates; Sentinel-2 L2A scenes and clipped previews for Koh-i-Sultan and Hispar; NASA EPIC global imagery; Copernicus DEM GLO-30 terrain profiles and MOLA 64 ppd descriptors around Nili Patera.</p><p><b>Important honesty boundary:</b> the Mars window has limited observation coverage (about 50.5%) and only 87 complete 3×3 neighbourhoods. Lunar LOLA/Diviner rasters remain reference-only; SUPARCO/NDMA portal layers are not claimed as integrated; geological equivalence is not claimed.</p><a href='./docs/NASA_SUBMISSION_TEXT.md' target='_blank'>Open submission copy ↗</a>";
+  body="<p><b>Project:</b> ANALOG-X — Pakistan Analog Evidence Operations Atlas.</p><p><b>Core contribution:</b> a source-traceable, multi-source evidence workflow that characterizes candidate sites and exposes missing evidence before an Earth location is called a useful planetary analog.</p><p><b>Demo:</b> this live application. <a href='./demo.html' target='_blank'>Open project presentation ↗</a></p><p><b>Current verified assets:</b> NASA POWER snapshots for eight coordinates; Sentinel-2 L2A scenes and clipped previews for Koh-i-Sultan and Hispar; NASA EPIC global imagery; Copernicus DEM GLO-30, Mars MOLA and lunar LOLA terrain profiles; dimension-level Mission Rehearsal Lab. Diviner PRP site-level processing and illumination/PSR mapping remain outstanding.</p><p><b>Important honesty boundary:</b> the Mars window has limited observation coverage (about 50.5%) and only 87 complete 3×3 neighbourhoods. Lunar LOLA terrain is integrated; Diviner PRP V2.0 site-level thermal/resource statistics remain pending. SUPARCO/NDMA portal layers are not claimed as integrated; geological equivalence is not claimed.</p><a href='./docs/NASA_SUBMISSION_TEXT.md' target='_blank'>Open submission copy ↗</a>";
  }else if(kind==="report"){
   title="Field validation card";
   const s=SITE[current],p=power[current],m=p?.metrics||{};
@@ -432,6 +609,10 @@ function bindUI(){
  $("zoomIn").addEventListener("click",()=>map&&map.zoomIn());$("zoomOut").addEventListener("click",()=>map&&map.zoomOut());$("fitSites").addEventListener("click",fitSites);
  $("btnPakistan").addEventListener("click",()=>{if(map)fitSites();$("btnPakistan").classList.add("active");$("btnGlobal").classList.remove("active");});
  $("btnGlobal").addEventListener("click",()=>{if(map)map.setView([25,35],2);$("btnGlobal").classList.add("active");$("btnPakistan").classList.remove("active");});
+ $("labTarget").addEventListener("change",()=>{updateLabObjectiveOptions();renderMissionLab();});
+ $("labObjective").addEventListener("change",renderMissionLab);
+ $("labExport").addEventListener("click",downloadMissionLabCard);
+ $("labExportFooter").addEventListener("click",downloadMissionLabCard);
  $("btnReport").addEventListener("click",()=>showModal("report"));
  $("btnReport").addEventListener("keydown",()=>{});
 }
@@ -461,7 +642,7 @@ async function loadAll(){
  if(tasks[11].status==="fulfilled")terrainData=tasks[11].value;
  if(tasks[12].status==="fulfilled")cmrData=tasks[12].value;
  if(tasks[13].status==="fulfilled")lunarData=tasks[13].value;
- renderPipeline();renderQuicklooks();renderEpic();renderTerrain();renderLunar();renderCmr();renderSiteData(current);
+ renderPipeline();renderQuicklooks();renderEpic();renderTerrain();renderLunar();renderCmr();renderSiteData(current);renderMissionLab();
 }
 function boot(){
  setClock();setInterval(setClock,1000);
