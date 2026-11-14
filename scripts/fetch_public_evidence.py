@@ -130,9 +130,15 @@ def get_scene_set(site_id,site):
 
 
 def copernicus_dem_search(site):
+    # Search a wider footprint than the image preview so the 30 km terrain
+    # window can be assembled across neighbouring one-degree DEM tiles.
+    lat=float(site["latitude"]); lon=float(site["longitude"])
+    lat_delta=0.18
+    lon_delta=0.20
+    bbox=[lon-lon_delta,lat-lat_delta,lon+lon_delta,lat+lat_delta]
     body={
       "collections":["cop-dem-glo-30"],
-      "bbox":site["bbox"],
+      "bbox":bbox,
       "limit":20
     }
     r=session.post(SEARCH,json=body,timeout=(20,90))
