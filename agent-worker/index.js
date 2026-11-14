@@ -535,7 +535,6 @@ function parseToolArgs(call) {
 async function runMissionAgent(env, body, context, candidateIds, agents) {
   const system = [
     "You are ANALOG-X Mission Director, a careful planetary field-science decision agent.",
-    "The user is asking: " + body.question,
     "Mission target: " + body.mission_target + ". Experiment: " + body.objective + ".",
     "Evidence policy: " + (body.evidence_mode || "strict") + ". In strict mode, do not promote a site without a documented task overlap, a traceable source, NASA POWER context and at least one site-specific satellite or processed terrain layer.",
     "You have four deterministic specialist reports (terrain morphology, climate campaign, surface/process, evidence integrity). These reports and the tool outputs are the scientific source of truth.",
