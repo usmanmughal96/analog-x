@@ -49,8 +49,8 @@
 @media(max-width:850px){.labCampaign{grid-template-columns:1fr}}
 @media(max-width:600px){.labCampaign{margin-left:10px;margin-right:10px}}
 </style>
-<link rel='stylesheet' href='./assets/analogx-labs.css'>
-<link rel='stylesheet' href='./assets/analogx-scout.css'>
+<link rel='stylesheet' href='./assets/analogx-labs.css?v=20261114-portalfix'>
+<link rel='stylesheet' href='./assets/analogx-scout.css?v=20261114-portalfix'>
 </head>
 <body>
 <div class="launchScreen" id="launchScreen" role="dialog" aria-modal="true" aria-label="Opening ANALOG-X planetary research portal" tabindex="0">
@@ -898,8 +898,8 @@ function axEnterPortal(fromUser=false){
  const screen=$("launchScreen");
  if(!screen||axLaunchAudio.entered)return;
  axLaunchAudio.entered=true;
- if(fromUser&&!axLaunchAudio.enabled)axSetSound(true,false);
- if(axLaunchAudio.enabled)axPlayPortalCue();
+ if(fromUser&&!axLaunchAudio.enabled)axSetSound(true,true);
+ else if(axLaunchAudio.enabled)axPlayPortalCue();
  if(axLaunchAudio.timer){clearTimeout(axLaunchAudio.timer);axLaunchAudio.timer=null;}
  screen.classList.add("is-exiting");
  screen.setAttribute("aria-hidden","true");
@@ -941,5 +941,5 @@ function boot(){
 boot();
 })();
 </script>
-<script src='./assets/analogx-labs.js'></script>
+<script src='./assets/analogx-labs.js?v=20261114-portalfix'></script>
 </body></html>
