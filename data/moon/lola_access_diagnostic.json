@@ -1,60 +1,30 @@
 {
-  "generated_at_utc": "2026-11-14T14:52:31+00:00",
+  "generated_at_utc": "2026-11-14T14:53:35+00:00",
   "files": {
     "elevation": {
-      "url": "https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/Site04/Site04_final_adj_5mpp_surf.tif",
-      "status": "opened",
-      "width": 3200,
-      "height": 3200,
-      "crs": "PROJCS[\"unnamed\",GEOGCS[\"unnamed ellipse\",DATUM[\"unknown\",SPHEROID[\"unnamed\",1737400,0]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Polar_Stereographic\"],PARAMETER[\"latitude_of_origin\",-90],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1],AXIS[\"Easting\",NORTH],AXIS[\"Northing\",NORTH]]",
-      "bounds": [
-        -9000.0,
-        -15000.0,
-        7000.0,
-        1000.0
-      ],
-      "transform": [
-        5.0,
-        0.0,
-        -9000.0,
-        0.0,
-        -5.0,
-        1000.0
-      ],
-      "dtype": "float32",
-      "nodata": NaN,
-      "block_shapes": [
-        [
-          1,
-          3200
-        ]
-      ],
-      "overviews": [],
-      "driver": "GTiff",
-      "small_window": {
-        "status": "failed",
-        "error": "RasterioIOError('Read failed. See previous exception for details.')"
-      }
+      "url": "https://core2.gsfc.nasa.gov/PGDA/LOLA_5mpp/Site04/Site04_final_adj_5mpp_surf.tif",
+      "status": "open_failed",
+      "error": "RasterioIOError('CURL error: Could not resolve host: core2.gsfc.nasa.gov')"
     },
     "counts": {
-      "url": "https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/Site04/Site04_final_adj_5mpp_ldec.tif",
+      "url": "https://core2.gsfc.nasa.gov/PGDA/LOLA_5mpp/Site04/Site04_final_adj_5mpp_ldec.tif",
       "status": "open_failed",
-      "error": "RasterioIOError('HTTP response code: 403')"
+      "error": "RasterioIOError('CURL error: Could not resolve host: core2.gsfc.nasa.gov')"
     },
     "slope": {
-      "url": "https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/Site04/Site04_final_adj_5mpp_slp.tif",
+      "url": "https://core2.gsfc.nasa.gov/PGDA/LOLA_5mpp/Site04/Site04_final_adj_5mpp_slp.tif",
       "status": "open_failed",
-      "error": "RasterioIOError('HTTP response code: 403')"
+      "error": "RasterioIOError('CURL error: Could not resolve host: core2.gsfc.nasa.gov')"
     },
     "z_uncertainty": {
-      "url": "https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/Site04/Site04_final_adj_5mpp_toterr.tif",
+      "url": "https://core2.gsfc.nasa.gov/PGDA/LOLA_5mpp/Site04/Site04_final_adj_5mpp_toterr.tif",
       "status": "open_failed",
-      "error": "RasterioIOError('HTTP response code: 403')"
+      "error": "RasterioIOError('CURL error: Could not resolve host: core2.gsfc.nasa.gov')"
     },
     "slope_uncertainty": {
-      "url": "https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/Site04/Site04_final_adj_5mpp_slperr.tif",
+      "url": "https://core2.gsfc.nasa.gov/PGDA/LOLA_5mpp/Site04/Site04_final_adj_5mpp_slperr.tif",
       "status": "open_failed",
-      "error": "RasterioIOError('HTTP response code: 403')"
+      "error": "RasterioIOError('CURL error: Could not resolve host: core2.gsfc.nasa.gov')"
     }
   }
 }
