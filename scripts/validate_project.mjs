@@ -9,6 +9,7 @@ const catalog = JSON.parse(read("data/agents/candidate_catalog.json"));
 const power = JSON.parse(read("data/power/index.json"));
 const terrain = JSON.parse(read("data/terrain/terrain_comparison.json"));
 const lunar = JSON.parse(read("data/moon/shackleton_lola_80m.json"));
+const diviner = JSON.parse(read("data/moon/diviner_prp_diagnostic/report.json"));
 
 const ids = [...html.matchAll(/\bid=["']([^"']+)["']/g)].map((m) => m[1]);
 const duplicates = ids.filter((id, i) => ids.indexOf(id) !== i);
@@ -41,6 +42,7 @@ for (const site of sites) {
   assert(Array.isArray(site.mission_targets), `Missing mission target tags: ${site.id}`);
   assert(Array.isArray(site.environment_tags), `Missing environment tags: ${site.id}`);
   assert(Array.isArray(site.rehearsal_tasks), `Missing documented rehearsal tasks: ${site.id}`);
+  assert(Array.isArray(site.source_references) && site.source_references.length > 0, `Candidate lacks a source reference: ${site.id}`);
 }
 
 assert.equal(power.record_count, Object.keys(power.records || {}).length, "NASA POWER index count does not match records");
@@ -65,6 +67,14 @@ assert(workerJs.includes('@cf/openai/gpt-oss-20b'), "Open-weight Mission Directo
 assert(workerJs.includes('missionTarget === "Both"'), "Worker does not return separate Moon/Mars comparisons");
 assert(workerJs.includes('evidence_mode'), "Worker does not accept strict/exploratory evidence policy");
 assert(workerJs.includes('function executeTool'), "Allow-listed tool executor missing");
+assert(workerJs.includes("function parseLeakedToolCalls"), "gpt-oss raw JSON tool-call recovery missing");
+assert(workerJs.includes("ALLOWED_TOOL_NAMES.has(name)"), "Tool-call recovery is not allow-list constrained");
+for (const toolName of ["get_candidate_inventory", "compare_terrain_profiles", "derive_campaign_windows", "scout_earth_coordinate", "read_surface_evidence"]) {
+  assert(workerJs.includes(`name: "${toolName}"`), `Agent tool missing: ${toolName}`);
+}
+const southPrp = diviner.pds3_alternative?.["DLRE_PRP_SOUTH.TAB"];
+assert.equal(southPrp?.range_status, 206, "Diviner south-polar table range probe missing");
+assert.equal(String(southPrp?.content_length), "604800210", "Unexpected Diviner south-polar table size");
 assert(read("docs/DECISION_ENGINE.md").includes("Strict evidence policy"), "Decision method documentation missing");
 
 console.log("ANALOG-X validation passed:");
