@@ -278,8 +278,8 @@ def main():
     scale=label_info["scale_factor"];offset=label_info["offset"]
     # MOLA topography tile is the 64 px/degree 90N-to-equator, 0E-to-180E map.
     earth_sites={
-      "koh_i_sultan":{"name":"Koh-i-Sultan / Chagai, Pakistan","lat":29.1,"lon":62.8,"catalog_key":"koh_i_sultan"},
-      "hispar_glacier":{"name":"Hispar Glacier / Karakoram, Pakistan","lat":36.10572,"lon":75.23341,"catalog_key":"hispar_glacier"}
+      "koh_i_sultan":{"name":"Koh-i-Sultan / Chagai, Pakistan","latitude":29.1,"longitude":62.8,"catalog_key":"koh_i_sultan"},
+      "hispar_glacier":{"name":"Hispar Glacier / Karakoram, Pakistan","latitude":36.10572,"longitude":75.23341,"catalog_key":"hispar_glacier"}
     }
     result={
       "generated_at_utc":utcnow(),
