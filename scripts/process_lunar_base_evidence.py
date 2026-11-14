@@ -101,10 +101,22 @@ def wrapped_lon_delta(lon_deg: float, lon0_deg: float) -> float:
 
 
 def local_offsets_km(lat_deg: float, lon_deg: float) -> tuple[float, float]:
-    lat0 = math.radians(CENTER_LAT_DEG)
-    north = MOON_RADIUS_KM * math.radians(lat_deg - CENTER_LAT_DEG)
+    """Spherical azimuthal-equidistant offsets from the Shackleton AOI centre."""
+    phi0 = math.radians(CENTER_LAT_DEG)
+    phi = math.radians(lat_deg)
     dlon = math.radians(wrapped_lon_delta(lon_deg, CENTER_LON_EAST_DEG))
-    east = MOON_RADIUS_KM * math.cos(lat0) * dlon
+    cos_c = (
+        math.sin(phi0) * math.sin(phi)
+        + math.cos(phi0) * math.cos(phi) * math.cos(dlon)
+    )
+    c = math.acos(max(-1.0, min(1.0, cos_c)))
+    sin_c = math.sin(c)
+    k = c / sin_c if abs(sin_c) > 1e-12 else 1.0
+    east = MOON_RADIUS_KM * k * math.cos(phi) * math.sin(dlon)
+    north = MOON_RADIUS_KM * k * (
+        math.cos(phi0) * math.sin(phi)
+        - math.sin(phi0) * math.cos(phi) * math.cos(dlon)
+    )
     return east, north
 
 
