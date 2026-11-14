@@ -7,7 +7,8 @@ const state={catalog:null,powerIndex:null,terrain:null,imagery:null,lunar:null,p
 const scenarios=[
  {target:"Mars",objective:"playa",title:"MISSION 01 / MARS EVAPORITE RECONNAISSANCE",question:"A Mars team wants to rehearse mapping dry playa surfaces, possible evaporite accumulations and sediment transport. Which Pakistan field lead should be investigated first?",options:[["chagai_small_playas","Chagai small salt playas near Nok Kundi"],["hispar_glacier","Hispar Glacier / Karakoram"],["koh_i_sultan","Koh-i-Sultan volcanic field"],["hamun_i_mashkel","Hamun-i-Mashkel playa"]],correct:"chagai_small_playas",why:"The NASA 1974 report identifies two small salt-surfaced playas near Nok Kundi and discusses possible evaporite/brine context. This is a historical lead, not modern proof of mineralogy or brine. Hamun-i-Mashkel is a broader basin-scale comparator. Both need field verification."},
  {target:"Mars",objective:"volcanic",title:"MISSION 02 / MARS VOLCANIC FIELD MAPPING",question:"Which Pakistan site has mapped volcanic units that can support rehearsal of outcrop logging and orbital-to-ground field mapping?",options:[["koh_i_sultan","Koh-i-Sultan / Chagai"],["hamun_i_mashkel","Hamun-i-Mashkel playa"],["hispar_glacier","Hispar Glacier"],["chagai_small_playas","Chagai small salt playas"]],correct:"koh_i_sultan",why:"USGS maps Koh-i-Sultan as agglomerate, tuff and andesitic lava. That supports volcanic-process rehearsal, but it is not a basaltic composition match to Syrtis Major. Ground samples and site-scale mineral mapping are still missing."},
- {target:"Moon",objective:"cryosphere",title:"MISSION 03 / LUNAR POLAR OPERATIONS",question:"Which Earth site can help rehearse snow/ice image interpretation, debris-boundary observation and cold-region sensor workflows—without pretending to reproduce a lunar permanently shadowed region?",options:[["hispar_glacier","Hispar Glacier / Karakoram"],["chagai_small_playas","Chagai salt playas"],["dallol","Dallol / Danakil"],["koh_i_sultan","Koh-i-Sultan / Chagai"]],correct:"hispar_glacier",why:"Hispar is useful for terrestrial cryosphere observation and remote field workflows. A glacier does not reproduce lunar vacuum, gravity, radiation, illumination cycles or PSR ice stability."}
+ {target:"Moon",objective:"cryosphere",title:"MISSION 03 / LUNAR POLAR OPERATIONS",question:"Which Earth site can help rehearse snow/ice image interpretation, debris-boundary observation and cold-region sensor workflows—without pretending to reproduce a lunar permanently shadowed region?",options:[["hispar_glacier","Hispar Glacier / Karakoram"],["chagai_small_playas","Chagai salt playas"],["dallol","Dallol / Danakil"],["koh_i_sultan","Koh-i-Sultan / Chagai"]],correct:"hispar_glacier",why:"Hispar is useful for terrestrial cryosphere observation and remote field workflows. A glacier does not reproduce lunar vacuum, gravity, radiation, illumination cycles or PSR ice stability."},
+ {target:"Mars",objective:"terrain",title:"MISSION 04 / TERRAIN DATA QUALITY",question:"A MOLA window around Nili Patera has 50.53% observed-cell coverage, while its Earth DEM comparator is complete at ~925 m support. What is the scientifically responsible decision?",options:[["coverage_aware","Compare regional descriptors but display the coverage imbalance and avoid safety claims"],["fill_all_gaps","Fill every missing MOLA cell and report an exact similarity percentage"],["landing_safe","Treat the closest median slope as proof that the Earth site is rover-safe"],["same_geology","Infer matching geology from similar slope and local relief"]],correct:"coverage_aware",why:"The observed count grid shows only 567 of 1,122 MOLA cells and 87 complete 3×3 neighborhoods. Keep this coverage caveat with every comparison; a ~925 m regional descriptor cannot establish geology, rover trafficability or landing safety."}
 ];
 let currentSites=[];
 function json(path){return fetch(path,{cache:"no-store"}).then(r=>{if(!r.ok)throw Error(path+" HTTP "+r.status);return r.json();});}
@@ -114,6 +115,7 @@ function renderGame(){
  $("axGameTitle").textContent=q.title;$("axGameQuestion").textContent=q.question;
  $("axGameProgress").textContent="MISSION "+String(state.game+1).padStart(2,"0")+" / "+scenarios.length;
  $("axGameFeedback").style.display="none";$("axGameFeedback").textContent="";
+ $("axGameToDirector").disabled=true;
  $("axGameOptions").innerHTML=q.options.map(([id,label])=>"<button class='axGameOption' data-ax-game='"+esc(id)+"'>"+esc(label)+"</button>").join("");
  renderGameStats();
 }
@@ -133,6 +135,7 @@ function answerGame(id){
  }
  $("axAgentMission").value=q.target;$("axAgentObjective").value=q.objective;
  $("axAgentQuestion").value=q.question+" Explain what evidence supports the choice, where the analogy breaks down and what measurement should come next.";
+ $("axGameToDirector").disabled=false;
  renderGameStats();
 }
 
@@ -436,6 +439,7 @@ function bind(){
  $("axAgentCandidates").addEventListener("change",e=>{const cb=e.target.closest("[data-ax-site]");if(cb)syncCandidateSelection(cb.value,cb.checked,cb);});
  $("axGameOptions").addEventListener("click",e=>{const b=e.target.closest("[data-ax-game]");if(b)answerGame(b.dataset.axGame);});
  $("axGameNext").addEventListener("click",()=>{state.game=(state.game+1)%scenarios.length;renderGame();});
+ $("axGameToDirector").addEventListener("click",()=>{$("agentBay").scrollIntoView({behavior:"smooth",block:"start"});runLocal();});
  $("axAgentConnect").addEventListener("click",()=>testEndpoint(true));
  $("axAgentRunLocal").addEventListener("click",runLocal);
  $("axAgentRunCloud").addEventListener("click",runCloud);
