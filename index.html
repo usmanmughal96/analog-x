@@ -38,6 +38,16 @@
 .labTools{display:flex;align-items:center;gap:8px;padding:0 14px 14px;flex-wrap:wrap}.labTools small{color:#7896a8;font-size:8px}
 @media(max-width:850px){.labControls{grid-template-columns:1fr 1fr}.labControls .labButton{grid-column:1/-1}.labDecision{grid-template-columns:1fr}}
 @media(max-width:600px){.labControls{grid-template-columns:1fr}.labControls .labButton{grid-column:auto}.labSummary{margin-left:10px;margin-right:10px}.labTableWrap{padding-left:10px;padding-right:10px}.labDecision{padding-left:10px;padding-right:10px}.labIntro,.labFoot,.labTools{padding-left:10px;padding-right:10px}}
+
+.labCampaign{margin:0 14px 12px;display:grid;grid-template-columns:1.15fr 1fr;gap:10px}
+.labCampaign .labBox{height:100%}
+.labCampaign h4{margin:0 0 7px;color:#d9ebf1;font-size:9px;letter-spacing:.04em}
+.labCampaign p,.labCampaign li{color:#8ca8b8;font-size:8px;line-height:1.6}
+.labCampaign ul{margin:7px 0 0;padding-left:16px}
+.labCampaign li{margin:4px 0}
+.labCampaignNote{color:#6f8fa2!important;margin-top:8px}
+@media(max-width:850px){.labCampaign{grid-template-columns:1fr}}
+@media(max-width:600px){.labCampaign{margin-left:10px;margin-right:10px}}
 </style>
 </head>
 <body>
@@ -177,13 +187,18 @@
    <div class="labControls">
     <div class="labControl"><label for="labTarget">Planetary reference site</label><select id="labTarget"><option value="moon">Moon · Shackleton Rim / south pole</option><option value="mars">Mars · Nili Patera / Syrtis Major</option></select></div>
     <div class="labControl"><label for="labObjective">Field experiment</label><select id="labObjective"><option value="terrain">Terrain morphology & traverse documentation</option><option value="cryosphere">Cryosphere / ice-debris mapping rehearsal</option></select></div>
-    <button class="labButton" id="labExport">GENERATE FIELD PROTOCOL ↓</button>
+    <button class="labButton" id="labExport">DOWNLOAD FIELD PROTOCOL JSON ↓</button>
    </div>
    <div class="labSummary" id="labSummary">Loading the Earth, Mars and Moon terrain profiles…</div>
    <div class="labTableWrap"><table class="labTable"><thead><tr><th>Measured descriptor</th><th>Planetary reference</th><th>Koh-i-Sultan</th><th>Δ from target</th><th>Hispar Glacier</th><th>Δ from target</th><th>Closer on this metric</th></tr></thead><tbody id="labMetricRows"><tr><td colspan="7">Waiting for validated terrain files…</td></tr></tbody></table></div>
    <div class="labDecision">
     <div class="labBox"><h4 id="labRecommendationTitle">FIELD REHEARSAL RECOMMENDATION</h4><p id="labRecommendation">Select an objective to see which Earth site offers the most relevant documented rehearsal conditions.</p><ul id="labProtocol"></ul></div>
     <div class="labBox"><h4>INTERPRETATION & LIMITATIONS</h4><p id="labLimits">Terrain descriptors are regional context only. They do not establish landing safety, rover mobility, geological equivalence, or resource availability.</p><p id="labQuality"></p></div>
+   </div>
+
+   <div class="labCampaign">
+    <div class="labBox"><h4>FIELD CAMPAIGN SIGNAL / NASA POWER CLIMATOLOGY</h4><p id="labSeason">Loading monthly climate snapshots…</p><p class="labCampaignNote">Shows the three lowest NASA POWER monthly climatological precipitation values at each Earth coordinate, with mean 2 m air temperature and 10 m wind. This is a seasonal planning signal—not a forecast, road/access assessment, safety window or station observation.</p></div>
+    <div class="labBox"><h4>FIELD KIT / TASK-SPECIFIC CHECKLIST</h4><ul id="labEquipment"><li>Equipment checklist will appear with the selected field experiment.</li></ul></div>
    </div>
    <div class="labFoot">Method: compare absolute differences in median slope, P90 slope, and P90 3×3 local relief (approximately 2.775 km footprint). Earth Copernicus GLO-30 DSM is averaged to ~925 m; Mars MOLA is ~915–926 m near Nili Patera; lunar LOLA 80 m is averaged to ~925 m. A closer numeric descriptor is not proof of a complete analog. <span id="labSourceLinks"><a href="./docs/DATA_SOURCES.md" target="_blank">Data provenance ↗</a></span></div>
    <div class="labTools"><button class="labButton" id="labExportFooter">DOWNLOAD AUDITABLE PROTOCOL JSON ↓</button><small id="labExportNote">Includes source values, differences, protocol steps and non-transferable conditions.</small></div>
@@ -503,6 +518,39 @@ function labProtocolFor(model){
   "Record where the Earth site differs from the Mars reference, including geology, atmosphere, gravity, radiation and dust behaviour."
  ];
 }
+
+function labDriestMonths(siteId){
+ const record=power[siteId],rows=record?.monthly||[];
+ return rows.filter(x=>typeof x.precip==="number"&&Number.isFinite(x.precip))
+  .sort((a,b)=>a.precip-b.precip).slice(0,3)
+  .map(x=>({month:x.month,precip_mm_day:x.precip,temp_c:x.temp,wind_ms:x.wind,solar_kwh_m2_day:x.solar}));
+}
+function labEquipmentFor(model){
+ if(model.objective==="volcanic")return [
+  "GNSS receiver / geotagged field tablet and offline topographic maps",
+  "Camera with scale bars, field notebook, compass and digital clinometer",
+  "Hand lens and, where available, calibrated portable spectrometer for screening only",
+  "Sample bags, labels and chain-of-custody log for authorized sampling; appropriate eye/hand/foot protection"
+ ];
+ if(model.objective==="cryosphere")return [
+  "GNSS receiver, offline imagery/maps and camera with scale reference",
+  "Surface/air temperature logger with timestamped observation sheet",
+  "Ice/debris classification cards and safe survey markers",
+  "Glacier-rated PPE and travel equipment under a qualified local guide; never use this remote-sensing plan as an expedition safety assessment"
+ ];
+ return [
+  "GNSS receiver, offline high-resolution DEM/maps and route log",
+  "Digital clinometer/inclinometer and survey staff for field-scale slope checks",
+  "Camera with scale reference, rugged field tablet and spare power",
+  "PPE, communications, first-aid and site-specific safety plan"
+ ];
+}
+function labCampaignSummary(){
+ const koh=labDriestMonths("koh"),hispar=labDriestMonths("hispar_glacier");
+ const fmtRows=(rows)=>rows.length?rows.map(x=>x.month+" ("+x.precip_mm_day.toFixed(2)+" mm/day; "+(Number.isFinite(x.temp_c)?x.temp_c.toFixed(1)+" °C":"—")+"; "+(Number.isFinite(x.wind_ms)?x.wind_ms.toFixed(1)+" m/s":"—")+" wind)").join(" · "):"No valid monthly precipitation values";
+ return "Koh-i-Sultan: "+fmtRows(koh)+". Hispar Glacier: "+fmtRows(hispar)+". Select the months for further local access, forecast, permit and safety review; low precipitation alone does not establish field suitability.";
+}
+
 function renderMissionLab(){
  const status=$("labStatus");
  if(!status)return;
@@ -528,6 +576,8 @@ function renderMissionLab(){
  $("labRecommendationTitle").textContent=model.selectedKey==="koh_i_sultan"?"PRIMARY FIELD REHEARSAL / KOH-I-SULTAN":model.selectedKey==="hispar_glacier"?"PRIMARY FIELD REHEARSAL / HISPAR GLACIER":"FIELD REHEARSAL / NO SINGLE LEADER";
  $("labRecommendation").textContent=(model.selectedKey?(model.selectedKey==="koh_i_sultan"?"Koh-i-Sultan / Chagai":"Hispar Glacier / Karakoram"):"Both Earth profiles remain candidates")+": "+model.selectionReason+" Objective: "+labels[model.objective]+".";
  $("labProtocol").innerHTML=labProtocolFor(model).map(x=>"<li>"+esc(x)+"</li>").join("");
+ $("labSeason").textContent=labCampaignSummary();
+ $("labEquipment").innerHTML=labEquipmentFor(model).map(x=>"<li>"+esc(x)+"</li>").join("");
  const targetLimits=model.targetId==="mars"
   ?"MOLA observation coverage in the Nili Patera window is "+labFmt(model.target.coverage,"% ",2)+" ("+model.target.completeNeighborhoods+" complete 3×3 neighbourhoods). Treat this as limited-coverage regional context."
   :"The lunar LOLA elevation surface is interpolated. Positive-return support is "+labFmt(model.target.returnSupport,"% ",2)+"; this reports laser-return support, not illumination or ice confirmation.";
@@ -555,6 +605,8 @@ function downloadMissionLabCard(){
   dimension_differences:m.metrics.map(x=>({descriptor:x.label,reference_value:x.target,koh_i_sultan_value:x.koh,koh_absolute_difference:x.kohDelta,hispar_glacier_value:x.hispar,hispar_absolute_difference:x.hisparDelta,closer_on_this_dimension:x.closer})),
   terrain_descriptor_wins:m.wins,primary_rehearsal_candidate:m.selectedKey,selection_reason:m.selectionReason,
   field_protocol:labProtocolFor(m),
+  field_campaign_climatology:{koh_i_sultan_driest_months:labDriestMonths("koh"),hispar_glacier_driest_months:labDriestMonths("hispar_glacier"),interpretation:"Lowest NASA POWER monthly climatological precipitation values only; not a forecast or site-access guarantee."},
+  equipment_checklist:labEquipmentFor(m),
   interpretation_limits:[$("labLimits").textContent,$("labQuality").textContent,"A closer numeric descriptor is not a planetary similarity probability or site safety certification."],
   provenance:{terrain_comparison:"./data/terrain/terrain_comparison.json",lunar_lola:"./data/moon/shackleton_lola_80m.json",data_sources:"./docs/DATA_SOURCES.md",method:"Absolute differences in three regional descriptors; no composite similarity score."}
  };
