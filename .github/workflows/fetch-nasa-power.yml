@@ -48,4 +48,5 @@ jobs:
             exit 0
           fi
           git commit -m "Refresh NASA POWER climatology snapshots"
+          git pull --rebase origin main
           git push
