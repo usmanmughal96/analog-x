@@ -19,10 +19,12 @@ The console now covers four Pakistan study windows:
 
 The console combines NASA POWER climatology, Sentinel-2 scene discovery and spectral-context screens, true-colour previews, Copernicus DEM terrain descriptors, Moon/Mars reference profiles, institutional baselines and explicit data gaps. The two playa areas are research leads—not confirmed mineral/brine deposits or validated new-to-science analogs. No site is presented as a complete Moon/Mars analog.
 
-### Mission Rehearsal Lab
-The live console includes an interactive, evidence-led terrain comparator. Select **Shackleton Rim (Moon)** or **Nili Patera (Mars)**, then choose a task (terrain morphology, lunar cryosphere/ice-debris field-method rehearsal, or Martian volcanic outcrop/alteration mapping). It compares three measured descriptors—median slope, P90 slope and P90 3×3 local relief—between the planetary reference and both Pakistan case studies at approximately common 925 m support. For each dimension, it shows absolute differences and which Earth site is numerically closer. It then creates a task-specific field protocol and exports an auditable JSON record containing source values, differences, recommendations, methods and limitations.
+### Mission Rehearsal Lab and evidence decision layer
+The Mission Rehearsal Lab compares regional terrain descriptors for selected Earth sites against **Shackleton Rim (Moon)** and **Nili Patera (Mars)** separately. It reports median slope, P90 slope and P90 3×3 local relief at approximately common 925 m support, plus absolute differences and the closest Earth profile on each descriptor. The app also derives three low-precipitation months from NASA POWER climatology and provides task-specific protocols and equipment checklists. These are planning signals, not forecasts or safe-access guarantees.
 
-The comparator intentionally does **not** collapse the three metrics into a universal similarity score. A numerically closer terrain descriptor does not prove matching geology, surface material, rover trafficability, landing safety, ice access or complete planetary analogy. The ~925 m products support regional reconnaissance planning only; rover-scale work requires higher-resolution data and independent validation. The lab also extracts the three lowest-precipitation months from the NASA POWER monthly climatology for each Earth site, shows the associated mean air temperature and 10 m wind, and adds a field kit checklist for the chosen task. These are seasonal planning signals, not weather forecasts or site-access/safety recommendations. The exported JSON includes the climate summaries and equipment checklist.
+The Agent Bay adds a wider **10-site candidate decision engine**. It reads each site's documented rehearsal tasks and environment tags, filters by Moon/Mars eligibility, and displays four separate evidence layers: NASA POWER, Sentinel-2 spectral context, processed terrain and source references. Strict mode requires mission eligibility, a documented task overlap, a traceable source, NASA POWER and at least one site-specific Sentinel-2 or processed terrain layer. Exploratory mode surfaces weaker environmental-context leads with their limits. The ordering is a transparent research-triage rule, not a calibrated similarity score or probability. Ties remain ties.
+
+The two systems intentionally do **not** collapse unlike measurements into a universal Earth-to-Moon/Mars percentage. A numerically closer terrain descriptor does not prove matching geology, surface material, rover trafficability, landing safety, ice access or complete planetary analogy. The ~925 m products support regional reconnaissance only; rover-scale work requires higher-resolution data and independent validation. The interactive Field School adds persistent learning XP for the quiz; XP has no effect on the scientific decision.
 
 
 ## Discovery Atlas and Agentic Science Operations
@@ -95,15 +97,17 @@ See docs/AGENCY_DATA_AUDIT.md for source status, docs/DATA_SOURCES.md for proven
 ## What is differentiated
 Other public 2026 challenge entries already demonstrate analog ranking, mission-to-experiment planning and topographic/lighting comparisons. ANALOG-X does not claim those broad ideas are globally unsolved.
 
-Our narrower contribution is a Pakistan-first evidence operations workflow:
-- NASA POWER climate snapshots for eight coordinates;
-- Sentinel-2 L2A scene discovery and clipped previews for two Pakistan case studies;
-- Copernicus DEM GLO-30 and MOLA 64 ppd terrain descriptors at matched coarse support;
-- explicit MOLA observation-count coverage and data-quality warnings;
-- reuse and attribution of existing EvK2CNR, NDMA and SUPARCO/UN-SPIDER work;
-- a clear distinction between integrated data, discovered metadata, reviewed portals and reference-only sources;
-- field validation tasks and planetary non-transferability limits.
-- an interactive Mission Rehearsal Lab that compares Earth/Moon/Mars terrain descriptors dimension-by-dimension and exports field protocols.
+Our contribution is a Pakistan-first, open-data evidence workflow with a reusable global seed atlas:
+- NASA POWER climatology for ten Earth coordinates;
+- Sentinel-2 L2A scene discovery, spectral-context screening and RGB quicklooks for four Pakistan study windows;
+- Copernicus DEM GLO-30 terrain profiles for four Pakistan windows, compared at coarse support with Mars MOLA and lunar LOLA;
+- explicit MOLA observed-cell coverage and LOLA return-count / interpolation caveats;
+- a mission-specific candidate decision layer that distinguishes documented task overlap, environmental context and four independent evidence layers;
+- a coordinate scout for new Earth locations through public NASA POWER and Planetary Computer endpoints (requires deploying the Worker proxy);
+- transparent attribution of existing EvK2CNR, NDMA, SUPARCO/UN-SPIDER and NASA source material;
+- field protocols, equipment planning, next measurements and explicit planetary non-transferability limits.
+
+The ten-site atlas is a curated starting set—not an exhaustive global scan. The two Chagai playa study windows are under-characterized research leads, not newly discovered or validated mineral/evaporite deposits.
 
 No single universal analog score is calculated.
 
