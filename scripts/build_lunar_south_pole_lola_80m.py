@@ -96,9 +96,13 @@ def main():
   # 12 km half-width gives a 24 km x 24 km local base-area context.
   half_m=12000
   pixels=int(round(half_m/80))
-  window=Window(max(0,col-pixels),max(0,row-pixels),
-                min(dem.width,max(0,col-pixels)+2*pixels),
-                min(dem.height,max(0,row-pixels)+2*pixels))
+  col_off=max(0,col-pixels)
+  row_off=max(0,row-pixels)
+  win_width=min(2*pixels,dem.width-col_off)
+  win_height=min(2*pixels,dem.height-row_off)
+  window=Window(col_off,row_off,win_width,win_height)
+  if win_width<2*pixels or win_height<2*pixels:
+   raise RuntimeError(f"Target is too close to product edge for a full 24 km window: {win_width}x{win_height} pixels")
   z_raw=dem.read(1,window=window,masked=True).astype("float64")
   n_raw=cnt.read(1,window=window,masked=True).astype("float64")
   z_raw=np.asarray(z_raw.filled(np.nan));n=np.asarray(n_raw.filled(np.nan))
