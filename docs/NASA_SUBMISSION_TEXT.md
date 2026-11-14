@@ -1,27 +1,36 @@
-# NASA project-page draft
+# NASA Project Page — ANALOG-X
 
-## Project name
-ANALOG-X — Mission-Specific Planetary Analog Reconnaissance
+## Project Name
+ANALOG-X — Mission-to-Field Planetary Analog Planner
 
-## High-level summary
-ANALOG-X is a source-grounded reconnaissance prototype investigating which aspects of the Koh-i-Sultan volcanic field in Chagai, Pakistan, may inform field-geology methods and robotic geological reconnaissance workflows for Martian volcanic terrain represented by the Syrtis Major MC-13 quadrangle. It organizes evidence by mission task, source, scale, uncertainty and explicit non-analog conditions. It does not claim that Earth reproduces Mars or calculate a single planetary-equivalence score.
+## High-Level Project Summary
+ANALOG-X turns a Moon or Mars exploration objective into an actionable Earth field-campaign plan. Users select a planetary reference and field task, screen candidate Earth environments with live NASA POWER climatology, compare temperature, humidity, precipitation, wind and (for solar tasks) solar resource, identify promising field months, and generate a downloadable field-test plan with protocols, equipment, data provenance and non-transferable planetary conditions.
 
-## Project demo
-https://usmanmughal96.github.io/analog-x/demo.html (publish and verify before submitting)
+The relative Field-Campaign Index ranks only the Earth candidates selected by the user for the chosen field task. It is not a Moon/Mars similarity score, geological equivalence, landing-safety rating or mission-site recommendation. Geological evidence is maintained separately from the climate calculations.
 
-## Final project
-https://usmanmughal96.github.io/analog-x/ (publish and verify before submitting)
+Flagship Pakistan candidate: Koh-i-Sultan, Chagai, with established and alternative environments included for comparison. NASA MOLA and LRO Diviner/LOLA, USGS Syrtis Major MC-13 and SUPARCO Space4Climate are identified as planetary/local data pathways; raw planetary rasters and SUPARCO products are not claimed as processed or integrated in this build.
 
-## Detailed description
-The prototype compares a Pakistani volcanic-field candidate with a broad Martian geological reference to ask whether selected field methods—geological mapping, outcrop logging, sample-context documentation, field imaging and route-planning procedure rehearsal—can be practiced in a terrestrial environment. The approach distinguishes supported evidence, conditional analogies, non-analogous conditions and dimensions not yet measured. NASA GIBS MODIS is referenced as a browse visualization only. NASA MOLA and NASADEM/SRTM processing scripts are included, but raw rasters have not yet been processed in this build. SUPARCO Space4Climate is identified as a potential data source; no Chagai-specific SUPARCO product is claimed as ingested.
+## Link to Project Demo
+https://usmanmughal96.github.io/analog-x/demo.html
 
-## Super Intelligence use
-See docs/AI_DISCLOSURE.md. The project used AI-assisted brainstorming and development support, disclosed transparently. The team must follow the Local Lead and official challenge guidance for any additional disclosure requirements.
+## Link to Final Project
+https://usmanmughal96.github.io/analog-x/
 
-## NASA data and resources
-NASA GIBS MODIS Terra browse service; NASA MOLA MEGDR and observation-count products; NASADEM/SRTM elevation product references. Only the GIBS browse service is referenced in the live prototype; MOLA and NASADEM raw data have not yet been processed.
+## Detailed Description
+The challenge asks teams to discover and characterize terrestrial analogs, explain which characteristics are useful, identify where analogies break down and show how the location or process can prepare exploration. ANALOG-X operationalizes that requirement as a mission-to-field workflow.
 
-## Other references
-USGS Chagai regional geology; USGS Syrtis Major MC-13 quadrangle; Smithsonian Global Volcanism Program Koh-i-Sultan catalogue; SUPARCO Space4Climate as a potential, not yet ingested, data source. See docs/DATA_SOURCES.md for links and status.
+Users select Mars Syrtis Major, Mars Jezero or lunar south-polar/Shackleton context; select volcanic geology/sample-context work, rover-traverse workflow, wind/dust experiments, thermal equipment trials or solar-powered field operations; and choose candidate Earth sites or enter custom coordinates. The browser fetches NASA POWER point climatology at each selected coordinate. It summarizes 2-m air temperature, monthly maximum/minimum air temperature, relative humidity, corrected precipitation and 10-m wind. Solar tasks also request all-sky surface shortwave radiation. The app calculates a transparent, task-specific relative Field-Campaign Index across successful candidates, suggests months from monthly climatology and generates a field-test card with protocol, equipment, source observations and non-transferable planetary conditions.
 
-**Before submitting:** replace demo and final-project URLs if the published URLs differ, confirm the actual registered team roster, and ensure the live app and demo links open without sign-in.
+The tool explicitly separates measured Earth meteorology from curated geological evidence and planetary reference products. It does not infer geology from weather or claim Earth reproduces lunar vacuum, reduced gravity, radiation, polar shadow cycles or Martian pressure. Raw MOLA/Diviner/LOLA raster analysis is not claimed in this version. SUPARCO data are not claimed as ingested.
+
+## Use of Super Intelligence
+See `docs/AI_DISCLOSURE.md`. Disclose the actual use of AI-assisted early brainstorming, concept refinement, code assistance, drafting and documentation. Do not state that the initial idea was wholly unaided. The Local Lead was informed and reportedly approved proceeding; this does not replace any organizer interpretation of SI requirements.
+
+## NASA Data and Resources
+NASA POWER Climatology API is used live to retrieve Earth meteorology/solar climatology. NASA PDS MOLA, LRO Diviner/LOLA and NASA GIBS/Worldview are linked as planetary/Earth reference resources; raw planetary rasters are not processed by this build.
+
+## Other References
+Smithsonian Global Volcanism Program Sultan catalogue (232801); USGS Syrtis Major MC-13; USGS OFR 75-550; NASA Planetary Analog Explorer; NASA Iceland fieldwork; SUPARCO Space4Climate as a potential local data source, not yet integrated.
+
+## Before Submission
+Run at least one live scan from the public app, capture a screenshot of actual API results, generate a field-test plan and verify the app/demo URLs in a private browser. Do not claim raster-derived planetary comparisons or SUPARCO integration unless completed and documented.
