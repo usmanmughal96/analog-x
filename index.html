@@ -53,7 +53,7 @@
 <link rel='stylesheet' href='./assets/analogx-scout.css'>
 </head>
 <body>
-<div class="launchScreen" id="launchScreen" role="status" aria-live="polite" aria-label="Opening ANALOG-X planetary research portal">
+<div class="launchScreen" id="launchScreen" role="dialog" aria-modal="true" aria-label="Opening ANALOG-X planetary research portal" tabindex="0">
  <div class="launchStars"></div>
  <div class="launchPanel">
   <div class="launchEyebrow">PLANETARY FIELD RESEARCH / INITIALISING</div>
@@ -827,9 +827,116 @@ async function loadAll(){
  if(tasks[13].status==="fulfilled")lunarData=tasks[13].value;
  renderPipeline();renderQuicklooks();renderEpic();renderTerrain();renderLunar();renderCmr();renderSiteData(current);renderMissionLab();
 }
+
+/* Portal entry + optional synthesized ambient sound. Audio starts only after a user gesture. */
+const axLaunchAudio={context:null,master:null,filter:null,oscillators:[],enabled:false,entered:false,timer:null};
+function axAudioButtons(){
+ const buttons=[$("soundToggleLaunch"),$("soundToggleTop")].filter(Boolean);
+ buttons.forEach(button=>{
+  button.setAttribute("aria-pressed",axLaunchAudio.enabled?"true":"false");
+  button.textContent=axLaunchAudio.enabled?"♫ SOUND ON":"♫ SOUND OFF";
+  button.setAttribute("aria-label",axLaunchAudio.enabled?"Turn portal sound off":"Turn portal sound on");
+ });
+}
+function axCreateAudio(){
+ if(axLaunchAudio.context)return axLaunchAudio.context;
+ const AudioContextClass=window.AudioContext||window.webkitAudioContext;
+ if(!AudioContextClass)return null;
+ const context=new AudioContextClass();
+ const master=context.createGain();
+ master.gain.value=0.0001;
+ const filter=context.createBiquadFilter();
+ filter.type="lowpass";filter.frequency.value=360;filter.Q.value=.55;
+ filter.connect(master);master.connect(context.destination);
+ const pad=[55,82.41,110];
+ pad.forEach((frequency,index)=>{
+  const oscillator=context.createOscillator();
+  const voice=context.createGain();
+  oscillator.type=index===2?"triangle":"sine";
+  oscillator.frequency.value=frequency;
+  voice.gain.value=index===0?.34:index===1?.16:.045;
+  oscillator.connect(voice);voice.connect(filter);oscillator.start();
+  axLaunchAudio.oscillators.push(oscillator);
+ });
+ axLaunchAudio.context=context;axLaunchAudio.master=master;axLaunchAudio.filter=filter;
+ return context;
+}
+function axPlayPortalCue(){
+ const context=axLaunchAudio.context,master=axLaunchAudio.master;
+ if(!context||!master||!axLaunchAudio.enabled)return;
+ const now=context.currentTime;
+ [[392,0,.42],[587.33,.13,.56],[783.99,.31,.78]].forEach(([frequency,delay,duration])=>{
+  const oscillator=context.createOscillator(),gain=context.createGain();
+  oscillator.type="sine";oscillator.frequency.setValueAtTime(frequency,now+delay);
+  oscillator.frequency.exponentialRampToValueAtTime(frequency*.985,now+delay+duration);
+  gain.gain.setValueAtTime(.0001,now+delay);
+  gain.gain.linearRampToValueAtTime(.075,now+delay+.045);
+  gain.gain.exponentialRampToValueAtTime(.0001,now+delay+duration);
+  oscillator.connect(gain);gain.connect(master);
+  oscillator.start(now+delay);oscillator.stop(now+delay+duration+.03);
+ });
+}
+function axSetSound(enabled,playCue=false){
+ const context=axCreateAudio();
+ if(!context){
+  axLaunchAudio.enabled=false;axAudioButtons();
+  const status=$("launchStatus");if(status)status.textContent="Sound is unavailable in this browser";
+  return false;
+ }
+ axLaunchAudio.enabled=!!enabled;
+ context.resume().then(()=>{
+  if(!axLaunchAudio.master)return;
+  const now=context.currentTime;
+  axLaunchAudio.master.gain.cancelScheduledValues(now);
+  axLaunchAudio.master.gain.setTargetAtTime(axLaunchAudio.enabled?.024:.0001,now,.22);
+  if(axLaunchAudio.enabled&&playCue)axPlayPortalCue();
+ }).catch(()=>{});
+ axAudioButtons();
+ return true;
+}
+function axEnterPortal(fromUser=false){
+ const screen=$("launchScreen");
+ if(!screen||axLaunchAudio.entered)return;
+ axLaunchAudio.entered=true;
+ if(fromUser&&!axLaunchAudio.enabled)axSetSound(true,false);
+ if(axLaunchAudio.enabled)axPlayPortalCue();
+ if(axLaunchAudio.timer){clearTimeout(axLaunchAudio.timer);axLaunchAudio.timer=null;}
+ screen.classList.add("is-exiting");
+ screen.setAttribute("aria-hidden","true");
+ const finish=()=>{screen.classList.add("hidden");screen.style.display="none";};
+ if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)finish();
+ else window.setTimeout(finish,620);
+}
+function initPortalExperience(){
+ const screen=$("launchScreen");
+ if(!screen)return;
+ const enter=()=>axEnterPortal(true);
+ const launchButton=$("launchSkip");
+ if(launchButton)launchButton.addEventListener("click",event=>{event.preventDefault();event.stopPropagation();enter();});
+ screen.addEventListener("click",event=>{
+  if(event.target.closest("#soundToggleLaunch"))return;
+  enter();
+ });
+ screen.addEventListener("keydown",event=>{
+  if((event.key==="Enter"||event.key===" ")&&event.target===screen){event.preventDefault();enter();}
+ });
+ const launchSound=$("soundToggleLaunch");
+ if(launchSound)launchSound.addEventListener("click",event=>{
+  event.preventDefault();event.stopPropagation();axSetSound(!axLaunchAudio.enabled,false);
+ });
+ const topSound=$("soundToggleTop");
+ if(topSound)topSound.addEventListener("click",()=>axSetSound(!axLaunchAudio.enabled,false));
+ axAudioButtons();
+ const status=$("launchStatus");
+ axLaunchAudio.timer=window.setTimeout(()=>{
+  if(status&&!axLaunchAudio.entered)status.textContent="READY · CLICK ANYWHERE TO ENTER";
+  window.setTimeout(()=>axEnterPortal(false),350);
+ },2350);
+}
+
 function boot(){
  setClock();setInterval(setClock,1000);
- initMap();bindUI();loadAll();
+ initPortalExperience();initMap();bindUI();loadAll();
 }
 boot();
 })();
