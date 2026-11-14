@@ -90,24 +90,47 @@ def load_mola_tile():
         download(f"{MOLA_BASE}/{filename}",path)
     top_text=top_lbl.read_text(encoding="latin-1",errors="replace")
     cnt_text=cnt_lbl.read_text(encoding="latin-1",errors="replace")
-    rows=int(pds_label_value(top_text,"LINES",MOLA_ROWS))
-    cols=int(pds_label_value(top_text,"LINE_SAMPLES",MOLA_COLS))
-    bits=int(pds_label_value(top_text,"SAMPLE_BITS",16))
-    sample_type=str(pds_label_value(top_text,"SAMPLE_TYPE","MSB_INTEGER")).upper()
-    if rows!=MOLA_ROWS or cols!=MOLA_COLS or bits!=16 or "MSB" not in sample_type:
-        raise RuntimeError(f"Unexpected MOLA label layout: {rows}x{cols}, {bits} bits, {sample_type}")
-    if top_path.stat().st_size!=rows*cols*2 or cnt_path.stat().st_size!=rows*cols*2:
-        raise RuntimeError("MOLA tile file size does not match label dimensions")
+
+    # MOLA MEGDR topography and counts are separate rasters and do not have
+    # the same sample width: this 64 ppd tile uses 16-bit topography and
+    # 8-bit observation counts. Respect each detached PDS label independently.
+    top_rows=int(pds_label_value(top_text,"LINES",MOLA_ROWS))
+    top_cols=int(pds_label_value(top_text,"LINE_SAMPLES",MOLA_COLS))
+    top_bits=int(pds_label_value(top_text,"SAMPLE_BITS",16))
+    top_type=str(pds_label_value(top_text,"SAMPLE_TYPE","MSB_INTEGER")).upper()
+
+    count_rows=int(pds_label_value(cnt_text,"LINES",MOLA_ROWS))
+    count_cols=int(pds_label_value(cnt_text,"LINE_SAMPLES",MOLA_COLS))
+    count_bits=int(pds_label_value(cnt_text,"SAMPLE_BITS",8))
+    count_type=str(pds_label_value(cnt_text,"SAMPLE_TYPE","UNSIGNED_INTEGER")).upper()
+
+    if (top_rows,top_cols)!=(MOLA_ROWS,MOLA_COLS):
+        raise RuntimeError(f"Unexpected MOLA topography layout: {top_rows}x{top_cols}")
+    if (count_rows,count_cols)!=(MOLA_ROWS,MOLA_COLS):
+        raise RuntimeError(f"Unexpected MOLA counts layout: {count_rows}x{count_cols}")
+    if top_bits!=16 or "MSB" not in top_type:
+        raise RuntimeError(f"Unexpected MOLA topography sample format: {top_bits} bits, {top_type}")
+    if count_bits not in (8,16) or "UNSIGNED" not in count_type:
+        raise RuntimeError(f"Unexpected MOLA counts sample format: {count_bits} bits, {count_type}")
+
+    expected_top=top_rows*top_cols*(top_bits//8)
+    expected_counts=count_rows*count_cols*(count_bits//8)
+    if top_path.stat().st_size!=expected_top:
+        raise RuntimeError(f"MOLA topography size {top_path.stat().st_size} != label-derived {expected_top}")
+    if cnt_path.stat().st_size!=expected_counts:
+        raise RuntimeError(f"MOLA counts size {cnt_path.stat().st_size} != label-derived {expected_counts}")
+
     scale=float(pds_label_value(top_text,"SCALING_FACTOR",1.0))
     offset=float(pds_label_value(top_text,"OFFSET",0.0))
-    counts_type=str(pds_label_value(cnt_text,"SAMPLE_TYPE","MSB_INTEGER")).upper()
-    if "MSB" not in counts_type:raise RuntimeError(f"Unexpected MOLA counts sample type: {counts_type}")
-    top=np.memmap(top_path,dtype=">i2",mode="r",shape=(rows,cols))
-    counts=np.memmap(cnt_path,dtype=">i2",mode="r",shape=(rows,cols))
-    return top,counts,{"rows":rows,"columns":cols,"sample_bits":bits,"sample_type":sample_type,
-                       "scale_factor":scale,"offset":offset,"pixels_per_degree":MOLA_PPD,
-                       "tile_latitude_range_deg":[0,90],"tile_longitude_range_deg":[0,180],
-                       "topography_label":top_text[:1600],"counts_label":cnt_text[:900]}
+    top=np.memmap(top_path,dtype=">i2",mode="r",shape=(top_rows,top_cols))
+    count_dtype=">u1" if count_bits==8 else ">u2"
+    counts=np.memmap(cnt_path,dtype=count_dtype,mode="r",shape=(count_rows,count_cols))
+    return top,counts,{"rows":top_rows,"columns":top_cols,"topography_sample_bits":top_bits,
+                       "topography_sample_type":top_type,"counts_sample_bits":count_bits,
+                       "counts_sample_type":count_type,"scale_factor":scale,"offset":offset,
+                       "pixels_per_degree":MOLA_PPD,"tile_latitude_range_deg":[0,90],
+                       "tile_longitude_range_deg":[0,180],"topography_label":top_text[:1600],
+                       "counts_label":cnt_text[:900]}
 
 def crop_mola(lat,lon,half_width_m,top,counts,scale,offset):
     deg_per_m=180.0/(math.pi*MARS_RADIUS_M)
