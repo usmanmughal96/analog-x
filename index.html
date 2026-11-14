@@ -220,7 +220,7 @@ async function renderSiteData(id){
 }
 function renderSceneStats(id){
  if(!catalog)return;
- const c=catalog.planetary_computer.sites[id];
+ const c=catalog.planetary_computer.sites[SITE[id]?.key||id];
  if(!c){["sceneCount","sceneCloud","sceneDate","sceneTile"].forEach(x=>$(x).textContent="—");return;}
  const searches=c.scene_searches||[];
  const recent=searches.find(x=>x.window==="recent_archive")||searches[0];
@@ -272,7 +272,7 @@ function renderEpic(){
 function renderPipeline(){
  const count=Object.keys(power).length;
  const sceneCount=catalog?Object.keys(catalog.planetary_computer?.sites||{}).length:0;
- statusPill($("systemHealth"),count===7&&sceneCount===2?"DATA VERIFIED":"PARTIAL DATA",count===7&&sceneCount===2?"":"gold");
+ statusPill($("systemHealth"),count===8&&sceneCount===2?"DATA VERIFIED":"PARTIAL DATA",count===8&&sceneCount===2?"":"gold");
  $("snapshotDate").textContent="NASA SNAPSHOT · "+(power.koh?.source?.fetched_at_utc||"—").slice(0,10);
  $("siteCount").textContent="02 STUDY AREAS";
 }
