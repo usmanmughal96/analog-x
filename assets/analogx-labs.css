@@ -401,3 +401,25 @@ a{color:#a6d9d0}
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+
+/* Reliable full-screen launch interaction */
+.launchScreen{cursor:pointer;touch-action:manipulation}
+.launchPanel{cursor:pointer}
+.launchFoot button{cursor:pointer;position:relative;z-index:3}
+.launchScreen.is-exiting{pointer-events:none}
+.soundToggleTop,.launchAudio{user-select:none;-webkit-user-select:none}
+@media(max-width:600px){
+ .launchPanel{padding:24px 17px 18px;border-radius:18px}
+ .launchFoot{flex-direction:column;align-items:stretch;gap:12px}
+ .launchFoot>span{font-size:8px}
+ .launchFoot>div{display:grid;grid-template-columns:1fr 1fr}
+ .launchAudio,.launchEnter{min-height:42px;font-size:10px}
+ .launchPlanetWrap{transform:scale(.92);margin-top:5px;margin-bottom:0}
+ .launchWordmark{font-size:22px}
+ .launchSubtitle{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+ .launchStars,.launchPlanet,.launchOrbitOne,.launchSignal,.launchPanel,.launchProgress i{animation:none!important}
+ .launchScreen{transition:opacity .15s ease,visibility .15s ease}
+}
