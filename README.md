@@ -17,6 +17,11 @@ The current console focuses on two contrasting Pakistan case studies:
 
 The console assembles verified climate snapshots, Sentinel-2 scene metadata and true-colour previews, matched-scale terrain descriptors, institutional baselines and explicit data gaps. It does not claim that either Earth location is a complete Moon/Mars analog. The current work identifies task-specific analog potential, not a proven globally novel analog discovery. The USGS geological report is cited as an existing baseline, not claimed as new field geology.
 
+### Mission Rehearsal Lab
+The live console includes an interactive, evidence-led terrain comparator. Select **Shackleton Rim (Moon)** or **Nili Patera (Mars)**, then choose a task (terrain morphology, lunar cryosphere/ice-debris field-method rehearsal, or Martian volcanic outcrop/alteration mapping). It compares three measured descriptors—median slope, P90 slope and P90 3×3 local relief—between the planetary reference and both Pakistan case studies at approximately common 925 m support. For each dimension, it shows absolute differences and which Earth site is numerically closer. It then creates a task-specific field protocol and exports an auditable JSON record containing source values, differences, recommendations, methods and limitations.
+
+The comparator intentionally does **not** collapse the three metrics into a universal similarity score. A numerically closer terrain descriptor does not prove matching geology, surface material, rover trafficability, landing safety, ice access or complete planetary analogy. The ~925 m products support regional reconnaissance planning only; rover-scale work requires higher-resolution data and independent validation.
+
 ## Verified integrations
 
 ### NASA POWER
@@ -86,6 +91,7 @@ Our narrower contribution is a Pakistan-first evidence operations workflow:
 - reuse and attribution of existing EvK2CNR, NDMA and SUPARCO/UN-SPIDER work;
 - a clear distinction between integrated data, discovered metadata, reviewed portals and reference-only sources;
 - field validation tasks and planetary non-transferability limits.
+- an interactive Mission Rehearsal Lab that compares Earth/Moon/Mars terrain descriptors dimension-by-dimension and exports field protocols.
 
 No single universal analog score is calculated.
 
