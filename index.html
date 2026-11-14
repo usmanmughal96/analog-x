@@ -325,7 +325,8 @@ function renderTerrain(){
 function renderPipeline(){
  const count=Object.keys(power).length;
  const sceneCount=catalog?Object.keys(catalog.planetary_computer?.sites||{}).length:0;
- statusPill($("systemHealth"),count===8&&sceneCount===2?"DATA VERIFIED":"PARTIAL DATA",count===8&&sceneCount===2?"":"gold");
+ const terrainComplete=!!(terrainData?.planetary_target?.terrain_metrics&&terrainData?.earth_sites?.koh_i_sultan?.status==="processed"&&terrainData?.earth_sites?.hispar_glacier?.status==="processed");
+ statusPill($("systemHealth"),count===8&&sceneCount===2&&terrainComplete?"DATA VERIFIED":"PARTIAL DATA",count===8&&sceneCount===2&&terrainComplete?"":"gold");
  $("snapshotDate").textContent="NASA SNAPSHOT · "+(power.koh?.source?.fetched_at_utc||"—").slice(0,10);
  $("siteCount").textContent="02 STUDY AREAS";
 }
@@ -379,6 +380,7 @@ async function loadAll(){
   loadJson("./data/power/haughton.json"),
   loadJson("./data/power/iceland.json"),
   loadJson("./data/power/death.json"),
+  loadJson("./data/power/hispar_glacier.json"),
   loadJson("./data/pakistan/public_scene_catalog.json"),
   loadJson("./data/pakistan/quicklooks/index.json"),
   loadJson("./data/nasa/epic_latest.json"),
@@ -387,10 +389,10 @@ async function loadAll(){
  const paths=["koh","dallol","atacama","mcmurdo","haughton","iceland","death","hispar_glacier"];
  paths.forEach((key,i)=>{if(tasks[i].status==="fulfilled")power[key]=tasks[i].value;});
  if(tasks[0].status==="fulfilled")power.koh=tasks[0].value;
- if(tasks[7].status==="fulfilled")catalog=tasks[7].value;
- if(tasks[8].status==="fulfilled")quicklooks=tasks[8].value;
- if(tasks[9].status==="fulfilled")epic=tasks[9].value;
- if(tasks[10].status==="fulfilled")terrainData=tasks[10].value;
+ if(tasks[8].status==="fulfilled")catalog=tasks[8].value;
+ if(tasks[9].status==="fulfilled")quicklooks=tasks[9].value;
+ if(tasks[10].status==="fulfilled")epic=tasks[10].value;
+ if(tasks[11].status==="fulfilled")terrainData=tasks[11].value;
  renderPipeline();renderQuicklooks();renderEpic();renderTerrain();renderSiteData(current);
 }
 function boot(){
