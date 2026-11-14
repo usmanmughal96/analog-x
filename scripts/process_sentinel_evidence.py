@@ -74,15 +74,36 @@ def get_item(site):
  ))
  return items[0]
 
+SAS_TOKEN=None
+SAS_EXPIRY=None
+
 def sign_href(href):
- r=session.get(SIGN,params={"href":href},timeout=(20,60))
- if r.status_code!=200:
-  raise RuntimeError(f"Planetary Computer SAS sign HTTP {r.status_code}: {r.text[:800]}")
- data=r.json()
- signed=data.get("href")
- if not signed:
-  raise RuntimeError("SAS sign response did not contain href")
- return signed, data.get("msft:expiry")
+ global SAS_TOKEN,SAS_EXPIRY
+ if SAS_TOKEN is None:
+  token_url="https://planetarycomputer.microsoft.com/api/sas/v1/token/"+COLLECTION
+  last_error=None
+  for attempt in range(5):
+   r=session.get(token_url,timeout=(20,60))
+   if r.status_code==429:
+    try: wait=int(r.headers.get("Retry-After","20"))
+    except ValueError: wait=20
+    time.sleep(min(max(wait,5),90))
+    continue
+   if r.status_code!=200:
+    last_error=f"HTTP {r.status_code}: {r.text[:800]}"
+    time.sleep(2*(attempt+1))
+    continue
+   data=r.json()
+   SAS_TOKEN=data.get("token")
+   SAS_EXPIRY=data.get("msft:expiry")
+   if not SAS_TOKEN:
+    last_error="Planetary Computer SAS token response had no token"
+    continue
+   break
+  if SAS_TOKEN is None:
+   raise RuntimeError("Could not obtain Planetary Computer collection SAS token: "+str(last_error))
+ separator="&" if "?" in href else "?"
+ return href+separator+SAS_TOKEN,SAS_EXPIRY
 
 def read_reference_band(href,bbox):
  with rasterio.open(href) as src:
