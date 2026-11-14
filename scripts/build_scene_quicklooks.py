@@ -30,7 +30,9 @@ OUT=ROOT/"data"/"pakistan"/"quicklooks"
 TOKEN_URL="https://planetarycomputer.microsoft.com/api/sas/v1/token/sentinel-2-l2a"
 SITES={
  "koh_i_sultan":{"bbox":[62.70,29.00,62.90,29.20]},
- "hispar_glacier":{"bbox":[75.12,36.02,75.34,36.22]}
+ "hispar_glacier":{"bbox":[75.12,36.02,75.34,36.22]},
+ "chagai_small_playas":{"bbox":[62.54,28.53,62.73,28.64]},
+ "hamun_i_mashkel":{"bbox":[62.82,28.13,63.02,28.33]}
 }
 session=requests.Session()
 session.headers.update({"User-Agent":"ANALOG-X/1.0 public Sentinel-2 preview generator"})
