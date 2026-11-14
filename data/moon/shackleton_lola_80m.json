@@ -1,0 +1,103 @@
+{
+  "generated_at_utc": "2026-11-14T15:10:25+00:00",
+  "provider": "NASA LRO LOLA PDS GDR hosted by MIT Imbrium mirror",
+  "product": "LDEM_80S_80M and LDEC_80S_80M",
+  "source_urls": {
+    "ldem": "https://imbrium.mit.edu/DATA/LOLA_GDR/POLAR/JP2/LDEM_80S_80M.JP2",
+    "ldem_label": "https://imbrium.mit.edu/DATA/LOLA_GDR/POLAR/JP2/LDEM_80S_80M_JP2.LBL",
+    "ldem_aux": "https://imbrium.mit.edu/DATA/LOLA_GDR/POLAR/JP2/LDEM_80S_80M_AUX.XML",
+    "ldec": "https://imbrium.mit.edu/DATA/LOLA_GDR/POLAR/JP2/LDEC_80S_80M.JP2",
+    "ldec_label": "https://imbrium.mit.edu/DATA/LOLA_GDR/POLAR/JP2/LDEC_80S_80M_JP2.LBL",
+    "ldec_aux": "https://imbrium.mit.edu/DATA/LOLA_GDR/POLAR/JP2/LDEC_80S_80M_AUX.XML"
+  },
+  "site": {
+    "name": "Shackleton Rim / lunar south pole",
+    "latitude_south_deg": -89.7668,
+    "longitude_east_deg": 188.13,
+    "site_id": "R04 / Site04",
+    "coordinate_source": "Lunar Surface Data Book R04/Site04"
+  },
+  "grid": {
+    "width_px": 7600,
+    "height_px": 7600,
+    "crs": "PROJCS[\"Moon2000_spole\",GEOGCS[\"GCS_Moon\",DATUM[\"Moon_2000\",SPHEROID[\"Moon_2000_IAU_IAG\",1737400,0]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Polar_Stereographic\"],PARAMETER[\"latitude_of_origin\",-90],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1],AXIS[\"Easting\",NORTH],AXIS[\"Northing\",NORTH]]",
+    "transform": [
+      80.0,
+      0.0,
+      -304000.0,
+      0.0,
+      -80.0,
+      304000.0
+    ],
+    "native_pixel_size_m": 80,
+    "product_latitude_extent_deg": [
+      -90,
+      -80
+    ],
+    "target_raster_row_col": [
+      3887,
+      3787
+    ],
+    "window_pixel_size": [
+      3937,
+      4037
+    ],
+    "window_extent_m": [
+      314960,
+      322960
+    ],
+    "window_bounds": [
+      3637.0,
+      3737.0,
+      7574.0,
+      7774.0
+    ],
+    "dem_and_count_grid_aligned": true
+  },
+  "terrain_metrics": {
+    "elevation_relative_to_1737_4km_sphere_m": {
+      "count": 15208631,
+      "min": -5840.5,
+      "p10": -4147.5,
+      "median": -2361.5,
+      "p90": -664.0,
+      "p95": -120.0,
+      "max": 1958.0
+    },
+    "slope_deg_from_80m_dem": {
+      "count": 15193035,
+      "min": 0.0,
+      "p10": 1.8253340767805772,
+      "median": 6.537972362809424,
+      "p90": 15.535107077107613,
+      "p95": 19.133260994690215,
+      "max": 66.27178813639873
+    },
+    "3x3_local_relief_m_240m_footprint": {
+      "count": 15193035,
+      "min": 0.0,
+      "p10": 7.5,
+      "median": 23.5,
+      "p90": 56.5,
+      "p95": 71.0,
+      "max": 398.0
+    },
+    "valid_interpolated_elevation_cells": 15208631,
+    "total_window_cells": 15208631,
+    "ldec_count_map": {
+      "cells_with_positive_lola_returns": 13150493,
+      "cells_with_valid_count_value": 15208631,
+      "coverage_with_positive_returns_percent": 86.47,
+      "mean_returns_per_valid_count_cell": 7.800610850509819,
+      "median_returns_per_valid_count_cell": 5.0,
+      "p90_returns_per_valid_count_cell": 18.0
+    }
+  },
+  "method_note": "LDEM is an interpolated gridded surface model. Count=0 does not invalidate an interpolated DEM cell; the LDEC count map is reported separately as measurement support. Elevation is converted from radius by subtracting the 1,737,400 m reference radius after applying the 0.5 m/sample scaling factor. This is a terrain context product, not a shadow/illumination, water-ice, resource, landing-safety or rover-mobility assessment.",
+  "limitations": [
+    "80 m polar stereographic DEM; not 5 m site DEM.",
+    "No Diviner illumination, annual temperature or water-ice permafrost depth has been integrated.",
+    "A separate illumination and terrain-safety study is required for a permanent base candidate."
+  ],
+  "preview_path": "shackleton_lola_80m_elevation_preview.png"
+}
