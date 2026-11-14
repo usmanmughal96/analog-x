@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "provider": "Microsoft Planetary Computer / Copernicus Sentinel-2 L2A",
-  "generated_at_utc": "2026-11-14T14:09:43+00:00",
-  "site_count": 2,
+  "generated_at_utc": "2026-11-14T16:07:39+00:00",
+  "site_count": 4,
   "sites": {
     "koh_i_sultan": {
       "schema_version": "1.0",
@@ -100,7 +100,7 @@
       },
       "interpretation_note": "Bare-surface, vegetation and SWIR contrast indicators can help target field observations. These bands do not identify minerals or prove Mars analog equivalence.",
       "attribution": "Contains modified Copernicus Sentinel data; Sentinel-2 L2A hosted by Microsoft Planetary Computer. See Copernicus data terms and collection metadata.",
-      "generated_at_utc": "2026-11-14T14:09:32+00:00",
+      "generated_at_utc": "2026-11-14T16:07:13+00:00",
       "assets": {
         "true_color_png": "imagery/koh_i_sultan_true_color.png",
         "index_png": "imagery/koh_i_sultan_index_screen.png"
@@ -202,10 +202,214 @@
       },
       "interpretation_note": "NDSI and Sentinel-2 Scene Classification Layer provide a screening view of snow/ice and cloud/shadow context, not a validated glacier boundary or mass-balance result.",
       "attribution": "Contains modified Copernicus Sentinel data; Sentinel-2 L2A hosted by Microsoft Planetary Computer. See Copernicus data terms and collection metadata.",
-      "generated_at_utc": "2026-11-14T14:09:42+00:00",
+      "generated_at_utc": "2026-11-14T16:07:23+00:00",
       "assets": {
         "true_color_png": "imagery/hispar_glacier_true_color.png",
         "index_png": "imagery/hispar_glacier_index_screen.png"
+      }
+    },
+    "chagai_small_playas": {
+      "schema_version": "1.0",
+      "site": {
+        "id": "chagai_small_playas",
+        "name": "Chagai small salt playas near Nok Kundi",
+        "bbox_wgs84": [
+          62.54,
+          28.53,
+          62.73,
+          28.64
+        ],
+        "role": "Evaporite / salt-playa and sedimentary-process screen"
+      },
+      "scene": {
+        "provider": "Copernicus Sentinel-2 L2A hosted on Microsoft Planetary Computer",
+        "collection": "sentinel-2-l2a",
+        "item_id": "S2C_MSIL2A_20251102T063041_R077_T41RMM_20251102T092816",
+        "datetime": "2025-11-02T06:30:41.025000Z",
+        "platform": "Sentinel-2C",
+        "mgrs_tile": "41RMM",
+        "cloud_cover_percent": 3.7e-05,
+        "processing_baseline": "05.11",
+        "stac_item_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2C_MSIL2A_20251102T063041_R077_T41RMM_20251102T092816",
+        "source_collection_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a"
+      },
+      "processing": {
+        "analysis_grid_m": 20,
+        "grid_crs": "EPSG:32641",
+        "rows": 612,
+        "columns": 931,
+        "cloud_shadow_mask_scl_classes": [
+          0,
+          1,
+          3,
+          8,
+          9,
+          10
+        ],
+        "masked_pixel_percent": 0.0,
+        "valid_pixel_count": 569772,
+        "snow_ice_scl_class_11_percent_of_all_pixels": 0.0,
+        "ndsi_gt_0_4_percent_of_valid_pixels": 0.0,
+        "note": "20 m common grid. 10 m bands were resampled to the B11 20 m grid. Indices are spectral screening descriptors, not mineral identifications, calibrated abundances or validated glacier boundaries."
+      },
+      "indices": {
+        "NDVI": {
+          "valid_pixels": 569772,
+          "p02": 0.03430365741252899,
+          "p25": 0.03875921666622162,
+          "median": 0.04124179668724537,
+          "p75": 0.043670942075550556,
+          "p98": 0.04986653678119182
+        },
+        "NDSI": {
+          "valid_pixels": 569772,
+          "p02": -0.21604220896959306,
+          "p25": -0.1979699432849884,
+          "median": -0.18791548907756805,
+          "p75": -0.17831920459866524,
+          "p98": -0.16059233397245407
+        },
+        "BSI": {
+          "valid_pixels": 569772,
+          "p02": 0.09777038469910622,
+          "p25": 0.10801330767571926,
+          "median": 0.11355523020029068,
+          "p75": 0.11942538432776928,
+          "p98": 0.13005186736583704
+        },
+        "SWIR1_SWIR2_ratio": {
+          "valid_pixels": 569772,
+          "p02": 1.0188934803009033,
+          "p25": 1.0292528867721558,
+          "median": 1.0352259874343872,
+          "p75": 1.0433753430843353,
+          "p98": 1.0761316156387328
+        },
+        "Red_Blue_ratio": {
+          "valid_pixels": 569772,
+          "p02": 1.3361375069618224,
+          "p25": 1.3709721565246582,
+          "median": 1.3970215916633606,
+          "p75": 1.4234676957130432,
+          "p98": 1.4920216059684752
+        },
+        "NDMI": {
+          "valid_pixels": 569772,
+          "p02": -0.09469368845224381,
+          "p25": -0.0813213363289833,
+          "median": -0.07606398314237595,
+          "p75": -0.07110516540706158,
+          "p98": -0.042292222902178774
+        }
+      },
+      "interpretation_note": "Bare-surface and SWIR context can help plan field checks of salt-pan and sedimentary units. Spectral indices do not establish evaporite mineralogy, brine chemistry or Mars equivalence. This AOI is based on two historical NASA report coordinates and needs modern ground verification.",
+      "attribution": "Contains modified Copernicus Sentinel data; Sentinel-2 L2A hosted by Microsoft Planetary Computer. See Copernicus data terms and collection metadata.",
+      "generated_at_utc": "2026-11-14T16:07:30+00:00",
+      "assets": {
+        "true_color_png": "imagery/chagai_small_playas_true_color.png",
+        "index_png": "imagery/chagai_small_playas_index_screen.png"
+      }
+    },
+    "hamun_i_mashkel": {
+      "schema_version": "1.0",
+      "site": {
+        "id": "hamun_i_mashkel",
+        "name": "Hamun-i-Mashkel playa / Kharan Basin",
+        "bbox_wgs84": [
+          62.82,
+          28.13,
+          63.02,
+          28.33
+        ],
+        "role": "Closed-basin playa / intermittent-lake spectral-context screen"
+      },
+      "scene": {
+        "provider": "Copernicus Sentinel-2 L2A hosted on Microsoft Planetary Computer",
+        "collection": "sentinel-2-l2a",
+        "item_id": "S2C_MSIL2A_20260809T062631_R077_T41RNM_20260809T110108",
+        "datetime": "2026-08-09T06:26:31.025000Z",
+        "platform": "Sentinel-2C",
+        "mgrs_tile": "41RNM",
+        "cloud_cover_percent": 0.0,
+        "processing_baseline": "05.12",
+        "stac_item_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2C_MSIL2A_20260809T062631_R077_T41RNM_20260809T110108",
+        "source_collection_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a"
+      },
+      "processing": {
+        "analysis_grid_m": 20,
+        "grid_crs": "EPSG:32641",
+        "rows": 1108,
+        "columns": 99,
+        "cloud_shadow_mask_scl_classes": [
+          0,
+          1,
+          3,
+          8,
+          9,
+          10
+        ],
+        "masked_pixel_percent": 0.0,
+        "valid_pixel_count": 109692,
+        "snow_ice_scl_class_11_percent_of_all_pixels": 0.0,
+        "ndsi_gt_0_4_percent_of_valid_pixels": 0.0,
+        "note": "20 m common grid. 10 m bands were resampled to the B11 20 m grid. Indices are spectral screening descriptors, not mineral identifications, calibrated abundances or validated glacier boundaries."
+      },
+      "indices": {
+        "NDVI": {
+          "valid_pixels": 109692,
+          "p02": 0.02411392141133547,
+          "p25": 0.03340144455432892,
+          "median": 0.03564324416220188,
+          "p75": 0.03779470920562744,
+          "p98": 0.04197436571121216
+        },
+        "NDSI": {
+          "valid_pixels": 109692,
+          "p02": -0.23781482875347137,
+          "p25": -0.21972337365150452,
+          "median": -0.20678364485502243,
+          "p75": -0.19253629446029663,
+          "p98": -0.16009794592857363
+        },
+        "BSI": {
+          "valid_pixels": 109692,
+          "p02": 0.10398129686713219,
+          "p25": 0.12065429985523224,
+          "median": 0.12941667437553406,
+          "p75": 0.1372489370405674,
+          "p98": 0.15029036879539487
+        },
+        "SWIR1_SWIR2_ratio": {
+          "valid_pixels": 109692,
+          "p02": 1.009418249130249,
+          "p25": 1.0197854042053223,
+          "median": 1.0244600772857666,
+          "p75": 1.0296678245067596,
+          "p98": 1.057895050048828
+        },
+        "Red_Blue_ratio": {
+          "valid_pixels": 109692,
+          "p02": 1.3284430336952209,
+          "p25": 1.3929349780082703,
+          "median": 1.4198461174964905,
+          "p75": 1.448681116104126,
+          "p98": 1.5335137343406677
+        },
+        "NDMI": {
+          "valid_pixels": 109692,
+          "p02": -0.11197874218225479,
+          "p25": -0.10459203086793423,
+          "median": -0.09764280915260315,
+          "p75": -0.08857720904052258,
+          "p98": -0.07380377396941186
+        }
+      },
+      "interpretation_note": "Bare-surface, wetness and seasonal spectral context can inform playa process reconnaissance. NDMI/NDSI do not identify brines or minerals; a single Sentinel scene cannot characterize intermittent inundation.",
+      "attribution": "Contains modified Copernicus Sentinel data; Sentinel-2 L2A hosted by Microsoft Planetary Computer. See Copernicus data terms and collection metadata.",
+      "generated_at_utc": "2026-11-14T16:07:39+00:00",
+      "assets": {
+        "true_color_png": "imagery/hamun_i_mashkel_true_color.png",
+        "index_png": "imagery/hamun_i_mashkel_index_screen.png"
       }
     }
   }

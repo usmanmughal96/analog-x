@@ -94,7 +94,7 @@
   },
   "interpretation_note": "Bare-surface, vegetation and SWIR contrast indicators can help target field observations. These bands do not identify minerals or prove Mars analog equivalence.",
   "attribution": "Contains modified Copernicus Sentinel data; Sentinel-2 L2A hosted by Microsoft Planetary Computer. See Copernicus data terms and collection metadata.",
-  "generated_at_utc": "2026-11-14T14:09:32+00:00",
+  "generated_at_utc": "2026-11-14T16:07:13+00:00",
   "assets": {
     "true_color_png": "imagery/koh_i_sultan_true_color.png",
     "index_png": "imagery/koh_i_sultan_index_screen.png"

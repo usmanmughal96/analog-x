@@ -94,7 +94,7 @@
   },
   "interpretation_note": "NDSI and Sentinel-2 Scene Classification Layer provide a screening view of snow/ice and cloud/shadow context, not a validated glacier boundary or mass-balance result.",
   "attribution": "Contains modified Copernicus Sentinel data; Sentinel-2 L2A hosted by Microsoft Planetary Computer. See Copernicus data terms and collection metadata.",
-  "generated_at_utc": "2026-11-14T14:09:42+00:00",
+  "generated_at_utc": "2026-11-14T16:07:23+00:00",
   "assets": {
     "true_color_png": "imagery/hispar_glacier_true_color.png",
     "index_png": "imagery/hispar_glacier_index_screen.png"
