@@ -191,3 +191,12 @@ The 3D terrain-twin view renders source-derived ~925 m elevation grids from Cope
 ## NASA Space Apps submission material
 
 See [`docs/CHALLENGE_SUBMISSION_BRIEF.md`](docs/CHALLENGE_SUBMISSION_BRIEF.md) for the scientific narrative, current evidence, limitations and next validation steps.
+
+## Latest verified science snapshot (15 Nov 2026)
+
+- 10 Earth study/reference sites; 10 NASA POWER profiles.
+- 10/10 Copernicus DEM GLO-30 local grids (32×32 at ~925 m support), plus Mars MOLA (33×34) and lunar LOLA (32×32) grids.
+- 20 public NASA MOD11A2 browse JPEGs downloaded and indexed across the ten Earth sites. These are visual browse assets, not calibrated LST arrays.
+- 41 experiment pathways across nine tracks, including biosignature/contamination-control method rehearsal.
+- 500 unique PDS observational metadata records across six capped target/instrument queries; MOLA, LOLA and Diviner instrument queries returned records. The HiRISE target-filtered API query returned no relevant rows; its PDS RDR dataset profile is linked in the dashboard.
+- FastAPI read endpoints and field-notebook create/list/delete behavior passed CI smoke tests. The public static site loads the science pack without requiring the optional API.
