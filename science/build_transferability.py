@@ -198,6 +198,7 @@ def evidence_for(site_id, site, power, terrain, catalog):
             "source": t.get("source", {}).get("collection") if t else None,
             "metrics": t.get("terrain_metrics") if t else None,
             "analysis_support_m": t.get("source", {}).get("analysis_resolution_m") if t else None,
+            "surface_grid_relative_m": t.get("surface_grid_relative_m") if t else None,
             "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety.",
         },
         "sentinel2": {
@@ -258,6 +259,7 @@ def build():
             "latitude": -89.7668, "longitude": 188.13,
             "source": "NASA LRO LOLA PDS GDR LDEM_80S_80M / LDEC_80S_80M",
             "terrain": moon.get("matched_coarse_support_approx_925m"),
+            "terrain_surface": moon.get("surface_grid_relative_m"),
             "thermal": {
                 "status": "Diviner PRP V2.0 site summary is available in the existing project, but ice-depth interpretation remains withheld pending QA.",
                 "limitation": "Do not infer accessible ice or PSR status from terrain or temperature alone.",
@@ -269,6 +271,7 @@ def build():
             "latitude": 8.9, "longitude": 67.0,
             "source": "MGS MOLA MEGDR 64 pixels/degree",
             "terrain": terrain.get("planetary_target", {}).get("terrain_metrics"),
+            "terrain_surface": terrain.get("planetary_target", {}).get("surface_grid_relative_m"),
             "coverage_percent": terrain.get("planetary_target", {}).get("window", {}).get("valid_observation_coverage_percent"),
             "known_unreproducible": ["thin CO2 atmosphere", "lower gravity", "radiation environment", "planetary dust electrostatics", "Martian regolith chemistry"],
         },
