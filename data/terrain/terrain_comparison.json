@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-15T08:58:42+00:00",
+  "generated_at_utc": "2026-11-15T09:03:19+00:00",
   "method": "Earth Copernicus DEM GLO-30 DSM averaged to 925 m; Mars MOLA MEGDR 64 pixels/degree. Both use approximately 30 km square windows and terrain derivatives computed in metres.",
   "planetary_target": {
     "name": "Nili Patera, Syrtis Major quadrangle, Mars",
