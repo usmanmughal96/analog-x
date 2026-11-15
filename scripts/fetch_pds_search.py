@@ -15,14 +15,14 @@ from urllib3.util.retry import Retry
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"data"/"planetary"/"pds_search.json"
-API="https://pds.nasa.gov/api/search/1/classes/observational"
+API="https://pds.nasa.gov/api/search/1/products"
 QUERIES=[
- {"id":"mars_target","keyword":"Mars","target":"Mars","purpose":"Discover PDS metadata mentioning Mars."},
- {"id":"mars_mola","keyword":"MOLA","target":"Mars","purpose":"Discover PDS metadata mentioning the MOLA instrument."},
- {"id":"mars_hirise","keyword":"HiRISE","target":"Mars","purpose":"Discover PDS metadata mentioning HiRISE imaging."},
- {"id":"moon_target","keyword":"Moon","target":"Moon","purpose":"Discover PDS metadata mentioning lunar targets."},
- {"id":"moon_lola","keyword":"LOLA","target":"Moon","purpose":"Discover PDS metadata mentioning the LOLA instrument."},
- {"id":"moon_diviner","keyword":"Diviner","target":"Moon","purpose":"Discover PDS metadata mentioning the Diviner instrument."},
+ {"id":"mars_target","q":'(ref_lid_target eq "urn:nasa:pds:context:target:planet.mars")',"target":"Mars","instrument_filter":None,"purpose":"Search observational products explicitly associated with the Mars target identifier."},
+ {"id":"mars_mola","q":'(ref_lid_target eq "urn:nasa:pds:context:target:planet.mars")',"target":"Mars","instrument_filter":"mola","purpose":"Filter Mars-target products for MOLA instrument metadata."},
+ {"id":"mars_hirise","q":'(ref_lid_target eq "urn:nasa:pds:context:target:planet.mars")',"target":"Mars","instrument_filter":"hirise","purpose":"Filter Mars-target products for HiRISE instrument metadata."},
+ {"id":"moon_target","q":'(ref_lid_target eq "urn:nasa:pds:context:target:satellite.moon")',"target":"Moon","instrument_filter":None,"purpose":"Search observational products explicitly associated with the Moon target identifier."},
+ {"id":"moon_lola","q":'(ref_lid_target eq "urn:nasa:pds:context:target:satellite.moon")',"target":"Moon","instrument_filter":"lola","purpose":"Filter Moon-target products for LOLA instrument metadata."},
+ {"id":"moon_diviner","q":'(ref_lid_target eq "urn:nasa:pds:context:target:satellite.moon")',"target":"Moon","instrument_filter":"diviner","purpose":"Filter Moon-target products for Diviner instrument metadata."},
 ]
 s=requests.Session()
 s.headers.update({"User-Agent":"ANALOG-X/1.1 PDS public search integration","Accept":"application/json"})
@@ -32,7 +32,7 @@ def main():
  OUT.parent.mkdir(parents=True,exist_ok=True)
  results=[]
  for q in QUERIES:
-  params={"limit":50,"keywords":q["keyword"]}
+  params={"limit":100,"q":q["q"]}
   try:
    r=s.get(API,params=params,timeout=(20,90));r.raise_for_status()
    payload=r.json()
@@ -40,7 +40,10 @@ def main():
    products=payload.get("data",[]) if isinstance(payload,dict) else []
    if not products and isinstance(payload,dict):
     products=payload.get("results",[])
-   relevant=[x for x in products[:50] if x.get("type") != "Product_Service"]
+   relevant=[x for x in products[:100] if x.get("type") != "Product_Service"]
+   if q.get("instrument_filter"):
+    token=q["instrument_filter"].lower()
+    relevant=[x for x in relevant if token in json.dumps(x.get("observing_system_components",[])).lower() or token in str(x.get("title","")).lower() or token in json.dumps(x.get("properties",{})).lower()]
    results.append({**q,"status":"results_returned" if relevant else "no_relevant_products_returned",
       "query_url":r.url,"returned_count":len(relevant),"raw_result_count":len(products),"products":relevant,
       "response_summary":payload.get("summary") if isinstance(payload,dict) else None})
