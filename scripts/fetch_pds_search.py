@@ -40,10 +40,11 @@ def main():
    products=payload.get("data",[]) if isinstance(payload,dict) else []
    if not products and isinstance(payload,dict):
     products=payload.get("results",[])
-   results.append({**q,"status":"results_returned" if products else "no_products_returned",
-      "query_url":r.url,"returned_count":len([x for x in products[:50] if x.get("type") != "Product_Service"]),"raw_result_count":len(products),"products":[x for x in products[:50] if x.get("type") != "Product_Service"],
+   relevant=[x for x in products[:50] if x.get("type") != "Product_Service"]
+   results.append({**q,"status":"results_returned" if relevant else "no_relevant_products_returned",
+      "query_url":r.url,"returned_count":len(relevant),"raw_result_count":len(products),"products":relevant,
       "response_summary":payload.get("summary") if isinstance(payload,dict) else None})
-   print(q["id"],len(products),"observational_or_nonservice",len([x for x in products[:50] if x.get("type") != "Product_Service"]),flush=True)
+   print(q["id"],"raw",len(products),"relevant",len(relevant),flush=True)
   except Exception as exc:
    detail = (exc.response.text[:1200] if isinstance(exc, requests.HTTPError) and exc.response is not None else str(exc))
    results.append({**q,"status":"query_error","query_url":None,"returned_count":0,"error":detail,"products":[]})
