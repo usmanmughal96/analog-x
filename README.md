@@ -10,7 +10,7 @@
 ## What the product does
 ANALOG-X is a Pakistan-first evidence and field-readiness atlas for candidate terrestrial environments relevant to Moon/Mars exploration fieldwork.
 
-The console now covers four Pakistan study windows:
+The console now covers ten Earth study/reference windows: four Pakistan field leads (Koh-i-Sultan, Hispar Glacier, Chagai small salt playas and Hamun-i-Mashkel) plus six global reference environments (Dallol, Atacama, McMurdo Dry Valleys, Haughton, Iceland and Death Valley).
 
 1. **Chagai small salt playas near Nok Kundi** — an under-characterized evaporite/playa-process lead grounded in a 1974 NASA technical report that identifies two small salt-surfaced playas. Its coordinates and bounding box are screening references, not a surveyed polygon.
 2. **Hamun-i-Mashkel / Kharan Basin** — a regional closed-basin/intermittent-playa process candidate. Its point and AOI remain approximate; basin-scale hydrology needs current verification.
@@ -45,7 +45,7 @@ Variables include T2M, T2M_MAX, T2M_MIN, RH2M, WS10M, PRECTOTCORR and ALLSKY_SFC
 NASA POWER is gridded climatology, not a ground weather station.
 
 ### Microsoft Planetary Computer / Sentinel-2 L2A
-The anonymous STAC API is queried for four Pakistan study windows: Koh-i-Sultan, Hispar Glacier, Chagai small salt playas and Hamun-i-Mashkel. The pipeline records acquisition date, platform, cloud fraction, MGRS tile and asset provenance, then obtains a public SAS token and clips 768×768 true-colour previews from COG assets.
+The anonymous STAC API is queried for ten Earth study/reference windows: four Pakistan field leads plus Dallol, Atacama, McMurdo Dry Valleys, Haughton, Iceland and Death Valley. The pipeline records acquisition date, platform, cloud fraction, MGRS tile and asset provenance, then obtains a public SAS token and clips 768×768 true-colour previews from COG assets.
 
 Current previews:
 - data/pakistan/quicklooks/koh_i_sultan.png
@@ -60,7 +60,7 @@ This is RGB visual evidence, not mineral classification or field validation. Cop
 The public NASA Common Metadata Repository API is queried for Terra/Aqua MODIS land-surface-temperature collections, MODIS land cover and MERRA-2 aerosol diagnostics. Ten MOD11A2 granule metadata records were discovered for each Pakistan study box, and one October 2026 global MERRA-2 aerosol granule record was discovered. These are catalogue records only: protected LP DAAC/GES DISC data have not yet been downloaded or decoded, and the MERRA-2 granule is global rather than site-clipped.
 
 ### Copernicus DEM GLO-30 + NASA MOLA MEGDR 64 ppd
-The project computes coarse matched-support terrain profiles for four Pakistan windows—Koh-i-Sultan, Hispar Glacier, Chagai small salt playas and Hamun-i-Mashkel—plus Nili Patera on Mars. Shackleton Rim has a separate LOLA terrain profile aggregated to the same nominal support.
+The project computes coarse matched-support terrain profiles for up to ten Earth windows where Copernicus GLO-30 tiles are available, plus Nili Patera on Mars. Shackleton Rim has a separate LOLA terrain profile aggregated to the same nominal support.
 
 Earth Copernicus DEM GLO-30 DSM tiles are mosaicked across neighbouring one-degree tiles, reprojected to local UTM and averaged to approximately 925 m. Mars MOLA MEGDR topography and observation-count rasters at 64 pixels/degree are cropped around Nili Patera. Slope and 3×3 local relief are calculated on approximately comparable support.
 
@@ -99,8 +99,8 @@ Other public 2026 challenge entries already demonstrate analog ranking, mission-
 
 Our contribution is a Pakistan-first, open-data evidence workflow with a reusable global seed atlas:
 - NASA POWER climatology for ten Earth coordinates;
-- Sentinel-2 L2A scene discovery, spectral-context screening and RGB quicklooks for four Pakistan study windows;
-- Copernicus DEM GLO-30 terrain profiles for four Pakistan windows, compared at coarse support with Mars MOLA and lunar LOLA;
+- Sentinel-2 L2A scene discovery, spectral-context screening and RGB quicklooks across ten Earth study/reference windows;
+- Copernicus DEM GLO-30 terrain profiles across ten Earth study/reference windows where tile coverage permits, compared at coarse support with Mars MOLA and lunar LOLA;
 - explicit MOLA observed-cell coverage and LOLA return-count / interpolation caveats;
 - a mission-specific candidate decision layer that distinguishes documented task overlap, environmental context and four independent evidence layers;
 - an offline coordinate-proximity Scout over ten curated candidate/reference points (not an exhaustive global cell search or fresh-data API);
