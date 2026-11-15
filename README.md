@@ -100,7 +100,7 @@ Other public 2026 challenge entries already demonstrate analog ranking, mission-
 Our contribution is a Pakistan-first, open-data evidence workflow with a reusable global seed atlas:
 - NASA POWER climatology for ten Earth coordinates;
 - Sentinel-2 L2A scene discovery, spectral-context screening and RGB quicklooks across ten Earth study/reference windows;
-- Copernicus DEM GLO-30 terrain profiles across ten Earth study/reference windows where tile coverage permits, compared at coarse support with Mars MOLA and lunar LOLA;
+- Copernicus DEM GLO-30 terrain profiles for all ten Earth study/reference windows in the current processing run, compared at coarse support with Mars MOLA and lunar LOLA;
 - explicit MOLA observed-cell coverage and LOLA return-count / interpolation caveats;
 - a mission-specific candidate decision layer that distinguishes documented task overlap, environmental context and four independent evidence layers;
 - an offline coordinate-proximity Scout over ten curated candidate/reference points (not an exhaustive global cell search or fresh-data API);
@@ -186,4 +186,4 @@ The weekly/manual GitHub Actions workflow validates the science pack and dashboa
 
 The ATFA module includes a monthly NASA VIIRS true-colour time scrub/animation and a 3D site/pathway scatter view (z = authored experiment-pathway count, not elevation). The FastAPI service now exposes read-only ATFA, PDS metadata and MODIS provenance routes alongside the existing paginated field-notebook CRUD. `backend/smoke_test.py` exercises the science reads and temporary field-record create/list/delete flow in CI. The public GitHub Pages app remains fully usable without deploying the optional API.
 
-The 3D terrain-twin view renders source-derived ~925 m elevation grids from Copernicus DSM for the global Earth sites where tile coverage is available, Mars MOLA and lunar LOLA, with each grid expressed relative to its own median elevation. It does not imply cross-body vertical registration or rover/landing safety.
+The 3D terrain-twin view renders source-derived ~925 m elevation grids from Copernicus DSM for the global Earth sites for all ten Earth sites, Mars MOLA and lunar LOLA, with each grid expressed relative to its own median elevation. It does not imply cross-body vertical registration or rover/landing safety.
