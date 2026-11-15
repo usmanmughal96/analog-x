@@ -15,7 +15,7 @@ from urllib3.util.retry import Retry
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"data"/"planetary"/"pds_search.json"
-API="https://pds.nasa.gov/api/search/1/classes/Product_Observational"
+API="https://pds.nasa.gov/api/search/1/classes/observational"
 QUERIES=[
  {"id":"mars_target","keyword":"Mars","target":"Mars","purpose":"Discover PDS metadata mentioning Mars."},
  {"id":"mars_mola","keyword":"MOLA","target":"Mars","purpose":"Discover PDS metadata mentioning the MOLA instrument."},
