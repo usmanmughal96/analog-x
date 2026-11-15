@@ -471,6 +471,7 @@ function offlineProjectSvg(elementId,points,opts={}){
 function renderMainOfflineMap(){
  const points=[{...SITE.koh,id:"koh",short:"KOH-I-SULTAN",lead:false},{...SITE.hispar_glacier,id:"hispar_glacier",short:"HISPAR GLACIER",lead:false}];
  offlineProjectSvg("map",points,{center:map?map.center:[32.6,68.7],zoom:map?map.zoom:5,halfLon:map?map.halfLon:26,halfLat:map?map.halfLat:20,connect:true,label:"PAKISTAN STUDY LOCATORS · NOT A SURVEY BOUNDARY",onSelect:selectSite});
+ const svg=$("map")?.querySelector("svg");if(svg){svg.style.width="100%";svg.style.height="100%";svg.style.display="block";}
 }
 function initMap(){
  map={
