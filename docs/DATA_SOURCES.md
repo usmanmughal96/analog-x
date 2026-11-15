@@ -6,6 +6,18 @@ Status is explicit:
 - **Portal reviewed:** official portal inspected, but no suitable public machine-readable endpoint or redistributable layer has been verified.
 - **Reference only:** official dataset/product linked but not yet ingested or processed.
 
+## Live browser services
+
+| Provider / service | Runtime use | Authentication | Fallback / interpretation |
+|---|---|---|---|
+| OpenStreetMap via CARTO dark tiles | Default interactive basemap in the main console; OSM street tiles are an alternate base layer | No app key configured | Online tiles only; if Leaflet cannot load, the main map falls back to the clearly labelled schematic SVG locator |
+| NASA GIBS WMS, VIIRS SNPP Corrected Reflectance True Color | Optional date-stamped satellite imagery overlay in the map layer selector | Public GIBS service; no app key configured | Imagery is a browse visualization, not calibrated site-level measurements; availability depends on GIBS and browser connectivity |
+| NASA POWER Daily Point API (RE community) | Selected-site trailing 30-day daily means for T2M, RH2M, WS2M, PRECTOTCORR and ALLSKY_SFC_SW_DWN; window ends three days before request date | Public API; no app key configured | If request fails, committed climatology snapshot remains displayed; live means are not climatological normals or forecasts |
+
+NASA POWER Daily API documentation: https://power.larc.nasa.gov/docs/services/api/temporal/daily/
+
+NASA GIBS WMS documentation: https://nasa-gibs.github.io/gibs-api-docs/access-basics/
+
 ## Integrated
 
 | Provider / product | Use in ANALOG-X | Stored output | Current limits |
