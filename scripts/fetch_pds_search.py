@@ -15,7 +15,7 @@ from urllib3.util.retry import Retry
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"data"/"planetary"/"pds_search.json"
-API="https://pds.nasa.gov/api/search/1/products"
+API="https://pds.nasa.gov/api/search/1/classes/Product_Observational"
 QUERIES=[
  {"id":"mars_target","keyword":"Mars","target":"Mars","purpose":"Discover PDS metadata mentioning Mars."},
  {"id":"mars_mola","keyword":"MOLA","target":"Mars","purpose":"Discover PDS metadata mentioning the MOLA instrument."},
@@ -32,7 +32,7 @@ def main():
  OUT.parent.mkdir(parents=True,exist_ok=True)
  results=[]
  for q in QUERIES:
-  params={"limit":50,"keyword":q["keyword"]}
+  params={"limit":50,"keywords":q["keyword"]}
   try:
    r=s.get(API,params=params,timeout=(20,90));r.raise_for_status()
    payload=r.json()
