@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-11-15T08:56:50+00:00",
+  "generated_at_utc": "2026-11-15T08:57:25+00:00",
   "provider": "NASA Planetary Data System Search API",
-  "api": "https://pds.nasa.gov/api/search/1/products",
+  "api": "https://pds.nasa.gov/api/search/1/classes/Product_Observational",
   "access_note": "Public product metadata discovery. A result is not proof that a binary product is directly downloadable, calibrated, spatially complete or ready for scientific use.",
   "queries": [
     {
@@ -13,7 +13,7 @@
       "status": "query_error",
       "query_url": null,
       "returned_count": 0,
-      "error": "400 BAD_REQUEST\n Request uri=/api/search/1/products failed with message:\nQuery parameter not enumerated in SecurityValidationFilter.ALLOWED_QUERY_PARAMETERS: keyword(ref:c1591c8a-a116-4d26-9415-c3efeff55eaa)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
+      "error": "404 NOT_FOUND\n Request uri=/api/search/1/classes/Product_Observational failed with message:\nNotFoundException: No PdsProductClass matches swagger name &#39;Product_Observational&#39;&#39;. Valid names are: aip, ancillary, attribute-definition, browse, bundle, class-definition, collection, context, dip, dip-deep-archive, data-set-pds3, document, external, file-repository, file-text, instrument-host-pds3, instrument-pds3, metadata-supplemental, mission-pds3, native, observational, proxy-pds3, sip, sip-deep-archive, spice-kernel, service, software, subscription-pds3, target-pds3, thumbnail, update, volume-pds3, volume-set-pds3, xml-schema, zipped(ref:6a5653ef-21ef-4ca5-8de6-5dab09d841dc)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
       "products": []
     },
     {
@@ -24,7 +24,7 @@
       "status": "query_error",
       "query_url": null,
       "returned_count": 0,
-      "error": "400 BAD_REQUEST\n Request uri=/api/search/1/products failed with message:\nQuery parameter not enumerated in SecurityValidationFilter.ALLOWED_QUERY_PARAMETERS: keyword(ref:b1631575-abd6-44ab-acef-7b69757cebd0)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
+      "error": "404 NOT_FOUND\n Request uri=/api/search/1/classes/Product_Observational failed with message:\nNotFoundException: No PdsProductClass matches swagger name &#39;Product_Observational&#39;&#39;. Valid names are: aip, ancillary, attribute-definition, browse, bundle, class-definition, collection, context, dip, dip-deep-archive, data-set-pds3, document, external, file-repository, file-text, instrument-host-pds3, instrument-pds3, metadata-supplemental, mission-pds3, native, observational, proxy-pds3, sip, sip-deep-archive, spice-kernel, service, software, subscription-pds3, target-pds3, thumbnail, update, volume-pds3, volume-set-pds3, xml-schema, zipped(ref:551853d9-b9b6-42e2-ac38-8d02a0aa7ffc)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
       "products": []
     },
     {
@@ -35,7 +35,7 @@
       "status": "query_error",
       "query_url": null,
       "returned_count": 0,
-      "error": "400 BAD_REQUEST\n Request uri=/api/search/1/products failed with message:\nQuery parameter not enumerated in SecurityValidationFilter.ALLOWED_QUERY_PARAMETERS: keyword(ref:94aaaf66-6753-4949-8c43-6e5fd87f007e)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
+      "error": "404 NOT_FOUND\n Request uri=/api/search/1/classes/Product_Observational failed with message:\nNotFoundException: No PdsProductClass matches swagger name &#39;Product_Observational&#39;&#39;. Valid names are: aip, ancillary, attribute-definition, browse, bundle, class-definition, collection, context, dip, dip-deep-archive, data-set-pds3, document, external, file-repository, file-text, instrument-host-pds3, instrument-pds3, metadata-supplemental, mission-pds3, native, observational, proxy-pds3, sip, sip-deep-archive, spice-kernel, service, software, subscription-pds3, target-pds3, thumbnail, update, volume-pds3, volume-set-pds3, xml-schema, zipped(ref:be761e6f-1192-488e-939d-35b734a447fd)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
       "products": []
     },
     {
@@ -46,7 +46,7 @@
       "status": "query_error",
       "query_url": null,
       "returned_count": 0,
-      "error": "400 BAD_REQUEST\n Request uri=/api/search/1/products failed with message:\nQuery parameter not enumerated in SecurityValidationFilter.ALLOWED_QUERY_PARAMETERS: keyword(ref:2991305c-b7a5-4c1b-a91a-5bac6ceb5b7c)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
+      "error": "404 NOT_FOUND\n Request uri=/api/search/1/classes/Product_Observational failed with message:\nNotFoundException: No PdsProductClass matches swagger name &#39;Product_Observational&#39;&#39;. Valid names are: aip, ancillary, attribute-definition, browse, bundle, class-definition, collection, context, dip, dip-deep-archive, data-set-pds3, document, external, file-repository, file-text, instrument-host-pds3, instrument-pds3, metadata-supplemental, mission-pds3, native, observational, proxy-pds3, sip, sip-deep-archive, spice-kernel, service, software, subscription-pds3, target-pds3, thumbnail, update, volume-pds3, volume-set-pds3, xml-schema, zipped(ref:f1a92178-7288-49a4-89c3-361c7f089129)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
       "products": []
     },
     {
@@ -57,7 +57,7 @@
       "status": "query_error",
       "query_url": null,
       "returned_count": 0,
-      "error": "400 BAD_REQUEST\n Request uri=/api/search/1/products failed with message:\nQuery parameter not enumerated in SecurityValidationFilter.ALLOWED_QUERY_PARAMETERS: keyword(ref:2b43cce2-6169-4d5a-8af7-693f8d94f22f)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
+      "error": "404 NOT_FOUND\n Request uri=/api/search/1/classes/Product_Observational failed with message:\nNotFoundException: No PdsProductClass matches swagger name &#39;Product_Observational&#39;&#39;. Valid names are: aip, ancillary, attribute-definition, browse, bundle, class-definition, collection, context, dip, dip-deep-archive, data-set-pds3, document, external, file-repository, file-text, instrument-host-pds3, instrument-pds3, metadata-supplemental, mission-pds3, native, observational, proxy-pds3, sip, sip-deep-archive, spice-kernel, service, software, subscription-pds3, target-pds3, thumbnail, update, volume-pds3, volume-set-pds3, xml-schema, zipped(ref:de483e36-d6ce-4b12-912d-4556dc492f7c)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
       "products": []
     },
     {
@@ -68,7 +68,7 @@
       "status": "query_error",
       "query_url": null,
       "returned_count": 0,
-      "error": "400 BAD_REQUEST\n Request uri=/api/search/1/products failed with message:\nQuery parameter not enumerated in SecurityValidationFilter.ALLOWED_QUERY_PARAMETERS: keyword(ref:ba64e79f-bfa6-4c5f-ac1a-40099d0e1eed)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
+      "error": "404 NOT_FOUND\n Request uri=/api/search/1/classes/Product_Observational failed with message:\nNotFoundException: No PdsProductClass matches swagger name &#39;Product_Observational&#39;&#39;. Valid names are: aip, ancillary, attribute-definition, browse, bundle, class-definition, collection, context, dip, dip-deep-archive, data-set-pds3, document, external, file-repository, file-text, instrument-host-pds3, instrument-pds3, metadata-supplemental, mission-pds3, native, observational, proxy-pds3, sip, sip-deep-archive, spice-kernel, service, software, subscription-pds3, target-pds3, thumbnail, update, volume-pds3, volume-set-pds3, xml-schema, zipped(ref:524b7807-593d-4412-89d1-8eb82e754321)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
       "products": []
     }
   ],
