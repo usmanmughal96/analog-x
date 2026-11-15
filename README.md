@@ -31,7 +31,7 @@ The two systems intentionally do **not** collapse unlike measurements into a uni
 
 The live portal includes a map-led candidate atlas with ten curated Earth seeds. It separates **under-characterized candidate leads** (the two Balochistan playa study windows) from established Pakistan and global references. This is a documented seed set, not an exhaustive global scan.
 
-The Agent Bay has four deterministic evidence specialists: terrain morphology, climate/campaign planning, surface spectral context and evidence integrity. Its offline review runs without an LLM/API key and exports a JSON decision brief. An optional server-side Cloudflare Workers AI Mission Director uses the open-weight model @cf/openai/gpt-oss-20b and allow-listed tools over the published evidence. The browser stores only the Worker URL, never a provider secret. Cloud inference is not active until the project owner deploys the Worker using the two GitHub Actions secrets described in docs/AGENTIC_AI_SETUP.md. The Workers Free plan has a limited daily inference allocation (10,000 Neurons/day at the time of writing); requests may be throttled or fail when the allowance is exhausted. Model output is not a measurement or validation result.
+The Agent Bay has four deterministic evidence specialists: terrain morphology, climate/campaign planning, surface spectral context and evidence integrity. Its offline review runs without an LLM/API key and exports a JSON decision brief. The cloud Mission Director is optional; it is not a dependency for core assessments. The Worker source and deployment instructions are in docs/AGENTIC_AI_SETUP.md. Model output is not a measurement or validation result.
 
 The four-stage Field School simulator teaches playa/evaporite, volcanic mapping, lunar cryosphere and terrain-data-quality decisions. Its learning XP is browser-local and does not affect scientific ranking. A completed scenario can be sent straight into the offline Mission Director for evidence review.
 
@@ -80,7 +80,7 @@ A public NASA LRO LOLA PDS GDR 80 m south-polar elevation grid (LDEM_80S_80M) an
 
 At ~925 m support the Shackleton window has median slope 13.40°, P90 slope 30.94°, and P90 3×3 local relief 1,391 m (the relief statistic spans a ~2.775 km footprint). These values describe a rugged selected rim window; they do not establish suitability for landing or a permanent base.
 
-The original PGDA 5 m Site04 files were inaccessible from the automated runner. The working 80 m products are read from NASA's LOLA PDS GDR mirror at MIT Imbrium. The surface DEM is interpolated, so LDEC counts are measurement support—not a mask for discarding interpolated elevation. Diviner annual thermal / water-ice-permafrost products and shadow/illumination analysis are not integrated.
+The original PGDA 5 m Site04 files were inaccessible from the automated runner. The working 80 m products are read from NASA's LOLA PDS GDR mirror at MIT Imbrium. The surface DEM is interpolated, so LDEC counts are measurement support—not a mask for discarding interpolated elevation. Diviner PRP V2.0 has been processed for 6,823 Shackleton-window triangles: median annual average temperature at 2 cm depth is 103.786 K and median annual maximum surface temperature is 238.568 K. These are historical model-derived thermal summaries. The ice-depth field is withheld pending QA of negative values; no accessible-ice claim is made. Illumination / PSR mapping is not integrated.
 
 ### NASA DSCOVR / EPIC
 The pipeline retrieves an optional full-disc natural-colour Earth image from the public GSFC EPIC endpoint. It is global context only and is not used in site-scale metrics. No api.nasa.gov key is required for this endpoint.
@@ -89,7 +89,7 @@ The pipeline retrieves an optional full-disc natural-colour Earth image from the
 - **EvK2CNR:** Existing Pakistan Glacier Inventory: 13,032 glaciers, combined area 13,546.93 km². We acknowledge and link this prior work; the project does not claim to have discovered or remapped those glaciers. EvK2CNR has also published preliminary Pakistan glacial-lake inventory work.
 - **SUPARCO / UN-SPIDER:** Official remote-sensing and disaster-monitoring capabilities, recommended practices, DisasterWatch and NatCat are documented. No public bulk-data/API integration from DisasterWatch or Space4Climate has yet been verified.
 - **NDMA:** Official hazard projections, disaster early warnings and the 2026 Vulnerable Glaciers and Glacial Lakes Atlas listing are linked as existing institutional work. No redistributable geospatial layer has yet been ingested.
-- **NASA LRO LOLA:** An 80 m south-polar LDEM and matched LDEC count map are processed around Shackleton Rim. Native 80 m terrain descriptors and a coarse ~925 m profile are stored. **Diviner** annual surface-temperature and water-ice-permafrost products remain reference-only; illumination/PSR mapping is not yet integrated.
+- **NASA LRO LOLA:** An 80 m south-polar LDEM and matched LDEC count map are processed around Shackleton Rim. Native 80 m terrain descriptors and a coarse ~925 m profile are stored. **Diviner** PRP V2.0 thermal summaries are processed for 6,823 Shackleton-window triangles; ice-depth interpretation remains withheld pending QA. Formal illumination / PSR mapping is not integrated.
 - **NASA Global Volcano Hazard Frequency:** Historical coarse grid is linked as context only; it is not current volcano alerting or site-scale geology.
 
 See docs/AGENCY_DATA_AUDIT.md for source status, docs/DATA_SOURCES.md for provenance, and docs/RESOURCE_INTEGRATION_MATRIX.md for the status of every NASA and partner resource supplied for the challenge.
@@ -103,13 +103,26 @@ Our contribution is a Pakistan-first, open-data evidence workflow with a reusabl
 - Copernicus DEM GLO-30 terrain profiles for four Pakistan windows, compared at coarse support with Mars MOLA and lunar LOLA;
 - explicit MOLA observed-cell coverage and LOLA return-count / interpolation caveats;
 - a mission-specific candidate decision layer that distinguishes documented task overlap, environmental context and four independent evidence layers;
-- a coordinate scout for new Earth locations through public NASA POWER and Planetary Computer endpoints (requires deploying the Worker proxy);
+- an offline coordinate-proximity Scout over ten curated candidate/reference points (not an exhaustive global cell search or fresh-data API);
 - transparent attribution of existing EvK2CNR, NDMA, SUPARCO/UN-SPIDER and NASA source material;
 - field protocols, equipment planning, next measurements and explicit planetary non-transferability limits.
 
 The ten-site atlas is a curated starting set—not an exhaustive global scan. The two Chagai playa study windows are under-characterized research leads, not newly discovered or validated mineral/evaporite deposits.
 
 No single universal analog score is calculated.
+
+
+## Field Evidence Passport / offline differentiator
+
+The Field Evidence Passport is the Pakistan-first field-validation feature. Select an Earth candidate, Moon/Mars target and named field experiment; inspect six independent evidence layers; stress-test claims that are not supported; and export a site-specific proposed protocol. It does not create a planetary similarity percentage or certify mineral resources, accessible ice, landing safety or rover trafficability.
+
+The local field notebook stores user-entered GNSS station observations, methods, notes and optional photos in browser IndexedDB. Records can be exported/imported as JSON, CSV or GeoJSON. The service worker caches the app shell and published science pack after the first connected visit. The ten-seed Coordinate Scout measures proximity to bundled candidate/reference points; it is not an exhaustive global raster search.
+
+## Offline use and optional backend
+
+Open the live portal once while connected, allow the offline pack to cache, then reopen it from the same browser/device. The deterministic Mission Director, terrain profiles, Field School, Field Evidence Passport, local candidate-proximity Scout and station-record exports do not require a cloud LLM or live NASA API. See [Offline & Backend Setup](docs/OFFLINE_AND_BACKEND.md).
+
+GitHub Pages is static hosting and cannot run a persistent API. The repository includes a self-hostable FastAPI service with PostgreSQL support, Dockerfile and Compose configuration for shared field-record storage. It is an optional deployment path, not a publicly provisioned live backend in this release. The offline browser notebook remains usable without it.
 
 ## Run the data pipelines
 NASA POWER:
