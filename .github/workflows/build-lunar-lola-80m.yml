@@ -48,5 +48,13 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/moon/shackleton_lola_80m.json data/moon/shackleton_lola_80m_elevation_preview.png
           git commit -m "Add Shackleton Rim LOLA 80m terrain profile"
-          git pull --rebase origin main
-          git push
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep $((attempt * 2))
+          done
+          echo "Push retry limit reached."
+          exit 1
