@@ -21,12 +21,13 @@ assert manifest["earth_site_count"] == 10
 assert manifest["experiment_pathway_count"] >= 30
 assert manifest["pds_query_count"] == 6
 assert manifest["modis_public_browse_count"] == 20
-assert manifest["earth_3d_dem_site_count"] >= 4
+assert manifest["earth_3d_dem_site_count"] == 10
 assert manifest["mars_3d_dem_available"] is True
 assert manifest["moon_3d_dem_available"] is True
 
 catalog = check(client.get("/api/v1/transferability"))
 assert len(catalog["sites"]) == 10
+assert all(s["evidence"]["terrain"]["surface_grid_relative_m"] for s in catalog["sites"])
 assert catalog["planetary_targets"]["moon"]["terrain_surface"]["rows"] == 32
 assert catalog["planetary_targets"]["moon"]["terrain_surface"]["columns"] == 32
 site = check(client.get("/api/v1/transferability/sites/chagai_small_playas"))
