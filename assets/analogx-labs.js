@@ -449,6 +449,106 @@ function bind(){
  $("axScoutAskDirector").addEventListener("click",askDirectorAboutScout);
  $("axScoutExport").addEventListener("click",exportScoutDossier);
 }
-async function start(){bind();loadGameProgress();renderGame();const url=endpointSaved();if(url)$("axAgentEndpoint").value=url;await load();if(url)await testEndpoint(false);updateScoutMap(Number($("axScoutLat").value),Number($("axScoutLon").value),Number($("axScoutRadius").value));$("axAgentRunLocal").click();}
+
+/* Offline-first map and candidate-proximity scout. No remote tiles or data API. */
+function offlineWorldMap(containerId,sites,options={}){
+ const el=$(containerId);if(!el)return;
+ const W=760,H=340,cx=options.center?.[1]??0,cy=options.center?.[0]??0;
+ const halfLon=options.halfLon??180,halfLat=options.halfLat??90;
+ const xy=(lat,lon)=>[W/2+(lon-cx)/halfLon*W/2,H/2-(lat-cy)/halfLat*H/2];
+ const continents=[
+  [[70,-165],[60,-140],[48,-125],[35,-117],[20,-105],[8,-85],[18,-65],[34,-72],[50,-55],[68,-75]],
+  [[10,-80],[-5,-76],[-18,-70],[-35,-70],[-54,-62],[-42,-42],[-15,-48],[4,-60]],
+  [[72,-10],[73,30],[68,60],[72,100],[62,140],[48,165],[30,135],[12,110],[4,80],[18,55],[32,30],[45,10]],
+  [[34,-17],[12,-15],[-6,5],[-34,20],[-28,42],[-5,50],[18,38],[28,25]],
+  [[-12,112],[-24,114],[-38,136],[-26,154],[-12,145]],
+  [[60,-50],[75,-42],[80,-20],[70,-18]]
+ ];
+ const polygon=coords=>coords.map(p=>{const q=xy(p[0],p[1]);return q[0].toFixed(1)+","+q[1].toFixed(1)}).join(" ");
+ let grid="";
+ for(let lat=-60;lat<=60;lat+=30){const y=xy(lat,0)[1];grid+="<line x1='0' y1='"+y+"' x2='"+W+"' y2='"+y+"' stroke='#2c5362' opacity='.42'/><text x='7' y='"+(y-4)+"' fill='#688b9c' font-size='9'>"+lat+"°</text>";}
+ for(let lon=-180;lon<=180;lon+=30){const x=xy(0,lon)[0];grid+="<line x1='"+x+"' y1='0' x2='"+x+"' y2='"+H+"' stroke='#2c5362' opacity='.3'/><text x='"+(x+3)+"' y='13' fill='#688b9c' font-size='8'>"+lon+"°</text>";}
+ const land=continents.map(p=>"<polygon points='"+polygon(p)+"' fill='#234b47' stroke='#5c927f' stroke-width='1.2' opacity='.9'/>").join("");
+ const pins=sites.map(site=>{
+  const q=xy(site.latitude,site.longitude);if(q[0]<-10||q[0]>W+10||q[1]<-10||q[1]>H+10)return "";
+  const lead=site.discovery_tier==="under_characterized_candidate";
+  return "<g data-ax-map-id='"+esc(site.id)+"' tabindex='0' role='button' aria-label='Inspect "+esc(site.name)+"' style='cursor:pointer'><circle cx='"+q[0]+"' cy='"+q[1]+"' r='"+(lead?10:7)+"' fill='"+(lead?"#e7bd77":"#50d5c6")+"' opacity='.2'/><circle cx='"+q[0]+"' cy='"+q[1]+"' r='"+(lead?5:3.7)+"' fill='"+(lead?"#e7bd77":"#50d5c6")+"' stroke='#e7f3f3' stroke-width='1.2'/><text x='"+(q[0]+8)+"' y='"+(q[1]-8)+"' fill='#d9ebe9' font-size='9' font-weight='700'>"+esc(site.name.length>25?site.name.slice(0,23)+"…":site.name)+"</text></g>";
+ }).join("");
+ el.innerHTML="<svg viewBox='0 0 "+W+" "+H+"' role='img' aria-label='Offline schematic candidate map'><rect width='"+W+"' height='"+H+"' fill='#071a28'/>"+grid+land+pins+"<text x='10' y='"+(H-10)+"' fill='#91aeb9' font-size='9'>OFFLINE SCHEMATIC / CANDIDATE POSITIONS · NOT A GEOLOGIC BOUNDARY</text></svg>";
+ el.querySelectorAll("[data-ax-map-id]").forEach(node=>{
+  const act=()=>{const site=findSite(node.dataset.axMapId);if(!site)return;state.selected=site.id;document.querySelectorAll(".axCard").forEach(x=>x.classList.toggle("selected",x.dataset.axCard===site.id));dossier(site.id);};
+  node.addEventListener("click",act);node.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();act();}});
+ });
+}
+function renderMap(sites){
+ offlineWorldMap("axDiscoveryMap",sites,{center:[15,0],halfLon:180,halfLat:90});
+}
+function updateScoutMap(lat,lon,radiusKm,bbox){
+ const el=$("axScoutMap");if(!el)return;
+ const W=640,H=260;
+ const radius=Math.max(4,Math.min(90,radiusKm*3.2));
+ const label=Number.isFinite(lat)&&Number.isFinite(lon)?lat.toFixed(5)+"° "+(lat>=0?"N":"S")+" · "+lon.toFixed(5)+"° "+(lon>=0?"E":"W"):"WGS84";
+ el.innerHTML="<svg viewBox='0 0 "+W+" "+H+"' role='img' aria-label='Offline local coordinate window'><rect width='"+W+"' height='"+H+"' fill='#071a28'/><g stroke='#285364' stroke-width='1' opacity='.65'>"+Array.from({length:9},(_,i)=>"<line x1='"+(i*80)+"' y1='0' x2='"+(i*80)+"' y2='"+H+"'/>").join("")+Array.from({length:5},(_,i)=>"<line x1='0' y1='"+(i*65)+"' x2='"+W+"' y2='"+(i*65)+"'/>").join("")+"</g><circle cx='320' cy='130' r='"+radius+"' fill='#3fb5a1' fill-opacity='.12' stroke='#58dac6' stroke-dasharray='6 5' stroke-width='2'/><circle cx='320' cy='130' r='7' fill='#e7bd77' stroke='#fff3d2' stroke-width='2'/><path d='M320 95V165M285 130H355' stroke='#e7bd77' opacity='.8'/><text x='18' y='25' fill='#d8ecec' font-size='12' font-weight='700'>OFFLINE STUDY WINDOW</text><text x='18' y='245' fill='#8baab7' font-size='10'>"+esc(label)+" · radius "+radiusKm+" km · schematic local grid</text></svg>";
+ $("axScoutMapLabel").textContent=label;
+}
+function axOfflineHaversine(lat1,lon1,lat2,lon2){
+ const rad=x=>x*Math.PI/180,R=6371;
+ const dLat=rad(lat2-lat1),dLon=rad(lon2-lon1);
+ const a=Math.sin(dLat/2)**2+Math.cos(rad(lat1))*Math.cos(rad(lat2))*Math.sin(dLon/2)**2;
+ return 2*R*Math.asin(Math.min(1,Math.sqrt(a)));
+}
+function renderOfflineScoutResults(data){
+ const rows=data.nearest_candidates||[];
+ const html=rows.map(row=>{
+  const tags=(row.environment_tags||[]).slice(0,4).map(esc).join(" · ");
+  const e=row.evidence||{};
+  return "<article class='axScoutScene'><b>"+esc(row.name)+" · "+row.distance_km.toFixed(1)+" km</b><small>"+esc(row.country||"")+" · "+(row.within_radius?"inside selected radius":"outside selected radius")+" · "+tags+"</small><small>POWER "+(e.power?"available":"missing")+" · Sentinel-2 "+(e.spectral?"available":"missing")+" · terrain "+(e.terrain?"processed":"not processed")+" · source "+(e.reference?"linked":"missing")+"</small><a href='#' data-offline-inspect='"+esc(row.id)+"'>Open local candidate dossier ↗</a></article>";
+ }).join("");
+ $("axScoutResults").innerHTML="<div class='axScoutSummary'><b>OFFLINE PROXIMITY TRIAGE / "+data.coordinate.latitude.toFixed(5)+", "+data.coordinate.longitude.toFixed(5)+"</b><p>"+data.nearby_count+" curated record(s) lie within "+data.study_window.radius_km+" km · "+data.curated_count+" seed records searched · "+new Date(data.generated_at_utc).toLocaleString()+"</p></div><div class='axScoutWarnings'><b style='color:#b7d3de'>INTERPRETATION BOUNDARY</b><p>"+esc(data.decision_boundary)+"</p></div>"+(html||"<p>No candidate records are available in the local catalog.</p>");
+ $("axScoutResults").querySelectorAll("[data-offline-inspect]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();const site=findSite(a.dataset.offlineInspect);if(site){state.selected=site.id;dossier(site.id);$("discoveryLab").scrollIntoView({behavior:"smooth",block:"start"});}}));
+}
+async function runCoordinateScout(){
+ const latitude=Number($("axScoutLat").value),longitude=Number($("axScoutLon").value),radius_km=Number($("axScoutRadius").value);
+ if(!Number.isFinite(latitude)||latitude< -89.9||latitude>89.9||!Number.isFinite(longitude)||longitude< -180||longitude>180){$("axScoutHint").textContent="Enter valid WGS84 latitude and longitude.";return;}
+ if(!Number.isFinite(radius_km)||radius_km<1||radius_km>50){$("axScoutHint").textContent="Choose a study radius between 1 and 50 km.";return;}
+ $("axScoutRun").disabled=true;$("axScoutExport").disabled=true;$("axScoutAskDirector").disabled=true;
+ pill($("axScoutStatus"),"SEARCHING LOCAL ATLAS","gold");$("axScoutHint").textContent="Calculating distances to the ten bundled candidate/reference points…";
+ updateScoutMap(latitude,longitude,radius_km);
+ try{
+  const rows=(state.catalog?.candidate_sites||[]).map(site=>{
+   const distance_km=axOfflineHaversine(latitude,longitude,site.latitude,site.longitude),e=layers(site.id);
+   return {id:site.id,name:site.name,country:site.country,region:site.region,distance_km,within_radius:distance_km<=radius_km,discovery_tier:site.discovery_tier,candidate_status:site.candidate_status,environment_tags:site.environment_tags||[],rehearsal_tasks:site.rehearsal_tasks||[],evidence:{power:e.power,spectral:e.spectral,terrain:e.terrain,reference:e.reference},source_references:site.source_references||[]};
+  }).sort((a,b)=>a.distance_km-b.distance_km);
+  const nearest=rows.slice(0,5),nearby=rows.filter(x=>x.within_radius);
+  state.scoutData={mode:"offline-curated-seed-proximity",coordinate:{latitude,longitude},study_window:{radius_km},curated_count:rows.length,nearby_count:nearby.length,nearest_candidates:nearest,all_within_radius:nearby,generated_at_utc:new Date().toISOString(),decision_boundary:"This is a proximity search over the ten curated candidate/reference coordinates bundled with ANALOG-X. It is not a global geospatial discovery scan, does not evaluate all land pixels, does not load new NASA/partner data and does not classify geology at the entered coordinate. Distance is to reference points, not validated site boundaries."};
+  renderOfflineScoutResults(state.scoutData);
+  pill($("axScoutStatus"),"OFFLINE TRIAGE COMPLETE","blue");$("axScoutExport").disabled=false;$("axScoutAskDirector").disabled=false;
+  $("axScoutHint").textContent=nearby.length+" curated candidate/reference point(s) are within "+radius_km+" km. The nearest records and available data layers are shown; no new geology is inferred.";
+ }catch(e){state.scoutData=null;pill($("axScoutStatus"),"LOCAL SEARCH FAILED","gold");$("axScoutHint").textContent="Could not complete the local coordinate search: "+e.message;}
+ finally{$("axScoutRun").disabled=false;}
+}
+function askDirectorAboutScout(){
+ if(!state.scoutData)return;
+ $("axAgentQuestion").value="Review this offline coordinate-scout result for a "+$("axAgentMission").value+" "+$("axAgentObjective").selectedOptions[0].text+" field-rehearsal investigation. Distinguish point proximity from actual site-boundary overlap, identify which evidence exists for nearby curated records, and recommend the next measurements without claiming that this coordinate is a newly discovered analog.";
+ $("agentBay").scrollIntoView({behavior:"smooth",block:"start"});
+ runLocal();
+}
+async function testEndpoint(show=true){
+ const endpoint=$("axAgentEndpoint").value.trim().replace(/\\/$/,"");
+ if(!endpoint){state.workerAvailable=false;state.aiEnabled=false;state.connected=false;$("axAgentRunCloud").disabled=true;$("axScoutRun").disabled=false;$("axScoutAskDirector").disabled=!state.scoutData;p ill($("axAgentModeStatus"),"LOCAL MODE READY","gold");if(show){$("axAgentStatus").textContent="Offline science review and coordinate triage are ready. A Worker is optional."; $("axScoutHint").textContent="Local candidate proximity search is ready; no network call is needed.";}return false;}
+ try{
+  $("axAgentConnect").disabled=true;$("axAgentConnect").textContent="TESTING…";
+  const r=await fetch(endpoint+"/health");if(!r.ok)throw Error("HTTP "+r.status);const h=await r.json();if(!h.ok)throw Error("Worker health check failed");
+  state.workerAvailable=true;state.aiEnabled=!!h.ai_enabled;state.connected=state.aiEnabled;state.endpoint=endpoint;try{localStorage.setItem("analogx_agent_endpoint",endpoint);}catch{}
+  $("axAgentRunCloud").disabled=!state.aiEnabled;$("axScoutRun").disabled=false;$("axScoutAskDirector").disabled=!state.scoutData;
+  pill($("axAgentModeStatus"),state.aiEnabled?"WORKERS AI CONNECTED":"OPTIONAL CLOUD / AI OFF",state.aiEnabled?"blue":"gold");
+  $("axAgentStatus").textContent=state.aiEnabled?(h.model+" · optional model; offline science remains available"):"Worker connected without LLM. Offline science remains the default.";
+  $("axScoutHint").textContent="Local coordinate triage remains available. Live API functions are optional.";
+  return true;
+ }catch(e){state.workerAvailable=false;state.aiEnabled=false;state.connected=false;$("axAgentRunCloud").disabled=true;$("axScoutRun").disabled=false;$("axScoutAskDirector").disabled=!state.scoutData;p ill($("axAgentModeStatus"),"LOCAL MODE / CLOUD OFFLINE","gold");$("axAgentStatus").textContent="Optional cloud connection failed: "+e.message+" · offline mode remains active.";if(show)$("axScoutHint").textContent="Offline candidate proximity search remains available. No API needed.";return false;}
+ finally{$("axAgentConnect").disabled=false;$("axAgentConnect").textContent="CONNECT & TEST";}
+}
+
+async function start(){bind();loadGameProgress();renderGame();const url=endpointSaved();if(url)$("axAgentEndpoint").value=url;await load();$("axScoutRun").disabled=false;updateScoutMap(Number($("axScoutLat").value),Number($("axScoutLon").value),Number($("axScoutRadius").value));$("axAgentRunLocal").click();}
 start();
 })();
