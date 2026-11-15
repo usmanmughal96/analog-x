@@ -41,7 +41,7 @@ def main():
    if not products and isinstance(payload,dict):
     products=payload.get("results",[])
    results.append({**q,"status":"results_returned" if products else "no_products_returned",
-      "query_url":r.url,"returned_count":len(products),"products":[x for x in products[:12] if x.get("type") != "Product_Service"],
+      "query_url":r.url,"returned_count":len([x for x in products[:12] if x.get("type") != "Product_Service"]),"raw_result_count":len(products),"products":[x for x in products[:12] if x.get("type") != "Product_Service"],
       "response_summary":payload.get("summary") if isinstance(payload,dict) else None})
    print(q["id"],len(products),"observational_or_nonservice",len([x for x in products[:12] if x.get("type") != "Product_Service"]),flush=True)
   except Exception as exc:
