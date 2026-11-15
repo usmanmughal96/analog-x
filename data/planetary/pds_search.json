@@ -1,19 +1,19 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-11-15T08:55:13+00:00",
+  "generated_at_utc": "2026-11-15T08:55:42+00:00",
   "provider": "NASA Planetary Data System Search API",
   "api": "https://pds.nasa.gov/api/search/1/products",
   "access_note": "Public product metadata discovery. A result is not proof that a binary product is directly downloadable, calibrated, spatially complete or ready for scientific use.",
   "queries": [
     {
       "id": "mars_target",
-      "q": "target_name eq \"Mars\"",
+      "q": "(target_name eq \"Mars\")",
       "target": "Mars",
       "purpose": "Search observational products whose PDS target is Mars.",
       "status": "query_error",
       "query_url": null,
       "returned_count": 0,
-      "error": "400 Client Error:  for url: https://pds.mcp.nasa.gov/api/search/1/products?limit=12&q=target_name+eq+%22Mars%22",
+      "error": "400 BAD_REQUEST\n Request uri=/api/search/1/products failed with message:\nUnparsableQParamException: Unable to parse the q parameter:Invalid q string value syntax The request &#39;target_name&#39; does not match any field name in the LDD.(ref:c7a6f638-c323-4c2b-8cfa-a00e547f60a0)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
       "products": []
     },
     {
@@ -24,7 +24,7 @@
       "status": "query_error",
       "query_url": null,
       "returned_count": 0,
-      "error": "400 Client Error:  for url: https://pds.mcp.nasa.gov/api/search/1/products?limit=12&q=%28target_name+eq+%22Mars%22+and+instrument_name+eq+%22MOLA%22%29",
+      "error": "400 BAD_REQUEST\n Request uri=/api/search/1/products failed with message:\nUnparsableQParamException: Unable to parse the q parameter:Invalid q string value syntax The request &#39;target_name&#39; does not match any field name in the LDD.(ref:c2bf0049-6aca-48c5-9ce3-f303dc83b5c4)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
       "products": []
     },
     {
@@ -35,18 +35,18 @@
       "status": "query_error",
       "query_url": null,
       "returned_count": 0,
-      "error": "400 Client Error:  for url: https://pds.mcp.nasa.gov/api/search/1/products?limit=12&q=%28target_name+eq+%22Mars%22+and+instrument_name+eq+%22HiRISE%22%29",
+      "error": "400 BAD_REQUEST\n Request uri=/api/search/1/products failed with message:\nUnparsableQParamException: Unable to parse the q parameter:Invalid q string value syntax The request &#39;target_name&#39; does not match any field name in the LDD.(ref:7ebbb1b5-8083-49ae-b818-ea868303e426)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
       "products": []
     },
     {
       "id": "moon_target",
-      "q": "target_name eq \"Moon\"",
+      "q": "(target_name eq \"Moon\")",
       "target": "Moon",
       "purpose": "Search observational products whose PDS target is the Moon.",
       "status": "query_error",
       "query_url": null,
       "returned_count": 0,
-      "error": "400 Client Error:  for url: https://pds.mcp.nasa.gov/api/search/1/products?limit=12&q=target_name+eq+%22Moon%22",
+      "error": "400 BAD_REQUEST\n Request uri=/api/search/1/products failed with message:\nUnparsableQParamException: Unable to parse the q parameter:Invalid q string value syntax The request &#39;target_name&#39; does not match any field name in the LDD.(ref:1a19f170-233e-4eae-a14a-dccd3ecbf2b2)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
       "products": []
     },
     {
@@ -57,7 +57,7 @@
       "status": "query_error",
       "query_url": null,
       "returned_count": 0,
-      "error": "400 Client Error:  for url: https://pds.mcp.nasa.gov/api/search/1/products?limit=12&q=%28target_name+eq+%22Moon%22+and+instrument_name+eq+%22LOLA%22%29",
+      "error": "400 BAD_REQUEST\n Request uri=/api/search/1/products failed with message:\nUnparsableQParamException: Unable to parse the q parameter:Invalid q string value syntax The request &#39;target_name&#39; does not match any field name in the LDD.(ref:1a39bace-e65d-4c0d-bfb0-e82becca05d9)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
       "products": []
     },
     {
@@ -68,7 +68,7 @@
       "status": "query_error",
       "query_url": null,
       "returned_count": 0,
-      "error": "400 Client Error:  for url: https://pds.mcp.nasa.gov/api/search/1/products?limit=12&q=%28target_name+eq+%22Moon%22+and+instrument_name+eq+%22Diviner%22%29",
+      "error": "400 BAD_REQUEST\n Request uri=/api/search/1/products failed with message:\nUnparsableQParamException: Unable to parse the q parameter:Invalid q string value syntax The request &#39;target_name&#39; does not match any field name in the LDD.(ref:cc8b2c03-834c-4e45-a1ae-e4f9d337d4c1)\nFor assistance, forward this error message to pds-operator@jpl.nasa.gov",
       "products": []
     }
   ],
