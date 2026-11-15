@@ -68,7 +68,7 @@ function assess(id,target,objective,strictness){
   {key:"climate",label:"NASA POWER climatology",available:!!power,detail:power?(power.valid_parameters||[]).length+" parameters recorded; gridded climate context, not a surface-temperature or dust-flux measurement.":"No local NASA POWER snapshot in the published bundle."},
   {key:"spectral",label:"Site-specific Sentinel-2 evidence",available:!!image||!!site.measured_context?.sentinel2,detail:image?"Processed site screen available; reflectance indices are screening descriptors, not mineral identification.":site.measured_context?.sentinel2?"Scene-level spectral context is recorded; inspect coverage and dates.":"No site-specific Sentinel-2 processing is included for this reference."},
   {key:"terrain",label:"Processed terrain profile",available:terrain?.status==="processed",detail:terrain?.status==="processed"?"Copernicus DEM GLO-30 DSM regional profile at ~925 m support; not rover-scale roughness or bare-earth elevation.":"No site-specific processed terrain profile in this release."},
-  {key:"geology",label:"Geology / material context",available:!!(site.evidence_status?.geology||site.evidence_status?.historical_geologic_context||site.source_references?.length),detail:site.evidence_status?.geology||site.evidence_status?.historical_geologic_context||"References provide context only; no site-scale mineral or geochemical map is integrated."},
+  {key:"geology",label:"Geology / material context",available:!!(site.evidence_status?.geology||site.evidence_status?.historical_geologic_context||site.measured_context?.geology),detail:site.evidence_status?.geology||site.evidence_status?.historical_geologic_context||site.measured_context?.geology||"No geology-specific evidence is integrated for this candidate. Generic source references do not count as geological evidence."},
   {key:"ground",label:"Field measurements / ground truth",available:false,detail:"No field station observations or laboratory analyses are bundled. Log new observations below; do not treat the proposed protocol as collected data."}
  ];
  const layerCount=evidence.filter(x=>x.available).length;
@@ -110,7 +110,6 @@ function renderAssessment(){
  $("axFpSiteMeta").textContent=(site.discovery_tier||"candidate").replaceAll("_"," ")+" · "+(site.candidate_status||"status not supplied").replaceAll("_"," ");
 }
 function protocolFor(site,objective){
- const id=site.id;
  const common=[
   ["01 · Pre-field verification","Confirm the exact study polygon, access permissions, land ownership/protected-area rules, current hazards and local partner approval. The catalogue coordinate/AOI is a screening reference, not a surveyed boundary."],
   ["02 · Station control","Record WGS84 GNSS coordinates, UTC timestamp, coordinate uncertainty, operator, instrument make/model, calibration state, geotagged overview and close-up photographs."],
@@ -119,19 +118,19 @@ function protocolFor(site,objective){
   ["05 · Close-out","Export GeoJSON and CSV, preserve the original photos/notes, and have a domain specialist review the interpretation before upgrading any candidate status."]
  ];
  let specialised=[];
- if(objective==="playa"||id==="chagai_small_playas"||id==="hamun_i_mashkel"){
+ if(objective==="playa"){
   specialised=[
    ["Playa boundary and facies","Map the actual playa edge, surface crust, polygons, channels, alluvial margins and transition to surrounding terrain. Repeat after wet and dry periods where safe and permitted."],
    ["Sediment and salt sampling","Record crust thickness only where measured, grain size, moisture, colour and sedimentary structures. Collect representative samples under an approved sampling plan; do not label a material as a mineral or brine without laboratory confirmation."],
    ["On-site screening and lab confirmation","Where trained staff and equipment are available, measure electrical conductivity, pH and temperature with calibrated instruments. Use laboratory XRD/XRF/ion analysis to test mineralogy and soluble-salt composition; these are proposed methods, not current project measurements."]
   ];
- }else if(objective==="volcanic"||id==="koh_i_sultan"){
+ }else if(objective==="volcanic"){
   specialised=[
    ["Outcrop and lithology logging","Record mapped unit, contact, grain size, alteration, fracture/vesicle context, weathering and sample position. Distinguish regional map context from the lithology actually observed at each station."],
    ["Spectral-to-ground validation","Collect calibrated field spectra and co-located photographs where equipment is available. Compare with Sentinel-2 screening only after atmospheric, illumination and surface-mixture limitations are recorded."],
    ["Laboratory checks","Use qualified petrography and XRD/XRF analyses to verify lithology and alteration minerals. Do not infer basaltic equivalence from a volcanic landscape or RGB colour."]
   ];
- }else if(objective==="cryosphere"||id==="hispar_glacier"){
+ }else if(objective==="cryosphere"){
   specialised=[
    ["Ice/debris boundary observations","Map visible snow, clean ice, debris cover, meltwater and exposed substrate separately. Record season, illumination and recent weather context."],
    ["Repeat observations","Use repeat GNSS/photo stations and time-stamped imagery to quantify boundary changes. Document sensor/field uncertainty."],
@@ -174,11 +173,17 @@ function openDb(){
 function storeTx(mode,action){
  return openDb().then(db=>{
   if(!db)throw new Error("IndexedDB unavailable");
-  return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,mode),store=tx.objectStore(STORE);let req;
+  return new Promise((resolve,reject)=>{
+   const tx=db.transaction(STORE,mode),store=tx.objectStore(STORE);let req,result;
    if(action.type==="getAll")req=store.getAll();
    else if(action.type==="put")req=store.put(action.value);
    else if(action.type==="delete")req=store.delete(action.id);
-   req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);tx.onabort=()=>reject(tx.error||new Error("Storage transaction failed"));
+   else {tx.abort();reject(new Error("Unsupported local storage operation"));return;}
+   req.onsuccess=()=>{result=req.result;};
+   req.onerror=()=>reject(req.error||new Error("IndexedDB request failed"));
+   tx.oncomplete=()=>resolve(result);
+   tx.onerror=()=>reject(tx.error||new Error("IndexedDB transaction failed"));
+   tx.onabort=()=>reject(tx.error||new Error("IndexedDB transaction aborted"));
   });
  });
 }
@@ -197,19 +202,32 @@ async function saveRecord(){
  const site=siteRecord($("axFpSite").value),lat=Number($("axFpLat").value),lon=Number($("axFpLon").value);
  if(!site||!Number.isFinite(lat)||lat< -90||lat>90||!Number.isFinite(lon)||lon< -180||lon>180){setStatus("Enter a valid site and WGS84 station coordinate before saving.","warning");return;}
  const file=$("axFpPhoto").files?.[0]||null;
- if(file&&file.size>4*1024*1024){setStatus("Photo exceeds 4 MB. Resize it before adding it to the offline record.","warning");return;}
- const reading=$("axFpValue").value.trim();
- const record={id:(crypto.randomUUID?crypto.randomUUID():"ax-"+Date.now()+"-"+Math.random().toString(16).slice(2)),site_id:site.id,site_name:site.name,station_id:$("axFpStationId").value.trim()||site.id+"-ST",observed_at:$("axFpObservedAt").value||new Date().toISOString(),latitude:lat,longitude:lon,observation_type:$("axFpType").value,value:reading===""?null:Number(reading),value_text:reading===""?"":reading,unit:$("axFpUnit").value,method:$("axFpMethod").value.trim(),notes:$("axFpNotes").value.trim(),photo:file||null,created_at:new Date().toISOString(),sync_status:"local-only"};
- if(reading!==""&&!Number.isFinite(record.value)){setStatus("Reading must be numeric, or leave it blank and describe the observation in notes.","warning");return;}
- try{await storeTx("readwrite",{type:"put",value:record});}
- catch{const rows=localFallbackRead();rows.push({...record,photo:null});localFallbackWrite(rows);}
+ if(file&&(!file.type.startsWith("image/")||file.size>4*1024*1024)){setStatus("Choose an image no larger than 4 MB.","warning");return;}
+ const reading=$("axFpValue").value.trim(),accuracyText=$("axFpAccuracy").value.trim();
+ const accuracy=accuracyText===""?null:Number(accuracyText);
+ if(accuracy!==null&&(!Number.isFinite(accuracy)||accuracy<0)){setStatus("Coordinate accuracy must be a non-negative number of metres.","warning");return;}
+ if(reading!==""&&!Number.isFinite(Number(reading))){setStatus("Reading must be numeric, or leave it blank and describe the observation in notes.","warning");return;}
+ const localTime=$("axFpObservedAt").value,observed=new Date(localTime||Date.now());
+ if(!Number.isFinite(observed.getTime())){setStatus("Enter a valid observation time.","warning");return;}
+ const record={id:(crypto.randomUUID?crypto.randomUUID():"ax-"+Date.now()+"-"+Math.random().toString(16).slice(2)),site_id:site.id,site_name:site.name,station_id:$("axFpStationId").value.trim()||site.id+"-ST",observed_at:observed.toISOString(),latitude:lat,longitude:lon,coordinate_accuracy_m:accuracy,coordinate_source:$("axFpCoordinateSource").value,observer:$("axFpObserver").value.trim(),observation_type:$("axFpType").value,value:reading===""?null:Number(reading),value_text:reading,unit:$("axFpUnit").value,method:$("axFpMethod").value.trim(),notes:$("axFpNotes").value.trim(),photo:file,created_at:new Date().toISOString(),sync_status:"local-only"};
+ try{
+  await storeTx("readwrite",{type:"put",value:record});
+ }catch(e){
+  try{const rows=localFallbackRead();rows.push({...record,photo:null});localFallbackWrite(rows);}
+  catch(storageError){setStatus("Could not save locally: "+storageError.message,"warning");return;}
+ }
  $("axFpNotes").value="";$("axFpValue").value="";$("axFpPhoto").value="";
- await refreshRecords();setStatus("Station record saved on this device. It has not been uploaded or verified.","good");
+ await refreshRecords();setStatus("Station record saved on this device. Coordinate accuracy and source are preserved; it has not been uploaded or independently verified.","good");
 }
 function locate(){
  if(!navigator.geolocation){setStatus("This browser does not offer geolocation. Enter the WGS84 coordinate manually.","warning");return;}
  setStatus("Requesting device location permission…");
- navigator.geolocation.getCurrentPosition(pos=>{$("axFpLat").value=pos.coords.latitude.toFixed(6);$("axFpLon").value=pos.coords.longitude.toFixed(6);setStatus("Device coordinates filled. Accuracy ±"+Math.round(pos.coords.accuracy)+" m; confirm the station position before saving.","good");},err=>setStatus("Location unavailable: "+err.message+" · manual coordinates remain available.","warning"),{enableHighAccuracy:true,timeout:12000,maximumAge:0});
+ navigator.geolocation.getCurrentPosition(pos=>{
+  $("axFpLat").value=pos.coords.latitude.toFixed(6);$("axFpLon").value=pos.coords.longitude.toFixed(6);
+  $("axFpAccuracy").value=Number.isFinite(pos.coords.accuracy)?pos.coords.accuracy.toFixed(1):"";
+  $("axFpCoordinateSource").value="device-geolocation";
+  setStatus("Device coordinates filled. Reported accuracy ±"+Math.round(pos.coords.accuracy)+" m; confirm the station position before saving.","good");
+ },err=>setStatus("Location unavailable: "+err.message+" · manual coordinates remain available.","warning"),{enableHighAccuracy:true,timeout:12000,maximumAge:0});
 }
 function recordAction(e){
  const b=e.target.closest("[data-delete-record]");if(!b)return;
@@ -226,7 +244,7 @@ async function serializableRecords(){
 async function exportJson(){const payload={schema_version:"1.0",product:"ANALOG-X Field Evidence Passport",exported_at:new Date().toISOString(),records:await serializableRecords(),note:"User-entered field records only; no synthetic measurements are generated."};download("ANALOG-X_Field_Evidence_Passport.json",JSON.stringify(payload,null,2));}
 function csvCell(v){return '"'+String(v??"").replace(/"/g,'""')+'"';}
 async function exportCsv(){
- const rows=await getAllRecords();const headers=["id","site_id","site_name","station_id","observed_at","latitude","longitude","observation_type","value","value_text","unit","method","notes","sync_status"];
+ const rows=await getAllRecords();const headers=["id","site_id","site_name","station_id","observed_at","latitude","longitude","coordinate_accuracy_m","coordinate_source","observer","observation_type","value","value_text","unit","method","notes","created_at","sync_status"];
  const lines=[headers.join(","),...rows.map(r=>headers.map(k=>csvCell(r[k])).join(","))];
  download("ANALOG-X_Field_Stations.csv",lines.join("\r\n"),"text/csv");
 }
@@ -241,11 +259,14 @@ async function importJson(event){
   if(file.size>12*1024*1024)throw new Error("Import file is over 12 MB.");
   const payload=JSON.parse(await file.text()),rows=Array.isArray(payload)?payload:payload.records;
   if(!Array.isArray(rows))throw new Error("Expected a records array.");
-  let count=0;
-  for(const raw of rows.slice(0,500)){
-   if(!raw||!siteRecord(raw.site_id)||!Number.isFinite(Number(raw.latitude))||!Number.isFinite(Number(raw.longitude))||Number(raw.latitude)<-90||Number(raw.latitude)>90||Number(raw.longitude)<-180||Number(raw.longitude)>180)continue;
-   const r={...raw};if(r.photo_data_url){r.photo=dataUrlToBlob(r.photo_data_url);delete r.photo_data_url;}
-   await storeTx("readwrite",{type:"put",value:r});count++;
+  const valid=rows.slice(0,500).filter(raw=>raw&&siteRecord(raw.site_id)&&Number.isFinite(Number(raw.latitude))&&Number.isFinite(Number(raw.longitude))&&Number(raw.latitude)>=-90&&Number(raw.latitude)<=90&&Number(raw.longitude)>=-180&&Number(raw.longitude)<=180);
+  let count=0,db=null;try{db=await openDb();}catch{}
+  if(db){
+   for(const raw of valid){const r={...raw};if(r.photo_data_url){r.photo=dataUrlToBlob(r.photo_data_url);delete r.photo_data_url;}await storeTx("readwrite",{type:"put",value:r});count++;}
+  }else{
+   const local=localFallbackRead();
+   for(const raw of valid){const r={...raw};if(r.photo_data_url){r.photo=dataUrlToBlob(r.photo_data_url);delete r.photo_data_url;}local.push({...r,photo:null});count++;}
+   localFallbackWrite(local);
   }
   await refreshRecords();setStatus(count+" valid record(s) imported locally. Review provenance before using them scientifically.","good");
  }catch(e){setStatus("Import failed: "+e.message,"warning");}
@@ -257,12 +278,24 @@ function syncButtonState(){
 async function syncRecords(){
  const url=$("axFpBackendUrl").value.trim().replace(/\/+$/,"");if(!url)return;
  const rows=await getAllRecords();if(!rows.length){setStatus("There are no local records to sync.","warning");return;}
- const key=$("axFpApiKey").value.trim();
+ const key=$("axFpApiKey").value.trim();let accepted=0,rejected=0;const acceptedIds=[];
  try{
-  const response=await fetch(url+"/api/v1/field-records/bulk",{method:"POST",headers:{"Content-Type":"application/json",...(key?{"Authorization":"Bearer "+key}:{})},body:JSON.stringify({records:rows.map(r=>({...r,photo:undefined}))})});
-  const data=await response.json();if(!response.ok)throw new Error(data.detail||"Backend returned HTTP "+response.status);
-  setStatus((data.accepted??rows.length)+" record(s) synced to the configured self-hosted backend.","good");
- }catch(e){setStatus("Sync unavailable. Your offline records remain on this device. "+e.message,"warning");}
+  for(let start=0;start<rows.length;start+=500){
+   const batch=rows.slice(start,start+500);
+   const response=await fetch(url+"/api/v1/field-records/bulk",{method:"POST",headers:{"Content-Type":"application/json",...(key?{"Authorization":"Bearer "+key}:{})},body:JSON.stringify({records:batch.map(r=>({...r,photo:undefined}))})});
+   const data=await response.json();if(!response.ok)throw new Error(data.detail||"Backend returned HTTP "+response.status);
+   accepted+=Number(data.accepted)||0;rejected+=(data.rejected||[]).length;
+   acceptedIds.push(...(Array.isArray(data.accepted_ids)?data.accepted_ids:[]));
+  }
+  if(acceptedIds.length){
+   const idSet=new Set(acceptedIds),local=await getAllRecords();
+   let db=null;try{db=await openDb();}catch{}
+   if(db){for(const row of local){if(idSet.has(row.id)){row.sync_status="synced";await storeTx("readwrite",{type:"put",value:row});}}}
+   else{localFallbackWrite(local.map(row=>idSet.has(row.id)?{...row,sync_status:"synced"}:row));}
+   await refreshRecords();
+  }
+  setStatus(accepted+" record(s) synced; "+rejected+" rejected. Photos remain on this device and are not uploaded. Local originals are retained.","good");
+ }catch(e){setStatus("Sync incomplete. Your offline records remain on this device. "+e.message,"warning");}
 }
 function initPwa(){
  setOfflineBadge();window.addEventListener("online",setOfflineBadge);window.addEventListener("offline",setOfflineBadge);
@@ -270,7 +303,7 @@ function initPwa(){
 }
 async function init(){
  if(!$("fieldPassport"))return;
- $("axFpObservedAt").value=new Date().toISOString().slice(0,16);
+ const now=new Date();$("axFpObservedAt").value=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,16);
  initPwa();
  try{await loadData();}catch(e){setStatus("Bundled science data could not load: "+e.message+" · reconnect once to install the offline pack.","warning");}
 }
