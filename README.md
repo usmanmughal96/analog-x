@@ -37,7 +37,7 @@ The four-stage Field School simulator teaches playa/evaporite, volcanic mapping,
 
 ## Live web layers and offline resilience
 
-The main console now prefers a real interactive Leaflet map. It uses CARTO's dark basemap tiles by default, offers standard OpenStreetMap streets as a selectable base layer, and exposes NASA GIBS VIIRS corrected-reflectance true-colour imagery as an optional dated WMS overlay. Study-site markers use the curated WGS84 coordinates already stored in the science pack.
+The main console now prefers a real interactive Leaflet map. It uses standard OpenStreetMap streets as its free default basemap, and exposes NASA GIBS VIIRS corrected-reflectance true-colour imagery as an optional dated WMS overlay. Study-site markers use the curated WGS84 coordinates already stored in the science pack.
 
 The climate panel attempts a browser-side NASA POWER Daily Point API request for the selected site, using the latest 30-day window ending three days before the current date to reduce near-real-time data-latency issues. It reports the returned period explicitly and labels the values as a 30-day daily mean. If the live request fails, the console retains the committed NASA POWER climatology snapshot and all existing local science assets.
 
