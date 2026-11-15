@@ -79,3 +79,10 @@ OpenStreetMap tile service is community-funded; respect its tile usage policy an
 4. State where the analogy breaks down and what controlled experiment would address the gap.
 5. Avoid claims of mineral abundance, accessible ice, landing safety, rover trafficability or “new discovery” without direct evidence and independent validation.
 6. Preserve links, licences, citations, processing scripts and reproducible output files.
+
+
+## MODIS land-surface-temperature browse evidence
+
+`scripts/fetch_modis_browse.py` queries NASA CMR for MOD11A2 V061 8-day land-surface-temperature granules over the ten study/reference windows and downloads two available public browse JPEGs from the most recent returned granule per site. The generated `data/nasa/modis_browse_index.json` records CMR granule IDs, acquisition intervals, original browse URLs and local image paths; the browse files are stored under `data/nasa/modis_browse/`.
+
+In the current successful pipeline run, public browse imagery was downloaded for all ten sites (20 JPEGs total). These are granule/tile browse previews, not AOI-clipped imagery or calibrated LST values. The dashboard offers them as visual context only. Quantitative MOD11A2 science-file analysis still requires the HDF science bands, scale factors, fill values and per-pixel QA decoding; do not infer temperatures from browse colours.
