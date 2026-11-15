@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "ANALOG-X Analog Transferability & Failure Analysis (ATFA)",
-  "generated_at_utc": "2026-11-15T08:59:04+00:00",
+  "generated_at_utc": "2026-11-15T08:59:44+00:00",
   "scientific_contract": {
     "unit_of_analysis": "A named field experiment or process, not whole-site resemblance.",
     "classification": "Rule-based qualitative transferability classes authored in science/build_transferability.py; not probabilities, not a universal similarity score, not NASA certification.",
@@ -35,7 +35,7 @@
         "total_cells": 1024,
         "elevation_coverage_percent": 100.0,
         "slope_deg": {
-          "median": 13.396507263183594,
+          "median": 13.396506309509277,
           "p90": 30.935405731201172,
           "p95": 31.61575698852539,
           "valid_3x3_neighbourhoods": 900
