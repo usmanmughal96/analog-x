@@ -303,11 +303,17 @@ def main():
       "koh_i_sultan":{"name":"Koh-i-Sultan / Chagai, Pakistan","latitude":29.1,"longitude":62.8,"catalog_key":"koh_i_sultan"},
       "hispar_glacier":{"name":"Hispar Glacier / Karakoram, Pakistan","latitude":36.10572,"longitude":75.23341,"catalog_key":"hispar_glacier"},
       "chagai_small_playas":{"name":"Chagai small salt playas near Nok Kundi, Pakistan","latitude":28.583333,"longitude":62.633333,"catalog_key":"chagai_small_playas"},
-      "hamun_i_mashkel":{"name":"Hamun-i-Mashkel playa / Kharan Basin, Pakistan","latitude":28.25,"longitude":62.91667,"catalog_key":"hamun_i_mashkel"}
+      "hamun_i_mashkel":{"name":"Hamun-i-Mashkel playa / Kharan Basin, Pakistan","latitude":28.25,"longitude":62.91667,"catalog_key":"hamun_i_mashkel"},
+      "dallol":{"name":"Dallol / Danakil Depression, Ethiopia","latitude":14.25,"longitude":40.30,"catalog_key":"dallol"},
+      "atacama":{"name":"Atacama Desert, Chile","latitude":-23.50,"longitude":-68.25,"catalog_key":"atacama"},
+      "mcmurdo":{"name":"McMurdo Dry Valleys, Antarctica","latitude":-77.50,"longitude":161.80,"catalog_key":"mcmurdo"},
+      "haughton":{"name":"Haughton impact structure, Canada","latitude":75.375,"longitude":-89.675,"catalog_key":"haughton"},
+      "iceland":{"name":"Icelandic volcanic fields, Iceland","latitude":63.875,"longitude":-22.25,"catalog_key":"iceland"},
+      "death":{"name":"Death Valley region, United States","latitude":36.25,"longitude":-116.80,"catalog_key":"death"}
     }
     result={
       "generated_at_utc":utcnow(),
-      "method":"Earth Copernicus DEM GLO-30 DSM averaged to 925 m; Mars MOLA MEGDR 64 pixels/degree. Both use approximately 30 km square windows and terrain derivatives computed in metres.",
+      "method":"Earth Copernicus DEM GLO-30 DSM averaged to 925 m across up to ten curated Earth analog/reference sites; Mars MOLA MEGDR 64 pixels/degree. Both use approximately 30 km square windows and terrain derivatives computed in metres.",
       "planetary_target":{"name":NILI["name"],"latitude":NILI["latitude"],"longitude":NILI["longitude"],
         "source_gazetteer":NILI["gazetteer"],"context_image":NILI["themis"],
         "dataset":"MGS MOLA MEGDR topography and counts 64 pixels/degree",
@@ -356,7 +362,7 @@ def main():
     (OUT/"terrain_comparison.json").write_text(json.dumps(result,indent=2,allow_nan=False)+"\n",encoding="utf-8")
     (OUT/"README.md").write_text(
       "# Matched-scale Earth–Mars terrain descriptors\n\n"
-      "The terrain comparison pipeline uses Copernicus DEM GLO-30 DSM for the Pakistan sites and MOLA MEGDR 64 px/degree topography/counts around Nili Patera in Syrtis Major. "
+      "The terrain comparison pipeline uses Copernicus DEM GLO-30 DSM for up to ten curated Earth analog/reference sites and MOLA MEGDR 64 px/degree topography/counts around Nili Patera in Syrtis Major. "
       "The Earth DSM is aggregated to approximately the MOLA pixel scale before slope and 3x3 local-relief descriptors are computed for all candidate AOIs with tiles in the refreshed Copernicus STAC catalogue. "
       "This is a coarse terrain-profile comparison, not geological equivalence, rover traversability or landing safety.\n\n"
       "See terrain_comparison.json for values, spatial support, data provenance and limitations. Raw MOLA files are not committed.\n",encoding="utf-8")
