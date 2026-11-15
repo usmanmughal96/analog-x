@@ -181,3 +181,7 @@ The module includes ten curated Earth study/reference sites, experiment-level tr
 - `scripts/fetch_modis_browse.py` queries NASA CMR for MOD11A2 V061 8-day LST granules over ten Earth sites and downloads available public browse JPEGs.
 
 The weekly/manual GitHub Actions workflow validates the science pack and dashboard JavaScript, then commits generated metadata and browse assets. Browse JPEGs are tile-level visual context—not AOI-clipped or calibrated LST measurements. MODIS science HDF access and QA decoding remain separate. PDS metadata is discovery, not binary ingestion. See `docs/ANALOG_TRANSFERABILITY_AND_FAILURE_ANALYSIS.md`.
+
+### Interactive views and backend
+
+The ATFA module includes a monthly NASA VIIRS true-colour time scrub/animation and a 3D site/pathway scatter view (z = authored experiment-pathway count, not elevation). The FastAPI service now exposes read-only ATFA, PDS metadata and MODIS provenance routes alongside the existing paginated field-notebook CRUD. `backend/smoke_test.py` exercises the science reads and temporary field-record create/list/delete flow in CI. The public GitHub Pages app remains fully usable without deploying the optional API.
