@@ -266,6 +266,28 @@ def hillshade_png(z,valid,path):
     img=Image.fromarray(im,mode="L").resize((384,384),Image.Resampling.BILINEAR)
     path.parent.mkdir(parents=True,exist_ok=True);img.save(path,optimize=True)
 
+def surface_grid_relative_m(z,valid,pixel_x_m,pixel_y_m):
+    """Small DEM surface for 3D display, relative to the grid's median elevation."""
+    values=np.asarray(z,dtype=np.float64)
+    mask=np.asarray(valid,dtype=bool) & np.isfinite(values)
+    if not mask.any():
+        return None
+    baseline=float(np.median(values[mask]))
+    rows=[]
+    for row in range(values.shape[0]):
+        out=[]
+        for col in range(values.shape[1]):
+            out.append(round(float(values[row,col]-baseline),2) if mask[row,col] else None)
+        rows.append(out)
+    return {
+      "units":"m","vertical_reference":"relative to median valid elevation within this local grid",
+      "rows":int(values.shape[0]),"columns":int(values.shape[1]),
+      "pixel_size_m":{"x":float(pixel_x_m),"y":float(pixel_y_m)},
+      "valid_cell_count":int(mask.sum()),"total_cell_count":int(mask.size),
+      "values":rows
+    }
+
+
 def main():
     OUT.mkdir(parents=True,exist_ok=True)
     RAW.mkdir(parents=True,exist_ok=True)
@@ -303,6 +325,7 @@ def main():
       mars_stats["coverage"]={"valid_percent":meta_crop["valid_observation_coverage_percent"],"total_cells":meta_crop["total_cells"]}
       result["planetary_target"]["window"]=meta_crop
       result["planetary_target"]["terrain_metrics"]=mars_stats
+      result["planetary_target"]["surface_grid_relative_m"]=surface_grid_relative_m(z,valid,meta_crop["pixel_spacing_x_m"],meta_crop["pixel_spacing_y_m"])
       hillshade_png(z,valid,OUT/"nili_patera_mola_hillshade.png")
       result["planetary_target"]["preview_path"]="nili_patera_mola_hillshade.png"
     except Exception as exc:
@@ -318,6 +341,7 @@ def main():
         stats["window_half_width_m"]=WINDOW_HALF_M
         result["earth_sites"][key]={
           "site":site,"status":"processed","source":meta,"terrain_metrics":stats,
+          "surface_grid_relative_m":surface_grid_relative_m(z,valid,meta["analysis_resolution_m"],meta["analysis_resolution_m"]),
           "preview_path":f"{key}_copdem_hillshade.png"
         }
         hillshade_png(z,valid,OUT/f"{key}_copdem_hillshade.png")
