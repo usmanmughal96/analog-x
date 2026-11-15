@@ -499,6 +499,25 @@ function initMap(){
    const dark=L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{subdomains:"abcd",maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'});
    const streets=L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
    dark.addTo(leaflet);
+   let baseTilesLoaded=false,baseTileErrors=0,offlineMapActivated=false;
+   dark.on("tileload",()=>{baseTilesLoaded=true;});
+   dark.on("tileerror",()=>{
+    baseTileErrors++;
+    if(baseTileErrors>=4&&!baseTilesLoaded&&!offlineMapActivated){
+     offlineMapActivated=true;leaflet.remove();map={
+      center:initialCenter,zoom:5,halfLon:26,halfLat:20,
+      setView(center,zoom){this.center=center;this.zoom=zoom;const z=Math.max(.65,zoom/5);this.halfLon=Math.min(180,26/z);this.halfLat=Math.min(88,20/z);renderMainOfflineMap();return this;},
+      flyTo(center,zoom){return this.setView(center,zoom);},
+      zoomIn(){return this.setView(this.center,this.zoom+1);},
+      zoomOut(){return this.setView(this.center,Math.max(1,this.zoom-1));},
+      invalidateSize(){renderMainOfflineMap();return this;}
+     };
+     markers.koh={openPopup(){}};markers.hispar_glacier={openPopup(){}};
+     $("mapEngineStatus").textContent="OFFLINE LOCATOR · TILE FEED UNAVAILABLE";
+     $("mapEngineStatus").className="statuspill gold";
+     renderMainOfflineMap();
+    }
+   });
    const gibsDate=new Date(Date.now()-86400000).toISOString().slice(0,10);
    const nasaVIIRS=L.tileLayer.wms("https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi",{
     layers:"VIIRS_SNPP_CorrectedReflectance_TrueColor",format:"image/jpeg",transparent:false,version:"1.1.1",time:gibsDate,uppercase:true,attribution:'Imagery: <a href="https://earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/gibs">NASA GIBS / NASA Earthdata</a>'
