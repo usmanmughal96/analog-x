@@ -166,3 +166,18 @@ The current NASA POWER, NASA GIBS, Microsoft Planetary Computer STAC/SAS and dir
 
 ## Licence
 Original project code and text are MIT-licensed. NASA, Copernicus, Microsoft, USGS, EvK2CNR and other third-party products retain their original terms and attribution.
+
+
+## New: Analog Transferability & Failure Analysis (ATFA)
+
+Open the interactive [ATFA science module](https://usmanmughal96.github.io/analog-x/transferability.html). It shifts the unit of analogy from whole-site resemblance to **specific field experiments and physical processes**: what can be rehearsed on Earth, where the analogy breaks, and what measurement is needed next.
+
+The module includes ten curated Earth study/reference sites, experiment-level transferability dossiers, explicit evidence-state auditing, lunar Shackleton / Mars Nili Patera reference context, a Leaflet map with OpenStreetMap and optional NASA GIBS imagery, Plotly evidence charts and a 3D site/pathway landscape. The 3D vertical axis is experiment-pathway count, not elevation or a similarity score.
+
+### New reproducible pipelines
+
+- `science/build_transferability.py` builds the ATFA site dossiers from the existing NASA POWER, Sentinel-2, Copernicus DEM, MOLA, LOLA and candidate catalogue outputs.
+- `scripts/fetch_pds_search.py` queries the public NASA PDS Search API for Nili Patera, MOLA, HiRISE, Shackleton, LOLA and Diviner product metadata.
+- `scripts/fetch_modis_browse.py` queries NASA CMR for MOD11A2 V061 8-day LST granules over ten Earth sites and downloads available public browse JPEGs.
+
+The weekly/manual GitHub Actions workflow validates the science pack and dashboard JavaScript, then commits generated metadata and browse assets. Browse JPEGs are tile-level visual context—not AOI-clipped or calibrated LST measurements. MODIS science HDF access and QA decoding remain separate. PDS metadata is discovery, not binary ingestion. See `docs/ANALOG_TRANSFERABILITY_AND_FAILURE_ANALYSIS.md`.
