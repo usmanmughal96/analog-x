@@ -36,7 +36,7 @@ p{color:var(--muted);margin:0;line-height:1.55}
 a{color:#82e1ec;text-decoration:none}a:hover{text-decoration:underline}
 @media(max-width:800px){.deck{padding:0}.slide{aspect-ratio:auto;min-height:100svh;max-height:none;border-radius:0;padding:24px 18px 90px}.grid2,.grid3,.grid4{grid-template-columns:1fr 1fr}.imagecard img{height:170px}.topline{font-size:8px}.uiGrid{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.grid2,.grid3,.grid4,.imagepair{grid-template-columns:1fr}.metric{font-size:29px}.slide{padding:22px 16px 92px}.foot{font-size:8px}}
-@media print{body{background:white}.deck{display:block;padding:0}.slide{display:flex!important;page-break-after:always;max-width:none;width:100%;aspect-ratio:16/9;max-height:none;box-shadow:none;border-radius:0}.controls{display:none}}
+/* Legacy print rules superseded by robust export rules below. */
 
 /* Judge-first narrative components */
 .storySplit{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
@@ -102,6 +102,35 @@ a{color:#82e1ec;text-decoration:none}a:hover{text-decoration:underline}
 .judgeLens span{display:block;color:#9fb6c0;font-size:8px;line-height:1.3;margin-top:4px}
 @media(max-width:800px){.storySplit,.siteColumns{grid-template-columns:1fr}.statstrip{grid-template-columns:repeat(2,1fr)}.siteThumbs{grid-template-columns:repeat(2,1fr)}.flowSteps{grid-template-columns:repeat(2,1fr)}.dataGrid{grid-template-columns:1fr}.trackGrid{grid-template-columns:repeat(2,1fr)}.requireRow{grid-template-columns:1fr;gap:4px}.judgeLenses{grid-template-columns:repeat(2,1fr)}.workflow{grid-template-columns:repeat(2,1fr)}}
 
+@page{size:13.333in 7.5in;margin:0}
+@media print{
+ html,body{width:13.333in!important;height:auto!important;margin:0!important;padding:0!important;background:#061321!important;color:#edf6f8!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+ body{font-size:10pt!important}
+ .deck{display:block!important;width:13.333in!important;min-height:0!important;margin:0!important;padding:0!important}
+ .slide,.slide.active{display:flex!important;flex-direction:column!important;position:relative!important;box-sizing:border-box!important;width:13.333in!important;height:7.5in!important;min-height:0!important;max-height:none!important;aspect-ratio:auto!important;margin:0!important;padding:.34in .42in .28in!important;overflow:hidden!important;border:0!important;border-radius:0!important;box-shadow:none!important;break-after:page!important;page-break-after:always!important}
+ .slide:last-child{break-after:auto!important;page-break-after:auto!important}
+ .slide>*{flex-shrink:0}
+ .topline{font-size:7pt!important;letter-spacing:.12em!important}.brandmark{width:25px!important;height:25px!important}
+ .kicker{font-size:7.5pt!important;margin:11px 0 6px!important}
+ h1{font-size:36pt!important;line-height:.98!important}h2{font-size:24pt!important;line-height:1.02!important;margin:5px 0 8px!important}h3{font-size:11pt!important;margin-bottom:5px!important}
+ p{font-size:8pt!important;line-height:1.35!important}.lede{font-size:10pt!important;line-height:1.35!important;margin-top:9px!important}
+ .storySplit{gap:8px!important;margin-top:9px!important}.storyPanel{padding:10px!important}.storyLabel{font-size:7pt!important;margin-bottom:4px!important}.storyPanel h3{font-size:10pt!important;margin-bottom:4px!important}.storyPanel p{font-size:7.3pt!important;line-height:1.3!important}
+ .statstrip{gap:6px!important;margin-top:8px!important}.statbox{padding:6px 8px!important}.statbox b{font-size:17pt!important}.statbox span{font-size:6.5pt!important}
+ .siteColumns{gap:8px!important;margin-top:8px!important}.card{padding:9px!important}.card .eyebrow,.eyebrow{font-size:6.5pt!important;margin-bottom:4px!important}.cleanList{gap:5px!important;margin-top:6px!important}.cleanItem{font-size:7pt!important;line-height:1.25!important;gap:6px!important}
+ .siteThumbs{gap:6px!important;margin-top:7px!important}.siteThumb img{height:68px!important}.siteThumb b{font-size:7pt!important;padding:4px 5px 0!important}.siteThumb small{font-size:5.5pt!important;padding:0 5px 4px!important}
+ .sources{gap:4px!important;margin-top:6px!important}.tag{font-size:6pt!important;padding:3px 6px!important;margin:2px!important}
+ .dataGrid{gap:7px!important;margin-top:8px!important}.dataCard{padding:9px!important}.dataCard .dataTitle{font-size:7pt!important}.dataCard .dataMetric{font-size:17pt!important;margin:3px 0!important}.dataCard p{font-size:6.8pt!important;line-height:1.25!important}
+ .flowSteps{gap:5px!important;margin:8px 0!important}.flowStep{padding:7px!important}.flowStep .stepNo{font-size:6.5pt!important}.flowStep b{font-size:8pt!important;margin:3px 0!important}.flowStep span{font-size:6.2pt!important;line-height:1.2!important}
+ .trackGrid{gap:4px!important;margin-top:6px!important}.trackPill{font-size:6.2pt!important;padding:5px!important}
+ .compareTargets{gap:5px!important;margin:6px 0!important}.targetBox{padding:7px!important}.targetBox small{font-size:6pt!important}.targetBox b{font-size:10pt!important;margin:2px 0!important}.targetBox span{font-size:6pt!important}
+ .agentGrid{gap:5px!important;margin-top:7px!important}.agentTile{padding:7px!important}.agentTile small{font-size:6pt!important}.agentTile b{font-size:7.5pt!important;margin:2px 0!important}.agentTile span{font-size:6pt!important;line-height:1.2!important}
+ .workflow{gap:4px!important;margin:7px 0!important}.workflow div{padding:6px!important}.workflow b{font-size:7pt!important}.workflow small{font-size:5.7pt!important;margin-top:2px!important}
+ .requireGrid{gap:4px!important;margin-top:7px!important}.requireRow{padding:6px 7px!important;gap:6px!important}.requireRow b{font-size:6.8pt!important}.requireRow span{font-size:6.1pt!important;line-height:1.2!important}.requireRow em{font-size:5.5pt!important;padding:3px 5px!important}
+ .judgeLenses{gap:4px!important;margin-top:7px!important}.judgeLens{padding:5px!important}.judgeLens b{font-size:6pt!important}.judgeLens span{font-size:5.5pt!important;line-height:1.2!important;margin-top:2px!important}
+ .note,.limitLine{font-size:6.3pt!important;line-height:1.25!important;padding:6px 8px!important;margin-top:6px!important}
+ .foot{font-size:6pt!important;line-height:1.2!important;padding-top:6px!important;margin-top:auto!important;gap:8px!important}.foot a{color:#82e1ec!important}
+ .controls{display:none!important}a{text-decoration:none!important}
+}
 </style>
 </head>
 <body>
