@@ -1,0 +1,68 @@
+/* ANALOG-X Field Evidence Passport */
+.axPassport{margin-top:12px}
+.axFpIntro{padding:12px 14px;color:#91a8b6;font-size:10px;line-height:1.65}
+.axFpControls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:12px 14px}
+.axFpField label{display:block;color:#82a0b2;font-size:9px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:6px}
+.axFpField select,.axFpField input,.axFpField textarea{width:100%;border:1px solid #28506a;background:#061725;color:#e1eef4;border-radius:7px;padding:10px;font:inherit;font-size:11px;min-height:38px}
+.axFpField textarea{min-height:80px;resize:vertical}
+.axFpVerdict{margin:0 14px 12px;border:1px solid #315469;border-radius:10px;background:linear-gradient(120deg,#0a2030,#0b1b28);padding:14px}
+.axFpVerdict[data-tone="good"]{border-color:#2e7469}
+.axFpVerdict[data-tone="warning"]{border-color:#876c42}
+.axFpVerdictLabel{display:block;font-size:12px;font-weight:900;color:#e6f3f6;letter-spacing:.02em}
+.axFpVerdict p{margin:6px 0 0;color:#9cb5c3;font-size:10px}
+.axFpCounts{display:flex;align-items:baseline;gap:10px;margin-top:10px;padding-top:9px;border-top:1px solid #28475b}
+.axFpCounts b{font-size:22px;color:#d0e9ef}
+.axFpCounts small{color:#89a4b4;font-size:9px}
+.axFpPanels{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 14px 12px}
+.axFpPanel{background:#071a28;border:1px solid #1c4056;border-radius:9px;overflow:hidden;min-width:0}
+.axFpPanelHead{padding:10px 12px;background:#0a2131;border-bottom:1px solid #1b4055;color:#c5dce5;font-size:9px;font-weight:900;letter-spacing:.1em}
+.axFpEvidenceRow,.axFpClaim{display:grid;grid-template-columns:125px minmax(0,1fr);gap:10px;padding:10px 12px;border-bottom:1px solid #183649}
+.axFpEvidenceRow:last-child,.axFpClaim:last-child{border-bottom:0}
+.axFpEvidenceRow b,.axFpClaim b{display:block;color:#deebf0;font-size:10px}
+.axFpEvidenceRow p,.axFpClaim p{margin:4px 0 0;color:#8ea8b7;font-size:9px;line-height:1.5}
+.axFpState{font-size:8px;font-weight:900;letter-spacing:.06em;align-self:start;padding:4px 6px;border-radius:4px;text-align:center}
+.axFpState.present{background:#153e38;color:#9de0ce}
+.axFpState.missing{background:#473726;color:#e7c28b}
+.axFpPlanetary{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:10px 12px}
+.axFpPlanetary article{background:#081f2e;border:1px solid #20475c;border-radius:7px;padding:10px}
+.axFpPlanetary b{color:#d5e8ef;font-size:10px}
+.axFpPlanetary p{color:#91aab8;font-size:9px;line-height:1.45;margin:5px 0}
+.axFpPlanetary small{color:#7e9bad;font-size:8px;line-height:1.4}
+.axFpLimits{margin:0;padding:10px 28px 13px;color:#a9bbc4;font-size:9px;line-height:1.65}
+.axFpProtocolWrap{margin:0 14px 14px;border:1px solid #254b60;border-radius:9px;overflow:hidden}
+.axFpProtocolTitle{padding:10px 12px;background:#0a2131;color:#cfe1e8;font-size:10px;font-weight:900}
+.axFpProtocolStep{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;padding:10px 12px;border-top:1px solid #1d3d52}
+.axFpProtocolStep>span{font-size:11px;color:#76d4c1;font-weight:900}
+.axFpProtocolStep b{font-size:10px;color:#deebf0}
+.axFpProtocolStep p{font-size:9px;line-height:1.55;color:#8fa9b8;margin:4px 0 0}
+.axFpActions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:0 14px 13px}
+.axFpButton{border:1px solid #3c7185;background:#0d2b3b;color:#d6eaf1;border-radius:7px;padding:9px 11px;font:inherit;font-size:9px;font-weight:900;letter-spacing:.05em;cursor:pointer}
+.axFpButton.secondary{border-color:#385265;background:#0a1b29;color:#aac0ca}
+.axFpButton:disabled{opacity:.45;cursor:not-allowed}
+.axFpButton:hover:not(:disabled){border-color:#69b6bd}
+.axFpStation{margin:0 14px 14px;border:1px solid #264c61;border-radius:10px;overflow:hidden}
+.axFpStationHead{padding:11px 13px;background:#0a2131;color:#d0e5ec;font-size:10px;font-weight:900;letter-spacing:.08em}
+.axFpStationIntro{padding:9px 13px;color:#8ea9b8;font-size:9px;line-height:1.5}
+.axFpStationGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;padding:0 13px 12px}
+.axFpStationGrid .wide{grid-column:span 2}
+.axFpStationGrid .full{grid-column:1/-1}
+.axFpStationGrid .axFpField label{margin-bottom:5px}
+.axFpStationGrid .axFpField input,.axFpStationGrid .axFpField select,.axFpStationGrid .axFpField textarea{min-height:34px;padding:8px;font-size:10px}
+.axFpRecordHeader{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 13px;border-top:1px solid #23445a;color:#b4cad4;font-size:9px;font-weight:900}
+.axFpRecords{padding:0 13px 12px}
+.axFpRecord{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;border:1px solid #1c3d51;background:#081a28;border-radius:7px;padding:9px 10px;margin-top:7px}
+.axFpRecord b{display:block;color:#d5e6ec;font-size:9px}
+.axFpRecord small{display:block;color:#7996a7;font-size:8px;margin-top:3px}
+.axFpRecord p{margin:4px 0 0;color:#9fb4be;font-size:9px}
+.axFpDelete{border:1px solid #75534b;background:#2b1e1e;color:#e9b8ae;border-radius:5px;padding:5px 7px;font-size:8px;cursor:pointer}
+.axFpEmpty{color:#86a2b1;font-size:9px;padding:5px 0}
+.axFpSync{border-top:1px solid #23445a;padding:12px 13px;display:grid;grid-template-columns:minmax(180px,1fr) minmax(160px,.7fr) auto;gap:8px;align-items:end}
+.axFpSync .axFpField input{min-height:34px}
+#axFpStatus{margin:0 14px 12px;padding:8px 10px;border-radius:6px;background:#0a1d2a;color:#95afbd;font-size:9px}
+#axFpStatus[data-tone="good"]{color:#a5dfd1;background:#102e2b}
+#axFpStatus[data-tone="warning"]{color:#f0cb91;background:#30261b}
+#axOfflineStatus{border:1px solid #346356;background:#0c2823;color:#a8dfd0;border-radius:5px;padding:5px 7px;font-size:8px;font-weight:900;letter-spacing:.06em;white-space:nowrap}
+#axOfflineStatus[data-online="false"]{border-color:#85683c;background:#302719;color:#edcc96}
+@media(max-width:900px){.axFpControls{grid-template-columns:repeat(2,minmax(0,1fr))}.axFpStationGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.axFpPanels{grid-template-columns:1fr}.axFpPlanetary{grid-template-columns:1fr}.axFpEvidenceRow,.axFpClaim{grid-template-columns:105px minmax(0,1fr)}.axFpSync{grid-template-columns:1fr}.axFpStationGrid .wide{grid-column:span 2}}
+@media print{body *{visibility:hidden!important}.axPassport,.axPassport *{visibility:visible!important}.axPassport{position:absolute;inset:0;width:100%;background:white!important;color:black!important}.axFpPanel,.axFpEvidenceRow,.axFpClaim,.axFpProtocolStep,.axFpProtocolWrap,.axFpVerdict{break-inside:avoid;box-shadow:none!important}#axFpStation,#axFpRecords,#axFpActions{display:none!important}}
