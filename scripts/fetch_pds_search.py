@@ -18,11 +18,11 @@ OUT=ROOT/"data"/"planetary"/"pds_search.json"
 API="https://pds.nasa.gov/api/search/1/classes/observational"
 QUERIES=[
  {"id":"mars_target","q":'(ref_lid_target eq "urn:nasa:pds:context:target:planet.mars")',"target":"Mars","instrument_filter":None,"purpose":"Search observational products explicitly associated with the Mars target identifier."},
- {"id":"mars_mola","q":'(ref_lid_target eq "urn:nasa:pds:context:target:planet.mars")',"target":"Mars","instrument_filter":"mola","purpose":"Filter Mars-target products for MOLA instrument metadata."},
- {"id":"mars_hirise","q":'(ref_lid_target eq "urn:nasa:pds:context:target:planet.mars")',"target":"Mars","instrument_filter":"hirise","purpose":"Filter Mars-target products for HiRISE instrument metadata."},
+ {"id":"mars_mola","q":'(ref_lid_instrument eq "urn:nasa:pds:context:instrument:mgs.mola")',"target":"Mars","instrument_filter":None,"purpose":"Search PDS observational products linked to the MGS MOLA instrument."},
+ {"id":"mars_hirise","q":'(ref_lid_instrument eq "urn:nasa:pds:context:instrument:hirise.mro")',"target":"Mars","instrument_filter":None,"purpose":"Search PDS observational products linked to the MRO HiRISE instrument."},
  {"id":"moon_target","q":'(ref_lid_target eq "urn:nasa:pds:context:target:satellite.moon")',"target":"Moon","instrument_filter":None,"purpose":"Search observational products explicitly associated with the Moon target identifier."},
- {"id":"moon_lola","q":'(ref_lid_target eq "urn:nasa:pds:context:target:satellite.moon")',"target":"Moon","instrument_filter":"lola","purpose":"Filter Moon-target products for LOLA instrument metadata."},
- {"id":"moon_diviner","q":'(ref_lid_target eq "urn:nasa:pds:context:target:satellite.moon")',"target":"Moon","instrument_filter":"diviner","purpose":"Filter Moon-target products for Diviner instrument metadata."},
+ {"id":"moon_lola","q":'(ref_lid_instrument eq "urn:nasa:pds:context:instrument:lro.lola")',"target":"Moon","instrument_filter":None,"purpose":"Search PDS observational products linked to the LRO LOLA instrument."},
+ {"id":"moon_diviner","q":'(ref_lid_instrument eq "urn:nasa:pds:context:instrument:lro.dlre")',"target":"Moon","instrument_filter":None,"purpose":"Search PDS observational products linked to the LRO Diviner instrument."},
 ]
 s=requests.Session()
 s.headers.update({"User-Agent":"ANALOG-X/1.1 PDS public search integration","Accept":"application/json"})
