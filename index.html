@@ -48,6 +48,17 @@
 .labCampaignNote{color:#6f8fa2!important;margin-top:8px}
 @media(max-width:850px){.labCampaign{grid-template-columns:1fr}}
 @media(max-width:600px){.labCampaign{margin-left:10px;margin-right:10px}}
+
+/* Persistent featured link to the ATFA science module */
+.atfa-featured{position:fixed;right:22px;bottom:22px;z-index:1000;display:flex;align-items:center;gap:11px;padding:12px 17px;border:1px solid #72e6ff;border-radius:13px;background:linear-gradient(115deg,#07344c 0%,#0a2037 62%,#172a3c 100%);color:#e9fbff!important;text-decoration:none!important;box-shadow:0 8px 32px #0009,0 0 0 1px #38c8f255,0 0 25px #20bde744;font-size:11px;font-weight:850;letter-spacing:.025em;transition:transform .18s ease,box-shadow .18s ease;backdrop-filter:blur(12px)}
+.atfa-featured:hover{transform:translateY(-3px);box-shadow:0 12px 38px #000b,0 0 0 1px #8aeaff,0 0 32px #20bde777;color:#fff!important}
+.atfa-featured .atfa-icon{width:30px;height:30px;display:grid;place-items:center;border-radius:9px;background:#0c5270;color:#a8f0ff;font-size:18px;box-shadow:inset 0 0 14px #49d8ff35}
+.atfa-featured .atfa-copy{display:flex;flex-direction:column;gap:3px}
+.atfa-featured small{font-size:8px;color:#8dddf0;font-weight:750;letter-spacing:.13em;text-transform:uppercase}
+.atfa-featured .atfa-arrow{font-size:16px;color:#8deaff;margin-left:3px}
+.atfa-hero-link{display:inline-flex;align-items:center;gap:9px;margin-top:16px;padding:11px 15px;border:1px solid #287c9b;border-radius:9px;background:#0a3045;color:#c9f5ff!important;text-decoration:none!important;font-size:10px;font-weight:800;box-shadow:0 5px 18px #0003}
+.atfa-hero-link:hover{background:#10435d;border-color:#63dfff;color:white!important}
+@media(max-width:600px){.atfa-featured{right:12px;bottom:70px;padding:10px 12px;border-radius:11px;gap:8px;max-width:calc(100vw - 24px)}.atfa-featured .atfa-icon{width:27px;height:27px}.atfa-featured .atfa-copy{font-size:10px}.atfa-featured small{font-size:7px}}
 </style>
 <link rel='stylesheet' href='./assets/analogx-labs.css?v=20261115-offline'>
 <link rel='stylesheet' href='./assets/analogx-scout.css?v=20261114-portalfix'>
@@ -112,6 +123,7 @@
     <h1 id="welcomeTitle">Earth is the rehearsal ground for the <em>next worlds.</em></h1>
     <p>Before astronauts and robots explore the Moon or Mars, scientists test mission tasks on Earth. ANALOG-X helps find the right places, compare real evidence, and understand where the comparison breaks down.</p>
     <div class="welcomeDefinition">A planetary <b>analog</b> is not an Earth copy of another world. It is a place or process that helps rehearse one specific exploration task.</div>
+    <a class="atfa-hero-link" href="./transferability.html"><span aria-hidden="true">⇄</span> Explore Analog Transferability <span aria-hidden="true">↗</span></a>
 
    </div>
    <div class="welcomeVisual" aria-label="Earth, Moon and Mars exploration concept">
@@ -1078,4 +1090,5 @@ boot();
 </script>
 <script src='./assets/analogx-labs.js?v=20261115-offline'></script>
 <script src='./assets/analogx-field-passport.js?v=20261115-v2'></script>
+<a class="atfa-featured" href="./transferability.html" aria-label="Open Analog Transferability science module"><span class="atfa-icon" aria-hidden="true">⇄</span><span class="atfa-copy"><small>Featured science module</small>Analog Transferability</span><span class="atfa-arrow" aria-hidden="true">↗</span></a>
 </body></html>
