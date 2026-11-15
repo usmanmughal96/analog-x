@@ -28,7 +28,7 @@ async function loadData(){
  state.catalog=values[0];state.powerIndex=values[1];state.imagery=values[2];state.terrain=values[3];state.lunar=values[4];state.diviner=values[5];
  const select=$("axFpSite");select.innerHTML=state.catalog.candidate_sites.map(s=>"<option value='"+esc(s.id)+"'>"+esc(s.name)+" · "+esc(s.country)+"</option>").join("");
  select.value="chagai_small_playas";
- $("axFpSite").addEventListener("change",()=>{state.selected=null;renderAssessment();renderProtocol();});
+ $("axFpSite").addEventListener("change",()=>{state.selected=null;const site=siteRecord($("axFpSite").value);if(site){$("axFpLat").value=site.latitude;$("axFpLon").value=site.longitude;$("axFpStationId").value=site.id.toUpperCase()+"-ST-001";}renderAssessment();renderProtocol();});
  $("axFpTarget").addEventListener("change",renderAssessment);
  $("axFpObjective").addEventListener("change",()=>{renderAssessment();renderProtocol();});
  $("axFpStrictness").addEventListener("change",renderAssessment);
@@ -80,7 +80,7 @@ function assess(id,target,objective,strictness){
  else if(strictReady){verdict="STRICT EVIDENCE LEAD · suitable for the next field-validation stage, not a validated planetary analog";tone="good";}
  else if(layerCount>=3){verdict="CONDITIONAL FIELD-REHEARSAL CANDIDATE · multiple evidence layers, with material gaps";tone="good";}
  else{verdict="EXPLORATORY RESEARCH LEAD · insufficient evidence for a stronger claim";tone="warning";}
- const targetData=target==="Both"?[targetRecord("Moon"),targetRecord("Mars)".slice(0,-1))]:[targetRecord(target)];
+ const targetData=target==="Both"?[targetRecord("Moon"),targetRecord("Mars")]:[targetRecord(target)];
  const claims=[
   {name:"A specific field method can be rehearsed here",ok:missionEligible&&taskMatch,why:missionEligible&&taskMatch?"The candidate record documents a task/environment overlap. Treat this as a research hypothesis.":"The selected site has no documented direct overlap with this target/objective."},
   {name:"The target mineral / salt / ice deposit is confirmed",ok:false,why:"No project-integrated field chemistry, mineral identification, subsurface profile or validated resource measurement supports this claim."},
@@ -191,7 +191,7 @@ async function getAllRecords(){
 async function refreshRecords(){
  state.records=await getAllRecords();
  $("axFpRecordCount").textContent=state.records.length+" local station record(s)";
- $("axFpRecords").innerHTML=state.records.length?state.records.slice().sort((a,b)=>String(b.observed_at).localeCompare(String(a.observed_at))).map(r=>"<article class='axFpRecord'><div><b>"+esc(r.station_id||r.id)+" · "+esc(r.site_name||r.site_id)+"</b><small>"+esc(r.observed_at||"date not supplied")+" · "+esc(r.observation_type||"observation")+"</small><p>"+esc(r.notes||r.value===null?"Field note saved":String(r.value??"No numeric reading")+" "+String(r.unit||""))+"</p></div><button class='axFpDelete' data-delete-record='"+esc(r.id)+"'>DELETE</button></article>").join(""):"<p class='axFpEmpty'>No field observations recorded yet. Save real observations here; the project never inserts synthetic field measurements.</p>";
+ $("axFpRecords").innerHTML=state.records.length?state.records.slice().sort((a,b)=>String(b.observed_at).localeCompare(String(a.observed_at))).map(r=>"<article class='axFpRecord'><div><b>"+esc(r.station_id||r.id)+" · "+esc(r.site_name||r.site_id)+"</b><small>"+esc(r.observed_at||"date not supplied")+" · "+esc(r.observation_type||"observation")+"</small><p>"+esc(r.notes || (r.value===null ? "Field note saved" : String(r.value??"No numeric reading")+" "+String(r.unit||"")))+"</p></div><button class='axFpDelete' data-delete-record='"+esc(r.id)+"'>DELETE</button></article>").join(""):"<p class='axFpEmpty'>No field observations recorded yet. Save real observations here; the project never inserts synthetic field measurements.</p>";
 }
 async function saveRecord(){
  const site=siteRecord($("axFpSite").value),lat=Number($("axFpLat").value),lon=Number($("axFpLon").value);
