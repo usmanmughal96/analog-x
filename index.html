@@ -51,7 +51,7 @@
 </style>
 <link rel='stylesheet' href='./assets/analogx-labs.css?v=20261115-offline'>
 <link rel='stylesheet' href='./assets/analogx-scout.css?v=20261114-portalfix'>
-<link rel='stylesheet' href='./assets/analogx-field-passport.css?v=20261115-offline'>
+<link rel='stylesheet' href='./assets/analogx-field-passport.css?v=20261115-v2'>
 </head>
 <body>
 <div class="launchScreen" id="launchScreen" role="dialog" aria-modal="true" aria-label="Opening ANALOG-X planetary research portal" tabindex="0">
@@ -360,10 +360,13 @@
    <div class="axFpField"><label for="axFpObservedAt">Observation time</label><input id="axFpObservedAt" type="datetime-local"></div>
    <div class="axFpField"><label for="axFpLat">Latitude · WGS84</label><input id="axFpLat" type="number" step="0.000001" min="-90" max="90"></div>
    <div class="axFpField"><label for="axFpLon">Longitude · WGS84</label><input id="axFpLon" type="number" step="0.000001" min="-180" max="180"></div>
+   <div class="axFpField"><label for="axFpAccuracy">Coordinate accuracy · metres</label><input id="axFpAccuracy" type="number" step="any" min="0" placeholder="Optional GNSS ±m"></div>
+   <div class="axFpField"><label for="axFpCoordinateSource">Coordinate source</label><select id="axFpCoordinateSource"><option value="manual">Manual / map reading</option><option value="device-geolocation">Device GNSS / GPS</option></select></div>
    <div class="axFpField"><label for="axFpType">Observation type</label><select id="axFpType"><option>Surface description</option><option>Electrical conductivity</option><option>TDS / salinity</option><option>pH</option><option>Surface temperature</option><option>Air temperature</option><option>Wind speed</option><option>Grain size</option><option>Ice / debris boundary</option><option>Outcrop / lithology description</option><option>Other field note</option></select></div>
    <div class="axFpField"><label for="axFpValue">Numeric reading (optional)</label><input id="axFpValue" type="number" step="any" placeholder="Only a measured value"></div>
    <div class="axFpField"><label for="axFpUnit">Unit</label><select id="axFpUnit"><option value="">No numeric unit</option><option>°C</option><option>K</option><option>m/s</option><option>µS/cm</option><option>mS/cm</option><option>ppm</option><option>pH</option><option>mm</option><option>m</option><option>g</option><option>kg</option></select></div>
    <div class="axFpField"><label for="axFpMethod">Instrument / method</label><input id="axFpMethod" placeholder="Instrument, calibration or visual method"></div>
+   <div class="axFpField"><label for="axFpObserver">Observer / operator (optional)</label><input id="axFpObserver" maxlength="160" placeholder="Name or field-team identifier"></div>
    <div class="axFpField full"><label for="axFpNotes">Observation, context and uncertainty</label><textarea id="axFpNotes" placeholder="Describe what was observed, the method, uncertainty, operator and limitations."></textarea></div>
    <div class="axFpField wide"><label for="axFpPhoto">Station photo (optional · max 4 MB)</label><input id="axFpPhoto" type="file" accept="image/*"></div>
    <div class="axFpField wide"><label>Coordinate helper</label><button class="axFpButton secondary" id="axFpLocate" type="button">USE DEVICE GNSS / GPS</button></div>
@@ -1073,5 +1076,5 @@ boot();
 })();
 </script>
 <script src='./assets/analogx-labs.js?v=20261115-offline'></script>
-<script src='./assets/analogx-field-passport.js?v=20261115-offline'></script>
+<script src='./assets/analogx-field-passport.js?v=20261115-v2'></script>
 </body></html>
