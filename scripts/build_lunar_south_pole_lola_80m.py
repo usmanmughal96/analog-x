@@ -64,6 +64,20 @@ def summary(x):
  return {"count":int(x.size),"min":float(x.min()),"p10":float(np.percentile(x,10)),
          "median":float(np.median(x)),"p90":float(np.percentile(x,90)),
          "p95":float(np.percentile(x,95)),"max":float(x.max())}
+def surface_grid_relative_m(z,valid,pixel_m):
+   values=np.asarray(z,dtype=np.float64)
+   mask=np.asarray(valid,dtype=bool) & np.isfinite(values)
+   if not mask.any(): return None
+   baseline=float(np.median(values[mask]))
+   rows=[]
+   for row in range(values.shape[0]):
+    rows.append([round(float(values[row,col]-baseline),2) if mask[row,col] else None for col in range(values.shape[1])])
+   return {"units":"m","vertical_reference":"relative to median valid elevation within this local grid",
+    "rows":int(values.shape[0]),"columns":int(values.shape[1]),
+    "pixel_size_m":{"x":float(pixel_m),"y":float(pixel_m)},
+    "valid_cell_count":int(mask.sum()),"total_cell_count":int(mask.size),"values":rows}
+
+
 def main():
  OUT.mkdir(parents=True,exist_ok=True);RAW.mkdir(parents=True,exist_ok=True)
  paths={k:download(v) for k,v in FILES.items()}
@@ -211,6 +225,7 @@ def main():
     "window_bounds":[float(window.col_off),float(window.row_off),float(window.col_off+window.width),float(window.row_off+window.height)],
     "dem_and_count_grid_aligned":grid_equal},
    "matched_coarse_support_approx_925m":coarse_support,
+    "surface_grid_relative_m":surface_grid_relative_m(coarse_elev,coarse_valid,coarse_res),
    "terrain_metrics":{
     "elevation_relative_to_1737_4km_sphere_m":summary(valid_elev),
     "slope_deg_from_80m_dem":slope_stats,
