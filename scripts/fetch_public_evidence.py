@@ -56,7 +56,13 @@ SITES={
    "role":"Closed-basin playa and intermittent-lake candidate for Mars evaporite / sedimentary process comparison",
    "coordinate_note":"Approximate gazetteer location for scene discovery; not a hydrological boundary or field-access point.",
    "primary_reference":"https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf"
- }
+ },
+ "dallol":{"name":"Dallol / Danakil Depression","country":"Ethiopia","latitude":14.25,"longitude":40.30,"bbox":[40.15,14.15,40.45,14.35],"role":"Saline hydrothermal, evaporite and extreme-environment process mapping reference","coordinate_note":"Approximate Dallol reference AOI; not a field-access boundary."},
+ "atacama":{"name":"Atacama Desert","country":"Chile","latitude":-23.50,"longitude":-68.25,"bbox":[-68.40,-23.70,-68.10,-23.30],"role":"Hyperarid surface processes, salt-flat and dust measurement reference","coordinate_note":"Regional Atacama screening AOI; not a surveyed field site."},
+ "mcmurdo":{"name":"McMurdo Dry Valleys","country":"Antarctica","latitude":-77.50,"longitude":161.80,"bbox":[161.60,-77.70,162.00,-77.30],"role":"Cold-desert, aeolian and cryosphere field-method reference","coordinate_note":"Approximate Dry Valleys screening AOI; access requires Antarctic permitting."},
+ "haughton":{"name":"Haughton impact structure","country":"Canada","latitude":75.375,"longitude":-89.675,"bbox":[-89.90,75.25,-89.45,75.50],"role":"Impact geology and polar field-operations reference","coordinate_note":"Approximate crater-region screening AOI; not a surveyed field boundary."},
+ "iceland":{"name":"Icelandic volcanic fields","country":"Iceland","latitude":63.875,"longitude":-22.25,"bbox":[-22.50,63.75,-22.00,64.00],"role":"Basaltic lava morphology and volcanic terrain-mapping reference","coordinate_note":"Regional volcanic-field screening AOI; not a surveyed lava-flow unit."},
+ "death":{"name":"Death Valley region","country":"United States","latitude":36.25,"longitude":-116.80,"bbox":[-117.00,36.10,-116.60,36.40],"role":"Arid alluvial fan, playa, dust and field-operations reference","coordinate_note":"Regional Death Valley screening AOI; not a field-access boundary."}
 }
 
 session=requests.Session()
