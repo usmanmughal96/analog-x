@@ -11,6 +11,7 @@ on:
       - ".github/workflows/build-transferability.yml"
       - "scripts/fetch_pds_search.py"
       - "scripts/fetch_modis_browse.py"
+      - "transferability.html"
   workflow_dispatch:
   schedule:
     - cron: "23 5 * * 1"
