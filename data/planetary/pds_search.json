@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-11-15T09:07:56+00:00",
+  "generated_at_utc": "2026-11-15T09:08:32+00:00",
   "provider": "NASA Planetary Data System Search API",
   "api": "https://pds.nasa.gov/api/search/1/classes/observational",
   "access_note": "Public product metadata discovery. A result is not proof that a binary product is directly downloadable, calibrated, spatially complete or ready for scientific use.",
@@ -10,7 +10,7 @@
       "q": "(ref_lid_target eq \"urn:nasa:pds:context:target:planet.mars\")",
       "target": "Mars",
       "instrument_filter": null,
-      "purpose": "Search observational products explicitly associated with the Mars target identifier.",
+      "purpose": "Discover PDS observational records whose target metadata includes Mars; inspect instrument and mission before treating a record as a Mars science dataset.",
       "status": "results_returned",
       "query_url": "https://pds.mcp.nasa.gov/api/search/1/classes/observational?limit=100&q=%28ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Aplanet.mars%22%29",
       "returned_count": 100,
@@ -6056,7 +6056,7 @@
       "target": "Moon",
       "instrument_filter": null,
       "target_filter": "satellite.earth.moon",
-      "purpose": "Search observational products explicitly associated with the Moon target identifier.",
+      "purpose": "Discover PDS observational records whose target metadata includes the Moon; inspect instrument and mission before treating a record as a lunar science dataset.",
       "status": "results_returned",
       "query_url": "https://pds.mcp.nasa.gov/api/search/1/classes/observational?limit=100&q=%28ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Asatellite.earth.moon%22%29",
       "returned_count": 100,
@@ -15301,7 +15301,9 @@
     }
   ],
   "query_count": 6,
+  "query_limit_per_search": 100,
   "results_returned": 500,
+  "unique_product_count": 500,
   "limitations": [
     "PDS Search API documentation warns that the registry is not fully populated; zero results do not prove the archive lacks data.",
     "Review product labels, instrument calibration, coordinate system, units, spatial coverage, version and licence before processing.",
