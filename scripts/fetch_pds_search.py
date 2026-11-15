@@ -17,12 +17,12 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"data"/"planetary"/"pds_search.json"
 API="https://pds.nasa.gov/api/search/1/products"
 QUERIES=[
- {"id":"mars_nili_patera","keywords":"Nili Patera","target":"Mars","purpose":"Find PDS holdings associated with the Nili Patera study region."},
- {"id":"mars_mola","keywords":"MOLA Mars topography","target":"Mars","purpose":"Discover Mars orbital topography and related products."},
- {"id":"mars_hirise","keywords":"HiRISE Mars","target":"Mars","purpose":"Discover high-resolution Mars imaging for future local terrain work."},
- {"id":"moon_shackleton","keywords":"Shackleton crater","target":"Moon","purpose":"Discover lunar south-pole and Shackleton-region products."},
- {"id":"moon_lola","keywords":"Lunar Orbiter Laser Altimeter LOLA","target":"Moon","purpose":"Discover lunar topography and laser-altimetry holdings."},
- {"id":"moon_diviner","keywords":"Diviner Lunar Radiometer","target":"Moon","purpose":"Discover lunar thermal and polar environment products."},
+ {"id":"mars_target","q":'target_name eq "Mars"',"target":"Mars","purpose":"Search observational products whose PDS target is Mars."},
+ {"id":"mars_mola","q":'(target_name eq "Mars" and instrument_name eq "MOLA")',"target":"Mars","purpose":"Search Mars MOLA instrument products."},
+ {"id":"mars_hirise","q":'(target_name eq "Mars" and instrument_name eq "HiRISE")',"target":"Mars","purpose":"Search Mars HiRISE imaging products."},
+ {"id":"moon_target","q":'target_name eq "Moon"',"target":"Moon","purpose":"Search observational products whose PDS target is the Moon."},
+ {"id":"moon_lola","q":'(target_name eq "Moon" and instrument_name eq "LOLA")',"target":"Moon","purpose":"Search lunar LOLA instrument products."},
+ {"id":"moon_diviner","q":'(target_name eq "Moon" and instrument_name eq "Diviner")',"target":"Moon","purpose":"Search lunar Diviner instrument products."},
 ]
 s=requests.Session()
 s.headers.update({"User-Agent":"ANALOG-X/1.1 PDS public search integration","Accept":"application/json"})
@@ -32,7 +32,7 @@ def main():
  OUT.parent.mkdir(parents=True,exist_ok=True)
  results=[]
  for q in QUERIES:
-  params={"limit":12,"keywords":q["keywords"]}
+  params={"limit":12,"q":q["q"]}
   try:
    r=s.get(API,params=params,timeout=(20,90));r.raise_for_status()
    payload=r.json()
@@ -41,9 +41,9 @@ def main():
    if not products and isinstance(payload,dict):
     products=payload.get("results",[])
    results.append({**q,"status":"results_returned" if products else "no_products_returned",
-      "query_url":r.url,"returned_count":len(products),"products":products[:12],
+      "query_url":r.url,"returned_count":len(products),"products":[x for x in products[:12] if x.get("type") != "Product_Service"],
       "response_summary":payload.get("summary") if isinstance(payload,dict) else None})
-   print(q["id"],len(products),flush=True)
+   print(q["id"],len(products),"observational_or_nonservice",len([x for x in products[:12] if x.get("type") != "Product_Service"]),flush=True)
   except Exception as exc:
    results.append({**q,"status":"query_error","query_url":None,"returned_count":0,"error":str(exc),"products":[]})
    print(q["id"],"ERROR",str(exc),flush=True)
