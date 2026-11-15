@@ -160,7 +160,7 @@ SITE_RULES = {
 }
 
 ALIASES = {
-    "koh_i_sultan": "koh_i_sultan",
+    "koh_i_sultan": "koh",
     "hispar_glacier": "hispar_glacier",
     "chagai_small_playas": "chagai_small_playas",
     "hamun_i_mashkel": "hamun_i_mashkel",
