@@ -15,7 +15,7 @@ from urllib3.util.retry import Retry
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"data"/"planetary"/"pds_search.json"
-API="https://pds.nasa.gov/api/search/1/products"
+API="https://pds.nasa.gov/api/search/1/classes/observational"
 QUERIES=[
  {"id":"mars_target","q":'(ref_lid_target eq "urn:nasa:pds:context:target:planet.mars")',"target":"Mars","instrument_filter":None,"purpose":"Search observational products explicitly associated with the Mars target identifier."},
  {"id":"mars_mola","q":'(ref_lid_target eq "urn:nasa:pds:context:target:planet.mars")',"target":"Mars","instrument_filter":"mola","purpose":"Filter Mars-target products for MOLA instrument metadata."},
@@ -40,7 +40,7 @@ def main():
    products=payload.get("data",[]) if isinstance(payload,dict) else []
    if not products and isinstance(payload,dict):
     products=payload.get("results",[])
-   relevant=[x for x in products[:100] if x.get("type") != "Product_Service"]
+   relevant=[x for x in products[:100] if x.get("type") == "Product_Observational" or x.get("product_class") == "observational"]
    if q.get("instrument_filter"):
     token=q["instrument_filter"].lower()
     relevant=[x for x in relevant if token in json.dumps(x.get("observing_system_components",[])).lower() or token in str(x.get("title","")).lower() or token in json.dumps(x.get("properties",{})).lower()]
