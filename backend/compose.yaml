@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: analogx
+      POSTGRES_USER: analogx
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+    volumes:
+      - analogx_postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U analogx -d analogx"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  api:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://analogx:${POSTGRES_PASSWORD}@db:5432/analogx
+      WRITE_API_KEY: ${WRITE_API_KEY:?Set WRITE_API_KEY}
+      CORS_ORIGINS: ${CORS_ORIGINS:-https://usmanmughal96.github.io}
+    ports:
+      - "8000:8000"
+volumes:
+  analogx_postgres:
