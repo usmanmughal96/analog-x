@@ -52,7 +52,7 @@ jobs:
           PY
           node --check /tmp/atfa-dashboard.js
       - name: Validate backend Python syntax
-        run: python -m py_compile backend/app.py science/build_transferability.py scripts/fetch_pds_search.py scripts/fetch_modis_browse.py
+        run: python -m py_compile backend/app.py backend/smoke_test.py science/build_transferability.py scripts/fetch_pds_search.py scripts/fetch_modis_browse.py scripts/build_terrain_comparison.py scripts/build_lunar_south_pole_lola_80m.py
       - name: Smoke-test FastAPI science and field-record endpoints
         run: python backend/smoke_test.py
       - name: Validate JSON science pack
