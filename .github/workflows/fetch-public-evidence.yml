@@ -55,5 +55,13 @@ jobs:
             exit 0
           fi
           git commit -m "Refresh NASA EPIC and Pakistan EO evidence assets"
-          git pull --rebase origin main
-          git push
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep $((attempt * 2))
+          done
+          echo "Push retry limit reached."
+          exit 1
