@@ -17,10 +17,10 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"data"/"planetary"/"pds_search.json"
 API="https://pds.nasa.gov/api/search/1/classes/observational"
 QUERIES=[
- {"id":"mars_target","q":'(ref_lid_target eq "urn:nasa:pds:context:target:planet.mars")',"target":"Mars","instrument_filter":None,"purpose":"Search observational products explicitly associated with the Mars target identifier."},
+ {"id":"mars_target","q":'(ref_lid_target eq "urn:nasa:pds:context:target:planet.mars")',"target":"Mars","instrument_filter":None,"purpose":"Discover PDS observational records whose target metadata includes Mars; inspect instrument and mission before treating a record as a Mars science dataset."},
  {"id":"mars_mola","q":'(ref_lid_instrument eq "urn:nasa:pds:context:instrument:mgs.mola" and ref_lid_target eq "urn:nasa:pds:context:target:planet.mars")',"target":"Mars","instrument_filter":"mgs.mola","target_filter":"planet.mars","purpose":"Search Mars-target PDS observations from the MGS MOLA instrument."},
  {"id":"mars_hirise","q":'(ref_lid_instrument eq "urn:nasa:pds:context:instrument:hirise.mro" and ref_lid_target eq "urn:nasa:pds:context:target:planet.mars")',"target":"Mars","instrument_filter":"hirise.mro","target_filter":"planet.mars","purpose":"Search Mars-target PDS observations from the MRO HiRISE instrument."},
- {"id":"moon_target","q":'(ref_lid_target eq "urn:nasa:pds:context:target:satellite.earth.moon")',"target":"Moon","instrument_filter":None,"target_filter":"satellite.earth.moon","purpose":"Search observational products explicitly associated with the Moon target identifier."},
+ {"id":"moon_target","q":'(ref_lid_target eq "urn:nasa:pds:context:target:satellite.earth.moon")',"target":"Moon","instrument_filter":None,"target_filter":"satellite.earth.moon","purpose":"Discover PDS observational records whose target metadata includes the Moon; inspect instrument and mission before treating a record as a lunar science dataset."},
  {"id":"moon_lola","q":'(ref_lid_instrument eq "urn:nasa:pds:context:instrument:lro.lola" and ref_lid_target eq "urn:nasa:pds:context:target:satellite.earth.moon")',"target":"Moon","instrument_filter":"lro.lola","target_filter":"satellite.earth.moon","purpose":"Search Moon-target PDS observations from the LRO LOLA instrument."},
  {"id":"moon_diviner","q":'(ref_lid_instrument eq "urn:nasa:pds:context:instrument:lro.dlre" and ref_lid_target eq "urn:nasa:pds:context:target:satellite.earth.moon")',"target":"Moon","instrument_filter":"lro.dlre","target_filter":"satellite.earth.moon","purpose":"Search Moon-target PDS observations from the LRO Diviner instrument."},
 ]
@@ -76,8 +76,9 @@ def main():
  out={"schema_version":"1.0","generated_at_utc":datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
       "provider":"NASA Planetary Data System Search API","api":API,
       "access_note":"Public product metadata discovery. A result is not proof that a binary product is directly downloadable, calibrated, spatially complete or ready for scientific use.",
-      "queries":results,"query_count":len(results),
+      "queries":results,"query_count":len(results),"query_limit_per_search":100,
       "results_returned":sum(x["returned_count"] for x in results),
+      "unique_product_count":len({p.get("id") for q in results for p in q.get("products",[]) if p.get("id")}),
       "limitations":["PDS Search API documentation warns that the registry is not fully populated; zero results do not prove the archive lacks data.","Review product labels, instrument calibration, coordinate system, units, spatial coverage, version and licence before processing.","Binary ingestion is a separate step; do not interpret metadata as measurements."]}
  OUT.write_text(json.dumps(out,indent=2,allow_nan=False)+"\n",encoding="utf-8")
  print(json.dumps({"output":str(OUT.relative_to(ROOT)),"results_returned":out["results_returned"],"query_statuses":{x["id"]:x["status"] for x in results}},indent=2))
