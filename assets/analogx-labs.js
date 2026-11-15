@@ -435,6 +435,7 @@ function offlineWorldMap(containerId,sites,options={}){
   return "<g data-ax-map-id='"+esc(site.id)+"' tabindex='0' role='button' aria-label='Inspect "+esc(site.name)+"' style='cursor:pointer'><circle cx='"+q[0]+"' cy='"+q[1]+"' r='"+(lead?10:7)+"' fill='"+(lead?"#e7bd77":"#50d5c6")+"' opacity='.2'/><circle cx='"+q[0]+"' cy='"+q[1]+"' r='"+(lead?5:3.7)+"' fill='"+(lead?"#e7bd77":"#50d5c6")+"' stroke='#e7f3f3' stroke-width='1.2'/><text x='"+(q[0]+8)+"' y='"+(q[1]-8)+"' fill='#d9ebe9' font-size='9' font-weight='700'>"+esc(site.name.length>25?site.name.slice(0,23)+"…":site.name)+"</text></g>";
  }).join("");
  el.innerHTML="<svg viewBox='0 0 "+W+" "+H+"' role='img' aria-label='Offline schematic candidate map'><rect width='"+W+"' height='"+H+"' fill='#071a28'/>"+grid+land+pins+"<text x='10' y='"+(H-10)+"' fill='#91aeb9' font-size='9'>OFFLINE SCHEMATIC / CANDIDATE POSITIONS · NOT A GEOLOGIC BOUNDARY</text></svg>";
+ const svg=el.querySelector("svg");if(svg){svg.style.width="100%";svg.style.height="100%";svg.style.display="block";}
  el.querySelectorAll("[data-ax-map-id]").forEach(node=>{
   const act=()=>{const site=findSite(node.dataset.axMapId);if(!site)return;state.selected=site.id;document.querySelectorAll(".axCard").forEach(x=>x.classList.toggle("selected",x.dataset.axCard===site.id));dossier(site.id);};
   node.addEventListener("click",act);node.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();act();}});
@@ -449,6 +450,7 @@ function updateScoutMap(lat,lon,radiusKm,bbox){
  const radius=Math.max(4,Math.min(90,radiusKm*3.2));
  const label=Number.isFinite(lat)&&Number.isFinite(lon)?lat.toFixed(5)+"° "+(lat>=0?"N":"S")+" · "+lon.toFixed(5)+"° "+(lon>=0?"E":"W"):"WGS84";
  el.innerHTML="<svg viewBox='0 0 "+W+" "+H+"' role='img' aria-label='Offline local coordinate window'><rect width='"+W+"' height='"+H+"' fill='#071a28'/><g stroke='#285364' stroke-width='1' opacity='.65'>"+Array.from({length:9},(_,i)=>"<line x1='"+(i*80)+"' y1='0' x2='"+(i*80)+"' y2='"+H+"'/>").join("")+Array.from({length:5},(_,i)=>"<line x1='0' y1='"+(i*65)+"' x2='"+W+"' y2='"+(i*65)+"'/>").join("")+"</g><circle cx='320' cy='130' r='"+radius+"' fill='#3fb5a1' fill-opacity='.12' stroke='#58dac6' stroke-dasharray='6 5' stroke-width='2'/><circle cx='320' cy='130' r='7' fill='#e7bd77' stroke='#fff3d2' stroke-width='2'/><path d='M320 95V165M285 130H355' stroke='#e7bd77' opacity='.8'/><text x='18' y='25' fill='#d8ecec' font-size='12' font-weight='700'>OFFLINE STUDY WINDOW</text><text x='18' y='245' fill='#8baab7' font-size='10'>"+esc(label)+" · radius "+radiusKm+" km · schematic local grid</text></svg>";
+ const scoutSvg=el.querySelector("svg");if(scoutSvg){scoutSvg.style.width="100%";scoutSvg.style.height="100%";scoutSvg.style.display="block";}
  $("axScoutMapLabel").textContent=label;
 }
 function axOfflineHaversine(lat1,lon1,lat2,lon2){
