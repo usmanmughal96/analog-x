@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "ANALOG-X Analog Transferability & Failure Analysis (ATFA)",
-  "generated_at_utc": "2026-11-15T08:57:23+00:00",
+  "generated_at_utc": "2026-11-15T08:57:57+00:00",
   "scientific_contract": {
     "unit_of_analysis": "A named field experiment or process, not whole-site resemblance.",
     "classification": "Rule-based qualitative transferability classes authored in science/build_transferability.py; not probabilities, not a universal similarity score, not NASA certification.",
@@ -51,6 +51,7 @@
           "coarse_cells_total": 1024
         }
       },
+      "terrain_surface": null,
       "thermal": {
         "status": "Diviner PRP V2.0 site summary is available in the existing project, but ice-depth interpretation remains withheld pending QA.",
         "limitation": "Do not infer accessible ice or PSR status from terrain or temperature alone."
@@ -96,6 +97,7 @@
           "total_cells": 1122
         }
       },
+      "terrain_surface": null,
       "coverage_percent": 50.53,
       "known_unreproducible": [
         "thin CO2 atmosphere",
@@ -272,6 +274,7 @@
             "window_half_width_m": 15000.0
           },
           "analysis_support_m": 925.0,
+          "surface_grid_relative_m": null,
           "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
         },
         "sentinel2": {
@@ -423,6 +426,7 @@
             "window_half_width_m": 15000.0
           },
           "analysis_support_m": 925.0,
+          "surface_grid_relative_m": null,
           "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
         },
         "sentinel2": {
@@ -586,6 +590,7 @@
             "window_half_width_m": 15000.0
           },
           "analysis_support_m": 925.0,
+          "surface_grid_relative_m": null,
           "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
         },
         "sentinel2": {
@@ -736,6 +741,7 @@
             "window_half_width_m": 15000.0
           },
           "analysis_support_m": 925.0,
+          "surface_grid_relative_m": null,
           "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
         },
         "sentinel2": {
@@ -852,6 +858,7 @@
           "source": null,
           "metrics": null,
           "analysis_support_m": null,
+          "surface_grid_relative_m": null,
           "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
         },
         "sentinel2": {
@@ -975,6 +982,7 @@
           "source": null,
           "metrics": null,
           "analysis_support_m": null,
+          "surface_grid_relative_m": null,
           "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
         },
         "sentinel2": {
@@ -1090,6 +1098,7 @@
           "source": null,
           "metrics": null,
           "analysis_support_m": null,
+          "surface_grid_relative_m": null,
           "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
         },
         "sentinel2": {
@@ -1213,6 +1222,7 @@
           "source": null,
           "metrics": null,
           "analysis_support_m": null,
+          "surface_grid_relative_m": null,
           "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
         },
         "sentinel2": {
@@ -1327,6 +1337,7 @@
           "source": null,
           "metrics": null,
           "analysis_support_m": null,
+          "surface_grid_relative_m": null,
           "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
         },
         "sentinel2": {
@@ -1450,6 +1461,7 @@
           "source": null,
           "metrics": null,
           "analysis_support_m": null,
+          "surface_grid_relative_m": null,
           "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
         },
         "sentinel2": {
