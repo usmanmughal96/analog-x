@@ -503,7 +503,7 @@ function initMap(){
    const nasaVIIRS=L.tileLayer.wms("https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi",{
     layers:"VIIRS_SNPP_CorrectedReflectance_TrueColor",format:"image/jpeg",transparent:false,version:"1.1.1",time:gibsDate,uppercase:true,attribution:'Imagery: <a href="https://earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/gibs">NASA GIBS / NASA Earthdata</a>'
    });
-   L.control.layers({"Dark street map":dark,"OpenStreetMap":streets},{"NASA VIIRS true colour · "+gibsDate:nasaVIIRS},{collapsed:true,position:"topright"}).addTo(leaflet);
+   L.control.layers({"Dark street map":dark,"OpenStreetMap":streets},{["NASA VIIRS true colour · "+gibsDate]:nasaVIIRS},{collapsed:true,position:"topright"}).addTo(leaflet);
    const makeIcon=(color)=>L.divIcon({className:"",html:'<span style="display:block;width:14px;height:14px;border-radius:50%;background:'+color+';border:2px solid #e9faff;box-shadow:0 0 0 6px '+color+'33,0 0 14px '+color+'99"></span>',iconSize:[14,14],iconAnchor:[7,7]});
    Object.entries(SITE).forEach(([id,site])=>{
     const color=id==="koh"?"#1de0b3":"#e0bd7b";
