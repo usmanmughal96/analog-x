@@ -43,12 +43,6 @@ function render(){
  if(!currentSites.some(s=>s.id===state.selected))state.selected=currentSites[0]?.id;
  dossier(state.selected);
 }
-function renderMap(sites){
- if(!window.L||!$("axDiscoveryMap"))return;
- if(!state.map){state.map=L.map("axDiscoveryMap",{zoomControl:false,scrollWheelZoom:false}).setView([20,18],2);L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:12,attribution:"© OpenStreetMap contributors"}).addTo(state.map);L.control.zoom({position:"bottomright"}).addTo(state.map);}
- Object.values(state.markers).forEach(m=>state.map.removeLayer(m));state.markers={};
- sites.forEach(s=>{const lead=s.discovery_tier==="under_characterized_candidate";const m=L.circleMarker([s.latitude,s.longitude],{radius:lead?8:6,color:lead?"#edc77e":"#50d6c2",weight:2,fillColor:lead?"#b8853d":"#1b8e8c",fillOpacity:.85});m.bindPopup("<b>"+esc(s.name)+"</b><br>"+esc(s.country)+"<br><small>"+(lead?"Under-characterized candidate lead":"Established/reference seed")+"</small>");m.on("click",()=>{state.selected=s.id;document.querySelectorAll(".axCard").forEach(x=>x.classList.toggle("selected",x.dataset.axCard===s.id));dossier(s.id);});m.addTo(state.map);state.markers[s.id]=m;});
-}
 function dossier(id){
  const s=findSite(id);if(!s){$("axDossier").innerHTML="<div><h4>NO SITE SELECTED</h4><p>Choose a point or card.</p></div><div></div>";return;}
  const e=layers(id),count=[e.power,e.spectral,e.terrain,e.reference].filter(Boolean).length;
@@ -285,40 +279,6 @@ function renderLocalWithTerrain(result){
 function scoutBboxLocal(lat,lon,radiusKm){
  const latDelta=radiusKm/110.574,cosLat=Math.max(.05,Math.cos(lat*Math.PI/180)),lonDelta=Math.min(180,radiusKm/(111.32*cosLat));
  return [Math.max(-180,lon-lonDelta),Math.max(-89.9,lat-latDelta),Math.min(180,lon+lonDelta),Math.min(89.9,lat+latDelta)];
-}
-function updateScoutMap(lat,lon,radiusKm,bbox){
- if(!window.L||!$("axScoutMap"))return;
- if(!state.scoutMap){
-  state.scoutMap=L.map("axScoutMap",{zoomControl:false,scrollWheelZoom:false}).setView([lat,lon],7);
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:15,attribution:"© OpenStreetMap contributors"}).addTo(state.scoutMap);
-  L.control.zoom({position:"bottomright"}).addTo(state.scoutMap);
- }
- if(state.scoutMarker)state.scoutMap.removeLayer(state.scoutMarker);
- if(state.scoutBounds)state.scoutMap.removeLayer(state.scoutBounds);
- state.scoutMarker=L.circleMarker([lat,lon],{radius:8,color:"#e6bc78",weight:2,fillColor:"#bc8844",fillOpacity:.9}).bindPopup("<b>Scout coordinate</b><br>"+lat.toFixed(5)+", "+lon.toFixed(5)).addTo(state.scoutMap);
- const b=bbox||scoutBboxLocal(lat,lon,radiusKm);
- state.scoutBounds=L.rectangle([[b[1],b[0]],[b[3],b[2]]],{color:"#45d1bd",weight:1,dashArray:"5 5",fillOpacity:.07}).addTo(state.scoutMap);
- state.scoutMap.setView([lat,lon],Math.max(3,Math.min(12,Math.round(10-Math.log2(radiusKm/5)))));
- $("axScoutMapLabel").textContent=lat.toFixed(5)+"° "+(lat>=0?"N":"S")+" · "+lon.toFixed(5)+"° "+(lon>=0?"E":"W");
- setTimeout(()=>state.scoutMap?.invalidateSize(),120);
-}
-function renderScoutResults(scout){
- const p=scout.evidence?.nasa_power?.data;
- const s=scout.evidence?.sentinel_2_l2a;
- const d=scout.evidence?.copernicus_dem;
- const m=p?.annual||{};
- const climate=[["Mean air temperature",m.mean_air_temperature_c,"°C"],["Relative humidity",m.mean_relative_humidity_percent,"%"],["Wind at 10 m",m.mean_wind_10m_ms,"m/s"],["Precipitation",m.mean_precipitation_mm_day,"mm/day"],["All-sky solar",m.mean_all_sky_solar_kwh_m2_day,"kWh/m²/day"]];
- const metricHtml=climate.map(([label,value,unit])=>"<div class='axScoutMetric'><span>"+esc(label)+"</span><b>"+(typeof value==="number"?value.toFixed(2):"—")+"<small>"+unit+"</small></b></div>").join("");
- const dry=(p?.driest_climatological_months||[]).map(x=>"<tr><td>"+esc(x.month)+"</td><td>"+(Number.isFinite(x.precipitation_mm_day)?x.precipitation_mm_day.toFixed(2):"—")+"</td><td>"+(Number.isFinite(x.temperature_c)?x.temperature_c.toFixed(1):"—")+"</td><td>"+(Number.isFinite(x.wind_10m_ms)?x.wind_10m_ms.toFixed(1):"—")+"</td></tr>").join("");
- const scenes=(s?.best_scene_candidates||[]).map(x=>"<div class='axScoutScene'><b>"+esc(x.id||"Scene id unavailable")+"</b><small>"+esc(x.datetime||"Date unknown")+" · "+esc(x.platform||"platform unknown")+" · cloud metadata "+(Number.isFinite(x.cloud_cover_percent)?x.cloud_cover_percent.toFixed(2)+"%":"not reported")+" · "+esc(x.mgrs_tile||"tile not reported")+"</small>"+(x.item_url&&/^https:\/\//i.test(x.item_url)?"<a href='"+esc(x.item_url)+"' target='_blank' rel='noopener'>Open STAC item ↗</a>":"")+"</div>").join("");
- const tiles=(d?.tiles||[]).map(x=>"<tr><td>"+esc(x.id)+"</td><td>"+(Number.isFinite(x.gsd_m)?x.gsd_m+" m":"—")+"</td><td>"+esc(x.epsg||"—")+"</td></tr>").join("");
- const statusRows=[["NASA POWER",scout.evidence?.nasa_power?.status||"unavailable"],["Sentinel-2 L2A",s?.status||"unavailable"],["Copernicus DEM",d?.status||"unavailable"]];
- $("axScoutResults").innerHTML="<div class='axScoutSummary'><b>COORDINATE SCAN / "+scout.coordinate.latitude.toFixed(5)+", "+scout.coordinate.longitude.toFixed(5)+"</b><p>Study radius "+scout.study_window.radius_km+" km · WGS84 bbox "+scout.study_window.bbox_wgs84.map(x=>x.toFixed(5)).join(", ")+" · scanned "+new Date(scout.generated_at_utc).toLocaleString()+"</p></div>"+
-  "<div class='axScoutMetrics'>"+metricHtml+"</div>"+
-  "<div class='axScoutBlock'><h4>NASA POWER / LOW-PRECIPITATION CLIMATOLOGICAL MONTHS</h4><table class='axScoutTable'><thead><tr><th>Month</th><th>Precip mm/day</th><th>Air °C</th><th>Wind m/s</th></tr></thead><tbody>"+(dry||"<tr><td colspan='4'>NASA POWER values unavailable.</td></tr>")+"</tbody></table></div>"+
-  "<div class='axScoutBlock'><h4>SENTINEL-2 L2A / RECENT SCENE DISCOVERY</h4><p style='font-size:8px;color:#86a6b8'>"+(s?((s.number_matched??s.returned_items)+" scene records returned/matched in a rolling 24-month search; showing best candidates by reported scene cloud fraction."):"STAC search unavailable.")+"</p>"+(scenes||"<small>No scene metadata returned.</small>")+"</div>"+
-  "<div class='axScoutBlock'><h4>COPERNICUS DEM GLO-30 / CATALOGUE TILES</h4><p style='font-size:8px;color:#86a6b8'>"+(d?(d.number_matched??d.returned_items)+" matching catalogue items. Tiles are not yet processed into a terrain profile.":"DEM STAC search unavailable.")+"</p><table class='axScoutTable'><thead><tr><th>Tile item</th><th>GSD</th><th>EPSG</th></tr></thead><tbody>"+(tiles||"<tr><td colspan='3'>No DEM tile metadata returned.</td></tr>")+"</tbody></table></div>"+
-  "<div class='axScoutWarnings'><b style='color:#b7d3de'>SOURCE STATUS</b><ul>"+statusRows.map(x=>"<li>"+esc(x[0])+": "+esc(x[1])+"</li>").join("")+"</ul><b style='color:#b7d3de'>INTERPRETATION BOUNDARY</b><p>"+esc(scout.decision_boundary)+" NASA POWER is gridded climatology, scene cloud metadata is not an AOI mask, and DEM STAC records are tile discovery rather than terrain metrics.</p></div>";
 }
 async function runCoordinateScout(){
  const endpoint=$("axAgentEndpoint").value.trim().replace(/\/$/,"");
