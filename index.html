@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ANALOG-X | Evidence Operations</title>
-<meta name="description" content="Pakistan-first planetary analog evidence operations: NASA POWER climatology, Sentinel-2 data, site provenance and field-readiness gaps.">
+<meta name="description" content="Pakistan-first planetary analog evidence operations: live interactive maps, NASA Earth observation and POWER meteorology, with offline science fallbacks.">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <link rel="manifest" href="./manifest.webmanifest"><meta name="theme-color" content="#061321">
 <style>
 :root{--bg:#030b15;--panel:#071827;--panel2:#091d2e;--panel3:#0b2234;--line:#16364d;--line2:#20475e;--cyan:#1dc7f3;--blue:#1478b8;--mint:#1de0b3;--gold:#e0bd7b;--text:#e8f3f7;--muted:#829cae;--dim:#547083;--red:#ff687f;--amber:#f2bd69;--shadow:0 12px 30px #0007}
@@ -142,7 +143,7 @@
   <div class="toolbar"><div class="crumb">PROJECT / <b>ANALOG-X</b> / <b>MISSION CONTROL</b></div><div class="actions"><button class="selectbtn active" id="btnPakistan">Pakistan sector</button><button class="ghostbtn" id="btnGlobal">Global context</button><button class="ghostbtn" id="btnReport">Field-test card ↗</button></div></div>
   <section class="grid-main">
    <article class="card mapcard">
-    <div class="cardhead"><div class="mapheader"><div class="regionpin">⌖</div><div><div class="cardtitle">EARTH ANALOG REGION</div><div class="cardhint">Chagai volcanic field · Karakoram cryosphere · WGS84</div></div></div><div style="display:flex;gap:6px;align-items:center"><span class="statuspill blue" id="siteCount">02 STUDY AREAS</span><span class="statuspill">MAP ACTIVE</span></div></div>
+    <div class="cardhead"><div class="mapheader"><div class="regionpin">⌖</div><div><div class="cardtitle">EARTH ANALOG REGION</div><div class="cardhint">Chagai volcanic field · Karakoram cryosphere · WGS84</div></div></div><div style="display:flex;gap:6px;align-items:center"><span class="statuspill blue" id="siteCount">02 STUDY AREAS</span><span class="statuspill" id="mapEngineStatus">CONNECTING MAP</span></div></div>
     <div class="mapbody"><div id="map"></div>
      <div class="mapoverlay"><div class="overlaylabel">SELECTED STUDY AREA</div><div class="overlaytitle" id="mapSiteTitle">KOH-I-SULTAN / CHAGAI</div><div class="overlaydesc" id="mapSiteDesc">Volcanic field · Balochistan, Pakistan</div><div class="overlaycoords"><span id="mapLat">29.100° N</span><span id="mapLon">62.800° E</span></div></div>
      <div class="maplegend"><span class="legenditem"><i class="legenddot"></i> Volcanic case</span><span class="legenditem"><i class="legenddot gold"></i> Cryosphere case</span><span class="legenditem"><i class="legendline"></i> Comparison axis</span></div>
@@ -439,6 +440,7 @@
 
 <div class="modal hidden" id="modal"><div class="modalbox"><button class="close" id="closeModal">Close ✕</button><div id="modalContent"></div></div></div>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 (function(){
 "use strict";
@@ -490,8 +492,35 @@ function renderMainOfflineMap(){
  const svg=$("map")?.querySelector("svg");if(svg){svg.style.width="100%";svg.style.height="100%";svg.style.display="block";}
 }
 function initMap(){
+ const initialCenter=[32.6,68.7];
+ if(window.L&&$("map")){
+  try{
+   const leaflet=L.map("map",{zoomControl:false,preferCanvas:true}).setView(initialCenter,5);
+   const dark=L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{subdomains:"abcd",maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'});
+   const streets=L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
+   dark.addTo(leaflet);
+   const gibsDate=new Date(Date.now()-86400000).toISOString().slice(0,10);
+   const nasaVIIRS=L.tileLayer.wms("https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi",{
+    layers:"VIIRS_SNPP_CorrectedReflectance_TrueColor",format:"image/jpeg",transparent:false,version:"1.1.1",time:gibsDate,uppercase:true,attribution:'Imagery: <a href="https://earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/gibs">NASA GIBS / NASA Earthdata</a>'
+   });
+   L.control.layers({"Dark street map":dark,"OpenStreetMap":streets},{"NASA VIIRS true colour · "+gibsDate:nasaVIIRS},{collapsed:true,position:"topright"}).addTo(leaflet);
+   const makeIcon=(color)=>L.divIcon({className:"",html:'<span style="display:block;width:14px;height:14px;border-radius:50%;background:'+color+';border:2px solid #e9faff;box-shadow:0 0 0 6px '+color+'33,0 0 14px '+color+'99"></span>',iconSize:[14,14],iconAnchor:[7,7]});
+   Object.entries(SITE).forEach(([id,site])=>{
+    const color=id==="koh"?"#1de0b3":"#e0bd7b";
+    const marker=L.marker([site.lat,site.lon],{icon:makeIcon(color),title:site.name,alt:site.name}).addTo(leaflet);
+    marker.bindPopup('<b>'+esc(site.name)+'</b><br>'+esc(site.desc)+'<br><small>'+site.lat.toFixed(5)+', '+site.lon.toFixed(5)+' · WGS84</small>');
+    marker.on("click",()=>selectSite(id));
+    markers[id]=marker;
+   });
+   map=leaflet;
+   $("mapEngineStatus").textContent="LIVE MAP · OSM";
+   $("mapEngineStatus").className="statuspill blue";
+   window.setTimeout(()=>leaflet.invalidateSize(),150);
+   return;
+  }catch(error){console.warn("Live map initialisation failed; using offline locator.",error);}
+ }
  map={
-  center:[32.6,68.7],zoom:5,halfLon:26,halfLat:20,
+  center:initialCenter,zoom:5,halfLon:26,halfLat:20,
   setView(center,zoom){this.center=center;this.zoom=zoom;const z=Math.max(.65,zoom/5);this.halfLon=Math.min(180,26/z);this.halfLat=Math.min(88,20/z);renderMainOfflineMap();return this;},
   flyTo(center,zoom){return this.setView(center,zoom);},
   zoomIn(){return this.setView(this.center,this.zoom+1);},
@@ -499,10 +528,12 @@ function initMap(){
   invalidateSize(){renderMainOfflineMap();return this;}
  };
  markers.koh={openPopup(){}};markers.hispar_glacier={openPopup(){}};
+ $("mapEngineStatus").textContent="OFFLINE LOCATOR";
+ $("mapEngineStatus").className="statuspill gold";
  renderMainOfflineMap();
 }
 function addMarker(id,site,color){markers[id]={openPopup(){selectSite(id);}};}
-function fitSites(){if(map)map.setView([32.6,68.7],5);}
+function fitSites(){if(map){if(window.L&&map instanceof L.Map)map.fitBounds([[SITE.koh.lat,SITE.koh.lon],[SITE.hispar_glacier.lat,SITE.hispar_glacier.lon]],{padding:[45,45],maxZoom:7});else map.setView([32.6,68.7],5);}}
 function selectSite(id){
  current=id;const s=SITE[id];
  document.querySelectorAll("[data-site]").forEach(b=>b.classList.toggle("active",b.dataset.site===id));
@@ -513,6 +544,7 @@ function selectSite(id){
  $("missionTheme").textContent=s.theme;$("geologyEvidence").textContent=s.geology;$("geologySource").textContent=s.geologySourceLabel;$("geologySource").href=s.geologySource;$("missionLimit").textContent=s.limit;
  if(map){map.flyTo([s.lat,s.lon],id==="koh"?8:7,{duration:.75});markers[id].openPopup();}
  renderSiteData(id);
+ loadLivePower(id);
 }
 async function renderSiteData(id){
  const s=SITE[id],p=power[id];
@@ -532,6 +564,53 @@ async function renderSiteData(id){
  }
  renderSceneStats(id);
 }
+
+const livePowerCache={};
+function liveMean(series){
+ const vals=Object.values(series||{}).map(Number).filter(v=>Number.isFinite(v)&&v>-900);
+ return vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:null;
+}
+async function loadLivePower(id){
+ const site=SITE[id];if(!site)return;
+ const cached=livePowerCache[id];
+ if(cached&&Date.now()-cached.fetchedAt<30*60*1000){applyLivePower(id,cached);return;}
+ const endDate=new Date(Date.now()-3*86400000),startDate=new Date(endDate.getTime()-29*86400000);
+ const ymd=d=>d.toISOString().slice(0,10).replace(/-/g,"");
+ const params=new URLSearchParams({
+  parameters:"T2M,RH2M,WS2M,PRECTOTCORR,ALLSKY_SFC_SW_DWN",
+  community:"RE",longitude:String(site.lon),latitude:String(site.lat),
+  start:ymd(startDate),end:ymd(endDate),"time-standard":"UTC",format:"JSON"
+ });
+ const url="https://power.larc.nasa.gov/api/temporal/daily/point?"+params.toString();
+ try{
+  const response=await fetch(url,{mode:"cors",headers:{Accept:"application/json"}});
+  if(!response.ok)throw new Error("NASA POWER HTTP "+response.status);
+  const payload=await response.json(),p=payload?.properties?.parameter||{};
+  const result={
+   temp:liveMean(p.T2M),rh:liveMean(p.RH2M),wind:liveMean(p.WS2M),
+   precip:liveMean(p.PRECTOTCORR),solar:liveMean(p.ALLSKY_SFC_SW_DWN),
+   start:startDate.toISOString().slice(0,10),end:endDate.toISOString().slice(0,10),
+   fetchedAt:Date.now(),url
+  };
+  if(![result.temp,result.rh,result.wind,result.precip,result.solar].some(Number.isFinite))throw new Error("NASA POWER returned no valid values");
+  livePowerCache[id]=result;applyLivePower(id,result);
+ }catch(error){
+  console.warn("Live NASA POWER unavailable; retaining offline snapshot for "+id,error);
+  if(current===id){
+   const stamp=$("powerStamp");if(stamp)stamp.textContent="NASA POWER · OFFLINE SNAPSHOT (LIVE API UNAVAILABLE)";
+  }
+ }
+}
+function applyLivePower(id,data){
+ if(current!==id)return;
+ const put=(element,value,unit,d=1)=>{if(element&&Number.isFinite(value))element.innerHTML=value.toFixed(d)+'<span class="metricunit">'+unit+'</span>';};
+ put($("mTemp"),data.temp,"°C",1);put($("mRh"),data.rh,"%",1);
+ put($("mWind"),data.wind,"m/s",1);put($("mRain"),data.precip,"mm/day",2);
+ put($("mSolar"),data.solar,"kWh/m²/day",2);
+ $("powerStamp").textContent="NASA POWER LIVE · 30-DAY DAILY MEAN · "+data.start+" → "+data.end+" UTC";
+ $("powerSource").href=data.url;
+}
+
 function renderSceneStats(id){
  if(!catalog)return;
  const c=catalog.planetary_computer.sites[SITE[id]?.key||id];
