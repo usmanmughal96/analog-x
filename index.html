@@ -498,10 +498,10 @@ function initMap(){
    const leaflet=L.map("map",{zoomControl:false,preferCanvas:true}).setView(initialCenter,5);
    const dark=L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{subdomains:"abcd",maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'});
    const streets=L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
-   dark.addTo(leaflet);
+   streets.addTo(leaflet);
    let baseTilesLoaded=false,baseTileErrors=0,offlineMapActivated=false;
-   dark.on("tileload",()=>{baseTilesLoaded=true;});
-   dark.on("tileerror",()=>{
+   streets.on("tileload",()=>{baseTilesLoaded=true;});
+   streets.on("tileerror",()=>{
     baseTileErrors++;
     if(baseTileErrors>=4&&!baseTilesLoaded&&!offlineMapActivated){
      offlineMapActivated=true;leaflet.remove();map={
@@ -522,7 +522,7 @@ function initMap(){
    const nasaVIIRS=L.tileLayer.wms("https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi",{
     layers:"VIIRS_SNPP_CorrectedReflectance_TrueColor",format:"image/jpeg",transparent:false,version:"1.1.1",time:gibsDate,uppercase:true,attribution:'Imagery: <a href="https://earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/gibs">NASA GIBS / NASA Earthdata</a>'
    });
-   L.control.layers({"Dark street map":dark,"OpenStreetMap":streets},{["NASA VIIRS true colour · "+gibsDate]:nasaVIIRS},{collapsed:true,position:"topright"}).addTo(leaflet);
+   L.control.layers({"OpenStreetMap · free":streets},{["NASA VIIRS true colour · "+gibsDate]:nasaVIIRS},{collapsed:true,position:"topright"}).addTo(leaflet);
    const makeIcon=(color)=>L.divIcon({className:"",html:'<span style="display:block;width:14px;height:14px;border-radius:50%;background:'+color+';border:2px solid #e9faff;box-shadow:0 0 0 6px '+color+'33,0 0 14px '+color+'99"></span>',iconSize:[14,14],iconAnchor:[7,7]});
    Object.entries(SITE).forEach(([id,site])=>{
     const color=id==="koh"?"#1de0b3":"#e0bd7b";
@@ -532,7 +532,7 @@ function initMap(){
     markers[id]=marker;
    });
    map=leaflet;
-   $("mapEngineStatus").textContent="LIVE MAP · OSM";
+   $("mapEngineStatus").textContent="LIVE MAP · OPENSTREETMAP";
    $("mapEngineStatus").className="statuspill blue";
    window.setTimeout(()=>leaflet.invalidateSize(),150);
    return;
