@@ -17,10 +17,10 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"data"/"planetary"/"pds_search.json"
 API="https://pds.nasa.gov/api/search/1/products"
 QUERIES=[
- {"id":"mars_target","q":'target_name eq "Mars"',"target":"Mars","purpose":"Search observational products whose PDS target is Mars."},
+ {"id":"mars_target","q":'(target_name eq "Mars")',"target":"Mars","purpose":"Search observational products whose PDS target is Mars."},
  {"id":"mars_mola","q":'(target_name eq "Mars" and instrument_name eq "MOLA")',"target":"Mars","purpose":"Search Mars MOLA instrument products."},
  {"id":"mars_hirise","q":'(target_name eq "Mars" and instrument_name eq "HiRISE")',"target":"Mars","purpose":"Search Mars HiRISE imaging products."},
- {"id":"moon_target","q":'target_name eq "Moon"',"target":"Moon","purpose":"Search observational products whose PDS target is the Moon."},
+ {"id":"moon_target","q":'(target_name eq "Moon")',"target":"Moon","purpose":"Search observational products whose PDS target is the Moon."},
  {"id":"moon_lola","q":'(target_name eq "Moon" and instrument_name eq "LOLA")',"target":"Moon","purpose":"Search lunar LOLA instrument products."},
  {"id":"moon_diviner","q":'(target_name eq "Moon" and instrument_name eq "Diviner")',"target":"Moon","purpose":"Search lunar Diviner instrument products."},
 ]
@@ -45,7 +45,8 @@ def main():
       "response_summary":payload.get("summary") if isinstance(payload,dict) else None})
    print(q["id"],len(products),"observational_or_nonservice",len([x for x in products[:12] if x.get("type") != "Product_Service"]),flush=True)
   except Exception as exc:
-   results.append({**q,"status":"query_error","query_url":None,"returned_count":0,"error":str(exc),"products":[]})
+   detail = (exc.response.text[:1200] if isinstance(exc, requests.HTTPError) and exc.response is not None else str(exc))
+   results.append({**q,"status":"query_error","query_url":None,"returned_count":0,"error":detail,"products":[]})
    print(q["id"],"ERROR",str(exc),flush=True)
  out={"schema_version":"1.0","generated_at_utc":datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
       "provider":"NASA Planetary Data System Search API","api":API,
