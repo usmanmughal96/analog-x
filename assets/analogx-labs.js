@@ -535,7 +535,7 @@ function askDirectorAboutScout(){
 }
 async function testEndpoint(show=true){
  const endpoint=$("axAgentEndpoint").value.trim().replace(/\\/$/,"");
- if(!endpoint){state.workerAvailable=false;state.aiEnabled=false;state.connected=false;$("axAgentRunCloud").disabled=true;$("axScoutRun").disabled=false;$("axScoutAskDirector").disabled=!state.scoutData;p ill($("axAgentModeStatus"),"LOCAL MODE READY","gold");if(show){$("axAgentStatus").textContent="Offline science review and coordinate triage are ready. A Worker is optional."; $("axScoutHint").textContent="Local candidate proximity search is ready; no network call is needed.";}return false;}
+ if(!endpoint){state.workerAvailable=false;state.aiEnabled=false;state.connected=false;$("axAgentRunCloud").disabled=true;$("axScoutRun").disabled=false;$("axScoutAskDirector").disabled=!state.scoutData;pill($("axAgentModeStatus"),"LOCAL MODE READY","gold");if(show){$("axAgentStatus").textContent="Offline science review and coordinate triage are ready. A Worker is optional."; $("axScoutHint").textContent="Local candidate proximity search is ready; no network call is needed.";}return false;}
  try{
   $("axAgentConnect").disabled=true;$("axAgentConnect").textContent="TESTING…";
   const r=await fetch(endpoint+"/health");if(!r.ok)throw Error("HTTP "+r.status);const h=await r.json();if(!h.ok)throw Error("Worker health check failed");
@@ -545,7 +545,7 @@ async function testEndpoint(show=true){
   $("axAgentStatus").textContent=state.aiEnabled?(h.model+" · optional model; offline science remains available"):"Worker connected without LLM. Offline science remains the default.";
   $("axScoutHint").textContent="Local coordinate triage remains available. Live API functions are optional.";
   return true;
- }catch(e){state.workerAvailable=false;state.aiEnabled=false;state.connected=false;$("axAgentRunCloud").disabled=true;$("axScoutRun").disabled=false;$("axScoutAskDirector").disabled=!state.scoutData;p ill($("axAgentModeStatus"),"LOCAL MODE / CLOUD OFFLINE","gold");$("axAgentStatus").textContent="Optional cloud connection failed: "+e.message+" · offline mode remains active.";if(show)$("axScoutHint").textContent="Offline candidate proximity search remains available. No API needed.";return false;}
+ }catch(e){state.workerAvailable=false;state.aiEnabled=false;state.connected=false;$("axAgentRunCloud").disabled=true;$("axScoutRun").disabled=false;$("axScoutAskDirector").disabled=!state.scoutData;pill($("axAgentModeStatus"),"LOCAL MODE / CLOUD OFFLINE","gold");$("axAgentStatus").textContent="Optional cloud connection failed: "+e.message+" · offline mode remains active.";if(show)$("axScoutHint").textContent="Offline candidate proximity search remains available. No API needed.";return false;}
  finally{$("axAgentConnect").disabled=false;$("axAgentConnect").textContent="CONNECT & TEST";}
 }
 
