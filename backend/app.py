@@ -15,6 +15,9 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sess
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG_PATH = ROOT / "data" / "agents" / "candidate_catalog.json"
+TRANSFERABILITY_PATH = ROOT / "data" / "transferability" / "transferability.json"
+PDS_SEARCH_PATH = ROOT / "data" / "planetary" / "pds_search.json"
+MODIS_BROWSE_PATH = ROOT / "data" / "nasa" / "modis_browse_index.json"
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./analogx_records.db")
 WRITE_API_KEY = os.getenv("WRITE_API_KEY", "")
 ALLOWED_ORIGINS = [x.strip() for x in os.getenv("CORS_ORIGINS", "*").split(",") if x.strip()]
@@ -96,8 +99,8 @@ def normalise_payload(record: RecordIn) -> dict[str, Any]:
 
 app = FastAPI(
     title="ANALOG-X Field Evidence API",
-    version="1.0.0",
-    description="Self-hosted storage for user-recorded field observations. It does not fetch or invent NASA measurements.",
+    version="1.1.0",
+    description="ANALOG-X science-pack read APIs and self-hosted storage for user-recorded field observations. It does not invent NASA measurements.",
 )
 app.add_middleware(
     CORSMiddleware,
@@ -124,6 +127,72 @@ def catalog():
     if not CATALOG_PATH.exists():
         raise HTTPException(status_code=503, detail="Bundled candidate catalog not found on this server")
     return json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
+
+
+def read_science_json(path: Path, label: str) -> dict[str, Any]:
+    if not path.exists():
+        raise HTTPException(status_code=503, detail=f"{label} science pack is not built yet")
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise HTTPException(status_code=503, detail=f"{label} science pack is unavailable or invalid") from exc
+
+
+@app.get("/api/v1/science/manifest")
+def science_manifest():
+    transfer = read_science_json(TRANSFERABILITY_PATH, "ATFA")
+    pds = read_science_json(PDS_SEARCH_PATH, "PDS")
+    modis = read_science_json(MODIS_BROWSE_PATH, "MODIS")
+    return {
+        "api_version": "1.1",
+        "atfa_generated_at_utc": transfer.get("generated_at_utc"),
+        "earth_site_count": transfer.get("site_count", 0),
+        "experiment_pathway_count": sum(len(x.get("tests", [])) for x in transfer.get("sites", [])),
+        "pds_query_count": pds.get("query_count", 0),
+        "pds_product_metadata_count": pds.get("results_returned", 0),
+        "modis_site_count": modis.get("site_count", 0),
+        "modis_public_browse_count": modis.get("browse_download_count", 0),
+        "scientific_contract": transfer.get("scientific_contract", {}),
+    }
+
+
+@app.get("/api/v1/transferability")
+def transferability_catalog():
+    return read_science_json(TRANSFERABILITY_PATH, "ATFA")
+
+
+@app.get("/api/v1/transferability/sites/{site_id}")
+def transferability_site(site_id: str):
+    payload = read_science_json(TRANSFERABILITY_PATH, "ATFA")
+    for site in payload.get("sites", []):
+        if site.get("id") == site_id:
+            return site
+    raise HTTPException(status_code=404, detail="Earth study site not found")
+
+
+@app.get("/api/v1/planetary-products")
+def planetary_products(
+    target: str | None = Query(default=None, max_length=20),
+    limit: int = Query(default=50, ge=1, le=200),
+    offset: int = Query(default=0, ge=0),
+):
+    payload = read_science_json(PDS_SEARCH_PATH, "PDS")
+    rows = []
+    for query in payload.get("queries", []):
+        if target and str(query.get("target", "")).lower() != target.lower():
+            continue
+        for product in query.get("products", []):
+            rows.append({"query_id": query.get("id"), "target": query.get("target"),
+                         "keywords": query.get("keywords"), "product": product})
+    return {"count": len(rows), "limit": limit, "offset": offset,
+            "records": rows[offset:offset + limit],
+            "discovery_only": True,
+            "note": "Product metadata is not proof of binary download, calibration or analysis readiness."}
+
+
+@app.get("/api/v1/earth-observation/modis-browse")
+def modis_browse_index():
+    return read_science_json(MODIS_BROWSE_PATH, "MODIS")
 
 
 @app.get("/api/v1/field-records")
