@@ -60,6 +60,12 @@ TRACKS = {
         "breaks": "Terrestrial erosion, water, atmosphere and gravity modify crater preservation; terrestrial target rocks differ from lunar regolith and impact melt.",
         "next_measurement": "Map ejecta and structural relations at high resolution; sample impactites and compare petrography/geochemistry.",
     },
+    "biosignature_contamination_control": {
+        "label": "Biosignature / contamination-control rehearsal",
+        "what_transfers": "Field blank design, contamination-controlled sampling, instrument cleaning, chain-of-custody, extremophile habitat mapping and laboratory assay workflows can be rehearsed in terrestrial extreme environments.",
+        "breaks": "Earth biology, oxygen, liquid water, organic background and terrestrial contamination differ fundamentally; finding Earth extremophiles does not demonstrate extraterrestrial life or validate a Mars biosignature.",
+        "next_measurement": "Run contamination-controlled transects with field blanks, replicate samples, metagenomic or targeted assays, mineral-organic co-location and independent laboratory validation.",
+    },
     "human_robotic_ops": {
         "label": "Human / robotic field operations",
         "what_transfers": "Remote team coordination, navigation interfaces, sampling workflows, communications procedures, logistics and human-factors evaluation.",
