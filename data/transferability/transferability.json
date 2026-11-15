@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "ANALOG-X Analog Transferability & Failure Analysis (ATFA)",
-  "generated_at_utc": "2026-11-15T09:09:07+00:00",
+  "generated_at_utc": "2026-11-15T09:09:48+00:00",
   "scientific_contract": {
     "unit_of_analysis": "A named field experiment or process, not whole-site resemblance.",
     "classification": "Rule-based qualitative transferability classes authored in science/build_transferability.py; not probabilities, not a universal similarity score, not NASA certification.",
@@ -7513,6 +7513,15 @@
       "priority_experiment": "Use published geochemistry and safe, permitted field observations to distinguish hydrothermal salts from remote-sensing look-alikes.",
       "tests": [
         {
+          "track_id": "biosignature_contamination_control",
+          "track": "Biosignature / contamination-control rehearsal",
+          "transferability": "limited",
+          "why_this_site": "Extreme saline/hydrothermal setting is relevant for testing contamination-control and assay workflows; no site-specific ANALOG-X biological measurements are integrated and life claims are not made.",
+          "what_can_be_rehearsed": "Field blank design, contamination-controlled sampling, instrument cleaning, chain-of-custody, extremophile habitat mapping and laboratory assay workflows can be rehearsed in terrestrial extreme environments.",
+          "analogy_breaks": "Earth biology, oxygen, liquid water, organic background and terrestrial contamination differ fundamentally; finding Earth extremophiles does not demonstrate extraterrestrial life or validate a Mars biosignature.",
+          "next_measurement": "Run contamination-controlled transects with field blanks, replicate samples, metagenomic or targeted assays, mineral-organic co-location and independent laboratory validation."
+        },
+        {
           "track_id": "evaporite_processes",
           "track": "Evaporite / playa process science",
           "transferability": "moderate",
@@ -8765,6 +8774,15 @@
       "hypothesis": "",
       "priority_experiment": "Measure particle flux and grain-size thresholds alongside repeated surface imagery.",
       "tests": [
+        {
+          "track_id": "biosignature_contamination_control",
+          "track": "Biosignature / contamination-control rehearsal",
+          "transferability": "limited",
+          "why_this_site": "Hyperarid field protocols can rehearse low-biomass sampling and contamination control; this is a method analogue, not evidence of Mars-like life.",
+          "what_can_be_rehearsed": "Field blank design, contamination-controlled sampling, instrument cleaning, chain-of-custody, extremophile habitat mapping and laboratory assay workflows can be rehearsed in terrestrial extreme environments.",
+          "analogy_breaks": "Earth biology, oxygen, liquid water, organic background and terrestrial contamination differ fundamentally; finding Earth extremophiles does not demonstrate extraterrestrial life or validate a Mars biosignature.",
+          "next_measurement": "Run contamination-controlled transects with field blanks, replicate samples, metagenomic or targeted assays, mineral-organic co-location and independent laboratory validation."
+        },
         {
           "track_id": "dust_processes",
           "track": "Dust / aeolian instrument testing",
@@ -10019,6 +10037,15 @@
       "hypothesis": "",
       "priority_experiment": "Pair surface energy-balance observations with validated ground temperature and sublimation measurements.",
       "tests": [
+        {
+          "track_id": "biosignature_contamination_control",
+          "track": "Biosignature / contamination-control rehearsal",
+          "transferability": "limited",
+          "why_this_site": "Cold-desert sampling and contamination-control methods can be rehearsed; no site-specific biological measurements are integrated in this release.",
+          "what_can_be_rehearsed": "Field blank design, contamination-controlled sampling, instrument cleaning, chain-of-custody, extremophile habitat mapping and laboratory assay workflows can be rehearsed in terrestrial extreme environments.",
+          "analogy_breaks": "Earth biology, oxygen, liquid water, organic background and terrestrial contamination differ fundamentally; finding Earth extremophiles does not demonstrate extraterrestrial life or validate a Mars biosignature.",
+          "next_measurement": "Run contamination-controlled transects with field blanks, replicate samples, metagenomic or targeted assays, mineral-organic co-location and independent laboratory validation."
+        },
         {
           "track_id": "cryosphere_remote_sensing",
           "track": "Ice / cold-region remote sensing",
