@@ -113,6 +113,7 @@ SITE_RULES = {
     },
     "dallol": {
         "tracks": {
+            "biosignature_contamination_control": ("limited", "Extreme saline/hydrothermal setting is relevant for testing contamination-control and assay workflows; no site-specific ANALOG-X biological measurements are integrated and life claims are not made."),
             "evaporite_processes": ("moderate", "Saline hydrothermal and evaporite settings offer process/mapping methods; Earth hydrology and biology are major differences."),
             "volcanic_morphology": ("limited", "Hydrothermal/volcanic context is relevant to mapping methods, not a direct lunar lava analogue."),
             "spectral_ground_truth": ("limited", "Spectral workflows can be rehearsed, but no site-specific ANALOG-X mineral classification is integrated."),
@@ -122,6 +123,7 @@ SITE_RULES = {
     },
     "atacama": {
         "tracks": {
+            "biosignature_contamination_control": ("limited", "Hyperarid field protocols can rehearse low-biomass sampling and contamination control; this is a method analogue, not evidence of Mars-like life."),
             "dust_processes": ("limited", "Arid dust/surface monitoring is relevant; wind climatology alone does not quantify dust emission."),
             "evaporite_processes": ("moderate", "Salt-flat and hyperarid mapping methods can support selected Martian sedimentary questions."),
             "spectral_ground_truth": ("limited", "Useful setting for orbital-to-ground validation; no new site-specific spectral classification is asserted."),
@@ -131,6 +133,7 @@ SITE_RULES = {
     },
     "mcmurdo": {
         "tracks": {
+            "biosignature_contamination_control": ("limited", "Cold-desert sampling and contamination-control methods can be rehearsed; no site-specific biological measurements are integrated in this release."),
             "cryosphere_remote_sensing": ("moderate", "Cold-desert field methods, ice/debris mapping and sensor endurance are useful process analogues."),
             "dust_processes": ("limited", "Dry-cold wind processes can be studied, but atmospheric density and particle transport differ."),
             "human_robotic_ops": ("moderate", "Logistics, cold-weather equipment and remote operations are rehearsable."),
