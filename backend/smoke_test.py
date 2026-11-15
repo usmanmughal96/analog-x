@@ -24,6 +24,8 @@ assert manifest["modis_public_browse_count"] == 20
 
 catalog = check(client.get("/api/v1/transferability"))
 assert len(catalog["sites"]) == 10
+assert catalog["planetary_targets"]["moon"]["terrain_surface"]["rows"] == 32
+assert catalog["planetary_targets"]["moon"]["terrain_surface"]["columns"] == 32
 site = check(client.get("/api/v1/transferability/sites/chagai_small_playas"))
 assert site["id"] == "chagai_small_playas"
 assert check(client.get("/api/v1/transferability/sites/not-a-site"), 404)["detail"]
