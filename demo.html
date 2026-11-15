@@ -37,203 +37,260 @@ a{color:#82e1ec;text-decoration:none}a:hover{text-decoration:underline}
 @media(max-width:800px){.deck{padding:0}.slide{aspect-ratio:auto;min-height:100svh;max-height:none;border-radius:0;padding:24px 18px 90px}.grid2,.grid3,.grid4{grid-template-columns:1fr 1fr}.imagecard img{height:170px}.topline{font-size:8px}.uiGrid{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.grid2,.grid3,.grid4,.imagepair{grid-template-columns:1fr}.metric{font-size:29px}.slide{padding:22px 16px 92px}.foot{font-size:8px}}
 @media print{body{background:white}.deck{display:block;padding:0}.slide{display:flex!important;page-break-after:always;max-width:none;width:100%;aspect-ratio:16/9;max-height:none;box-shadow:none;border-radius:0}.controls{display:none}}
+
+/* Judge-first narrative components */
+.storySplit{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.storyPanel{border:1px solid var(--line);border-radius:14px;padding:17px;background:linear-gradient(145deg,#0d2637,#081a28);min-width:0}
+.storyPanel.problem{border-color:#72543d;background:linear-gradient(145deg,#2a241d,#111c27)}
+.storyPanel.breakthrough{border-color:#2b6a68;background:linear-gradient(145deg,#0c2c30,#091b29)}
+.storyLabel{font-size:10px;letter-spacing:.14em;font-weight:900;color:var(--gold);margin-bottom:8px}
+.storyPanel.breakthrough .storyLabel{color:var(--mint)}
+.storyPanel h3{font-size:17px;line-height:1.22;margin:0 0 8px;color:#edf6f8}
+.storyPanel p{font-size:12px;line-height:1.55;color:#a9c0cb}
+.statstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:14px}
+.statbox{border:1px solid #24485a;border-radius:10px;background:#071a28;padding:10px 12px}
+.statbox b{display:block;font-size:25px;letter-spacing:-.04em;color:#eaf6f7}
+.statbox span{display:block;font-size:9px;color:#96b0bc;margin-top:2px}
+.siteThumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:13px}
+.siteThumb{overflow:hidden;border:1px solid #294d60;border-radius:10px;background:#071a27}
+.siteThumb img{width:100%;height:105px;object-fit:cover;display:block}
+.siteThumb b{display:block;padding:7px 8px 1px;font-size:10px;color:#e4f1f3}
+.siteThumb small{display:block;padding:0 8px 8px;font-size:8px;color:#91aab6}
+.siteColumns{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.cleanList{display:grid;gap:8px;margin-top:10px}
+.cleanItem{display:flex;gap:9px;align-items:flex-start;color:#b3c8d1;font-size:11px;line-height:1.4}
+.cleanItem strong{color:#edf5f6}
+.dot{width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:var(--mint);margin-top:5px}
+.dataGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-top:15px}
+.dataCard{border:1px solid var(--line);border-radius:12px;background:linear-gradient(145deg,#0c2231,#081a28);padding:14px;min-width:0}
+.dataCard .dataTitle{font-size:11px;font-weight:900;letter-spacing:.08em;color:#8ed8e1;text-transform:uppercase}
+.dataCard .dataMetric{font-size:26px;font-weight:900;letter-spacing:-.04em;margin:5px 0;color:#edf6f7}
+.dataCard p{font-size:10px;line-height:1.45}
+.flowSteps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:15px 0}
+.flowStep{border:1px solid #275064;background:#071b29;border-radius:10px;padding:12px}
+.flowStep .stepNo{color:var(--gold);font-size:10px;font-weight:900;letter-spacing:.1em}
+.flowStep b{display:block;font-size:12px;color:#e5f2f4;margin:5px 0}
+.flowStep span{font-size:9px;color:#9db4bf;line-height:1.35;display:block}
+.trackGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px}
+.trackPill{border:1px solid #26495b;background:#0a2030;border-radius:8px;padding:8px;font-size:9px;color:#c2d6de;line-height:1.3}
+.exampleBox{border-left:3px solid var(--gold);background:#282318;border-radius:0 10px 10px 0;padding:12px 14px;margin-top:13px}
+.exampleBox b{font-size:11px;color:#f0d5a3;display:block;margin-bottom:5px}
+.exampleBox p{font-size:10px;color:#d9c9a8}
+.compareTargets{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0}
+.targetBox{border:1px solid #2a5366;background:#071b29;padding:12px;border-radius:10px}
+.targetBox small{display:block;color:#86b6c5;font-size:9px;letter-spacing:.12em;font-weight:900}
+.targetBox b{display:block;font-size:16px;color:#e8f4f5;margin:4px 0}
+.targetBox span{font-size:9px;color:#98b1bd}
+.agentGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.agentTile{border:1px solid #2a5061;border-radius:10px;background:#081c2a;padding:10px}
+.agentTile small{display:block;color:#e6c58f;font-weight:900;font-size:9px}
+.agentTile b{display:block;color:#e5f2f4;font-size:11px;margin:4px 0}
+.agentTile span{display:block;color:#9eb5bf;font-size:9px;line-height:1.35}
+.workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:12px 0}
+.workflow div{background:#0a2231;border:1px solid #294e60;border-radius:8px;padding:9px;text-align:center}
+.workflow b{display:block;color:#e4f1f3;font-size:10px}
+.workflow small{display:block;color:#91abb7;font-size:8px;margin-top:4px}
+.requireGrid{display:grid;gap:7px;margin-top:12px}
+.requireRow{display:grid;grid-template-columns:1.1fr 1.7fr auto;gap:10px;align-items:center;padding:9px 11px;border:1px solid #25475a;border-radius:9px;background:#081c2a}
+.requireRow b{font-size:10px;color:#e7f1f4}
+.requireRow span{font-size:9px;color:#a9bec8;line-height:1.35}
+.requireRow em{font-style:normal;font-size:8px;font-weight:900;letter-spacing:.05em;color:#9fe4ca;border:1px solid #376d5d;border-radius:20px;padding:4px 7px;white-space:nowrap}
+.limitLine{border-left:3px solid var(--gold);background:#272218;color:#e1d0ab;padding:10px 12px;border-radius:0 8px 8px 0;font-size:9px;line-height:1.45;margin-top:11px}
+.judgeLenses{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:11px}
+.judgeLens{background:#0a2230;border:1px solid #27495b;border-radius:8px;padding:8px}
+.judgeLens b{display:block;color:#92d9df;font-size:9px}
+.judgeLens span{display:block;color:#9fb6c0;font-size:8px;line-height:1.3;margin-top:4px}
+@media(max-width:800px){.storySplit,.siteColumns{grid-template-columns:1fr}.statstrip{grid-template-columns:repeat(2,1fr)}.siteThumbs{grid-template-columns:repeat(2,1fr)}.flowSteps{grid-template-columns:repeat(2,1fr)}.dataGrid{grid-template-columns:1fr}.trackGrid{grid-template-columns:repeat(2,1fr)}.requireRow{grid-template-columns:1fr;gap:4px}.judgeLenses{grid-template-columns:repeat(2,1fr)}.workflow{grid-template-columns:repeat(2,1fr)}}
+
 </style>
 </head>
 <body>
 <div class="deck">
 <section class="slide active">
- <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>ANALOG-X / PLANETARY FIELD LAB</span></div><span>NASA SPACE APPS · 2026</span></div>
- <div class="kicker">Team X Æ A-Xii · Challenge entry</div>
- <h1>Earth is the rehearsal ground for the <span class="accent">next worlds.</span></h1>
- <p class="lede">ANALOG-X is a Pakistan-first planetary analog evidence and field-operations platform. It connects Earth-site discovery, orbital and planetary datasets, mission rehearsal, experiment-level transferability analysis and offline field evidence capture—so teams can decide what an Earth site can teach them, and what it cannot.</p>
- <div class="grid3" style="margin-top:24px">
-  <div class="card"><div class="eyebrow">Discovery atlas</div><div class="metric">10 <small>Earth sites</small></div><p style="font-size:10px;margin-top:5px">Four Pakistan study leads plus six global reference environments.</p></div>
-  <div class="card"><div class="eyebrow">Science framework</div><div class="metric">41 <small>pathways</small></div><p style="font-size:10px;margin-top:5px">Across nine experiment tracks, including biosignature and contamination-control methods.</p></div>
-  <div class="card"><div class="eyebrow">Field operations</div><div class="metric" style="font-size:25px">Offline-first</div><p style="font-size:10px;margin-top:5px">Mission tools, evidence dossiers and local field records without a mandatory cloud AI.</p></div>
+ <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>ANALOG-X / PLANETARY FIELD LAB</span></div><span>NASA SPACE APPS · CHALLENGE 10 · 2026</span></div>
+ <div class="kicker">Identify Earth locations that analog the permanent Moon base locations and Mars</div>
+ <h1>A place can look like Mars.<br><span class="accent">That doesn't mean it can prepare us for Mars.</span></h1>
+ <p class="lede">ANALOG-X helps mission teams answer a more useful question: which Earth experiments can prepare us for work on the Moon or Mars, what evidence supports that choice, and where does the comparison break?</p>
+ <div class="storySplit">
+  <div class="storyPanel problem"><div class="storyLabel">THE PROBLEM</div><h3>“This place looks similar” is not enough.</h3><p>Earth analog sites are valuable rehearsal grounds, but they are not always fully characterized. A visual match alone cannot tell a team which method transfers, what the data actually proves, or what still needs to be measured.</p></div>
+  <div class="storyPanel breakthrough"><div class="storyLabel">OUR BREAKTHROUGH</div><h3>Test the experiment—not the whole landscape.</h3><p>ANALOG-X connects Earth and planetary evidence to specific field tasks. Its ATFA framework shows what can be rehearsed, what cannot be transferred, and the next evidence needed.</p></div>
  </div>
- <div class="sources"><span class="tag mint">Earth–Moon–Mars evidence</span><span class="tag">ATFA science module</span><span class="tag">Mission Rehearsal Lab</span><span class="tag">Field Evidence Passport</span></div>
- <div class="foot"><span>LIVE PORTAL · <a href="https://usmanmughal96.github.io/analog-x/">Evidence Operations</a> · <a href="https://usmanmughal96.github.io/analog-x/transferability.html">ATFA</a></span><span>01 / 07</span></div>
+ <div class="statstrip">
+  <div class="statbox"><b>10</b><span>curated Earth study sites</span></div>
+  <div class="statbox"><b>41</b><span>experiment pathways</span></div>
+  <div class="statbox"><b>9</b><span>research tracks</span></div>
+  <div class="statbox"><b>4</b><span>offline evidence specialists</span></div>
+ </div>
+ <div class="foot"><span>BUILT BY MUHAMMAD USMAN MUGHAL · TEAM X Æ A-Xii · <a href="https://usmanmughal96.github.io/analog-x/">OPEN LIVE PLATFORM ↗</a></span><span>01 / 07</span></div>
 </section>
 <section class="slide">
- <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>01 / GLOBAL DISCOVERY ATLAS</span></div><span>10 CURATED EARTH ENVIRONMENTS</span></div>
- <div class="kicker">A wider search space, with Pakistan at the centre of the field story</div>
- <h2>Ten Earth environments. <span class="gold">Different tasks, different limits.</span></h2>
- <div class="grid2">
+ <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>01 / EARTH ANALOG DISCOVERY ATLAS</span></div><span>10 CURATED ENVIRONMENTS</span></div>
+ <div class="kicker">A real search space: local candidates plus global reference environments</div>
+ <h2>Ten Earth environments. <span class="gold">Four Pakistan field leads.</span></h2>
+ <div class="siteColumns">
   <div class="card">
-   <div class="eyebrow">Pakistan field leads · four</div>
-   <div class="list">
-    <div class="listitem"><div class="num">01</div><div><b>Chagai small salt playas · Nok Kundi</b><span>Evaporite/playa-process mapping lead; a 1974 NASA report identifies two small salt-surfaced playas. Boundaries and coordinates are screening references.</span></div></div>
-    <div class="listitem"><div class="num">02</div><div><b>Hamun-i-Mashkel · Kharan Basin</b><span>Regional closed-basin and intermittent-playa process candidate; hydrology and precise landform extent need current verification.</span></div></div>
-    <div class="listitem"><div class="num">03</div><div><b>Koh-i-Sultan · Chagai</b><span>Documented Pleistocene volcanic field for volcanic/hydrothermal reconnaissance—not a claimed basaltic Mars match.</span></div></div>
-    <div class="listitem"><div class="num">04</div><div><b>Hispar Glacier · Karakoram</b><span>Cryosphere and ice/debris interpretation case study, building on an existing glacier-inventory baseline.</span></div></div>
+   <div class="eyebrow">Pakistan · under-characterized candidate leads</div>
+   <div class="cleanList">
+    <div class="cleanItem"><i class="dot"></i><span><strong>Chagai small salt playas</strong> — evaporite and dry-playa mapping rehearsal</span></div>
+    <div class="cleanItem"><i class="dot"></i><span><strong>Hamun-i-Mashkel</strong> — closed-basin and wet–dry process study</span></div>
+    <div class="cleanItem"><i class="dot"></i><span><strong>Koh-i-Sultan</strong> — volcanic landform and alteration-mapping methods</span></div>
+    <div class="cleanItem"><i class="dot"></i><span><strong>Hispar Glacier</strong> — cryosphere and ice/debris remote-sensing methods</span></div>
    </div>
   </div>
   <div class="card">
-   <div class="eyebrow">Global reference environments · six</div>
-   <div class="grid2" style="grid-template-columns:1fr 1fr;margin-top:12px">
-    <div class="uiTile"><small>GEOTHERMAL / EVAPORITIC</small><b>Dallol · Ethiopia</b></div>
-    <div class="uiTile"><small>HYPERARID DESERT</small><b>Atacama · Chile</b></div>
-    <div class="uiTile"><small>POLAR DRY VALLEYS</small><b>McMurdo · Antarctica</b></div>
-    <div class="uiTile"><small>IMPACT STRUCTURE</small><b>Haughton · Canada</b></div>
-    <div class="uiTile"><small>VOLCANIC / ICELANDIC</small><b>Iceland</b></div>
-    <div class="uiTile"><small>ARID DESERT</small><b>Death Valley · USA</b></div>
+   <div class="eyebrow">Global · established comparison environments</div>
+   <div class="cleanList">
+    <div class="cleanItem"><i class="dot"></i><span><strong>Dallol, Ethiopia</strong> — geothermal / evaporitic</span></div>
+    <div class="cleanItem"><i class="dot"></i><span><strong>Atacama, Chile</strong> — hyper-arid desert</span></div>
+    <div class="cleanItem"><i class="dot"></i><span><strong>McMurdo Dry Valleys</strong> — polar dry terrain</span></div>
+    <div class="cleanItem"><i class="dot"></i><span><strong>Haughton, Canada</strong> — impact structure</span></div>
+    <div class="cleanItem"><i class="dot"></i><span><strong>Iceland</strong> — volcanic landscapes</span></div>
+    <div class="cleanItem"><i class="dot"></i><span><strong>Death Valley, USA</strong> — arid desert systems</span></div>
    </div>
-   <div class="note">These are curated study/reference windows—not an exhaustive global scan, a ranking of landing sites or proof that any one location reproduces a planetary environment.</div>
   </div>
  </div>
- <div class="foot"><span>Candidate leads are distinguished from established references; site-specific task and evidence coverage determine relevance.</span><span>02 / 07</span></div>
+ <div class="siteThumbs">
+  <div class="siteThumb"><img src="./data/pakistan/quicklooks/chagai_small_playas.png" alt="Chagai salt playa satellite preview"><b>Chagai playas</b><small>Sentinel-2 true-colour preview</small></div>
+  <div class="siteThumb"><img src="./data/pakistan/quicklooks/hamun_i_mashkel.png" alt="Hamun-i-Mashkel satellite preview"><b>Hamun-i-Mashkel</b><small>Sentinel-2 true-colour preview</small></div>
+  <div class="siteThumb"><img src="./data/pakistan/quicklooks/koh_i_sultan.png" alt="Koh-i-Sultan satellite preview"><b>Koh-i-Sultan</b><small>Sentinel-2 true-colour preview</small></div>
+  <div class="siteThumb"><img src="./data/pakistan/quicklooks/hispar_glacier.png" alt="Hispar Glacier satellite preview"><b>Hispar Glacier</b><small>Sentinel-2 true-colour preview</small></div>
+ </div>
+ <div class="sources"><span class="tag">Moon reference: Shackleton Rim</span><span class="tag">Mars reference: Nili Patera</span><span class="tag gold">Candidates ≠ field-validated analogs</span></div>
+ <div class="foot"><span>Four Pakistan sites are candidate leads; six global sites provide comparison context. Coordinates are study references, not surveyed boundaries.</span><span>02 / 07</span></div>
 </section>
 <section class="slide">
- <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>02 / EARTH–MOON–MARS DATA ENGINE</span></div><span>PROVENANCE · QUALITY · SUPPORT</span></div>
- <div class="kicker">A connected evidence stack—not a black-box similarity score</div>
- <h2>Multiple datasets, <span class="accent">separate evidence layers.</span></h2>
- <div class="grid2">
-  <div class="grid2" style="grid-template-columns:1fr 1fr;margin:0">
-   <div class="card"><div class="eyebrow">NASA POWER</div><div class="metric">10 <small>profiles</small></div><p style="font-size:10px;margin-top:7px">Climatology for temperature, humidity, wind, precipitation and solar radiation across all ten Earth sites.</p></div>
-   <div class="card"><div class="eyebrow">Sentinel-2 L2A</div><div class="metric">10 <small>site windows</small></div><p style="font-size:10px;margin-top:7px">STAC scene provenance and RGB previews; spectral context is not mineral classification.</p></div>
-   <div class="card"><div class="eyebrow">Copernicus DEM GLO-30</div><div class="metric">10/10 <small>local grids</small></div><p style="font-size:10px;margin-top:7px">32×32 regional terrain grids at approximately 925 m support.</p></div>
-   <div class="card"><div class="eyebrow">Planetary terrain</div><div class="metric">MOLA + LOLA</div><p style="font-size:10px;margin-top:7px">Mars Nili Patera and lunar Shackleton Rim reference grids at comparable nominal support.</p></div>
-  </div>
-  <div class="card">
-   <div class="eyebrow">Additional NASA evidence and discovery</div>
-   <div class="list">
-    <div class="listitem"><div class="num">20</div><div><b>MODIS MOD11A2 browse images</b><span>Public browse JPEGs indexed across ten Earth sites; visual context only, not calibrated land-surface-temperature arrays.</span></div></div>
-    <div class="listitem"><div class="num">500</div><div><b>PDS observational metadata records</b><span>Discovery records across six capped target/instrument queries; metadata discovery is not binary science-data ingestion.</span></div></div>
-    <div class="listitem"><div class="num">DIV</div><div><b>Diviner PRP V2.0 thermal summaries</b><span>6,823 Shackleton-window triangles processed; historical model-derived summaries. Ice-depth interpretation withheld pending QA.</span></div></div>
-   </div>
-   <div class="note">Every layer retains its source and limits. Catalogue discovery, browse imagery, processed science data and field measurements are not interchangeable evidence states.</div>
-  </div>
+ <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>02 / OPEN-DATA EVIDENCE ENGINE</span></div><span>TRACEABLE INPUTS · VISIBLE LIMITS</span></div>
+ <div class="kicker">We assembled a multi-source evidence stack—not just pins on a map</div>
+ <h2>Earth, Moon and Mars data in <span class="accent">one inspectable workflow.</span></h2>
+ <div class="dataGrid">
+  <div class="dataCard"><div class="dataTitle">Earth environment</div><div class="dataMetric">10 NASA POWER profiles</div><p>Temperature, humidity, wind, rainfall and solar climatology for all ten Earth study sites. Sentinel-2 L2A scene discovery adds dated satellite context across the site windows.</p></div>
+  <div class="dataCard"><div class="dataTitle">Earth terrain</div><div class="dataMetric">10 / 10 DEM grids</div><p>Copernicus DEM GLO-30 processed into regional terrain grids at approximately 925 m analysis support, with slope and local-relief descriptors.</p></div>
+  <div class="dataCard"><div class="dataTitle">Moon and Mars terrain</div><div class="dataMetric">LOLA + MOLA</div><p>Lunar LOLA terrain around Shackleton Rim and Mars MOLA terrain around Nili Patera provide separate planetary reference profiles. Diviner adds historical lunar thermal-model context.</p></div>
+  <div class="dataCard"><div class="dataTitle">NASA archive discovery</div><div class="dataMetric">20 browse images · 500 metadata records</div><p>MODIS browse previews are indexed for ten Earth sites. PDS observational product metadata is catalogued across six queries for planetary-data discovery.</p></div>
  </div>
- <div class="foot"><span>Latest verified science snapshot · 15 Nov 2026 · NASA POWER, Sentinel-2, Copernicus, MOLA, LOLA, Diviner, MODIS and PDS metadata.</span><span>03 / 07</span></div>
+ <div class="storySplit" style="margin-top:12px">
+  <div class="storyPanel"><div class="storyLabel">WHAT THIS GIVES THE JUDGE</div><h3>Evidence with source and scale.</h3><p>Each layer can be traced to a dataset, product, processing step or documented gap. Earth and planetary measurements are compared only where the spatial support is stated.</p></div>
+  <div class="storyPanel problem"><div class="storyLabel">WHAT WE DO NOT PRETEND</div><h3>Browse images are not measurements.</h3><p>MODIS JPEGs are visual previews, not calibrated temperature arrays. PDS records are metadata discovery, not downloaded and decoded science products. Regional DEMs are not rover-scale hazard maps.</p></div>
+ </div>
+ <div class="foot"><span>Sources include NASA POWER, NASA CMR / MODIS, NASA PDS, MOLA, LOLA, Diviner, Copernicus DEM and Copernicus Sentinel-2.</span><span>03 / 07</span></div>
 </section>
 <section class="slide">
- <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>03 / MISSION REHEARSAL LAB</span></div><span>MISSION- AND TASK-SPECIFIC</span></div>
- <div class="kicker">From site comparison to practical field planning</div>
- <h2>Rehearse the <span class="accent">experiment</span>, not an imaginary planetary replica.</h2>
- <div class="grid2">
+ <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>03 / THE BREAKTHROUGH · ATFA</span></div><span>41 PATHWAYS · 9 TRACKS</span></div>
+ <div class="kicker">Analog Transferability & Failure Analysis</div>
+ <h2>Don't ask “does it look like Mars?”<br><span class="gold">Ask “what can we actually rehearse here?”</span></h2>
+ <p class="lede" style="font-size:13px;margin-top:8px">ATFA changes the unit of comparison from an entire landscape to a named experiment or field method—and makes the limits visible.</p>
+ <div class="flowSteps">
+  <div class="flowStep"><div class="stepNo">01 · DEFINE</div><b>Choose the task</b><span>What instrument, method or field process must the team rehearse?</span></div>
+  <div class="flowStep"><div class="stepNo">02 · TEST</div><b>Check the evidence</b><span>Which site data and planetary references support the comparison?</span></div>
+  <div class="flowStep"><div class="stepNo">03 · EXPOSE</div><b>Find the failure boundary</b><span>Which gravity, atmosphere, material or scale differences break transfer?</span></div>
+  <div class="flowStep"><div class="stepNo">04 · IMPROVE</div><b>Name the next measurement</b><span>What field or lab evidence is still needed before relying on it?</span></div>
+ </div>
+ <div class="siteColumns">
   <div class="card">
-   <div class="eyebrow">Earth ↔ planetary reference comparisons</div>
-   <h3>Two targets, evaluated separately</h3>
-   <div class="grid2" style="margin-top:12px">
-    <div class="uiTile"><small>MOON</small><b>Shackleton Rim</b><span style="color:#8faab6;font-size:9px">LOLA terrain + Diviner thermal context</span></div>
-    <div class="uiTile"><small>MARS</small><b>Nili Patera</b><span style="color:#8faab6;font-size:9px">MOLA terrain reference</span></div>
-   </div>
-   <div class="list">
-    <div class="listitem"><div class="num">01</div><div><b>Matched-support terrain descriptors</b><span>Median slope, P90 slope and P90 3×3 local relief at approximately 925 m support, with absolute differences.</span></div></div>
-    <div class="listitem"><div class="num">02</div><div><b>Closest profile by descriptor</b><span>Shows which Earth profile is closest on each metric without combining unlike variables into a universal score.</span></div></div>
-    <div class="listitem"><div class="num">03</div><div><b>Terrain twins and coverage caveats</b><span>Source-derived elevation grids are displayed relative to each body's own median; no cross-body vertical registration or safety inference.</span></div></div>
+   <div class="eyebrow">41 site-specific experiment pathways</div>
+   <div class="trackGrid">
+    <div class="trackPill">Terrain & mobility</div><div class="trackPill">Spectral ground truth</div><div class="trackPill">Evaporite processes</div>
+    <div class="trackPill">Cryosphere remote sensing</div><div class="trackPill">Volcanic morphology</div><div class="trackPill">Dust processes</div>
+    <div class="trackPill">Impact geology</div><div class="trackPill">Biosignature & contamination control</div><div class="trackPill">Human & robotic operations</div>
    </div>
   </div>
   <div class="card">
-   <div class="eyebrow">Turn a candidate into a field plan</div>
-   <div class="list">
-    <div class="listitem"><div class="num">A</div><div><b>Mission task and season context</b><span>Choose a site and target, inspect documented task overlap and derive three low-precipitation months from NASA POWER climatology.</span></div></div>
-    <div class="listitem"><div class="num">B</div><div><b>Field protocol and equipment checklist</b><span>Generate task-specific station steps, controls, instrument checks and practical planning prompts.</span></div></div>
-    <div class="listitem"><div class="num">C</div><div><b>Mission-specific candidate selector</b><span>Compare candidates using qualitative transferability classes and documented evidence coverage—not a calibrated probability.</span></div></div>
+   <div class="eyebrow">Worked example · Chagai salt playas</div>
+   <h3>Useful for rehearsing evaporite / playa mapping methods.</h3>
+   <div class="cleanList">
+    <div class="cleanItem"><i class="dot"></i><span><strong>Can rehearse:</strong> satellite-to-ground mapping workflow, sampling design and evidence logging.</span></div>
+    <div class="cleanItem"><i class="dot"></i><span><strong>Cannot conclude:</strong> matching Martian mineralogy, brine, subsurface chemistry or resource abundance.</span></div>
+    <div class="cleanItem"><i class="dot"></i><span><strong>Next evidence:</strong> field spectra, sediment-facies observations and laboratory mineral/chemistry tests.</span></div>
    </div>
-   <div class="note">These are regional reconnaissance and campaign-planning tools. They do not establish safe access, rover trafficability, landing suitability or mission readiness.</div>
-   <div class="sources"><span class="source">Mission Rehearsal Lab</span><span class="source">Task protocols</span><span class="source">Season guidance</span><span class="source">Equipment checklists</span></div>
   </div>
  </div>
- <div class="foot"><span>Terrain descriptors are regional (~925 m) and cannot substitute for rover-scale roughness or site engineering.</span><span>04 / 07</span></div>
+ <div class="foot"><span>ATFA classes are transparent qualitative research-triage rules—not probabilities, a universal similarity score or NASA certification.</span><span>04 / 07</span></div>
 </section>
 <section class="slide">
- <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>04 / ATFA · SCIENTIFIC DIFFERENTIATOR</span></div><span>ANALOG TRANSFERABILITY & FAILURE ANALYSIS</span></div>
- <div class="kicker">Move the unit of analogy from whole sites to specific experiments</div>
- <h2>Where does the analogy work? <span class="gold">Where does it break?</span></h2>
- <div class="grid2">
-  <div class="uiMock">
-   <div class="uiHead"><b>ATFA / EXPERIMENT-LEVEL DOSSIER</b><span class="tag mint">LIVE SCIENCE MODULE</span></div>
-   <div class="uiGrid">
-    <div class="uiTile"><small>EARTH FIELD SITE</small><b>Chagai small salt playas</b></div>
-    <div class="uiTile"><small>MISSION REFERENCE</small><b>Mars · Nili Patera</b></div>
-    <div class="uiTile"><small>REHEARSAL TASK</small><b>Evaporite / playa mapping</b></div>
-    <div class="uiTile"><small>TRANSFERABLE</small><b class="pass">Mapping workflow & provenance</b></div>
-    <div class="uiTile"><small>NON-TRANSFERABLE</small><b class="fail">Gravity, atmosphere, chemistry</b></div>
-    <div class="uiTile"><small>NEXT EVIDENCE</small><b class="fail">Field spectra & lab chemistry</b></div>
+ <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>04 / MISSION REHEARSAL LAB</span></div><span>FROM SITE DATA TO FIELD PLAN</span></div>
+ <div class="kicker">A mission team needs more than a list of similar places</div>
+ <h2>Turn a candidate environment into a <span class="accent">specific rehearsal plan.</span></h2>
+ <div class="siteColumns">
+  <div class="card">
+   <div class="eyebrow">Compare Earth with a real planetary reference</div>
+   <div class="compareTargets">
+    <div class="targetBox"><small>MOON</small><b>Shackleton Rim</b><span>LOLA terrain + Diviner thermal context</span></div>
+    <div class="targetBox"><small>MARS</small><b>Nili Patera</b><span>MOLA terrain reference</span></div>
    </div>
-   <div class="note">A useful rehearsal of a mapping method is not proof of matching mineralogy, brine, subsurface conditions or planetary habitability.</div>
+   <div class="cleanList">
+    <div class="cleanItem"><i class="dot"></i><span>Compare median slope, upper-range slope and local relief at approximately matched regional support.</span></div>
+    <div class="cleanItem"><i class="dot"></i><span>See evidence coverage and missing cells instead of hiding data gaps.</span></div>
+    <div class="cleanItem"><i class="dot"></i><span>Inspect separate 3D terrain surfaces while retaining each body's own elevation reference.</span></div>
+   </div>
   </div>
-  <div>
-   <div class="eyebrow">41 authored experiment pathways · nine tracks</div>
-   <div class="grid2" style="grid-template-columns:1fr 1fr;margin-top:10px">
-    <div class="uiTile"><small>01</small><b>Terrain & morphology</b></div>
-    <div class="uiTile"><small>02</small><b>Climate & campaign planning</b></div>
-    <div class="uiTile"><small>03</small><b>Surface spectral context</b></div>
-    <div class="uiTile"><small>04</small><b>Geology & field mapping</b></div>
-    <div class="uiTile"><small>05</small><b>Volcanic / hydrothermal</b></div>
-    <div class="uiTile"><small>06</small><b>Cryosphere & ice/debris</b></div>
-    <div class="uiTile"><small>07</small><b>Playa / evaporite processes</b></div>
-    <div class="uiTile"><small>08–09</small><b>Biosignature & contamination-control methods, plus additional mission workflows</b></div>
+  <div class="card">
+   <div class="eyebrow">What a researcher can take away</div>
+   <div class="cleanList">
+    <div class="cleanItem"><i class="dot"></i><span><strong>Mission-specific selection:</strong> compare candidate Earth sites for a named Moon or Mars field task.</span></div>
+    <div class="cleanItem"><i class="dot"></i><span><strong>Campaign timing:</strong> derive low-precipitation months from NASA POWER climatology as a planning signal.</span></div>
+    <div class="cleanItem"><i class="dot"></i><span><strong>Field preparation:</strong> generate task protocols, station steps, instrument checks and equipment checklists.</span></div>
+    <div class="cleanItem"><i class="dot"></i><span><strong>Reviewable output:</strong> export a mission experiment brief as JSON for sharing or further analysis.</span></div>
    </div>
-   <div class="list">
-    <div class="listitem"><div class="num">01</div><div><b>Transferability dossiers</b><span>For each site and pathway: what can be rehearsed, which conditions differ, and what evidence supports the claim.</span></div></div>
-    <div class="listitem"><div class="num">02</div><div><b>Failure and evidence-state audit</b><span>Surface missing evidence, non-transferable physics and uncertainty instead of manufacturing a similarity percentage.</span></div></div>
-    <div class="listitem"><div class="num">03</div><div><b>Next-measurement guidance</b><span>Identify the field observation or laboratory analysis needed to reduce uncertainty.</span></div></div>
-   </div>
+   <div class="note">These are regional reconnaissance and rehearsal-planning functions—not a landing-site ranking, rover-trafficability model or safety certification.</div>
   </div>
  </div>
- <div class="foot"><span><a href="https://usmanmughal96.github.io/analog-x/transferability.html">Open interactive ATFA science module ↗</a> · experiment/site dossiers · map · evidence charts · 3D pathway landscape</span><span>05 / 07</span></div>
+ <div class="foot"><span>Terrain support is approximately 925 m: useful for regional comparison, not rover-scale roughness or local engineering.</span><span>05 / 07</span></div>
 </section>
 <section class="slide">
- <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>05 / AGENT BAY & OFFLINE FIELD OPERATIONS</span></div><span>DETERMINISTIC CORE · OPTIONAL CLOUD</span></div>
- <div class="kicker">A practical decision-support workflow for remote teams</div>
- <h2>Four evidence specialists. <span class="accent">No LLM required.</span></h2>
- <div class="grid2">
+ <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>05 / AGENT BAY + OFFLINE FIELD OPERATIONS</span></div><span>DETERMINISTIC CORE · OPTIONAL CLOUD</span></div>
+ <div class="kicker">Designed to keep useful work possible in remote field conditions</div>
+ <h2>Four evidence specialists. <span class="accent">A field notebook that works offline.</span></h2>
+ <div class="siteColumns">
   <div class="card">
-   <div class="eyebrow">Agent Bay · deterministic specialists</div>
-   <div class="list">
-    <div class="listitem"><div class="num">01</div><div><b>Terrain Morphology Specialist</b><span>Reviews processed terrain descriptors and their spatial-support limitations.</span></div></div>
-    <div class="listitem"><div class="num">02</div><div><b>Climate & Campaign Planner</b><span>Reviews NASA POWER context and field-campaign planning signals.</span></div></div>
-    <div class="listitem"><div class="num">03</div><div><b>Surface Spectral Context Specialist</b><span>Reviews Sentinel-2 spectral/RGB context without presenting it as mineral identification.</span></div></div>
-    <div class="listitem"><div class="num">04</div><div><b>Evidence Integrity Specialist</b><span>Checks provenance, evidence state, missing layers and overclaim risk.</span></div></div>
+   <div class="eyebrow">Agent Bay · four deterministic specialists</div>
+   <div class="agentGrid">
+    <div class="agentTile"><small>01</small><b>Terrain Morphology</b><span>Checks processed terrain shape and scale limits.</span></div>
+    <div class="agentTile"><small>02</small><b>Climate & Campaign</b><span>Reviews climate context and field-planning signals.</span></div>
+    <div class="agentTile"><small>03</small><b>Surface Spectral Context</b><span>Reviews satellite surface context without claiming mineral identification.</span></div>
+    <div class="agentTile"><small>04</small><b>Evidence Integrity</b><span>Checks provenance, missing layers and overclaim risk.</span></div>
    </div>
-   <div class="note">Offline review runs locally and exports a JSON decision brief. The optional cloud Mission Director is not a dependency; model output is never treated as a measurement.</div>
+   <div class="note">The core review runs locally without an LLM or API key. The optional cloud Mission Director is not required for core assessments.</div>
   </div>
   <div class="card">
-   <div class="eyebrow">Field tools and deployment boundary</div>
-   <div class="grid2" style="grid-template-columns:1fr 1fr;margin-top:8px">
-    <div class="uiTile"><small>APP DELIVERY</small><b>PWA + service worker</b></div>
-    <div class="uiTile"><small>LOCAL RECORDS</small><b>IndexedDB</b></div>
-    <div class="uiTile"><small>FIELD EXPORTS</small><b>JSON · CSV · GeoJSON</b></div>
-    <div class="uiTile"><small>COORDINATE SCOUT</small><b>10 curated seeds</b></div>
+   <div class="eyebrow">Field Evidence Passport · capture → keep → export</div>
+   <div class="workflow">
+    <div><b>Observe</b><small>GNSS position, notes, method</small></div>
+    <div><b>Record</b><small>Units, time, optional photos</small></div>
+    <div><b>Store</b><small>On-device IndexedDB</small></div>
+    <div><b>Export</b><small>JSON · CSV · GeoJSON</small></div>
    </div>
-   <div class="list">
-    <div class="listitem"><div class="num">A</div><div><b>Field Evidence Passport + notebook</b><span>Capture GNSS-tagged station observations, notes, units, method and optional photos locally; records remain local until intentionally exported or synced.</span></div></div>
-    <div class="listitem"><div class="num">B</div><div><b>Field School simulator</b><span>Four-stage scenarios for playa/evaporite, volcanic mapping, lunar cryosphere and terrain-data-quality decisions.</span></div></div>
-    <div class="listitem"><div class="num">C</div><div><b>Self-hostable FastAPI + PostgreSQL</b><span>Versioned science reads and field-record CRUD/bulk sync; Docker deployment and scaling path included.</span></div></div>
+   <div class="cleanList">
+    <div class="cleanItem"><i class="dot"></i><span><strong>PWA offline mode:</strong> app shell and science pack are cached after the first connected install.</span></div>
+    <div class="cleanItem"><i class="dot"></i><span><strong>Field School:</strong> four guided scenarios teach evidence quality and transferability limits.</span></div>
+    <div class="cleanItem"><i class="dot"></i><span><strong>Optional shared backend:</strong> FastAPI + PostgreSQL source and Docker deployment path are included.</span></div>
    </div>
-   <div class="note">GitHub Pages hosts the static app. The persistent API/database are optional source code and require owner-provisioned hosting, secrets and TLS. Fresh data retrieval and live basemaps need connectivity.</div>
+   <div class="limitLine">The public portal is static hosting. A live shared API/database still requires owner-provisioned hosting, credentials and TLS; it is not claimed as an already deployed public service.</div>
   </div>
  </div>
- <div class="foot"><span>Offline after first app install/cache · optional backend docs: <a href="https://github.com/usmanmughal96/analog-x/tree/main/backend">backend source</a></span><span>06 / 07</span></div>
+ <div class="foot"><span>Offline operation uses the bundled release snapshot; fresh satellite retrieval and live map layers need connectivity.</span><span>06 / 07</span></div>
 </section>
 <section class="slide">
- <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>06 / IMPACT & VALIDATION ROADMAP</span></div><span>EARTH IS A LABORATORY, NOT A REPLICA</span></div>
- <div class="kicker">The outcome is a better, more defensible field decision</div>
- <h2>Make every analogy <span class="mint">specific, testable and honest.</span></h2>
- <div class="grid2">
-  <div class="card">
-   <div class="eyebrow">What ANALOG-X now brings together</div>
-   <div class="list">
-    <div class="listitem"><div class="num">01</div><div><b>Discover and compare</b><span>Ten curated Earth environments, including four Pakistan field leads, with source-aware orbital and terrain context.</span></div></div>
-    <div class="listitem"><div class="num">02</div><div><b>Plan the mission rehearsal</b><span>Mission Rehearsal Lab, task-specific experiment pathways, season guidance and field protocols.</span></div></div>
-    <div class="listitem"><div class="num">03</div><div><b>Challenge the analogy</b><span>ATFA documents transferable methods, failure conditions, evidence gaps and next measurements at experiment level.</span></div></div>
-    <div class="listitem"><div class="num">04</div><div><b>Take the workflow into the field</b><span>Agent Bay, Field School, offline notebook, Field Evidence Passport and exportable records.</span></div></div>
-   </div>
-  </div>
-  <div class="card">
-   <div class="eyebrow">What still needs validation</div>
-   <div class="list">
-    <div class="listitem"><div class="num">A</div><div><b>Ground-truth geology and chemistry</b><span>Verify playa facies, mineralogy, soluble salts, subsurface profile and surface strength with qualified field/lab teams.</span></div></div>
-    <div class="listitem"><div class="num">B</div><div><b>Higher-resolution mission-scale terrain</b><span>Regional ~925 m grids are not rover-scale roughness, trafficability or landing-hazard products.</span></div></div>
-    <div class="listitem"><div class="num">C</div><div><b>Complete lunar environmental analysis</b><span>Formal illumination and permanently shadowed-region mapping remain future integrations; ice-depth interpretation is withheld pending QA.</span></div></div>
-    <div class="listitem"><div class="num">D</div><div><b>Expert review and field campaigns</b><span>Permits, local partner approval, specialist interpretation and actual station observations remain essential.</span></div></div>
-   </div>
-   <div class="note">ANALOG-X does not certify landing sites, accessible ice, mineral resources, planetary equivalence or mission safety. Its value is making the evidence—and the limits—inspectable.</div>
-  </div>
+ <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>06 / CHALLENGE FIT · IMPACT · VALIDATION</span></div><span>WHAT IS DELIVERED — AND WHAT REMAINS OPEN</span></div>
+ <div class="kicker">A direct response to the official challenge brief</div>
+ <h2>What the challenge asked for. <span class="mint">What judges can inspect.</span></h2>
+ <div class="requireGrid">
+  <div class="requireRow"><b>Use open Earth, Moon & Mars data</b><span>NASA and partner datasets connected through the evidence engine: climate, imagery, terrain and planetary references.</span><em>DELIVERED</em></div>
+  <div class="requireRow"><b>Identify and characterize analog environments</b><span>Ten curated Earth study/reference sites across arid, playa, volcanic, cryosphere/polar and impact settings.</span><em>DELIVERED</em></div>
+  <div class="requireRow"><b>Surface candidate terrestrial analogs</b><span>Four Pakistan candidate leads are compared with six established global references; Pakistan leads remain subject to field validation.</span><em>BOUNDED</em></div>
+  <div class="requireRow"><b>Present findings as a map, visualization or tool</b><span>Live Evidence Operations atlas, interactive ATFA module, terrain views, evidence charts and exportable experiment briefs.</span><em>DELIVERED</em></div>
  </div>
- <div class="foot"><span>LIVE: <a href="https://usmanmughal96.github.io/analog-x/">Portal</a> · <a href="https://usmanmughal96.github.io/analog-x/transferability.html">ATFA</a> · <a href="https://github.com/usmanmughal96/analog-x">Source repository</a> · Muhammad Usman Mughal / Team X Æ A-Xii</span><span>07 / 07</span></div>
+ <div class="storySplit" style="margin-top:11px">
+  <div class="storyPanel breakthrough"><div class="storyLabel">WHY THIS IS DIFFERENT</div><h3>From “Mars-like place” to “testable mission rehearsal.”</h3><p>ANALOG-X does not hide uncertainty behind one score. It tells researchers what a site may help test, what it cannot prove, and what data to collect next.</p></div>
+  <div class="storyPanel problem"><div class="storyLabel">SCIENTIFIC BOUNDARIES</div><h3>What remains for the next validation phase.</h3><p>Field mineralogy and chemistry, ground-truth station campaigns, higher-resolution rover-scale terrain, authoritative lunar illumination / PSR analysis, cave environments and actual ISRU resource abundance are not established in this release.</p></div>
+ </div>
+ <div class="judgeLenses">
+  <div class="judgeLens"><b>IMPACT</b><span>Better experiment and field-site decisions</span></div>
+  <div class="judgeLens"><b>CREATIVITY</b><span>ATFA's experiment-level failure audit</span></div>
+  <div class="judgeLens"><b>VALIDITY</b><span>Provenance, scale and uncertainty shown</span></div>
+  <div class="judgeLens"><b>RELEVANCE</b><span>Directly answers the analog-site brief</span></div>
+  <div class="judgeLens"><b>PRESENTATION</b><span>Working portal + inspectable science module</span></div>
+ </div>
+ <div class="foot"><span>LIVE DEMO: <a href="https://usmanmughal96.github.io/analog-x/">Portal</a> · <a href="https://usmanmughal96.github.io/analog-x/transferability.html">ATFA</a> · <a href="https://github.com/usmanmughal96/analog-x">Source code</a> · <a href="https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/">Official challenge</a></span><span>07 / 07</span></div>
 </section>
 </div>
 <div class="controls"><button id="prev" disabled>← PREVIOUS</button><span class="count" id="count">1 / 7</span><button id="next">NEXT →</button><button onclick="window.print()">PRINT / PDF</button></div>
