@@ -50,3 +50,16 @@ This release provides the API source and container configuration; it does not cl
 ## Data and scientific boundaries
 
 Offline records and candidate assessments must retain original data timestamps, source attribution, units, spatial support and quality caveats. The app does not convert a coordinate proximity result into planetary equivalence, nor does it certify landing safety, rover trafficability, accessible water/ice or mineral resource abundance.
+
+
+## ATFA science read API (v1.1)
+
+The optional FastAPI service also serves the generated science packs when the corresponding build outputs exist:
+
+- `GET /api/v1/science/manifest` — pack timestamps, site/pathway counts and PDS/MODIS discovery counts.
+- `GET /api/v1/transferability` — complete ATFA experiment/site dossiers.
+- `GET /api/v1/transferability/sites/{site_id}` — one site dossier.
+- `GET /api/v1/planetary-products?target=Moon&limit=50&offset=0` — paginated PDS product metadata discovery records.
+- `GET /api/v1/earth-observation/modis-browse` — MOD11A2 granule/browse provenance index.
+
+These are read-only science endpoints. The field-observation write routes remain bearer-token protected when `WRITE_API_KEY` is configured. GitHub Pages continues to load the committed JSON science pack directly and does not depend on the optional API service.
