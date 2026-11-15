@@ -544,7 +544,6 @@ function selectSite(id){
  $("missionTheme").textContent=s.theme;$("geologyEvidence").textContent=s.geology;$("geologySource").textContent=s.geologySourceLabel;$("geologySource").href=s.geologySource;$("missionLimit").textContent=s.limit;
  if(map){map.flyTo([s.lat,s.lon],id==="koh"?8:7,{duration:.75});markers[id].openPopup();}
  renderSiteData(id);
- loadLivePower(id);
 }
 async function renderSiteData(id){
  const s=SITE[id],p=power[id];
@@ -563,6 +562,7 @@ async function renderSiteData(id){
   $("powerStamp").textContent="NASA POWER · no local snapshot in this build";
  }
  renderSceneStats(id);
+ loadLivePower(id);
 }
 
 const livePowerCache={};
