@@ -1,0 +1,1490 @@
+{
+  "schema_version": "1.0",
+  "engine": "ANALOG-X Analog Transferability & Failure Analysis (ATFA)",
+  "generated_at_utc": "2026-11-15T08:50:38+00:00",
+  "scientific_contract": {
+    "unit_of_analysis": "A named field experiment or process, not whole-site resemblance.",
+    "classification": "Rule-based qualitative transferability classes authored in science/build_transferability.py; not probabilities, not a universal similarity score, not NASA certification.",
+    "classes": {
+      "moderate": "A bounded Earth process or field method is useful to rehearse; planetary environmental transfer remains limited.",
+      "limited": "Only a subset of the method/process transfers, or important site-specific evidence is missing.",
+      "high": "Reserved for cases with strong direct evidence and independent validation; none is assigned automatically in this release."
+    },
+    "global_limitations": [
+      "Earth cannot reproduce lunar vacuum, reduced gravity or planetary radiation.",
+      "Earth cannot reproduce Mars atmospheric pressure/composition or gravity.",
+      "A coarse DEM or gridded climate product is not a landing, trafficability, ice-access or resource certification.",
+      "Candidate leads require independent ground truth and domain-scientist review."
+    ]
+  },
+  "planetary_targets": {
+    "moon": {
+      "name": "Shackleton Rim / lunar south pole",
+      "latitude": -89.7668,
+      "longitude": 188.13,
+      "source": "NASA LRO LOLA PDS GDR LDEM_80S_80M / LDEC_80S_80M",
+      "terrain": {
+        "pixel_size_m": 925.0,
+        "rows": 32,
+        "columns": 32,
+        "window_extent_m": [
+          29600.0,
+          29600.0
+        ],
+        "valid_elevation_cells": 1024,
+        "total_cells": 1024,
+        "elevation_coverage_percent": 100.0,
+        "slope_deg": {
+          "median": 13.396506309509277,
+          "p90": 30.935405731201172,
+          "p95": 31.61575698852539,
+          "valid_3x3_neighbourhoods": 900
+        },
+        "3x3_local_relief_m_2775m_footprint": {
+          "median": 570.837890625,
+          "p90": 1390.872802734375,
+          "p95": 1494.8409423828125
+        },
+        "ldec_positive_return_support": {
+          "mean_native_pixel_fraction_per_coarse_cell_percent": 99.99488830566406,
+          "coarse_cells_with_any_positive_returns": 1024,
+          "coarse_cells_total": 1024
+        }
+      },
+      "thermal": {
+        "status": "Diviner PRP V2.0 site summary is available in the existing project, but ice-depth interpretation remains withheld pending QA.",
+        "limitation": "Do not infer accessible ice or PSR status from terrain or temperature alone."
+      },
+      "known_unreproducible": [
+        "vacuum",
+        "one-sixth Earth gravity",
+        "radiation environment",
+        "electrostatic lunar dust",
+        "true permanently shadowed illumination regime"
+      ]
+    },
+    "mars": {
+      "name": "Nili Patera / Syrtis Major, Mars",
+      "latitude": 8.9,
+      "longitude": 67.0,
+      "source": "MGS MOLA MEGDR 64 pixels/degree",
+      "terrain": {
+        "valid_cell_count": 567,
+        "complete_3x3_neighbourhood_count": 87,
+        "elevation_m_relative_to_product_datum": {
+          "p10": 169.6,
+          "median": 298.0,
+          "p90": 456.40000000000003,
+          "range_p90_minus_p10": 286.80000000000007
+        },
+        "slope_deg": {
+          "median": 1.8722606759233367,
+          "p90": 2.707616867558408,
+          "p95": 4.895525774556492
+        },
+        "3x3_local_relief_m": {
+          "median": 77.0,
+          "p90": 154.40000000000006
+        },
+        "slope_fraction": {
+          "under_5_deg_percent": 94.25287356321839,
+          "under_10_deg_percent": 97.70114942528735,
+          "over_20_deg_percent": 0.0
+        },
+        "coverage": {
+          "valid_percent": 50.53,
+          "total_cells": 1122
+        }
+      },
+      "coverage_percent": 50.53,
+      "known_unreproducible": [
+        "thin CO2 atmosphere",
+        "lower gravity",
+        "radiation environment",
+        "planetary dust electrostatics",
+        "Martian regolith chemistry"
+      ]
+    }
+  },
+  "experiment_tracks": {
+    "terrain_mobility": {
+      "label": "Terrain & mobility rehearsal",
+      "what_transfers": "DEM processing, slope/relief interpretation, route-planning workflows and sensor-fusion procedures can be rehearsed on terrestrial terrain.",
+      "breaks": "Earth gravity, atmosphere, soil cohesion, vegetation, hydrology and vehicle dynamics differ; 925 m terrain cells cannot resolve rover-scale hazards.",
+      "next_measurement": "Acquire metre-to-centimetre DEM/LiDAR, grain-size and bearing-strength observations; validate traverses with an instrumented rover."
+    },
+    "spectral_ground_truth": {
+      "label": "Orbital-to-ground spectral validation",
+      "what_transfers": "Scene selection, atmospheric/cloud screening, spectral-index QA, field spectroscopy and orbital-to-ground provenance workflows.",
+      "breaks": "Earth vegetation, water, atmosphere and biological coatings alter spectra; Sentinel-2 bands are not a substitute for lunar/Martian instrument response or mineral identification.",
+      "next_measurement": "Collect calibrated field spectra and XRD/XRF/FTIR samples, then compare with the relevant planetary instrument response functions."
+    },
+    "evaporite_processes": {
+      "label": "Evaporite / playa process science",
+      "what_transfers": "Basin mapping, sediment facies logging, salt-crust morphology, desiccation structures and repeat-observation methods.",
+      "breaks": "Earth liquid water, rainfall, groundwater, biology and atmospheric pressure create processes absent or different on the Moon and many Martian settings.",
+      "next_measurement": "Map facies and stratigraphy; collect mineralogical samples, electrical conductivity, shallow cores and repeat wet/dry observations."
+    },
+    "cryosphere_remote_sensing": {
+      "label": "Ice / cold-region remote sensing",
+      "what_transfers": "Debris-versus-ice mapping, thermal/optical sensor calibration, cold equipment trials and field logistics in difficult terrain.",
+      "breaks": "Terrestrial glacier ice is not equivalent to lunar permanently shadowed regolith ice; pressure, sublimation, gravity and radiation differ.",
+      "next_measurement": "Pair thermal imagery with ground temperature strings, snow/ice pits, dielectric measurements and independently validated ice/debris boundaries."
+    },
+    "volcanic_morphology": {
+      "label": "Volcanic / lava morphology",
+      "what_transfers": "Lava-flow morphology mapping, roughness characterization, tube/cave reconnaissance and orbital-to-ground geologic mapping methods.",
+      "breaks": "Earth weathering, vegetation, atmosphere, gravity and composition differ; andesite or altered tuff must not be called basaltic equivalence.",
+      "next_measurement": "Map flow units and clast sizes; obtain petrography, XRF/XRD and high-resolution terrain/cave surveys."
+    },
+    "dust_processes": {
+      "label": "Dust / aeolian instrument testing",
+      "what_transfers": "Wind-sensor deployment, particle collection, surface-change monitoring, dust-camera calibration and threshold-measurement procedures.",
+      "breaks": "Earth air density, humidity, grain charging, gravity and wind stress differ substantially; 10 m wind speed is not dust flux or saltation threshold.",
+      "next_measurement": "Measure particle-size distribution, threshold friction velocity, vertical dust flux, humidity and surface crust strength using a calibrated field station."
+    },
+    "impact_geology": {
+      "label": "Impact-structure field geology",
+      "what_transfers": "Crater morphology mapping, ejecta/fault documentation, breccia logging and impact-geology field protocols.",
+      "breaks": "Terrestrial erosion, water, atmosphere and gravity modify crater preservation; terrestrial target rocks differ from lunar regolith and impact melt.",
+      "next_measurement": "Map ejecta and structural relations at high resolution; sample impactites and compare petrography/geochemistry."
+    },
+    "human_robotic_ops": {
+      "label": "Human / robotic field operations",
+      "what_transfers": "Remote team coordination, navigation interfaces, sampling workflows, communications procedures, logistics and human-factors evaluation.",
+      "breaks": "No Earth field site reproduces EVA suits, vacuum, radiation, reduced gravity, lunar dust electrostatics or Mars atmospheric constraints.",
+      "next_measurement": "Run a controlled mission simulation with timed tasks, comms latency, equipment failure injection and documented operator workload."
+    }
+  },
+  "site_count": 10,
+  "sites": [
+    {
+      "id": "chagai_small_playas",
+      "name": "Chagai small salt playas near Nok Kundi",
+      "country": "Pakistan",
+      "region": "Chagai District, Balochistan",
+      "latitude": 28.583333,
+      "longitude": 62.633333,
+      "bbox_wgs84": [
+        62.54,
+        28.53,
+        62.73,
+        28.64
+      ],
+      "discovery_tier": "under_characterized_candidate",
+      "candidate_status": "historical_lead_pending_modern_validation",
+      "mission_targets": [
+        "Mars"
+      ],
+      "environment_tags": [
+        "salt playa",
+        "evaporite",
+        "closed-basin",
+        "volcaniclastic sediment transport",
+        "arid"
+      ],
+      "hypothesis": "A pair of small salt-surfaced playas southwest of Nok Kundi may provide a focused Pakistan field site for rehearsing evaporite/salt-crust mapping, playa sedimentology and orbital-to-ground validation relevant to selected Martian sedimentary-process questions. The currently processed Sentinel-2 ratios are only screening context; no salt mineral or brine has been identified.",
+      "priority_experiment": "Test whether mapped salt-crust facies and spectral anomalies can be tied to independently sampled mineralogy.",
+      "tests": [
+        {
+          "track_id": "evaporite_processes",
+          "track": "Evaporite / playa process science",
+          "transferability": "moderate",
+          "why_this_site": "Historic NASA report identifies two small salt-surfaced playas; modern site-specific facies and mineralogy remain unverified.",
+          "what_can_be_rehearsed": "Basin mapping, sediment facies logging, salt-crust morphology, desiccation structures and repeat-observation methods.",
+          "analogy_breaks": "Earth liquid water, rainfall, groundwater, biology and atmospheric pressure create processes absent or different on the Moon and many Martian settings.",
+          "next_measurement": "Map facies and stratigraphy; collect mineralogical samples, electrical conductivity, shallow cores and repeat wet/dry observations."
+        },
+        {
+          "track_id": "spectral_ground_truth",
+          "track": "Orbital-to-ground spectral validation",
+          "transferability": "limited",
+          "why_this_site": "A 20 m Sentinel-2 spectral-context profile exists; it is not mineral identification or brine detection.",
+          "what_can_be_rehearsed": "Scene selection, atmospheric/cloud screening, spectral-index QA, field spectroscopy and orbital-to-ground provenance workflows.",
+          "analogy_breaks": "Earth vegetation, water, atmosphere and biological coatings alter spectra; Sentinel-2 bands are not a substitute for lunar/Martian instrument response or mineral identification.",
+          "next_measurement": "Collect calibrated field spectra and XRD/XRF/FTIR samples, then compare with the relevant planetary instrument response functions."
+        },
+        {
+          "track_id": "terrain_mobility",
+          "track": "Terrain & mobility rehearsal",
+          "transferability": "limited",
+          "why_this_site": "Coarse ~925 m Copernicus DSM profile exists; it cannot resolve crust strength or rover-scale hazards.",
+          "what_can_be_rehearsed": "DEM processing, slope/relief interpretation, route-planning workflows and sensor-fusion procedures can be rehearsed on terrestrial terrain.",
+          "analogy_breaks": "Earth gravity, atmosphere, soil cohesion, vegetation, hydrology and vehicle dynamics differ; 925 m terrain cells cannot resolve rover-scale hazards.",
+          "next_measurement": "Acquire metre-to-centimetre DEM/LiDAR, grain-size and bearing-strength observations; validate traverses with an instrumented rover."
+        },
+        {
+          "track_id": "human_robotic_ops",
+          "track": "Human / robotic field operations",
+          "transferability": "moderate",
+          "why_this_site": "Remote arid field sampling and provenance workflows are rehearsable; mission environmental conditions are not.",
+          "what_can_be_rehearsed": "Remote team coordination, navigation interfaces, sampling workflows, communications procedures, logistics and human-factors evaluation.",
+          "analogy_breaks": "No Earth field site reproduces EVA suits, vacuum, radiation, reduced gravity, lunar dust electrostatics or Mars atmospheric constraints.",
+          "next_measurement": "Run a controlled mission simulation with timed tasks, comms latency, equipment failure injection and documented operator workload."
+        }
+      ],
+      "evidence": {
+        "nasa_power": {
+          "status": "processed",
+          "source": "NASA POWER Climatology API",
+          "parameters": [
+            "T2M",
+            "T2M_MAX",
+            "T2M_MIN",
+            "RH2M",
+            "WS10M",
+            "PRECTOTCORR",
+            "ALLSKY_SFC_SW_DWN"
+          ],
+          "fetched_at_utc": "2026-11-14T16:03:20+00:00",
+          "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
+        },
+        "terrain": {
+          "status": "processed",
+          "source": "cop-dem-glo-30",
+          "metrics": {
+            "valid_cell_count": 1024,
+            "complete_3x3_neighbourhood_count": 900,
+            "elevation_m_relative_to_product_datum": {
+              "p10": 556.2041076660156,
+              "median": 591.1271057128906,
+              "p90": 626.1355102539062,
+              "range_p90_minus_p10": 69.9314025878906
+            },
+            "slope_deg": {
+              "median": 0.3966543374317767,
+              "p90": 1.0095103718732363,
+              "p95": 1.2416131659425123
+            },
+            "3x3_local_relief_m": {
+              "median": 16.96905517578125,
+              "p90": 38.7901611328125
+            },
+            "slope_fraction": {
+              "under_5_deg_percent": 100.0,
+              "under_10_deg_percent": 100.0,
+              "over_20_deg_percent": 0.0
+            },
+            "coverage": {
+              "valid_percent": 100.0,
+              "total_cells": 1024
+            },
+            "window_half_width_m": 15000.0
+          },
+          "analysis_support_m": 925.0,
+          "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
+        },
+        "sentinel2": {
+          "status": "context_available",
+          "statement": "Integrated: 20 m Sentinel-2 L2A spectral-context profile from 2025-11-02T06:30:41.025000Z; 569,772 valid pixels; no mineral/brine classification",
+          "limitation": "Spectral indices and RGB previews are screening context, not mineral identification or ground truth."
+        },
+        "site_dossier": {
+          "status": "documented",
+          "discovery_tier": "under_characterized_candidate",
+          "candidate_status": "historical_lead_pending_modern_validation",
+          "sources": [
+            {
+              "title": "Playas and possible related saline deposits",
+              "publisher": "NASA Technical Reports Server",
+              "report_id": "19740023693",
+              "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
+              "supports": "Historical report describes two small salt-surfaced playas at the stated coordinates and discusses possible evaporite/brine sources; it does not provide modern site validation or a current mineral map."
+            }
+          ]
+        }
+      },
+      "source_references": [
+        {
+          "title": "Playas and possible related saline deposits",
+          "publisher": "NASA Technical Reports Server",
+          "report_id": "19740023693",
+          "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
+          "supports": "Historical report describes two small salt-surfaced playas at the stated coordinates and discusses possible evaporite/brine sources; it does not provide modern site validation or a current mineral map."
+        }
+      ],
+      "site_non_transferable": [
+        "Earth's atmosphere and hydrologic cycle differ from Mars",
+        "A surface salt signature does not establish subsurface brine or present-day liquid water",
+        "No mineral chemistry, depth profile, surface strength or dust transport data are yet available"
+      ]
+    },
+    {
+      "id": "hamun_i_mashkel",
+      "name": "Hamun-i-Mashkel playa / Kharan Basin",
+      "country": "Pakistan",
+      "region": "Kharan Basin, Balochistan",
+      "latitude": 28.25,
+      "longitude": 62.91667,
+      "bbox_wgs84": [
+        62.82,
+        28.13,
+        63.02,
+        28.33
+      ],
+      "discovery_tier": "under_characterized_candidate",
+      "candidate_status": "regional_reference_pending_site_characterization",
+      "mission_targets": [
+        "Mars"
+      ],
+      "environment_tags": [
+        "playa",
+        "intermittent lake",
+        "closed basin",
+        "evaporite",
+        "arid"
+      ],
+      "hypothesis": "Hamun-i-Mashkel is a regional closed-basin playa lead for rehearsing intermittent-lake/playa sediment mapping and wetting-drying process documentation. The current Sentinel-2 sample supports only a single-date spectral screen, not a brine, mineral or hydrologic classification.",
+      "priority_experiment": "Acquire multi-season imagery and field sediment/mineral samples to test inundation-drying facies.",
+      "tests": [
+        {
+          "track_id": "evaporite_processes",
+          "track": "Evaporite / playa process science",
+          "transferability": "moderate",
+          "why_this_site": "Intermittent playa/closed-basin process lead; hydrological boundaries and modern facies need validation.",
+          "what_can_be_rehearsed": "Basin mapping, sediment facies logging, salt-crust morphology, desiccation structures and repeat-observation methods.",
+          "analogy_breaks": "Earth liquid water, rainfall, groundwater, biology and atmospheric pressure create processes absent or different on the Moon and many Martian settings.",
+          "next_measurement": "Map facies and stratigraphy; collect mineralogical samples, electrical conductivity, shallow cores and repeat wet/dry observations."
+        },
+        {
+          "track_id": "spectral_ground_truth",
+          "track": "Orbital-to-ground spectral validation",
+          "transferability": "limited",
+          "why_this_site": "A narrow Sentinel-2 strip supplies screening context, not basin-wide mineral or water evidence.",
+          "what_can_be_rehearsed": "Scene selection, atmospheric/cloud screening, spectral-index QA, field spectroscopy and orbital-to-ground provenance workflows.",
+          "analogy_breaks": "Earth vegetation, water, atmosphere and biological coatings alter spectra; Sentinel-2 bands are not a substitute for lunar/Martian instrument response or mineral identification.",
+          "next_measurement": "Collect calibrated field spectra and XRD/XRF/FTIR samples, then compare with the relevant planetary instrument response functions."
+        },
+        {
+          "track_id": "terrain_mobility",
+          "track": "Terrain & mobility rehearsal",
+          "transferability": "limited",
+          "why_this_site": "Coarse regional terrain is processed; surface bearing strength and seasonal access are unknown.",
+          "what_can_be_rehearsed": "DEM processing, slope/relief interpretation, route-planning workflows and sensor-fusion procedures can be rehearsed on terrestrial terrain.",
+          "analogy_breaks": "Earth gravity, atmosphere, soil cohesion, vegetation, hydrology and vehicle dynamics differ; 925 m terrain cells cannot resolve rover-scale hazards.",
+          "next_measurement": "Acquire metre-to-centimetre DEM/LiDAR, grain-size and bearing-strength observations; validate traverses with an instrumented rover."
+        },
+        {
+          "track_id": "human_robotic_ops",
+          "track": "Human / robotic field operations",
+          "transferability": "moderate",
+          "why_this_site": "Remote basin reconnaissance and sampling logistics are useful rehearsal activities.",
+          "what_can_be_rehearsed": "Remote team coordination, navigation interfaces, sampling workflows, communications procedures, logistics and human-factors evaluation.",
+          "analogy_breaks": "No Earth field site reproduces EVA suits, vacuum, radiation, reduced gravity, lunar dust electrostatics or Mars atmospheric constraints.",
+          "next_measurement": "Run a controlled mission simulation with timed tasks, comms latency, equipment failure injection and documented operator workload."
+        }
+      ],
+      "evidence": {
+        "nasa_power": {
+          "status": "processed",
+          "source": "NASA POWER Climatology API",
+          "parameters": [
+            "T2M",
+            "T2M_MAX",
+            "T2M_MIN",
+            "RH2M",
+            "WS10M",
+            "PRECTOTCORR",
+            "ALLSKY_SFC_SW_DWN"
+          ],
+          "fetched_at_utc": "2026-11-14T16:03:20+00:00",
+          "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
+        },
+        "terrain": {
+          "status": "processed",
+          "source": "cop-dem-glo-30",
+          "metrics": {
+            "valid_cell_count": 1024,
+            "complete_3x3_neighbourhood_count": 900,
+            "elevation_m_relative_to_product_datum": {
+              "p10": 493.86488342285156,
+              "median": 494.65008544921875,
+              "p90": 498.8367065429688,
+              "range_p90_minus_p10": 4.971823120117222
+            },
+            "slope_deg": {
+              "median": 0.006523320375316654,
+              "p90": 0.09646678853970264,
+              "p95": 0.24596368291077964
+            },
+            "3x3_local_relief_m": {
+              "median": 0.2817840576171875,
+              "p90": 4.9090820312500085
+            },
+            "slope_fraction": {
+              "under_5_deg_percent": 100.0,
+              "under_10_deg_percent": 100.0,
+              "over_20_deg_percent": 0.0
+            },
+            "coverage": {
+              "valid_percent": 100.0,
+              "total_cells": 1024
+            },
+            "window_half_width_m": 15000.0
+          },
+          "analysis_support_m": 925.0,
+          "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
+        },
+        "sentinel2": {
+          "status": "context_available",
+          "statement": "Integrated: 20 m Sentinel-2 L2A spectral-context profile from 2026-08-09T06:26:31.025000Z; 109,692 valid pixels; no mineral/brine classification",
+          "limitation": "Spectral indices and RGB previews are screening context, not mineral identification or ground truth."
+        },
+        "site_dossier": {
+          "status": "documented",
+          "discovery_tier": "under_characterized_candidate",
+          "candidate_status": "regional_reference_pending_site_characterization",
+          "sources": [
+            {
+              "title": "Playas and possible related saline deposits",
+              "publisher": "NASA Technical Reports Server",
+              "report_id": "19740023693",
+              "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
+              "supports": "Historical geological and salt-transport context."
+            },
+            {
+              "title": "Hamun-i-Mashkel lake-bed reference",
+              "publisher": "Mapcarta / OpenStreetMap-derived gazetteer",
+              "url": "https://mapcarta.com/15046968",
+              "supports": "Approximate point location only; not scientific landform boundary or material classification."
+            }
+          ]
+        }
+      },
+      "source_references": [
+        {
+          "title": "Playas and possible related saline deposits",
+          "publisher": "NASA Technical Reports Server",
+          "report_id": "19740023693",
+          "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
+          "supports": "Historical geological and salt-transport context."
+        },
+        {
+          "title": "Hamun-i-Mashkel lake-bed reference",
+          "publisher": "Mapcarta / OpenStreetMap-derived gazetteer",
+          "url": "https://mapcarta.com/15046968",
+          "supports": "Approximate point location only; not scientific landform boundary or material classification."
+        }
+      ],
+      "site_non_transferable": [
+        "An intermittent Earth playa is not a Martian climate replica",
+        "Surface reflectance cannot prove brine chemistry",
+        "No long-term inundation sequence or subsurface profile is included yet"
+      ]
+    },
+    {
+      "id": "koh_i_sultan",
+      "name": "Koh-i-Sultan / Chagai",
+      "country": "Pakistan",
+      "region": "Chagai District, Balochistan",
+      "latitude": 29.1,
+      "longitude": 62.8,
+      "bbox_wgs84": [
+        62.7,
+        29,
+        62.9,
+        29.2
+      ],
+      "discovery_tier": "established_reference",
+      "candidate_status": "partially_characterized",
+      "mission_targets": [
+        "Mars"
+      ],
+      "environment_tags": [
+        "volcanic field",
+        "andesitic lava",
+        "tuff",
+        "agglomerate",
+        "arid"
+      ],
+      "hypothesis": "Useful for volcanic-process field rehearsal; the mapped andesitic/tuff/agglomerate geology is not a basaltic composition match to Syrtis Major.",
+      "priority_experiment": "Ground-truth mapped volcanic units with petrography and spectroscopy before proposing compositional analogies.",
+      "tests": [
+        {
+          "track_id": "volcanic_morphology",
+          "track": "Volcanic / lava morphology",
+          "transferability": "moderate",
+          "why_this_site": "USGS mapping documents agglomerate, tuff and andesitic lava; this is not a basalt-composition match.",
+          "what_can_be_rehearsed": "Lava-flow morphology mapping, roughness characterization, tube/cave reconnaissance and orbital-to-ground geologic mapping methods.",
+          "analogy_breaks": "Earth weathering, vegetation, atmosphere, gravity and composition differ; andesite or altered tuff must not be called basaltic equivalence.",
+          "next_measurement": "Map flow units and clast sizes; obtain petrography, XRF/XRD and high-resolution terrain/cave surveys."
+        },
+        {
+          "track_id": "spectral_ground_truth",
+          "track": "Orbital-to-ground spectral validation",
+          "transferability": "limited",
+          "why_this_site": "Sentinel-2 scenes and terrain context support mapping workflows; no validated alteration/mineral map is integrated.",
+          "what_can_be_rehearsed": "Scene selection, atmospheric/cloud screening, spectral-index QA, field spectroscopy and orbital-to-ground provenance workflows.",
+          "analogy_breaks": "Earth vegetation, water, atmosphere and biological coatings alter spectra; Sentinel-2 bands are not a substitute for lunar/Martian instrument response or mineral identification.",
+          "next_measurement": "Collect calibrated field spectra and XRD/XRF/FTIR samples, then compare with the relevant planetary instrument response functions."
+        },
+        {
+          "track_id": "terrain_mobility",
+          "track": "Terrain & mobility rehearsal",
+          "transferability": "limited",
+          "why_this_site": "Coarse DSM supports regional morphology only, not vehicle-scale traversability.",
+          "what_can_be_rehearsed": "DEM processing, slope/relief interpretation, route-planning workflows and sensor-fusion procedures can be rehearsed on terrestrial terrain.",
+          "analogy_breaks": "Earth gravity, atmosphere, soil cohesion, vegetation, hydrology and vehicle dynamics differ; 925 m terrain cells cannot resolve rover-scale hazards.",
+          "next_measurement": "Acquire metre-to-centimetre DEM/LiDAR, grain-size and bearing-strength observations; validate traverses with an instrumented rover."
+        },
+        {
+          "track_id": "human_robotic_ops",
+          "track": "Human / robotic field operations",
+          "transferability": "moderate",
+          "why_this_site": "Remote volcanic field mapping and instrument deployment are rehearsable.",
+          "what_can_be_rehearsed": "Remote team coordination, navigation interfaces, sampling workflows, communications procedures, logistics and human-factors evaluation.",
+          "analogy_breaks": "No Earth field site reproduces EVA suits, vacuum, radiation, reduced gravity, lunar dust electrostatics or Mars atmospheric constraints.",
+          "next_measurement": "Run a controlled mission simulation with timed tasks, comms latency, equipment failure injection and documented operator workload."
+        }
+      ],
+      "evidence": {
+        "nasa_power": {
+          "status": "missing_or_incomplete",
+          "source": "NASA POWER Climatology API",
+          "parameters": [],
+          "fetched_at_utc": null,
+          "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
+        },
+        "terrain": {
+          "status": "processed",
+          "source": "cop-dem-glo-30",
+          "metrics": {
+            "valid_cell_count": 1024,
+            "complete_3x3_neighbourhood_count": 900,
+            "elevation_m_relative_to_product_datum": {
+              "p10": 985.2243041992188,
+              "median": 1280.735107421875,
+              "p90": 1656.5621459960937,
+              "range_p90_minus_p10": 671.337841796875
+            },
+            "slope_deg": {
+              "median": 2.7333626721946516,
+              "p90": 5.662798394056884,
+              "p95": 7.145833674531486
+            },
+            "3x3_local_relief_m": {
+              "median": 122.82879638671875,
+              "p90": 246.40473632812507
+            },
+            "slope_fraction": {
+              "under_5_deg_percent": 86.11111111111111,
+              "under_10_deg_percent": 99.55555555555556,
+              "over_20_deg_percent": 0.0
+            },
+            "coverage": {
+              "valid_percent": 100.0,
+              "total_cells": 1024
+            },
+            "window_half_width_m": 15000.0
+          },
+          "analysis_support_m": 925.0,
+          "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
+        },
+        "sentinel2": {
+          "status": "context_available",
+          "statement": "Integrated",
+          "limitation": "Spectral indices and RGB previews are screening context, not mineral identification or ground truth."
+        },
+        "site_dossier": {
+          "status": "documented",
+          "discovery_tier": "established_reference",
+          "candidate_status": "partially_characterized",
+          "sources": [
+            {
+              "title": "Chagai Hills area geology, West Pakistan",
+              "publisher": "USGS",
+              "url": "https://pubs.usgs.gov/publication/ofr75550",
+              "supports": "Regional geological map context."
+            }
+          ]
+        }
+      },
+      "source_references": [
+        {
+          "title": "Chagai Hills area geology, West Pakistan",
+          "publisher": "USGS",
+          "url": "https://pubs.usgs.gov/publication/ofr75550",
+          "supports": "Regional geological map context."
+        }
+      ],
+      "site_non_transferable": [
+        "No direct basaltic composition equivalence",
+        "No verified site mineral map or ground samples",
+        "Earth atmosphere, gravity and radiation differ from Mars"
+      ]
+    },
+    {
+      "id": "hispar_glacier",
+      "name": "Hispar Glacier / Karakoram",
+      "country": "Pakistan",
+      "region": "Gilgit-Baltistan",
+      "latitude": 36.10572,
+      "longitude": 75.23341,
+      "bbox_wgs84": [
+        75.12,
+        36.02,
+        75.34,
+        36.22
+      ],
+      "discovery_tier": "established_reference",
+      "candidate_status": "partially_characterized",
+      "mission_targets": [
+        "Moon",
+        "Mars"
+      ],
+      "environment_tags": [
+        "glacier",
+        "ice",
+        "debris-covered ice",
+        "high altitude",
+        "cryosphere"
+      ],
+      "hypothesis": "Useful for cryosphere image interpretation, debris-boundary observation and cold-region instrument practice; it does not reproduce lunar permanently shadowed regions or the Martian atmosphere.",
+      "priority_experiment": "Validate debris/ice classification with field transects and temperature measurements; do not equate glacier ice with lunar PSR ice.",
+      "tests": [
+        {
+          "track_id": "cryosphere_remote_sensing",
+          "track": "Ice / cold-region remote sensing",
+          "transferability": "moderate",
+          "why_this_site": "Glacier/debris interpretation and cold-region sensor methods are relevant; the national glacier inventory is prior work, not a new ANALOG-X discovery.",
+          "what_can_be_rehearsed": "Debris-versus-ice mapping, thermal/optical sensor calibration, cold equipment trials and field logistics in difficult terrain.",
+          "analogy_breaks": "Terrestrial glacier ice is not equivalent to lunar permanently shadowed regolith ice; pressure, sublimation, gravity and radiation differ.",
+          "next_measurement": "Pair thermal imagery with ground temperature strings, snow/ice pits, dielectric measurements and independently validated ice/debris boundaries."
+        },
+        {
+          "track_id": "terrain_mobility",
+          "track": "Terrain & mobility rehearsal",
+          "transferability": "limited",
+          "why_this_site": "Coarse terrain profile is useful for regional context only; crevasses and local hazards are unresolved.",
+          "what_can_be_rehearsed": "DEM processing, slope/relief interpretation, route-planning workflows and sensor-fusion procedures can be rehearsed on terrestrial terrain.",
+          "analogy_breaks": "Earth gravity, atmosphere, soil cohesion, vegetation, hydrology and vehicle dynamics differ; 925 m terrain cells cannot resolve rover-scale hazards.",
+          "next_measurement": "Acquire metre-to-centimetre DEM/LiDAR, grain-size and bearing-strength observations; validate traverses with an instrumented rover."
+        },
+        {
+          "track_id": "spectral_ground_truth",
+          "track": "Orbital-to-ground spectral validation",
+          "transferability": "limited",
+          "why_this_site": "Sentinel-2 context can rehearse snow/ice screening but requires field validation and seasonal controls.",
+          "what_can_be_rehearsed": "Scene selection, atmospheric/cloud screening, spectral-index QA, field spectroscopy and orbital-to-ground provenance workflows.",
+          "analogy_breaks": "Earth vegetation, water, atmosphere and biological coatings alter spectra; Sentinel-2 bands are not a substitute for lunar/Martian instrument response or mineral identification.",
+          "next_measurement": "Collect calibrated field spectra and XRD/XRF/FTIR samples, then compare with the relevant planetary instrument response functions."
+        },
+        {
+          "track_id": "human_robotic_ops",
+          "track": "Human / robotic field operations",
+          "transferability": "moderate",
+          "why_this_site": "High-altitude remote field logistics and equipment endurance are testable.",
+          "what_can_be_rehearsed": "Remote team coordination, navigation interfaces, sampling workflows, communications procedures, logistics and human-factors evaluation.",
+          "analogy_breaks": "No Earth field site reproduces EVA suits, vacuum, radiation, reduced gravity, lunar dust electrostatics or Mars atmospheric constraints.",
+          "next_measurement": "Run a controlled mission simulation with timed tasks, comms latency, equipment failure injection and documented operator workload."
+        }
+      ],
+      "evidence": {
+        "nasa_power": {
+          "status": "processed",
+          "source": "NASA POWER Climatology API",
+          "parameters": [
+            "T2M",
+            "T2M_MAX",
+            "T2M_MIN",
+            "RH2M",
+            "WS10M",
+            "PRECTOTCORR",
+            "ALLSKY_SFC_SW_DWN"
+          ],
+          "fetched_at_utc": "2026-11-14T16:03:19+00:00",
+          "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
+        },
+        "terrain": {
+          "status": "processed",
+          "source": "cop-dem-glo-30",
+          "metrics": {
+            "valid_cell_count": 1024,
+            "complete_3x3_neighbourhood_count": 900,
+            "elevation_m_relative_to_product_datum": {
+              "p10": 4053.8544921875,
+              "median": 4799.156494140625,
+              "p90": 5790.661962890626,
+              "range_p90_minus_p10": 1736.8074707031255
+            },
+            "slope_deg": {
+              "median": 18.254706525984986,
+              "p90": 29.697712260731866,
+              "p95": 34.239493202186495
+            },
+            "3x3_local_relief_m": {
+              "median": 802.447509765625,
+              "p90": 1308.9645019531251
+            },
+            "slope_fraction": {
+              "under_5_deg_percent": 7.333333333333333,
+              "under_10_deg_percent": 18.555555555555557,
+              "over_20_deg_percent": 41.77777777777778
+            },
+            "coverage": {
+              "valid_percent": 100.0,
+              "total_cells": 1024
+            },
+            "window_half_width_m": 15000.0
+          },
+          "analysis_support_m": 925.0,
+          "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
+        },
+        "sentinel2": {
+          "status": "context_available",
+          "statement": "Integrated",
+          "limitation": "Spectral indices and RGB previews are screening context, not mineral identification or ground truth."
+        },
+        "site_dossier": {
+          "status": "documented",
+          "discovery_tier": "established_reference",
+          "candidate_status": "partially_characterized",
+          "sources": [
+            {
+              "title": "Pakistan Glacier Inventory project",
+              "publisher": "EvK2CNR",
+              "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
+              "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
+            }
+          ]
+        }
+      },
+      "source_references": [
+        {
+          "title": "Pakistan Glacier Inventory project",
+          "publisher": "EvK2CNR",
+          "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
+          "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
+        }
+      ],
+      "site_non_transferable": [
+        "No lunar vacuum or permanently shadowed illumination regime",
+        "Glacier snow/ice does not establish lunar volatile accessibility",
+        "Field access and safety need specialist assessment"
+      ]
+    },
+    {
+      "id": "dallol",
+      "name": "Dallol / Danakil Depression",
+      "country": "Ethiopia",
+      "region": "Afar Depression",
+      "latitude": 14.24,
+      "longitude": 40.3,
+      "bbox_wgs84": null,
+      "discovery_tier": "established_global_reference",
+      "candidate_status": "reference_site",
+      "mission_targets": [
+        "Mars"
+      ],
+      "environment_tags": [
+        "hydrothermal",
+        "evaporite",
+        "extreme aridity",
+        "saline",
+        "volcanic"
+      ],
+      "hypothesis": "",
+      "priority_experiment": "Use published geochemistry and safe, permitted field observations to distinguish hydrothermal salts from remote-sensing look-alikes.",
+      "tests": [
+        {
+          "track_id": "evaporite_processes",
+          "track": "Evaporite / playa process science",
+          "transferability": "moderate",
+          "why_this_site": "Saline hydrothermal and evaporite settings offer process/mapping methods; Earth hydrology and biology are major differences.",
+          "what_can_be_rehearsed": "Basin mapping, sediment facies logging, salt-crust morphology, desiccation structures and repeat-observation methods.",
+          "analogy_breaks": "Earth liquid water, rainfall, groundwater, biology and atmospheric pressure create processes absent or different on the Moon and many Martian settings.",
+          "next_measurement": "Map facies and stratigraphy; collect mineralogical samples, electrical conductivity, shallow cores and repeat wet/dry observations."
+        },
+        {
+          "track_id": "volcanic_morphology",
+          "track": "Volcanic / lava morphology",
+          "transferability": "limited",
+          "why_this_site": "Hydrothermal/volcanic context is relevant to mapping methods, not a direct lunar lava analogue.",
+          "what_can_be_rehearsed": "Lava-flow morphology mapping, roughness characterization, tube/cave reconnaissance and orbital-to-ground geologic mapping methods.",
+          "analogy_breaks": "Earth weathering, vegetation, atmosphere, gravity and composition differ; andesite or altered tuff must not be called basaltic equivalence.",
+          "next_measurement": "Map flow units and clast sizes; obtain petrography, XRF/XRD and high-resolution terrain/cave surveys."
+        },
+        {
+          "track_id": "spectral_ground_truth",
+          "track": "Orbital-to-ground spectral validation",
+          "transferability": "limited",
+          "why_this_site": "Spectral workflows can be rehearsed, but no site-specific ANALOG-X mineral classification is integrated.",
+          "what_can_be_rehearsed": "Scene selection, atmospheric/cloud screening, spectral-index QA, field spectroscopy and orbital-to-ground provenance workflows.",
+          "analogy_breaks": "Earth vegetation, water, atmosphere and biological coatings alter spectra; Sentinel-2 bands are not a substitute for lunar/Martian instrument response or mineral identification.",
+          "next_measurement": "Collect calibrated field spectra and XRD/XRF/FTIR samples, then compare with the relevant planetary instrument response functions."
+        },
+        {
+          "track_id": "human_robotic_ops",
+          "track": "Human / robotic field operations",
+          "transferability": "limited",
+          "why_this_site": "Extreme-environment operations are relevant but access, safety and corrosive chemistry need specialist controls.",
+          "what_can_be_rehearsed": "Remote team coordination, navigation interfaces, sampling workflows, communications procedures, logistics and human-factors evaluation.",
+          "analogy_breaks": "No Earth field site reproduces EVA suits, vacuum, radiation, reduced gravity, lunar dust electrostatics or Mars atmospheric constraints.",
+          "next_measurement": "Run a controlled mission simulation with timed tasks, comms latency, equipment failure injection and documented operator workload."
+        }
+      ],
+      "evidence": {
+        "nasa_power": {
+          "status": "processed",
+          "source": "NASA POWER Climatology API",
+          "parameters": [
+            "T2M",
+            "T2M_MAX",
+            "T2M_MIN",
+            "RH2M",
+            "WS10M",
+            "PRECTOTCORR",
+            "ALLSKY_SFC_SW_DWN"
+          ],
+          "fetched_at_utc": "2026-11-14T16:03:17+00:00",
+          "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
+        },
+        "terrain": {
+          "status": "not_integrated",
+          "source": null,
+          "metrics": null,
+          "analysis_support_m": null,
+          "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
+        },
+        "sentinel2": {
+          "status": "not_integrated",
+          "statement": "No site-specific Sentinel-2 processing is recorded in the candidate dossier.",
+          "limitation": "Spectral indices and RGB previews are screening context, not mineral identification or ground truth."
+        },
+        "site_dossier": {
+          "status": "documented",
+          "discovery_tier": "established_global_reference",
+          "candidate_status": "reference_site",
+          "sources": [
+            {
+              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)\u2014An Exceptional Planetary Field Analog on Earth",
+              "publisher": "Astrobiology / peer-reviewed research",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6459281/",
+              "supports": "Field-surveyed hydrothermal alteration, acidic sulfate deposits and Mars-analogue context; not a site-specific ANALOG-X data measurement."
+            },
+            {
+              "title": "A Polyextreme Hydrothermal System Controlled by Iron: The Case of Dallol at the Afar Triangle",
+              "publisher": "ACS Earth and Space Chemistry / peer-reviewed research",
+              "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
+              "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
+            }
+          ]
+        }
+      },
+      "source_references": [
+        {
+          "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)\u2014An Exceptional Planetary Field Analog on Earth",
+          "publisher": "Astrobiology / peer-reviewed research",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6459281/",
+          "supports": "Field-surveyed hydrothermal alteration, acidic sulfate deposits and Mars-analogue context; not a site-specific ANALOG-X data measurement."
+        },
+        {
+          "title": "A Polyextreme Hydrothermal System Controlled by Iron: The Case of Dallol at the Afar Triangle",
+          "publisher": "ACS Earth and Space Chemistry / peer-reviewed research",
+          "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
+          "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
+        }
+      ],
+      "site_non_transferable": []
+    },
+    {
+      "id": "atacama",
+      "name": "Atacama Desert",
+      "country": "Chile",
+      "region": "Antofagasta",
+      "latitude": -23.5,
+      "longitude": -68.2,
+      "bbox_wgs84": null,
+      "discovery_tier": "established_global_reference",
+      "candidate_status": "reference_site",
+      "mission_targets": [
+        "Mars"
+      ],
+      "environment_tags": [
+        "hyperarid",
+        "desert",
+        "salt",
+        "dust"
+      ],
+      "hypothesis": "",
+      "priority_experiment": "Measure particle flux and grain-size thresholds alongside repeated surface imagery.",
+      "tests": [
+        {
+          "track_id": "dust_processes",
+          "track": "Dust / aeolian instrument testing",
+          "transferability": "limited",
+          "why_this_site": "Arid dust/surface monitoring is relevant; wind climatology alone does not quantify dust emission.",
+          "what_can_be_rehearsed": "Wind-sensor deployment, particle collection, surface-change monitoring, dust-camera calibration and threshold-measurement procedures.",
+          "analogy_breaks": "Earth air density, humidity, grain charging, gravity and wind stress differ substantially; 10 m wind speed is not dust flux or saltation threshold.",
+          "next_measurement": "Measure particle-size distribution, threshold friction velocity, vertical dust flux, humidity and surface crust strength using a calibrated field station."
+        },
+        {
+          "track_id": "evaporite_processes",
+          "track": "Evaporite / playa process science",
+          "transferability": "moderate",
+          "why_this_site": "Salt-flat and hyperarid mapping methods can support selected Martian sedimentary questions.",
+          "what_can_be_rehearsed": "Basin mapping, sediment facies logging, salt-crust morphology, desiccation structures and repeat-observation methods.",
+          "analogy_breaks": "Earth liquid water, rainfall, groundwater, biology and atmospheric pressure create processes absent or different on the Moon and many Martian settings.",
+          "next_measurement": "Map facies and stratigraphy; collect mineralogical samples, electrical conductivity, shallow cores and repeat wet/dry observations."
+        },
+        {
+          "track_id": "spectral_ground_truth",
+          "track": "Orbital-to-ground spectral validation",
+          "transferability": "limited",
+          "why_this_site": "Useful setting for orbital-to-ground validation; no new site-specific spectral classification is asserted.",
+          "what_can_be_rehearsed": "Scene selection, atmospheric/cloud screening, spectral-index QA, field spectroscopy and orbital-to-ground provenance workflows.",
+          "analogy_breaks": "Earth vegetation, water, atmosphere and biological coatings alter spectra; Sentinel-2 bands are not a substitute for lunar/Martian instrument response or mineral identification.",
+          "next_measurement": "Collect calibrated field spectra and XRD/XRF/FTIR samples, then compare with the relevant planetary instrument response functions."
+        },
+        {
+          "track_id": "human_robotic_ops",
+          "track": "Human / robotic field operations",
+          "transferability": "moderate",
+          "why_this_site": "Hyperarid remote field operations and instrument deployment are rehearsable.",
+          "what_can_be_rehearsed": "Remote team coordination, navigation interfaces, sampling workflows, communications procedures, logistics and human-factors evaluation.",
+          "analogy_breaks": "No Earth field site reproduces EVA suits, vacuum, radiation, reduced gravity, lunar dust electrostatics or Mars atmospheric constraints.",
+          "next_measurement": "Run a controlled mission simulation with timed tasks, comms latency, equipment failure injection and documented operator workload."
+        }
+      ],
+      "evidence": {
+        "nasa_power": {
+          "status": "processed",
+          "source": "NASA POWER Climatology API",
+          "parameters": [
+            "T2M",
+            "T2M_MAX",
+            "T2M_MIN",
+            "RH2M",
+            "WS10M",
+            "PRECTOTCORR",
+            "ALLSKY_SFC_SW_DWN"
+          ],
+          "fetched_at_utc": "2026-11-14T16:03:17+00:00",
+          "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
+        },
+        "terrain": {
+          "status": "not_integrated",
+          "source": null,
+          "metrics": null,
+          "analysis_support_m": null,
+          "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
+        },
+        "sentinel2": {
+          "status": "not_integrated",
+          "statement": "No site-specific Sentinel-2 processing is recorded in the candidate dossier.",
+          "limitation": "Spectral indices and RGB previews are screening context, not mineral identification or ground truth."
+        },
+        "site_dossier": {
+          "status": "documented",
+          "discovery_tier": "established_global_reference",
+          "candidate_status": "reference_site",
+          "sources": [
+            {
+              "title": "Detecting Life in the Ultra-dry Atacama Desert",
+              "publisher": "NASA Jet Propulsion Laboratory",
+              "url": "https://www.jpl.nasa.gov/news/detecting-life-in-the-ultra-dry-atacama-desert/",
+              "supports": "NASA field testing of portable life-detection instrumentation in the Atacama as a Mars-relevant extreme environment."
+            },
+            {
+              "title": "Planetary Analog Explorer",
+              "publisher": "NASA Science",
+              "url": "https://science.nasa.gov/solar-system/analog-explorer/",
+              "supports": "NASA's Atacama\u2013Mars analogue example and field research context."
+            }
+          ]
+        }
+      },
+      "source_references": [
+        {
+          "title": "Detecting Life in the Ultra-dry Atacama Desert",
+          "publisher": "NASA Jet Propulsion Laboratory",
+          "url": "https://www.jpl.nasa.gov/news/detecting-life-in-the-ultra-dry-atacama-desert/",
+          "supports": "NASA field testing of portable life-detection instrumentation in the Atacama as a Mars-relevant extreme environment."
+        },
+        {
+          "title": "Planetary Analog Explorer",
+          "publisher": "NASA Science",
+          "url": "https://science.nasa.gov/solar-system/analog-explorer/",
+          "supports": "NASA's Atacama\u2013Mars analogue example and field research context."
+        }
+      ],
+      "site_non_transferable": []
+    },
+    {
+      "id": "mcmurdo",
+      "name": "McMurdo Dry Valleys",
+      "country": "Antarctica",
+      "region": "Victoria Land",
+      "latitude": -77.5,
+      "longitude": 161.8,
+      "bbox_wgs84": null,
+      "discovery_tier": "established_global_reference",
+      "candidate_status": "reference_site",
+      "mission_targets": [
+        "Moon",
+        "Mars"
+      ],
+      "environment_tags": [
+        "polar desert",
+        "cold",
+        "permafrost",
+        "glacial"
+      ],
+      "hypothesis": "",
+      "priority_experiment": "Pair surface energy-balance observations with validated ground temperature and sublimation measurements.",
+      "tests": [
+        {
+          "track_id": "cryosphere_remote_sensing",
+          "track": "Ice / cold-region remote sensing",
+          "transferability": "moderate",
+          "why_this_site": "Cold-desert field methods, ice/debris mapping and sensor endurance are useful process analogues.",
+          "what_can_be_rehearsed": "Debris-versus-ice mapping, thermal/optical sensor calibration, cold equipment trials and field logistics in difficult terrain.",
+          "analogy_breaks": "Terrestrial glacier ice is not equivalent to lunar permanently shadowed regolith ice; pressure, sublimation, gravity and radiation differ.",
+          "next_measurement": "Pair thermal imagery with ground temperature strings, snow/ice pits, dielectric measurements and independently validated ice/debris boundaries."
+        },
+        {
+          "track_id": "dust_processes",
+          "track": "Dust / aeolian instrument testing",
+          "transferability": "limited",
+          "why_this_site": "Dry-cold wind processes can be studied, but atmospheric density and particle transport differ.",
+          "what_can_be_rehearsed": "Wind-sensor deployment, particle collection, surface-change monitoring, dust-camera calibration and threshold-measurement procedures.",
+          "analogy_breaks": "Earth air density, humidity, grain charging, gravity and wind stress differ substantially; 10 m wind speed is not dust flux or saltation threshold.",
+          "next_measurement": "Measure particle-size distribution, threshold friction velocity, vertical dust flux, humidity and surface crust strength using a calibrated field station."
+        },
+        {
+          "track_id": "human_robotic_ops",
+          "track": "Human / robotic field operations",
+          "transferability": "moderate",
+          "why_this_site": "Logistics, cold-weather equipment and remote operations are rehearsable.",
+          "what_can_be_rehearsed": "Remote team coordination, navigation interfaces, sampling workflows, communications procedures, logistics and human-factors evaluation.",
+          "analogy_breaks": "No Earth field site reproduces EVA suits, vacuum, radiation, reduced gravity, lunar dust electrostatics or Mars atmospheric constraints.",
+          "next_measurement": "Run a controlled mission simulation with timed tasks, comms latency, equipment failure injection and documented operator workload."
+        }
+      ],
+      "evidence": {
+        "nasa_power": {
+          "status": "processed",
+          "source": "NASA POWER Climatology API",
+          "parameters": [
+            "T2M",
+            "T2M_MAX",
+            "T2M_MIN",
+            "RH2M",
+            "WS10M",
+            "PRECTOTCORR",
+            "ALLSKY_SFC_SW_DWN"
+          ],
+          "fetched_at_utc": "2026-11-14T16:03:17+00:00",
+          "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
+        },
+        "terrain": {
+          "status": "not_integrated",
+          "source": null,
+          "metrics": null,
+          "analysis_support_m": null,
+          "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
+        },
+        "sentinel2": {
+          "status": "not_integrated",
+          "statement": "No site-specific Sentinel-2 processing is recorded in the candidate dossier.",
+          "limitation": "Spectral indices and RGB previews are screening context, not mineral identification or ground truth."
+        },
+        "site_dossier": {
+          "status": "documented",
+          "discovery_tier": "established_global_reference",
+          "candidate_status": "reference_site",
+          "sources": [
+            {
+              "title": "Astrobiology Field Sites \u2014 McMurdo Dry Valleys",
+              "publisher": "NASA Astrobiology",
+              "url": "https://astrobiology.nasa.gov/research-locations/",
+              "supports": "Identifies the McMurdo Dry Valleys as a cold, dry terrestrial Mars-analogue research location."
+            },
+            {
+              "title": "The McMurdo Dry Valleys of Antarctica: a geological, environmental, and ecological analog to the Martian surface and near surface",
+              "publisher": "U.S. National Science Foundation / scholarly chapter",
+              "url": "https://par.nsf.gov/servlets/purl/10396201",
+              "supports": "Reviews dry-valley geology, environment, ecology, ice and wind processes relevant to Mars."
+            }
+          ]
+        }
+      },
+      "source_references": [
+        {
+          "title": "Astrobiology Field Sites \u2014 McMurdo Dry Valleys",
+          "publisher": "NASA Astrobiology",
+          "url": "https://astrobiology.nasa.gov/research-locations/",
+          "supports": "Identifies the McMurdo Dry Valleys as a cold, dry terrestrial Mars-analogue research location."
+        },
+        {
+          "title": "The McMurdo Dry Valleys of Antarctica: a geological, environmental, and ecological analog to the Martian surface and near surface",
+          "publisher": "U.S. National Science Foundation / scholarly chapter",
+          "url": "https://par.nsf.gov/servlets/purl/10396201",
+          "supports": "Reviews dry-valley geology, environment, ecology, ice and wind processes relevant to Mars."
+        }
+      ],
+      "site_non_transferable": []
+    },
+    {
+      "id": "haughton",
+      "name": "Haughton impact structure",
+      "country": "Canada",
+      "region": "Devon Island, Nunavut",
+      "latitude": 75.37,
+      "longitude": -89.68,
+      "bbox_wgs84": null,
+      "discovery_tier": "established_global_reference",
+      "candidate_status": "reference_site",
+      "mission_targets": [
+        "Moon",
+        "Mars"
+      ],
+      "environment_tags": [
+        "impact crater",
+        "polar desert",
+        "permafrost"
+      ],
+      "hypothesis": "",
+      "priority_experiment": "Tie impact breccia/ejecta mapping to high-resolution topography and laboratory sample characterization.",
+      "tests": [
+        {
+          "track_id": "impact_geology",
+          "track": "Impact-structure field geology",
+          "transferability": "moderate",
+          "why_this_site": "Impact-structure mapping and polar field methods are relevant; terrestrial erosion and target geology differ.",
+          "what_can_be_rehearsed": "Crater morphology mapping, ejecta/fault documentation, breccia logging and impact-geology field protocols.",
+          "analogy_breaks": "Terrestrial erosion, water, atmosphere and gravity modify crater preservation; terrestrial target rocks differ from lunar regolith and impact melt.",
+          "next_measurement": "Map ejecta and structural relations at high resolution; sample impactites and compare petrography/geochemistry."
+        },
+        {
+          "track_id": "cryosphere_remote_sensing",
+          "track": "Ice / cold-region remote sensing",
+          "transferability": "limited",
+          "why_this_site": "Permafrost/polar context supports cold-region methods, not direct lunar ice equivalence.",
+          "what_can_be_rehearsed": "Debris-versus-ice mapping, thermal/optical sensor calibration, cold equipment trials and field logistics in difficult terrain.",
+          "analogy_breaks": "Terrestrial glacier ice is not equivalent to lunar permanently shadowed regolith ice; pressure, sublimation, gravity and radiation differ.",
+          "next_measurement": "Pair thermal imagery with ground temperature strings, snow/ice pits, dielectric measurements and independently validated ice/debris boundaries."
+        },
+        {
+          "track_id": "terrain_mobility",
+          "track": "Terrain & mobility rehearsal",
+          "transferability": "limited",
+          "why_this_site": "Regional terrain methods are transferable only where suitable high-resolution data exist.",
+          "what_can_be_rehearsed": "DEM processing, slope/relief interpretation, route-planning workflows and sensor-fusion procedures can be rehearsed on terrestrial terrain.",
+          "analogy_breaks": "Earth gravity, atmosphere, soil cohesion, vegetation, hydrology and vehicle dynamics differ; 925 m terrain cells cannot resolve rover-scale hazards.",
+          "next_measurement": "Acquire metre-to-centimetre DEM/LiDAR, grain-size and bearing-strength observations; validate traverses with an instrumented rover."
+        },
+        {
+          "track_id": "human_robotic_ops",
+          "track": "Human / robotic field operations",
+          "transferability": "moderate",
+          "why_this_site": "Remote polar field logistics and sampling workflows are useful rehearsals.",
+          "what_can_be_rehearsed": "Remote team coordination, navigation interfaces, sampling workflows, communications procedures, logistics and human-factors evaluation.",
+          "analogy_breaks": "No Earth field site reproduces EVA suits, vacuum, radiation, reduced gravity, lunar dust electrostatics or Mars atmospheric constraints.",
+          "next_measurement": "Run a controlled mission simulation with timed tasks, comms latency, equipment failure injection and documented operator workload."
+        }
+      ],
+      "evidence": {
+        "nasa_power": {
+          "status": "processed",
+          "source": "NASA POWER Climatology API",
+          "parameters": [
+            "T2M",
+            "T2M_MAX",
+            "T2M_MIN",
+            "RH2M",
+            "WS10M",
+            "PRECTOTCORR",
+            "ALLSKY_SFC_SW_DWN"
+          ],
+          "fetched_at_utc": "2026-11-14T16:03:18+00:00",
+          "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
+        },
+        "terrain": {
+          "status": "not_integrated",
+          "source": null,
+          "metrics": null,
+          "analysis_support_m": null,
+          "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
+        },
+        "sentinel2": {
+          "status": "not_integrated",
+          "statement": "No site-specific Sentinel-2 processing is recorded in the candidate dossier.",
+          "limitation": "Spectral indices and RGB previews are screening context, not mineral identification or ground truth."
+        },
+        "site_dossier": {
+          "status": "documented",
+          "discovery_tier": "established_global_reference",
+          "candidate_status": "reference_site",
+          "sources": [
+            {
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
+              "publisher": "NASA Science",
+              "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
+              "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
+            },
+            {
+              "title": "Haughton Mars Project (HMP)",
+              "publisher": "NASA",
+              "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
+              "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
+            }
+          ]
+        }
+      },
+      "source_references": [
+        {
+          "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
+          "publisher": "NASA Science",
+          "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
+          "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
+        },
+        {
+          "title": "Haughton Mars Project (HMP)",
+          "publisher": "NASA",
+          "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
+          "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
+        }
+      ],
+      "site_non_transferable": []
+    },
+    {
+      "id": "iceland",
+      "name": "Icelandic volcanic fields",
+      "country": "Iceland",
+      "region": "Reykjanes",
+      "latitude": 63.88,
+      "longitude": -22.27,
+      "bbox_wgs84": null,
+      "discovery_tier": "established_global_reference",
+      "candidate_status": "reference_site",
+      "mission_targets": [
+        "Moon",
+        "Mars"
+      ],
+      "environment_tags": [
+        "basaltic volcanism",
+        "lava",
+        "volcanic field"
+      ],
+      "hypothesis": "",
+      "priority_experiment": "Compare mapped lava-flow textures and roughness with planetary image-derived units using matched spatial support.",
+      "tests": [
+        {
+          "track_id": "volcanic_morphology",
+          "track": "Volcanic / lava morphology",
+          "transferability": "moderate",
+          "why_this_site": "Basaltic lava morphology and volcanic mapping methods are useful; Earth weathering and atmosphere remain different.",
+          "what_can_be_rehearsed": "Lava-flow morphology mapping, roughness characterization, tube/cave reconnaissance and orbital-to-ground geologic mapping methods.",
+          "analogy_breaks": "Earth weathering, vegetation, atmosphere, gravity and composition differ; andesite or altered tuff must not be called basaltic equivalence.",
+          "next_measurement": "Map flow units and clast sizes; obtain petrography, XRF/XRD and high-resolution terrain/cave surveys."
+        },
+        {
+          "track_id": "terrain_mobility",
+          "track": "Terrain & mobility rehearsal",
+          "transferability": "limited",
+          "why_this_site": "Lava roughness workflows can be tested, but local metre-scale data are required.",
+          "what_can_be_rehearsed": "DEM processing, slope/relief interpretation, route-planning workflows and sensor-fusion procedures can be rehearsed on terrestrial terrain.",
+          "analogy_breaks": "Earth gravity, atmosphere, soil cohesion, vegetation, hydrology and vehicle dynamics differ; 925 m terrain cells cannot resolve rover-scale hazards.",
+          "next_measurement": "Acquire metre-to-centimetre DEM/LiDAR, grain-size and bearing-strength observations; validate traverses with an instrumented rover."
+        },
+        {
+          "track_id": "human_robotic_ops",
+          "track": "Human / robotic field operations",
+          "transferability": "moderate",
+          "why_this_site": "Instrument deployment and robotic mapping over lava fields are rehearsable.",
+          "what_can_be_rehearsed": "Remote team coordination, navigation interfaces, sampling workflows, communications procedures, logistics and human-factors evaluation.",
+          "analogy_breaks": "No Earth field site reproduces EVA suits, vacuum, radiation, reduced gravity, lunar dust electrostatics or Mars atmospheric constraints.",
+          "next_measurement": "Run a controlled mission simulation with timed tasks, comms latency, equipment failure injection and documented operator workload."
+        }
+      ],
+      "evidence": {
+        "nasa_power": {
+          "status": "processed",
+          "source": "NASA POWER Climatology API",
+          "parameters": [
+            "T2M",
+            "T2M_MAX",
+            "T2M_MIN",
+            "RH2M",
+            "WS10M",
+            "PRECTOTCORR",
+            "ALLSKY_SFC_SW_DWN"
+          ],
+          "fetched_at_utc": "2026-11-14T16:03:19+00:00",
+          "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
+        },
+        "terrain": {
+          "status": "not_integrated",
+          "source": null,
+          "metrics": null,
+          "analysis_support_m": null,
+          "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
+        },
+        "sentinel2": {
+          "status": "not_integrated",
+          "statement": "No site-specific Sentinel-2 processing is recorded in the candidate dossier.",
+          "limitation": "Spectral indices and RGB previews are screening context, not mineral identification or ground truth."
+        },
+        "site_dossier": {
+          "status": "documented",
+          "discovery_tier": "established_global_reference",
+          "candidate_status": "reference_site",
+          "sources": [
+            {
+              "title": "Planetary Analog Explorer",
+              "publisher": "NASA Science",
+              "url": "https://science.nasa.gov/solar-system/analog-explorer/",
+              "supports": "NASA examples of Icelandic landforms used to study Mars surface processes and lunar subsurface-ice analog contexts."
+            },
+            {
+              "title": "Geological Map of Iceland's Western Volcanic Zone",
+              "publisher": "Icelandic Institute of Natural History",
+              "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
+              "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
+            }
+          ]
+        }
+      },
+      "source_references": [
+        {
+          "title": "Planetary Analog Explorer",
+          "publisher": "NASA Science",
+          "url": "https://science.nasa.gov/solar-system/analog-explorer/",
+          "supports": "NASA examples of Icelandic landforms used to study Mars surface processes and lunar subsurface-ice analog contexts."
+        },
+        {
+          "title": "Geological Map of Iceland's Western Volcanic Zone",
+          "publisher": "Icelandic Institute of Natural History",
+          "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
+          "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
+        }
+      ],
+      "site_non_transferable": []
+    },
+    {
+      "id": "death",
+      "name": "Death Valley region",
+      "country": "United States",
+      "region": "California/Nevada",
+      "latitude": 36.24,
+      "longitude": -116.82,
+      "bbox_wgs84": null,
+      "discovery_tier": "established_global_reference",
+      "candidate_status": "reference_site",
+      "mission_targets": [
+        "Mars"
+      ],
+      "environment_tags": [
+        "arid basin",
+        "alluvial fans",
+        "salt flat",
+        "dust"
+      ],
+      "hypothesis": "",
+      "priority_experiment": "Measure grain-size, crust strength and repeat surface change on a precisely mapped fan/salt-pan transect.",
+      "tests": [
+        {
+          "track_id": "evaporite_processes",
+          "track": "Evaporite / playa process science",
+          "transferability": "limited",
+          "why_this_site": "Salt-flat/alluvial basin mapping can test sedimentary workflows; hydrologic history differs.",
+          "what_can_be_rehearsed": "Basin mapping, sediment facies logging, salt-crust morphology, desiccation structures and repeat-observation methods.",
+          "analogy_breaks": "Earth liquid water, rainfall, groundwater, biology and atmospheric pressure create processes absent or different on the Moon and many Martian settings.",
+          "next_measurement": "Map facies and stratigraphy; collect mineralogical samples, electrical conductivity, shallow cores and repeat wet/dry observations."
+        },
+        {
+          "track_id": "dust_processes",
+          "track": "Dust / aeolian instrument testing",
+          "transferability": "limited",
+          "why_this_site": "Arid wind and surface monitoring methods are testable, but no dust flux measurement is integrated.",
+          "what_can_be_rehearsed": "Wind-sensor deployment, particle collection, surface-change monitoring, dust-camera calibration and threshold-measurement procedures.",
+          "analogy_breaks": "Earth air density, humidity, grain charging, gravity and wind stress differ substantially; 10 m wind speed is not dust flux or saltation threshold.",
+          "next_measurement": "Measure particle-size distribution, threshold friction velocity, vertical dust flux, humidity and surface crust strength using a calibrated field station."
+        },
+        {
+          "track_id": "terrain_mobility",
+          "track": "Terrain & mobility rehearsal",
+          "transferability": "limited",
+          "why_this_site": "Regional alluvial-fan terrain is useful for mapping methods, not rover safety.",
+          "what_can_be_rehearsed": "DEM processing, slope/relief interpretation, route-planning workflows and sensor-fusion procedures can be rehearsed on terrestrial terrain.",
+          "analogy_breaks": "Earth gravity, atmosphere, soil cohesion, vegetation, hydrology and vehicle dynamics differ; 925 m terrain cells cannot resolve rover-scale hazards.",
+          "next_measurement": "Acquire metre-to-centimetre DEM/LiDAR, grain-size and bearing-strength observations; validate traverses with an instrumented rover."
+        },
+        {
+          "track_id": "human_robotic_ops",
+          "track": "Human / robotic field operations",
+          "transferability": "moderate",
+          "why_this_site": "Arid field logistics and sampling protocols can be rehearsed.",
+          "what_can_be_rehearsed": "Remote team coordination, navigation interfaces, sampling workflows, communications procedures, logistics and human-factors evaluation.",
+          "analogy_breaks": "No Earth field site reproduces EVA suits, vacuum, radiation, reduced gravity, lunar dust electrostatics or Mars atmospheric constraints.",
+          "next_measurement": "Run a controlled mission simulation with timed tasks, comms latency, equipment failure injection and documented operator workload."
+        }
+      ],
+      "evidence": {
+        "nasa_power": {
+          "status": "processed",
+          "source": "NASA POWER Climatology API",
+          "parameters": [
+            "T2M",
+            "T2M_MAX",
+            "T2M_MIN",
+            "RH2M",
+            "WS10M",
+            "PRECTOTCORR",
+            "ALLSKY_SFC_SW_DWN"
+          ],
+          "fetched_at_utc": "2026-11-14T16:03:19+00:00",
+          "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
+        },
+        "terrain": {
+          "status": "not_integrated",
+          "source": null,
+          "metrics": null,
+          "analysis_support_m": null,
+          "limitation": "Where available, ~925 m regional descriptors cannot establish rover-scale trafficability or landing safety."
+        },
+        "sentinel2": {
+          "status": "not_integrated",
+          "statement": "No site-specific Sentinel-2 processing is recorded in the candidate dossier.",
+          "limitation": "Spectral indices and RGB previews are screening context, not mineral identification or ground truth."
+        },
+        "site_dossier": {
+          "status": "documented",
+          "discovery_tier": "established_global_reference",
+          "candidate_status": "reference_site",
+          "sources": [
+            {
+              "title": "Salt Flats \u2014 Death Valley National Park",
+              "publisher": "U.S. National Park Service",
+              "url": "https://www.nps.gov/deva/learn/nature/salt-flats.htm",
+              "supports": "Explains Badwater Basin salt-flat formation, closed-basin hydrology, evaporative concentration and fragile salt crust."
+            },
+            {
+              "title": "Geologic Formations \u2014 Death Valley National Park",
+              "publisher": "U.S. National Park Service",
+              "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
+              "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
+            }
+          ]
+        }
+      },
+      "source_references": [
+        {
+          "title": "Salt Flats \u2014 Death Valley National Park",
+          "publisher": "U.S. National Park Service",
+          "url": "https://www.nps.gov/deva/learn/nature/salt-flats.htm",
+          "supports": "Explains Badwater Basin salt-flat formation, closed-basin hydrology, evaporative concentration and fragile salt crust."
+        },
+        {
+          "title": "Geologic Formations \u2014 Death Valley National Park",
+          "publisher": "U.S. National Park Service",
+          "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
+          "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
+        }
+      ],
+      "site_non_transferable": []
+    }
+  ],
+  "interpretation": "Use this report to choose a field experiment and identify its failure conditions. Do not rank entire planets or sites by a single percentage."
+}
