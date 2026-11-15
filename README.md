@@ -185,3 +185,5 @@ The weekly/manual GitHub Actions workflow validates the science pack and dashboa
 ### Interactive views and backend
 
 The ATFA module includes a monthly NASA VIIRS true-colour time scrub/animation and a 3D site/pathway scatter view (z = authored experiment-pathway count, not elevation). The FastAPI service now exposes read-only ATFA, PDS metadata and MODIS provenance routes alongside the existing paginated field-notebook CRUD. `backend/smoke_test.py` exercises the science reads and temporary field-record create/list/delete flow in CI. The public GitHub Pages app remains fully usable without deploying the optional API.
+
+The 3D terrain-twin view also renders source-derived ~925 m elevation grids from Copernicus DSM, Mars MOLA and lunar LOLA, with each grid expressed relative to its own median elevation. It does not imply cross-body vertical registration or rover/landing safety.
