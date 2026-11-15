@@ -48,7 +48,7 @@ Known constraints include:
 
 - NASA POWER climatology is gridded climate context, not a local weather station or surface-temperature record.
 - Sentinel-2 indices and RGB quicklooks are screening context, not mineral identification, brine detection or ground truth.
-- Copernicus DEM GLO-30 is a DSM; the pipeline now attempts matched ~925 m local grids for all ten Earth study/reference windows where the catalogue has valid tile coverage. These aggregates are regional context, not rover-scale hazard analysis.
+- Copernicus DEM GLO-30 is a DSM; the latest processing run produced matched ~925 m local grids for all ten Earth study/reference windows. These aggregates are regional context, not rover-scale hazard analysis.
 - Nili Patera MOLA selected-window observation coverage is approximately 50.53%, with only 87 complete 3×3 neighbourhoods in the current product.
 - Shackleton LOLA elevation is integrated at 80 m native support and aggregated to approximately 925 m for regional comparison. LOLA return counts describe measurement support; they are not PSR or ice maps.
 - Diviner PRP V2.0 has been diagnosed in the project; ice-depth interpretation and accessible-resource claims remain withheld pending authoritative product metadata and QA.
@@ -90,4 +90,7 @@ In the current successful pipeline run, public browse imagery was downloaded for
 
 ## 3D DEM surface grids
 
-The Earth–Mars terrain builder now attempts compact elevation arrays for all ten curated Earth sites and exports grids wherever Copernicus GLO-30 tile coverage is available, on the approximately 925 m analysis support used for the existing slope/relief comparison. The lunar LOLA workflow exports its own approximately 925 m aggregate grid. Values in the 3D view are expressed as elevation relative to each local grid's median, with no-data cells preserved as null. This permits visual inspection of local morphology without comparing absolute elevations across different datums or projections. Grid orientation is not co-registered across bodies, and the display is not a landing, traversability or hazard model.
+The latest Earth–Mars terrain build successfully exported compact elevation arrays for all ten curated Earth sites from Copernicus GLO-30, on the approximately 925 m analysis support used for the existing slope/relief comparison. The lunar LOLA workflow exports its own approximately 925 m aggregate grid. Values in the 3D view are expressed as elevation relative to each local grid's median, with no-data cells preserved as null. This permits visual inspection of local morphology without comparing absolute elevations across different datums or projections. Grid orientation is not co-registered across bodies, and the display is not a landing, traversability or hazard model.
+
+
+Latest verified terrain coverage: 10/10 Earth sites processed, plus the Nili Patera MOLA grid and Shackleton Rim LOLA grid. Each is a 32×32 Earth/Moon or 33×34 Mars local surface array, with no-data masks retained and relative elevation referenced to each grid's own median.
