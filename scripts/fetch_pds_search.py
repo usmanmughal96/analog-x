@@ -28,6 +28,24 @@ s=requests.Session()
 s.headers.update({"User-Agent":"ANALOG-X/1.1 PDS public search integration","Accept":"application/json"})
 retry=Retry(total=3,connect=3,read=3,backoff_factor=1,status_forcelist=(429,500,502,503,504),allowed_methods=frozenset(["GET"]),respect_retry_after_header=True)
 s.mount("https://",HTTPAdapter(max_retries=retry))
+def compact_product(product):
+ props=product.get("properties",{}) or {}
+ def first(key):
+  value=props.get(key)
+  return value[0] if isinstance(value,list) and value else value
+ metadata=product.get("metadata",{}) or {}
+ return {
+  "id":product.get("id"),"type":product.get("type"),"title":product.get("title"),
+  "start_date_time":product.get("start_date_time"),"stop_date_time":product.get("stop_date_time"),
+  "targets":product.get("targets",[])[:8],
+  "observing_system_components":product.get("observing_system_components",[])[:8],
+  "data_file_url":first("ops:Data_File_Info.ops:file_ref"),
+  "data_file_name":first("ops:Data_File_Info.ops:file_name"),
+  "label_url":metadata.get("label_url"),
+  "instrument_refs":props.get("ref_lid_instrument",[])[:8] if isinstance(props.get("ref_lid_instrument",[]),list) else []
+ }
+
+
 def main():
  OUT.parent.mkdir(parents=True,exist_ok=True)
  results=[]
@@ -45,8 +63,8 @@ def main():
     token=q["instrument_filter"].lower()
     relevant=[x for x in relevant if token in json.dumps(x.get("observing_system_components",[])).lower() or token in str(x.get("title","")).lower() or token in json.dumps(x.get("properties",{})).lower()]
    results.append({**q,"status":"results_returned" if relevant else "no_relevant_products_returned",
-      "query_url":r.url,"returned_count":len(relevant),"raw_result_count":len(products),"products":relevant,
-      "response_summary":payload.get("summary") if isinstance(payload,dict) else None})
+      "query_url":r.url,"returned_count":len(relevant),"raw_result_count":len(products),"products":[compact_product(x) for x in relevant],
+      "response_summary":{"hits":(payload.get("summary") or {}).get("hits")} if isinstance(payload,dict) else None})
    print(q["id"],"raw",len(products),"relevant",len(relevant),flush=True)
   except Exception as exc:
    detail = (exc.response.text[:1200] if isinstance(exc, requests.HTTPError) and exc.response is not None else str(exc))
