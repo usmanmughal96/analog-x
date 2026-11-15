@@ -1,0 +1,60 @@
+name: Build planetary analog transferability science pack
+on:
+  push:
+    branches: [main]
+    paths:
+      - "science/**"
+      - "data/agents/candidate_catalog.json"
+      - "data/power/**"
+      - "data/terrain/**"
+      - "data/moon/**"
+      - ".github/workflows/build-transferability.yml"
+      - "scripts/fetch_pds_search.py"
+  workflow_dispatch:
+  schedule:
+    - cron: "23 5 * * 1"
+permissions:
+  contents: write
+concurrency:
+  group: analogx-science-pack
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install data discovery dependency
+        run: python -m pip install --upgrade requests
+      - name: Build experiment-level transferability dossiers
+        run: python science/build_transferability.py
+      - name: Discover planetary products in NASA PDS
+        run: python scripts/fetch_pds_search.py
+      - name: Validate JSON science pack
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for p in [Path("data/transferability/transferability.json"), Path("data/planetary/pds_search.json")]:
+              d=json.loads(p.read_text())
+              print(p, "valid", len(p.read_bytes()), "bytes")
+          d=json.loads(Path("data/transferability/transferability.json").read_text())
+          assert d["site_count"] >= 10
+          assert sum(len(s["tests"]) for s in d["sites"]) >= 20
+          assert d["planetary_targets"]["moon"]["terrain"]
+          assert d["planetary_targets"]["mars"]["terrain"]
+          PY
+      - name: Commit refreshed public science pack
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/transferability/transferability.json data/planetary/pds_search.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Build planetary analog transferability science pack"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
