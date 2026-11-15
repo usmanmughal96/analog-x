@@ -50,6 +50,8 @@ jobs:
           Path('/tmp/atfa-dashboard.js').write_text('\\n'.join(inline), encoding='utf-8')
           PY
           node --check /tmp/atfa-dashboard.js
+      - name: Validate backend Python syntax
+        run: python -m py_compile backend/app.py science/build_transferability.py scripts/fetch_pds_search.py scripts/fetch_modis_browse.py
       - name: Validate JSON science pack
         run: |
           python - <<'PY'
