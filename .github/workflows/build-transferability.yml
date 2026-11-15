@@ -10,6 +10,7 @@ on:
       - "data/moon/**"
       - ".github/workflows/build-transferability.yml"
       - "scripts/fetch_pds_search.py"
+      - "scripts/fetch_modis_browse.py"
   workflow_dispatch:
   schedule:
     - cron: "23 5 * * 1"
@@ -34,6 +35,8 @@ jobs:
         run: python science/build_transferability.py
       - name: Discover planetary products in NASA PDS
         run: python scripts/fetch_pds_search.py
+      - name: Discover MODIS land-surface-temperature browse tiles
+        run: python scripts/fetch_modis_browse.py
       - name: Validate dashboard JavaScript syntax
         run: |
           python - <<'PY'
@@ -51,7 +54,7 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          for p in [Path("data/transferability/transferability.json"), Path("data/planetary/pds_search.json")]:
+          for p in [Path("data/transferability/transferability.json"), Path("data/planetary/pds_search.json"), Path("data/nasa/modis_browse_index.json")]:
               d=json.loads(p.read_text())
               print(p, "valid", len(p.read_bytes()), "bytes")
           d=json.loads(Path("data/transferability/transferability.json").read_text())
@@ -64,7 +67,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/transferability/transferability.json data/planetary/pds_search.json
+          git add data/transferability/transferability.json data/planetary/pds_search.json data/nasa/modis_browse_index.json data/nasa/modis_browse/
           if ! git diff --cached --quiet; then
             git commit -m "Build planetary analog transferability science pack"
             git pull --rebase origin main
