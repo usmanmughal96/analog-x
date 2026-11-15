@@ -55,7 +55,7 @@ The reproducible pipeline combines:
 - Ten Earth Copernicus DEM local terrain grids, each 32 × 32 cells at approximately 925 m support.
 - One Mars MOLA grid (33 × 34 cells) and one lunar LOLA grid (32 × 32 cells) at comparable regional support.
 - Twenty public MODIS browse JPEGs (two per Earth site), indexed with CMR granule and source URL provenance.
-- Thirty-eight site-specific experiment pathways across terrain mobility, spectral ground truth, evaporite processes, cryosphere remote sensing, volcanic morphology, dust processes, impact geology and human/robotic operations.
+- Thirty-eight site-specific experiment pathways across terrain mobility, spectral ground truth, evaporite processes, cryosphere remote sensing, volcanic morphology, dust processes, impact geology, biosignature/contamination-control methods and human/robotic operations.
 - Six instrument/target-specific PDS Search API queries, with product metadata and source links where returned.
 
 The 3D terrain views display elevation relative to each local grid's median. They are not vertically co-registered across bodies and are not a landing-safety or rover-trafficability model.
