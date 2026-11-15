@@ -438,29 +438,54 @@ function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&l
 function setClock(){const d=new Date();$("utcClock").textContent="UTC "+d.toISOString().slice(11,19)+" · "+d.toISOString().slice(0,10);}
 function loadJson(path){return fetch(path,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(path+" HTTP "+r.status);return r.json();});}
 function statusPill(el,text,cls){el.textContent=text;el.className="statuspill "+(cls||"");}
+function offlineProjectSvg(elementId,points,opts={}){
+ const W=900,H=440,center=opts.center||[32.6,68.7],zoom=opts.zoom||5;
+ const halfLon=opts.halfLon||Math.min(180,180/zoom),halfLat=opts.halfLat||Math.min(90,90/zoom);
+ const project=(lat,lon)=>[W/2+(lon-center[1])/halfLon*(W/2),H/2-(lat-center[0])/halfLat*(H/2)];
+ const poly=(coords)=>coords.map(([lat,lon])=>project(lat,lon).map(v=>v.toFixed(1)).join(",")).join(" ");
+ const continents=[
+  [[72,-168],[68,-140],[58,-128],[50,-125],[42,-118],[32,-112],[20,-105],[10,-88],[8,-78],[18,-66],[30,-80],[42,-66],[52,-55],[64,-60],[72,-90]],
+  [[12,-80],[5,-74],[-5,-78],[-18,-70],[-32,-72],[-55,-68],[-50,-52],[-25,-42],[-5,-48],[8,-60]],
+  [[70,-10],[72,25],[68,55],[72,95],[65,135],[55,165],[42,150],[35,130],[20,115],[8,102],[5,80],[20,65],[25,45],[35,25],[45,10],[58,-5]],
+  [[35,-17],[15,-17],[0,-8],[-18,12],[-35,20],[-30,35],[-10,50],[10,42],[28,33]],
+  [[-12,112],[-20,115],[-30,120],[-38,145],[-25,154],[-12,142]],
+  [[60,-50],[70,-40],[78,-22],[70,-18],[60,-35]]
+ ];
+ let grid="";
+ for(let lat=-60;lat<=75;lat+=15){const y=project(lat,0)[1];grid+=`<line x1="0" y1="${y}" x2="${W}" y2="${y}" stroke="#2d5361" stroke-width="1" opacity=".38"/><text x="8" y="${y-4}" fill="#6e939e" font-size="10">${lat}°</text>`;}
+ for(let lon=-180;lon<=180;lon+=30){const x=project(0,lon)[0];grid+=`<line x1="${x}" y1="0" x2="${x}" y2="${H}" stroke="#2d5361" stroke-width="1" opacity=".35"/><text x="${x+4}" y="16" fill="#6e939e" font-size="10">${lon}°</text>`;}
+ const land=continents.map(coords=>`<polygon points="${poly(coords)}" fill="#234a46" stroke="#5e9580" stroke-width="1.5" opacity=".86"/>`).join("");
+ let lines="",pins="";
+ const valid=points.filter(p=>Number.isFinite(p.latitude)&&Number.isFinite(p.longitude));
+ if(opts.connect&&valid.length>1){const p1=project(valid[0].latitude,valid[0].longitude),p2=project(valid[1].latitude,valid[1].longitude);lines+=`<line x1="${p1[0]}" y1="${p1[1]}" x2="${p2[0]}" y2="${p2[1]}" stroke="#5bd6ed" stroke-width="2" stroke-dasharray="7 7"/>`;}
+ for(const p of valid){
+  const [x,y]=project(p.latitude,p.longitude);if(x<0||x>W||y<0||y>H)continue;
+  const lead=p.lead||p.discovery_tier==="under_characterized_candidate";
+  const color=lead?"#e7bd77":"#61d9ce";
+  pins+=`<g class="axOfflinePin" data-site-id="${esc(p.id)}" role="button" tabindex="0" aria-label="Inspect ${esc(p.name)}" style="cursor:pointer"><circle cx="${x}" cy="${y}" r="${lead?10:7}" fill="${color}" opacity=".18"/><circle cx="${x}" cy="${y}" r="${lead?5.5:4}" fill="${color}" stroke="#e8f5f5" stroke-width="1.4"/><text x="${x+9}" y="${y-9}" fill="#e4f1ef" font-size="11" font-weight="700">${esc(p.short||p.name)}</text></g>`;
+ }
+ const label=opts.label||"OFFLINE LOCATOR · SCHEMATIC POSITION ONLY";
+ const html=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Offline candidate locator map"><defs><linearGradient id="${elementId}-water" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0c2838"/><stop offset="1" stop-color="#061523"/></linearGradient></defs><rect width="${W}" height="${H}" fill="url(#${elementId}-water)"/>${grid}${land}${lines}${pins}<rect x="12" y="${H-34}" width="auto" height="22" rx="5" fill="#04131ddd"/><text x="22" y="${H-19}" fill="#9fb9c3" font-size="10" letter-spacing="1">${esc(label)}</text></svg>`;
+ const el=$(elementId);if(el){el.innerHTML=html;el.style.background="#071927";el.querySelectorAll("[data-site-id]").forEach(node=>{const activate=()=>opts.onSelect&&opts.onSelect(node.dataset.siteId);node.addEventListener("click",activate);node.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();activate();}});});}
+}
+function renderMainOfflineMap(){
+ const points=[{...SITE.koh,id:"koh",short:"KOH-I-SULTAN",lead:false},{...SITE.hispar_glacier,id:"hispar_glacier",short:"HISPAR GLACIER",lead:false}];
+ offlineProjectSvg("map",points,{center:map?map.center:[32.6,68.7],zoom:map?map.zoom:5,halfLon:map?map.halfLon:26,halfLat:map?map.halfLat:20,connect:true,label:"PAKISTAN STUDY LOCATORS · NOT A SURVEY BOUNDARY",onSelect:selectSite});
+}
 function initMap(){
- if(!window.L){$("map").innerHTML='<div style="padding:25px;color:#8da6b6">Map library unavailable. Site records remain available in the evidence panels.</div>';return;}
- map=L.map("map",{zoomControl:false,scrollWheelZoom:true,preferCanvas:true}).setView([32.6,68.7],5);
- baseLayer=L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,attribution:"© OpenStreetMap contributors"});
- baseLayer.addTo(map);
- const gibsDate="2026-11-13";
- gibsLayer=L.tileLayer("https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_SNPP_CorrectedReflectance_TrueColor/default/"+gibsDate+"/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg",{minZoom:0,maxNativeZoom:9,maxZoom:12,opacity:.82,attribution:"NASA GIBS / VIIRS SNPP"});
- gibsLayer.on("tileerror",()=>{});
- gibsLayer.addTo(map);
- addMarker("koh",SITE.koh,[24,245,190]);
- addMarker("hispar_glacier",SITE.hispar_glacier,[226,188,112]);
- const line=L.polyline([[SITE.koh.lat,SITE.koh.lon],[SITE.hispar_glacier.lat,SITE.hispar_glacier.lon]],{color:"#55cdec",weight:2,dashArray:"5 7",opacity:.8}).addTo(map);
- line.bindTooltip("Pakistan analog comparison axis",{sticky:true,className:"ax-tooltip"});
- fitSites();
- setTimeout(()=>map.invalidateSize(),300);
+ map={
+  center:[32.6,68.7],zoom:5,halfLon:26,halfLat:20,
+  setView(center,zoom){this.center=center;this.zoom=zoom;const z=Math.max(.65,zoom/5);this.halfLon=Math.min(180,26/z);this.halfLat=Math.min(88,20/z);renderMainOfflineMap();return this;},
+  flyTo(center,zoom){return this.setView(center,zoom);},
+  zoomIn(){return this.setView(this.center,this.zoom+1);},
+  zoomOut(){return this.setView(this.center,Math.max(1,this.zoom-1));},
+  invalidateSize(){renderMainOfflineMap();return this;}
+ };
+ markers.koh={openPopup(){}};markers.hispar_glacier={openPopup(){}};
+ renderMainOfflineMap();
 }
-function addMarker(id,site,color){
- const marker=L.circleMarker([site.lat,site.lon],{radius:8,color:"#e9faff",weight:2,fillColor:id==="koh"?"#1de0b3":"#e0bd7b",fillOpacity:1}).addTo(map);
- marker.bindPopup("<b>"+esc(site.name)+"</b><br>"+esc(site.desc)+"<br>"+site.lat.toFixed(4)+", "+site.lon.toFixed(4)+"<br><a href='#' data-popup-site='"+id+"'>Inspect site →</a>");
- marker.on("click",()=>selectSite(id));
- markers[id]=marker;
-}
-function fitSites(){if(map&&markers.koh&&markers.hispar_glacier){const group=L.featureGroup([markers.koh,markers.hispar_glacier]);map.fitBounds(group.getBounds().pad(.23),{maxZoom:6});}}
+function addMarker(id,site,color){markers[id]={openPopup(){selectSite(id);}};}
+function fitSites(){if(map)map.setView([32.6,68.7],5);}
 function selectSite(id){
  current=id;const s=SITE[id];
  document.querySelectorAll("[data-site]").forEach(b=>b.classList.toggle("active",b.dataset.site===id));
