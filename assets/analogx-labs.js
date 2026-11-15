@@ -534,7 +534,7 @@ function askDirectorAboutScout(){
  runLocal();
 }
 async function testEndpoint(show=true){
- const endpoint=$("axAgentEndpoint").value.trim().replace(/\\/$/,"");
+ const endpoint=$("axAgentEndpoint").value.trim().replace(/\/$/,"");
  if(!endpoint){state.workerAvailable=false;state.aiEnabled=false;state.connected=false;$("axAgentRunCloud").disabled=true;$("axScoutRun").disabled=false;$("axScoutAskDirector").disabled=!state.scoutData;pill($("axAgentModeStatus"),"LOCAL MODE READY","gold");if(show){$("axAgentStatus").textContent="Offline science review and coordinate triage are ready. A Worker is optional."; $("axScoutHint").textContent="Local candidate proximity search is ready; no network call is needed.";}return false;}
  try{
   $("axAgentConnect").disabled=true;$("axAgentConnect").textContent="TESTING…";
