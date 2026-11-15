@@ -34,6 +34,18 @@ jobs:
         run: python science/build_transferability.py
       - name: Discover planetary products in NASA PDS
         run: python scripts/fetch_pds_search.py
+      - name: Validate dashboard JavaScript syntax
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          html=Path('transferability.html').read_text(encoding='utf-8')
+          scripts=re.findall(r'<script(?:\\s[^>]*)?>(.*?)</script>', html, re.S)
+          inline=[s for s in scripts if s.strip()]
+          assert inline, 'No inline dashboard script found'
+          Path('/tmp/atfa-dashboard.js').write_text('\\n'.join(inline), encoding='utf-8')
+          PY
+          node --check /tmp/atfa-dashboard.js
       - name: Validate JSON science pack
         run: |
           python - <<'PY'
