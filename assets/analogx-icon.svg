@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<rect width="512" height="512" rx="112" fill="#061321"/>
+<circle cx="256" cy="245" r="146" fill="none" stroke="#48d7d0" stroke-width="7" opacity=".8"/>
+<ellipse cx="256" cy="245" rx="190" ry="72" fill="none" stroke="#e0bd7b" stroke-width="7" transform="rotate(-22 256 245)" opacity=".9"/>
+<circle cx="256" cy="245" r="92" fill="#123d4b"/>
+<path d="M194 284 253 156 318 284M222 235h67" fill="none" stroke="#e8f3f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="20"/>
+<circle cx="387" cy="188" r="14" fill="#e0bd7b"/>
+<text x="256" y="436" font-family="Arial,sans-serif" font-size="52" font-weight="800" fill="#e8f3f7" text-anchor="middle" letter-spacing="8">ANALOG-X</text>
+</svg>
