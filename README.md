@@ -35,6 +35,14 @@ The Agent Bay has four deterministic evidence specialists: terrain morphology, c
 
 The four-stage Field School simulator teaches playa/evaporite, volcanic mapping, lunar cryosphere and terrain-data-quality decisions. Its learning XP is browser-local and does not affect scientific ranking. A completed scenario can be sent straight into the offline Mission Director for evidence review.
 
+## Live web layers and offline resilience
+
+The main console now prefers a real interactive Leaflet map. It uses CARTO's dark basemap tiles by default, offers standard OpenStreetMap streets as a selectable base layer, and exposes NASA GIBS VIIRS corrected-reflectance true-colour imagery as an optional dated WMS overlay. Study-site markers use the curated WGS84 coordinates already stored in the science pack.
+
+The climate panel attempts a browser-side NASA POWER Daily Point API request for the selected site, using the latest 30-day window ending three days before the current date to reduce near-real-time data-latency issues. It reports the returned period explicitly and labels the values as a 30-day daily mean. If the live request fails, the console retains the committed NASA POWER climatology snapshot and all existing local science assets.
+
+The map itself degrades to the built-in schematic SVG locator if the Leaflet CDN or tile services are unavailable. The offline locator is deliberately labelled as schematic and is not presented as a geospatial basemap. Live map tiles and NASA imagery require an internet connection; the science pack, saved terrain profiles, quicklooks and offline tools remain local.
+
 ## Verified integrations
 
 ### NASA POWER
