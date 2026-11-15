@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "ANALOG-X Analog Transferability & Failure Analysis (ATFA)",
-  "generated_at_utc": "2026-11-15T09:08:28+00:00",
+  "generated_at_utc": "2026-11-15T09:09:07+00:00",
   "scientific_contract": {
     "unit_of_analysis": "A named field experiment or process, not whole-site resemblance.",
     "classification": "Rule-based qualitative transferability classes authored in science/build_transferability.py; not probabilities, not a universal similarity score, not NASA certification.",
@@ -2452,6 +2452,12 @@
       "what_transfers": "Crater morphology mapping, ejecta/fault documentation, breccia logging and impact-geology field protocols.",
       "breaks": "Terrestrial erosion, water, atmosphere and gravity modify crater preservation; terrestrial target rocks differ from lunar regolith and impact melt.",
       "next_measurement": "Map ejecta and structural relations at high resolution; sample impactites and compare petrography/geochemistry."
+    },
+    "biosignature_contamination_control": {
+      "label": "Biosignature / contamination-control rehearsal",
+      "what_transfers": "Field blank design, contamination-controlled sampling, instrument cleaning, chain-of-custody, extremophile habitat mapping and laboratory assay workflows can be rehearsed in terrestrial extreme environments.",
+      "breaks": "Earth biology, oxygen, liquid water, organic background and terrestrial contamination differ fundamentally; finding Earth extremophiles does not demonstrate extraterrestrial life or validate a Mars biosignature.",
+      "next_measurement": "Run contamination-controlled transects with field blanks, replicate samples, metagenomic or targeted assays, mineral-organic co-location and independent laboratory validation."
     },
     "human_robotic_ops": {
       "label": "Human / robotic field operations",
