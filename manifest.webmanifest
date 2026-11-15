@@ -1,0 +1,13 @@
+{
+  "id": "./",
+  "name": "ANALOG-X Field Evidence Operations",
+  "short_name": "ANALOG-X",
+  "description": "Offline-first planetary analog evidence and field validation workspace.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#061321",
+  "theme_color": "#061321",
+  "orientation": "any",
+  "icons": [{"src":"./assets/analogx-icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
