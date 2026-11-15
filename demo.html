@@ -1,25 +1,237 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ANALOG-X · Evidence Operations Atlas</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ANALOG-X | NASA Space Apps 2026 Demo</title>
 <style>
-:root{--bg:#061321;--panel:#0a1e2d;--line:#1c4359;--cyan:#4bd8f6;--gold:#e2bf80;--mint:#4de0ba;--text:#edf6f8;--muted:#afc1cb}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#123b55,#061321 60%);color:var(--text);font:16px/1.48 Inter,system-ui,sans-serif}.slide{display:none;min-height:100vh;max-width:1350px;margin:auto;padding:7vh 8vw 10vh}.slide.active{display:flex;flex-direction:column;justify-content:center}.k{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);font-weight:850}.n{font-size:clamp(48px,8vw,96px);line-height:.92;letter-spacing:-.07em;margin:18px 0}.h{font-size:clamp(28px,5vw,54px);line-height:1.06;letter-spacing:-.045em;margin:13px 0}.p{font-size:clamp(16px,2vw,22px);color:#c5d7e0;max-width:900px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px;margin-top:24px}.card{background:linear-gradient(145deg,#0b2537,#081b2a);border:1px solid var(--line);border-radius:14px;padding:19px;min-width:0}.card h3{font-size:13px;color:var(--gold);margin:0 0 8px}.card p,.card div{font-size:12px;color:#b6c9d2}.metric{font-size:26px!important;font-weight:850;color:#e8f7fa!important;letter-spacing:-.04em}.metric small{font-size:10px;color:#7f9dac;font-weight:600;letter-spacing:0}.split{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:22px}.tag{display:inline-flex;border:1px solid #28627d;color:#80e6fb;border-radius:20px;padding:5px 9px;font-size:9px;letter-spacing:.08em;text-transform:uppercase;font-weight:850}.foot{font-size:11px;color:#86a2b2;margin-top:24px}.table{display:grid;grid-template-columns:1.5fr repeat(3,1fr);border:1px solid var(--line);border-radius:11px;overflow:hidden;margin-top:18px}.table>div{padding:11px;border-bottom:1px solid #173a50;font-size:11px;color:#c6d8e0}.table .head{background:#0d2b40;color:#8ee8f7;font-size:9px;font-weight:850;text-transform:uppercase;letter-spacing:.1em}.table b{color:#f1f7f9}.nav{position:fixed;right:20px;bottom:18px;display:flex;gap:7px}.nav button{border:1px solid #3b718a;border-radius:8px;background:#0a2d43;color:#ccecf5;padding:10px 15px;font-weight:800;font-size:11px;cursor:pointer}.nav button:hover{background:#124968}.count{position:fixed;bottom:25px;left:22px;color:#89a7b7;font-size:11px}.bar{height:7px;background:#193b50;border-radius:8px;overflow:hidden;margin-top:7px}.bar i{display:block;height:100%;background:var(--cyan)}.warning{background:#2c2619;border:1px solid #6b5632;border-radius:10px;padding:13px;color:#efd69d;font-size:11px;margin-top:14px}.link{color:#74e1f8}.heroBadge{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
-@media(max-width:720px){.slide{padding:6vh 6vw 13vh}.split{grid-template-columns:1fr}.table{grid-template-columns:1.25fr repeat(3,1fr)}.table>div{padding:7px;font-size:9px}.nav button{padding:9px 11px}}
-</style><body>
-<section class="slide active"><div class="k">NASA Space Apps Challenge 2026 · Team X Æ A-Xii</div><div class="n">ANALOG-X</div><h2 class="h">Pakistan Analog Evidence Operations Atlas</h2><p class="p">A source-traceable Earth-observation console for characterizing candidate field environments, comparing terrain at declared spatial support, and exposing what still needs validation before a site is called a useful planetary analog.</p><div class="heroBadge"><span class="tag">NASA POWER · 8 sites</span><span class="tag">Sentinel-2 L2A</span><span class="tag">Copernicus DEM GLO-30</span><span class="tag">MOLA 64 ppd</span></div><div class="foot">Muhammad Usman Mughal · Team X Æ A-Xii · Public application: usmanmughal96.github.io/analog-x/</div></section>
-
-<section class="slide"><div class="k">02 / The challenge</div><h2 class="h">Known analogs are not fully characterized.</h2><p class="p">The official challenge asks teams to use open Earth, Moon and Mars data to identify and characterize terrestrial analogs for future bases and landing sites. The problem is not just finding a landscape that looks similar; it's establishing which evidence supports a specific field task, at what scale, and what remains unknown.</p><div class="grid"><div class="card"><h3>Evidence is scattered</h3><p>Climate, satellite imagery, terrain, geology, and local monitoring products sit across different agencies and catalogues.</p></div><div class="card"><h3>Scale can mislead</h3><p>A global terrain grid, a 30 m DEM, an air-temperature climatology and an orbital surface-temperature product are not interchangeable.</p></div><div class="card"><h3>Institutions already work here</h3><p>NDMA, SUPARCO, UN-SPIDER and EvK2CNR already provide valuable services and baselines. The project should link and reuse them, not duplicate them.</p></div></div><div class="foot">Official challenge: spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/</div></section>
-
-<section class="slide"><div class="k">03 / Pakistan case studies</div><h2 class="h">Two environments. Two different field questions.</h2><div class="grid"><div class="card"><span class="tag">Volcanic field candidate</span><h3 style="margin-top:12px">Koh-i-Sultan / Chagai</h3><p>Smithsonian-catalogued Pleistocene volcanic field. USGS OFR 75-550 maps the Koh-i-Sultan Volcanic Group as agglomerate, tuff and andesitic lava. Rehearsal focus: volcanic/hydrothermal reconnaissance, alteration mapping, sample-context documentation and satellite-to-ground validation.</p><p><b>Not claimed:</b> basaltic composition equivalence with Syrtis Major, a new-to-science volcano or a field-validated Mars analog. <a class="link" href="https://pubs.usgs.gov/publication/ofr75550">USGS geology ↗</a></p><p class="foot">29.1° N · 62.8° E · Balochistan, Pakistan</p></div><div class="card"><span class="tag">Cryosphere case study</span><h3 style="margin-top:12px">Hispar Glacier / Karakoram</h3><p>Rehearsal focus: ice/debris image interpretation, boundary validation, high-altitude field data and terrain context for cold-region operations.</p><p><b>Existing baseline:</b> EvK2CNR already published the Pakistan Glacier Inventory; ANALOG-X does not claim to discover or remap it.</p><p class="foot">36.1057° N · 75.2334° E · Gilgit-Baltistan, Pakistan</p></div></div><div class="warning">An Earth glacier is not a lunar permanently shadowed region. The Moon's vacuum, reduced gravity, radiation and long illumination cycles cannot be reproduced by a terrestrial glacier.</div></section>
-
-<section class="slide"><div class="k">04 / Actual data pipeline</div><h2 class="h">Real observations, with source lineage.</h2><div class="grid"><div class="card"><h3>NASA POWER climatology</h3><div class="metric">8 / 8 <small>candidate records</small></div><p>T2M, T2M_MAX, T2M_MIN, RH2M, WS10M, PRECTOTCORR and ALLSKY_SFC_SW_DWN. Original responses and timestamps stored as JSON.</p></div><div class="card"><h3>NASA Earthdata / CMR</h3><div class="metric">4 <small>collections found</small></div><p>MODIS LST, land cover and MERRA-2 aerosol catalogue metadata. Ten MOD11A2 granule records per Pakistan AOI; one global October 2026 aerosol granule. Protected science files are not decoded.</p></div><div class="card"><h3>Sentinel-2 L2A</h3><div class="metric">2 <small>Pakistan study areas</small></div><p>Public Planetary Computer STAC scene discovery, capture dates, MGRS tiles, cloud fraction and clipped true-colour COG previews.</p></div><div class="card"><h3>Copernicus DEM GLO-30</h3><div class="metric">30 m <small>source DSM</small></div><p>Adjacent one-degree tiles mosaicked and reprojected to local UTM; averaged to approximately 925 m for coarse terrain descriptors.</p></div><div class="card"><h3>NASA MOLA MEGDR</h3><div class="metric">64 ppd <small>Mars topography + counts</small></div><p>Topography and observation counts around Nili Patera; selected window has 50.53% observed-cell coverage.</p></div><div class="card"><h3>NASA LRO LOLA PDS GDR</h3><div class="metric">80 m <small>Shackleton Rim</small></div><p>Native south-pole DEM/count pair processed and area-averaged to ~925 m. Positive LOLA returns in 99.9956% of native cells; LDEM interpolation is disclosed.</p></div><div class="card"><h3>NASA GIBS / EPIC</h3><div class="metric">Open <small>global image context</small></div><p>VIIRS true-colour tiles are used for map context; the public EPIC feed provides a global full-disk image. Neither is treated as site-scale geology.</p></div></div></section>
-
-<section class="slide"><div class="k">05 / Matched-scale terrain</div><h2 class="h">Nili Patera vs Pakistan: descriptors, not a match score.</h2><p class="p">The comparison uses approximately 30 km square windows. Earth Copernicus DSM is averaged to about 925 m; MOLA 64 ppd is about 926 m north–south and 915 m east–west at Nili Patera.</p><div class="table"><div class="head">Profile</div><div class="head">Median slope</div><div class="head">P90 slope</div><div class="head">P90 local relief</div><div><b>Nili Patera · Mars</b></div><div>1.9°</div><div>2.7°</div><div>154 m</div><div><b>Koh-i-Sultan · Earth</b></div><div>2.7°</div><div>5.7°</div><div>246 m</div><div><b>Hispar Glacier · Earth</b></div><div>18.3°</div><div>29.7°</div><div>1,309 m</div></div><div class="warning"><b>Critical data-quality warning:</b> the Nili Patera MOLA window has only 50.53% observed-cell coverage (567/1,122) and 87 complete 3×3 neighborhoods. Earth windows are 100% valid. Treat the Mars profile as provisional and low-coverage; do not infer geological equivalence, mobility or landing safety.</div></section>
-
-<section class="slide"><div class="k">06 / Agency overlap audit</div><h2 class="h">Reuse the work already done.</h2><div class="grid"><div class="card"><h3>EvK2CNR / UNDP</h3><div class="metric">13,032 <small>glaciers mapped</small></div><p>Pakistan inventory covers 13,546.93 km² and includes Sentinel-2 mapping, multitemporal change and field validation. We acknowledge it as an existing baseline.</p></div><div class="card"><h3>NDMA</h3><p>Publishes hazard projections and early warnings; lists the Vulnerable Glaciers and Glacial Lakes Atlas 2026. No redistributable spatial layer has yet been ingested here.</p></div><div class="card"><h3>SUPARCO / UN-SPIDER</h3><p>Existing DisasterWatch, SACRED, NatCat and recommended practices for flood, drought and fire mapping. Not another disaster dashboard.</p></div><div class="card"><h3>Space4Climate / SACCS</h3><p>Relevant glacier, air-quality, forest, coast, waterways and land-cover portal themes. Public data APIs and reuse licences still need verification.</p></div><div class="card"><h3>Microsoft Planetary Computer</h3><p>Public STAC access is anonymous; short-lived SAS tokens permit access to selected public COG assets. No separate account needed for this workflow.</p></div><div class="card"><h3>Google Earth Engine</h3><p>Optional only. It requires a Cloud project, API enablement and project registration; the current PC pipeline already handles this release's satellite data.</p></div></div></section>
-
-<section class="slide"><div class="k">07 / What the product delivers</div><h2 class="h">Evidence operations, not a decorative dashboard.</h2><div class="grid"><div class="card"><h3>Inspect</h3><p>Pakistan study-area map, actual Sentinel-2 preview, NASA POWER metrics and provenance for each source.</p></div><div class="card"><h3>Compare</h3><p>Coarse matched-support terrain descriptors for Nili Patera, Koh-i-Sultan and Hispar with valid-cell coverage shown.</p></div><div class="card"><h3>Audit</h3><p>Source status distinguishes integrated datasets, metadata discovery, portal review and reference-only products.</p></div><div class="card"><h3>Plan</h3><p>Field-validation card exports a JSON protocol with the selected site, climate snapshot, terrain profile and transferability caveats.</p></div></div><div class="foot">Live application: https://usmanmughal96.github.io/analog-x/</div></section>
-
-<section class="slide"><div class="k">08 / Remaining science</div><h2 class="h">What we still need to validate.</h2><div class="grid"><div class="card"><h3>Improve Mars coverage</h3><p>Check MOLA against an independent Mars DEM and choose a better-covered local window if required.</p></div><div class="card"><h3>Complete lunar evidence</h3><p>LOLA 80 m terrain is now integrated for Shackleton Rim. At ~925 m support it has 13.40° median slope, 30.94° P90 slope and 1,391 m P90 local relief in a 29.6 km window. Diviner thermal/water-ice-permafrost products and illumination/PSR mapping remain unprocessed.</p></div><div class="card"><h3>Decode Earthdata granules</h3><p>Acquire Earthdata Login/authorization to download and QA-screen MODIS surface-temperature and MERRA-2 aerosol science files; catalogue metadata alone is not a measurement.</p></div><div class="card"><h3>Verify local sources</h3><p>Request licensed Space4Climate, NDMA, SUPARCO and EvK2CNR vectors/API access instead of assuming portal availability.</p></div><div class="card"><h3>Ground truth</h3><p>Have planetary geologists review the site boundaries, lithology, terrain interpretation and field-rehearsal protocols.</p></div></div><p class="p" style="margin-top:23px">Earth is a laboratory, not a replica. ANALOG-X makes the evidence and the missing evidence visible.</p><div class="foot">Muhammad Usman Mughal · Team X Æ A-Xii · NASA Space Apps Challenge 2026 · Independent prototype</div></section>
-
-<div class="count" id="count">1 / 8</div><div class="nav"><button onclick="move(-1)">Previous</button><button onclick="move(1)">Next</button></div>
-<script>let i=0;const slides=[...document.querySelectorAll('.slide')];function move(d){slides[i].classList.remove('active');i=(i+d+slides.length)%slides.length;slides[i].classList.add('active');document.getElementById('count').textContent=(i+1)+' / '+slides.length}document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')move(1);if(e.key==='ArrowLeft')move(-1)});</script>
-</body></html>
+:root{--bg:#061321;--panel:#0a1e2d;--panel2:#0d2637;--line:#1d4358;--text:#edf6f8;--muted:#9ab2bf;--cyan:#5bd7eb;--mint:#75d8bd;--gold:#e4bd7d;--red:#e9a18d}
+*{box-sizing:border-box}body{margin:0;background:#020811;color:var(--text);font:clamp(13px,1.15vw,17px)/1.45 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+.deck{min-height:100svh;display:grid;place-items:center;padding:18px}.slide{display:none;position:relative;overflow:hidden;width:min(1280px,100%);aspect-ratio:16/9;min-height:620px;max-height:calc(100svh - 36px);padding:clamp(30px,4vw,64px);border:1px solid #244759;border-radius:22px;background:radial-gradient(ellipse at 78% 8%,#123447 0,#091b29 37%,#061321 78%);box-shadow:0 28px 90px #0009}.slide.active{display:flex;flex-direction:column}
+.slide:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,transparent 45%,#71d8d008 100%)}.slide>*{position:relative}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:14px;color:#7ba7b7;font-size:10px;font-weight:850;letter-spacing:.16em;text-transform:uppercase}
+.brand{display:flex;align-items:center;gap:10px}.brandmark{display:grid;place-items:center;width:32px;height:32px;border:1px solid #30768a;border-radius:9px;color:var(--cyan);font-weight:900;background:#0b2736}
+.kicker{color:var(--mint);font-size:11px;font-weight:900;letter-spacing:.17em;text-transform:uppercase;margin:22px 0 10px}
+h1{font-size:clamp(42px,6vw,82px);letter-spacing:-.055em;line-height:.98;margin:0;max-width:900px}
+h2{font-size:clamp(28px,3.4vw,47px);letter-spacing:-.04em;line-height:1.05;margin:10px 0 16px}
+h3{font-size:clamp(14px,1.55vw,20px);margin:0 0 8px}
+p{color:var(--muted);margin:0;line-height:1.55}
+.lede{font-size:clamp(15px,1.5vw,21px);max-width:830px;margin-top:18px}
+.accent{color:var(--cyan)}.gold{color:var(--gold)}.mint{color:var(--mint)}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:auto;padding-top:18px;color:#6e91a2;font-size:9px;border-top:1px solid #1b394b}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px;min-height:0}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+.card{border:1px solid var(--line);border-radius:13px;background:linear-gradient(145deg,#0c2231,#081a28);padding:16px;min-width:0}
+.card .eyebrow{color:#77b6c4;font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px}
+.metric{font-size:clamp(27px,3vw,42px);font-weight:900;letter-spacing:-.05em;color:#e7f4f5}.metric small{font-size:11px;color:#8eabb8;letter-spacing:0;font-weight:600}
+.tag{display:inline-flex;border:1px solid #326174;border-radius:999px;padding:5px 9px;color:#9edce6;background:#0b2b3b;font-size:9px;font-weight:850;margin:4px 5px 0 0}
+.tag.gold{color:#edcf9a;border-color:#7a623e;background:#302718}.tag.mint{color:#a6e7d4;border-color:#376b61;background:#0d2b29}
+.list{display:grid;gap:10px;margin-top:13px}.listitem{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:start}.num{color:var(--gold);font-weight:900;font-size:12px}.listitem b{display:block;color:#e3f0f3;font-size:12px;margin-bottom:3px}.listitem span{display:block;color:#90aab7;font-size:10px;line-height:1.45}
+.imagepair{display:grid;grid-template-columns:1fr 1fr;gap:12px}.imagecard{border:1px solid var(--line);background:#071a27;border-radius:12px;overflow:hidden}.imagecard img{width:100%;height:245px;object-fit:cover;display:block}.imagecard .caption{padding:10px 12px}.caption b{display:block;color:#e4f1f2;font-size:12px}.caption small{display:block;color:#8fa9b4;font-size:9px;margin-top:3px}
+.diagram{border:1px solid #1d4358;background:#071a28;border-radius:14px;padding:14px;min-height:100%}.diagram svg{width:100%;height:100%;min-height:220px;display:block}
+.table{width:100%;border-collapse:collapse;font-size:10px;margin-top:10px}.table th{color:#8fb0bd;text-align:left;font-size:9px;letter-spacing:.07em;text-transform:uppercase;background:#0a2232}.table th,.table td{padding:10px 9px;border-bottom:1px solid #1d3c4c}.table td{color:#d8e9ed}.table .warn{color:var(--gold)}.note{border-left:3px solid var(--gold);background:#2b2418;padding:10px 13px;color:#e7d0a4;font-size:10px;border-radius:0 8px 8px 0;margin-top:12px}
+.uiMock{border:1px solid #2b596c;background:#071a29;border-radius:14px;padding:14px;box-shadow:0 12px 30px #0005}.uiHead{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid #24475a;padding-bottom:10px}.uiHead b{font-size:10px;letter-spacing:.1em}.uiGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.uiTile{padding:10px;border:1px solid #23485c;border-radius:8px;background:#0a2232}.uiTile small{color:#8faab6;display:block;font-size:8px}.uiTile b{display:block;color:#def0f3;font-size:11px;margin-top:5px}.pass{color:#8fe2c9!important}.fail{color:#f0c485!important}
+.sources{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.source{font-size:9px;padding:6px 9px;border:1px solid #28495b;border-radius:6px;color:#a6c0ca;background:#0a2030}
+.controls{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:12px;border:1px solid #24495b;background:#061522ee;backdrop-filter:blur(12px);z-index:5}
+.controls button{border:1px solid #31586a;background:#0c2939;color:#dff1f4;border-radius:8px;padding:8px 12px;font-size:10px;font-weight:850;cursor:pointer}.controls button:disabled{opacity:.35;cursor:not-allowed}.count{color:#91aeba;font-size:10px;min-width:46px;text-align:center}
+a{color:#82e1ec;text-decoration:none}a:hover{text-decoration:underline}
+@media(max-width:800px){.deck{padding:0}.slide{aspect-ratio:auto;min-height:100svh;max-height:none;border-radius:0;padding:24px 18px 90px}.grid2,.grid3,.grid4{grid-template-columns:1fr 1fr}.imagecard img{height:170px}.topline{font-size:8px}.uiGrid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.grid2,.grid3,.grid4,.imagepair{grid-template-columns:1fr}.metric{font-size:29px}.slide{padding:22px 16px 92px}.foot{font-size:8px}}
+@media print{body{background:white}.deck{display:block;padding:0}.slide{display:flex!important;page-break-after:always;max-width:none;width:100%;aspect-ratio:16/9;max-height:none;box-shadow:none;border-radius:0}.controls{display:none}}
+</style>
+</head>
+<body>
+<div class="deck">
+<section class="slide active">
+ <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>ANALOG-X / PLANETARY FIELD LAB</span></div><span>NASA SPACE APPS · 2026</span></div>
+ <div class="kicker">Team X Æ A-Xii · Challenge entry</div>
+ <h1>Earth is the rehearsal ground for the <span class="accent">next worlds.</span></h1>
+ <p class="lede">A Pakistan-first evidence operations atlas that helps mission teams test whether an Earth environment is useful for a specific lunar or Martian field task—and exposes the evidence still missing.</p>
+ <div class="grid3" style="margin-top:30px">
+  <div class="card"><div class="eyebrow">Project</div><div class="metric" style="font-size:28px">ANALOG-X</div><p style="font-size:10px;margin-top:5px">Evidence-led candidate triage and field validation</p></div>
+  <div class="card"><div class="eyebrow">Participant</div><div class="metric" style="font-size:20px">Muhammad Usman Mughal</div><p style="font-size:10px;margin-top:5px">Team X Æ A-Xii</p></div>
+  <div class="card"><div class="eyebrow">Selected challenge</div><p style="font-size:13px;color:#e5f1f3;font-weight:800">Identify Earth Locations that Analog the Permanent Moon Base Locations and Mars</p></div>
+ </div>
+ <div class="foot"><span>LIVE PROJECT · <a href="https://usmanmughal96.github.io/analog-x/">usmanmughal96.github.io/analog-x</a></span><span>01 / 07</span></div>
+</section>
+<section class="slide">
+ <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>01 / THE DISCOVERY QUESTION</span></div><span>PAKISTAN CASE STUDIES</span></div>
+ <div class="kicker">Look beyond familiar analog sites</div>
+ <h2>Two under-characterized Balochistan leads. <span class="gold">Two testable field questions.</span></h2>
+ <div class="grid2">
+  <div>
+   <div class="imagepair">
+    <div class="imagecard"><img src="./data/pakistan/quicklooks/chagai_small_playas.png" alt="Sentinel-2 true-colour preview for Chagai small salt playas"><div class="caption"><b>Chagai small salt playas · Nok Kundi</b><small>Historical NASA report identifies two small salt-surfaced playas. Search window is approximate.</small></div></div>
+    <div class="imagecard"><img src="./data/pakistan/quicklooks/hamun_i_mashkel.png" alt="Sentinel-2 true-colour preview for Hamun-i-Mashkel"><div class="caption"><b>Hamun-i-Mashkel · Kharan Basin</b><small>Regional closed-basin / intermittent-playa process lead; precise landform boundary still needs verification.</small></div></div>
+   </div>
+   <div class="note">These are research leads—not confirmed salt minerals, brine deposits or newly validated planetary analogs.</div>
+  </div>
+  <div class="card">
+   <div class="eyebrow">What the evidence supports</div>
+   <div class="list">
+    <div class="listitem"><div class="num">01</div><div><b>Evaporite and salt-crust mapping</b><span>Rehearse mapping of dry playa surfaces, sedimentary facies and sampling provenance relevant to selected Martian sedimentary questions.</span></div></div>
+    <div class="listitem"><div class="num">02</div><div><b>Wet–dry process documentation</b><span>Hamun-i-Mashkel offers a regional comparator for intermittent inundation, drying and playa sediment mapping.</span></div></div>
+    <div class="listitem"><div class="num">03</div><div><b>Orbital-to-ground validation</b><span>Use actual Sentinel-2 imagery and screening indices to plan where field spectra, samples and ground control are needed.</span></div></div>
+    <div class="listitem"><div class="num">04</div><div><b>Evidence gaps stay visible</b><span>Mineralogy, salt chemistry, subsurface profile, surface strength, dust flux and field validation remain open.</span></div></div>
+   </div>
+   <div class="sources"><span class="source">NASA NTRS · 19740023693</span><span class="source">Sentinel-2 L2A</span><span class="source">Copernicus DEM GLO-30</span></div>
+  </div>
+ </div>
+ <div class="foot"><span>Pakistan candidate locations are a starting point for field investigation, not a certification.</span><span>02 / 07</span></div>
+</section>
+<section class="slide">
+ <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>02 / DATA PROVENANCE</span></div><span>REAL OBSERVATIONS · REPRODUCIBLE PROCESSING</span></div>
+ <div class="kicker">A connected Earth–Moon–Mars evidence stack</div>
+ <h2>Not one similarity number. <span class="accent">Traceable evidence layers.</span></h2>
+ <div class="grid2">
+  <div class="grid2" style="grid-template-columns:1fr 1fr;margin:0">
+   <div class="card"><div class="eyebrow">NASA POWER</div><div class="metric">10 <small>site records</small></div><p style="font-size:10px;margin-top:7px">Air temperature, humidity, wind, precipitation and solar climatology.</p><span class="tag mint">Integrated data</span></div>
+   <div class="card"><div class="eyebrow">Sentinel-2 L2A</div><div class="metric">4 <small>Pakistan windows</small></div><p style="font-size:10px;margin-top:7px">Scene provenance, true-colour previews and 20 m spectral-context screens.</p><span class="tag mint">Processed context</span></div>
+   <div class="card"><div class="eyebrow">Copernicus DEM GLO-30</div><div class="metric">4 <small>terrain profiles</small></div><p style="font-size:10px;margin-top:7px">Four Pakistan study windows; DSM aggregated to approximately 925 m support.</p><span class="tag mint">Processed data</span></div>
+   <div class="card"><div class="eyebrow">Planetary terrain</div><div class="metric">MOLA + LOLA</div><p style="font-size:10px;margin-top:7px">Nili Patera / Mars and Shackleton Rim / Moon; separate quality and support notes.</p><span class="tag mint">Processed data</span></div>
+  </div>
+  <div class="card">
+   <div class="eyebrow">Lunar south pole · additional thermal evidence</div>
+   <h3>Diviner PRP V2.0 processed</h3>
+   <div class="grid2" style="margin-top:12px">
+    <div><div class="metric">6,823</div><p style="font-size:9px">Shackleton-window triangles</p></div>
+    <div><div class="metric">2.88M</div><p style="font-size:9px">Source records examined</p></div>
+    <div><div class="metric">103.786 K</div><p style="font-size:9px">Median annual mean at 2 cm depth</p></div>
+    <div><div class="metric">238.568 K</div><p style="font-size:9px">Median annual maximum surface temperature</p></div>
+   </div>
+   <div class="note">Thermal-model results are historical, not current forecasts. Ice-depth interpretation is withheld pending QA; no accessible-ice claim is made.</div>
+  </div>
+ </div>
+ <div class="foot"><span>Catalogue discovery is labelled separately from decoded science data. CMR MODIS/MERRA-2 entries remain discovery-only.</span><span>03 / 07</span></div>
+</section>
+<section class="slide">
+ <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>03 / COMPARABLE TERRAIN SUPPORT</span></div><span>~925 M REGIONAL DESCRIPTORS</span></div>
+ <div class="kicker">Compare like with like—and show where it is not like for like</div>
+ <h2>Terrain context with the <span class="accent">coverage caveat attached.</span></h2>
+ <div class="grid2">
+  <div class="card">
+   <div class="eyebrow">Measured profile · slope and local relief</div>
+   <table class="table">
+    <thead><tr><th>Study window</th><th>Median slope</th><th>P90 slope</th><th>P90 relief</th></tr></thead>
+    <tbody>
+     <tr><td>Nili Patera · Mars</td><td>1.87°</td><td>2.71°</td><td>154 m</td></tr>
+     <tr><td>Chagai playas · Earth</td><td>0.40°</td><td>1.01°</td><td>38.8 m</td></tr>
+     <tr><td>Koh-i-Sultan · Earth</td><td>2.73°</td><td>5.66°</td><td>246 m</td></tr>
+     <tr><td>Hispar · Earth</td><td>18.25°</td><td>29.70°</td><td>1,309 m</td></tr>
+     <tr><td>Shackleton Rim · Moon</td><td>13.40°</td><td>30.94°</td><td>1,391 m</td></tr>
+    </tbody>
+   </table>
+   <div class="note">P90 3×3 local relief spans an approximately 2.775 km footprint. These are regional descriptors—not rover-scale roughness or trafficability.</div>
+  </div>
+  <div class="diagram">
+   <div class="eyebrow">Data quality / don't hide the missing cells</div>
+   <h3>Nili Patera MOLA support</h3>
+   <div class="metric">50.53% <small>observed-cell coverage</small></div>
+   <svg viewBox="0 0 500 220" role="img" aria-label="MOLA observation coverage grid">
+    <defs><pattern id="cells" width="22" height="22" patternUnits="userSpaceOnUse"><rect x="1" y="1" width="18" height="18" rx="3" fill="#163548"/></pattern></defs>
+    <rect x="12" y="12" width="476" height="176" rx="9" fill="url(#cells)"/>
+    <rect x="12" y="12" width="240" height="176" rx="9" fill="#48c5bc" opacity=".52"/>
+    <path d="M252 12V188" stroke="#081622" stroke-width="4" stroke-dasharray="5 5"/>
+    <text x="22" y="211" fill="#9bb8c3" font-size="12">567 / 1,122 observed cells · 87 complete 3×3 neighbourhoods</text>
+   </svg>
+   <p style="font-size:10px;margin-top:8px">Earth windows have complete valid grids, while Mars coverage is partial. MOLA statistics stay provisional and are not used as a safety or landing suitability score.</p>
+  </div>
+ </div>
+ <div class="foot"><span>Earth: Copernicus DEM GLO-30 DSM → ~925 m · Mars: MGS MOLA MEGDR 64 ppd · Moon: LRO LOLA 80 m → ~925 m</span><span>04 / 07</span></div>
+</section>
+<section class="slide">
+ <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>04 / THE DIFFERENTIATOR</span></div><span>NEW OFFLINE FUNCTIONALITY</span></div>
+ <div class="kicker">A scientific red-team for analog claims</div>
+ <h2>Field Evidence Passport: <span class="gold">make weak claims fail early.</span></h2>
+ <div class="grid2">
+  <div class="uiMock">
+   <div class="uiHead"><b>FIELD EVIDENCE PASSPORT / CHAGAI PLAYA</b><span class="tag mint">LOCAL SCIENCE TOOL</span></div>
+   <div class="uiGrid">
+    <div class="uiTile"><small>MISSION TASK</small><b>Evaporite / playa mapping</b></div>
+    <div class="uiTile"><small>EVIDENCE POLICY</small><b>Strict / Exploratory</b></div>
+    <div class="uiTile"><small>NASA POWER</small><b class="pass">AVAILABLE</b></div>
+    <div class="uiTile"><small>SENTINEL-2 + TERRAIN</small><b class="pass">AVAILABLE</b></div>
+    <div class="uiTile"><small>FIELD VALIDATION</small><b class="fail">NOT PRESENT</b></div>
+    <div class="uiTile"><small>BRINE / MINERAL PROOF</small><b class="fail">NOT DEMONSTRATED</b></div>
+   </div>
+   <div class="note">“Useful for rehearsing salt-crust mapping” can be a defensible hypothesis. “Confirmed brine resource” cannot.</div>
+  </div>
+  <div>
+   <div class="list">
+    <div class="listitem"><div class="num">01</div><div><b>Stress-test a claim</b><span>Choose an Earth site, Moon/Mars target and named field objective; inspect the evidence ledger and mission mismatch.</span></div></div>
+    <div class="listitem"><div class="num">02</div><div><b>Reject unsupported conclusions</b><span>Mineral deposits, accessible ice, planetary equivalence, rover safety and rover-scale roughness remain explicitly unproven.</span></div></div>
+    <div class="listitem"><div class="num">03</div><div><b>Generate a field protocol</b><span>Site-specific station controls, sampling steps, instrument checks, QA and chain-of-custody recommendations.</span></div></div>
+    <div class="listitem"><div class="num">04</div><div><b>Export an auditable dossier</b><span>Machine-readable JSON keeps the selected evidence, gaps and proposed field workflow together.</span></div></div>
+   </div>
+   <span class="tag">No similarity percentage</span><span class="tag">No LLM needed</span><span class="tag">Source-grounded</span>
+  </div>
+ </div>
+ <div class="foot"><span>The Passport is a research-triage aid, not an official NASA certification or safety system.</span><span>05 / 07</span></div>
+</section>
+<section class="slide">
+ <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>05 / FIELD OPERATIONS</span></div><span>OFFLINE-FIRST · SELF-HOSTABLE</span></div>
+ <div class="kicker">Designed for remote field teams</div>
+ <h2>Capture field evidence even when <span class="accent">the network disappears.</span></h2>
+ <div class="grid3">
+  <div class="card"><div class="eyebrow">Local application</div><div class="metric">PWA</div><p style="font-size:10px;margin-top:7px">Service worker caches the app shell and current published science pack for repeat offline sessions after first installation.</p></div>
+  <div class="card"><div class="eyebrow">Station notebook</div><div class="metric">IndexedDB</div><p style="font-size:10px;margin-top:7px">Save real GNSS-tagged observations, notes, units, method and optional station photos on the current device.</p></div>
+  <div class="card"><div class="eyebrow">Data handoff</div><div class="metric">3 exports</div><p style="font-size:10px;margin-top:7px">JSON, CSV and GeoJSON for station data; import/export supports team handoff without cloud accounts.</p></div>
+ </div>
+ <div class="grid2">
+  <div class="card">
+   <div class="eyebrow">Self-hosted backend source included</div>
+   <h3>FastAPI + PostgreSQL</h3>
+   <div class="list">
+    <div class="listitem"><div class="num">A</div><div><b>Versioned record API</b><span>Health, catalogue, record upsert, bounded batch sync, paginated reads and deletion.</span></div></div>
+    <div class="listitem"><div class="num">B</div><div><b>Production deployment path</b><span>Dockerfile and Compose with PostgreSQL, write token and explicit CORS origins.</span></div></div>
+    <div class="listitem"><div class="num">C</div><div><b>No public server claim</b><span>GitHub Pages hosts the offline app. A persistent API/database still needs owner-provisioned hosting and secrets.</span></div></div>
+   </div>
+  </div>
+  <div class="card">
+   <div class="eyebrow">Default scientific functions</div>
+   <div class="list">
+    <div class="listitem"><div class="num">01</div><div><b>Offline Mission Director</b><span>Deterministic evidence specialists run locally; the optional cloud LLM is never required.</span></div></div>
+    <div class="listitem"><div class="num">02</div><div><b>Coordinate Scout</b><span>Proximity search over the ten bundled seeds; not represented as an exhaustive global pixel scan.</span></div></div>
+    <div class="listitem"><div class="num">03</div><div><b>Field School</b><span>Mission scenarios teach evidence quality and transferability limits.</span></div></div>
+   </div>
+   <div class="note">Offline operation uses the bundled release snapshot. Fresh satellite/data retrieval is not promised without a network connection.</div>
+  </div>
+ </div>
+ <div class="foot"><span>Backend source: <a href="https://github.com/usmanmughal96/analog-x/tree/main/backend">repository / backend</a> · setup: docs/OFFLINE_AND_BACKEND.md</span><span>06 / 07</span></div>
+</section>
+<section class="slide">
+ <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>06 / IMPACT & NEXT TESTS</span></div><span>EARTH IS A LABORATORY, NOT A REPLICA</span></div>
+ <div class="kicker">The outcome is a better field decision</div>
+ <h2>Make every analogy <span class="mint">specific, testable and honest.</span></h2>
+ <div class="grid2">
+  <div class="card">
+   <div class="eyebrow">What the project enables</div>
+   <div class="list">
+    <div class="listitem"><div class="num">01</div><div><b>Prioritise where to look next</b><span>Pakistan’s under-characterized playas are surfaced beside established comparison sites and documented by source.</span></div></div>
+    <div class="listitem"><div class="num">02</div><div><b>Plan the correct experiment</b><span>Evaporite mapping, volcanic outcrop logging, cryosphere image interpretation or coarse terrain reconnaissance.</span></div></div>
+    <div class="listitem"><div class="num">03</div><div><b>Collect evidence consistently</b><span>Field protocol and offline station register preserve coordinates, methods, photos and uncertainty.</span></div></div>
+    <div class="listitem"><div class="num">04</div><div><b>Know what remains different</b><span>Gravity, vacuum, radiation, atmosphere, illumination and site engineering are not reproduced by Earth.</span></div></div>
+   </div>
+  </div>
+  <div class="card">
+   <div class="eyebrow">Open validation priorities</div>
+   <div class="list">
+    <div class="listitem"><div class="num">A</div><div><b>Field geology + lab chemistry</b><span>Verify playa facies, mineralogy, soluble salts, subsurface profile and surface strength with qualified teams.</span></div></div>
+    <div class="listitem"><div class="num">B</div><div><b>Improve Mars reference coverage</b><span>Independent Mars DEM and better-covered local terrain sample before interpreting the Nili Patera profile strongly.</span></div></div>
+    <div class="listitem"><div class="num">C</div><div><b>Complete lunar illumination science</b><span>Formal illumination / permanently shadowed-region analysis remains a future integration.</span></div></div>
+    <div class="listitem"><div class="num">D</div><div><b>Expert and field review</b><span>Local partner approval, permits, specialist interpretation and actual field observations are still essential.</span></div></div>
+   </div>
+   <div class="sources"><span class="source">NASA POWER</span><span class="source">NASA MOLA / LOLA / Diviner</span><span class="source">Sentinel-2 L2A</span><span class="source">Copernicus DEM</span><span class="source">USGS / NASA NTRS / EvK2CNR</span></div>
+  </div>
+ </div>
+ <div class="foot"><span>Live portal: <a href="https://usmanmughal96.github.io/analog-x/">ANALOG-X</a> · Code: <a href="https://github.com/usmanmughal96/analog-x">GitHub</a> · Team X Æ A-Xii</span><span>07 / 07</span></div>
+</section>
+</div>
+<div class="controls"><button id="prev" disabled>← PREVIOUS</button><span class="count" id="count">1 / 7</span><button id="next">NEXT →</button><button onclick="window.print()">PRINT / PDF</button></div>
+<script>
+const slides=[...document.querySelectorAll(".slide")];let current=0;
+function move(delta){slides[current].classList.remove("active");current=Math.max(0,Math.min(slides.length-1,current+delta));slides[current].classList.add("active");document.getElementById("count").textContent=(current+1)+" / "+slides.length;document.getElementById("prev").disabled=current===0;document.getElementById("next").disabled=current===slides.length-1;}
+document.getElementById("prev").addEventListener("click",()=>move(-1));document.getElementById("next").addEventListener("click",()=>move(1));
+document.addEventListener("keydown",e=>{if(e.key==="ArrowRight"||e.key===" "){e.preventDefault();move(1);}if(e.key==="ArrowLeft")move(-1);});
+</script>
+</body>
+</html>
