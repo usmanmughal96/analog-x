@@ -63,3 +63,16 @@ The optional FastAPI service also serves the generated science packs when the co
 - `GET /api/v1/earth-observation/modis-browse` — MOD11A2 granule/browse provenance index.
 
 These are read-only science endpoints. The field-observation write routes remain bearer-token protected when `WRITE_API_KEY` is configured. GitHub Pages continues to load the committed JSON science pack directly and does not depend on the optional API service.
+
+
+## Run the optional API locally
+
+From the repository root:
+
+```bash
+python -m pip install -r backend/requirements.txt
+cd backend
+uvicorn app:app --host 127.0.0.1 --port 8000 --reload
+```
+
+The default development database is SQLite. For shared deployment, set `DATABASE_URL` to a PostgreSQL connection string and configure `WRITE_API_KEY` before exposing field-record write routes. The static dashboard continues to work from the committed JSON pack without this service. CI runs `backend/smoke_test.py` against the generated science packs and tests field-record create/list/delete behavior in a temporary test database.
