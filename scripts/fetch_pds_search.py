@@ -18,11 +18,11 @@ OUT=ROOT/"data"/"planetary"/"pds_search.json"
 API="https://pds.nasa.gov/api/search/1/classes/observational"
 QUERIES=[
  {"id":"mars_target","q":'(ref_lid_target eq "urn:nasa:pds:context:target:planet.mars")',"target":"Mars","instrument_filter":None,"purpose":"Search observational products explicitly associated with the Mars target identifier."},
- {"id":"mars_mola","q":'(ref_lid_instrument eq "urn:nasa:pds:context:instrument:mgs.mola")',"target":"Mars","instrument_filter":None,"purpose":"Search PDS observational products linked to the MGS MOLA instrument."},
- {"id":"mars_hirise","q":'(ref_lid_instrument eq "urn:nasa:pds:context:instrument:hirise.mro")',"target":"Mars","instrument_filter":None,"purpose":"Search PDS observational products linked to the MRO HiRISE instrument."},
- {"id":"moon_target","q":'(ref_lid_target eq "urn:nasa:pds:context:target:satellite.moon")',"target":"Moon","instrument_filter":None,"purpose":"Search observational products explicitly associated with the Moon target identifier."},
- {"id":"moon_lola","q":'(ref_lid_instrument eq "urn:nasa:pds:context:instrument:lro.lola")',"target":"Moon","instrument_filter":None,"purpose":"Search PDS observational products linked to the LRO LOLA instrument."},
- {"id":"moon_diviner","q":'(ref_lid_instrument eq "urn:nasa:pds:context:instrument:lro.dlre")',"target":"Moon","instrument_filter":None,"purpose":"Search PDS observational products linked to the LRO Diviner instrument."},
+ {"id":"mars_mola","q":'(ref_lid_instrument eq "urn:nasa:pds:context:instrument:mgs.mola" and ref_lid_target eq "urn:nasa:pds:context:target:planet.mars")',"target":"Mars","instrument_filter":"mgs.mola","target_filter":"planet.mars","purpose":"Search Mars-target PDS observations from the MGS MOLA instrument."},
+ {"id":"mars_hirise","q":'(ref_lid_instrument eq "urn:nasa:pds:context:instrument:hirise.mro" and ref_lid_target eq "urn:nasa:pds:context:target:planet.mars")',"target":"Mars","instrument_filter":"hirise.mro","target_filter":"planet.mars","purpose":"Search Mars-target PDS observations from the MRO HiRISE instrument."},
+ {"id":"moon_target","q":'(ref_lid_target eq "urn:nasa:pds:context:target:satellite.earth.moon")',"target":"Moon","instrument_filter":None,"target_filter":"satellite.earth.moon","purpose":"Search observational products explicitly associated with the Moon target identifier."},
+ {"id":"moon_lola","q":'(ref_lid_instrument eq "urn:nasa:pds:context:instrument:lro.lola" and ref_lid_target eq "urn:nasa:pds:context:target:satellite.earth.moon")',"target":"Moon","instrument_filter":"lro.lola","target_filter":"satellite.earth.moon","purpose":"Search Moon-target PDS observations from the LRO LOLA instrument."},
+ {"id":"moon_diviner","q":'(ref_lid_instrument eq "urn:nasa:pds:context:instrument:lro.dlre" and ref_lid_target eq "urn:nasa:pds:context:target:satellite.earth.moon")',"target":"Moon","instrument_filter":"lro.dlre","target_filter":"satellite.earth.moon","purpose":"Search Moon-target PDS observations from the LRO Diviner instrument."},
 ]
 s=requests.Session()
 s.headers.update({"User-Agent":"ANALOG-X/1.1 PDS public search integration","Accept":"application/json"})
@@ -61,7 +61,10 @@ def main():
    relevant=[x for x in products[:100] if x.get("type") == "Product_Observational" or x.get("product_class") == "observational"]
    if q.get("instrument_filter"):
     token=q["instrument_filter"].lower()
-    relevant=[x for x in relevant if token in json.dumps(x.get("observing_system_components",[])).lower() or token in str(x.get("title","")).lower() or token in json.dumps(x.get("properties",{})).lower()]
+    relevant=[x for x in relevant if token in json.dumps(x.get("observing_system_components",[])).lower() or token in json.dumps((x.get("properties",{}) or {}).get("ref_lid_instrument",[])).lower()]
+   if q.get("target_filter"):
+    token=q["target_filter"].lower()
+    relevant=[x for x in relevant if token in json.dumps(x.get("targets",[])).lower() or token in json.dumps((x.get("properties",{}) or {}).get("ref_lid_target",[])).lower()]
    results.append({**q,"status":"results_returned" if relevant else "no_relevant_products_returned",
       "query_url":r.url,"returned_count":len(relevant),"raw_result_count":len(products),"products":[compact_product(x) for x in relevant],
       "response_summary":{"hits":(payload.get("summary") or {}).get("hits")} if isinstance(payload,dict) else None})
