@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "ANALOG-X Analog Transferability & Failure Analysis (ATFA)",
-  "generated_at_utc": "2026-11-15T09:09:48+00:00",
+  "generated_at_utc": "2026-11-16T13:46:32+00:00",
   "scientific_contract": {
     "unit_of_analysis": "A named field experiment or process, not whole-site resemblance.",
     "classification": "Rule-based qualitative transferability classes authored in science/build_transferability.py; not probabilities, not a universal similarity score, not NASA certification.",
@@ -2546,7 +2546,7 @@
             "PRECTOTCORR",
             "ALLSKY_SFC_SW_DWN"
           ],
-          "fetched_at_utc": "2026-11-14T16:03:20+00:00",
+          "fetched_at_utc": "2026-11-16T11:14:38+00:00",
           "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
         },
         "terrain": {
@@ -3799,7 +3799,7 @@
             "PRECTOTCORR",
             "ALLSKY_SFC_SW_DWN"
           ],
-          "fetched_at_utc": "2026-11-14T16:03:20+00:00",
+          "fetched_at_utc": "2026-11-16T11:14:39+00:00",
           "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
         },
         "terrain": {
@@ -5064,7 +5064,7 @@
             "PRECTOTCORR",
             "ALLSKY_SFC_SW_DWN"
           ],
-          "fetched_at_utc": "2026-11-14T16:03:16+00:00",
+          "fetched_at_utc": "2026-11-16T11:14:34+00:00",
           "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
         },
         "terrain": {
@@ -6316,7 +6316,7 @@
             "PRECTOTCORR",
             "ALLSKY_SFC_SW_DWN"
           ],
-          "fetched_at_utc": "2026-11-14T16:03:19+00:00",
+          "fetched_at_utc": "2026-11-16T11:14:38+00:00",
           "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
         },
         "terrain": {
@@ -7571,7 +7571,7 @@
             "PRECTOTCORR",
             "ALLSKY_SFC_SW_DWN"
           ],
-          "fetched_at_utc": "2026-11-14T16:03:17+00:00",
+          "fetched_at_utc": "2026-11-16T11:14:35+00:00",
           "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
         },
         "terrain": {
@@ -8833,7 +8833,7 @@
             "PRECTOTCORR",
             "ALLSKY_SFC_SW_DWN"
           ],
-          "fetched_at_utc": "2026-11-14T16:03:17+00:00",
+          "fetched_at_utc": "2026-11-16T11:14:35+00:00",
           "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
         },
         "terrain": {
@@ -10087,7 +10087,7 @@
             "PRECTOTCORR",
             "ALLSKY_SFC_SW_DWN"
           ],
-          "fetched_at_utc": "2026-11-14T16:03:17+00:00",
+          "fetched_at_utc": "2026-11-16T11:14:36+00:00",
           "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
         },
         "terrain": {
@@ -11340,7 +11340,7 @@
             "PRECTOTCORR",
             "ALLSKY_SFC_SW_DWN"
           ],
-          "fetched_at_utc": "2026-11-14T16:03:18+00:00",
+          "fetched_at_utc": "2026-11-16T11:14:36+00:00",
           "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
         },
         "terrain": {
@@ -12584,7 +12584,7 @@
             "PRECTOTCORR",
             "ALLSKY_SFC_SW_DWN"
           ],
-          "fetched_at_utc": "2026-11-14T16:03:19+00:00",
+          "fetched_at_utc": "2026-11-16T11:14:37+00:00",
           "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
         },
         "terrain": {
@@ -13837,7 +13837,7 @@
             "PRECTOTCORR",
             "ALLSKY_SFC_SW_DWN"
           ],
-          "fetched_at_utc": "2026-11-14T16:03:19+00:00",
+          "fetched_at_utc": "2026-11-16T11:14:37+00:00",
           "limitation": "Gridded climatology; not a local weather station, surface temperature, dust flux or resource measurement."
         },
         "terrain": {
