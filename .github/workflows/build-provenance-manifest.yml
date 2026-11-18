@@ -12,6 +12,7 @@ on:
       - "scripts/refresh_source_registry.py"
       - "scripts/validate_field_observations.py"
       - "scripts/validate_evidence_inventory.py"
+      - "tests/**"
       - "README.md"
       - "index.html"
       - "global-discovery.html"
