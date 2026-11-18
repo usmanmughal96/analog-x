@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at_utc": "2026-11-18T14:59:16.688750+00:00",
+  "generated_at_utc": "2026-11-18T15:00:49.800668+00:00",
   "status": "awaiting_global_scan",
   "note": "Run the global GLO-90 workflow to generate global candidate data.",
   "global_land_cover_enrichment": {
