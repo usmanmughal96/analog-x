@@ -3,7 +3,7 @@ const CACHE_VERSION="analogx-offline-v2";
 const APP_CACHE=CACHE_VERSION+"-app";
 const DATA_CACHE=CACHE_VERSION+"-data";
 const APP_FILES=[
- "./","./index.html","./demo.html","./transferability.html","./manifest.webmanifest",
+ "./","./index.html","./demo.html","./transferability.html","./discovery.html","./manifest.webmanifest",
  "./assets/analogx-labs.js?v=20261115-offline",
  "./assets/analogx-labs.css?v=20261115-offline",
  "./assets/analogx-scout.css?v=20261114-portalfix",
@@ -11,7 +11,7 @@ const APP_FILES=[
  "./assets/analogx-field-passport.css?v=20261115-offline"
 ];
 const DATA_FILES=[
- "./data/agents/candidate_catalog.json","./data/transferability/transferability.json",
+ "./data/agents/candidate_catalog.json","./data/transferability/transferability.json","./data/analog_benchmark/regional_window_scan.json",
  "./data/planetary/pds_search.json","./data/nasa/modis_browse_index.json","./data/power/index.json",
  "./data/power/koh.json","./data/power/dallol.json","./data/power/atacama.json",
  "./data/power/mcmurdo.json","./data/power/haughton.json","./data/power/iceland.json",
