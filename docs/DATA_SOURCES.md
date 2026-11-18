@@ -27,7 +27,7 @@ NASA GIBS WMS documentation: https://nasa-gibs.github.io/gibs-api-docs/access-ba
 | Sentinel-2 L2A visual COGs | 768×768 clipped RGB quicklooks | data/pakistan/quicklooks/*.png and index.json | RGB browse product; no geology/mineral classification |
 | NASA DSCOVR / EPIC | Optional full-disc Earth context image | data/nasa/epic_latest.png, epic_latest.json | Global context only; not a site metric |
 | NASA Earthdata / CMR | MODIS LST, MODIS land-cover and MERRA-2 aerosol collection/granule catalogue discovery | data/nasa/earthdata_cmr_catalog.json | Catalogue metadata only; protected granule files not downloaded/decoded |
-| Copernicus DEM GLO-30 DSM | Earth terrain surface for four Pakistan windows: Koh-i-Sultan, Hispar Glacier, Chagai small playas and Hamun-i-Mashkel | data/terrain/terrain_comparison.json and four derived hillshade PNGs | Copernicus Digital Surface Model (includes surface objects); 30 m source averaged to about 925 m |
+| Copernicus DEM GLO-30 DSM | Ten Earth study/reference windows: four Pakistan leads plus Dallol, Atacama, McMurdo, Haughton, Iceland and Death Valley | `data/terrain/terrain_comparison.json`, ten derived hillshades and `native_30m_diagnostics` per Earth site | 30 m DSM source is used for separate ~30 m parent-area slope/relief diagnostics (10/10 current areas, 98.36–100% valid cells) and area-averaged to ~925 m for matched Moon/Mars terrain comparison; the DSM is not bare-earth or rover-scale |
 | MGS MOLA MEGDR 64 pixels/degree | Mars terrain around Nili Patera, Syrtis Major | data/terrain/terrain_comparison.json and MOLA hillshade PNG | Only 50.53% valid observation coverage in current 30 km window; 87 complete 3×3 neighborhoods |
 
 ### NASA POWER variables
