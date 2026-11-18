@@ -246,6 +246,29 @@
       "limitations": [
         "Linked as context only; no redistributable geospatial layers claimed as ingested."
       ]
+    },
+    {
+      "id": "io_lulc_global",
+      "name": "10m Annual Land Use Land Cover (9-class) V2",
+      "provider": "Impact Observatory / Esri / Microsoft Planetary Computer",
+      "state": "planned",
+      "data_type": "Annual global land-cover classification derived from Sentinel-2; categorical classes",
+      "resolution": "10 m native source; modal resampling to 30 m analysis grid within retained 5.55 km global terrain shortlist windows",
+      "coverage": "Global collection for 2017-2023; ANALOG-X enriches retained global terrain candidates only, not all global windows",
+      "artifacts": [
+        "data/global_discovery/global_landcover_enrichment.json",
+        "data/global_discovery/global_discovery.json"
+      ],
+      "url": "https://planetarycomputer.microsoft.com/dataset/io-lulc-annual-v02",
+      "collection": "io-lulc-annual-v02",
+      "license": "CC-BY-4.0",
+      "limitations": [
+        "Annual 2023 ML land-cover predictions are environmental context, not lithology, mineralogy, soil chemistry, brine or resource classification.",
+        "Provider-reported average accuracy is above 75%; accuracy varies by class and geography.",
+        "Source is Sentinel-2-derived; it is not a fully independent sensor family from Sentinel-2 imagery.",
+        "Land-cover data are processed for the retained global terrain shortlist only; this is not global per-pixel reprocessing of every candidate window.",
+        "No physical field validation is implied."
+      ]
     }
   ]
 }
