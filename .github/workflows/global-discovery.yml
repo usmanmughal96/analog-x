@@ -16,7 +16,7 @@ permissions:
 
 concurrency:
   group: analogx-global-discovery-release
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   scan:
