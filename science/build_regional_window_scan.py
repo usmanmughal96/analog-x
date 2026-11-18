@@ -260,7 +260,7 @@ def add_scores(
 
     ranked.sort(key=lambda item: (-item["score"], item["id"]))
     for index, window in enumerate(ranked, start=1):
-        window["global_rank"] = index
+        window["network_rank"] = index
 
     # Sensitivity is calculated within each parent 30 km region. Overlapping
     # windows are dependent, so this is explicitly not a confidence interval.
@@ -318,7 +318,7 @@ def add_scores(
             "longitude": round(window["longitude"], 5),
             "row": window["row"],
             "column": window["column"],
-            "global_rank": window["global_rank"],
+            "network_rank": window["network_rank"],
             "score": round(window["score"], 2),
             "top_decile_stability_pct": round(
                 window["top_decile_stability_pct"], 2
@@ -376,7 +376,7 @@ def add_scores(
             ),
         },
         "candidate_windows": [rounded_candidate(window) for window in selected],
-        "global_top_30_unfiltered": [rounded_candidate(window) for window in ranked[:30]],
+        "network_top_30_unfiltered": [rounded_candidate(window) for window in ranked[:30]],
     }
 
 
