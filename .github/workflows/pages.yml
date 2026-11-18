@@ -28,6 +28,44 @@ jobs:
       - name: Validate data, UI and agent contracts
         run: node scripts/validate_project.mjs
 
+      - name: Set up Python for field and source registry validation
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate field evidence, source registry and inline browser scripts
+        run: |
+          python scripts/validate_field_observations.py
+          python scripts/validate_evidence_inventory.py
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          class InlineScripts(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.active=False
+                  self.blocks=[]
+                  self.current=[]
+              def handle_starttag(self, tag, attrs):
+                  if tag == "script" and not dict(attrs).get("src"):
+                      self.active=True
+                      self.current=[]
+              def handle_endtag(self, tag):
+                  if tag == "script" and self.active:
+                      self.blocks.append("\\n".join(self.current))
+                      self.active=False
+              def handle_data(self, data):
+                  if self.active:
+                      self.current.append(data)
+          for filename in ("global-discovery.html", "discovery.html"):
+              parser=InlineScripts()
+              parser.feed(Path(filename).read_text(encoding="utf-8"))
+              assert parser.blocks, f"No inline JS found in {filename}"
+              Path(f"/tmp/{filename}.js").write_text("\\n".join(parser.blocks),encoding="utf-8")
+          PY
+          node --check /tmp/global-discovery.html.js
+          node --check /tmp/discovery.html.js
+
   deploy:
     needs: validate
     environment:
