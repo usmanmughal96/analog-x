@@ -62,6 +62,8 @@ Do not schedule fieldwork without land-access permission, protected-area review,
 
 ## 4. Data depth and evidence classes
 
+The global candidate shortlist is also enriched with 2023 annual land cover from Planetary Computer collection `io-lulc-annual-v02` (global 10 m class predictions derived from Sentinel-2). ANALOG-X samples the classes for retained terrain windows at 30 m modal support and records valid-pixel percentage, class fractions and STAC item IDs. This thematic layer extends global environmental context, but it is limited to the retained shortlist, not every window in the global terrain scan. Its ML classes are not geology, minerals, brine or field observations. The source reports assessed average accuracy above 75%; that is not a per-candidate accuracy guarantee. CC BY 4.0 attribution is retained.
+
 Every displayed dataset must be assigned one of these explicit states:
 
 | State | Meaning |
