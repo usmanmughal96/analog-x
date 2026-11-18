@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "project": "ANALOG-X",
+  "purpose": "Ground-truth protocol for independent validation of terrestrial analog candidate leads; this template is not evidence that fieldwork has occurred.",
+  "required_before_visit": [
+    "land_access_permission",
+    "protected_area_and_local_rules_review",
+    "site_safety_and_weather_plan",
+    "field_team_and_emergency_contacts",
+    "instrument_calibration_record"
+  ],
+  "stations": [
+    {
+      "station_id": "",
+      "candidate_id": "",
+      "date_utc": "",
+      "observer_ids": [],
+      "latitude_wgs84": null,
+      "longitude_wgs84": null,
+      "coordinate_accuracy_m": null,
+      "coordinate_method": "GNSS / surveyed / other",
+      "elevation_m": null,
+      "elevation_source": "",
+      "photo_ids": [],
+      "photo_bearings_deg": [],
+      "surface_description": "",
+      "geomorphology": "",
+      "geology_observed": "",
+      "rock_or_soil_description": "",
+      "grain_size_method": "",
+      "surface_temperature_c": null,
+      "air_temperature_c": null,
+      "relative_humidity_pct": null,
+      "wind_speed_m_s": null,
+      "pressure_kpa": null,
+      "weather_conditions": "",
+      "sample_ids": [],
+      "sample_chain_of_custody": "",
+      "instrument_ids": [],
+      "calibration_status": "",
+      "uncertainty_notes": "",
+      "access_constraints": "",
+      "safety_observations": "",
+      "independent_reviewer": "",
+      "review_status": "not_reviewed",
+      "limitations": []
+    }
+  ],
+  "measurements": {
+    "coordinate_system": "WGS84",
+    "temperature_unit": "degC",
+    "wind_speed_unit": "m/s",
+    "pressure_unit": "kPa",
+    "required_provenance": [
+      "instrument_make_model_serial",
+      "calibration_date",
+      "measurement_time_utc",
+      "operator",
+      "measurement_method",
+      "uncertainty_or_detection_limit"
+    ]
+  },
+  "validation_states": [
+    "not_assessed",
+    "desk_evidence_only",
+    "field_planned",
+    "field_observed_unreviewed",
+    "independently_reviewed",
+    "not_validated"
+  ],
+  "rules": [
+    "Never infer a measurement from a satellite browse image.",
+    "Every sample and photograph must have a unique ID and station link.",
+    "Record non-observations and inaccessible locations; do not silently omit them.",
+    "Independent review is required before marking a candidate independently_reviewed.",
+    "A field observation validates only the observed property and location, not planetary equivalence, resource abundance, landing safety or rover traversability."
+  ]
+}
