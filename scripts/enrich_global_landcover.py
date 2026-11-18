@@ -21,7 +21,7 @@ import rasterio
 import requests
 from rasterio.enums import Resampling
 from rasterio.transform import from_origin
-from rasterio.warp import reproject, transform_bounds
+from rasterio.warp import reproject, transform
 
 ROOT=Path(__file__).resolve().parents[1]
 GLOBAL_PATH=ROOT/"data/global_discovery/global_discovery.json"
@@ -114,10 +114,10 @@ def enrich_one(candidate:dict[str,Any],token:str)->dict[str,Any]:
     if abs(lat)>84:
         return {"state":"outside_sentinel2_landcover_coverage","limitation":"The 2023 Sentinel-2-derived 10 m land-cover layer is not assumed to cover this polar window; no class values are inferred.","valid_pixel_percent":0,"class_fractions_percent":{}}
     crs=local_crs(lat,lon)
-    cx,cy=rasterio.warp.transform("EPSG:4326",crs,[lon],[lat])
+    cx,cy=transform("EPSG:4326",crs,[lon],[lat])
     left=float(cx[0])-HALF_WINDOW_M
     top=float(cy[0])+HALF_WINDOW_M
-    width=height=int(round((2*HALF_WINDOW_M)/TARGET_RES_M))
+    width=height=int(math.ceil((2*HALF_WINDOW_M)/TARGET_RES_M))
     bbox=candidate_bbox(lat,lon)
     sess=session()
     items=find_items(bbox,sess)
@@ -133,7 +133,7 @@ def enrich_one(candidate:dict[str,Any],token:str)->dict[str,Any]:
             fill=(grid==0)&(tile!=0)
             grid[fill]=tile[fill]
             if np.any(tile!=0):
-                used.append({"item_id":item.get("id"),"datetime":item.get("properties",{}).get("datetime"),"asset_href":href,"license":item.get("collection","")})
+                used.append({"item_id":item.get("id"),"datetime":item.get("properties",{}).get("datetime"),"asset_href":href,"license":item.get("properties",{}).get("license","CC-BY-4.0")})
         except Exception as exc:
             errors.append({"item_id":item.get("id"),"error":str(exc)[:400]})
     valid=grid!=0
