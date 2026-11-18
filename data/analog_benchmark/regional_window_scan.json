@@ -14,7 +14,8 @@
       "Terrain similarity does not measure lithology, mineralogy, regolith strength, dust, water or radiation.",
       "No rover-scale trafficability, landing safety, resource access or base suitability is inferred."
     ],
-    "inspiration_and_method_note": "The IQR-normalized terrain-distance and rank-sensitivity ideas were independently implemented after reviewing public NASA Space Apps examples from Team Shoemaker and Earth Analog Explorer. No competitor source code is copied into this engine."
+    "inspiration_and_method_note": "The IQR-normalized terrain-distance and rank-sensitivity ideas were independently implemented after reviewing public NASA Space Apps examples from Team Shoemaker and Earth Analog Explorer. No competitor source code is copied into this engine.",
+    "coordinate_note": "Displayed WGS84 window centres are approximate offsets from each parent study-area reference centre using nominal grid spacing. They are map locators, not surveyed coordinates, field-station positions or parcel boundaries."
   },
   "inputs": {
     "earth": "data/terrain/terrain_comparison.json",
@@ -81,11 +82,10 @@
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.10572,
-          "longitude": 75.19227,
+          "latitude": 36.106,
+          "longitude": 75.192,
           "row": 13,
           "column": 9,
-          "global_rank": 1,
           "score": 97.59,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -118,18 +118,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 1
         },
         {
           "id": "hispar_glacier_r15_c18",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.0891,
-          "longitude": 75.28483,
+          "latitude": 36.089,
+          "longitude": 75.285,
           "row": 15,
           "column": 18,
-          "global_rank": 3,
           "score": 95.93,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -162,18 +162,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 3
         },
         {
           "id": "hispar_glacier_r6_c22",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.16389,
-          "longitude": 75.32597,
+          "latitude": 36.164,
+          "longitude": 75.326,
           "row": 6,
           "column": 22,
-          "global_rank": 8,
           "score": 93.16,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -206,18 +206,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 8
         },
         {
           "id": "hispar_glacier_r8_c3",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.14727,
-          "longitude": 75.13056,
+          "latitude": 36.147,
+          "longitude": 75.131,
           "row": 8,
           "column": 3,
-          "global_rank": 12,
           "score": 91.51,
           "top_decile_stability_pct": 99,
           "terrain": {
@@ -250,18 +250,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 12
         },
         {
           "id": "death_r16_c16",
           "site_id": "death",
           "name": "Death Valley region",
           "country": "United States",
-          "latitude": 36.22507,
-          "longitude": -116.76909,
+          "latitude": 36.225,
+          "longitude": -116.769,
           "row": 16,
           "column": 16,
-          "global_rank": 14,
           "score": 90.75,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -298,18 +298,18 @@
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ]
+          ],
+          "network_rank": 14
         },
         {
           "id": "mcmurdo_r11_c24",
           "site_id": "mcmurdo",
           "name": "McMurdo Dry Valleys",
           "country": "Antarctica",
-          "latitude": -77.48338,
-          "longitude": 162.2223,
+          "latitude": -77.483,
+          "longitude": 162.222,
           "row": 11,
           "column": 24,
-          "global_rank": 21,
           "score": 89.53,
           "top_decile_stability_pct": 90.8,
           "terrain": {
@@ -347,18 +347,18 @@
               "url": "https://par.nsf.gov/servlets/purl/10396201",
               "supports": "Reviews dry-valley geology, environment, ecology, ice and wind processes relevant to Mars."
             }
-          ]
+          ],
+          "network_rank": 21
         },
         {
           "id": "mcmurdo_r19_c11",
           "site_id": "mcmurdo",
           "name": "McMurdo Dry Valleys",
           "country": "Antarctica",
-          "latitude": -77.54986,
-          "longitude": 161.72322,
+          "latitude": -77.55,
+          "longitude": 161.723,
           "row": 19,
           "column": 11,
-          "global_rank": 32,
           "score": 88.34,
           "top_decile_stability_pct": 93,
           "terrain": {
@@ -396,18 +396,18 @@
               "url": "https://par.nsf.gov/servlets/purl/10396201",
               "supports": "Reviews dry-valley geology, environment, ecology, ice and wind processes relevant to Mars."
             }
-          ]
+          ],
+          "network_rank": 32
         },
         {
           "id": "mcmurdo_r11_c8",
           "site_id": "mcmurdo",
           "name": "McMurdo Dry Valleys",
           "country": "Antarctica",
-          "latitude": -77.48338,
-          "longitude": 161.60804,
+          "latitude": -77.483,
+          "longitude": 161.608,
           "row": 11,
           "column": 8,
-          "global_rank": 48,
           "score": 86.83,
           "top_decile_stability_pct": 86.2,
           "terrain": {
@@ -445,18 +445,18 @@
               "url": "https://par.nsf.gov/servlets/purl/10396201",
               "supports": "Reviews dry-valley geology, environment, ecology, ice and wind processes relevant to Mars."
             }
-          ]
+          ],
+          "network_rank": 48
         },
         {
           "id": "mcmurdo_r17_c19",
           "site_id": "mcmurdo",
           "name": "McMurdo Dry Valleys",
           "country": "Antarctica",
-          "latitude": -77.53324,
-          "longitude": 162.03035,
+          "latitude": -77.533,
+          "longitude": 162.03,
           "row": 17,
           "column": 19,
-          "global_rank": 58,
           "score": 85.92,
           "top_decile_stability_pct": 77.4,
           "terrain": {
@@ -494,18 +494,18 @@
               "url": "https://par.nsf.gov/servlets/purl/10396201",
               "supports": "Reviews dry-valley geology, environment, ecology, ice and wind processes relevant to Mars."
             }
-          ]
+          ],
+          "network_rank": 58
         },
         {
           "id": "death_r22_c19",
           "site_id": "death",
           "name": "Death Valley region",
           "country": "United States",
-          "latitude": 36.17522,
-          "longitude": -116.73818,
+          "latitude": 36.175,
+          "longitude": -116.738,
           "row": 22,
           "column": 19,
-          "global_rank": 63,
           "score": 85.78,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -542,18 +542,18 @@
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ]
+          ],
+          "network_rank": 63
         },
         {
           "id": "death_r7_c16",
           "site_id": "death",
           "name": "Death Valley region",
           "country": "United States",
-          "latitude": 36.29986,
-          "longitude": -116.76909,
+          "latitude": 36.3,
+          "longitude": -116.769,
           "row": 7,
           "column": 16,
-          "global_rank": 99,
           "score": 83.89,
           "top_decile_stability_pct": 97.8,
           "terrain": {
@@ -590,18 +590,18 @@
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ]
+          ],
+          "network_rank": 99
         },
         {
           "id": "death_r26_c26",
           "site_id": "death",
           "name": "Death Valley region",
           "country": "United States",
-          "latitude": 36.14198,
-          "longitude": -116.66605,
+          "latitude": 36.142,
+          "longitude": -116.666,
           "row": 26,
           "column": 26,
-          "global_rank": 969,
           "score": 52.75,
           "top_decile_stability_pct": 3.4,
           "terrain": {
@@ -638,18 +638,18 @@
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ]
+          ],
+          "network_rank": 969
         },
         {
           "id": "dallol_r21_c0",
           "site_id": "dallol",
           "name": "Dallol / Danakil Depression",
           "country": "Ethiopia",
-          "latitude": 14.18352,
-          "longitude": 40.18855,
+          "latitude": 14.184,
+          "longitude": 40.189,
           "row": 21,
           "column": 0,
-          "global_rank": 1417,
           "score": 30.88,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -687,18 +687,18 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ]
+          ],
+          "network_rank": 1417
         },
         {
           "id": "koh_i_sultan_r11_c18",
           "site_id": "koh_i_sultan",
           "name": "Koh-i-Sultan / Chagai",
           "country": "Pakistan",
-          "latitude": 29.11662,
-          "longitude": 62.84755,
+          "latitude": 29.117,
+          "longitude": 62.848,
           "row": 11,
           "column": 18,
-          "global_rank": 1584,
           "score": 25,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -730,18 +730,18 @@
               "url": "https://pubs.usgs.gov/publication/ofr75550",
               "supports": "Regional geological map context."
             }
-          ]
+          ],
+          "network_rank": 1584
         },
         {
           "id": "haughton_r3_c26",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.45809,
-          "longitude": -89.24718,
+          "latitude": 75.458,
+          "longitude": -89.247,
           "row": 3,
           "column": 26,
-          "global_rank": 1734,
           "score": 20.86,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -778,18 +778,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 1734
         },
         {
           "id": "koh_i_sultan_r14_c12",
           "site_id": "koh_i_sultan",
           "name": "Koh-i-Sultan / Chagai",
           "country": "Pakistan",
-          "latitude": 29.09169,
-          "longitude": 62.79049,
+          "latitude": 29.092,
+          "longitude": 62.79,
           "row": 14,
           "column": 12,
-          "global_rank": 1775,
           "score": 20.06,
           "top_decile_stability_pct": 71,
           "terrain": {
@@ -821,18 +821,18 @@
               "url": "https://pubs.usgs.gov/publication/ofr75550",
               "supports": "Regional geological map context."
             }
-          ]
+          ],
+          "network_rank": 1775
         },
         {
           "id": "koh_i_sultan_r18_c18",
           "site_id": "koh_i_sultan",
           "name": "Koh-i-Sultan / Chagai",
           "country": "Pakistan",
-          "latitude": 29.05845,
-          "longitude": 62.84755,
+          "latitude": 29.058,
+          "longitude": 62.848,
           "row": 18,
           "column": 18,
-          "global_rank": 1851,
           "score": 18.72,
           "top_decile_stability_pct": 0,
           "terrain": {
@@ -864,18 +864,18 @@
               "url": "https://pubs.usgs.gov/publication/ofr75550",
               "supports": "Regional geological map context."
             }
-          ]
+          ],
+          "network_rank": 1851
         },
         {
           "id": "koh_i_sultan_r6_c13",
           "site_id": "koh_i_sultan",
           "name": "Koh-i-Sultan / Chagai",
           "country": "Pakistan",
-          "latitude": 29.15817,
+          "latitude": 29.158,
           "longitude": 62.8,
           "row": 6,
           "column": 13,
-          "global_rank": 1902,
           "score": 17.9,
           "top_decile_stability_pct": 0,
           "terrain": {
@@ -907,18 +907,18 @@
               "url": "https://pubs.usgs.gov/publication/ofr75550",
               "supports": "Regional geological map context."
             }
-          ]
+          ],
+          "network_rank": 1902
         },
         {
           "id": "haughton_r26_c3",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.26698,
-          "longitude": -90.0041,
+          "latitude": 75.267,
+          "longitude": -90.004,
           "row": 26,
           "column": 3,
-          "global_rank": 1924,
           "score": 17.63,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -955,18 +955,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 1924
         },
         {
           "id": "dallol_r14_c0",
           "site_id": "dallol",
           "name": "Dallol / Danakil Depression",
           "country": "Ethiopia",
-          "latitude": 14.24169,
-          "longitude": 40.18855,
+          "latitude": 14.242,
+          "longitude": 40.189,
           "row": 14,
           "column": 0,
-          "global_rank": 1997,
           "score": 16.82,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -1004,18 +1004,18 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ]
+          ],
+          "network_rank": 1997
         },
         {
           "id": "haughton_r10_c26",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.39993,
-          "longitude": -89.24718,
+          "latitude": 75.4,
+          "longitude": -89.247,
           "row": 10,
           "column": 26,
-          "global_rank": 2045,
           "score": 16.19,
           "top_decile_stability_pct": 74.6,
           "terrain": {
@@ -1052,18 +1052,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 2045
         },
         {
           "id": "haughton_r8_c5",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.41655,
-          "longitude": -89.93828,
+          "latitude": 75.417,
+          "longitude": -89.938,
           "row": 8,
           "column": 5,
-          "global_rank": 2109,
           "score": 15.6,
           "top_decile_stability_pct": 68,
           "terrain": {
@@ -1100,18 +1100,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 2109
         },
         {
           "id": "iceland_r9_c26",
           "site_id": "iceland",
           "name": "Icelandic volcanic fields",
           "country": "Iceland",
-          "latitude": 63.90824,
-          "longitude": -22.00468,
+          "latitude": 63.908,
+          "longitude": -22.005,
           "row": 9,
           "column": 26,
-          "global_rank": 2248,
           "score": 14.51,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -1148,18 +1148,18 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ]
+          ],
+          "network_rank": 2248
         },
         {
           "id": "iceland_r11_c11",
           "site_id": "iceland",
           "name": "Icelandic volcanic fields",
           "country": "Iceland",
-          "latitude": 63.89162,
-          "longitude": -22.28774,
+          "latitude": 63.892,
+          "longitude": -22.288,
           "row": 11,
           "column": 11,
-          "global_rank": 2277,
           "score": 14.37,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -1196,18 +1196,18 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ]
+          ],
+          "network_rank": 2277
         },
         {
           "id": "iceland_r12_c20",
           "site_id": "iceland",
           "name": "Icelandic volcanic fields",
           "country": "Iceland",
-          "latitude": 63.88331,
-          "longitude": -22.1179,
+          "latitude": 63.883,
+          "longitude": -22.118,
           "row": 12,
           "column": 20,
-          "global_rank": 2744,
           "score": 12.52,
           "top_decile_stability_pct": 49.2,
           "terrain": {
@@ -1244,18 +1244,18 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ]
+          ],
+          "network_rank": 2744
         },
         {
           "id": "iceland_r2_c26",
           "site_id": "iceland",
           "name": "Icelandic volcanic fields",
           "country": "Iceland",
-          "latitude": 63.9664,
-          "longitude": -22.00468,
+          "latitude": 63.966,
+          "longitude": -22.005,
           "row": 2,
           "column": 26,
-          "global_rank": 2896,
           "score": 11.94,
           "top_decile_stability_pct": 0,
           "terrain": {
@@ -1292,18 +1292,18 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ]
+          ],
+          "network_rank": 2896
         },
         {
           "id": "dallol_r26_c5",
           "site_id": "dallol",
           "name": "Dallol / Danakil Depression",
           "country": "Ethiopia",
-          "latitude": 14.14198,
-          "longitude": 40.23141,
+          "latitude": 14.142,
+          "longitude": 40.231,
           "row": 26,
           "column": 5,
-          "global_rank": 2949,
           "score": 11.71,
           "top_decile_stability_pct": 53,
           "terrain": {
@@ -1341,18 +1341,18 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ]
+          ],
+          "network_rank": 2949
         },
         {
           "id": "dallol_r7_c0",
           "site_id": "dallol",
           "name": "Dallol / Danakil Depression",
           "country": "Ethiopia",
-          "latitude": 14.29986,
-          "longitude": 40.18855,
+          "latitude": 14.3,
+          "longitude": 40.189,
           "row": 7,
           "column": 0,
-          "global_rank": 3951,
           "score": 9.33,
           "top_decile_stability_pct": 0,
           "terrain": {
@@ -1390,18 +1390,18 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ]
+          ],
+          "network_rank": 3951
         },
         {
           "id": "chagai_small_playas_r12_c20",
           "site_id": "chagai_small_playas",
           "name": "Chagai small salt playas near Nok Kundi",
           "country": "Pakistan",
-          "latitude": 28.59164,
-          "longitude": 62.69957,
+          "latitude": 28.592,
+          "longitude": 62.7,
           "row": 12,
           "column": 20,
-          "global_rank": 4002,
           "score": 9.16,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -1434,18 +1434,18 @@
               "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
               "supports": "Historical report describes two small salt-surfaced playas at the stated coordinates and discusses possible evaporite/brine sources; it does not provide modern site validation or a current mineral map."
             }
-          ]
+          ],
+          "network_rank": 4002
         },
         {
           "id": "chagai_small_playas_r6_c23",
           "site_id": "chagai_small_playas",
           "name": "Chagai small salt playas near Nok Kundi",
           "country": "Pakistan",
-          "latitude": 28.6415,
-          "longitude": 62.72796,
+          "latitude": 28.642,
+          "longitude": 62.728,
           "row": 6,
           "column": 23,
-          "global_rank": 4063,
           "score": 9.01,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -1478,20 +1478,20 @@
               "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
               "supports": "Historical report describes two small salt-surfaced playas at the stated coordinates and discusses possible evaporite/brine sources; it does not provide modern site validation or a current mineral map."
             }
-          ]
+          ],
+          "network_rank": 4063
         }
       ],
-      "global_top_30_unfiltered": [
+      "network_top_30_unfiltered": [
         {
           "id": "hispar_glacier_r13_c9",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.10572,
-          "longitude": 75.19227,
+          "latitude": 36.106,
+          "longitude": 75.192,
           "row": 13,
           "column": 9,
-          "global_rank": 1,
           "score": 97.59,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -1524,18 +1524,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 1
         },
         {
           "id": "hispar_glacier_r13_c11",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.10572,
-          "longitude": 75.21284,
+          "latitude": 36.106,
+          "longitude": 75.213,
           "row": 13,
           "column": 11,
-          "global_rank": 2,
           "score": 96.62,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -1568,18 +1568,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 2
         },
         {
           "id": "hispar_glacier_r15_c18",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.0891,
-          "longitude": 75.28483,
+          "latitude": 36.089,
+          "longitude": 75.285,
           "row": 15,
           "column": 18,
-          "global_rank": 3,
           "score": 95.93,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -1612,18 +1612,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 3
         },
         {
           "id": "hispar_glacier_r12_c12",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.11403,
-          "longitude": 75.22313,
+          "latitude": 36.114,
+          "longitude": 75.223,
           "row": 12,
           "column": 12,
-          "global_rank": 4,
           "score": 95.46,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -1656,18 +1656,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 4
         },
         {
           "id": "hispar_glacier_r14_c9",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.09741,
-          "longitude": 75.19227,
+          "latitude": 36.097,
+          "longitude": 75.192,
           "row": 14,
           "column": 9,
-          "global_rank": 5,
           "score": 95.32,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -1700,18 +1700,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 5
         },
         {
           "id": "hispar_glacier_r15_c17",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.0891,
-          "longitude": 75.27455,
+          "latitude": 36.089,
+          "longitude": 75.275,
           "row": 15,
           "column": 17,
-          "global_rank": 6,
           "score": 94.14,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -1744,18 +1744,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 6
         },
         {
           "id": "hispar_glacier_r13_c13",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.10572,
-          "longitude": 75.23341,
+          "latitude": 36.106,
+          "longitude": 75.233,
           "row": 13,
           "column": 13,
-          "global_rank": 7,
           "score": 93.52,
           "top_decile_stability_pct": 95,
           "terrain": {
@@ -1788,18 +1788,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 7
         },
         {
           "id": "hispar_glacier_r6_c22",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.16389,
-          "longitude": 75.32597,
+          "latitude": 36.164,
+          "longitude": 75.326,
           "row": 6,
           "column": 22,
-          "global_rank": 8,
           "score": 93.16,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -1832,18 +1832,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 8
         },
         {
           "id": "hispar_glacier_r12_c11",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.11403,
-          "longitude": 75.21284,
+          "latitude": 36.114,
+          "longitude": 75.213,
           "row": 12,
           "column": 11,
-          "global_rank": 9,
           "score": 92.15,
           "top_decile_stability_pct": 93,
           "terrain": {
@@ -1876,18 +1876,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 9
         },
         {
           "id": "hispar_glacier_r7_c22",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.15558,
-          "longitude": 75.32597,
+          "latitude": 36.156,
+          "longitude": 75.326,
           "row": 7,
           "column": 22,
-          "global_rank": 10,
           "score": 91.69,
           "top_decile_stability_pct": 97.4,
           "terrain": {
@@ -1920,18 +1920,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 10
         },
         {
           "id": "hispar_glacier_r14_c20",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.09741,
-          "longitude": 75.3054,
+          "latitude": 36.097,
+          "longitude": 75.305,
           "row": 14,
           "column": 20,
-          "global_rank": 11,
           "score": 91.53,
           "top_decile_stability_pct": 96.6,
           "terrain": {
@@ -1964,18 +1964,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 11
         },
         {
           "id": "hispar_glacier_r8_c3",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.14727,
-          "longitude": 75.13056,
+          "latitude": 36.147,
+          "longitude": 75.131,
           "row": 8,
           "column": 3,
-          "global_rank": 12,
           "score": 91.51,
           "top_decile_stability_pct": 99,
           "terrain": {
@@ -2008,18 +2008,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 12
         },
         {
           "id": "hispar_glacier_r16_c12",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.08079,
-          "longitude": 75.22313,
+          "latitude": 36.081,
+          "longitude": 75.223,
           "row": 16,
           "column": 12,
-          "global_rank": 13,
           "score": 91.06,
           "top_decile_stability_pct": 90.6,
           "terrain": {
@@ -2052,18 +2052,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 13
         },
         {
           "id": "death_r16_c16",
           "site_id": "death",
           "name": "Death Valley region",
           "country": "United States",
-          "latitude": 36.22507,
-          "longitude": -116.76909,
+          "latitude": 36.225,
+          "longitude": -116.769,
           "row": 16,
           "column": 16,
-          "global_rank": 14,
           "score": 90.75,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -2100,18 +2100,18 @@
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ]
+          ],
+          "network_rank": 14
         },
         {
           "id": "hispar_glacier_r7_c1",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.15558,
-          "longitude": 75.10999,
+          "latitude": 36.156,
+          "longitude": 75.11,
           "row": 7,
           "column": 1,
-          "global_rank": 15,
           "score": 90.26,
           "top_decile_stability_pct": 94.4,
           "terrain": {
@@ -2144,18 +2144,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 15
         },
         {
           "id": "hispar_glacier_r26_c6",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 35.9977,
-          "longitude": 75.16142,
+          "latitude": 35.998,
+          "longitude": 75.161,
           "row": 26,
           "column": 6,
-          "global_rank": 16,
           "score": 90.26,
           "top_decile_stability_pct": 80.8,
           "terrain": {
@@ -2188,18 +2188,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 16
         },
         {
           "id": "hispar_glacier_r14_c10",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.09741,
-          "longitude": 75.20256,
+          "latitude": 36.097,
+          "longitude": 75.203,
           "row": 14,
           "column": 10,
-          "global_rank": 17,
           "score": 90.22,
           "top_decile_stability_pct": 98.4,
           "terrain": {
@@ -2232,18 +2232,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 17
         },
         {
           "id": "hispar_glacier_r8_c1",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.14727,
-          "longitude": 75.10999,
+          "latitude": 36.147,
+          "longitude": 75.11,
           "row": 8,
           "column": 1,
-          "global_rank": 18,
           "score": 89.98,
           "top_decile_stability_pct": 89.2,
           "terrain": {
@@ -2276,18 +2276,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 18
         },
         {
           "id": "death_r15_c16",
           "site_id": "death",
           "name": "Death Valley region",
           "country": "United States",
-          "latitude": 36.23338,
-          "longitude": -116.76909,
+          "latitude": 36.233,
+          "longitude": -116.769,
           "row": 15,
           "column": 16,
-          "global_rank": 19,
           "score": 89.95,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -2324,18 +2324,18 @@
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ]
+          ],
+          "network_rank": 19
         },
         {
           "id": "hispar_glacier_r19_c8",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.05586,
-          "longitude": 75.18199,
+          "latitude": 36.056,
+          "longitude": 75.182,
           "row": 19,
           "column": 8,
-          "global_rank": 20,
           "score": 89.8,
           "top_decile_stability_pct": 86.2,
           "terrain": {
@@ -2368,18 +2368,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 20
         },
         {
           "id": "mcmurdo_r11_c24",
           "site_id": "mcmurdo",
           "name": "McMurdo Dry Valleys",
           "country": "Antarctica",
-          "latitude": -77.48338,
-          "longitude": 162.2223,
+          "latitude": -77.483,
+          "longitude": 162.222,
           "row": 11,
           "column": 24,
-          "global_rank": 21,
           "score": 89.53,
           "top_decile_stability_pct": 90.8,
           "terrain": {
@@ -2417,18 +2417,18 @@
               "url": "https://par.nsf.gov/servlets/purl/10396201",
               "supports": "Reviews dry-valley geology, environment, ecology, ice and wind processes relevant to Mars."
             }
-          ]
+          ],
+          "network_rank": 21
         },
         {
           "id": "hispar_glacier_r15_c10",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.0891,
-          "longitude": 75.20256,
+          "latitude": 36.089,
+          "longitude": 75.203,
           "row": 15,
           "column": 10,
-          "global_rank": 22,
           "score": 89.31,
           "top_decile_stability_pct": 95.2,
           "terrain": {
@@ -2461,18 +2461,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 22
         },
         {
           "id": "hispar_glacier_r24_c2",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.01432,
-          "longitude": 75.12028,
+          "latitude": 36.014,
+          "longitude": 75.12,
           "row": 24,
           "column": 2,
-          "global_rank": 23,
           "score": 89.29,
           "top_decile_stability_pct": 82.8,
           "terrain": {
@@ -2505,18 +2505,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 23
         },
         {
           "id": "hispar_glacier_r13_c12",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.10572,
-          "longitude": 75.22313,
+          "latitude": 36.106,
+          "longitude": 75.223,
           "row": 13,
           "column": 12,
-          "global_rank": 24,
           "score": 89.22,
           "top_decile_stability_pct": 91.8,
           "terrain": {
@@ -2549,18 +2549,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 24
         },
         {
           "id": "hispar_glacier_r21_c11",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.03924,
-          "longitude": 75.21284,
+          "latitude": 36.039,
+          "longitude": 75.213,
           "row": 21,
           "column": 11,
-          "global_rank": 25,
           "score": 89.21,
           "top_decile_stability_pct": 77.8,
           "terrain": {
@@ -2593,18 +2593,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 25
         },
         {
           "id": "hispar_glacier_r26_c5",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 35.9977,
-          "longitude": 75.15113,
+          "latitude": 35.998,
+          "longitude": 75.151,
           "row": 26,
           "column": 5,
-          "global_rank": 26,
           "score": 89.12,
           "top_decile_stability_pct": 79.2,
           "terrain": {
@@ -2637,7 +2637,8 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 26
         },
         {
           "id": "mcmurdo_r13_c25",
@@ -2645,10 +2646,9 @@
           "name": "McMurdo Dry Valleys",
           "country": "Antarctica",
           "latitude": -77.5,
-          "longitude": 162.26069,
+          "longitude": 162.261,
           "row": 13,
           "column": 25,
-          "global_rank": 27,
           "score": 89.12,
           "top_decile_stability_pct": 94,
           "terrain": {
@@ -2686,18 +2686,18 @@
               "url": "https://par.nsf.gov/servlets/purl/10396201",
               "supports": "Reviews dry-valley geology, environment, ecology, ice and wind processes relevant to Mars."
             }
-          ]
+          ],
+          "network_rank": 27
         },
         {
           "id": "death_r18_c20",
           "site_id": "death",
           "name": "Death Valley region",
           "country": "United States",
-          "latitude": 36.20845,
-          "longitude": -116.72787,
+          "latitude": 36.208,
+          "longitude": -116.728,
           "row": 18,
           "column": 20,
-          "global_rank": 28,
           "score": 88.66,
           "top_decile_stability_pct": 99.6,
           "terrain": {
@@ -2734,18 +2734,18 @@
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ]
+          ],
+          "network_rank": 28
         },
         {
           "id": "hispar_glacier_r17_c12",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.07248,
-          "longitude": 75.22313,
+          "latitude": 36.072,
+          "longitude": 75.223,
           "row": 17,
           "column": 12,
-          "global_rank": 29,
           "score": 88.65,
           "top_decile_stability_pct": 97.2,
           "terrain": {
@@ -2778,18 +2778,18 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 29
         },
         {
           "id": "hispar_glacier_r20_c8",
           "site_id": "hispar_glacier",
           "name": "Hispar Glacier / Karakoram",
           "country": "Pakistan",
-          "latitude": 36.04755,
-          "longitude": 75.18199,
+          "latitude": 36.048,
+          "longitude": 75.182,
           "row": 20,
           "column": 8,
-          "global_rank": 30,
           "score": 88.55,
           "top_decile_stability_pct": 79.2,
           "terrain": {
@@ -2822,7 +2822,8 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ]
+          ],
+          "network_rank": 30
         }
       ]
     },
@@ -2866,11 +2867,10 @@
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.4664,
-          "longitude": -89.64209,
+          "latitude": 75.466,
+          "longitude": -89.642,
           "row": 2,
           "column": 14,
-          "global_rank": 1,
           "score": 99.59,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -2907,18 +2907,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 1
         },
         {
           "id": "iceland_r3_c16",
           "site_id": "iceland",
           "name": "Icelandic volcanic fields",
           "country": "Iceland",
-          "latitude": 63.95809,
-          "longitude": -22.19339,
+          "latitude": 63.958,
+          "longitude": -22.193,
           "row": 3,
           "column": 16,
-          "global_rank": 2,
           "score": 99.38,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -2955,18 +2955,18 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ]
+          ],
+          "network_rank": 2
         },
         {
           "id": "haughton_r9_c16",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.40824,
-          "longitude": -89.57627,
+          "latitude": 75.408,
+          "longitude": -89.576,
           "row": 9,
           "column": 16,
-          "global_rank": 3,
           "score": 99.37,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -3003,18 +3003,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 3
         },
         {
           "id": "haughton_r24_c26",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.2836,
-          "longitude": -89.24718,
+          "latitude": 75.284,
+          "longitude": -89.247,
           "row": 24,
           "column": 26,
-          "global_rank": 6,
           "score": 99.21,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -3051,18 +3051,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 6
         },
         {
           "id": "haughton_r20_c11",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.31683,
-          "longitude": -89.74082,
+          "latitude": 75.317,
+          "longitude": -89.741,
           "row": 20,
           "column": 11,
-          "global_rank": 10,
           "score": 99.12,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -3099,18 +3099,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 10
         },
         {
           "id": "dallol_r26_c8",
           "site_id": "dallol",
           "name": "Dallol / Danakil Depression",
           "country": "Ethiopia",
-          "latitude": 14.14198,
-          "longitude": 40.25713,
+          "latitude": 14.142,
+          "longitude": 40.257,
           "row": 26,
           "column": 8,
-          "global_rank": 16,
           "score": 98.96,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -3148,18 +3148,18 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ]
+          ],
+          "network_rank": 16
         },
         {
           "id": "iceland_r17_c21",
           "site_id": "iceland",
           "name": "Icelandic volcanic fields",
           "country": "Iceland",
-          "latitude": 63.84176,
-          "longitude": -22.09903,
+          "latitude": 63.842,
+          "longitude": -22.099,
           "row": 17,
           "column": 21,
-          "global_rank": 26,
           "score": 98.81,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -3196,18 +3196,18 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ]
+          ],
+          "network_rank": 26
         },
         {
           "id": "iceland_r14_c5",
           "site_id": "iceland",
           "name": "Icelandic volcanic fields",
           "country": "Iceland",
-          "latitude": 63.86669,
-          "longitude": -22.40097,
+          "latitude": 63.867,
+          "longitude": -22.401,
           "row": 14,
           "column": 5,
-          "global_rank": 45,
           "score": 98.39,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -3244,18 +3244,18 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ]
+          ],
+          "network_rank": 45
         },
         {
           "id": "iceland_r2_c23",
           "site_id": "iceland",
           "name": "Icelandic volcanic fields",
           "country": "Iceland",
-          "latitude": 63.9664,
-          "longitude": -22.06129,
+          "latitude": 63.966,
+          "longitude": -22.061,
           "row": 2,
           "column": 23,
-          "global_rank": 78,
           "score": 98.05,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -3292,18 +3292,18 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ]
+          ],
+          "network_rank": 78
         },
         {
           "id": "koh_i_sultan_r0_c26",
           "site_id": "koh_i_sultan",
           "name": "Koh-i-Sultan / Chagai",
           "country": "Pakistan",
-          "latitude": 29.20802,
-          "longitude": 62.92363,
+          "latitude": 29.208,
+          "longitude": 62.924,
           "row": 0,
           "column": 26,
-          "global_rank": 79,
           "score": 98.04,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -3335,18 +3335,18 @@
               "url": "https://pubs.usgs.gov/publication/ofr75550",
               "supports": "Regional geological map context."
             }
-          ]
+          ],
+          "network_rank": 79
         },
         {
           "id": "koh_i_sultan_r20_c1",
           "site_id": "koh_i_sultan",
           "name": "Koh-i-Sultan / Chagai",
           "country": "Pakistan",
-          "latitude": 29.04183,
-          "longitude": 62.68588,
+          "latitude": 29.042,
+          "longitude": 62.686,
           "row": 20,
           "column": 1,
-          "global_rank": 93,
           "score": 97.89,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -3378,18 +3378,18 @@
               "url": "https://pubs.usgs.gov/publication/ofr75550",
               "supports": "Regional geological map context."
             }
-          ]
+          ],
+          "network_rank": 93
         },
         {
           "id": "koh_i_sultan_r25_c25",
           "site_id": "koh_i_sultan",
           "name": "Koh-i-Sultan / Chagai",
           "country": "Pakistan",
-          "latitude": 29.00029,
-          "longitude": 62.91412,
+          "latitude": 29,
+          "longitude": 62.914,
           "row": 25,
           "column": 25,
-          "global_rank": 221,
           "score": 96.62,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -3421,18 +3421,18 @@
               "url": "https://pubs.usgs.gov/publication/ofr75550",
               "supports": "Regional geological map context."
             }
-          ]
+          ],
+          "network_rank": 221
         },
         {
           "id": "koh_i_sultan_r26_c11",
           "site_id": "koh_i_sultan",
           "name": "Koh-i-Sultan / Chagai",
           "country": "Pakistan",
-          "latitude": 28.99198,
-          "longitude": 62.78098,
+          "latitude": 28.992,
+          "longitude": 62.781,
           "row": 26,
           "column": 11,
-          "global_rank": 235,
           "score": 96.51,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -3464,7 +3464,8 @@
               "url": "https://pubs.usgs.gov/publication/ofr75550",
               "supports": "Regional geological map context."
             }
-          ]
+          ],
+          "network_rank": 235
         },
         {
           "id": "dallol_r13_c3",
@@ -3472,10 +3473,9 @@
           "name": "Dallol / Danakil Depression",
           "country": "Ethiopia",
           "latitude": 14.25,
-          "longitude": 40.21427,
+          "longitude": 40.214,
           "row": 13,
           "column": 3,
-          "global_rank": 461,
           "score": 94.39,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -3513,18 +3513,18 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ]
+          ],
+          "network_rank": 461
         },
         {
           "id": "death_r1_c7",
           "site_id": "death",
           "name": "Death Valley region",
           "country": "United States",
-          "latitude": 36.34971,
-          "longitude": -116.86182,
+          "latitude": 36.35,
+          "longitude": -116.862,
           "row": 1,
           "column": 7,
-          "global_rank": 621,
           "score": 92.28,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -3561,18 +3561,18 @@
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ]
+          ],
+          "network_rank": 621
         },
         {
           "id": "death_r23_c8",
           "site_id": "death",
           "name": "Death Valley region",
           "country": "United States",
-          "latitude": 36.16691,
-          "longitude": -116.85152,
+          "latitude": 36.167,
+          "longitude": -116.852,
           "row": 23,
           "column": 8,
-          "global_rank": 668,
           "score": 91.69,
           "top_decile_stability_pct": 92.8,
           "terrain": {
@@ -3609,18 +3609,18 @@
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ]
+          ],
+          "network_rank": 668
         },
         {
           "id": "chagai_small_playas_r12_c20",
           "site_id": "chagai_small_playas",
           "name": "Chagai small salt playas near Nok Kundi",
           "country": "Pakistan",
-          "latitude": 28.59164,
-          "longitude": 62.69957,
+          "latitude": 28.592,
+          "longitude": 62.7,
           "row": 12,
           "column": 20,
-          "global_rank": 686,
           "score": 91.57,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -3653,18 +3653,18 @@
               "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
               "supports": "Historical report describes two small salt-surfaced playas at the stated coordinates and discusses possible evaporite/brine sources; it does not provide modern site validation or a current mineral map."
             }
-          ]
+          ],
+          "network_rank": 686
         },
         {
           "id": "death_r8_c10",
           "site_id": "death",
           "name": "Death Valley region",
           "country": "United States",
-          "latitude": 36.29155,
-          "longitude": -116.83091,
+          "latitude": 36.292,
+          "longitude": -116.831,
           "row": 8,
           "column": 10,
-          "global_rank": 719,
           "score": 91.19,
           "top_decile_stability_pct": 86.6,
           "terrain": {
@@ -3701,18 +3701,18 @@
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ]
+          ],
+          "network_rank": 719
         },
         {
           "id": "death_r14_c7",
           "site_id": "death",
           "name": "Death Valley region",
           "country": "United States",
-          "latitude": 36.24169,
-          "longitude": -116.86182,
+          "latitude": 36.242,
+          "longitude": -116.862,
           "row": 14,
           "column": 7,
-          "global_rank": 742,
           "score": 90.95,
           "top_decile_stability_pct": 86.2,
           "terrain": {
@@ -3749,18 +3749,18 @@
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ]
+          ],
+          "network_rank": 742
         },
         {
           "id": "dallol_r7_c0",
           "site_id": "dallol",
           "name": "Dallol / Danakil Depression",
           "country": "Ethiopia",
-          "latitude": 14.29986,
-          "longitude": 40.18855,
+          "latitude": 14.3,
+          "longitude": 40.189,
           "row": 7,
           "column": 0,
-          "global_rank": 759,
           "score": 90.77,
           "top_decile_stability_pct": 92.2,
           "terrain": {
@@ -3798,18 +3798,18 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ]
+          ],
+          "network_rank": 759
         },
         {
           "id": "chagai_small_playas_r6_c23",
           "site_id": "chagai_small_playas",
           "name": "Chagai small salt playas near Nok Kundi",
           "country": "Pakistan",
-          "latitude": 28.6415,
-          "longitude": 62.72796,
+          "latitude": 28.642,
+          "longitude": 62.728,
           "row": 6,
           "column": 23,
-          "global_rank": 834,
           "score": 90.02,
           "top_decile_stability_pct": 99,
           "terrain": {
@@ -3842,18 +3842,18 @@
               "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
               "supports": "Historical report describes two small salt-surfaced playas at the stated coordinates and discusses possible evaporite/brine sources; it does not provide modern site validation or a current mineral map."
             }
-          ]
+          ],
+          "network_rank": 834
         },
         {
           "id": "chagai_small_playas_r3_c0",
           "site_id": "chagai_small_playas",
           "name": "Chagai small salt playas near Nok Kundi",
           "country": "Pakistan",
-          "latitude": 28.66643,
-          "longitude": 62.51032,
+          "latitude": 28.666,
+          "longitude": 62.51,
           "row": 3,
           "column": 0,
-          "global_rank": 922,
           "score": 89.29,
           "top_decile_stability_pct": 62.2,
           "terrain": {
@@ -3886,18 +3886,18 @@
               "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
               "supports": "Historical report describes two small salt-surfaced playas at the stated coordinates and discusses possible evaporite/brine sources; it does not provide modern site validation or a current mineral map."
             }
-          ]
+          ],
+          "network_rank": 922
         },
         {
           "id": "dallol_r19_c6",
           "site_id": "dallol",
           "name": "Dallol / Danakil Depression",
           "country": "Ethiopia",
-          "latitude": 14.20014,
-          "longitude": 40.23999,
+          "latitude": 14.2,
+          "longitude": 40.24,
           "row": 19,
           "column": 6,
-          "global_rank": 943,
           "score": 89.15,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -3935,18 +3935,18 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ]
+          ],
+          "network_rank": 943
         },
         {
           "id": "chagai_small_playas_r21_c13",
           "site_id": "chagai_small_playas",
           "name": "Chagai small salt playas near Nok Kundi",
           "country": "Pakistan",
-          "latitude": 28.51686,
-          "longitude": 62.63333,
+          "latitude": 28.517,
+          "longitude": 62.633,
           "row": 21,
           "column": 13,
-          "global_rank": 1022,
           "score": 88.5,
           "top_decile_stability_pct": 57.4,
           "terrain": {
@@ -3979,18 +3979,18 @@
               "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
               "supports": "Historical report describes two small salt-surfaced playas at the stated coordinates and discusses possible evaporite/brine sources; it does not provide modern site validation or a current mineral map."
             }
-          ]
+          ],
+          "network_rank": 1022
         },
         {
           "id": "hamun_i_mashkel_r4_c0",
           "site_id": "hamun_i_mashkel",
           "name": "Hamun-i-Mashkel playa / Kharan Basin",
           "country": "Pakistan",
-          "latitude": 28.32478,
-          "longitude": 62.79404,
+          "latitude": 28.325,
+          "longitude": 62.794,
           "row": 4,
           "column": 0,
-          "global_rank": 2045,
           "score": 82.12,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4029,18 +4029,18 @@
               "url": "https://mapcarta.com/15046968",
               "supports": "Approximate point location only; not scientific landform boundary or material classification."
             }
-          ]
+          ],
+          "network_rank": 2045
         },
         {
           "id": "hamun_i_mashkel_r1_c6",
           "site_id": "hamun_i_mashkel",
           "name": "Hamun-i-Mashkel playa / Kharan Basin",
           "country": "Pakistan",
-          "latitude": 28.34971,
-          "longitude": 62.85064,
+          "latitude": 28.35,
+          "longitude": 62.851,
           "row": 1,
           "column": 6,
-          "global_rank": 2339,
           "score": 80.33,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4079,18 +4079,18 @@
               "url": "https://mapcarta.com/15046968",
               "supports": "Approximate point location only; not scientific landform boundary or material classification."
             }
-          ]
+          ],
+          "network_rank": 2339
         },
         {
           "id": "hamun_i_mashkel_r11_c0",
           "site_id": "hamun_i_mashkel",
           "name": "Hamun-i-Mashkel playa / Kharan Basin",
           "country": "Pakistan",
-          "latitude": 28.26662,
-          "longitude": 62.79404,
+          "latitude": 28.267,
+          "longitude": 62.794,
           "row": 11,
           "column": 0,
-          "global_rank": 2470,
           "score": 79.35,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4129,18 +4129,18 @@
               "url": "https://mapcarta.com/15046968",
               "supports": "Approximate point location only; not scientific landform boundary or material classification."
             }
-          ]
+          ],
+          "network_rank": 2470
         },
         {
           "id": "atacama_r26_c0",
           "site_id": "atacama",
           "name": "Atacama Desert",
           "country": "Chile",
-          "latitude": -23.60802,
-          "longitude": -68.36779,
+          "latitude": -23.608,
+          "longitude": -68.368,
           "row": 26,
           "column": 0,
-          "global_rank": 2545,
           "score": 78.82,
           "top_decile_stability_pct": 99.4,
           "terrain": {
@@ -4177,18 +4177,18 @@
               "url": "https://science.nasa.gov/solar-system/analog-explorer/",
               "supports": "NASA's Atacama–Mars analogue example and field research context."
             }
-          ]
+          ],
+          "network_rank": 2545
         },
         {
           "id": "atacama_r19_c0",
           "site_id": "atacama",
           "name": "Atacama Desert",
           "country": "Chile",
-          "latitude": -23.54986,
-          "longitude": -68.36779,
+          "latitude": -23.55,
+          "longitude": -68.368,
           "row": 19,
           "column": 0,
-          "global_rank": 2664,
           "score": 78.31,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4225,18 +4225,18 @@
               "url": "https://science.nasa.gov/solar-system/analog-explorer/",
               "supports": "NASA's Atacama–Mars analogue example and field research context."
             }
-          ]
+          ],
+          "network_rank": 2664
         },
         {
           "id": "atacama_r10_c5",
           "site_id": "atacama",
           "name": "Atacama Desert",
           "country": "Chile",
-          "latitude": -23.47507,
-          "longitude": -68.32249,
+          "latitude": -23.475,
+          "longitude": -68.322,
           "row": 10,
           "column": 5,
-          "global_rank": 2683,
           "score": 78.28,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4273,20 +4273,20 @@
               "url": "https://science.nasa.gov/solar-system/analog-explorer/",
               "supports": "NASA's Atacama–Mars analogue example and field research context."
             }
-          ]
+          ],
+          "network_rank": 2683
         }
       ],
-      "global_top_30_unfiltered": [
+      "network_top_30_unfiltered": [
         {
           "id": "haughton_r2_c14",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.4664,
-          "longitude": -89.64209,
+          "latitude": 75.466,
+          "longitude": -89.642,
           "row": 2,
           "column": 14,
-          "global_rank": 1,
           "score": 99.59,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4323,18 +4323,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 1
         },
         {
           "id": "iceland_r3_c16",
           "site_id": "iceland",
           "name": "Icelandic volcanic fields",
           "country": "Iceland",
-          "latitude": 63.95809,
-          "longitude": -22.19339,
+          "latitude": 63.958,
+          "longitude": -22.193,
           "row": 3,
           "column": 16,
-          "global_rank": 2,
           "score": 99.38,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4371,18 +4371,18 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ]
+          ],
+          "network_rank": 2
         },
         {
           "id": "haughton_r9_c16",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.40824,
-          "longitude": -89.57627,
+          "latitude": 75.408,
+          "longitude": -89.576,
           "row": 9,
           "column": 16,
-          "global_rank": 3,
           "score": 99.37,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4419,18 +4419,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 3
         },
         {
           "id": "iceland_r2_c15",
           "site_id": "iceland",
           "name": "Icelandic volcanic fields",
           "country": "Iceland",
-          "latitude": 63.9664,
-          "longitude": -22.21226,
+          "latitude": 63.966,
+          "longitude": -22.212,
           "row": 2,
           "column": 15,
-          "global_rank": 4,
           "score": 99.29,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4467,18 +4467,18 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ]
+          ],
+          "network_rank": 4
         },
         {
           "id": "iceland_r5_c16",
           "site_id": "iceland",
           "name": "Icelandic volcanic fields",
           "country": "Iceland",
-          "latitude": 63.94148,
-          "longitude": -22.19339,
+          "latitude": 63.941,
+          "longitude": -22.193,
           "row": 5,
           "column": 16,
-          "global_rank": 5,
           "score": 99.21,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4515,18 +4515,18 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ]
+          ],
+          "network_rank": 5
         },
         {
           "id": "haughton_r24_c26",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.2836,
-          "longitude": -89.24718,
+          "latitude": 75.284,
+          "longitude": -89.247,
           "row": 24,
           "column": 26,
-          "global_rank": 6,
           "score": 99.21,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4563,18 +4563,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 6
         },
         {
           "id": "iceland_r4_c16",
           "site_id": "iceland",
           "name": "Icelandic volcanic fields",
           "country": "Iceland",
-          "latitude": 63.94978,
-          "longitude": -22.19339,
+          "latitude": 63.95,
+          "longitude": -22.193,
           "row": 4,
           "column": 16,
-          "global_rank": 7,
           "score": 99.2,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4611,18 +4611,18 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ]
+          ],
+          "network_rank": 7
         },
         {
           "id": "haughton_r2_c13",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.4664,
+          "latitude": 75.466,
           "longitude": -89.675,
           "row": 2,
           "column": 13,
-          "global_rank": 8,
           "score": 99.19,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4659,18 +4659,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 8
         },
         {
           "id": "haughton_r9_c10",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.40824,
-          "longitude": -89.77373,
+          "latitude": 75.408,
+          "longitude": -89.774,
           "row": 9,
           "column": 10,
-          "global_rank": 9,
           "score": 99.16,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4707,18 +4707,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 9
         },
         {
           "id": "haughton_r20_c11",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.31683,
-          "longitude": -89.74082,
+          "latitude": 75.317,
+          "longitude": -89.741,
           "row": 20,
           "column": 11,
-          "global_rank": 10,
           "score": 99.12,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4755,18 +4755,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 10
         },
         {
           "id": "haughton_r18_c12",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.33345,
-          "longitude": -89.70791,
+          "latitude": 75.333,
+          "longitude": -89.708,
           "row": 18,
           "column": 12,
-          "global_rank": 11,
           "score": 99.1,
           "top_decile_stability_pct": 97.4,
           "terrain": {
@@ -4803,18 +4803,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 11
         },
         {
           "id": "haughton_r8_c10",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.41655,
-          "longitude": -89.77373,
+          "latitude": 75.417,
+          "longitude": -89.774,
           "row": 8,
           "column": 10,
-          "global_rank": 12,
           "score": 99.09,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4851,18 +4851,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 12
         },
         {
           "id": "haughton_r23_c10",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.29191,
-          "longitude": -89.77373,
+          "latitude": 75.292,
+          "longitude": -89.774,
           "row": 23,
           "column": 10,
-          "global_rank": 13,
           "score": 99.07,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4899,18 +4899,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 13
         },
         {
           "id": "haughton_r14_c16",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.36669,
-          "longitude": -89.57627,
+          "latitude": 75.367,
+          "longitude": -89.576,
           "row": 14,
           "column": 16,
-          "global_rank": 14,
           "score": 98.99,
           "top_decile_stability_pct": 98.2,
           "terrain": {
@@ -4947,18 +4947,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 14
         },
         {
           "id": "iceland_r6_c16",
           "site_id": "iceland",
           "name": "Icelandic volcanic fields",
           "country": "Iceland",
-          "latitude": 63.93317,
-          "longitude": -22.19339,
+          "latitude": 63.933,
+          "longitude": -22.193,
           "row": 6,
           "column": 16,
-          "global_rank": 15,
           "score": 98.98,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -4995,18 +4995,18 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ]
+          ],
+          "network_rank": 15
         },
         {
           "id": "dallol_r26_c8",
           "site_id": "dallol",
           "name": "Dallol / Danakil Depression",
           "country": "Ethiopia",
-          "latitude": 14.14198,
-          "longitude": 40.25713,
+          "latitude": 14.142,
+          "longitude": 40.257,
           "row": 26,
           "column": 8,
-          "global_rank": 16,
           "score": 98.96,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -5044,18 +5044,18 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ]
+          ],
+          "network_rank": 16
         },
         {
           "id": "haughton_r24_c14",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.2836,
-          "longitude": -89.64209,
+          "latitude": 75.284,
+          "longitude": -89.642,
           "row": 24,
           "column": 14,
-          "global_rank": 17,
           "score": 98.96,
           "top_decile_stability_pct": 99.4,
           "terrain": {
@@ -5092,18 +5092,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 17
         },
         {
           "id": "iceland_r6_c17",
           "site_id": "iceland",
           "name": "Icelandic volcanic fields",
           "country": "Iceland",
-          "latitude": 63.93317,
-          "longitude": -22.17452,
+          "latitude": 63.933,
+          "longitude": -22.175,
           "row": 6,
           "column": 17,
-          "global_rank": 18,
           "score": 98.94,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -5140,18 +5140,18 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ]
+          ],
+          "network_rank": 18
         },
         {
           "id": "haughton_r24_c11",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.2836,
-          "longitude": -89.74082,
+          "latitude": 75.284,
+          "longitude": -89.741,
           "row": 24,
           "column": 11,
-          "global_rank": 19,
           "score": 98.94,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -5188,18 +5188,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 19
         },
         {
           "id": "haughton_r17_c13",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.34176,
+          "latitude": 75.342,
           "longitude": -89.675,
           "row": 17,
           "column": 13,
-          "global_rank": 20,
           "score": 98.92,
           "top_decile_stability_pct": 94.8,
           "terrain": {
@@ -5236,18 +5236,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 20
         },
         {
           "id": "haughton_r24_c13",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.2836,
+          "latitude": 75.284,
           "longitude": -89.675,
           "row": 24,
           "column": 13,
-          "global_rank": 21,
           "score": 98.87,
           "top_decile_stability_pct": 99,
           "terrain": {
@@ -5284,18 +5284,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 21
         },
         {
           "id": "haughton_r21_c11",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.30852,
-          "longitude": -89.74082,
+          "latitude": 75.309,
+          "longitude": -89.741,
           "row": 21,
           "column": 11,
-          "global_rank": 22,
           "score": 98.85,
           "top_decile_stability_pct": 90.4,
           "terrain": {
@@ -5332,18 +5332,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 22
         },
         {
           "id": "haughton_r22_c11",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.30022,
-          "longitude": -89.74082,
+          "latitude": 75.3,
+          "longitude": -89.741,
           "row": 22,
           "column": 11,
-          "global_rank": 23,
           "score": 98.84,
           "top_decile_stability_pct": 91.6,
           "terrain": {
@@ -5380,18 +5380,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 23
         },
         {
           "id": "haughton_r24_c12",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.2836,
-          "longitude": -89.70791,
+          "latitude": 75.284,
+          "longitude": -89.708,
           "row": 24,
           "column": 12,
-          "global_rank": 24,
           "score": 98.83,
           "top_decile_stability_pct": 97.4,
           "terrain": {
@@ -5428,18 +5428,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 24
         },
         {
           "id": "haughton_r3_c14",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.45809,
-          "longitude": -89.64209,
+          "latitude": 75.458,
+          "longitude": -89.642,
           "row": 3,
           "column": 14,
-          "global_rank": 25,
           "score": 98.81,
           "top_decile_stability_pct": 94,
           "terrain": {
@@ -5476,18 +5476,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 25
         },
         {
           "id": "iceland_r17_c21",
           "site_id": "iceland",
           "name": "Icelandic volcanic fields",
           "country": "Iceland",
-          "latitude": 63.84176,
-          "longitude": -22.09903,
+          "latitude": 63.842,
+          "longitude": -22.099,
           "row": 17,
           "column": 21,
-          "global_rank": 26,
           "score": 98.81,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -5524,18 +5524,18 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ]
+          ],
+          "network_rank": 26
         },
         {
           "id": "iceland_r2_c16",
           "site_id": "iceland",
           "name": "Icelandic volcanic fields",
           "country": "Iceland",
-          "latitude": 63.9664,
-          "longitude": -22.19339,
+          "latitude": 63.966,
+          "longitude": -22.193,
           "row": 2,
           "column": 16,
-          "global_rank": 27,
           "score": 98.77,
           "top_decile_stability_pct": 100,
           "terrain": {
@@ -5572,18 +5572,18 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ]
+          ],
+          "network_rank": 27
         },
         {
           "id": "haughton_r3_c13",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.45809,
+          "latitude": 75.458,
           "longitude": -89.675,
           "row": 3,
           "column": 13,
-          "global_rank": 28,
           "score": 98.7,
           "top_decile_stability_pct": 94,
           "terrain": {
@@ -5620,18 +5620,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 28
         },
         {
           "id": "haughton_r7_c14",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.42486,
-          "longitude": -89.64209,
+          "latitude": 75.425,
+          "longitude": -89.642,
           "row": 7,
           "column": 14,
-          "global_rank": 29,
           "score": 98.7,
           "top_decile_stability_pct": 93.8,
           "terrain": {
@@ -5668,18 +5668,18 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 29
         },
         {
           "id": "haughton_r4_c13",
           "site_id": "haughton",
           "name": "Haughton impact structure",
           "country": "Canada",
-          "latitude": 75.44978,
+          "latitude": 75.45,
           "longitude": -89.675,
           "row": 4,
           "column": 13,
-          "global_rank": 30,
           "score": 98.69,
           "top_decile_stability_pct": 83.8,
           "terrain": {
@@ -5716,7 +5716,8 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ]
+          ],
+          "network_rank": 30
         }
       ]
     }
