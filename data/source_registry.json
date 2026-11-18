@@ -253,7 +253,7 @@
       "id": "io_lulc_global",
       "name": "10m Annual Land Use Land Cover (9-class) V2",
       "provider": "Impact Observatory / Esri / Microsoft Planetary Computer",
-      "state": "planned",
+      "state": "partially_processed",
       "data_type": "Annual global land-cover classification derived from Sentinel-2; categorical classes",
       "resolution": "10 m native source; modal resampling to 30 m analysis grid within retained 5.55 km global terrain shortlist windows",
       "coverage": "Global collection for 2017-2023; ANALOG-X enriches retained global terrain candidates only, not all global windows",
@@ -270,13 +270,15 @@
         "Source is Sentinel-2-derived; it is not a fully independent sensor family from Sentinel-2 imagery.",
         "Land-cover data are processed for the retained global terrain shortlist only; this is not global per-pixel reprocessing of every candidate window.",
         "No physical field validation is implied."
-      ]
+      ],
+      "coverage_pct_processed_candidates": 99.125,
+      "candidate_windows_processed": 2379
     },
     {
       "id": "nasa_power_global",
       "name": "NASA POWER global candidate climatology",
       "provider": "NASA Langley Research Center",
-      "state": "planned",
+      "state": "processed",
       "data_type": "Gridded climatology at global shortlist coordinates",
       "resolution": "Point climatology API / gridded product; not local station observations",
       "coverage": "Top 100 retained global terrain candidates per planetary target, deduplicated by window ID; not all global scan windows",
@@ -290,7 +292,9 @@
         "NASA POWER provides gridded climatology, not local field-station observations or current forecasts.",
         "T2M is 2m air temperature, not surface/rock temperature; precipitation is not evidence of water/ice resources.",
         "Wind and solar values describe terrestrial atmosphere/surface context and do not reproduce Moon/Mars environment physics."
-      ]
+      ],
+      "coverage_pct_processed_candidates": 100.0,
+      "candidate_coordinates_processed": 200
     }
   ]
 }
