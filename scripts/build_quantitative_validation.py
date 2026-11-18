@@ -53,6 +53,17 @@ def main():
         }
     else:
         payload["global_land_cover_enrichment"]={"state":"awaiting_enrichment"}
+    power_path=ROOT/"data/global_discovery/global_power_enrichment.json"
+    if power_path.exists():
+        power=json.loads(power_path.read_text(encoding="utf-8"))
+        payload["global_nasa_power_climatology"]={
+            "state":power.get("state"),
+            "scope":power.get("scope",{}),
+            "parameters":power.get("source",{}).get("parameters",[]),
+            "interpretation":"NASA POWER climatology context for retained global shortlist candidates only; gridded climatology, not local ground observations."
+        }
+    else:
+        payload["global_nasa_power_climatology"]={"state":"awaiting_enrichment"}
     if NASADEM.exists():
         validation=json.loads(NASADEM.read_text(encoding="utf-8"))
         payload["independent_dem_crosscheck"]={"state":validation.get("status"),"sites_crosschecked":validation.get("sites_crosschecked",0),"rank_concordance":validation.get("rank_concordance",{}),"source":"NASADEM SRTM-derived elevation compared with Copernicus GLO-30 at selected overlapping sites","limits":validation.get("limitations",[])}
