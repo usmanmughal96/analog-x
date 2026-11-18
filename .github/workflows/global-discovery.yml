@@ -15,7 +15,7 @@ permissions:
   actions: read
 
 concurrency:
-  group: analogx-global-discovery-release-v2
+  group: analogx-global-discovery-release-v3
   cancel-in-progress: true
 
 jobs:
