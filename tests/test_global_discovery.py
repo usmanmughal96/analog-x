@@ -50,7 +50,7 @@ class GlobalDiscoveryTests(unittest.TestCase):
     def test_diverse_selector_limits_tile_concentration(self):
         rows = []
         for i in range(6):
-            rows.append({"id": f"a{i}", "tile_id": "tile-a", "consensus_index": 99-i, "metric_family_rank_concordance": 90})
+            rows.append({"id": f"a{i}", "tile_id": "tile-a", "consensus_index": 99-i, "metric_family_score_agreement": 90})
         rows.append({"id": "b", "tile_id": "tile-b", "consensus_index": 80, "metric_family_rank_concordance": 90})
         selected = gd.select_diverse(rows, limit=5, max_per_tile=2)
         self.assertEqual(sum(x["tile_id"] == "tile-a" for x in selected), 2)
