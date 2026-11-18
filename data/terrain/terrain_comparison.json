@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-18T12:32:30+00:00",
+  "generated_at_utc": "2026-11-18T12:35:25+00:00",
   "method": "Earth Copernicus DEM GLO-30 DSM averaged to 925 m across up to ten curated Earth analog/reference sites; Mars MOLA MEGDR 64 pixels/degree. Both use approximately 30 km square windows and terrain derivatives computed in metres.",
   "planetary_target": {
     "name": "Nili Patera, Syrtis Major quadrangle, Mars",
@@ -2439,6 +2439,47 @@
           ]
         ]
       },
+      "native_30m_diagnostics": {
+        "status": "processed",
+        "source": "Copernicus DEM GLO-30 DSM",
+        "source_native_resolution_m_approx": 30,
+        "analysis_resolution_m": 30.0,
+        "role": "Earth-only higher-detail roughness context; not matched to planetary data and not rover-scale",
+        "limitation": "A 30 m DSM still cannot resolve rover-scale obstacles, bearing strength or trafficability.",
+        "grid_shape": [
+          1000,
+          1000
+        ],
+        "valid_cell_count": 999899,
+        "total_cell_count": 1000000,
+        "coverage_percent": 99.99,
+        "window_size_km": 30.0,
+        "terrain_metrics": {
+          "valid_cell_count": 999899,
+          "complete_3x3_neighbourhood_count": 995903,
+          "elevation_m_relative_to_product_datum": {
+            "p10": 974.123974609375,
+            "median": 1266.866455078125,
+            "p90": 1657.4776367187503,
+            "range_p90_minus_p10": 683.3536621093754
+          },
+          "slope_deg": {
+            "median": 7.101403270465903,
+            "p90": 24.56596589270075,
+            "p95": 28.692706169169192
+          },
+          "3x3_local_relief_m": {
+            "median": 10.5819091796875,
+            "p90": 34.0264892578125
+          },
+          "slope_fraction": {
+            "under_5_deg_percent": 40.86683140827972,
+            "under_10_deg_percent": 59.57979843418486,
+            "over_20_deg_percent": 17.5357439429342
+          }
+        },
+        "local_relief_footprint_m": 90.0
+      },
       "preview_path": "koh_i_sultan_copdem_hillshade.png"
     },
     "hispar_glacier": {
@@ -3604,6 +3645,47 @@
           ]
         ]
       },
+      "native_30m_diagnostics": {
+        "status": "processed",
+        "source": "Copernicus DEM GLO-30 DSM",
+        "source_native_resolution_m_approx": 30,
+        "analysis_resolution_m": 30.0,
+        "role": "Earth-only higher-detail roughness context; not matched to planetary data and not rover-scale",
+        "limitation": "A 30 m DSM still cannot resolve rover-scale obstacles, bearing strength or trafficability.",
+        "grid_shape": [
+          1000,
+          1000
+        ],
+        "valid_cell_count": 999874,
+        "total_cell_count": 1000000,
+        "coverage_percent": 99.99,
+        "window_size_km": 30.0,
+        "terrain_metrics": {
+          "valid_cell_count": 999874,
+          "complete_3x3_neighbourhood_count": 995878,
+          "elevation_m_relative_to_product_datum": {
+            "p10": 4035.095068359375,
+            "median": 4788.010009765625,
+            "p90": 5839.605761718751,
+            "range_p90_minus_p10": 1804.5106933593756
+          },
+          "slope_deg": {
+            "median": 31.49760276637688,
+            "p90": 52.74071480928676,
+            "p95": 57.50795831689922
+          },
+          "3x3_local_relief_m": {
+            "median": 46.5966796875,
+            "p90": 100.70717773437502
+          },
+          "slope_fraction": {
+            "under_5_deg_percent": 8.706186902411742,
+            "under_10_deg_percent": 20.496687345237067,
+            "over_20_deg_percent": 65.44847862890836
+          }
+        },
+        "local_relief_footprint_m": 90.0
+      },
       "preview_path": "hispar_glacier_copdem_hillshade.png"
     },
     "chagai_small_playas": {
@@ -4766,6 +4848,47 @@
             -62.73
           ]
         ]
+      },
+      "native_30m_diagnostics": {
+        "status": "processed",
+        "source": "Copernicus DEM GLO-30 DSM",
+        "source_native_resolution_m_approx": 30,
+        "analysis_resolution_m": 30.0,
+        "role": "Earth-only higher-detail roughness context; not matched to planetary data and not rover-scale",
+        "limitation": "A 30 m DSM still cannot resolve rover-scale obstacles, bearing strength or trafficability.",
+        "grid_shape": [
+          1000,
+          1000
+        ],
+        "valid_cell_count": 999776,
+        "total_cell_count": 1000000,
+        "coverage_percent": 99.98,
+        "window_size_km": 30.0,
+        "terrain_metrics": {
+          "valid_cell_count": 999776,
+          "complete_3x3_neighbourhood_count": 995780,
+          "elevation_m_relative_to_product_datum": {
+            "p10": 555.6294250488281,
+            "median": 590.4102172851562,
+            "p90": 626.8099365234375,
+            "range_p90_minus_p10": 71.18051147460938
+          },
+          "slope_deg": {
+            "median": 0.7778195712732316,
+            "p90": 2.133303253992285,
+            "p95": 3.097050555433829
+          },
+          "3x3_local_relief_m": {
+            "median": 1.09375,
+            "p90": 2.8831787109375
+          },
+          "slope_fraction": {
+            "under_5_deg_percent": 98.07788869027296,
+            "under_10_deg_percent": 99.69370744541966,
+            "over_20_deg_percent": 0.0038161039587057384
+          }
+        },
+        "local_relief_footprint_m": 90.0
       },
       "preview_path": "chagai_small_playas_copdem_hillshade.png"
     },
@@ -5932,6 +6055,47 @@
           ]
         ]
       },
+      "native_30m_diagnostics": {
+        "status": "processed",
+        "source": "Copernicus DEM GLO-30 DSM",
+        "source_native_resolution_m_approx": 30,
+        "analysis_resolution_m": 30.0,
+        "role": "Earth-only higher-detail roughness context; not matched to planetary data and not rover-scale",
+        "limitation": "A 30 m DSM still cannot resolve rover-scale obstacles, bearing strength or trafficability.",
+        "grid_shape": [
+          1000,
+          1000
+        ],
+        "valid_cell_count": 1000000,
+        "total_cell_count": 1000000,
+        "coverage_percent": 100.0,
+        "window_size_km": 30.0,
+        "terrain_metrics": {
+          "valid_cell_count": 1000000,
+          "complete_3x3_neighbourhood_count": 996004,
+          "elevation_m_relative_to_product_datum": {
+            "p10": 493.83087158203125,
+            "median": 494.6738586425781,
+            "p90": 498.5727294921875,
+            "range_p90_minus_p10": 4.741857910156227
+          },
+          "slope_deg": {
+            "median": 0.15845756292051189,
+            "p90": 0.4440825932378019,
+            "p95": 0.8102115162493372
+          },
+          "3x3_local_relief_m": {
+            "median": 0.25445556640625,
+            "p90": 0.6378997802734396
+          },
+          "slope_fraction": {
+            "under_5_deg_percent": 99.87881574772793,
+            "under_10_deg_percent": 99.9974899699198,
+            "over_20_deg_percent": 0.0
+          }
+        },
+        "local_relief_footprint_m": 90.0
+      },
       "preview_path": "hamun_i_mashkel_copdem_hillshade.png"
     },
     "dallol": {
@@ -7095,6 +7259,47 @@
           ]
         ]
       },
+      "native_30m_diagnostics": {
+        "status": "processed",
+        "source": "Copernicus DEM GLO-30 DSM",
+        "source_native_resolution_m_approx": 30,
+        "analysis_resolution_m": 30.0,
+        "role": "Earth-only higher-detail roughness context; not matched to planetary data and not rover-scale",
+        "limitation": "A 30 m DSM still cannot resolve rover-scale obstacles, bearing strength or trafficability.",
+        "grid_shape": [
+          1000,
+          1000
+        ],
+        "valid_cell_count": 998453,
+        "total_cell_count": 1000000,
+        "coverage_percent": 99.85,
+        "window_size_km": 30.0,
+        "terrain_metrics": {
+          "valid_cell_count": 998453,
+          "complete_3x3_neighbourhood_count": 994457,
+          "elevation_m_relative_to_product_datum": {
+            "p10": -124.34618225097657,
+            "median": -122.35163879394531,
+            "p90": -7.714077186584269,
+            "range_p90_minus_p10": 116.6321050643923
+          },
+          "slope_deg": {
+            "median": 0.2996304664049166,
+            "p90": 5.208869733766428,
+            "p95": 19.38892488725193
+          },
+          "3x3_local_relief_m": {
+            "median": 0.4514617919921875,
+            "p90": 7.677009582519532
+          },
+          "slope_fraction": {
+            "under_5_deg_percent": 89.85848558560099,
+            "under_10_deg_percent": 91.93942020620298,
+            "over_20_deg_percent": 4.770844792685858
+          }
+        },
+        "local_relief_footprint_m": 90.0
+      },
       "preview_path": "dallol_copdem_hillshade.png"
     },
     "atacama": {
@@ -8257,6 +8462,47 @@
             0.15
           ]
         ]
+      },
+      "native_30m_diagnostics": {
+        "status": "processed",
+        "source": "Copernicus DEM GLO-30 DSM",
+        "source_native_resolution_m_approx": 30,
+        "analysis_resolution_m": 30.0,
+        "role": "Earth-only higher-detail roughness context; not matched to planetary data and not rover-scale",
+        "limitation": "A 30 m DSM still cannot resolve rover-scale obstacles, bearing strength or trafficability.",
+        "grid_shape": [
+          1000,
+          1000
+        ],
+        "valid_cell_count": 998961,
+        "total_cell_count": 1000000,
+        "coverage_percent": 99.9,
+        "window_size_km": 30.0,
+        "terrain_metrics": {
+          "valid_cell_count": 998961,
+          "complete_3x3_neighbourhood_count": 994965,
+          "elevation_m_relative_to_product_datum": {
+            "p10": 2300.73486328125,
+            "median": 2300.9375,
+            "p90": 2301.314453125,
+            "range_p90_minus_p10": 0.57958984375
+          },
+          "slope_deg": {
+            "median": 0.11811042214443737,
+            "p90": 0.25046604840771536,
+            "p95": 0.34830190125359006
+          },
+          "3x3_local_relief_m": {
+            "median": 0.194580078125,
+            "p90": 0.336669921875
+          },
+          "slope_fraction": {
+            "under_5_deg_percent": 99.78572110576755,
+            "under_10_deg_percent": 99.94833989135297,
+            "over_20_deg_percent": 0.0010050604795143548
+          }
+        },
+        "local_relief_footprint_m": 90.0
       },
       "preview_path": "atacama_copdem_hillshade.png"
     },
@@ -9423,6 +9669,47 @@
           ]
         ]
       },
+      "native_30m_diagnostics": {
+        "status": "processed",
+        "source": "Copernicus DEM GLO-30 DSM",
+        "source_native_resolution_m_approx": 30,
+        "analysis_resolution_m": 30.0,
+        "role": "Earth-only higher-detail roughness context; not matched to planetary data and not rover-scale",
+        "limitation": "A 30 m DSM still cannot resolve rover-scale obstacles, bearing strength or trafficability.",
+        "grid_shape": [
+          1000,
+          1000
+        ],
+        "valid_cell_count": 983632,
+        "total_cell_count": 1000000,
+        "coverage_percent": 98.36,
+        "window_size_km": 30.0,
+        "terrain_metrics": {
+          "valid_cell_count": 983632,
+          "complete_3x3_neighbourhood_count": 979636,
+          "elevation_m_relative_to_product_datum": {
+            "p10": 314.49154357910163,
+            "median": 1013.8214721679688,
+            "p90": 1621.7369140625,
+            "range_p90_minus_p10": 1307.2453704833983
+          },
+          "slope_deg": {
+            "median": 12.159102831029593,
+            "p90": 31.827740917147725,
+            "p95": 34.67208783030125
+          },
+          "3x3_local_relief_m": {
+            "median": 16.2586669921875,
+            "p90": 46.325225830078125
+          },
+          "slope_fraction": {
+            "under_5_deg_percent": 20.92777317289279,
+            "under_10_deg_percent": 42.76996762062644,
+            "over_20_deg_percent": 31.052860450208037
+          }
+        },
+        "local_relief_footprint_m": 90.0
+      },
       "preview_path": "mcmurdo_copdem_hillshade.png"
     },
     "haughton": {
@@ -10585,6 +10872,47 @@
             108.51
           ]
         ]
+      },
+      "native_30m_diagnostics": {
+        "status": "processed",
+        "source": "Copernicus DEM GLO-30 DSM",
+        "source_native_resolution_m_approx": 30,
+        "analysis_resolution_m": 30.0,
+        "role": "Earth-only higher-detail roughness context; not matched to planetary data and not rover-scale",
+        "limitation": "A 30 m DSM still cannot resolve rover-scale obstacles, bearing strength or trafficability.",
+        "grid_shape": [
+          1000,
+          1000
+        ],
+        "valid_cell_count": 984783,
+        "total_cell_count": 1000000,
+        "coverage_percent": 98.48,
+        "window_size_km": 30.0,
+        "terrain_metrics": {
+          "valid_cell_count": 984783,
+          "complete_3x3_neighbourhood_count": 980787,
+          "elevation_m_relative_to_product_datum": {
+            "p10": 0.0,
+            "median": 239.63360595703125,
+            "p90": 323.3186218261719,
+            "range_p90_minus_p10": 323.3186218261719
+          },
+          "slope_deg": {
+            "median": 3.435483706829092,
+            "p90": 13.6180500314935,
+            "p95": 21.437209410200623
+          },
+          "3x3_local_relief_m": {
+            "median": 4.784454345703125,
+            "p90": 18.484924316406254
+          },
+          "slope_fraction": {
+            "under_5_deg_percent": 65.47099421179115,
+            "under_10_deg_percent": 85.11287364126972,
+            "over_20_deg_percent": 5.6348626154302615
+          }
+        },
+        "local_relief_footprint_m": 90.0
       },
       "preview_path": "haughton_copdem_hillshade.png"
     },
@@ -11751,6 +12079,47 @@
           ]
         ]
       },
+      "native_30m_diagnostics": {
+        "status": "processed",
+        "source": "Copernicus DEM GLO-30 DSM",
+        "source_native_resolution_m_approx": 30,
+        "analysis_resolution_m": 30.0,
+        "role": "Earth-only higher-detail roughness context; not matched to planetary data and not rover-scale",
+        "limitation": "A 30 m DSM still cannot resolve rover-scale obstacles, bearing strength or trafficability.",
+        "grid_shape": [
+          1000,
+          1000
+        ],
+        "valid_cell_count": 995486,
+        "total_cell_count": 1000000,
+        "coverage_percent": 99.55,
+        "window_size_km": 30.0,
+        "terrain_metrics": {
+          "valid_cell_count": 995486,
+          "complete_3x3_neighbourhood_count": 991490,
+          "elevation_m_relative_to_product_datum": {
+            "p10": 0.0,
+            "median": 15.08973217010498,
+            "p90": 173.90501403808594,
+            "range_p90_minus_p10": 173.90501403808594
+          },
+          "slope_deg": {
+            "median": 0.5754022812808152,
+            "p90": 5.9375488072431875,
+            "p95": 13.615427164412127
+          },
+          "3x3_local_relief_m": {
+            "median": 0.9765796661376953,
+            "p90": 8.182653808593749
+          },
+          "slope_fraction": {
+            "under_5_deg_percent": 88.50901168947746,
+            "under_10_deg_percent": 93.29030045688812,
+            "over_20_deg_percent": 2.8043651474044116
+          }
+        },
+        "local_relief_footprint_m": 90.0
+      },
       "preview_path": "iceland_copdem_hillshade.png"
     },
     "death": {
@@ -12913,6 +13282,47 @@
             1556.61
           ]
         ]
+      },
+      "native_30m_diagnostics": {
+        "status": "processed",
+        "source": "Copernicus DEM GLO-30 DSM",
+        "source_native_resolution_m_approx": 30,
+        "analysis_resolution_m": 30.0,
+        "role": "Earth-only higher-detail roughness context; not matched to planetary data and not rover-scale",
+        "limitation": "A 30 m DSM still cannot resolve rover-scale obstacles, bearing strength or trafficability.",
+        "grid_shape": [
+          1000,
+          1000
+        ],
+        "valid_cell_count": 999860,
+        "total_cell_count": 1000000,
+        "coverage_percent": 99.99,
+        "window_size_km": 30.0,
+        "terrain_metrics": {
+          "valid_cell_count": 999860,
+          "complete_3x3_neighbourhood_count": 995864,
+          "elevation_m_relative_to_product_datum": {
+            "p10": -84.33023300170899,
+            "median": 237.63504028320312,
+            "p90": 1271.45986328125,
+            "range_p90_minus_p10": 1355.790096282959
+          },
+          "slope_deg": {
+            "median": 4.992108081634553,
+            "p90": 29.68709854841248,
+            "p95": 34.620261022748444
+          },
+          "3x3_local_relief_m": {
+            "median": 6.8319091796875,
+            "p90": 43.01394042968751
+          },
+          "slope_fraction": {
+            "under_5_deg_percent": 50.056533823895634,
+            "under_10_deg_percent": 65.33623064996826,
+            "over_20_deg_percent": 21.14375055228425
+          }
+        },
+        "local_relief_footprint_m": 90.0
       },
       "preview_path": "death_copdem_hillshade.png"
     }
