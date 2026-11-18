@@ -218,3 +218,7 @@ See [`docs/CHALLENGE_SUBMISSION_BRIEF.md`](docs/CHALLENGE_SUBMISSION_BRIEF.md) f
 - 500 unique PDS observational metadata records across six capped target/instrument queries; MOLA, LOLA and Diviner instrument queries returned records. The HiRISE target-filtered API query returned no relevant rows; its PDS RDR dataset profile is linked in the dashboard.
 - Regional terrain-window scan: 7,290 valid Earth sub-windows, 729 Shackleton windows and 21 Nili Patera windows; up to 30 spatially separated shortlist windows per target. The scan is confined to the ten existing parent regions.
 - FastAPI read endpoints and field-notebook create/list/delete behavior passed CI smoke tests. The public static site loads the science pack without requiring the optional API.
+
+## Scientific readiness and gap-closure work
+
+The five-track plan for global discovery, independent quantitative validation, Pakistan field validation, data-depth classification and reproducibility is documented in [docs/GLOBAL_DISCOVERY_AND_VALIDATION.md](docs/GLOBAL_DISCOVERY_AND_VALIDATION.md). A structured ground-truth station template is provided at [science/field_validation_protocol.json](science/field_validation_protocol.json). Generate a repository file-hash inventory with `python scripts/build_reproducibility_manifest.py`; this inventories files and does not certify scientific validity. Current regional scan scope remains ten curated Earth regions and 7,290 valid windows, not a global scan. Independent field observations and global DEM processing are not claimed until completed.
