@@ -51,14 +51,22 @@ Known constraints include:
 - Copernicus DEM GLO-30 is a DSM; the latest processing run produced matched ~925 m local grids for all ten Earth study/reference windows. These aggregates are regional context, not rover-scale hazard analysis.
 - Nili Patera MOLA selected-window observation coverage is approximately 50.53%, with only 87 complete 3×3 neighbourhoods in the current product.
 - Shackleton LOLA elevation is integrated at 80 m native support and aggregated to approximately 925 m for regional comparison. LOLA return counts describe measurement support; they are not PSR or ice maps.
-- Diviner PRP V2.0 has been diagnosed in the project; ice-depth interpretation and accessible-resource claims remain withheld pending authoritative product metadata and QA.
+- Diviner PRP V2.0 temperature fields are processed for 6,823 Shackleton-window triangles (median annual-average temperature at 2 cm: 103.786 K; median annual-maximum surface temperature: 238.568 K). These are historical model-derived summaries, not in-situ observations. The ice-depth field contains negative values and -999 censored rows and is withheld pending QA; no accessible-ice conclusion is made.
 - Earth cannot reproduce lunar vacuum, one-sixth gravity, planetary radiation or electrostatic lunar dust. Earth cannot reproduce the Martian thin CO2 atmosphere, lower gravity, radiation or Martian regolith chemistry.
 
 ## NASA PDS discovery integration
 
 The PDS script queries the public Search API for Nili Patera, MOLA, HiRISE, Shackleton, LOLA and Diviner terms. The API is used for product metadata discovery. A result does not establish that a binary file is public, downloaded, calibrated, spatially complete or analysis-ready. NASA PDS documentation explicitly notes that the Search API registry is not fully populated; zero results must not be interpreted as proof that the archive contains no relevant data.
 
-The next ingestion phase should resolve product labels, check instrument calibration and coordinate metadata, select a manageable product subset, download through the documented distribution path, and record checksums and provenance before analysis.
+The next ingestion phase for additional products should resolve labels, check instrument calibration and coordinate metadata, select a manageable product subset, download through the documented distribution path, and record checksums and provenance before analysis. The existing 500 PDS Search API records are catalogue metadata; they must not be described as 500 downloaded or processed science products.
+
+## Regional terrain-window discovery
+
+The [regional discovery page](https://usmanmughal96.github.io/analog-x/discovery.html) exposes a new reproducible scan over the ten existing 30 km Earth study/reference DEM windows. The current run derives 7,290 valid Earth sub-windows, 729 valid Shackleton windows and 21 valid Nili Patera windows. Each is a 6 × 6 cell window (~5.55 km) at ~925 m terrain support.
+
+Three terrain descriptors are used: median slope, P90 slope and P90 3 × 3 local relief. An exploratory index reports IQR-normalized terrain proximity to each planetary window-profile median; a 500-draw sensitivity check reports top-decile rank persistence within the parent Earth region.
+
+This is not a global Earth search. It only subdivides the ten pre-selected parent areas. The index does not include lithology, mineralogy, regolith strength, dust, temperature, illumination, water, radiation or operational safety. Overlapping windows are spatially dependent. Approximate WGS84 window centres are locators, not surveyed points. At ~925 m support, the scan is regional screening rather than rover-scale terrain analysis. See [the method note](REGIONAL_WINDOW_SCAN.md).
 
 ## Visualization and maps
 
