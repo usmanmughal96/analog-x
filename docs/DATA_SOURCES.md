@@ -99,15 +99,17 @@ Current Nili Patera observation coverage: 567 / 1,122 cells (50.53%); 87 complet
 
 
 
-### NASA LRO Diviner PRP access diagnostic
-The repository now records a successful public PDS4 PRP V2.0 collection discovery and public range access to the legacy PDS3 south-polar table. Its header exposes triangle coordinates/centroids plus `temp_avg`, `temp_max` and `ice_depth`. The table is approximately 604.8 MB (2,880,000 fixed-width records). This is **access validation only**: the field units, no-data conventions, interpretation, and Shackleton-window statistics have not yet been processed. Do not display the sample temperature or ice-depth fields as validated lunar thermal/resource metrics until the product SIS/FMT metadata is confirmed.
+### NASA LRO Diviner PRP V2.0 processing result
+The PDS4 product label was fetched and validated before processing the south-polar table. `scripts/process_diviner_prp.py` verifies the declared 2,880,000 records, record length, field names, temperature units (Kelvin), ice-depth units (metres) and the `-999` invalid/censored constant. It streams the approximately 604.8 MB table and summarizes 6,823 triangle centroids inside an analyst-defined 29.6 × 29.6 km Shackleton Rim comparison window. The committed output is `data/moon/shackleton_diviner_prp.json`.
+
+The median annual-average temperature at 2 cm is 103.786 K; the median annual-maximum surface temperature is 238.568 K. These are historical thermal-model outputs, not in-situ measurements. The extracted ice-depth field has 4,309 numerically usable values and 2,514 `-999` censored values (36.85% of the AOI); negative numeric values also remain. The ice-depth field is therefore withheld from resource interpretation pending QA. This does not establish exposed, accessible or mineable lunar water ice.
 
 ## Reference-only NASA / planetary datasets
 
 | Dataset | Intended role | Current state |
 |---|---|---|
 | NASA LRO LOLA | Lunar south-pole elevation, slope, counts and uncertainty | Integrated: NASA LRO LOLA PDS GDR `LDEM_80S_80M` and matching `LDEC_80S_80M` processed around Shackleton Rim; native 80 m profile and ~925 m matched-support aggregate stored in `data/moon/shackleton_lola_80m.json` | DEM is interpolated; return counts describe measurement support, not illumination, permanently shadowed regions, ice or landing safety. The original 5 m PGDA Site04 access route remained unavailable. |
-| NASA LRO Diviner | Polar resource product table with thermal and ice-depth fields (`temp_avg`, `temp_max`, `ice_depth`) | PDS4 PRP V2.0 collection metadata and PDS3 south-polar table range access verified; 604.8 MB table is not yet ingested or statistically processed. Units/field semantics still require authoritative SIS/FMT confirmation. Diagnostic: `data/moon/diviner_prp_diagnostic/report.json` |
+| NASA LRO Diviner PRP V2.0 | Polar resource product table with thermal and ice-depth fields (`temp_avg`, `temp_max`, `ice_depth`) | Processed for the Shackleton comparison window: 6,823 triangles; median annual-average temperature at 2 cm 103.786 K; median annual-maximum surface temperature 238.568 K. Output: `data/moon/shackleton_diviner_prp.json`. | Temperature summaries are historical model-derived outputs, not in-situ measurements. The ice-depth field contains negative and -999 censored values and is withheld pending QA; no accessible-ice claim. Formal PSR / illumination analysis is not integrated. |
 | NASA Global Volcano Hazard Frequency and Distribution | Historical volcano hazard frequency grid | Official data page linked; grid not ingested; historical events 79–2000, 2.5 arc-minute context, not current hazard intelligence |
 | NASA GIBS / Worldview | Earth global imagery/context | GIBS VIIRS tile layer displayed on map; visual context only |
 | NASADEM / SRTM / other DEMs | Earth elevation | Alternate sources identified; Copernicus DEM is the terrain input in this release |
@@ -135,4 +137,4 @@ For the complete source-by-source status of NASA Earthdata Search, Worldview/GIB
 - Coarse profile: aggregated by area averaging to 925 m (32 × 32 cells) over the same window as the Earth/Mars coarse profiles.
 - Coarse descriptors: median slope 13.40°, P90 slope 30.94°, P90 3×3 local relief 1,391 m; the relief footprint is approximately 2.775 km.
 - Interpretation: this selected Shackleton Rim window is rugged. This is not an illumination/PSR, water-ice, landing-safety or habitat-suitability analysis.
-- Diviner thermal and water-ice-permafrost products remain reference-only.
+- Diviner PRP V2.0 thermal summaries are processed for 6,823 Shackleton-window triangles; the ice-depth interpretation remains withheld pending QA of negative and censored values. No exposed or accessible lunar ice is inferred.
