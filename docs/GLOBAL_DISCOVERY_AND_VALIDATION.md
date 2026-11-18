@@ -46,7 +46,7 @@ The current scan computes median slope, P90 slope and P90 3×3 local relief from
 
 The Pakistan playa and volcanic study areas are candidate leads/reference cases, not field-validated planetary analogs. Ground-truth collection must be explicit and permission-led.
 
-Use `science/field_validation_protocol.json` as the structured station template. Each field station should record:
+Use `science/field_validation_protocol.json` as the structured station template. The browser-based [Field Validation Kit](../field-validation.html) can capture planned stations and real observations, store drafts locally, and export station records as JSON/CSV. The browser kit does not upload observations; exported evidence must be reviewed and added to the repository ledger through a controlled commit. Each field station should record:
 - WGS84 coordinates, coordinate method and accuracy;
 - UTC time, observer, instrument identifiers and calibration;
 - georeferenced photographs with bearing and station IDs;
