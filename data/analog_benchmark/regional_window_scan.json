@@ -1,21 +1,21 @@
 {
   "schema_version": "1.0",
   "engine": "ANALOG-X Regional Terrain Window Discovery & Robustness Engine",
-  "generated_at_utc": "2026-11-18T11:30:00Z",
+  "generated_at_utc": "2026-11-18T12:10:27+00:00",
   "scientific_contract": {
-    "unit_of_analysis": "5.55 km × 5.55 km regional terrain windows sampled inside ten pre-selected 30 km Earth study/reference areas",
+    "unit_of_analysis": "5.55 km \u00d7 5.55 km regional terrain windows sampled inside ten pre-selected 30 km Earth study/reference areas",
     "not_global_search": true,
-    "score_interpretation": "Exploratory terrain-only proximity index using equal-weight IQR-normalized absolute gaps in median slope, P90 slope and P90 3×3 local relief. It is not a probability, geological match, mission score or landing-suitability assessment.",
+    "score_interpretation": "Exploratory terrain-only proximity index using equal-weight, IQR-normalized absolute gaps in median slope, P90 slope and P90 3\u00d73 local relief. It is not a probability, geological match, mission score or landing-suitability assessment.",
     "scale_limit": "Earth inputs are Copernicus DEM GLO-30 DSM resampled to ~925 m; the Moon input is 80 m LOLA aggregated to ~925 m; Mars uses ~925 m MOLA. The 5.55 km windows retain ~925 m spatial support.",
     "window_overlap": "Sliding windows overlap and are spatially dependent. Weight sensitivity is not a statistical confidence interval.",
     "candidate_limit": "Results identify candidate sub-windows within the ten existing study regions only. They are not a whole-Earth scan or newly validated geological analog discoveries.",
+    "coordinate_note": "Displayed WGS84 window centres are approximate offsets from each parent study-area reference centre using nominal grid spacing. They are map locators, not surveyed coordinates, field-station positions or parcel boundaries.",
     "physical_nontransferability": [
       "Earth gravity and atmosphere differ from the Moon and Mars.",
       "Terrain similarity does not measure lithology, mineralogy, regolith strength, dust, water or radiation.",
       "No rover-scale trafficability, landing safety, resource access or base suitability is inferred."
     ],
-    "inspiration_and_method_note": "The IQR-normalized terrain-distance and rank-sensitivity ideas were independently implemented after reviewing public NASA Space Apps examples from Team Shoemaker and Earth Analog Explorer. No competitor source code is copied into this engine.",
-    "coordinate_note": "Displayed WGS84 window centres are approximate offsets from each parent study-area reference centre using nominal grid spacing. They are map locators, not surveyed coordinates, field-station positions or parcel boundaries."
+    "inspiration_and_method_note": "The transparent IQR-normalized terrain-distance and stability ideas were independently implemented after reviewing public NASA Space Apps examples from Team Shoemaker and Earth Analog Explorer. No competitor source code is copied into this engine."
   },
   "inputs": {
     "earth": "data/terrain/terrain_comparison.json",
@@ -47,7 +47,7 @@
         "id": "moon",
         "name": "Shackleton Rim / lunar south pole",
         "source": "NASA LRO LOLA PDS GDR LDEM_80S_80M aggregated to ~925 m",
-        "source_coverage": "32×32 interpolated elevation grid; LDEC reports 99.9949% mean native-pixel return support per coarse cell",
+        "source_coverage": "32\u00d732 interpolated elevation grid; LDEC reports 99.99488830566406% mean native-pixel return support per coarse cell",
         "valid_target_windows": 729,
         "typical_5_55km_window_profile": {
           "median_slope_deg": 13.461,
@@ -63,7 +63,7 @@
         "analysis_resolution_m": 925,
         "valid_window_rule": "At least 26/36 valid elevation cells and 15 valid slope and relief samples",
         "weight_sensitivity_draws": 500,
-        "stability_definition": "Percentage of random Dirichlet(1,1,1) feature-weight draws for which this window ranked in the top decile of its own 30 km parent region. Rank sensitivity only—not analog probability or statistical confidence.",
+        "stability_definition": "Percentage of random Dirichlet(1,1,1) feature-weight draws for which this window ranked in the top decile of its own 30 km parent region. Rank sensitivity only\u2014not analog probability or statistical confidence.",
         "default_weights": {
           "median_slope_deg": 0.3333333333333333,
           "p90_slope_deg": 0.3333333333333333,
@@ -74,7 +74,7 @@
           "p90_slope_deg": 9.727,
           "p90_local_relief_m": 374.894
         },
-        "selection_rule": "Up to 30 windows, max 4 per parent region, at least 6 km apart"
+        "selection_rule": "Up to 30 windows, max 4 per parent region, at least 6.0 km apart"
       },
       "candidate_windows": [
         {
@@ -86,8 +86,9 @@
           "longitude": 75.192,
           "row": 13,
           "column": 9,
+          "network_rank": 1,
           "score": 97.59,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 13.714,
             "p90_slope_deg": 22.877,
@@ -98,7 +99,7 @@
             "p90_slope_deg": 98.4,
             "p90_local_relief_m": 99.37
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -118,8 +119,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 1
+          ]
         },
         {
           "id": "hispar_glacier_r15_c18",
@@ -130,8 +130,9 @@
           "longitude": 75.285,
           "row": 15,
           "column": 18,
+          "network_rank": 3,
           "score": 95.93,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 12.973,
             "p90_slope_deg": 22.537,
@@ -142,7 +143,7 @@
             "p90_slope_deg": 98.14,
             "p90_local_relief_m": 99.17
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -162,8 +163,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 3
+          ]
         },
         {
           "id": "hispar_glacier_r6_c22",
@@ -174,8 +174,9 @@
           "longitude": 75.326,
           "row": 6,
           "column": 22,
+          "network_rank": 8,
           "score": 93.16,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 14.128,
             "p90_slope_deg": 22.96,
@@ -186,7 +187,7 @@
             "p90_slope_deg": 97.56,
             "p90_local_relief_m": 94.73
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -206,8 +207,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 8
+          ]
         },
         {
           "id": "hispar_glacier_r8_c3",
@@ -218,8 +218,9 @@
           "longitude": 75.131,
           "row": 8,
           "column": 3,
+          "network_rank": 12,
           "score": 91.51,
-          "top_decile_stability_pct": 99,
+          "top_decile_stability_pct": 99.0,
           "terrain": {
             "median_slope_deg": 14.462,
             "p90_slope_deg": 22.643,
@@ -230,7 +231,7 @@
             "p90_slope_deg": 99.21,
             "p90_local_relief_m": 94.37
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -250,8 +251,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 12
+          ]
         },
         {
           "id": "death_r16_c16",
@@ -262,8 +262,9 @@
           "longitude": -116.769,
           "row": 16,
           "column": 16,
+          "network_rank": 14,
           "score": 90.75,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 12.972,
             "p90_slope_deg": 23.869,
@@ -274,7 +275,7 @@
             "p90_slope_deg": 88.86,
             "p90_local_relief_m": 92.76
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "arid basin",
@@ -287,19 +288,18 @@
           ],
           "source_references": [
             {
-              "title": "Salt Flats — Death Valley National Park",
+              "title": "Salt Flats \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/salt-flats.htm",
               "supports": "Explains Badwater Basin salt-flat formation, closed-basin hydrology, evaporative concentration and fragile salt crust."
             },
             {
-              "title": "Geologic Formations — Death Valley National Park",
+              "title": "Geologic Formations \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ],
-          "network_rank": 14
+          ]
         },
         {
           "id": "mcmurdo_r11_c24",
@@ -310,6 +310,7 @@
           "longitude": 162.222,
           "row": 11,
           "column": 24,
+          "network_rank": 21,
           "score": 89.53,
           "top_decile_stability_pct": 90.8,
           "terrain": {
@@ -320,9 +321,9 @@
           "components": {
             "median_slope_deg": 97.72,
             "p90_slope_deg": 75.71,
-            "p90_local_relief_m": 97
+            "p90_local_relief_m": 97.0
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "polar desert",
@@ -336,7 +337,7 @@
           ],
           "source_references": [
             {
-              "title": "Astrobiology Field Sites — McMurdo Dry Valleys",
+              "title": "Astrobiology Field Sites \u2014 McMurdo Dry Valleys",
               "publisher": "NASA Astrobiology",
               "url": "https://astrobiology.nasa.gov/research-locations/",
               "supports": "Identifies the McMurdo Dry Valleys as a cold, dry terrestrial Mars-analogue research location."
@@ -347,8 +348,7 @@
               "url": "https://par.nsf.gov/servlets/purl/10396201",
               "supports": "Reviews dry-valley geology, environment, ecology, ice and wind processes relevant to Mars."
             }
-          ],
-          "network_rank": 21
+          ]
         },
         {
           "id": "mcmurdo_r19_c11",
@@ -359,8 +359,9 @@
           "longitude": 161.723,
           "row": 19,
           "column": 11,
+          "network_rank": 32,
           "score": 88.34,
-          "top_decile_stability_pct": 93,
+          "top_decile_stability_pct": 93.0,
           "terrain": {
             "median_slope_deg": 12.706,
             "p90_slope_deg": 24.747,
@@ -371,7 +372,7 @@
             "p90_slope_deg": 81.19,
             "p90_local_relief_m": 98.77
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "polar desert",
@@ -385,7 +386,7 @@
           ],
           "source_references": [
             {
-              "title": "Astrobiology Field Sites — McMurdo Dry Valleys",
+              "title": "Astrobiology Field Sites \u2014 McMurdo Dry Valleys",
               "publisher": "NASA Astrobiology",
               "url": "https://astrobiology.nasa.gov/research-locations/",
               "supports": "Identifies the McMurdo Dry Valleys as a cold, dry terrestrial Mars-analogue research location."
@@ -396,8 +397,7 @@
               "url": "https://par.nsf.gov/servlets/purl/10396201",
               "supports": "Reviews dry-valley geology, environment, ecology, ice and wind processes relevant to Mars."
             }
-          ],
-          "network_rank": 32
+          ]
         },
         {
           "id": "mcmurdo_r11_c8",
@@ -408,6 +408,7 @@
           "longitude": 161.608,
           "row": 11,
           "column": 8,
+          "network_rank": 48,
           "score": 86.83,
           "top_decile_stability_pct": 86.2,
           "terrain": {
@@ -420,7 +421,7 @@
             "p90_slope_deg": 75.15,
             "p90_local_relief_m": 89.61
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "polar desert",
@@ -434,7 +435,7 @@
           ],
           "source_references": [
             {
-              "title": "Astrobiology Field Sites — McMurdo Dry Valleys",
+              "title": "Astrobiology Field Sites \u2014 McMurdo Dry Valleys",
               "publisher": "NASA Astrobiology",
               "url": "https://astrobiology.nasa.gov/research-locations/",
               "supports": "Identifies the McMurdo Dry Valleys as a cold, dry terrestrial Mars-analogue research location."
@@ -445,8 +446,7 @@
               "url": "https://par.nsf.gov/servlets/purl/10396201",
               "supports": "Reviews dry-valley geology, environment, ecology, ice and wind processes relevant to Mars."
             }
-          ],
-          "network_rank": 48
+          ]
         },
         {
           "id": "mcmurdo_r17_c19",
@@ -457,6 +457,7 @@
           "longitude": 162.03,
           "row": 17,
           "column": 19,
+          "network_rank": 58,
           "score": 85.92,
           "top_decile_stability_pct": 77.4,
           "terrain": {
@@ -469,7 +470,7 @@
             "p90_slope_deg": 98.52,
             "p90_local_relief_m": 65.55
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "polar desert",
@@ -483,7 +484,7 @@
           ],
           "source_references": [
             {
-              "title": "Astrobiology Field Sites — McMurdo Dry Valleys",
+              "title": "Astrobiology Field Sites \u2014 McMurdo Dry Valleys",
               "publisher": "NASA Astrobiology",
               "url": "https://astrobiology.nasa.gov/research-locations/",
               "supports": "Identifies the McMurdo Dry Valleys as a cold, dry terrestrial Mars-analogue research location."
@@ -494,8 +495,7 @@
               "url": "https://par.nsf.gov/servlets/purl/10396201",
               "supports": "Reviews dry-valley geology, environment, ecology, ice and wind processes relevant to Mars."
             }
-          ],
-          "network_rank": 58
+          ]
         },
         {
           "id": "death_r22_c19",
@@ -506,8 +506,9 @@
           "longitude": -116.738,
           "row": 22,
           "column": 19,
+          "network_rank": 63,
           "score": 85.78,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 12.447,
             "p90_slope_deg": 22.632,
@@ -518,7 +519,7 @@
             "p90_slope_deg": 99.09,
             "p90_local_relief_m": 78.03
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "arid basin",
@@ -531,19 +532,18 @@
           ],
           "source_references": [
             {
-              "title": "Salt Flats — Death Valley National Park",
+              "title": "Salt Flats \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/salt-flats.htm",
               "supports": "Explains Badwater Basin salt-flat formation, closed-basin hydrology, evaporative concentration and fragile salt crust."
             },
             {
-              "title": "Geologic Formations — Death Valley National Park",
+              "title": "Geologic Formations \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ],
-          "network_rank": 63
+          ]
         },
         {
           "id": "death_r7_c16",
@@ -554,6 +554,7 @@
           "longitude": -116.769,
           "row": 7,
           "column": 16,
+          "network_rank": 99,
           "score": 83.89,
           "top_decile_stability_pct": 97.8,
           "terrain": {
@@ -566,7 +567,7 @@
             "p90_slope_deg": 84.66,
             "p90_local_relief_m": 69.85
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "arid basin",
@@ -579,19 +580,18 @@
           ],
           "source_references": [
             {
-              "title": "Salt Flats — Death Valley National Park",
+              "title": "Salt Flats \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/salt-flats.htm",
               "supports": "Explains Badwater Basin salt-flat formation, closed-basin hydrology, evaporative concentration and fragile salt crust."
             },
             {
-              "title": "Geologic Formations — Death Valley National Park",
+              "title": "Geologic Formations \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ],
-          "network_rank": 99
+          ]
         },
         {
           "id": "death_r26_c26",
@@ -602,6 +602,7 @@
           "longitude": -116.666,
           "row": 26,
           "column": 26,
+          "network_rank": 969,
           "score": 52.75,
           "top_decile_stability_pct": 3.4,
           "terrain": {
@@ -614,7 +615,7 @@
             "p90_slope_deg": 52.44,
             "p90_local_relief_m": 39.7
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "arid basin",
@@ -627,19 +628,18 @@
           ],
           "source_references": [
             {
-              "title": "Salt Flats — Death Valley National Park",
+              "title": "Salt Flats \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/salt-flats.htm",
               "supports": "Explains Badwater Basin salt-flat formation, closed-basin hydrology, evaporative concentration and fragile salt crust."
             },
             {
-              "title": "Geologic Formations — Death Valley National Park",
+              "title": "Geologic Formations \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ],
-          "network_rank": 969
+          ]
         },
         {
           "id": "dallol_r21_c0",
@@ -650,8 +650,9 @@
           "longitude": 40.189,
           "row": 21,
           "column": 0,
+          "network_rank": 1417,
           "score": 30.88,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 7.619,
             "p90_slope_deg": 12.508,
@@ -659,10 +660,10 @@
           },
           "components": {
             "median_slope_deg": 31.05,
-            "p90_slope_deg": 35,
+            "p90_slope_deg": 35.0,
             "p90_local_relief_m": 27.1
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "hydrothermal",
@@ -676,7 +677,7 @@
           ],
           "source_references": [
             {
-              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)—An Exceptional Planetary Field Analog on Earth",
+              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)\u2014An Exceptional Planetary Field Analog on Earth",
               "publisher": "Astrobiology / peer-reviewed research",
               "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6459281/",
               "supports": "Field-surveyed hydrothermal alteration, acidic sulfate deposits and Mars-analogue context; not a site-specific ANALOG-X data measurement."
@@ -687,8 +688,7 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ],
-          "network_rank": 1417
+          ]
         },
         {
           "id": "koh_i_sultan_r11_c18",
@@ -699,8 +699,9 @@
           "longitude": 62.848,
           "row": 11,
           "column": 18,
-          "score": 25,
-          "top_decile_stability_pct": 100,
+          "network_rank": 1584,
+          "score": 25.0,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 7.215,
             "p90_slope_deg": 9.897,
@@ -711,7 +712,7 @@
             "p90_slope_deg": 26.76,
             "p90_local_relief_m": 20.38
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "volcanic field",
@@ -730,8 +731,7 @@
               "url": "https://pubs.usgs.gov/publication/ofr75550",
               "supports": "Regional geological map context."
             }
-          ],
-          "network_rank": 1584
+          ]
         },
         {
           "id": "haughton_r3_c26",
@@ -742,8 +742,9 @@
           "longitude": -89.247,
           "row": 3,
           "column": 26,
+          "network_rank": 1734,
           "score": 20.86,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 4.935,
             "p90_slope_deg": 11.287,
@@ -754,7 +755,7 @@
             "p90_slope_deg": 30.87,
             "p90_local_relief_m": 16.2
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -767,7 +768,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -778,8 +779,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 1734
+          ]
         },
         {
           "id": "koh_i_sultan_r14_c12",
@@ -790,8 +790,9 @@
           "longitude": 62.79,
           "row": 14,
           "column": 12,
+          "network_rank": 1775,
           "score": 20.06,
-          "top_decile_stability_pct": 71,
+          "top_decile_stability_pct": 71.0,
           "terrain": {
             "median_slope_deg": 5.623,
             "p90_slope_deg": 8.498,
@@ -802,7 +803,7 @@
             "p90_slope_deg": 23.18,
             "p90_local_relief_m": 16.74
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "volcanic field",
@@ -821,8 +822,7 @@
               "url": "https://pubs.usgs.gov/publication/ofr75550",
               "supports": "Regional geological map context."
             }
-          ],
-          "network_rank": 1775
+          ]
         },
         {
           "id": "koh_i_sultan_r18_c18",
@@ -833,8 +833,9 @@
           "longitude": 62.848,
           "row": 18,
           "column": 18,
+          "network_rank": 1851,
           "score": 18.72,
-          "top_decile_stability_pct": 0,
+          "top_decile_stability_pct": 0.0,
           "terrain": {
             "median_slope_deg": 4.709,
             "p90_slope_deg": 8.089,
@@ -845,7 +846,7 @@
             "p90_slope_deg": 22.22,
             "p90_local_relief_m": 17.01
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "volcanic field",
@@ -864,8 +865,7 @@
               "url": "https://pubs.usgs.gov/publication/ofr75550",
               "supports": "Regional geological map context."
             }
-          ],
-          "network_rank": 1851
+          ]
         },
         {
           "id": "koh_i_sultan_r6_c13",
@@ -876,8 +876,9 @@
           "longitude": 62.8,
           "row": 6,
           "column": 13,
+          "network_rank": 1902,
           "score": 17.9,
-          "top_decile_stability_pct": 0,
+          "top_decile_stability_pct": 0.0,
           "terrain": {
             "median_slope_deg": 4.928,
             "p90_slope_deg": 7.456,
@@ -888,7 +889,7 @@
             "p90_slope_deg": 20.82,
             "p90_local_relief_m": 15.2
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "volcanic field",
@@ -907,8 +908,7 @@
               "url": "https://pubs.usgs.gov/publication/ofr75550",
               "supports": "Regional geological map context."
             }
-          ],
-          "network_rank": 1902
+          ]
         },
         {
           "id": "haughton_r26_c3",
@@ -919,8 +919,9 @@
           "longitude": -90.004,
           "row": 26,
           "column": 3,
+          "network_rank": 1924,
           "score": 17.63,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 2.392,
             "p90_slope_deg": 10.341,
@@ -931,7 +932,7 @@
             "p90_slope_deg": 28.01,
             "p90_local_relief_m": 17.93
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -944,7 +945,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -955,8 +956,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 1924
+          ]
         },
         {
           "id": "dallol_r14_c0",
@@ -967,8 +967,9 @@
           "longitude": 40.189,
           "row": 14,
           "column": 0,
+          "network_rank": 1997,
           "score": 16.82,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 2.828,
             "p90_slope_deg": 7.928,
@@ -979,7 +980,7 @@
             "p90_slope_deg": 21.86,
             "p90_local_relief_m": 18.29
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "hydrothermal",
@@ -993,7 +994,7 @@
           ],
           "source_references": [
             {
-              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)—An Exceptional Planetary Field Analog on Earth",
+              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)\u2014An Exceptional Planetary Field Analog on Earth",
               "publisher": "Astrobiology / peer-reviewed research",
               "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6459281/",
               "supports": "Field-surveyed hydrothermal alteration, acidic sulfate deposits and Mars-analogue context; not a site-specific ANALOG-X data measurement."
@@ -1004,8 +1005,7 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ],
-          "network_rank": 1997
+          ]
         },
         {
           "id": "haughton_r10_c26",
@@ -1016,6 +1016,7 @@
           "longitude": -89.247,
           "row": 10,
           "column": 26,
+          "network_rank": 2045,
           "score": 16.19,
           "top_decile_stability_pct": 74.6,
           "terrain": {
@@ -1028,7 +1029,7 @@
             "p90_slope_deg": 22.02,
             "p90_local_relief_m": 14.23
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -1041,7 +1042,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -1052,8 +1053,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 2045
+          ]
         },
         {
           "id": "haughton_r8_c5",
@@ -1064,8 +1064,9 @@
           "longitude": -89.938,
           "row": 8,
           "column": 5,
+          "network_rank": 2109,
           "score": 15.6,
-          "top_decile_stability_pct": 68,
+          "top_decile_stability_pct": 68.0,
           "terrain": {
             "median_slope_deg": 2.967,
             "p90_slope_deg": 7.877,
@@ -1076,7 +1077,7 @@
             "p90_slope_deg": 21.74,
             "p90_local_relief_m": 14.27
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -1089,7 +1090,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -1100,8 +1101,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 2109
+          ]
         },
         {
           "id": "iceland_r9_c26",
@@ -1112,8 +1112,9 @@
           "longitude": -22.005,
           "row": 9,
           "column": 26,
+          "network_rank": 2248,
           "score": 14.51,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 3.18,
             "p90_slope_deg": 6.298,
@@ -1124,7 +1125,7 @@
             "p90_slope_deg": 18.48,
             "p90_local_relief_m": 12.94
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "basaltic volcanism",
@@ -1148,8 +1149,7 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ],
-          "network_rank": 2248
+          ]
         },
         {
           "id": "iceland_r11_c11",
@@ -1160,8 +1160,9 @@
           "longitude": -22.288,
           "row": 11,
           "column": 11,
+          "network_rank": 2277,
           "score": 14.37,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 3.104,
             "p90_slope_deg": 5.326,
@@ -1172,7 +1173,7 @@
             "p90_slope_deg": 16.73,
             "p90_local_relief_m": 14.1
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "basaltic volcanism",
@@ -1196,8 +1197,7 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ],
-          "network_rank": 2277
+          ]
         },
         {
           "id": "iceland_r12_c20",
@@ -1208,6 +1208,7 @@
           "longitude": -22.118,
           "row": 12,
           "column": 20,
+          "network_rank": 2744,
           "score": 12.52,
           "top_decile_stability_pct": 49.2,
           "terrain": {
@@ -1220,7 +1221,7 @@
             "p90_slope_deg": 15.57,
             "p90_local_relief_m": 10.56
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "basaltic volcanism",
@@ -1244,8 +1245,7 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ],
-          "network_rank": 2744
+          ]
         },
         {
           "id": "iceland_r2_c26",
@@ -1256,8 +1256,9 @@
           "longitude": -22.005,
           "row": 2,
           "column": 26,
+          "network_rank": 2896,
           "score": 11.94,
-          "top_decile_stability_pct": 0,
+          "top_decile_stability_pct": 0.0,
           "terrain": {
             "median_slope_deg": 1.995,
             "p90_slope_deg": 4.503,
@@ -1268,7 +1269,7 @@
             "p90_slope_deg": 15.37,
             "p90_local_relief_m": 10.99
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "basaltic volcanism",
@@ -1292,8 +1293,7 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ],
-          "network_rank": 2896
+          ]
         },
         {
           "id": "dallol_r26_c5",
@@ -1304,8 +1304,9 @@
           "longitude": 40.231,
           "row": 26,
           "column": 5,
+          "network_rank": 2949,
           "score": 11.71,
-          "top_decile_stability_pct": 53,
+          "top_decile_stability_pct": 53.0,
           "terrain": {
             "median_slope_deg": 2.106,
             "p90_slope_deg": 3.624,
@@ -1316,7 +1317,7 @@
             "p90_slope_deg": 14.04,
             "p90_local_relief_m": 11.1
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "hydrothermal",
@@ -1330,7 +1331,7 @@
           ],
           "source_references": [
             {
-              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)—An Exceptional Planetary Field Analog on Earth",
+              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)\u2014An Exceptional Planetary Field Analog on Earth",
               "publisher": "Astrobiology / peer-reviewed research",
               "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6459281/",
               "supports": "Field-surveyed hydrothermal alteration, acidic sulfate deposits and Mars-analogue context; not a site-specific ANALOG-X data measurement."
@@ -1341,8 +1342,7 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ],
-          "network_rank": 2949
+          ]
         },
         {
           "id": "dallol_r7_c0",
@@ -1353,8 +1353,9 @@
           "longitude": 40.189,
           "row": 7,
           "column": 0,
+          "network_rank": 3951,
           "score": 9.33,
-          "top_decile_stability_pct": 0,
+          "top_decile_stability_pct": 0.0,
           "terrain": {
             "median_slope_deg": 0.147,
             "p90_slope_deg": 2.229,
@@ -1365,7 +1366,7 @@
             "p90_slope_deg": 12.17,
             "p90_local_relief_m": 9.58
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "hydrothermal",
@@ -1379,7 +1380,7 @@
           ],
           "source_references": [
             {
-              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)—An Exceptional Planetary Field Analog on Earth",
+              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)\u2014An Exceptional Planetary Field Analog on Earth",
               "publisher": "Astrobiology / peer-reviewed research",
               "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6459281/",
               "supports": "Field-surveyed hydrothermal alteration, acidic sulfate deposits and Mars-analogue context; not a site-specific ANALOG-X data measurement."
@@ -1390,8 +1391,7 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ],
-          "network_rank": 3951
+          ]
         },
         {
           "id": "chagai_small_playas_r12_c20",
@@ -1402,19 +1402,20 @@
           "longitude": 62.7,
           "row": 12,
           "column": 20,
+          "network_rank": 4002,
           "score": 9.16,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 0.845,
             "p90_slope_deg": 1.691,
             "p90_local_relief_m": 58.6
           },
           "components": {
-            "median_slope_deg": 8,
+            "median_slope_deg": 8.0,
             "p90_slope_deg": 11.51,
             "p90_local_relief_m": 8.35
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "salt playa",
@@ -1434,20 +1435,20 @@
               "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
               "supports": "Historical report describes two small salt-surfaced playas at the stated coordinates and discusses possible evaporite/brine sources; it does not provide modern site validation or a current mineral map."
             }
-          ],
-          "network_rank": 4002
+          ]
         },
         {
           "id": "chagai_small_playas_r6_c23",
           "site_id": "chagai_small_playas",
           "name": "Chagai small salt playas near Nok Kundi",
           "country": "Pakistan",
-          "latitude": 28.642,
+          "latitude": 28.641,
           "longitude": 62.728,
           "row": 6,
           "column": 23,
+          "network_rank": 4063,
           "score": 9.01,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 0.778,
             "p90_slope_deg": 1.485,
@@ -1458,7 +1459,7 @@
             "p90_slope_deg": 11.27,
             "p90_local_relief_m": 8.21
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "salt playa",
@@ -1478,8 +1479,7 @@
               "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
               "supports": "Historical report describes two small salt-surfaced playas at the stated coordinates and discusses possible evaporite/brine sources; it does not provide modern site validation or a current mineral map."
             }
-          ],
-          "network_rank": 4063
+          ]
         }
       ],
       "network_top_30_unfiltered": [
@@ -1492,8 +1492,9 @@
           "longitude": 75.192,
           "row": 13,
           "column": 9,
+          "network_rank": 1,
           "score": 97.59,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 13.714,
             "p90_slope_deg": 22.877,
@@ -1504,7 +1505,7 @@
             "p90_slope_deg": 98.4,
             "p90_local_relief_m": 99.37
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -1524,8 +1525,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 1
+          ]
         },
         {
           "id": "hispar_glacier_r13_c11",
@@ -1536,8 +1536,9 @@
           "longitude": 75.213,
           "row": 13,
           "column": 11,
+          "network_rank": 2,
           "score": 96.62,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 13.365,
             "p90_slope_deg": 22.856,
@@ -1548,7 +1549,7 @@
             "p90_slope_deg": 98.61,
             "p90_local_relief_m": 93.25
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -1568,8 +1569,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 2
+          ]
         },
         {
           "id": "hispar_glacier_r15_c18",
@@ -1580,8 +1580,9 @@
           "longitude": 75.285,
           "row": 15,
           "column": 18,
+          "network_rank": 3,
           "score": 95.93,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 12.973,
             "p90_slope_deg": 22.537,
@@ -1592,7 +1593,7 @@
             "p90_slope_deg": 98.14,
             "p90_local_relief_m": 99.17
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -1612,8 +1613,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 3
+          ]
         },
         {
           "id": "hispar_glacier_r12_c12",
@@ -1624,8 +1624,9 @@
           "longitude": 75.223,
           "row": 12,
           "column": 12,
+          "network_rank": 4,
           "score": 95.46,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 13.245,
             "p90_slope_deg": 23.215,
@@ -1636,7 +1637,7 @@
             "p90_slope_deg": 95.03,
             "p90_local_relief_m": 95.58
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -1656,8 +1657,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 4
+          ]
         },
         {
           "id": "hispar_glacier_r14_c9",
@@ -1668,8 +1668,9 @@
           "longitude": 75.192,
           "row": 14,
           "column": 9,
+          "network_rank": 5,
           "score": 95.32,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 13.714,
             "p90_slope_deg": 23.459,
@@ -1680,7 +1681,7 @@
             "p90_slope_deg": 92.69,
             "p90_local_relief_m": 98.3
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -1700,8 +1701,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 5
+          ]
         },
         {
           "id": "hispar_glacier_r15_c17",
@@ -1712,8 +1712,9 @@
           "longitude": 75.275,
           "row": 15,
           "column": 17,
+          "network_rank": 6,
           "score": 94.14,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 12.691,
             "p90_slope_deg": 22.537,
@@ -1724,7 +1725,7 @@
             "p90_slope_deg": 98.14,
             "p90_local_relief_m": 99.17
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -1744,8 +1745,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 6
+          ]
         },
         {
           "id": "hispar_glacier_r13_c13",
@@ -1756,19 +1756,20 @@
           "longitude": 75.233,
           "row": 13,
           "column": 13,
+          "network_rank": 7,
           "score": 93.52,
-          "top_decile_stability_pct": 95,
+          "top_decile_stability_pct": 95.0,
           "terrain": {
             "median_slope_deg": 13.365,
             "p90_slope_deg": 23.122,
-            "p90_local_relief_m": 1042
+            "p90_local_relief_m": 1042.0
           },
           "components": {
             "median_slope_deg": 98.09,
             "p90_slope_deg": 95.96,
             "p90_local_relief_m": 86.89
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -1788,8 +1789,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 7
+          ]
         },
         {
           "id": "hispar_glacier_r6_c22",
@@ -1800,8 +1800,9 @@
           "longitude": 75.326,
           "row": 6,
           "column": 22,
+          "network_rank": 8,
           "score": 93.16,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 14.128,
             "p90_slope_deg": 22.96,
@@ -1812,7 +1813,7 @@
             "p90_slope_deg": 97.56,
             "p90_local_relief_m": 94.73
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -1832,8 +1833,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 8
+          ]
         },
         {
           "id": "hispar_glacier_r12_c11",
@@ -1844,8 +1844,9 @@
           "longitude": 75.213,
           "row": 12,
           "column": 11,
+          "network_rank": 9,
           "score": 92.15,
-          "top_decile_stability_pct": 93,
+          "top_decile_stability_pct": 93.0,
           "terrain": {
             "median_slope_deg": 13.245,
             "p90_slope_deg": 24.51,
@@ -1856,7 +1857,7 @@
             "p90_slope_deg": 83.2,
             "p90_local_relief_m": 98.19
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -1876,8 +1877,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 9
+          ]
         },
         {
           "id": "hispar_glacier_r7_c22",
@@ -1888,6 +1888,7 @@
           "longitude": 75.326,
           "row": 7,
           "column": 22,
+          "network_rank": 10,
           "score": 91.69,
           "top_decile_stability_pct": 97.4,
           "terrain": {
@@ -1900,7 +1901,7 @@
             "p90_slope_deg": 86.9,
             "p90_local_relief_m": 98.16
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -1920,8 +1921,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 10
+          ]
         },
         {
           "id": "hispar_glacier_r14_c20",
@@ -1932,6 +1932,7 @@
           "longitude": 75.305,
           "row": 14,
           "column": 20,
+          "network_rank": 11,
           "score": 91.53,
           "top_decile_stability_pct": 96.6,
           "terrain": {
@@ -1944,7 +1945,7 @@
             "p90_slope_deg": 98.79,
             "p90_local_relief_m": 88.76
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -1964,8 +1965,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 11
+          ]
         },
         {
           "id": "hispar_glacier_r8_c3",
@@ -1976,8 +1976,9 @@
           "longitude": 75.131,
           "row": 8,
           "column": 3,
+          "network_rank": 12,
           "score": 91.51,
-          "top_decile_stability_pct": 99,
+          "top_decile_stability_pct": 99.0,
           "terrain": {
             "median_slope_deg": 14.462,
             "p90_slope_deg": 22.643,
@@ -1988,7 +1989,7 @@
             "p90_slope_deg": 99.21,
             "p90_local_relief_m": 94.37
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -2008,8 +2009,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 12
+          ]
         },
         {
           "id": "hispar_glacier_r16_c12",
@@ -2020,6 +2020,7 @@
           "longitude": 75.223,
           "row": 16,
           "column": 12,
+          "network_rank": 13,
           "score": 91.06,
           "top_decile_stability_pct": 90.6,
           "terrain": {
@@ -2032,7 +2033,7 @@
             "p90_slope_deg": 90.69,
             "p90_local_relief_m": 85.91
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -2052,8 +2053,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 13
+          ]
         },
         {
           "id": "death_r16_c16",
@@ -2064,8 +2064,9 @@
           "longitude": -116.769,
           "row": 16,
           "column": 16,
+          "network_rank": 14,
           "score": 90.75,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 12.972,
             "p90_slope_deg": 23.869,
@@ -2076,7 +2077,7 @@
             "p90_slope_deg": 88.86,
             "p90_local_relief_m": 92.76
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "arid basin",
@@ -2089,19 +2090,18 @@
           ],
           "source_references": [
             {
-              "title": "Salt Flats — Death Valley National Park",
+              "title": "Salt Flats \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/salt-flats.htm",
               "supports": "Explains Badwater Basin salt-flat formation, closed-basin hydrology, evaporative concentration and fragile salt crust."
             },
             {
-              "title": "Geologic Formations — Death Valley National Park",
+              "title": "Geologic Formations \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ],
-          "network_rank": 14
+          ]
         },
         {
           "id": "hispar_glacier_r7_c1",
@@ -2112,6 +2112,7 @@
           "longitude": 75.11,
           "row": 7,
           "column": 1,
+          "network_rank": 15,
           "score": 90.26,
           "top_decile_stability_pct": 94.4,
           "terrain": {
@@ -2124,7 +2125,7 @@
             "p90_slope_deg": 89.29,
             "p90_local_relief_m": 89.94
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -2144,8 +2145,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 15
+          ]
         },
         {
           "id": "hispar_glacier_r26_c6",
@@ -2156,6 +2156,7 @@
           "longitude": 75.161,
           "row": 26,
           "column": 6,
+          "network_rank": 16,
           "score": 90.26,
           "top_decile_stability_pct": 80.8,
           "terrain": {
@@ -2168,7 +2169,7 @@
             "p90_slope_deg": 99.36,
             "p90_local_relief_m": 75.86
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -2188,8 +2189,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 16
+          ]
         },
         {
           "id": "hispar_glacier_r14_c10",
@@ -2200,6 +2200,7 @@
           "longitude": 75.203,
           "row": 14,
           "column": 10,
+          "network_rank": 17,
           "score": 90.22,
           "top_decile_stability_pct": 98.4,
           "terrain": {
@@ -2212,7 +2213,7 @@
             "p90_slope_deg": 95.75,
             "p90_local_relief_m": 90.69
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -2232,8 +2233,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 17
+          ]
         },
         {
           "id": "hispar_glacier_r8_c1",
@@ -2244,6 +2244,7 @@
           "longitude": 75.11,
           "row": 8,
           "column": 1,
+          "network_rank": 18,
           "score": 89.98,
           "top_decile_stability_pct": 89.2,
           "terrain": {
@@ -2256,7 +2257,7 @@
             "p90_slope_deg": 96.59,
             "p90_local_relief_m": 82.35
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -2276,8 +2277,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 18
+          ]
         },
         {
           "id": "death_r15_c16",
@@ -2288,8 +2288,9 @@
           "longitude": -116.769,
           "row": 15,
           "column": 16,
+          "network_rank": 19,
           "score": 89.95,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 13.045,
             "p90_slope_deg": 22.406,
@@ -2300,7 +2301,7 @@
             "p90_slope_deg": 96.82,
             "p90_local_relief_m": 81.68
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "arid basin",
@@ -2313,19 +2314,18 @@
           ],
           "source_references": [
             {
-              "title": "Salt Flats — Death Valley National Park",
+              "title": "Salt Flats \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/salt-flats.htm",
               "supports": "Explains Badwater Basin salt-flat formation, closed-basin hydrology, evaporative concentration and fragile salt crust."
             },
             {
-              "title": "Geologic Formations — Death Valley National Park",
+              "title": "Geologic Formations \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ],
-          "network_rank": 19
+          ]
         },
         {
           "id": "hispar_glacier_r19_c8",
@@ -2336,6 +2336,7 @@
           "longitude": 75.182,
           "row": 19,
           "column": 8,
+          "network_rank": 20,
           "score": 89.8,
           "top_decile_stability_pct": 86.2,
           "terrain": {
@@ -2348,7 +2349,7 @@
             "p90_slope_deg": 83.29,
             "p90_local_relief_m": 92.25
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -2368,8 +2369,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 20
+          ]
         },
         {
           "id": "mcmurdo_r11_c24",
@@ -2380,6 +2380,7 @@
           "longitude": 162.222,
           "row": 11,
           "column": 24,
+          "network_rank": 21,
           "score": 89.53,
           "top_decile_stability_pct": 90.8,
           "terrain": {
@@ -2390,9 +2391,9 @@
           "components": {
             "median_slope_deg": 97.72,
             "p90_slope_deg": 75.71,
-            "p90_local_relief_m": 97
+            "p90_local_relief_m": 97.0
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "polar desert",
@@ -2406,7 +2407,7 @@
           ],
           "source_references": [
             {
-              "title": "Astrobiology Field Sites — McMurdo Dry Valleys",
+              "title": "Astrobiology Field Sites \u2014 McMurdo Dry Valleys",
               "publisher": "NASA Astrobiology",
               "url": "https://astrobiology.nasa.gov/research-locations/",
               "supports": "Identifies the McMurdo Dry Valleys as a cold, dry terrestrial Mars-analogue research location."
@@ -2417,8 +2418,7 @@
               "url": "https://par.nsf.gov/servlets/purl/10396201",
               "supports": "Reviews dry-valley geology, environment, ecology, ice and wind processes relevant to Mars."
             }
-          ],
-          "network_rank": 21
+          ]
         },
         {
           "id": "hispar_glacier_r15_c10",
@@ -2429,6 +2429,7 @@
           "longitude": 75.203,
           "row": 15,
           "column": 10,
+          "network_rank": 22,
           "score": 89.31,
           "top_decile_stability_pct": 95.2,
           "terrain": {
@@ -2441,7 +2442,7 @@
             "p90_slope_deg": 98.39,
             "p90_local_relief_m": 90.69
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -2461,8 +2462,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 22
+          ]
         },
         {
           "id": "hispar_glacier_r24_c2",
@@ -2473,6 +2473,7 @@
           "longitude": 75.12,
           "row": 24,
           "column": 2,
+          "network_rank": 23,
           "score": 89.29,
           "top_decile_stability_pct": 82.8,
           "terrain": {
@@ -2485,7 +2486,7 @@
             "p90_slope_deg": 99.81,
             "p90_local_relief_m": 78.16
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -2505,8 +2506,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 23
+          ]
         },
         {
           "id": "hispar_glacier_r13_c12",
@@ -2517,6 +2517,7 @@
           "longitude": 75.223,
           "row": 13,
           "column": 12,
+          "network_rank": 24,
           "score": 89.22,
           "top_decile_stability_pct": 91.8,
           "terrain": {
@@ -2529,7 +2530,7 @@
             "p90_slope_deg": 96.66,
             "p90_local_relief_m": 96.7
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -2549,8 +2550,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 24
+          ]
         },
         {
           "id": "hispar_glacier_r21_c11",
@@ -2561,6 +2561,7 @@
           "longitude": 75.213,
           "row": 21,
           "column": 11,
+          "network_rank": 25,
           "score": 89.21,
           "top_decile_stability_pct": 77.8,
           "terrain": {
@@ -2573,7 +2574,7 @@
             "p90_slope_deg": 96.78,
             "p90_local_relief_m": 75.26
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -2593,8 +2594,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 25
+          ]
         },
         {
           "id": "hispar_glacier_r26_c5",
@@ -2605,6 +2605,7 @@
           "longitude": 75.151,
           "row": 26,
           "column": 5,
+          "network_rank": 26,
           "score": 89.12,
           "top_decile_stability_pct": 79.2,
           "terrain": {
@@ -2617,7 +2618,7 @@
             "p90_slope_deg": 97.93,
             "p90_local_relief_m": 75.86
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -2637,8 +2638,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 26
+          ]
         },
         {
           "id": "mcmurdo_r13_c25",
@@ -2649,8 +2649,9 @@
           "longitude": 162.261,
           "row": 13,
           "column": 25,
+          "network_rank": 27,
           "score": 89.12,
-          "top_decile_stability_pct": 94,
+          "top_decile_stability_pct": 94.0,
           "terrain": {
             "median_slope_deg": 13.486,
             "p90_slope_deg": 25.191,
@@ -2661,7 +2662,7 @@
             "p90_slope_deg": 77.57,
             "p90_local_relief_m": 91.71
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "polar desert",
@@ -2675,7 +2676,7 @@
           ],
           "source_references": [
             {
-              "title": "Astrobiology Field Sites — McMurdo Dry Valleys",
+              "title": "Astrobiology Field Sites \u2014 McMurdo Dry Valleys",
               "publisher": "NASA Astrobiology",
               "url": "https://astrobiology.nasa.gov/research-locations/",
               "supports": "Identifies the McMurdo Dry Valleys as a cold, dry terrestrial Mars-analogue research location."
@@ -2686,8 +2687,7 @@
               "url": "https://par.nsf.gov/servlets/purl/10396201",
               "supports": "Reviews dry-valley geology, environment, ecology, ice and wind processes relevant to Mars."
             }
-          ],
-          "network_rank": 27
+          ]
         },
         {
           "id": "death_r18_c20",
@@ -2698,6 +2698,7 @@
           "longitude": -116.728,
           "row": 18,
           "column": 20,
+          "network_rank": 28,
           "score": 88.66,
           "top_decile_stability_pct": 99.6,
           "terrain": {
@@ -2710,7 +2711,7 @@
             "p90_slope_deg": 81.37,
             "p90_local_relief_m": 89.61
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "arid basin",
@@ -2723,19 +2724,18 @@
           ],
           "source_references": [
             {
-              "title": "Salt Flats — Death Valley National Park",
+              "title": "Salt Flats \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/salt-flats.htm",
               "supports": "Explains Badwater Basin salt-flat formation, closed-basin hydrology, evaporative concentration and fragile salt crust."
             },
             {
-              "title": "Geologic Formations — Death Valley National Park",
+              "title": "Geologic Formations \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ],
-          "network_rank": 28
+          ]
         },
         {
           "id": "hispar_glacier_r17_c12",
@@ -2746,6 +2746,7 @@
           "longitude": 75.223,
           "row": 17,
           "column": 12,
+          "network_rank": 29,
           "score": 88.65,
           "top_decile_stability_pct": 97.2,
           "terrain": {
@@ -2758,7 +2759,7 @@
             "p90_slope_deg": 90.69,
             "p90_local_relief_m": 90.85
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -2778,8 +2779,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 29
+          ]
         },
         {
           "id": "hispar_glacier_r20_c8",
@@ -2790,6 +2790,7 @@
           "longitude": 75.182,
           "row": 20,
           "column": 8,
+          "network_rank": 30,
           "score": 88.55,
           "top_decile_stability_pct": 79.2,
           "terrain": {
@@ -2802,7 +2803,7 @@
             "p90_slope_deg": 93.45,
             "p90_local_relief_m": 78.85
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "glacier",
@@ -2822,8 +2823,7 @@
               "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
               "supports": "Existing regional inventory baseline; cite prior work rather than claim national glacier discovery."
             }
-          ],
-          "network_rank": 30
+          ]
         }
       ]
     },
@@ -2832,7 +2832,7 @@
         "id": "mars",
         "name": "Nili Patera / Mars",
         "source": "NASA MGS MOLA MEGDR 64 pixels/degree",
-        "source_coverage": "50.53% observed-cell coverage in the parent 30 km grid; 87 complete 3×3 neighborhoods. Only local windows meeting the explicit validity threshold are ranked.",
+        "source_coverage": "50.53% observed-cell coverage in the parent 30 km grid; 87 complete 3\u00d73 neighborhoods. Only local windows meeting the explicit validity threshold are ranked.",
         "valid_target_windows": 21,
         "typical_5_55km_window_profile": {
           "median_slope_deg": 1.373,
@@ -2848,7 +2848,7 @@
         "analysis_resolution_m": 925,
         "valid_window_rule": "At least 26/36 valid elevation cells and 15 valid slope and relief samples",
         "weight_sensitivity_draws": 500,
-        "stability_definition": "Percentage of random Dirichlet(1,1,1) feature-weight draws for which this window ranked in the top decile of its own 30 km parent region. Rank sensitivity only—not analog probability or statistical confidence.",
+        "stability_definition": "Percentage of random Dirichlet(1,1,1) feature-weight draws for which this window ranked in the top decile of its own 30 km parent region. Rank sensitivity only\u2014not analog probability or statistical confidence.",
         "default_weights": {
           "median_slope_deg": 0.3333333333333333,
           "p90_slope_deg": 0.3333333333333333,
@@ -2859,7 +2859,7 @@
           "p90_slope_deg": 9.727,
           "p90_local_relief_m": 374.894
         },
-        "selection_rule": "Up to 30 windows, max 4 per parent region, at least 6 km apart"
+        "selection_rule": "Up to 30 windows, max 4 per parent region, at least 6.0 km apart"
       },
       "candidate_windows": [
         {
@@ -2871,8 +2871,9 @@
           "longitude": -89.642,
           "row": 2,
           "column": 14,
+          "network_rank": 1,
           "score": 99.59,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.376,
             "p90_slope_deg": 2.27,
@@ -2883,7 +2884,7 @@
             "p90_slope_deg": 99.88,
             "p90_local_relief_m": 98.93
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -2896,7 +2897,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -2907,8 +2908,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 1
+          ]
         },
         {
           "id": "iceland_r3_c16",
@@ -2919,8 +2919,9 @@
           "longitude": -22.193,
           "row": 3,
           "column": 16,
+          "network_rank": 2,
           "score": 99.38,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.384,
             "p90_slope_deg": 2.37,
@@ -2931,7 +2932,7 @@
             "p90_slope_deg": 99.1,
             "p90_local_relief_m": 99.26
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "basaltic volcanism",
@@ -2955,8 +2956,7 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ],
-          "network_rank": 2
+          ]
         },
         {
           "id": "haughton_r9_c16",
@@ -2967,8 +2967,9 @@
           "longitude": -89.576,
           "row": 9,
           "column": 16,
+          "network_rank": 3,
           "score": 99.37,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.36,
             "p90_slope_deg": 2.28,
@@ -2979,7 +2980,7 @@
             "p90_slope_deg": 99.98,
             "p90_local_relief_m": 98.39
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -2992,7 +2993,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -3003,8 +3004,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 3
+          ]
         },
         {
           "id": "haughton_r24_c26",
@@ -3015,8 +3015,9 @@
           "longitude": -89.247,
           "row": 24,
           "column": 26,
+          "network_rank": 6,
           "score": 99.21,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.361,
             "p90_slope_deg": 2.309,
@@ -3027,7 +3028,7 @@
             "p90_slope_deg": 99.72,
             "p90_local_relief_m": 98.16
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -3040,7 +3041,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -3051,8 +3052,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 6
+          ]
         },
         {
           "id": "haughton_r20_c11",
@@ -3063,8 +3063,9 @@
           "longitude": -89.741,
           "row": 20,
           "column": 11,
+          "network_rank": 10,
           "score": 99.12,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.386,
             "p90_slope_deg": 2.355,
@@ -3075,7 +3076,7 @@
             "p90_slope_deg": 99.25,
             "p90_local_relief_m": 98.37
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -3088,7 +3089,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -3099,8 +3100,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 10
+          ]
         },
         {
           "id": "dallol_r26_c8",
@@ -3111,8 +3111,9 @@
           "longitude": 40.257,
           "row": 26,
           "column": 8,
+          "network_rank": 16,
           "score": 98.96,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.4,
             "p90_slope_deg": 2.251,
@@ -3123,7 +3124,7 @@
             "p90_slope_deg": 99.68,
             "p90_local_relief_m": 97.75
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "hydrothermal",
@@ -3137,7 +3138,7 @@
           ],
           "source_references": [
             {
-              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)—An Exceptional Planetary Field Analog on Earth",
+              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)\u2014An Exceptional Planetary Field Analog on Earth",
               "publisher": "Astrobiology / peer-reviewed research",
               "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6459281/",
               "supports": "Field-surveyed hydrothermal alteration, acidic sulfate deposits and Mars-analogue context; not a site-specific ANALOG-X data measurement."
@@ -3148,8 +3149,7 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ],
-          "network_rank": 16
+          ]
         },
         {
           "id": "iceland_r17_c21",
@@ -3160,8 +3160,9 @@
           "longitude": -22.099,
           "row": 17,
           "column": 21,
+          "network_rank": 26,
           "score": 98.81,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.417,
             "p90_slope_deg": 2.344,
@@ -3172,7 +3173,7 @@
             "p90_slope_deg": 99.37,
             "p90_local_relief_m": 97.93
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "basaltic volcanism",
@@ -3196,8 +3197,7 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ],
-          "network_rank": 26
+          ]
         },
         {
           "id": "iceland_r14_c5",
@@ -3208,8 +3208,9 @@
           "longitude": -22.401,
           "row": 14,
           "column": 5,
+          "network_rank": 45,
           "score": 98.39,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.328,
             "p90_slope_deg": 2.529,
@@ -3220,7 +3221,7 @@
             "p90_slope_deg": 97.49,
             "p90_local_relief_m": 98.59
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "basaltic volcanism",
@@ -3244,8 +3245,7 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ],
-          "network_rank": 45
+          ]
         },
         {
           "id": "iceland_r2_c23",
@@ -3256,8 +3256,9 @@
           "longitude": -22.061,
           "row": 2,
           "column": 23,
+          "network_rank": 78,
           "score": 98.05,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.26,
             "p90_slope_deg": 2.149,
@@ -3268,7 +3269,7 @@
             "p90_slope_deg": 98.65,
             "p90_local_relief_m": 97.76
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "basaltic volcanism",
@@ -3292,8 +3293,7 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ],
-          "network_rank": 78
+          ]
         },
         {
           "id": "koh_i_sultan_r0_c26",
@@ -3304,8 +3304,9 @@
           "longitude": 62.924,
           "row": 0,
           "column": 26,
+          "network_rank": 79,
           "score": 98.04,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.491,
             "p90_slope_deg": 2.143,
@@ -3316,7 +3317,7 @@
             "p90_slope_deg": 98.58,
             "p90_local_relief_m": 97.86
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "volcanic field",
@@ -3335,8 +3336,7 @@
               "url": "https://pubs.usgs.gov/publication/ofr75550",
               "supports": "Regional geological map context."
             }
-          ],
-          "network_rank": 79
+          ]
         },
         {
           "id": "koh_i_sultan_r20_c1",
@@ -3347,8 +3347,9 @@
           "longitude": 62.686,
           "row": 20,
           "column": 1,
+          "network_rank": 93,
           "score": 97.89,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.651,
             "p90_slope_deg": 2.254,
@@ -3359,7 +3360,7 @@
             "p90_slope_deg": 99.72,
             "p90_local_relief_m": 99.44
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "volcanic field",
@@ -3378,20 +3379,20 @@
               "url": "https://pubs.usgs.gov/publication/ofr75550",
               "supports": "Regional geological map context."
             }
-          ],
-          "network_rank": 93
+          ]
         },
         {
           "id": "koh_i_sultan_r25_c25",
           "site_id": "koh_i_sultan",
           "name": "Koh-i-Sultan / Chagai",
           "country": "Pakistan",
-          "latitude": 29,
+          "latitude": 29.0,
           "longitude": 62.914,
           "row": 25,
           "column": 25,
+          "network_rank": 221,
           "score": 96.62,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.702,
             "p90_slope_deg": 2.086,
@@ -3399,10 +3400,10 @@
           },
           "components": {
             "median_slope_deg": 93.63,
-            "p90_slope_deg": 98,
+            "p90_slope_deg": 98.0,
             "p90_local_relief_m": 98.31
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "volcanic field",
@@ -3421,8 +3422,7 @@
               "url": "https://pubs.usgs.gov/publication/ofr75550",
               "supports": "Regional geological map context."
             }
-          ],
-          "network_rank": 221
+          ]
         },
         {
           "id": "koh_i_sultan_r26_c11",
@@ -3433,8 +3433,9 @@
           "longitude": 62.781,
           "row": 26,
           "column": 11,
+          "network_rank": 235,
           "score": 96.51,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.808,
             "p90_slope_deg": 2.267,
@@ -3445,7 +3446,7 @@
             "p90_slope_deg": 99.85,
             "p90_local_relief_m": 98.23
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "volcanic field",
@@ -3464,8 +3465,7 @@
               "url": "https://pubs.usgs.gov/publication/ofr75550",
               "supports": "Regional geological map context."
             }
-          ],
-          "network_rank": 235
+          ]
         },
         {
           "id": "dallol_r13_c3",
@@ -3476,8 +3476,9 @@
           "longitude": 40.214,
           "row": 13,
           "column": 3,
+          "network_rank": 461,
           "score": 94.39,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 0.795,
             "p90_slope_deg": 2.508,
@@ -3488,7 +3489,7 @@
             "p90_slope_deg": 97.7,
             "p90_local_relief_m": 96.63
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "hydrothermal",
@@ -3502,7 +3503,7 @@
           ],
           "source_references": [
             {
-              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)—An Exceptional Planetary Field Analog on Earth",
+              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)\u2014An Exceptional Planetary Field Analog on Earth",
               "publisher": "Astrobiology / peer-reviewed research",
               "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6459281/",
               "supports": "Field-surveyed hydrothermal alteration, acidic sulfate deposits and Mars-analogue context; not a site-specific ANALOG-X data measurement."
@@ -3513,8 +3514,7 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ],
-          "network_rank": 461
+          ]
         },
         {
           "id": "death_r1_c7",
@@ -3525,8 +3525,9 @@
           "longitude": -116.862,
           "row": 1,
           "column": 7,
+          "network_rank": 621,
           "score": 92.28,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 0.45,
             "p90_slope_deg": 2.307,
@@ -3537,7 +3538,7 @@
             "p90_slope_deg": 99.74,
             "p90_local_relief_m": 94.79
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "arid basin",
@@ -3550,19 +3551,18 @@
           ],
           "source_references": [
             {
-              "title": "Salt Flats — Death Valley National Park",
+              "title": "Salt Flats \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/salt-flats.htm",
               "supports": "Explains Badwater Basin salt-flat formation, closed-basin hydrology, evaporative concentration and fragile salt crust."
             },
             {
-              "title": "Geologic Formations — Death Valley National Park",
+              "title": "Geologic Formations \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ],
-          "network_rank": 621
+          ]
         },
         {
           "id": "death_r23_c8",
@@ -3573,6 +3573,7 @@
           "longitude": -116.852,
           "row": 23,
           "column": 8,
+          "network_rank": 668,
           "score": 91.69,
           "top_decile_stability_pct": 92.8,
           "terrain": {
@@ -3585,7 +3586,7 @@
             "p90_slope_deg": 99.03,
             "p90_local_relief_m": 98.81
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "arid basin",
@@ -3598,19 +3599,18 @@
           ],
           "source_references": [
             {
-              "title": "Salt Flats — Death Valley National Park",
+              "title": "Salt Flats \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/salt-flats.htm",
               "supports": "Explains Badwater Basin salt-flat formation, closed-basin hydrology, evaporative concentration and fragile salt crust."
             },
             {
-              "title": "Geologic Formations — Death Valley National Park",
+              "title": "Geologic Formations \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ],
-          "network_rank": 668
+          ]
         },
         {
           "id": "chagai_small_playas_r12_c20",
@@ -3621,8 +3621,9 @@
           "longitude": 62.7,
           "row": 12,
           "column": 20,
+          "network_rank": 686,
           "score": 91.57,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 0.845,
             "p90_slope_deg": 1.691,
@@ -3633,7 +3634,7 @@
             "p90_slope_deg": 94.1,
             "p90_local_relief_m": 90.7
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "salt playa",
@@ -3653,8 +3654,7 @@
               "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
               "supports": "Historical report describes two small salt-surfaced playas at the stated coordinates and discusses possible evaporite/brine sources; it does not provide modern site validation or a current mineral map."
             }
-          ],
-          "network_rank": 686
+          ]
         },
         {
           "id": "death_r8_c10",
@@ -3665,6 +3665,7 @@
           "longitude": -116.831,
           "row": 8,
           "column": 10,
+          "network_rank": 719,
           "score": 91.19,
           "top_decile_stability_pct": 86.6,
           "terrain": {
@@ -3677,7 +3678,7 @@
             "p90_slope_deg": 99.73,
             "p90_local_relief_m": 98.99
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "arid basin",
@@ -3690,19 +3691,18 @@
           ],
           "source_references": [
             {
-              "title": "Salt Flats — Death Valley National Park",
+              "title": "Salt Flats \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/salt-flats.htm",
               "supports": "Explains Badwater Basin salt-flat formation, closed-basin hydrology, evaporative concentration and fragile salt crust."
             },
             {
-              "title": "Geologic Formations — Death Valley National Park",
+              "title": "Geologic Formations \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ],
-          "network_rank": 719
+          ]
         },
         {
           "id": "death_r14_c7",
@@ -3713,6 +3713,7 @@
           "longitude": -116.862,
           "row": 14,
           "column": 7,
+          "network_rank": 742,
           "score": 90.95,
           "top_decile_stability_pct": 86.2,
           "terrain": {
@@ -3725,7 +3726,7 @@
             "p90_slope_deg": 97.73,
             "p90_local_relief_m": 99.81
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "arid basin",
@@ -3738,19 +3739,18 @@
           ],
           "source_references": [
             {
-              "title": "Salt Flats — Death Valley National Park",
+              "title": "Salt Flats \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/salt-flats.htm",
               "supports": "Explains Badwater Basin salt-flat formation, closed-basin hydrology, evaporative concentration and fragile salt crust."
             },
             {
-              "title": "Geologic Formations — Death Valley National Park",
+              "title": "Geologic Formations \u2014 Death Valley National Park",
               "publisher": "U.S. National Park Service",
               "url": "https://www.nps.gov/deva/learn/nature/geologicformations.htm",
               "supports": "Describes playa salt deposits, lacustrine deposits and alluvial-fan geology in the park."
             }
-          ],
-          "network_rank": 742
+          ]
         },
         {
           "id": "dallol_r7_c0",
@@ -3761,6 +3761,7 @@
           "longitude": 40.189,
           "row": 7,
           "column": 0,
+          "network_rank": 759,
           "score": 90.77,
           "top_decile_stability_pct": 92.2,
           "terrain": {
@@ -3773,7 +3774,7 @@
             "p90_slope_deg": 99.46,
             "p90_local_relief_m": 96.12
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "hydrothermal",
@@ -3787,7 +3788,7 @@
           ],
           "source_references": [
             {
-              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)—An Exceptional Planetary Field Analog on Earth",
+              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)\u2014An Exceptional Planetary Field Analog on Earth",
               "publisher": "Astrobiology / peer-reviewed research",
               "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6459281/",
               "supports": "Field-surveyed hydrothermal alteration, acidic sulfate deposits and Mars-analogue context; not a site-specific ANALOG-X data measurement."
@@ -3798,20 +3799,20 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ],
-          "network_rank": 759
+          ]
         },
         {
           "id": "chagai_small_playas_r6_c23",
           "site_id": "chagai_small_playas",
           "name": "Chagai small salt playas near Nok Kundi",
           "country": "Pakistan",
-          "latitude": 28.642,
+          "latitude": 28.641,
           "longitude": 62.728,
           "row": 6,
           "column": 23,
+          "network_rank": 834,
           "score": 90.02,
-          "top_decile_stability_pct": 99,
+          "top_decile_stability_pct": 99.0,
           "terrain": {
             "median_slope_deg": 0.778,
             "p90_slope_deg": 1.485,
@@ -3822,7 +3823,7 @@
             "p90_slope_deg": 92.14,
             "p90_local_relief_m": 89.19
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "salt playa",
@@ -3842,8 +3843,7 @@
               "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
               "supports": "Historical report describes two small salt-surfaced playas at the stated coordinates and discusses possible evaporite/brine sources; it does not provide modern site validation or a current mineral map."
             }
-          ],
-          "network_rank": 834
+          ]
         },
         {
           "id": "chagai_small_playas_r3_c0",
@@ -3854,6 +3854,7 @@
           "longitude": 62.51,
           "row": 3,
           "column": 0,
+          "network_rank": 922,
           "score": 89.29,
           "top_decile_stability_pct": 62.2,
           "terrain": {
@@ -3866,7 +3867,7 @@
             "p90_slope_deg": 89.85,
             "p90_local_relief_m": 87.12
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "salt playa",
@@ -3886,8 +3887,7 @@
               "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
               "supports": "Historical report describes two small salt-surfaced playas at the stated coordinates and discusses possible evaporite/brine sources; it does not provide modern site validation or a current mineral map."
             }
-          ],
-          "network_rank": 922
+          ]
         },
         {
           "id": "dallol_r19_c6",
@@ -3898,8 +3898,9 @@
           "longitude": 40.24,
           "row": 19,
           "column": 6,
+          "network_rank": 943,
           "score": 89.15,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 0.445,
             "p90_slope_deg": 2.761,
@@ -3910,7 +3911,7 @@
             "p90_slope_deg": 95.2,
             "p90_local_relief_m": 89.61
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "hydrothermal",
@@ -3924,7 +3925,7 @@
           ],
           "source_references": [
             {
-              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)—An Exceptional Planetary Field Analog on Earth",
+              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)\u2014An Exceptional Planetary Field Analog on Earth",
               "publisher": "Astrobiology / peer-reviewed research",
               "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6459281/",
               "supports": "Field-surveyed hydrothermal alteration, acidic sulfate deposits and Mars-analogue context; not a site-specific ANALOG-X data measurement."
@@ -3935,8 +3936,7 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ],
-          "network_rank": 943
+          ]
         },
         {
           "id": "chagai_small_playas_r21_c13",
@@ -3947,6 +3947,7 @@
           "longitude": 62.633,
           "row": 21,
           "column": 13,
+          "network_rank": 1022,
           "score": 88.5,
           "top_decile_stability_pct": 57.4,
           "terrain": {
@@ -3959,7 +3960,7 @@
             "p90_slope_deg": 92.41,
             "p90_local_relief_m": 88.88
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "salt playa",
@@ -3979,8 +3980,7 @@
               "url": "https://ntrs.nasa.gov/api/citations/19740023693/downloads/19740023693.pdf",
               "supports": "Historical report describes two small salt-surfaced playas at the stated coordinates and discusses possible evaporite/brine sources; it does not provide modern site validation or a current mineral map."
             }
-          ],
-          "network_rank": 1022
+          ]
         },
         {
           "id": "hamun_i_mashkel_r4_c0",
@@ -3991,8 +3991,9 @@
           "longitude": 62.794,
           "row": 4,
           "column": 0,
+          "network_rank": 2045,
           "score": 82.12,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 0.3,
             "p90_slope_deg": 0.509,
@@ -4003,7 +4004,7 @@
             "p90_slope_deg": 83.34,
             "p90_local_relief_m": 82.36
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "playa",
@@ -4029,8 +4030,7 @@
               "url": "https://mapcarta.com/15046968",
               "supports": "Approximate point location only; not scientific landform boundary or material classification."
             }
-          ],
-          "network_rank": 2045
+          ]
         },
         {
           "id": "hamun_i_mashkel_r1_c6",
@@ -4041,8 +4041,9 @@
           "longitude": 62.851,
           "row": 1,
           "column": 6,
+          "network_rank": 2339,
           "score": 80.33,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 0.157,
             "p90_slope_deg": 0.37,
@@ -4053,7 +4054,7 @@
             "p90_slope_deg": 82.15,
             "p90_local_relief_m": 80.5
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "playa",
@@ -4079,8 +4080,7 @@
               "url": "https://mapcarta.com/15046968",
               "supports": "Approximate point location only; not scientific landform boundary or material classification."
             }
-          ],
-          "network_rank": 2339
+          ]
         },
         {
           "id": "hamun_i_mashkel_r11_c0",
@@ -4091,8 +4091,9 @@
           "longitude": 62.794,
           "row": 11,
           "column": 0,
+          "network_rank": 2470,
           "score": 79.35,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 0.094,
             "p90_slope_deg": 0.247,
@@ -4103,7 +4104,7 @@
             "p90_slope_deg": 81.12,
             "p90_local_relief_m": 79.56
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "playa",
@@ -4129,8 +4130,7 @@
               "url": "https://mapcarta.com/15046968",
               "supports": "Approximate point location only; not scientific landform boundary or material classification."
             }
-          ],
-          "network_rank": 2470
+          ]
         },
         {
           "id": "atacama_r26_c0",
@@ -4141,6 +4141,7 @@
           "longitude": -68.368,
           "row": 26,
           "column": 0,
+          "network_rank": 2545,
           "score": 78.82,
           "top_decile_stability_pct": 99.4,
           "terrain": {
@@ -4149,11 +4150,11 @@
             "p90_local_relief_m": 11.388
           },
           "components": {
-            "median_slope_deg": 76,
+            "median_slope_deg": 76.0,
             "p90_slope_deg": 80.57,
             "p90_local_relief_m": 79.97
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "hyperarid",
@@ -4175,10 +4176,9 @@
               "title": "Planetary Analog Explorer",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/analog-explorer/",
-              "supports": "NASA's Atacama–Mars analogue example and field research context."
+              "supports": "NASA's Atacama\u2013Mars analogue example and field research context."
             }
-          ],
-          "network_rank": 2545
+          ]
         },
         {
           "id": "atacama_r19_c0",
@@ -4189,8 +4189,9 @@
           "longitude": -68.368,
           "row": 19,
           "column": 0,
+          "network_rank": 2664,
           "score": 78.31,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 0.015,
             "p90_slope_deg": 0.136,
@@ -4201,7 +4202,7 @@
             "p90_slope_deg": 80.2,
             "p90_local_relief_m": 78.58
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "hyperarid",
@@ -4223,10 +4224,9 @@
               "title": "Planetary Analog Explorer",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/analog-explorer/",
-              "supports": "NASA's Atacama–Mars analogue example and field research context."
+              "supports": "NASA's Atacama\u2013Mars analogue example and field research context."
             }
-          ],
-          "network_rank": 2664
+          ]
         },
         {
           "id": "atacama_r10_c5",
@@ -4237,8 +4237,9 @@
           "longitude": -68.322,
           "row": 10,
           "column": 5,
+          "network_rank": 2683,
           "score": 78.28,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 0.031,
             "p90_slope_deg": 0.089,
@@ -4249,7 +4250,7 @@
             "p90_slope_deg": 79.81,
             "p90_local_relief_m": 78.62
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "hyperarid",
@@ -4271,10 +4272,9 @@
               "title": "Planetary Analog Explorer",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/analog-explorer/",
-              "supports": "NASA's Atacama–Mars analogue example and field research context."
+              "supports": "NASA's Atacama\u2013Mars analogue example and field research context."
             }
-          ],
-          "network_rank": 2683
+          ]
         }
       ],
       "network_top_30_unfiltered": [
@@ -4287,8 +4287,9 @@
           "longitude": -89.642,
           "row": 2,
           "column": 14,
+          "network_rank": 1,
           "score": 99.59,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.376,
             "p90_slope_deg": 2.27,
@@ -4299,7 +4300,7 @@
             "p90_slope_deg": 99.88,
             "p90_local_relief_m": 98.93
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -4312,7 +4313,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -4323,8 +4324,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 1
+          ]
         },
         {
           "id": "iceland_r3_c16",
@@ -4335,8 +4335,9 @@
           "longitude": -22.193,
           "row": 3,
           "column": 16,
+          "network_rank": 2,
           "score": 99.38,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.384,
             "p90_slope_deg": 2.37,
@@ -4347,7 +4348,7 @@
             "p90_slope_deg": 99.1,
             "p90_local_relief_m": 99.26
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "basaltic volcanism",
@@ -4371,8 +4372,7 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ],
-          "network_rank": 2
+          ]
         },
         {
           "id": "haughton_r9_c16",
@@ -4383,8 +4383,9 @@
           "longitude": -89.576,
           "row": 9,
           "column": 16,
+          "network_rank": 3,
           "score": 99.37,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.36,
             "p90_slope_deg": 2.28,
@@ -4395,7 +4396,7 @@
             "p90_slope_deg": 99.98,
             "p90_local_relief_m": 98.39
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -4408,7 +4409,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -4419,8 +4420,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 3
+          ]
         },
         {
           "id": "iceland_r2_c15",
@@ -4431,8 +4431,9 @@
           "longitude": -22.212,
           "row": 2,
           "column": 15,
+          "network_rank": 4,
           "score": 99.29,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.372,
             "p90_slope_deg": 2.424,
@@ -4443,7 +4444,7 @@
             "p90_slope_deg": 98.55,
             "p90_local_relief_m": 99.34
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "basaltic volcanism",
@@ -4467,8 +4468,7 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ],
-          "network_rank": 4
+          ]
         },
         {
           "id": "iceland_r5_c16",
@@ -4479,8 +4479,9 @@
           "longitude": -22.193,
           "row": 5,
           "column": 16,
+          "network_rank": 5,
           "score": 99.21,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.383,
             "p90_slope_deg": 2.422,
@@ -4491,7 +4492,7 @@
             "p90_slope_deg": 98.57,
             "p90_local_relief_m": 99.26
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "basaltic volcanism",
@@ -4515,8 +4516,7 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ],
-          "network_rank": 5
+          ]
         },
         {
           "id": "haughton_r24_c26",
@@ -4527,8 +4527,9 @@
           "longitude": -89.247,
           "row": 24,
           "column": 26,
+          "network_rank": 6,
           "score": 99.21,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.361,
             "p90_slope_deg": 2.309,
@@ -4539,7 +4540,7 @@
             "p90_slope_deg": 99.72,
             "p90_local_relief_m": 98.16
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -4552,7 +4553,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -4563,8 +4564,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 6
+          ]
         },
         {
           "id": "iceland_r4_c16",
@@ -4575,8 +4575,9 @@
           "longitude": -22.193,
           "row": 4,
           "column": 16,
+          "network_rank": 7,
           "score": 99.2,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.384,
             "p90_slope_deg": 2.422,
@@ -4587,7 +4588,7 @@
             "p90_slope_deg": 98.57,
             "p90_local_relief_m": 99.26
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "basaltic volcanism",
@@ -4611,8 +4612,7 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ],
-          "network_rank": 7
+          ]
         },
         {
           "id": "haughton_r2_c13",
@@ -4623,8 +4623,9 @@
           "longitude": -89.675,
           "row": 2,
           "column": 13,
+          "network_rank": 8,
           "score": 99.19,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.418,
             "p90_slope_deg": 2.263,
@@ -4635,7 +4636,7 @@
             "p90_slope_deg": 99.81,
             "p90_local_relief_m": 98.64
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -4648,7 +4649,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -4659,8 +4660,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 8
+          ]
         },
         {
           "id": "haughton_r9_c10",
@@ -4671,8 +4671,9 @@
           "longitude": -89.774,
           "row": 9,
           "column": 10,
+          "network_rank": 9,
           "score": 99.16,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.321,
             "p90_slope_deg": 2.263,
@@ -4683,7 +4684,7 @@
             "p90_slope_deg": 99.81,
             "p90_local_relief_m": 98.72
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -4696,7 +4697,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -4707,8 +4708,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 9
+          ]
         },
         {
           "id": "haughton_r20_c11",
@@ -4719,8 +4719,9 @@
           "longitude": -89.741,
           "row": 20,
           "column": 11,
+          "network_rank": 10,
           "score": 99.12,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.386,
             "p90_slope_deg": 2.355,
@@ -4731,7 +4732,7 @@
             "p90_slope_deg": 99.25,
             "p90_local_relief_m": 98.37
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -4744,7 +4745,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -4755,8 +4756,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 10
+          ]
         },
         {
           "id": "haughton_r18_c12",
@@ -4767,6 +4767,7 @@
           "longitude": -89.708,
           "row": 18,
           "column": 12,
+          "network_rank": 11,
           "score": 99.1,
           "top_decile_stability_pct": 97.4,
           "terrain": {
@@ -4779,7 +4780,7 @@
             "p90_slope_deg": 99.92,
             "p90_local_relief_m": 99.51
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -4792,7 +4793,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -4803,8 +4804,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 11
+          ]
         },
         {
           "id": "haughton_r8_c10",
@@ -4815,8 +4815,9 @@
           "longitude": -89.774,
           "row": 8,
           "column": 10,
+          "network_rank": 12,
           "score": 99.09,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.321,
             "p90_slope_deg": 2.263,
@@ -4827,7 +4828,7 @@
             "p90_slope_deg": 99.81,
             "p90_local_relief_m": 98.53
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -4840,7 +4841,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -4851,8 +4852,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 12
+          ]
         },
         {
           "id": "haughton_r23_c10",
@@ -4863,8 +4863,9 @@
           "longitude": -89.774,
           "row": 23,
           "column": 10,
+          "network_rank": 13,
           "score": 99.07,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.344,
             "p90_slope_deg": 2.263,
@@ -4875,7 +4876,7 @@
             "p90_slope_deg": 99.8,
             "p90_local_relief_m": 97.98
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -4888,7 +4889,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -4899,8 +4900,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 13
+          ]
         },
         {
           "id": "haughton_r14_c16",
@@ -4911,6 +4911,7 @@
           "longitude": -89.576,
           "row": 14,
           "column": 16,
+          "network_rank": 14,
           "score": 98.99,
           "top_decile_stability_pct": 98.2,
           "terrain": {
@@ -4923,7 +4924,7 @@
             "p90_slope_deg": 99.98,
             "p90_local_relief_m": 98.93
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -4936,7 +4937,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -4947,8 +4948,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 14
+          ]
         },
         {
           "id": "iceland_r6_c16",
@@ -4959,8 +4959,9 @@
           "longitude": -22.193,
           "row": 6,
           "column": 16,
+          "network_rank": 15,
           "score": 98.98,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.31,
             "p90_slope_deg": 2.422,
@@ -4971,7 +4972,7 @@
             "p90_slope_deg": 98.57,
             "p90_local_relief_m": 99.62
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "basaltic volcanism",
@@ -4995,8 +4996,7 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ],
-          "network_rank": 15
+          ]
         },
         {
           "id": "dallol_r26_c8",
@@ -5007,8 +5007,9 @@
           "longitude": 40.257,
           "row": 26,
           "column": 8,
+          "network_rank": 16,
           "score": 98.96,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.4,
             "p90_slope_deg": 2.251,
@@ -5019,7 +5020,7 @@
             "p90_slope_deg": 99.68,
             "p90_local_relief_m": 97.75
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "hydrothermal",
@@ -5033,7 +5034,7 @@
           ],
           "source_references": [
             {
-              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)—An Exceptional Planetary Field Analog on Earth",
+              "title": "The Dallol Geothermal Area, Northern Afar (Ethiopia)\u2014An Exceptional Planetary Field Analog on Earth",
               "publisher": "Astrobiology / peer-reviewed research",
               "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6459281/",
               "supports": "Field-surveyed hydrothermal alteration, acidic sulfate deposits and Mars-analogue context; not a site-specific ANALOG-X data measurement."
@@ -5044,8 +5045,7 @@
               "url": "https://pubs.acs.org/doi/10.1021/acsearthspacechem.8b00141",
               "supports": "Geochemical description of the Dallol hydrothermal system and evaporite interaction."
             }
-          ],
-          "network_rank": 16
+          ]
         },
         {
           "id": "haughton_r24_c14",
@@ -5056,6 +5056,7 @@
           "longitude": -89.642,
           "row": 24,
           "column": 14,
+          "network_rank": 17,
           "score": 98.96,
           "top_decile_stability_pct": 99.4,
           "terrain": {
@@ -5068,7 +5069,7 @@
             "p90_slope_deg": 99.05,
             "p90_local_relief_m": 99.66
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -5081,7 +5082,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -5092,8 +5093,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 17
+          ]
         },
         {
           "id": "iceland_r6_c17",
@@ -5104,8 +5104,9 @@
           "longitude": -22.175,
           "row": 6,
           "column": 17,
+          "network_rank": 18,
           "score": 98.94,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.31,
             "p90_slope_deg": 2.211,
@@ -5116,7 +5117,7 @@
             "p90_slope_deg": 99.27,
             "p90_local_relief_m": 98.82
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "basaltic volcanism",
@@ -5140,8 +5141,7 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ],
-          "network_rank": 18
+          ]
         },
         {
           "id": "haughton_r24_c11",
@@ -5152,8 +5152,9 @@
           "longitude": -89.741,
           "row": 24,
           "column": 11,
+          "network_rank": 19,
           "score": 98.94,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.385,
             "p90_slope_deg": 2.124,
@@ -5164,7 +5165,7 @@
             "p90_slope_deg": 98.39,
             "p90_local_relief_m": 98.65
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -5177,7 +5178,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -5188,8 +5189,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 19
+          ]
         },
         {
           "id": "haughton_r17_c13",
@@ -5200,6 +5200,7 @@
           "longitude": -89.675,
           "row": 17,
           "column": 13,
+          "network_rank": 20,
           "score": 98.92,
           "top_decile_stability_pct": 94.8,
           "terrain": {
@@ -5212,7 +5213,7 @@
             "p90_slope_deg": 99.22,
             "p90_local_relief_m": 99.95
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -5225,7 +5226,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -5236,8 +5237,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 20
+          ]
         },
         {
           "id": "haughton_r24_c13",
@@ -5248,8 +5248,9 @@
           "longitude": -89.675,
           "row": 24,
           "column": 13,
+          "network_rank": 21,
           "score": 98.87,
-          "top_decile_stability_pct": 99,
+          "top_decile_stability_pct": 99.0,
           "terrain": {
             "median_slope_deg": 1.465,
             "p90_slope_deg": 2.161,
@@ -5260,7 +5261,7 @@
             "p90_slope_deg": 98.77,
             "p90_local_relief_m": 99.66
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -5273,7 +5274,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -5284,8 +5285,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 21
+          ]
         },
         {
           "id": "haughton_r21_c11",
@@ -5296,6 +5296,7 @@
           "longitude": -89.741,
           "row": 21,
           "column": 11,
+          "network_rank": 22,
           "score": 98.85,
           "top_decile_stability_pct": 90.4,
           "terrain": {
@@ -5308,7 +5309,7 @@
             "p90_slope_deg": 97.41,
             "p90_local_relief_m": 99.41
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -5321,7 +5322,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -5332,8 +5333,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 22
+          ]
         },
         {
           "id": "haughton_r22_c11",
@@ -5344,6 +5344,7 @@
           "longitude": -89.741,
           "row": 22,
           "column": 11,
+          "network_rank": 23,
           "score": 98.84,
           "top_decile_stability_pct": 91.6,
           "terrain": {
@@ -5356,7 +5357,7 @@
             "p90_slope_deg": 97.64,
             "p90_local_relief_m": 99.04
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -5369,7 +5370,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -5380,8 +5381,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 23
+          ]
         },
         {
           "id": "haughton_r24_c12",
@@ -5392,6 +5392,7 @@
           "longitude": -89.708,
           "row": 24,
           "column": 12,
+          "network_rank": 24,
           "score": 98.83,
           "top_decile_stability_pct": 97.4,
           "terrain": {
@@ -5404,7 +5405,7 @@
             "p90_slope_deg": 98.77,
             "p90_local_relief_m": 99.8
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -5417,7 +5418,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -5428,8 +5429,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 24
+          ]
         },
         {
           "id": "haughton_r3_c14",
@@ -5440,8 +5440,9 @@
           "longitude": -89.642,
           "row": 3,
           "column": 14,
+          "network_rank": 25,
           "score": 98.81,
-          "top_decile_stability_pct": 94,
+          "top_decile_stability_pct": 94.0,
           "terrain": {
             "median_slope_deg": 1.493,
             "p90_slope_deg": 2.27,
@@ -5452,7 +5453,7 @@
             "p90_slope_deg": 99.88,
             "p90_local_relief_m": 98.93
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -5465,7 +5466,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -5476,8 +5477,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 25
+          ]
         },
         {
           "id": "iceland_r17_c21",
@@ -5488,8 +5488,9 @@
           "longitude": -22.099,
           "row": 17,
           "column": 21,
+          "network_rank": 26,
           "score": 98.81,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.417,
             "p90_slope_deg": 2.344,
@@ -5500,7 +5501,7 @@
             "p90_slope_deg": 99.37,
             "p90_local_relief_m": 97.93
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "basaltic volcanism",
@@ -5524,8 +5525,7 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ],
-          "network_rank": 26
+          ]
         },
         {
           "id": "iceland_r2_c16",
@@ -5536,8 +5536,9 @@
           "longitude": -22.193,
           "row": 2,
           "column": 16,
+          "network_rank": 27,
           "score": 98.77,
-          "top_decile_stability_pct": 100,
+          "top_decile_stability_pct": 100.0,
           "terrain": {
             "median_slope_deg": 1.343,
             "p90_slope_deg": 2.211,
@@ -5548,7 +5549,7 @@
             "p90_slope_deg": 99.27,
             "p90_local_relief_m": 97.67
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "basaltic volcanism",
@@ -5572,8 +5573,7 @@
               "url": "https://old.ni.is/en/midlun/utgafa/kort/jardfraedikort.html",
               "supports": "Official geological mapping of bedrock, volcanic craters, tuff, fissures, lava types and unconsolidated deposits."
             }
-          ],
-          "network_rank": 27
+          ]
         },
         {
           "id": "haughton_r3_c13",
@@ -5584,8 +5584,9 @@
           "longitude": -89.675,
           "row": 3,
           "column": 13,
+          "network_rank": 28,
           "score": 98.7,
-          "top_decile_stability_pct": 94,
+          "top_decile_stability_pct": 94.0,
           "terrain": {
             "median_slope_deg": 1.491,
             "p90_slope_deg": 2.263,
@@ -5596,7 +5597,7 @@
             "p90_slope_deg": 99.81,
             "p90_local_relief_m": 98.64
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -5609,7 +5610,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -5620,8 +5621,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 28
+          ]
         },
         {
           "id": "haughton_r7_c14",
@@ -5632,6 +5632,7 @@
           "longitude": -89.642,
           "row": 7,
           "column": 14,
+          "network_rank": 29,
           "score": 98.7,
           "top_decile_stability_pct": 93.8,
           "terrain": {
@@ -5644,7 +5645,7 @@
             "p90_slope_deg": 99.32,
             "p90_local_relief_m": 99.11
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -5657,7 +5658,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -5668,8 +5669,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 29
+          ]
         },
         {
           "id": "haughton_r4_c13",
@@ -5680,6 +5680,7 @@
           "longitude": -89.675,
           "row": 4,
           "column": 13,
+          "network_rank": 30,
           "score": 98.69,
           "top_decile_stability_pct": 83.8,
           "terrain": {
@@ -5692,7 +5693,7 @@
             "p90_slope_deg": 99.81,
             "p90_local_relief_m": 99.82
           },
-          "valid_cell_percent": 100,
+          "valid_cell_percent": 100.0,
           "window_footprint_km": 5.55,
           "environment_tags": [
             "impact crater",
@@ -5705,7 +5706,7 @@
           ],
           "source_references": [
             {
-              "title": "10 Things to Know About Planetary Analogs — Haughton Mars Project",
+              "title": "10 Things to Know About Planetary Analogs \u2014 Haughton Mars Project",
               "publisher": "NASA Science",
               "url": "https://science.nasa.gov/solar-system/planetary-analogs/10-things-to-know-about-planetary-analogs/",
               "supports": "Describes the Haughton impact crater, remote polar setting and NASA Ames-led exploration technology and EVA rehearsal."
@@ -5716,8 +5717,7 @@
               "url": "https://www.nasa.gov/wp-content/uploads/2015/06/563511main_nasa-analog-missions-06-2011_508.pdf",
               "supports": "NASA analog-mission overview of crater terrain, loose rock and field operations."
             }
-          ],
-          "network_rank": 30
+          ]
         }
       ]
     }
