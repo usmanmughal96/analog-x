@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-18T17:48:15+00:00",
-  "repository_commit_before_manifest_commit": "efd5668b1d436baa46e581db368ead0bc9158811",
+  "generated_at_utc": "2026-11-18T18:04:55+00:00",
+  "repository_commit_before_manifest_commit": "e062cb9fa40ce7533ad90660b44f4b1e0477d27c",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -269,8 +269,8 @@
     },
     {
       "path": "data/global_discovery/global_discovery.json",
-      "size_bytes": 4010578,
-      "sha256": "1b8685f85757a3499fb3688e1e1c1c31f8ce19dd32ee2748ec515413c325569a",
+      "size_bytes": 4010564,
+      "sha256": "bbddcf73c2c4f08ee60644fed81461edda2ff58e4b3d97e25ef4748b88a8f9e8",
       "evidence_class_hint": "global_discovery_output"
     },
     {
@@ -774,13 +774,13 @@
     {
       "path": "data/validation/nasadem_crosscheck.json",
       "size_bytes": 14743,
-      "sha256": "b2f322395d5f325a61a6a278092aa0739d5bd59a14bbc2b077cf70b879c26cf5",
+      "sha256": "d004aa525d3391a180f65c271ecc424610db07883450e2f5b30f099083efee07",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/validation/quantitative_validation.json",
       "size_bytes": 3529,
-      "sha256": "05b160fe5c300c4cd2f2eca65e691e53f7eefaa649555eae37f067249f722bc8",
+      "sha256": "c2b03cbf1583b5b4c35faabb10544d3648f4729f09bbec31b34115fab2a54459",
       "evidence_class_hint": "processed_or_derived"
     },
     {
