@@ -31,6 +31,10 @@ h1{font-size:clamp(30px,4vw,54px);line-height:1.03;letter-spacing:-.05em;margin:
 .detailgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:12px 0}.mini{padding:9px;background:#0a2030;border:1px solid #203f53;border-radius:8px}.mini b{display:block;color:#97bdca;font-size:8px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}.mini span{font-size:10px}
 .limits{margin-top:12px;padding:12px;border:1px solid #594b30;background:#211e17;border-radius:9px;color:#decda9;font-size:10px}.limits b{display:block;margin-bottom:5px;color:var(--gold)}
 .mission-context{margin-top:14px;padding:12px;border:1px solid #286253;background:linear-gradient(145deg,#0b2828,#081b24);border-radius:10px}
+.fine-context{margin-top:12px;padding:12px;border:1px solid #315267;background:linear-gradient(145deg,#102435,#091a27);border-radius:10px}
+.fine-context h3{font-size:12px;color:#9fd3e5;margin:0 0 6px}
+.fine-context .fine-note{font-size:9px;line-height:1.45;color:#9bb4c3;margin-bottom:8px}
+
 .mission-context h3{font-size:13px;margin:0 0 7px;color:#a5ead6}
 .priority{font-size:11px;line-height:1.5;color:#e6f3ed;margin:7px 0 10px}
 .separate-score{font-size:9px;color:#91b9b1;margin-bottom:10px}
@@ -128,6 +132,21 @@ function showDetails(w){
   ["P90 slope",w.components.p90_slope_deg],
   ["P90 local relief",w.components.p90_local_relief_m]
  ];
+ var fine=w.parent_earth_30m_context||{};
+ var fineMetrics=fine.terrain_metrics||{};
+ var fineSlope=fineMetrics.slope_deg||{};
+ var fineRelief=fineMetrics["3x3_local_relief_m"]||{};
+ var fineHtml='<section class="fine-context">'+
+  '<h3>Higher-detail Earth terrain context · nominal 30 m DSM</h3>'+
+  '<div class="fine-note">Parent 30 km study-area summary, not a metric for this exact 5.55 km sub-window. This Earth-only layer is separate from the common-support ~925 m Moon/Mars index and does not establish rover-scale safety.</div>'+
+  (fine.status==="processed"?
+   '<div class="metrics">'+
+    '<div class="metric"><b>'+fmt(fineSlope.median,2)+'°</b><span>30 m median slope</span></div>'+
+    '<div class="metric"><b>'+fmt(fineSlope.p90,2)+'°</b><span>30 m P90 slope</span></div>'+
+    '<div class="metric"><b>'+fmt(fineRelief.p90,1)+' m</b><span>30 m P90 3×3 relief · 90 m footprint</span></div>'+
+   '</div><div class="sub">Valid cells: '+esc(fine.valid_cell_count)+' / '+esc(fine.total_cell_count)+' ('+fmt(fine.coverage_percent,1)+'%) · '+fmt(fine.window_size_km,1)+' km parent area</div>'
+   :'<div class="sub">Status: '+esc(fine.status||"not available")+' · '+esc(fine.limitation||fine.error||"Higher-detail diagnostic unavailable.")+'</div>')+
+  '</section>';
  var atfa=w.atfa_context||{};
  var evidence=atfa.evidence||{};
  var evidenceNames={nasa_power:"NASA POWER",terrain:"Terrain DEM",sentinel2:"Sentinel-2",site_dossier:"Site dossier"};
@@ -171,6 +190,7 @@ function showDetails(w){
   '<div class="bars">'+bars.map(function(b){return '<div class="barrow"><span>'+esc(b[0])+'</span><div class="bar"><i style="width:'+Math.max(0,Math.min(100,Number(b[1]||0)))+'%"></i></div><b>'+fmt(b[1],1)+'</b></div>';}).join("")+'</div>'+
   '<p class="sub" style="margin-top:12px">Feature closeness values are separately normalized terrain indicators. They do not establish rock-type or geological equivalence.</p>'+
   '<div class="limits"><b>Why it surfaced</b>Compared with '+esc(t.target.name)+', this sub-window has a terrain-only index of '+fmt(score,2)+'. This is a screening lead inside '+esc(w.name)+'; independent geology, higher-resolution terrain and field validation are still required.</div>'+
+  fineHtml+
   atfaHtml+
   '<p class="sub" style="margin-top:10px">Site context: '+esc((w.environment_tags||[]).join(" · ")||"not tagged")+'</p>'+
   '<p class="sub">Sources: '+(w.source_references||[]).map(function(x){return '<a href="'+esc(x.url)+'" target="_blank" rel="noreferrer">'+esc(x.title)+'</a>';}).join(" · ")+'</p>';
