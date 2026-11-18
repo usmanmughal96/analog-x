@@ -84,7 +84,7 @@ Space4Climate is relevant to the Pakistan case studies, especially for independe
 
 ### Integration status
 
-**Portal reviewed.** No authenticated or anonymous bulk data endpoint, product schema, spatial coverage and licence combination was verified. The project does not claim Space4Climate data integration. A formal request to SUPARCO for the relevant Chagai and Hispar layers would be a strong next step.
+**Portal reviewed.** No authenticated or anonymous bulk data endpoint, product schema, spatial coverage and licence combination was verified. The project does not claim Space4Climate / SGSS data integration. A formal request to SUPARCO for the relevant Chagai and Hispar layers, with product identifiers, AOI coverage, service details and reuse terms, would be a strong next step.
 
 ## 5. EvK2CNR / UNDP / university partners
 
@@ -148,11 +148,25 @@ Official pathways:
 
 The MOLA archive has MEGDR topography products at 4, 16, 32, 64 and 128 pixels/degree, and polar products at 128, 256 and 512 pixels/degree. MOLA 64 ppd is selected for the initial Nili Patera regional terrain-profile test. This is intentionally coarse-scale and is not rover-hazard resolution.
 
-For the Moon, the first attempt used PGDA product 78 (5 m/pixel Site04 files); those files returned HTTP 403 or failed range reads, and the alternate core2 host did not resolve. A different public PDS route succeeded: the NASA LRO LOLA PDS GDR 80 m south-polar LDEM_80S_80M elevation grid and matching LDEC_80S_80M count grid hosted by MIT Imbrium. The project processes a 29.6 × 29.6 km window around Shackleton Rim. Its 90,000 native LDEM elevation cells are interpolated; 89,996 native cells have positive LDEC returns (99.9956%). The count grid is reported as observational support, not used to discard interpolated terrain. The 80 m LDEM is area-averaged to 925 m, yielding a 32 × 32 coarse profile that can be compared with the Earth/Mars profiles. At that support, Shackleton has median/P90 slope of 13.40°/30.94° and P90 3×3 local relief of 1,391 m, over a ~2.775 km footprint. This is a rugged terrain window, not a base-suitability or landing-safety assessment. Diviner PRP V2.0 includes annual average surface temperature, annual maximum surface temperature and estimated water-ice-permafrost depth, but no Diviner data are processed in this build.
+For the Moon, the first attempt used PGDA product 78 (5 m/pixel Site04 files); those files returned HTTP 403 or failed range reads, and the alternate core2 host did not resolve. A different public PDS route succeeded: the NASA LRO LOLA PDS GDR 80 m south-polar LDEM_80S_80M elevation grid and matching LDEC_80S_80M count grid hosted by MIT Imbrium. The project processes a 29.6 × 29.6 km window around Shackleton Rim. Its 90,000 native LDEM elevation cells are interpolated; 89,996 native cells have positive LDEC returns (99.9956%). The count grid is reported as observational support, not used to discard interpolated terrain. The 80 m LDEM is area-averaged to 925 m, yielding a 32 × 32 coarse profile that can be compared with the Earth/Mars profiles. At that support, Shackleton has median/P90 slope of 13.40°/30.94° and P90 3×3 local relief of 1,391 m, over a ~2.775 km footprint. This is a rugged terrain window, not a base-suitability or landing-safety assessment. Separately, `scripts/process_diviner_prp.py` streams the NASA PDS4 Diviner PRP V2.0 south-polar table, validates its product label/units and processes 6,823 triangles in the same analyst-defined 29.6 × 29.6 km Shackleton comparison window. The committed summary reports median annual-average temperature at 2 cm of 103.786 K and median annual-maximum surface temperature of 238.568 K. These are historical thermal-model outputs, not in-situ measurements. The extracted ice-depth field has 4,309 numerically usable values and 2,514 `-999` censored rows; negative numeric values also remain in the sample. It is withheld from interpretation pending QA. No exposed or accessible lunar ice is inferred.
 
 NASA's Global Volcano Hazard Frequency and Distribution is a historical event-frequency product, not real-time volcanic activity or site-scale geology. It is a reference layer only in this release.
 
-Lunar LOLA terrain is now integrated at 80 m native support and ~925 m coarse support. Diviner annual temperature and water-ice-permafrost products remain linked but unprocessed; lunar illumination and permanently shadowed-region analysis is also outstanding.
+Lunar LOLA terrain is integrated at 80 m native support and ~925 m coarse support. Diviner annual-average-at-2-cm and annual-maximum surface-temperature summaries are processed for the 6,823-triangle AOI; the ice-depth interpretation remains withheld pending QA. Authoritative lunar illumination and permanently shadowed-region analysis is still outstanding.
+
+## 8A. Regional terrain-window scan (18 November 2026)
+
+The repository now contains a reproducible regional sub-window scan built from its existing ten 30 km Earth Copernicus DEM GLO-30 DSM windows, the Shackleton LOLA window and the Nili Patera MOLA window.
+
+- 7,290 valid Earth sub-windows (729 in each of ten pre-selected Earth study/reference regions).
+- 729 valid local windows from the Shackleton 32 × 32 LOLA grid.
+- 21 Nili Patera local windows pass the same explicit minimum-evidence threshold; the parent Mars grid has 50.53% observed-cell coverage and only 87 complete 3 × 3 neighbourhoods.
+- Each candidate window is 6 × 6 cells (~5.55 km) at ~925 m support. The scan calculates median slope, P90 slope and P90 3 × 3 local relief.
+- A terrain-only exploratory index uses equal-weight IQR-normalized absolute gaps against the median valid planetary-window profile. A 500-draw deterministic feature-weight sensitivity check reports within-parent-region top-decile persistence.
+
+This is **not a global Earth search**. It identifies candidate sub-windows only inside the ten pre-selected regions. Overlapping windows are spatially dependent; the sensitivity percentage is not a confidence interval; scores are not probabilities or geological-equivalence measures. Displayed WGS84 centres are approximate locators derived from nominal grid spacing, not surveyed locations. The ~925 m support cannot resolve rover-scale hazards, trafficability or local engineering constraints.
+
+The generated output is `data/analog_benchmark/regional_window_scan.json`; the UI is [Regional Discovery Scan](https://usmanmughal96.github.io/analog-x/discovery.html), and the reproducible builder is `science/build_regional_window_scan.py`.
 
 ## 9. Is the underlying idea already solved?
 
