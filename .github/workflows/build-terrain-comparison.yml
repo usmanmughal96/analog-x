@@ -50,6 +50,11 @@ jobs:
       - name: Build regional candidate-window scan
         run: python science/build_regional_window_scan.py
 
+      - name: Run regional-window unit tests
+        run: |
+          python -m py_compile science/build_regional_window_scan.py
+          python -m unittest discover -s tests -p "test_regional_window_scan.py"
+
       - name: Validate terrain and candidate-window outputs
         run: |
           python - <<'PY'
