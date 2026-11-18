@@ -61,12 +61,13 @@
 .atfa-hero-link:hover{background:#10435d;border-color:#63dfff;color:white!important}
 .discovery-hero-link{display:inline-flex;align-items:center;gap:9px;margin-top:10px;padding:11px 15px;border:1px solid #2481a6;border-radius:9px;background:linear-gradient(110deg,#0a344a,#092438);color:#c9f5ff!important;text-decoration:none!important;font-size:10px;font-weight:850;box-shadow:0 5px 18px #0003}
 .discovery-hero-link:hover{background:#10435d;border-color:#63dfff;color:white!important}
+.global-featured{position:fixed;right:22px;bottom:162px;z-index:1001;display:flex;align-items:center;gap:10px;padding:11px 15px;border:1px solid #4a8c73;border-radius:12px;background:linear-gradient(115deg,#123c35,#102b31 65%,#16283a);color:#e7fff5!important;text-decoration:none!important;box-shadow:0 8px 30px #0008,0 0 20px #50cfa130;font-size:10px;font-weight:850;transition:transform .18s ease,box-shadow .18s ease}.global-featured:hover{transform:translateY(-3px);box-shadow:0 12px 36px #000a,0 0 0 1px #8de4ba,0 0 28px #50cfa155;color:white!important}.global-featured .atfa-icon{width:29px;height:29px;display:grid;place-items:center;border-radius:8px;background:#1e604a;color:#b6f6d6;font-size:17px}.global-featured .atfa-copy{display:flex;flex-direction:column;gap:3px}.global-featured small{font-size:7px;color:#a7e8c5;font-weight:750;letter-spacing:.13em;text-transform:uppercase}
 .discovery-featured{position:fixed;right:22px;bottom:92px;z-index:1000;display:flex;align-items:center;gap:10px;padding:11px 15px;border:1px solid #42c6e9;border-radius:12px;background:linear-gradient(115deg,#06304a,#0a2037 65%,#142b3d);color:#e5f8ff!important;text-decoration:none!important;box-shadow:0 8px 30px #0008,0 0 20px #20bde730;font-size:10px;font-weight:850;transition:transform .18s ease,box-shadow .18s ease}
 .discovery-featured:hover{transform:translateY(-3px);box-shadow:0 12px 36px #000a,0 0 0 1px #7be8ff,0 0 28px #20bde766;color:white!important}
 .discovery-featured .atfa-icon{width:29px;height:29px;display:grid;place-items:center;border-radius:8px;background:#0c5270;color:#a8f0ff;font-size:17px}
 .discovery-featured .atfa-copy{display:flex;flex-direction:column;gap:3px}
 .discovery-featured small{font-size:7px;color:#8dddf0;font-weight:750;letter-spacing:.13em;text-transform:uppercase}
-@media(max-width:600px){.atfa-featured{right:12px;bottom:12px;padding:10px 12px;border-radius:11px;gap:8px;max-width:calc(100vw - 24px)}.discovery-featured{right:12px;bottom:70px;padding:9px 11px;border-radius:11px;gap:7px;max-width:calc(100vw - 24px)}.discovery-featured .atfa-icon{width:26px;height:26px}}
+@media(max-width:600px){.global-featured{right:12px;bottom:128px;padding:9px 11px;border-radius:11px;gap:7px;max-width:calc(100vw - 24px)}.global-featured .atfa-icon{width:26px;height:26px}.atfa-featured{right:12px;bottom:12px;padding:10px 12px;border-radius:11px;gap:8px;max-width:calc(100vw - 24px)}.discovery-featured{right:12px;bottom:70px;padding:9px 11px;border-radius:11px;gap:7px;max-width:calc(100vw - 24px)}.discovery-featured .atfa-icon{width:26px;height:26px}}
 </style>
 <link rel='stylesheet' href='./assets/analogx-labs.css?v=20261115-offline'>
 <link rel='stylesheet' href='./assets/analogx-scout.css?v=20261114-portalfix'>
@@ -134,6 +135,7 @@
     <div class="welcomeDefinition">A planetary <b>analog</b> is not an Earth copy of another world. It is a place or process that helps rehearse one specific exploration task.</div>
     <a class="atfa-hero-link" href="./transferability.html"><span aria-hidden="true">⇄</span> Explore Analog Transferability <span aria-hidden="true">↗</span></a>
     <a class="discovery-hero-link" href="./discovery.html"><span aria-hidden="true">⌖</span> Explore Regional Discovery Scan <span aria-hidden="true">↗</span></a>
+    <a class="discovery-hero-link" href="./global-discovery.html" style="border-color:#397e67;background:linear-gradient(110deg,#123d34,#102b36);color:#d2f8e6!important"><span aria-hidden="true">◎</span> Explore Global Discovery Engine <span aria-hidden="true">↗</span></a>
 
    </div>
    <div class="welcomeVisual" aria-label="Earth, Moon and Mars exploration concept">
@@ -1198,5 +1200,6 @@ boot();
 <script src='./assets/analogx-labs.js?v=20261115-offline'></script>
 <script src='./assets/analogx-field-passport.js?v=20261115-v2'></script>
 <a class="atfa-featured" href="./transferability.html" aria-label="Open Analog Transferability science module"><span class="atfa-icon" aria-hidden="true">⇄</span><span class="atfa-copy"><small>Featured science module</small>Analog Transferability</span><span class="atfa-arrow" aria-hidden="true">↗</span></a>
+<a class="global-featured" href="./global-discovery.html" aria-label="Open Global Discovery Engine"><span class="atfa-icon" aria-hidden="true">◎</span><span class="atfa-copy"><small>Worldwide terrain intelligence</small>Global Discovery Engine</span><span class="atfa-arrow" aria-hidden="true">↗</span></a>
 <a class="discovery-featured" href="./discovery.html" aria-label="Open Regional Discovery Scan"><span class="atfa-icon" aria-hidden="true">⌖</span><span class="atfa-copy"><small>Featured new tool</small>Regional Discovery Scan</span><span class="atfa-arrow" aria-hidden="true">↗</span></a>
 </body></html>
