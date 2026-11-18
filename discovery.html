@@ -171,7 +171,8 @@ function showDetails(w){
   '<div class="bars">'+bars.map(function(b){return '<div class="barrow"><span>'+esc(b[0])+'</span><div class="bar"><i style="width:'+Math.max(0,Math.min(100,Number(b[1]||0)))+'%"></i></div><b>'+fmt(b[1],1)+'</b></div>';}).join("")+'</div>'+
   '<p class="sub" style="margin-top:12px">Feature closeness values are separately normalized terrain indicators. They do not establish rock-type or geological equivalence.</p>'+
   '<div class="limits"><b>Why it surfaced</b>Compared with '+esc(t.target.name)+', this sub-window has a terrain-only index of '+fmt(score,2)+'. This is a screening lead inside '+esc(w.name)+'; independent geology, higher-resolution terrain and field validation are still required.</div>'+
-  atfaHtml+\n  '<p class="sub" style="margin-top:10px">Site context: '+esc((w.environment_tags||[]).join(" · ")||"not tagged")+'</p>'+
+  atfaHtml+
+  '<p class="sub" style="margin-top:10px">Site context: '+esc((w.environment_tags||[]).join(" · ")||"not tagged")+'</p>'+
   '<p class="sub">Sources: '+(w.source_references||[]).map(function(x){return '<a href="'+esc(x.url)+'" target="_blank" rel="noreferrer">'+esc(x.title)+'</a>';}).join(" · ")+'</p>';
  $("rows").querySelectorAll("tr").forEach(function(row){row.classList.toggle("selected",row.dataset.id===w.id);});
 }
