@@ -305,7 +305,7 @@ def tile_candidate_windows(tile: dict[str, Any], shard: int, refs: dict[str, Any
 
 
 def select_diverse(rows: list[dict[str, Any]], limit: int, max_per_tile: int = 4) -> list[dict[str, Any]]:
-    rows = sorted(rows, key=lambda x: (-x["consensus_index"], -x["metric_family_score_agreement"], x["id"]))
+    rows = sorted(rows, key=lambda x: (-x["consensus_index"], -x.get("metric_family_score_agreement", x.get("metric_family_rank_concordance", 0)), x["id"]))
     out, counts = [], {}
     for item in rows:
         tile_id = item["tile_id"]
