@@ -98,6 +98,18 @@ function target(){return DATA&&DATA.targets[$("target").value];}
 function showDetails(w){
  selected=w;
  var t=target();
+ var climate=w.climate_context||{};
+ var climateAnnual=climate.annual_metrics||{};
+ var climateDerived=climate.derived||{};
+ var climateHtml='<div class="card"><b>NASA POWER · global climatology</b>'+
+  (climate.state==="processed"?
+   '<p>2 m air temperature: '+fmt(climateAnnual.air_temperature_2m_c,1)+' °C · humidity: '+fmt(climateAnnual.relative_humidity_2m_pct,1)+'% · 10 m wind: '+fmt(climateAnnual.wind_speed_10m_m_s,1)+' m/s</p>'+
+   '<p>Corrected precipitation: '+fmt(climateAnnual.corrected_precipitation_mm_day,2)+' mm/day · all-sky solar: '+fmt(climateAnnual.all_sky_surface_shortwave_kwh_m2_day,2)+' kWh/m²/day</p>'+
+   '<p>Three driest climatology months: '+esc((climateDerived.three_driest_climatology_months||[]).join(", "))+' · annual temperature span: '+fmt(climateDerived.monthly_mean_air_temperature_span_c,1)+' °C</p>'+
+   '<p class="sub">Monthly values and parameter provenance are included in the source JSON. This is NASA POWER gridded climatology, not field-station data.</p>'+
+   '<p class="sub"><a href="'+esc((climate.source||{}).request_url||"https://power.larc.nasa.gov/docs/services/api/temporal/climatology/")+'" target="_blank" rel="noreferrer">Open exact NASA POWER request ↗</a></p>'
+   :'<p>Climate enrichment: '+esc(climate.state||"not processed")+'. No missing or unavailable values are treated as zero.</p>')+
+  '</div>';
  var env=w.environmental_context||{};
  var envClasses=env.class_fractions_percent||{};
  var envHtml='<div class="card"><b>Global environmental context · 2023 land cover</b>'+
@@ -118,6 +130,8 @@ function showDetails(w){
  '<div class="metrics"><div class="metric"><b>'+fmt(w.core_terrain_index,2)+'</b><span>Core index</span></div><div class="metric"><b>'+fmt(w.secondary_diagnostic_index,2)+'</b><span>Secondary index</span></div><div class="metric"><b>'+fmt(w.metric_family_score_agreement,1)+'%</b><span>Metric-family score agreement</span></div></div>'+
  '<div class="card"><b>Additional terrain diagnostics</b><p>P95 slope: '+fmt(w.terrain.p95_slope_deg,2)+'°</p><p>Elevation IQR: '+fmt(w.terrain.elevation_iqr_m,1)+' m</p><p>Detrended roughness RMS: '+fmt(w.terrain.detrended_roughness_rms_m,1)+' m</p><p>Slope under 5°: '+fmt(w.terrain.slope_under_5_deg_pct,1)+'% · over 20°: '+fmt(w.terrain.slope_over_20_deg_pct,1)+'%</p></div>'+
 envHtml+
+ climateHtml+
+ envHtml+
  '<div class="card"><b>Evidence source</b><p>'+esc(w.source.provider)+' · '+esc(w.source.collection)+'</p><p>Native product resolution: '+esc(w.source.resolution_native_m_approx)+' m · sampled support: '+esc(w.analysis_support_m)+' m</p><p><a href="'+esc(w.source.asset_url)+'" target="_blank" rel="noreferrer">Open source DEM tile ↗</a></p></div>'+
  '<div class="notice"><b>Why it surfaced:</b> this local window has a numerical terrain profile closer to the '+esc(t.reference.name)+' reference profile under the stated feature scales. Independent geology, surface-material evidence and field observations are still required.</div>'+
  '<p class="sub">'+esc(w.interpretation)+'</p>';
