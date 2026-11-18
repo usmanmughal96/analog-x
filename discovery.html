@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Regional Discovery Scan | ANALOG-X</title>
+<meta name="description" content="Evidence-bounded regional terrain-window discovery for ANALOG-X, comparing sampled Earth DEM windows with lunar Shackleton Rim and Martian Nili Patera reference terrain.">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{color-scheme:dark;--bg:#050c15;--panel:#0a1725;--panel2:#0d2030;--line:#1c3c52;--text:#e8f3f7;--muted:#91aaba;--cyan:#59d9f2;--mint:#70dfbd;--gold:#eac27b;--red:#ef9b92}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 55% -25%,#15364c 0,#050c15 58%);color:var(--text);font:13px/1.5 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1600px;margin:auto;padding:22px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding:6px 0 16px}
+.brand{font-weight:900;letter-spacing:.15em}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.18em;margin-top:3px}
+.links{display:flex;flex-wrap:wrap;gap:8px}.btn,button,select{font:inherit}.btn,button,select{border:1px solid #2b536a;border-radius:8px;background:#0b2232;color:#d5e9f0;padding:9px 12px}.btn,button{cursor:pointer}.btn:hover,button:hover{border-color:var(--cyan)}
+.hero{padding:27px 0 18px;max-width:1050px}.eyebrow{color:var(--mint);font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+h1{font-size:clamp(30px,4vw,54px);line-height:1.03;letter-spacing:-.05em;margin:10px 0}.hero p{font-size:15px;color:#b0c5d0;max-width:900px}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0}.kpi{padding:13px;border:1px solid var(--line);border-radius:11px;background:linear-gradient(145deg,#0c2232,#071522)}.kpi b{display:block;font-size:27px;letter-spacing:-.04em}.kpi span{font-size:10px;color:var(--muted)}
+.notice{padding:12px 14px;border-left:3px solid var(--gold);border-radius:0 9px 9px 0;background:#231f17;color:#dfc99d;font-size:11px;margin:13px 0}
+.toolbar{display:flex;flex-wrap:wrap;align-items:end;gap:10px;margin:16px 0}.field{display:grid;gap:5px}.field label{font-size:9px;color:#93b1c0;font-weight:850;letter-spacing:.1em;text-transform:uppercase}
+.field select{min-width:180px}.spacer{flex:1}
+.layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(350px,.75fr);gap:12px;align-items:start}
+.panel{border:1px solid var(--line);border-radius:12px;background:linear-gradient(145deg,#0a1b29,#07131f);overflow:hidden;min-width:0}
+.panelhead{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}.panelhead b{font-size:12px}.panelhead small{color:var(--muted);font-size:9px}
+#map{height:520px;background:#071522}.mapfoot{padding:9px 12px;color:var(--muted);font-size:9px}
+.tablewrap{max-height:520px;overflow:auto}table{width:100%;border-collapse:collapse;font-size:10px}th{position:sticky;top:0;background:#0b2232;color:#8fb5c5;text-align:left;font-size:8px;letter-spacing:.08em;text-transform:uppercase;z-index:1}td,th{padding:9px 8px;border-bottom:1px solid #1a3446;white-space:nowrap}td{color:#d4e5eb}tbody tr{cursor:pointer}tbody tr:hover,tbody tr.selected{background:#102b3c}td:first-child{color:var(--gold);font-weight:900}
+.details{padding:14px}.details h2{font-size:20px;margin:0 0 3px}.sub{color:var(--muted);font-size:10px}.score{font-size:32px;font-weight:900;letter-spacing:-.05em;color:var(--mint);margin:14px 0 3px}.score small{font-size:10px;color:var(--muted);letter-spacing:0;font-weight:600}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:12px 0}.metric{padding:9px;background:#0b2030;border:1px solid #203f53;border-radius:8px}.metric b{display:block;font-size:15px}.metric span{font-size:8px;color:var(--muted)}
+.bars{display:grid;gap:8px;margin-top:13px}.barrow{display:grid;grid-template-columns:120px 1fr 43px;gap:8px;align-items:center;font-size:9px;color:#b3c8d1}.bar{height:7px;border-radius:10px;background:#193344;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,#3bb8d3,#71dfbd)}
+.detailgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:12px 0}.mini{padding:9px;background:#0a2030;border:1px solid #203f53;border-radius:8px}.mini b{display:block;color:#97bdca;font-size:8px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}.mini span{font-size:10px}
+.limits{margin-top:12px;padding:12px;border:1px solid #594b30;background:#211e17;border-radius:9px;color:#decda9;font-size:10px}.limits b{display:block;margin-bottom:5px;color:var(--gold)}
+.method{margin-top:12px;padding:15px;border:1px solid var(--line);border-radius:12px;background:#081825}.method h3{margin:0 0 8px;font-size:13px}.method p,.method li{font-size:10px;color:#a8bdc8}.method code{color:#b6eff6}
+footer{padding:19px 0;color:#728f9f;font-size:9px}
+@media(max-width:950px){.layout{grid-template-columns:1fr}#map{height:380px}.kpis{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.wrap{padding:13px}.kpis{gap:7px}.kpi b{font-size:22px}.field,.field select{width:100%}.toolbar .spacer{display:none}.detailgrid{grid-template-columns:1fr}.barrow{grid-template-columns:100px 1fr 40px}#map{height:320px}.tablewrap{max-height:420px}td,th{padding:8px 6px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+ <div class="brand">ANALOG-X <small>REGIONAL DISCOVERY / TERRAIN INTELLIGENCE</small></div>
+ <div class="links"><a class="btn" href="./index.html">← Evidence Operations</a><a class="btn" href="./transferability.html">ATFA Science Module ↗</a><a class="btn" href="https://github.com/usmanmughal96/analog-x">Source ↗</a></div>
+</header>
+<section class="hero">
+ <div class="eyebrow">New · Reproducible regional-window scan</div>
+ <h1>Search within the evidence.<br><span style="color:var(--cyan)">Find the terrain that deserves a closer look.</span></h1>
+ <p>ANALOG-X now breaks its ten existing Earth terrain study windows into smaller, comparable regional windows. Each is compared with a selected lunar or Martian terrain reference using median slope, upper-tail slope and local relief—then checked for ranking sensitivity when feature weights change.</p>
+ <div class="notice"><b>Scope, not hype:</b> this is a regional scan inside ten pre-selected 30 km Earth study areas, not a global scan of Earth. A high terrain index is not a probability, geological match, new-to-science discovery, landing recommendation or rover-safety assessment.</div>
+ <div class="kpis">
+  <div class="kpi"><b id="earthWindows">—</b><span>Valid Earth windows scanned</span></div>
+  <div class="kpi"><b id="regionCount">—</b><span>Existing Earth study regions</span></div>
+  <div class="kpi"><b id="moonWindows">—</b><span>Valid Shackleton windows</span></div>
+  <div class="kpi"><b id="marsWindows">—</b><span>Valid Nili Patera windows</span></div>
+ </div>
+</section>
+<div class="toolbar">
+ <div class="field"><label for="target">Planetary reference</label><select id="target"><option value="moon">Moon · Shackleton Rim</option><option value="mars">Mars · Nili Patera</option></select></div>
+ <div class="field"><label for="site">Earth parent region</label><select id="site"><option value="all">All ten regions</option></select></div>
+ <div class="spacer"></div>
+ <button id="exportCsv" type="button">↓ Export CSV</button><button id="exportJson" type="button">↓ Export JSON</button>
+</div>
+<div class="layout">
+ <section class="panel">
+  <div class="panelhead"><b>Candidate regional windows</b><small id="resultCount">Loading scan results…</small></div>
+  <div id="map" role="img" aria-label="Map of regional terrain-window candidates"></div>
+  <div class="mapfoot">OpenStreetMap © contributors · Pins are approximate window-centre locators computed from nominal grid spacing; they are not survey-grade coordinates or field-station points.</div>
+  <div class="panelhead"><b>Ranked window shortlist</b><small>network rank · not global rank</small></div>
+  <div class="tablewrap">
+   <table><thead><tr><th>Rank</th><th>Earth site</th><th>Index</th><th>Stability</th><th>Median slope</th></tr></thead><tbody id="rows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
+  </div>
+ </section>
+ <aside class="panel">
+  <div class="panelhead"><b>Window evidence card</b><small id="refName">Selected target</small></div>
+  <div class="details" id="details"><div class="sub">Choose a window from the map or shortlist.</div></div>
+ </aside>
+</div>
+<section class="method">
+ <h3>How this regional scan works</h3>
+ <p>Each 32×32 parent terrain grid is evaluated as overlapping 6×6-cell windows (about 5.55 km across at nominal 925 m support). A window is retained only when at least 70% of its elevation cells and at least 15 valid slope and local-relief samples are available. Median slope, P90 slope and P90 3×3 local relief are computed from the source-relative grids.</p>
+ <p><b>Terrain index:</b> an exploratory 0–100 display index derived from the mean of three absolute feature gaps, each normalized by its interquartile range (IQR) across the scanned Earth windows. It is a relative numerical proximity measure, not an analog probability or a measure of geology, mineralogy, soil strength, dust, ice, resources or mission feasibility.</p>
+ <p><b>Rank stability:</b> 500 deterministic random feature-weight draws. It reports how often a window stays in the top decile of its own parent Earth region. Overlapping windows are spatially dependent, and this sensitivity percentage is not a confidence interval.</p>
+ <p><b>Data support:</b> Earth = Copernicus DEM GLO-30 DSM resampled to ~925 m; Moon = NASA LRO LOLA 80 m elevation aggregated to ~925 m; Mars = NASA MGS MOLA MEGDR 64 px/degree at roughly ~925 m. The selected 30 km Nili Patera parent grid has 50.53% observed-cell coverage and 87 complete 3×3 neighbourhoods. Only local windows passing the explicit data threshold are ranked.</p>
+ <div class="limits"><b>Interpretation limits</b>
+  The regional grids are too coarse for rover-scale hazard detection or traversability. Parent regions are curated samples, not exhaustive scans. Earth DSM is not bare-earth elevation. The Moon's local DEM surface is interpolated and LOLA return counts are reported as support. The Mars scan is especially constrained by MOLA coverage. No candidate is field-validated by this algorithm, and planetary differences in gravity, atmosphere, radiation, lithology, regolith, illumination and water/ice are not captured by the terrain index.
+ </div>
+ <p style="margin-top:12px">Research references: <a href="https://pds-geosciences.wustl.edu/missions/lro/">NASA LRO / LOLA</a> · <a href="https://pds-geosciences.wustl.edu/missions/mgs/megdr.html">NASA MGS / MOLA</a> · <a href="https://spacedata.copernicus.eu/">Copernicus DEM</a> · <a href="https://github.com/usmanmughal96/analog-x/blob/main/science/build_regional_window_scan.py">Reproducible scan source</a>.</p>
+</section>
+<footer>ANALOG-X · Independent research prototype · No NASA endorsement implied · Terrain screening only · Last generated: <span id="generated">—</span></footer>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function(){
+"use strict";
+var DATA=null, map=null, markers=[], selected=null, visible=[];
+var $=function(id){return document.getElementById(id);};
+var esc=function(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});};
+var fmt=function(v,n){return v==null?"—":Number(v).toFixed(n==null?2:n);};
+function targetData(){return DATA.targets[$("target").value];}
+function regionSelect(){
+ var values=Object.keys(DATA.inputs.earth_window_count_by_region||{});
+ $("site").innerHTML='<option value="all">All ten regions</option>'+values.map(function(id){var sample=(targetData().candidate_windows||[]).find(function(w){return w.site_id===id;});return '<option value="'+esc(id)+'">'+esc(sample?sample.name:id)+'</option>';}).join("");
+}
+function buildMap(){
+ if(!window.L||map)return;
+ map=L.map("map",{scrollWheelZoom:true}).setView([25,15],2);
+ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+}
+function showDetails(w){
+ selected=w;
+ var t=targetData();
+ var score=(w.score==null?null:Number(w.score));
+ var bars=[
+  ["Median slope",w.components.median_slope_deg],
+  ["P90 slope",w.components.p90_slope_deg],
+  ["P90 local relief",w.components.p90_local_relief_m]
+ ];
+ $("refName").textContent=t.target.name;
+ $("details").innerHTML=
+  '<h2>'+esc(w.name)+'</h2><div class="sub">'+esc(w.country)+' · '+esc(w.id)+'</div>'+
+  '<div class="score">'+fmt(score,2)+' <small>/ 100 · terrain index</small></div>'+
+  '<div class="sub">Network rank #'+esc(w.network_rank)+' · within this sampled Earth-region network</div>'+
+  '<div class="metrics">'+
+   '<div class="metric"><b>'+fmt(w.terrain.median_slope_deg,2)+'°</b><span>Median slope</span></div>'+
+   '<div class="metric"><b>'+fmt(w.terrain.p90_slope_deg,2)+'°</b><span>P90 slope</span></div>'+
+   '<div class="metric"><b>'+fmt(w.terrain.p90_local_relief_m,1)+' m</b><span>P90 3×3 relief</span></div>'+
+  '</div>'+
+  '<div class="detailgrid">'+
+   '<div class="mini"><b>Top-decile stability</b><span>'+fmt(w.top_decile_stability_pct,1)+'% of 500 weight draws</span></div>'+
+   '<div class="mini"><b>Window support</b><span>~'+fmt(w.window_footprint_km,2)+' km · ~925 m grid</span></div>'+
+   '<div class="mini"><b>Valid elevation cells</b><span>'+fmt(w.valid_cell_percent,1)+'% of 36</span></div>'+
+   '<div class="mini"><b>Approx. centre</b><span>'+fmt(w.latitude,3)+', '+fmt(w.longitude,3)+'</span></div>'+
+  '</div>'+
+  '<div class="bars">'+bars.map(function(b){return '<div class="barrow"><span>'+esc(b[0])+'</span><div class="bar"><i style="width:'+Math.max(0,Math.min(100,Number(b[1]||0)))+'%"></i></div><b>'+fmt(b[1],1)+'</b></div>';}).join("")+'</div>'+
+  '<p class="sub" style="margin-top:12px">Feature closeness values are separately normalized terrain indicators. They do not establish rock-type or geological equivalence.</p>'+
+  '<div class="limits"><b>Why it surfaced</b>Compared with '+esc(t.target.name)+', this sub-window has a terrain-only index of '+fmt(score,2)+'. This is a screening lead inside '+esc(w.name)+'; independent geology, higher-resolution terrain and field validation are still required.</div>'+
+  '<p class="sub" style="margin-top:10px">Site context: '+esc((w.environment_tags||[]).join(" · ")||"not tagged")+'</p>'+
+  '<p class="sub">Sources: '+(w.source_references||[]).map(function(x){return '<a href="'+esc(x.url)+'" target="_blank" rel="noreferrer">'+esc(x.title)+'</a>';}).join(" · ")+'</p>';
+ $("rows").querySelectorAll("tr").forEach(function(row){row.classList.toggle("selected",row.dataset.id===w.id);});
+}
+function render(){
+ var t=targetData(), chosen=$("site").value;
+ visible=(t.candidate_windows||[]).filter(function(w){return chosen==="all"||w.site_id===chosen;});
+ $("resultCount").textContent=visible.length+" shortlisted windows · "+t.scan.earth_windows_scanned.toLocaleString()+" scanned";
+ $("rows").innerHTML=visible.map(function(w){return '<tr data-id="'+esc(w.id)+'"><td>#'+esc(w.network_rank)+'</td><td>'+esc(w.name)+'</td><td>'+fmt(w.score,2)+'</td><td>'+fmt(w.top_decile_stability_pct,1)+'%</td><td>'+fmt(w.terrain.median_slope_deg,2)+'°</td></tr>';}).join("")||'<tr><td colspan="5">No shortlist entries in this region for this target.</td></tr>';
+ $("rows").querySelectorAll("tr[data-id]").forEach(function(row){row.onclick=function(){var w=visible.find(function(x){return x.id===row.dataset.id;});if(w){showDetails(w);focus(w);}};});
+ if(map){markers.forEach(function(m){map.removeLayer(m);});markers=[];visible.forEach(function(w){if(w.latitude==null||w.longitude==null)return;var marker=L.circleMarker([w.latitude,w.longitude],{radius:7,color:"#0a2836",weight:2,fillColor:"#40c6dc",fillOpacity:.95}).addTo(map);marker.bindTooltip("#"+w.network_rank+" · "+w.name);marker.on("click",function(){showDetails(w);});markers.push(marker);});if(markers.length){var group=L.featureGroup(markers);map.fitBounds(group.getBounds().pad(.15),{maxZoom:6});}}
+ if(visible.length){showDetails(visible[0]);}else{$("details").innerHTML='<div class="sub">No shortlisted entries for this parent region and target.</div>';}
+}
+function focus(w){if(map&&w.latitude!=null)map.setView([w.latitude,w.longitude],7);}
+function exportRows(type){
+ var payload={project:"ANALOG-X",target:targetData().target,scan:targetData().scan,candidate_windows:visible,scientific_contract:DATA.scientific_contract};
+ var text=type==="json"?JSON.stringify(payload,null,2):[
+  ["network_rank","id","name","country","latitude_approx","longitude_approx","terrain_index","top_decile_stability_pct","median_slope_deg","p90_slope_deg","p90_local_relief_m","valid_cell_percent","window_footprint_km"].join(","),
+  ...visible.map(function(w){return [w.network_rank,w.id,w.name,w.country,w.latitude,w.longitude,w.score,w.top_decile_stability_pct,w.terrain.median_slope_deg,w.terrain.p90_slope_deg,w.terrain.p90_local_relief_m,w.valid_cell_percent,w.window_footprint_km].map(function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"';}).join(",");})
+ ].join("\n");
+ var blob=new Blob([text],{type:type==="json"?"application/json":"text/csv;charset=utf-8"});
+ var url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="analogx-regional-"+$("target").value+"-windows."+(type==="json"?"json":"csv");a.click();URL.revokeObjectURL(url);
+}
+function initCounts(){
+ var moon=DATA.targets.moon,mars=DATA.targets.mars;
+ $("earthWindows").textContent=Number(DATA.inputs.earth_window_count).toLocaleString();
+ $("regionCount").textContent=DATA.inputs.earth_region_count;
+ $("moonWindows").textContent=moon.target.valid_target_windows.toLocaleString();
+ $("marsWindows").textContent=mars.target.valid_target_windows.toLocaleString();
+ $("generated").textContent=DATA.generated_at_utc;
+}
+fetch("./data/analog_benchmark/regional_window_scan.json").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(function(d){
+ DATA=d;initCounts();regionSelect();buildMap();
+ $("target").addEventListener("change",function(){regionSelect();render();});
+ $("site").addEventListener("change",render);
+ $("exportCsv").addEventListener("click",function(){exportRows("csv");});
+ $("exportJson").addEventListener("click",function(){exportRows("json");});
+ render();
+}).catch(function(err){
+ $("resultCount").textContent="Scan dataset unavailable";
+ $("rows").innerHTML='<tr><td colspan="5">Unable to load the benchmark data. Reconnect and refresh.</td></tr>';
+ $("details").textContent="Data load error: "+err.message;
+});
+})();
+</script>
+</body></html>
