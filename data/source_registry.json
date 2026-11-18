@@ -194,17 +194,18 @@
       "provider": "NASA LP DAAC / Microsoft Planetary Computer",
       "state": "planned",
       "data_type": "Independent-source elevation comparison",
-      "resolution": "1 arc-second source; aggregated to ~925 m support",
-      "coverage": "NASADEM approx 56°S to 60°N; coverage-limited subset of selected sites",
+      "resolution": "1 arc-second (~30 m at equator); resampled to ~925 m for matched regional descriptors",
+      "coverage": "Near-global land coverage: 60°N to 56°S; selected study sites outside this extent are not cross-checked.",
       "artifacts": [
         "data/validation/nasadem_crosscheck.json"
       ],
-      "url": "https://data.nasa.gov/dataset/nasadem-srtm-image-mosaic-global-1-arc-second-v001",
-      "doi_or_identifier": "10.5067/MEASURES/NASADEM/NASADEM_SIM.001",
+      "url": "https://doi.org/10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+      "doi_or_identifier": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
       "limitations": [
-        "SRTM-derived source with auxiliary void filling; not a ground survey.",
-        "Different DSM/DEM semantics versus Copernicus; compare descriptors only.",
-        "High-latitude study sites may be outside coverage."
+        "NASADEM is primarily SRTM-derived with auxiliary ASTER GDEM and ICESat GLAS control/void-filling inputs; it is not a ground survey.",
+        "Coverage is 60°N to 56°S, so some high-latitude study areas are outside coverage.",
+        "NASADEM and Copernicus GLO-30 have different acquisition sensors, processing and DSM/DEM semantics; compare descriptors only.",
+        "This is independent raster-source checking, not in-situ field validation, geological validation or planetary analog validation."
       ]
     },
     {
