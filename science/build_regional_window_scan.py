@@ -338,6 +338,7 @@ def add_scores(
             "mission_targets": window["mission_targets"],
             "source_references": window["source_references"],
             "atfa_context": window.get("atfa_context", {}),
+            "parent_earth_30m_context": window.get("parent_earth_30m_context", {}),
         }
 
     moon_or_mars = "Shackleton Rim / lunar south pole" if target_id == "moon" else "Nili Patera / Mars"
@@ -437,6 +438,10 @@ def build() -> dict[str, Any]:
         }
         for window in windows:
             window["atfa_context"] = atfa_context
+            window["parent_earth_30m_context"] = data.get("native_30m_diagnostics", {
+                "status": "not_available",
+                "limitation": "No separate higher-detail Earth DSM diagnostic was available in the source terrain build."
+            })
         if windows:
             site_windows[site_id] = windows
             earth_windows.extend(windows)
