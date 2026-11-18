@@ -22,6 +22,12 @@ def main():
         lookup["io_lulc_global"]["state"]="processed" if state=="processed" else ("partially_processed" if landcover.get("processed_candidate_windows",0)>0 else "unavailable")
         lookup["io_lulc_global"]["coverage_pct_processed_candidates"]=landcover.get("coverage_percent_of_shortlist",0)
         lookup["io_lulc_global"]["candidate_windows_processed"]=landcover.get("processed_candidate_windows",0)
+    power=read("data/global_discovery/global_power_enrichment.json")
+    if power:
+        pstate=power.get("state","unavailable")
+        lookup["nasa_power_global"]["state"]="processed" if pstate=="processed" else ("partially_processed" if power.get("scope",{}).get("unique_coordinates_processed",0)>0 else "unavailable")
+        lookup["nasa_power_global"]["coverage_pct_processed_candidates"]=power.get("scope",{}).get("coverage_percent",0)
+        lookup["nasa_power_global"]["candidate_coordinates_processed"]=power.get("scope",{}).get("unique_coordinates_processed",0)
     cross=read("data/validation/nasadem_crosscheck.json")
     if cross:
         count=int(cross.get("sites_crosschecked",0))
