@@ -199,13 +199,17 @@ def main()->None:
     for target in ("moon","mars"):
         for row in data.get("targets",{}).get(target,{}).get("candidate_windows",[]):
             row["environmental_context"]=outputs.get(row["id"],{"state":"not_attempted"})
-    state="processed" if processed==len(rows) and rows else ("partially_processed" if processed else "unavailable")
+    fully_processed=sum(1 for result in outputs.values() if result.get("state")=="processed")
+    partially_processed=sum(1 for result in outputs.values() if result.get("state")=="partially_processed")
+    state="processed" if fully_processed==len(rows) and rows else ("partially_processed" if processed else "unavailable")
     summary={
         "schema_version":"1.0.0","project":"ANALOG-X Global Environment Enrichment",
         "generated_at_utc":utcnow(),"state":state,
         "source":{"provider":"Impact Observatory / Esri / Microsoft Planetary Computer","collection":COLLECTION,"dataset":"10m Annual Land Use Land Cover (9-class) V2","year":2023,"native_resolution_m":10,"license":"CC-BY-4.0","stac_url":STAC+"/collections/"+COLLECTION,"class_codes":CLASSES,"source_note":"Global Sentinel-2-derived annual land-cover classifications; provider reports assessed average accuracy above 75%."},
         "shortlist_candidate_windows_unique":len(rows),
         "processed_candidate_windows":processed,
+        "fully_processed_candidate_windows":fully_processed,
+        "partially_processed_candidate_windows":partially_processed,
         "unavailable_or_failed_candidate_windows":len(rows)-processed,
         "coverage_percent_of_shortlist":round(100*processed/max(len(rows),1),3),
         "method":"For each retained candidate window, query the 2023 global STAC collection, read intersecting classification COGs and reproject by modal class into a local 30 m grid covering the nominal 5.55 km window. Report class fractions among valid pixels and valid-pixel coverage.",
@@ -222,7 +226,7 @@ def main()->None:
     OUT_PATH.parent.mkdir(parents=True,exist_ok=True)
     OUT_PATH.write_text(json.dumps(summary,indent=2)+"\n",encoding="utf-8")
     GLOBAL_PATH.write_text(json.dumps(data,indent=2)+"\n",encoding="utf-8")
-    print(json.dumps({"state":state,"unique_candidates":len(rows),"processed":processed,"unavailable":len(rows)-processed,"coverage_pct":summary["coverage_percent_of_shortlist"],"output":str(OUT_PATH)},indent=2))
+    print(json.dumps({"state":state,"unique_candidates":len(rows),"processed":processed,"fully_processed":fully_processed,"partially_processed":partially_processed,"unavailable":len(rows)-processed,"coverage_pct":summary["coverage_percent_of_shortlist"],"output":str(OUT_PATH)},indent=2))
 
 
 if __name__=="__main__":main()
