@@ -81,7 +81,6 @@ assert(read("docs/DECISION_ENGINE.md").includes("Strict evidence policy"), "Deci
 
 // Global discovery, evidence-registry and reproducibility release contracts.
 
-assert(["planned", "partially_processed", "processed", "unavailable"].includes(registryStates.get("io_lulc_global")), "Global land-cover evidence state must be explicit");
 assert(read("scripts/enrich_global_landcover.py").includes("io-lulc-annual-v02"), "Global land-cover enrichment source missing");
 assert(read(".github/workflows/global-environment-enrichment.yml").includes("workflow_run"), "Global land-cover enrichment must be chained to the global scan release");
 assert(read("docs/COMPETITIVE_CAPABILITY_RESPONSE.md").includes("TwinWorlds"), "Competitor capability mapping missing");
@@ -112,6 +111,7 @@ assert.equal(registryStates.get("sentinel2_rgb"), "browse_only", "RGB Sentinel-2
 assert.equal(registryStates.get("nasa_cmr_modis_merra"), "metadata_only", "CMR entries must remain metadata-only until science arrays are processed");
 assert.equal(registryStates.get("suparco_space4climate"), "reference_only", "SUPARCO institutional links must remain reference-only");
 assert(["planned", "partially_processed", "processed"].includes(registryStates.get("copernicus_glo90_global")), "GLO-90 state must reflect actual global run progress");
+assert(["planned", "partially_processed", "processed", "unavailable"].includes(registryStates.get("io_lulc_global")), "Global land-cover evidence state must be explicit");
 assert(read("scripts/build_reproducibility_manifest.py").includes("sha256"), "SHA-256 manifest generator missing");
 assert(read("scripts/validate_evidence_inventory.py").includes("processed state needs artifact path"), "Evidence state integrity validator missing");
 assert(read("docs/COMPETITIVE_CAPABILITY_RESPONSE.md").includes("not independent-data validation"), "Competitive methods note must state independent validation limits");
