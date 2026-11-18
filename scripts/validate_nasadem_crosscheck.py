@@ -13,7 +13,7 @@ import numpy as np
 import requests
 import rasterio
 from rasterio.transform import from_origin
-from rasterio.warp import reproject, transform_bounds
+from rasterio.warp import reproject, transform_bounds, transform
 from rasterio.enums import Resampling
 from scipy.ndimage import maximum_filter, minimum_filter
 
@@ -87,7 +87,7 @@ def process_site(site,token,earth_baseline):
         return {"site_id":site["id"],"status":"outside_nasadem_coverage","coverage_note":"NASADEM SRTM-based global product covers approximately 56°S to 60°N; no cross-check attempted."}
     crs=crs_for(lat,lon)
     # A square 29.6 km study window matches the nominal 32 x 925 m terrain grid.
-    center_x,center_y=rasterio.warp.transform("EPSG:4326",crs,[lon],[lat])
+    center_x,center_y=transform("EPSG:4326",crs,[lon],[lat])
     left=center_x[0]-SIZE*TARGET_RES/2
     top=center_y[0]+SIZE*TARGET_RES/2
     dst_transform=from_origin(left,top,TARGET_RES,TARGET_RES)
