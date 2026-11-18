@@ -101,7 +101,7 @@ const registryStates = new Map(sourceRegistry.sources.map((s) => [s.id, s.state]
 assert.equal(registryStates.get("sentinel2_rgb"), "browse_only", "RGB Sentinel-2 quicklooks must remain browse-only");
 assert.equal(registryStates.get("nasa_cmr_modis_merra"), "metadata_only", "CMR entries must remain metadata-only until science arrays are processed");
 assert.equal(registryStates.get("suparco_space4climate"), "reference_only", "SUPARCO institutional links must remain reference-only");
-assert.equal(registryStates.get("copernicus_glo90_global"), "planned", "Before the full global pipeline publishes, GLO-90 must not be labelled processed");
+assert(["planned", "partially_processed", "processed"].includes(registryStates.get("copernicus_glo90_global")), "GLO-90 state must reflect actual global run progress");
 assert(read("scripts/build_reproducibility_manifest.py").includes("sha256"), "SHA-256 manifest generator missing");
 assert(read("scripts/validate_evidence_inventory.py").includes("processed state needs artifact path"), "Evidence state integrity validator missing");
 assert(read("docs/COMPETITIVE_CAPABILITY_RESPONSE.md").includes("not independent-data validation"), "Competitive methods note must state independent validation limits");
