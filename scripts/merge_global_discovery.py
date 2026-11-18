@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def select(rows, limit=1200, max_per_tile=3):
-    rows = sorted(rows, key=lambda x: (-x["consensus_index"], -x["metric_family_rank_concordance"], x["id"]))
+    rows = sorted(rows, key=lambda x: (-x["consensus_index"], -x["metric_family_score_agreement"], x["id"]))
     chosen, counts = [], {}
     for row in rows:
         tid = row["tile_id"]
