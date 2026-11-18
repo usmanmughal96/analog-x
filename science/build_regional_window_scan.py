@@ -11,7 +11,6 @@ from __future__ import annotations
 
 import json
 import math
-import random
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -189,6 +188,21 @@ def derive_windows(
     return candidates
 
 
+class XorShift32:
+    """Small deterministic RNG so local and CI builds generate identical draws."""
+
+    def __init__(self, seed: int):
+        self.state = seed & 0xFFFFFFFF or 0xA341316C
+
+    def random(self) -> float:
+        value = self.state
+        value ^= (value << 13) & 0xFFFFFFFF
+        value ^= value >> 17
+        value ^= (value << 5) & 0xFFFFFFFF
+        self.state = value & 0xFFFFFFFF
+        return self.state / 4294967296.0
+
+
 def iqr(values: list[float]) -> float:
     return percentile(values, 0.75) - percentile(values, 0.25)
 
@@ -250,10 +264,10 @@ def add_scores(
 
     # Sensitivity is calculated within each parent 30 km region. Overlapping
     # windows are dependent, so this is explicitly not a confidence interval.
-    rng = random.Random(RANDOM_SEED + (11 if target_id == "moon" else 19))
+    rng = XorShift32(RANDOM_SEED + (11 if target_id == "moon" else 19))
     stability = {window["id"]: 0 for window in earth_windows}
     for _ in range(SENSITIVITY_DRAWS):
-        weights = [rng.expovariate(1.0) for _ in FEATURES]
+        weights = [-math.log(max(rng.random(), 1e-12)) for _ in FEATURES]
         weight_sum = sum(weights)
         weights = [weight / weight_sum for weight in weights]
         for site_id, windows in site_windows.items():
