@@ -103,6 +103,21 @@ footer{padding:19px 0;color:#728f9f;font-size:9px}
  </div>
  <p style="margin-top:12px">Research references: <a href="https://pds-geosciences.wustl.edu/missions/lro/">NASA LRO / LOLA</a> · <a href="https://pds-geosciences.wustl.edu/missions/mgs/megdr.html">NASA MGS / MOLA</a> · <a href="https://spacedata.copernicus.eu/">Copernicus DEM</a> · <a href="https://github.com/usmanmughal96/analog-x/blob/main/science/build_regional_window_scan.py">Reproducible scan source</a>.</p>
 </section>
+
+<section class="method" id="validationReadiness">
+ <h3>Scientific Readiness · Five gap closure tracks</h3>
+ <p>This panel separates implemented evidence from work that requires new global data or real-world observations. A planned workflow is never displayed as a completed result.</p>
+ <div class="detailgrid">
+  <div class="mini"><b>01 · Global discovery</b><span>Regional scan implemented: 7,290 windows across ten curated Earth regions. Global coverage is still pending a documented worldwide DEM acquisition and processing run.</span></div>
+  <div class="mini"><b>02 · Quantitative validation</b><span>Terrain descriptors and 500-draw weight sensitivity implemented. Independent reference labels, spatially blocked validation and calibrated performance remain pending.</span></div>
+  <div class="mini"><b>03 · Pakistan field validation</b><span>Structured station protocol and field evidence template added. No new ground observations are claimed; permissions, fieldwork and independent review are required.</span></div>
+  <div class="mini"><b>04 · Data depth</b><span>Evidence states are defined: processed, browse-only, metadata-only, reference-only, planned and unavailable. Browse imagery and catalogue records are not treated as decoded science arrays.</span></div>
+  <div class="mini"><b>05 · Reproducibility</b><span>SHA-256 manifest generator added for repository science assets. Product-level acquisition, licence, parameters and external provenance still require source-specific completion.</span></div>
+ </div>
+ <p><a href="./docs/GLOBAL_DISCOVERY_AND_VALIDATION.md">Read the five-track implementation and release gates ↗</a> · <a href="./science/field_validation_protocol.json">Field station protocol JSON ↗</a> · <a href="./scripts/build_reproducibility_manifest.py">Reproducibility manifest builder ↗</a></p>
+ <div class="limits"><b>Scientific release rule</b>ANALOG-X will not label the current regional scan as global, desk evidence as field validation, sensitivity as statistical confidence, or metadata/browse products as processed scientific measurements.</div>
+</section>
+
 <footer>ANALOG-X · Independent research prototype · No NASA endorsement implied · Terrain screening only · Last generated: <span id="generated">—</span></footer>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
