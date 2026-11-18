@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "ANALOG-X Regional Terrain Window Discovery & Robustness Engine",
-  "generated_at_utc": "2026-11-18T12:30:01+00:00",
+  "generated_at_utc": "2026-11-18T12:31:06+00:00",
   "scientific_contract": {
     "unit_of_analysis": "5.55 km \u00d7 5.55 km regional terrain windows sampled inside ten pre-selected 30 km Earth study/reference areas",
     "not_global_search": true,
