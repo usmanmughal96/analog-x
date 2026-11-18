@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Global Discovery Engine | ANALOG-X</title>
+<meta name="description" content="Worldwide terrain-window screening using Copernicus DEM GLO-90 with Moon and Mars reference profiles, transparent metric families and evidence limits.">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{color-scheme:dark;--bg:#050b13;--panel:#0a1724;--panel2:#0e2231;--line:#1d3b50;--text:#eaf5f8;--muted:#91aaba;--cyan:#63d5ee;--mint:#7de0be;--gold:#e8c27c;--warn:#efb775;--red:#e8958e}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#16445b 0,#050b13 58%);color:var(--text);font:13px/1.5 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1580px;margin:auto;padding:22px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding:6px 0 16px}.brand{font-weight:950;letter-spacing:.16em}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.15em;margin-top:3px}
+.links{display:flex;flex-wrap:wrap;gap:8px}.btn,button,select{font:inherit;border:1px solid #2b536a;border-radius:8px;background:#0b2232;color:#d5e9f0;padding:9px 12px}.btn,button{cursor:pointer}.btn:hover,button:hover{border-color:var(--cyan)}
+.hero{max-width:1100px;padding:30px 0 16px}.eyebrow{font-size:10px;font-weight:900;letter-spacing:.18em;color:var(--mint);text-transform:uppercase}
+h1{font-size:clamp(32px,5vw,58px);line-height:1.02;letter-spacing:-.05em;margin:10px 0}.hero p{color:#b4cbd4;max-width:950px;font-size:15px}
+.notice{border:1px solid #685636;background:#211f1a;color:#e8d5ad;padding:13px 15px;border-radius:10px;font-size:11px;margin:15px 0}.notice b{color:var(--gold)}
+.statusline{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:13px 0}.status{display:inline-flex;align-items:center;border:1px solid #396174;background:#0b2737;padding:5px 9px;border-radius:30px;font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.status.complete{color:var(--mint);border-color:#2d6a58;background:#0c2b27}.status.partial{color:var(--warn);border-color:#735b34;background:#282116}.status.pending{color:#b3c6d2}
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin:18px 0}.kpi{padding:13px;border:1px solid var(--line);border-radius:11px;background:linear-gradient(145deg,#0c2232,#071522)}.kpi b{display:block;font-size:25px;letter-spacing:-.04em}.kpi span{font-size:9px;color:var(--muted)}
+.toolbar{display:flex;align-items:end;flex-wrap:wrap;gap:10px;margin:17px 0}.field{display:grid;gap:5px}.field label{font-size:9px;color:#93b1c0;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.field select{min-width:210px}.spacer{flex:1}
+.layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(330px,.8fr);gap:12px;align-items:start}.panel{border:1px solid var(--line);border-radius:12px;background:linear-gradient(145deg,#0a1b29,#07131f);overflow:hidden;min-width:0}.panelhead{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}.panelhead b{font-size:12px}.panelhead small{font-size:9px;color:var(--muted)}
+#map{height:540px;background:#071522}.mapfoot{padding:9px 12px;color:var(--muted);font-size:9px}.tablewrap{max-height:450px;overflow:auto}table{width:100%;border-collapse:collapse;font-size:10px}th{position:sticky;top:0;background:#0b2232;color:#8fb5c5;text-align:left;font-size:8px;letter-spacing:.08em;text-transform:uppercase;z-index:1}td,th{padding:9px 8px;border-bottom:1px solid #1a3446;white-space:nowrap}tbody tr{cursor:pointer}tbody tr:hover,tbody tr.selected{background:#102b3c}td:first-child{color:var(--gold);font-weight:900}
+.details{padding:15px}.details h2{font-size:20px;margin:0 0 3px}.sub{color:var(--muted);font-size:10px}.score{font-size:35px;font-weight:950;letter-spacing:-.05em;color:var(--mint);margin:14px 0 0}.score small{font-size:10px;color:var(--muted);letter-spacing:0;font-weight:600}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:12px 0}.metric{padding:9px;background:#0b2030;border:1px solid #203f53;border-radius:8px}.metric b{display:block;font-size:15px}.metric span{font-size:8px;color:var(--muted)}
+.card{padding:12px;margin:10px 0;background:#0a2030;border:1px solid #234457;border-radius:9px}.card b{display:block;font-size:9px;color:#97bdca;letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}.card p{font-size:10px;color:#afc4ce;margin:4px 0}
+.method{margin-top:13px;padding:15px;border:1px solid var(--line);border-radius:12px;background:#081825}.method h3{margin:0 0 8px;font-size:13px}.method p,.method li{font-size:10px;color:#a8bdc8}.method code{color:#b6eff6}
+.empty{padding:20px;border:1px dashed #416174;border-radius:10px;color:#a9bfca;background:#0a1a27;margin:10px 0;font-size:11px}
+footer{padding:20px 0;color:#728f9f;font-size:9px}
+@media(max-width:1000px){.layout{grid-template-columns:1fr}#map{height:390px}.kpis{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.wrap{padding:13px}.kpis{grid-template-columns:repeat(2,1fr);gap:7px}.kpi b{font-size:21px}.field,.field select{width:100%}.toolbar .spacer{display:none}#map{height:320px}.tablewrap{max-height:370px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+ <div class="brand">ANALOG-X <small>GLOBAL DISCOVERY & PLANETARY ANALOG INTELLIGENCE</small></div>
+ <div class="links"><a class="btn" href="./index.html">← Evidence Operations</a><a class="btn" href="./discovery.html">Regional Scan ↗</a><a class="btn" href="./transferability.html">ATFA ↗</a></div>
+</header>
+<section class="hero">
+ <div class="eyebrow">Worldwide terrain screening · Copernicus DEM GLO-90</div>
+ <h1>From regional leads<br><span style="color:var(--cyan)">to a global terrain search.</span></h1>
+ <p>ANALOG-X screens public Copernicus GLO-90 land tiles in a consistent local metric grid, evaluates 5.55 km terrain windows, and compares them with selected Shackleton Rim and Nili Patera reference profiles. A candidate is a place that deserves evidence review — not a claim of planetary equivalence.</p>
+ <div class="statusline"><span id="scanStatus" class="status pending">Awaiting first global run</span><span id="scanTimestamp" class="sub">No committed global scan dataset found yet.</span></div>
+ <div class="notice"><b>Release integrity:</b> worldwide coverage is only reported complete when all 24 scan shards account for the complete public GLO-90 land-tile inventory. Until that run succeeds, this page remains explicitly pending or partial. The worldwide GLO-90 scan is nominally 90 m; the existing selected-region GLO-30 analysis stays a separate, finer-resolution layer.</div>
+ <div class="kpis">
+  <div class="kpi"><b id="tileTotal">—</b><span>GLO-90 land tiles in inventory</span></div>
+  <div class="kpi"><b id="tileProcessed">—</b><span>Tiles processed</span></div>
+  <div class="kpi"><b id="coverage">—</b><span>Tile-processing coverage</span></div>
+  <div class="kpi"><b id="windows">—</b><span>Terrain windows evaluated</span></div>
+  <div class="kpi"><b id="shortlist">—</b><span>Global shortlist / target</span></div>
+ </div>
+</section>
+<div class="toolbar">
+ <div class="field"><label for="target">Planetary reference</label><select id="target"><option value="moon">Moon · Shackleton Rim</option><option value="mars">Mars · Nili Patera</option></select></div>
+ <div class="spacer"></div>
+ <button id="exportCsv" type="button">↓ Export shortlist CSV</button><button id="exportJson" type="button">↓ Export shortlist JSON</button>
+</div>
+<div class="layout">
+ <section class="panel">
+  <div class="panelhead"><b>Global candidate map</b><small id="candidateCount">Waiting for global processing</small></div>
+  <div id="map" role="img" aria-label="Global map of terrain-screening candidate windows"></div>
+  <div class="mapfoot">OpenStreetMap © contributors · Candidate pins represent approximate centres of 5.55 km windows derived in a local projected grid.</div>
+  <div class="panelhead"><b>Ranked global shortlist</b><small>rank within the retained global shortlist</small></div>
+  <div class="tablewrap"><table><thead><tr><th>Rank</th><th>Tile / location</th><th>Consensus</th><th>Core</th><th>Secondary</th></tr></thead><tbody id="rows"><tr><td colspan="5">The full global scan has not run yet.</td></tr></tbody></table></div>
+ </section>
+ <aside class="panel">
+  <div class="panelhead"><b>Candidate evidence card</b><small id="refName">Selected planetary reference</small></div>
+  <div class="details" id="details"><div class="sub">Run the Global Discovery workflow to populate candidates.</div></div>
+ </aside>
+</div>
+<section class="method">
+ <h3>Method, quantitative checks and evidence limitations</h3>
+ <p><b>Global search:</b> the engine enumerates the provider's public one-degree GLO-90 land-tile inventory, partitions it into 24 longitude shards, reads each COG and resamples to a nominal 925 m local metric grid. It then evaluates non-overlapping 6×6-cell windows. The merge report provides assigned, processed, failed and no-window tile counts; incomplete or failed shards prevent a complete-scan status.</p>
+ <p><b>Two terrain metric families:</b> the core index uses median slope, P90 slope and P90 local relief. The secondary diagnostics use P95 slope, elevation IQR and detrended roughness. Both compare window descriptors with Moon/Mars reference-window medians using IQR scales from the ten-site Earth reference pack. Their agreement is a robustness check within the same DEM, not independent-source validation or calibrated accuracy.</p>
+ <p><b>Independent DEM check:</b> a separate NASADEM/SRTM-derived cross-check is attempted for selected sites within its approximate 56°S–60°N coverage. Copernicus DSM and NASADEM elevation products differ in acquisition and surface semantics. Reported descriptor differences/rank correlations are diagnostic only and are not ground truth.</p>
+ <p><b>Field validation:</b> no physical field observations are created by this engine. Pakistan sites remain desk-evidence leads until georeferenced photographs, calibrated instrument readings, sample provenance, permissions and independent review are recorded in the field evidence ledger.</p>
+ <div class="notice"><b>Do not over-interpret:</b> Copernicus GLO-90 is a digital surface model. Terrain descriptors do not measure lithology, mineralogy, soil strength, regolith, dust, ice, resources, radiation, illumination, gravity, rover traversability, landing safety or base suitability. The global shortlist has a bounded number of results per target and is not an exhaustive export of every candidate window.</div>
+ <p>Scientific references: <a href="https://registry.opendata.aws/copernicus-dem/">Copernicus DEM on AWS</a> · <a href="https://copernicus-dem-90m.s3.amazonaws.com/readme.html">GLO-90 tiling and COG documentation</a> · <a href="https://data.nasa.gov/dataset/nasadem-srtm-image-mosaic-global-1-arc-second-v001">NASADEM dataset</a> · <a href="./docs/GLOBAL_DISCOVERY_AND_VALIDATION.md">Global and validation methods</a> · <a href="./data/source_registry.json">Data-source evidence register</a> · <a href="./data/field_validation/observations.json">Field observation ledger</a> · <a href="./data/provenance/reproducibility_manifest.json">Reproducibility manifest</a>.</p>
+</section>
+<footer>ANALOG-X · Independent research prototype · No NASA endorsement implied · Global terrain screening only · <a href="https://github.com/usmanmughal96/analog-x/actions/workflows/global-discovery.yml">Run / inspect global scan workflow ↗</a></footer>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function(){
+"use strict";
+var DATA=null,map=null,markers=[],visible=[],selected=null;
+var $=function(id){return document.getElementById(id);};
+var fmt=function(v,n){return v==null?"—":Number(v).toFixed(n==null?2:n);};
+var esc=function(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});};
+function initMap(){
+ if(!window.L||map)return;
+ map=L.map("map",{scrollWheelZoom:true}).setView([20,0],2);
+ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+}
+function target(){return DATA&&DATA.targets[$("target").value];}
+function showDetails(w){
+ selected=w;
+ var t=target();
+ $("refName").textContent=t.reference.name;
+ $("details").innerHTML=
+ '<h2>'+esc(w.tile_id)+'</h2><div class="sub">Approx. '+fmt(w.latitude,4)+'°, '+fmt(w.longitude,4)+'° · '+esc(w.crs)+'</div>'+
+ '<div class="score">'+fmt(w.consensus_index,2)+' <small>/ 100 · consensus terrain index</small></div>'+
+ '<div class="sub">Shortlist rank #'+esc(w.shortlist_rank)+' · not a probability or validated analog score</div>'+
+ '<div class="metrics"><div class="metric"><b>'+fmt(w.terrain.median_slope_deg,2)+'°</b><span>Median slope</span></div><div class="metric"><b>'+fmt(w.terrain.p90_slope_deg,2)+'°</b><span>P90 slope</span></div><div class="metric"><b>'+fmt(w.terrain.p90_local_relief_m,1)+' m</b><span>P90 local relief</span></div></div>'+
+ '<div class="metrics"><div class="metric"><b>'+fmt(w.core_terrain_index,2)+'</b><span>Core index</span></div><div class="metric"><b>'+fmt(w.secondary_diagnostic_index,2)+'</b><span>Secondary index</span></div><div class="metric"><b>'+fmt(w.metric_family_rank_concordance,1)+'%</b><span>Index agreement</span></div></div>'+
+ '<div class="card"><b>Additional terrain diagnostics</b><p>P95 slope: '+fmt(w.terrain.p95_slope_deg,2)+'°</p><p>Elevation IQR: '+fmt(w.terrain.elevation_iqr_m,1)+' m</p><p>Detrended roughness RMS: '+fmt(w.terrain.detrended_roughness_rms_m,1)+' m</p><p>Slope under 5°: '+fmt(w.terrain.slope_under_5_deg_pct,1)+'% · over 20°: '+fmt(w.terrain.slope_over_20_deg_pct,1)+'%</p></div>'+
+ '<div class="card"><b>Evidence source</b><p>'+esc(w.source.provider)+' · '+esc(w.source.collection)+'</p><p>Native product resolution: '+esc(w.source.resolution_native_m_approx)+' m · sampled support: '+esc(w.analysis_support_m)+' m</p><p><a href="'+esc(w.source.asset_url)+'" target="_blank" rel="noreferrer">Open source DEM tile ↗</a></p></div>'+
+ '<div class="notice"><b>Why it surfaced:</b> this local window has a numerical terrain profile closer to the '+esc(t.reference.name)+' reference profile under the stated feature scales. Independent geology, surface-material evidence and field observations are still required.</div>'+
+ '<p class="sub">'+esc(w.interpretation)+'</p>';
+ $("rows").querySelectorAll("tr").forEach(function(row){row.classList.toggle("selected",row.dataset.id===w.id);});
+}
+function render(){
+ if(!DATA)return;
+ var t=target();visible=t.candidate_windows||[];
+ $("candidateCount").textContent=visible.length.toLocaleString()+" retained candidate windows";
+ $("shortlist").textContent=visible.length.toLocaleString();
+ $("rows").innerHTML=visible.slice(0,250).map(function(w){return '<tr data-id="'+esc(w.id)+'"><td>#'+esc(w.shortlist_rank)+'</td><td>'+esc(w.tile_id)+'<br><span class="sub">'+fmt(w.latitude,2)+', '+fmt(w.longitude,2)+'</span></td><td>'+fmt(w.consensus_index,2)+'</td><td>'+fmt(w.core_terrain_index,2)+'</td><td>'+fmt(w.secondary_diagnostic_index,2)+'</td></tr>';}).join("")||'<tr><td colspan="5">No candidate windows passed the validity threshold.</td></tr>';
+ $("rows").querySelectorAll("tr[data-id]").forEach(function(row){row.onclick=function(){var w=visible.find(function(x){return x.id===row.dataset.id;});if(w){showDetails(w);if(map)map.setView([w.latitude,w.longitude],7);}};});
+ if(map){markers.forEach(function(m){map.removeLayer(m);});markers=[];visible.forEach(function(w){if(w.latitude==null||w.longitude==null)return;var m=L.circleMarker([w.latitude,w.longitude],{radius:5,color:"#062536",weight:1,fillColor:"#5cd8ed",fillOpacity:.85}).addTo(map);m.bindTooltip("#"+w.shortlist_rank+" · "+w.tile_id);m.on("click",function(){showDetails(w);});markers.push(m);});if(markers.length){map.fitBounds(L.featureGroup(markers).getBounds().pad(.08),{maxZoom:4});}}
+ if(visible.length)showDetails(visible[0]);else $("details").innerHTML='<div class="sub">No candidate windows retained for this planetary target.</div>';
+}
+function download(type){
+ if(!DATA)return;
+ var rows=visible;
+ var value=type==="json"?JSON.stringify({project:DATA.project,status:DATA.status,completion_contract:DATA.completion_contract,target:$("target").value,reference:target().reference,candidate_windows:rows,method:DATA.method,limits:DATA.limits},null,2):
+ ["rank,id,tile_id,latitude,longitude,consensus_index,core_index,secondary_index,median_slope_deg,p90_slope_deg,p90_local_relief_m,p95_slope_deg,elevation_iqr_m,detrended_roughness_rms_m"].concat(rows.map(function(w){return [w.shortlist_rank,w.id,w.tile_id,w.latitude,w.longitude,w.consensus_index,w.core_terrain_index,w.secondary_diagnostic_index,w.terrain.median_slope_deg,w.terrain.p90_slope_deg,w.terrain.p90_local_relief_m,w.terrain.p95_slope_deg,w.terrain.elevation_iqr_m,w.terrain.detrended_roughness_rms_m].map(function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"';}).join(",");})).join("\n");
+ var blob=new Blob([value],{type:type==="json"?"application/json":"text/csv;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="analogx-global-"+$("target").value+"-shortlist."+(type==="json"?"json":"csv");a.click();URL.revokeObjectURL(url);
+}
+function showStatusUnavailable(){
+ $("scanStatus").className="status pending";$("scanStatus").textContent="Awaiting first global run";
+ $("rows").innerHTML='<tr><td colspan="5">The global GLO-90 workflow has not yet published a merged scan.</td></tr>';
+ $("details").innerHTML='<div class="empty"><b>Global dataset not published yet.</b><p>Run the 24-shard Global Discovery workflow from GitHub Actions. This panel will populate automatically after all shards are merged and the resulting dataset is committed.</p><a href="https://github.com/usmanmughal96/analog-x/actions/workflows/global-discovery.yml">Open global workflow ↗</a></div>';
+}
+fetch("./data/global_discovery/global_discovery.json").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(function(d){
+ DATA=d;initMap();
+ var c=d.completion_contract||{};
+ $("scanStatus").className="status "+(d.status==="complete"?"complete":"partial");
+ $("scanStatus").textContent=d.status==="complete"?"Global tile inventory processed":"Partial global inventory";
+ $("scanTimestamp").textContent="Generated "+(d.generated_at_utc||"—");
+ $("tileTotal").textContent=Number(c.global_land_tile_inventory_total||0).toLocaleString();
+ $("tileProcessed").textContent=Number(c.tiles_processed||0).toLocaleString();
+ $("coverage").textContent=fmt(c.tile_processing_coverage_pct,1)+"%";
+ $("windows").textContent=Number(c.candidate_windows_evaluated||0).toLocaleString();
+ $("target").addEventListener("change",render);
+ $("exportCsv").addEventListener("click",function(){download("csv");});
+ $("exportJson").addEventListener("click",function(){download("json");});
+ render();
+}).catch(function(){showStatusUnavailable();});
+})();
+</script>
+</body></html>
