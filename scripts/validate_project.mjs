@@ -80,6 +80,12 @@ assert(read("docs/DECISION_ENGINE.md").includes("Strict evidence policy"), "Deci
 
 
 // Global discovery, evidence-registry and reproducibility release contracts.
+
+assert(["planned", "partially_processed", "processed", "unavailable"].includes(registryStates.get("io_lulc_global")), "Global land-cover evidence state must be explicit");
+assert(read("scripts/enrich_global_landcover.py").includes("io-lulc-annual-v02"), "Global land-cover enrichment source missing");
+assert(read(".github/workflows/global-environment-enrichment.yml").includes("workflow_run"), "Global land-cover enrichment must be chained to the global scan release");
+assert(read("docs/COMPETITIVE_CAPABILITY_RESPONSE.md").includes("TwinWorlds"), "Competitor capability mapping missing");
+
 assert(html.includes('href="./field-validation.html"'), "Main portal is missing Field Validation Kit CTA");
 assert(read("field-validation.html").includes("actual observations collected"), "Field capture must explicitly distinguish field observations from desk research");
 assert(read("service-worker.js").includes('"./field-validation.html"'), "Offline application cache must include Field Validation Kit");
