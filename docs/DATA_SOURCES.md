@@ -122,6 +122,12 @@ Microsoft Planetary Computer public STAC is anonymous. Some Azure COG assets use
 
 Google Earth Engine is optional for a later phase. It requires a Google Cloud project, Earth Engine API enablement and project registration; the existing Planetary Computer pipeline already supplies the open STAC/COG path used by this release.
 
+## Higher-detail Earth DEM diagnostics
+
+The matched-support terrain pipeline now calculates a separate nominal ~30 m Copernicus DEM GLO-30 DSM summary over each 30 × 30 km Earth parent area before the existing ~925 m cross-planet aggregation. It reports parent-area slope and 3 × 3 local-relief distributions when at least 90% of the fine grid is valid. These diagnostics are stored per Earth site as `native_30m_diagnostics` in `data/terrain/terrain_comparison.json`.
+
+This is an Earth-only roughness/context layer. It is not matched to lunar/Martian input resolution, not specific to each 5.55 km candidate sub-window, and not adequate for rover-scale obstacle detection, bearing strength or trafficability. The ~925 m layer remains the only matched-support terrain input to the cross-planet regional-window index.
+
 ## Source caveats
 
 NASA POWER is not a weather station. T2M is not rock/surface temperature. WS10M is not dust emission. PRECTOTCORR is not water/ice availability. Sentinel-2 RGB does not establish mineralogy. Copernicus DEM is a DSM rather than a bare-earth DEM. MOLA terrain statistics rely on 50.53% observed coverage in the selected Nili Patera window. A public portal is not proof that data may be bulk downloaded or redistributed.
