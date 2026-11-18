@@ -73,14 +73,14 @@ jobs:
                       self.current=[]
               def handle_endtag(self, tag):
                   if tag == "script" and self.capture:
-                      self.blocks.append("\\n".join(self.current))
+                      self.blocks.append("\n".join(self.current))
                       self.capture=False
               def handle_data(self, data):
                   if self.capture:
                       self.current.append(data)
           parser=Scripts()
           parser.feed(Path("discovery.html").read_text())
-          Path("/tmp/discovery-inline.js").write_text("\\n".join(parser.blocks))
+          Path("/tmp/discovery-inline.js").write_text("\n".join(parser.blocks))
           assert parser.blocks, "No inline discovery script found"
           PY
           node --check /tmp/discovery-inline.js
