@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Field Validation Kit | ANALOG-X</title>
+<meta name="description" content="Offline-first field station capture for georeferenced, instrumented Pakistan planetary analog research candidates.">
+<style>
+:root{color-scheme:dark;--bg:#06101a;--panel:#0b1c2a;--line:#25465b;--text:#e8f4f8;--muted:#99afbd;--cyan:#5cd7ed;--mint:#78ddb9;--gold:#e8c37c;--red:#f09b90}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 60% -20%,#16455a,#06101a 58%);color:var(--text);font:13px/1.5 Inter,system-ui,sans-serif}
+.wrap{max-width:1160px;margin:auto;padding:22px}header{display:flex;justify-content:space-between;gap:12px;align-items:center;border-bottom:1px solid var(--line);padding:8px 0 16px}.brand{font-weight:950;letter-spacing:.15em}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.13em}.links{display:flex;flex-wrap:wrap;gap:8px}a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}
+.btn,button,select,input,textarea{font:inherit;border:1px solid #31566c;background:#0a2232;color:var(--text);padding:10px 11px;border-radius:8px}.btn,button{cursor:pointer;text-decoration:none}.btn:hover,button:hover{border-color:var(--cyan)}h1{font-size:clamp(30px,4vw,48px);line-height:1.04;letter-spacing:-.04em;margin:20px 0 8px}.intro{color:#b6cbd5;max-width:900px}
+.notice{padding:13px 15px;background:#282318;border:1px solid #665536;color:#e6d3ac;border-radius:10px;margin:15px 0;font-size:11px}.notice b{color:var(--gold)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.panel{background:linear-gradient(145deg,#0c2030,#081722);border:1px solid var(--line);border-radius:12px;padding:15px;min-width:0}.panel h2{font-size:14px;margin:0 0 12px}.field{display:grid;gap:5px;margin-bottom:11px}.field label{font-size:9px;color:#9fbac8;text-transform:uppercase;letter-spacing:.09em;font-weight:850}.field input,.field select,.field textarea{width:100%;min-width:0}.field textarea{min-height:70px;resize:vertical}.wide{grid-column:1/-1}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.hint{font-size:9px;color:var(--muted);margin-top:4px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.primary{background:#0e4b5c;border-color:#2a96ac}.warning{border-color:#876b3b;background:#312817}.danger{border-color:#7c4c4b;background:#321d21}
+.check{display:flex;align-items:flex-start;gap:8px;color:#bdced5;font-size:10px;margin:9px 0}.check input{margin:1px 0 0}
+.status{display:inline-flex;border:1px solid #3f6b7c;color:#b9e8f2;background:#0c2938;padding:4px 9px;border-radius:30px;font-size:9px;font-weight:850;letter-spacing:.06em;text-transform:uppercase}.status.good{color:var(--mint);border-color:#31715a;background:#102c25}.status.warn{color:var(--gold);border-color:#715b34;background:#2a2418}
+.station-list{display:grid;gap:8px}.station{border:1px solid #2a4b5e;border-radius:9px;padding:10px;background:#0a1b28}.station b{display:block;font-size:11px}.station small{color:var(--muted);font-size:9px}.station button{padding:5px 8px;font-size:9px;margin-top:7px}
+footer{padding:20px 0;color:#7893a2;font-size:9px}
+@media(max-width:780px){.grid{grid-template-columns:1fr}.wide{grid-column:auto}}@media(max-width:540px){.wrap{padding:13px}.row{grid-template-columns:1fr}.links .btn{font-size:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div class="brand">ANALOG-X <small>FIELD VALIDATION / OBSERVATION KIT</small></div><div class="links"><a class="btn" href="./index.html">← Evidence Operations</a><a class="btn" href="./global-discovery.html">Global Discovery ↗</a><a class="btn" href="./discovery.html">Regional Scan ↗</a></div></header>
+<h1>Turn candidate leads into <span style="color:var(--cyan)">traceable field evidence.</span></h1>
+<p class="intro">An offline-first field capture kit for Pakistan candidate areas. Record station coordinates, observed geology/geomorphology, calibrated measurements, photos, sample provenance, access and safety notes, and independent review. Drafts remain in this browser until you export them.</p>
+<div class="notice"><b>Evidence integrity:</b> only enter observations actually collected in the field. This tool does not create field validation by itself. Check access permissions, protected-area restrictions, weather, local security and safety before fieldwork. Never collect or transport samples without applicable permission.</div>
+<div class="statusline"><span class="status" id="storageStatus">Local draft store ready</span> <span class="hint" id="ledgerCount">0 field stations in this browser</span></div>
+<div class="grid">
+<section class="panel">
+<h2>01 · Station and location</h2>
+<div class="field"><label for="candidate">Candidate / reference area</label><select id="candidate"><option value="chagai_small_playas">Chagai small salt playas near Nok Kundi</option><option value="hamun_i_mashkel">Hamun-i-Mashkel / Kharan Basin</option><option value="koh_i_sultan">Koh-i-Sultan / Chagai</option><option value="hispar_glacier">Hispar Glacier / Karakoram</option></select></div>
+<div class="row"><div class="field"><label for="station">Station ID *</label><input id="station" placeholder="e.g. CHG-2026-001" required></div><div class="field"><label for="date">Observation date (UTC) *</label><input id="date" type="date" required></div></div>
+<div class="field"><label for="observers">Observer IDs / names *</label><input id="observers" placeholder="Separate multiple observers with commas" required></div>
+<div class="row"><div class="field"><label for="lat">Latitude WGS84 *</label><input id="lat" type="number" step="any" min="-90" max="90" required></div><div class="field"><label for="lon">Longitude WGS84 *</label><input id="lon" type="number" step="any" min="-180" max="180" required></div></div>
+<div class="row"><div class="field"><label for="accuracy">Coordinate accuracy (m) *</label><input id="accuracy" type="number" min="0" step="any" required></div><div class="field"><label for="coordMethod">Coordinate method *</label><select id="coordMethod"><option>GNSS receiver</option><option>Survey-grade GNSS</option><option>Phone GPS</option><option>Total station / survey</option><option>Other (describe in uncertainty notes)</option></select></div></div>
+<div class="row"><div class="field"><label for="elevation">Elevation (m)</label><input id="elevation" type="number" step="any"></div><div class="field"><label for="elevationSource">Elevation source</label><input id="elevationSource" placeholder="Instrument / DEM / source"></div></div>
+<div class="field"><label for="photos">Photo IDs / filenames and bearings *</label><textarea id="photos" placeholder="IMG_001.jpg (bearing 045°); IMG_002.jpg (bearing 180°)" required></textarea><div class="hint">The export records file references, not photo binaries. Keep original geotagged photographs with the exported station record.</div></div>
+</section>
+<section class="panel">
+<h2>02 · Site observations</h2>
+<div class="field"><label for="surface">Surface description *</label><textarea id="surface" placeholder="Observed surface condition, crust, debris, moisture, vegetation, etc." required></textarea></div>
+<div class="field"><label for="geomorph">Geomorphology</label><textarea id="geomorph" placeholder="Landform, sedimentary structures, drainage, slope position, erosional/depositional features"></textarea></div>
+<div class="field"><label for="geology">Observed geology / lithology</label><textarea id="geology" placeholder="Describe only what is directly observed; separate interpretation from observation"></textarea></div>
+<div class="field"><label for="soil">Rock / soil description</label><textarea id="soil" placeholder="Grain size, sorting, clasts, colour, texture, crust, exposure and method"></textarea></div>
+<div class="row"><div class="field"><label for="surfaceTemp">Surface temperature (°C)</label><input id="surfaceTemp" type="number" step="any"></div><div class="field"><label for="airTemp">Air temperature (°C)</label><input id="airTemp" type="number" step="any"></div></div>
+<div class="row"><div class="field"><label for="humidity">Relative humidity (%)</label><input id="humidity" type="number" min="0" max="100" step="any"></div><div class="field"><label for="wind">Wind speed (m/s)</label><input id="wind" type="number" min="0" step="any"></div></div>
+<div class="row"><div class="field"><label for="pressure">Pressure (kPa)</label><input id="pressure" type="number" min="0" step="any"></div><div class="field"><label for="weather">Weather conditions</label><input id="weather" placeholder="Cloud, precipitation, wind, visibility"></div></div>
+<div class="field"><label for="samples">Sample IDs and chain of custody</label><textarea id="samples" placeholder="Sample ID, collection method, seal, transfer and storage log"></textarea></div>
+</section>
+<section class="panel">
+<h2>03 · Instrument and measurement provenance</h2>
+<div class="field"><label for="instruments">Instrument IDs / make / model / serial *</label><textarea id="instruments" placeholder="Thermometer: model/serial; GNSS: model/serial; anemometer: model/serial" required></textarea></div>
+<div class="row"><div class="field"><label for="calibration">Calibration status *</label><select id="calibration"><option value="">Select</option><option>Calibrated / certificate available</option><option>Field-check completed; details recorded</option><option>Not calibrated</option><option>Not applicable</option></select></div><div class="field"><label for="calibrationDate">Calibration date</label><input id="calibrationDate" type="date"></div></div>
+<div class="field"><label for="methods">Measurement methods and units</label><textarea id="methods" placeholder="How each reading was taken, instrument placement, duration, units, detection limits"></textarea></div>
+<div class="field"><label for="uncertainty">Uncertainty / detection limits / non-observations *</label><textarea id="uncertainty" placeholder="Known error, instrument precision, unavailable measurements, inaccessible areas, observer uncertainty" required></textarea></div>
+</section>
+<section class="panel">
+<h2>04 · Access, safety and review</h2>
+<div class="field"><label for="permission">Land access / permit / protected-area status *</label><textarea id="permission" placeholder="Permission authority, permit ID, date, restrictions; do not proceed without authorization" required></textarea></div>
+<div class="field"><label for="safety">Safety plan and access constraints *</label><textarea id="safety" placeholder="Local risk assessment, emergency contact, weather, route, team and exit plan" required></textarea></div>
+<div class="field"><label for="access">Access notes / hazards / route</label><textarea id="access"></textarea></div>
+<div class="field"><label for="reviewStatus">Review state</label><select id="reviewStatus"><option value="field_observed_unreviewed">Field observed — awaiting independent review</option><option value="independently_reviewed">Independently reviewed (only after review actually occurs)</option></select></div>
+<div class="row"><div class="field"><label for="reviewer">Independent reviewer</label><input id="reviewer"></div><div class="field"><label for="reviewDate">Review date (UTC)</label><input id="reviewDate" type="date"></div></div>
+<div class="field"><label for="reviewScope">Review scope / evidence checked</label><textarea id="reviewScope" placeholder="Reviewer, scope, photos/samples/measurements reviewed, findings"></textarea></div>
+<label class="check"><input id="fieldConfirm" type="checkbox"> I confirm these entries represent actual observations collected at the stated field station, not desk research, generated values or a proposed visit.</label>
+<div class="actions"><button class="primary" id="save" type="button">Save field observation</button><button id="draft" type="button">Save planned station draft</button><button id="reset" type="button">Clear form</button></div>
+</section>
+<section class="panel wide">
+<h2>05 · Local evidence ledger</h2>
+<div class="station-list" id="stations"><div class="hint">No field observations recorded in this browser yet.</div></div>
+<div class="actions"><button class="primary" id="export" type="button">↓ Export field evidence JSON</button><button id="exportCsv" type="button">↓ Export station CSV</button><button id="importBtn" type="button">↑ Import JSON</button><input id="importFile" type="file" accept="application/json,.json" hidden><button class="danger" id="clearAll" type="button">Clear local ledger</button></div>
+<p class="hint">Local-only storage: records are held in this browser's local storage and are not uploaded to NASA, ANALOG-X servers or GitHub. Export the JSON, preserve original photo/sample records, then add the reviewed file to <code>data/field_validation/observations.json</code> through the repository review process. Do not overwrite the ledger without retaining its audit trail.</p>
+</section>
+</div>
+<footer>ANALOG-X · Field validation kit · No physical observations are pre-populated · <a href="./science/field_validation_protocol.json">Station schema</a> · <a href="./docs/GLOBAL_DISCOVERY_AND_VALIDATION.md">Validation protocol and release gates</a></footer>
+</div>
+<script>
+(function(){
+"use strict";
+const KEY="analogx-field-validation-v1";
+const $=id=>document.getElementById(id);
+const candidates={
+ chagai_small_playas:"Chagai small salt playas near Nok Kundi",
+ hamun_i_mashkel:"Hamun-i-Mashkel / Kharan Basin",
+ koh_i_sultan:"Koh-i-Sultan / Chagai",
+ hispar_glacier:"Hispar Glacier / Karakoram"
+};
+let records=[];
+const val=id=>$(id).value.trim();
+const number=id=>val(id)===""?null:Number(val(id));
+const list=id=>val(id).split(/[;,]/).map(x=>x.trim()).filter(Boolean);
+function status(text,kind){$("storageStatus").textContent=text;$("storageStatus").className="status "+(kind||"");}
+function persist(){
+ try{localStorage.setItem(KEY,JSON.stringify(records));status("Saved locally","good");}
+ catch(e){status("Local save failed — export immediately","warn");}
+ render();
+}
+function collect(review){
+ const statusValue=review||val("reviewStatus");
+ return {
+  station_id:val("station"),
+  candidate_id:val("candidate"),
+  candidate_name:candidates[val("candidate")],
+  date_utc:val("date"),
+  observer_ids:list("observers"),
+  latitude_wgs84:number("lat"),
+  longitude_wgs84:number("lon"),
+  coordinate_accuracy_m:number("accuracy"),
+  coordinate_method:val("coordMethod"),
+  elevation_m:number("elevation"),
+  elevation_source:val("elevationSource"),
+  photo_ids:list("photos"),
+  surface_description:val("surface"),
+  geomorphology:val("geomorph"),
+  geology_observed:val("geology"),
+  rock_or_soil_description:val("soil"),
+  surface_temperature_c:number("surfaceTemp"),
+  air_temperature_c:number("airTemp"),
+  relative_humidity_pct:number("humidity"),
+  wind_speed_m_s:number("wind"),
+  pressure_kpa:number("pressure"),
+  weather_conditions:val("weather"),
+  sample_ids:list("samples"),
+  sample_chain_of_custody:val("samples"),
+  instrument_ids:list("instruments"),
+  calibration_status:val("calibration"),
+  calibration_date:val("calibrationDate"),
+  measurement_methods:val("methods"),
+  permission_status:val("permission"),
+  safety_observations:val("safety"),
+  access_constraints:val("access"),
+  uncertainty_notes:val("uncertainty"),
+  review_status:statusValue,
+  independent_reviewer:val("reviewer"),
+  review_date_utc:val("reviewDate"),
+  review_scope:val("reviewScope"),
+  source:"field-validation-kit",
+  recorded_at_utc:new Date().toISOString()
+ };
+}
+function validateCommon(r){
+ const required=["station_id","candidate_id","date_utc","observer_ids","latitude_wgs84","longitude_wgs84","coordinate_accuracy_m","coordinate_method","surface_description","photo_ids","instrument_ids","uncertainty_notes","permission_status","safety_observations"];
+ for(const key of required)if(r[key]===null||r[key]===""||(Array.isArray(r[key])&&!r[key].length))return "Required field missing: "+key;
+ if(r.latitude_wgs84 < -90 || r.latitude_wgs84 > 90)return "Latitude must be between -90 and 90.";
+ if(r.longitude_wgs84 < -180 || r.longitude_wgs84 > 180)return "Longitude must be between -180 and 180.";
+ if(!Number.isFinite(r.coordinate_accuracy_m)||r.coordinate_accuracy_m<0)return "Coordinate accuracy must be zero or greater.";
+ if(r.review_status==="independently_reviewed"&&(!r.independent_reviewer||!r.review_date_utc||!r.review_scope))return "Independent reviewer, review date and review scope are required.";
+ return null;
+}
+function saveField(){
+ if(!$("fieldConfirm").checked){alert("Confirm that these are real observations collected in the field before recording them.");return;}
+ const r=collect();
+ const error=validateCommon(r);if(error){alert(error);return;}
+ if(records.some(x=>x.station_id===r.station_id)){alert("Station ID already exists. Edit or remove that record before saving.");return;}
+ records.push(r);persist();$("station").value="";$("fieldConfirm").checked=false;alert("Field observation saved to this browser only. Export the JSON to preserve it.");
+}
+function saveDraft(){
+ const r=collect("field_planned");
+ if(!r.station_id){alert("Enter a station ID for the planned station draft.");return;}
+ if(records.some(x=>x.station_id===r.station_id)){alert("Station ID already exists.");return;}
+ records.push(r);persist();alert("Planned station draft saved. It is not field evidence.");
+}
+function render(){
+ $("ledgerCount").textContent=records.length+" station record(s) in this browser";
+ $("stations").innerHTML=records.length?records.map((r,i)=>'<div class="station"><b>'+escapeHtml(r.station_id)+' · '+escapeHtml(candidates[r.candidate_id]||r.candidate_id)+'</b><small>'+escapeHtml(r.review_status)+' · '+escapeHtml(r.date_utc||"date not set")+' · '+escapeHtml(String(r.latitude_wgs84??"—"))+', '+escapeHtml(String(r.longitude_wgs84??"—"))+'</small><br><button type="button" data-remove="'+i+'">Remove local record</button></div>').join(""):'<div class="hint">No field observations recorded in this browser yet.</div>';
+ $("stations").querySelectorAll("[data-remove]").forEach(btn=>btn.addEventListener("click",()=>{records.splice(Number(btn.dataset.remove),1);persist();}));
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function download(name,body,type){
+ const blob=new Blob([body],{type}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=name;a.click();URL.revokeObjectURL(url);
+}
+function exportJson(){
+ const out={schema_version:"1.0.0",project:"ANALOG-X",status:records.some(x=>x.review_status==="independently_reviewed")?"field_reviewed":records.some(x=>x.review_status==="field_observed_unreviewed")?"field_observed_unreviewed":"not_started",exported_at_utc:new Date().toISOString(),observations:records,statement:"User-entered local field evidence; retain original photographs, sample logs and calibration documents. Not independently certified unless reviewer metadata is present."};
+ download("analogx-field-observations.json",JSON.stringify(out,null,2),"application/json");
+}
+function exportCsv(){
+ const keys=["station_id","candidate_id","date_utc","latitude_wgs84","longitude_wgs84","coordinate_accuracy_m","surface_temperature_c","air_temperature_c","relative_humidity_pct","wind_speed_m_s","pressure_kpa","review_status","independent_reviewer"];
+ const csv=[keys.join(","),...records.map(r=>keys.map(k=>'"'+String(r[k]??"").replace(/"/g,'""')+'"').join(","))].join("\n");
+ download("analogx-field-stations.csv",csv,"text/csv;charset=utf-8");
+}
+function importJson(file){
+ const reader=new FileReader();reader.onload=()=>{
+  try{
+   const parsed=JSON.parse(reader.result),rows=parsed.observations;
+   if(!Array.isArray(rows))throw new Error("Expected observations array");
+   const ids=new Set(records.map(x=>x.station_id));
+   for(const row of rows){if(!row.station_id||ids.has(row.station_id))throw new Error("Missing or duplicate station ID: "+row.station_id);const err=validateCommon(row);if(row.review_status!=="field_planned"&&err)throw new Error(row.station_id+": "+err);ids.add(row.station_id);}
+   records=records.concat(rows);persist();alert("Imported "+rows.length+" station records into this browser.");
+  }catch(e){alert("Import rejected: "+e.message);}
+ };
+ reader.readAsText(file);
+}
+$("date").value=new Date().toISOString().slice(0,10);
+$("save").addEventListener("click",saveField);
+$("draft").addEventListener("click",saveDraft);
+$("reset").addEventListener("click",()=>{document.querySelectorAll("input,textarea").forEach(x=>{if(x.type!=="checkbox"&&x.type!=="file")x.value="";});$("fieldConfirm").checked=false;$("date").value=new Date().toISOString().slice(0,10);});
+$("export").addEventListener("click",exportJson);
+$("exportCsv").addEventListener("click",exportCsv);
+$("importBtn").addEventListener("click",()=>$("importFile").click());
+$("importFile").addEventListener("change",e=>{if(e.target.files[0])importJson(e.target.files[0]);e.target.value="";});
+$("clearAll").addEventListener("click",()=>{if(confirm("Delete all station records stored locally in this browser? Export a backup first.")){records=[];persist();}});
+try{records=JSON.parse(localStorage.getItem(KEY)||"[]");if(!Array.isArray(records))records=[];}catch{records=[];}
+render();
+})();
+</script>
+</body></html>
