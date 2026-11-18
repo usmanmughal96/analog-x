@@ -16,6 +16,12 @@ def main():
         complete=global_data.get("status")=="complete"
         lookup["copernicus_glo90_global"]["state"]="processed" if complete else ("partially_processed" if coverage>0 else "planned")
         lookup["copernicus_glo90_global"]["coverage_pct_processed_tiles"]=coverage
+    landcover=read("data/global_discovery/global_landcover_enrichment.json")
+    if landcover:
+        state=landcover.get("state","unavailable")
+        lookup["io_lulc_global"]["state"]="processed" if state=="processed" else ("partially_processed" if landcover.get("processed_candidate_windows",0)>0 else "unavailable")
+        lookup["io_lulc_global"]["coverage_pct_processed_candidates"]=landcover.get("coverage_percent_of_shortlist",0)
+        lookup["io_lulc_global"]["candidate_windows_processed"]=landcover.get("processed_candidate_windows",0)
     cross=read("data/validation/nasadem_crosscheck.json")
     if cross:
         count=int(cross.get("sites_crosschecked",0))
