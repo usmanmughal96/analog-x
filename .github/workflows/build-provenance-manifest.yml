@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - ".github/workflows/build-provenance-manifest.yml"
       - "scripts/build_reproducibility_manifest.py"
       - "scripts/build_quantitative_validation.py"
       - "scripts/validate_evidence_inventory.py"
