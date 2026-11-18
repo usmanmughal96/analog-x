@@ -88,7 +88,7 @@ A public NASA LRO LOLA PDS GDR 80 m south-polar elevation grid (LDEM_80S_80M) an
 
 At ~925 m support the Shackleton window has median slope 13.40°, P90 slope 30.94°, and P90 3×3 local relief 1,391 m (the relief statistic spans a ~2.775 km footprint). These values describe a rugged selected rim window; they do not establish suitability for landing or a permanent base.
 
-The original PGDA 5 m Site04 files were inaccessible from the automated runner. The working 80 m products are read from NASA's LOLA PDS GDR mirror at MIT Imbrium. The surface DEM is interpolated, so LDEC counts are measurement support—not a mask for discarding interpolated elevation. Diviner PRP V2.0 has been processed for 6,823 Shackleton-window triangles: median annual average temperature at 2 cm depth is 103.786 K and median annual maximum surface temperature is 238.568 K. These are historical model-derived thermal summaries. The ice-depth field is withheld pending QA of negative values; no accessible-ice claim is made. Illumination / PSR mapping is not integrated.
+The original PGDA 5 m Site04 files were inaccessible from the automated runner. The working 80 m products are read from NASA's LOLA PDS GDR mirror at MIT Imbrium. The surface DEM is interpolated, so LDEC counts are measurement support—not a mask for discarding interpolated elevation. Diviner PRP V2.0 has been processed for 6,823 Shackleton-window triangles: median annual average temperature at 2 cm depth is 103.786 K and median annual maximum surface temperature is 238.568 K. These are historical model-derived thermal summaries. The ice-depth field contains negative and -999 censored values and is withheld pending QA; no accessible-ice claim is made. Illumination / PSR mapping is not integrated.
 
 ### NASA DSCOVR / EPIC
 The pipeline retrieves an optional full-disc natural-colour Earth image from the public GSFC EPIC endpoint. It is global context only and is not used in site-scale metrics. No api.nasa.gov key is required for this endpoint.
@@ -109,6 +109,7 @@ Our contribution is a Pakistan-first, open-data evidence workflow with a reusabl
 - NASA POWER climatology for ten Earth coordinates;
 - Sentinel-2 L2A scene discovery, spectral-context screening and RGB quicklooks across ten Earth study/reference windows;
 - Copernicus DEM GLO-30 terrain profiles for all ten Earth study/reference windows in the current processing run, compared at coarse support with Mars MOLA and lunar LOLA;
+- a reproducible 5.55 km regional-window scan of the ten existing Earth grids (7,290 valid Earth windows), with lunar/Martian reference windows and 500-draw weight-sensitivity diagnostics; this is a regional scan, not global coverage;
 - explicit MOLA observed-cell coverage and LOLA return-count / interpolation caveats;
 - a mission-specific candidate decision layer that distinguishes documented task overlap, environmental context and four independent evidence layers;
 - an offline coordinate-proximity Scout over ten curated candidate/reference points (not an exhaustive global cell search or fresh-data API);
