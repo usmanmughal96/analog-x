@@ -42,15 +42,16 @@ class RegionalWindowScanTests(unittest.TestCase):
         for row in range(8):
             for column in range(8):
                 grid[row][column] = column * 92.5
-        # Remove an entire column. Any retained windows must still pass the
-        # explicit cell-count and valid-derivative thresholds.
-        for row in range(8):
-            grid[row][3] = None
+        # Remove one elevation cell. The builder must preserve the missing
+        # value and only calculate derivatives where neighbours remain valid.
+        grid[0][0] = None
         windows = derive_windows(
             {"values": grid, "pixel_size_m": {"x": 925.0, "y": 925.0}},
             site_id="masked",
             site={"name": "Masked test", "country": "Testland"},
         )
+        self.assertTrue(windows)
+        self.assertTrue(any(window["valid_cell_percent"] < 100.0 for window in windows))
         self.assertTrue(all(window["valid_cell_percent"] >= 70.0 for window in windows))
         self.assertTrue(all(window["terrain"]["median_slope_deg"] is not None for window in windows))
 
