@@ -69,6 +69,12 @@ WGS84 candidate centres are estimated by offsetting the stored parent reference 
 
 The user-facing shortlist contains up to 30 windows per planetary target, at most four per parent Earth region, with a nominal minimum 6 km separation between displayed centres. The full top-30 network ordering is also stored in the JSON output; network rank refers only to the 7,290 sampled Earth windows.
 
+## ATFA experiment context (separate from the index)
+
+Each Earth window inherits the relevant parent site's existing dossier from `data/transferability/transferability.json`. This attaches the priority experiment, candidate/discovery status, named experiment tracks, transferability label, rationale, what can be rehearsed, analogy breaks, next measurements, and evidence-layer states for NASA POWER, terrain, Sentinel-2 and the site dossier.
+
+The context is **not an additional numeric feature** and does not change the terrain index or network rank. It helps researchers interpret what kind of field rehearsal a parent environment may support and what remains unproven. A qualitative ATFA label should not be read as independent validation of the local 5.55 km window.
+
 ## Interpretation and limitations
 
 - **Not a global search:** the scan evaluates only ten curated 30 km parent study/reference areas. It does not search all Earth land or discover new geologic provinces.
