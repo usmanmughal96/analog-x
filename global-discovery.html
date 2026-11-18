@@ -98,6 +98,15 @@ function target(){return DATA&&DATA.targets[$("target").value];}
 function showDetails(w){
  selected=w;
  var t=target();
+ var env=w.environmental_context||{};
+ var envClasses=env.class_fractions_percent||{};
+ var envHtml='<div class="card"><b>Global environmental context · 2023 land cover</b>'+
+  (env.state==="processed"||env.state==="partially_processed"?
+   '<p>State: '+esc(env.state)+' · valid sample coverage: '+fmt(env.valid_pixel_percent,1)+'% · 10 m native classification / 30 m modal sample</p>'+
+   Object.keys(envClasses).sort(function(a,b){return Number(envClasses[b])-Number(envClasses[a]);}).map(function(k){return '<p>'+esc(k.replace(/_/g," ")) +': '+fmt(envClasses[k],1)+'% of valid pixels</p>';}).join("")+
+   '<p class="sub">Annual 2023 Sentinel-2-derived thematic classification. Environmental context only; not lithology, minerals, brine or field truth.</p>'
+   :'<p>Land-cover enrichment: '+esc(env.state||"not processed")+'. '+esc(env.limitation||"No classified pixels were verified for this shortlist window.")+'</p>')+
+  '</div>';
  $("refName").textContent=t.reference.name;
  $("details").innerHTML=
  '<h2>'+esc(w.tile_id)+'</h2><div class="sub">Approx. '+fmt(w.latitude,4)+'°, '+fmt(w.longitude,4)+'° · '+esc(w.crs)+'</div>'+
@@ -106,6 +115,7 @@ function showDetails(w){
  '<div class="metrics"><div class="metric"><b>'+fmt(w.terrain.median_slope_deg,2)+'°</b><span>Median slope</span></div><div class="metric"><b>'+fmt(w.terrain.p90_slope_deg,2)+'°</b><span>P90 slope</span></div><div class="metric"><b>'+fmt(w.terrain.p90_local_relief_m,1)+' m</b><span>P90 local relief</span></div></div>'+
  '<div class="metrics"><div class="metric"><b>'+fmt(w.core_terrain_index,2)+'</b><span>Core index</span></div><div class="metric"><b>'+fmt(w.secondary_diagnostic_index,2)+'</b><span>Secondary index</span></div><div class="metric"><b>'+fmt(w.metric_family_rank_concordance,1)+'%</b><span>Index agreement</span></div></div>'+
  '<div class="card"><b>Additional terrain diagnostics</b><p>P95 slope: '+fmt(w.terrain.p95_slope_deg,2)+'°</p><p>Elevation IQR: '+fmt(w.terrain.elevation_iqr_m,1)+' m</p><p>Detrended roughness RMS: '+fmt(w.terrain.detrended_roughness_rms_m,1)+' m</p><p>Slope under 5°: '+fmt(w.terrain.slope_under_5_deg_pct,1)+'% · over 20°: '+fmt(w.terrain.slope_over_20_deg_pct,1)+'%</p></div>'+
+ +envHtml+
  '<div class="card"><b>Evidence source</b><p>'+esc(w.source.provider)+' · '+esc(w.source.collection)+'</p><p>Native product resolution: '+esc(w.source.resolution_native_m_approx)+' m · sampled support: '+esc(w.analysis_support_m)+' m</p><p><a href="'+esc(w.source.asset_url)+'" target="_blank" rel="noreferrer">Open source DEM tile ↗</a></p></div>'+
  '<div class="notice"><b>Why it surfaced:</b> this local window has a numerical terrain profile closer to the '+esc(t.reference.name)+' reference profile under the stated feature scales. Independent geology, surface-material evidence and field observations are still required.</div>'+
  '<p class="sub">'+esc(w.interpretation)+'</p>';
