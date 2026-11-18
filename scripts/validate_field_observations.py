@@ -18,8 +18,11 @@ def main():
         ids.add(oid)
         if row.get("review_status") not in VALID: errors.append(f"{tag}: invalid review_status")
         if row.get("review_status") in {"field_observed_unreviewed","independently_reviewed"}:
-            for key in ("candidate_id","date_utc","observer_ids","latitude_wgs84","longitude_wgs84","coordinate_accuracy_m","coordinate_method","surface_description","photo_ids","instrument_ids","uncertainty_notes"):
+            for key in ("candidate_id","date_utc","observer_ids","latitude_wgs84","longitude_wgs84","coordinate_accuracy_m","coordinate_method","surface_description","photo_ids","instrument_ids","calibration_status","uncertainty_notes","permission_status","safety_observations"):
                 if row.get(key) in (None,"",[]): errors.append(f"{tag}: field observation missing {key}")
+        for key,low,high in (("latitude_wgs84",-90,90),("longitude_wgs84",-180,180),("relative_humidity_pct",0,100)):
+            value=row.get(key)
+            if value is not None and not (low <= float(value) <= high): errors.append(f"{tag}: {key} outside valid range")
         if row.get("review_status")=="independently_reviewed":
             if not row.get("independent_reviewer"): errors.append(f"{tag}: independent reviewer required")
             if not row.get("review_date_utc"): errors.append(f"{tag}: review date required")
