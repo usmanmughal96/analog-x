@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-18T17:44:22+00:00",
-  "repository_commit_before_manifest_commit": "4b2cbea9b9d1b1f729dd1e95b28755da21dcf5e2",
+  "generated_at_utc": "2026-11-18T17:48:15+00:00",
+  "repository_commit_before_manifest_commit": "efd5668b1d436baa46e581db368ead0bc9158811",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -269,8 +269,8 @@
     },
     {
       "path": "data/global_discovery/global_discovery.json",
-      "size_bytes": 4012998,
-      "sha256": "de7d1e07c22ecdab60d77cf243cbaed83827752b45adcad39e31cd73c6779110",
+      "size_bytes": 4010578,
+      "sha256": "1b8685f85757a3499fb3688e1e1c1c31f8ce19dd32ee2748ec515413c325569a",
       "evidence_class_hint": "global_discovery_output"
     },
     {
@@ -774,13 +774,13 @@
     {
       "path": "data/validation/nasadem_crosscheck.json",
       "size_bytes": 14743,
-      "sha256": "a0d40e0caab58021eacae2e406dd81e7aa239b05f344cdab3c904bd83e6f0810",
+      "sha256": "b2f322395d5f325a61a6a278092aa0739d5bd59a14bbc2b077cf70b879c26cf5",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/validation/quantitative_validation.json",
       "size_bytes": 3529,
-      "sha256": "16125877ceb4093ae9b0393c2e0ca4ee13d17e061f80af26721af010aaa68887",
+      "sha256": "05b160fe5c300c4cd2f2eca65e691e53f7eefaa649555eae37f067249f722bc8",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -827,8 +827,8 @@
     },
     {
       "path": "scripts/build_global_discovery.py",
-      "size_bytes": 18571,
-      "sha256": "3680a6553607f8bf18a32aa581281aff383bb9787d9df56a60e7536d3dff1489",
+      "size_bytes": 18617,
+      "sha256": "dbbc28e74cc63601d0077dac3c2f39fd4c02ea1f55f1e9be1d918b2b3d1957f0",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -929,8 +929,8 @@
     },
     {
       "path": "scripts/merge_global_discovery.py",
-      "size_bytes": 7861,
-      "sha256": "dd065d71fc5e84c92160cb473fb61575a1b18e028fd81b799a419f58b7890979",
+      "size_bytes": 7860,
+      "sha256": "36534d04a04ff83556c8fe337c0f12bbd1c501d0a46a95fe18f065d83e8a72f0",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -971,8 +971,8 @@
     },
     {
       "path": "scripts/validate_field_observations.py",
-      "size_bytes": 2034,
-      "sha256": "2c5f4b7f2c010cc6408eb73a37a254e1c377987f866bbc5cd94620dcc7a1ee19",
+      "size_bytes": 2369,
+      "sha256": "7750a7d1342789176e49cc0e34bbb93fdc79caed6f3cb48325ea91990df4aa29",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -984,7 +984,7 @@
     {
       "path": "scripts/validate_project.mjs",
       "size_bytes": 9877,
-      "sha256": "d74fc315416cfd46f1e203dac3d4662f6429e20dc724e0f9141e6c809a3b34f8",
+      "sha256": "2076545e39e0bf7f40b97c9b0d5ef0c3de4dd61f8487a1b27eb8f382f99f4778",
       "evidence_class_hint": "method_or_documentation"
     },
     {
