@@ -83,7 +83,6 @@ assert(read("docs/DECISION_ENGINE.md").includes("Strict evidence policy"), "Deci
 
 assert(read("scripts/enrich_global_landcover.py").includes("io-lulc-annual-v02"), "Global land-cover enrichment source missing");
 assert(read("scripts/enrich_global_power.py").includes("temporal/climatology/point"), "Global NASA POWER enrichment missing");
-assert(["planned", "partially_processed", "processed", "unavailable"].includes(registryStates.get("nasa_power_global")), "Global NASA POWER evidence state must be explicit");
 assert(read(".github/workflows/global-environment-enrichment.yml").includes("enrich_global_power.py"), "NASA POWER enrichment is not chained to global shortlist workflow");
 
 assert(read(".github/workflows/global-environment-enrichment.yml").includes("workflow_run"), "Global land-cover enrichment must be chained to the global scan release");
@@ -116,6 +115,7 @@ assert.equal(registryStates.get("nasa_cmr_modis_merra"), "metadata_only", "CMR e
 assert.equal(registryStates.get("suparco_space4climate"), "reference_only", "SUPARCO institutional links must remain reference-only");
 assert(["planned", "partially_processed", "processed"].includes(registryStates.get("copernicus_glo90_global")), "GLO-90 state must reflect actual global run progress");
 assert(["planned", "partially_processed", "processed", "unavailable"].includes(registryStates.get("io_lulc_global")), "Global land-cover evidence state must be explicit");
+assert(["planned", "partially_processed", "processed", "unavailable"].includes(registryStates.get("nasa_power_global")), "Global NASA POWER evidence state must be explicit");
 assert(read("scripts/build_reproducibility_manifest.py").includes("sha256"), "SHA-256 manifest generator missing");
 assert(read("scripts/validate_evidence_inventory.py").includes("processed state needs artifact path"), "Evidence state integrity validator missing");
 assert(read("docs/COMPETITIVE_CAPABILITY_RESPONSE.md").includes("not independent-data validation"), "Competitive methods note must state independent validation limits");
