@@ -115,7 +115,7 @@ function showDetails(w){
  '<div class="metrics"><div class="metric"><b>'+fmt(w.terrain.median_slope_deg,2)+'°</b><span>Median slope</span></div><div class="metric"><b>'+fmt(w.terrain.p90_slope_deg,2)+'°</b><span>P90 slope</span></div><div class="metric"><b>'+fmt(w.terrain.p90_local_relief_m,1)+' m</b><span>P90 local relief</span></div></div>'+
  '<div class="metrics"><div class="metric"><b>'+fmt(w.core_terrain_index,2)+'</b><span>Core index</span></div><div class="metric"><b>'+fmt(w.secondary_diagnostic_index,2)+'</b><span>Secondary index</span></div><div class="metric"><b>'+fmt(w.metric_family_rank_concordance,1)+'%</b><span>Index agreement</span></div></div>'+
  '<div class="card"><b>Additional terrain diagnostics</b><p>P95 slope: '+fmt(w.terrain.p95_slope_deg,2)+'°</p><p>Elevation IQR: '+fmt(w.terrain.elevation_iqr_m,1)+' m</p><p>Detrended roughness RMS: '+fmt(w.terrain.detrended_roughness_rms_m,1)+' m</p><p>Slope under 5°: '+fmt(w.terrain.slope_under_5_deg_pct,1)+'% · over 20°: '+fmt(w.terrain.slope_over_20_deg_pct,1)+'%</p></div>'+
- +envHtml+
+envHtml+
  '<div class="card"><b>Evidence source</b><p>'+esc(w.source.provider)+' · '+esc(w.source.collection)+'</p><p>Native product resolution: '+esc(w.source.resolution_native_m_approx)+' m · sampled support: '+esc(w.analysis_support_m)+' m</p><p><a href="'+esc(w.source.asset_url)+'" target="_blank" rel="noreferrer">Open source DEM tile ↗</a></p></div>'+
  '<div class="notice"><b>Why it surfaced:</b> this local window has a numerical terrain profile closer to the '+esc(t.reference.name)+' reference profile under the stated feature scales. Independent geology, surface-material evidence and field observations are still required.</div>'+
  '<p class="sub">'+esc(w.interpretation)+'</p>';
