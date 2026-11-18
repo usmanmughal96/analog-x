@@ -1,0 +1,250 @@
+{
+  "schema_version": "1.0.0",
+  "project": "ANALOG-X",
+  "evidence_states": {
+    "processed": "Underlying data were retrieved/decoded and a reproducible analysis output was generated.",
+    "browse_only": "Visual reconnaissance preview; not a calibrated quantitative science array.",
+    "metadata_only": "Catalogue/collection/granule metadata discovered; source science files were not downloaded and decoded.",
+    "reference_only": "Published or institutional context is linked; not ingested as a machine-readable analysis layer.",
+    "planned": "Integration or processing is designed but not yet executed/verified.",
+    "unavailable": "An attempted public retrieval/processing failed or no suitable accessible item was found.",
+    "withheld_pending_qa": "A field is withheld because source QA or interpretation is incomplete.",
+    "field_observed_unreviewed": "Field observation was captured but has not passed independent review.",
+    "independently_reviewed": "A named independent reviewer approved the observation for the stated scope."
+  },
+  "sources": [
+    {
+      "id": "copernicus_glo30_regional",
+      "name": "Copernicus DEM GLO-30 Public",
+      "provider": "Copernicus / Sinergise / AWS",
+      "state": "processed",
+      "data_type": "DSM",
+      "resolution": "30 m native product; current selected study areas include separate 30 m parent-area diagnostics and ~925 m common-support grids",
+      "coverage": "Ten curated Earth study/reference regions in current terrain product; GLO-30 public tile availability is not complete worldwide.",
+      "artifacts": [
+        "data/terrain/terrain_comparison.json"
+      ],
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/readme.html",
+      "doi_or_identifier": "COP-DEM_GLO-30-DGED",
+      "limitations": [
+        "DSM includes surface objects; not bare-earth elevation.",
+        "30 m diagnostic is Earth-only and not a rover-scale safety measure.",
+        "The public GLO-30 tile set has unreleased tiles; do not use it as the global base layer."
+      ]
+    },
+    {
+      "id": "copernicus_glo90_global",
+      "name": "Copernicus DEM GLO-90",
+      "provider": "Copernicus / Sinergise / AWS Open Data",
+      "state": "planned",
+      "data_type": "DSM",
+      "resolution": "90 m nominal / 30 arc seconds; local metric grid resampled to ~925 m for candidate windows",
+      "coverage": "Worldwide land-tile inventory; oceans have no DEM tiles.",
+      "artifacts": [
+        "data/global_discovery/global_discovery.json"
+      ],
+      "url": "https://registry.opendata.aws/copernicus-dem/",
+      "tile_inventory": "https://copernicus-dem-90m.s3.amazonaws.com/tileList.txt",
+      "limitations": [
+        "A global run is complete only when all inventory tiles are processed with no unreported failures.",
+        "Global terrain shortlist is coarser than local GLO-30 studies.",
+        "DSM is not bare-earth and does not measure geology or operational suitability."
+      ]
+    },
+    {
+      "id": "nasa_power",
+      "name": "NASA POWER Climatology",
+      "provider": "NASA Langley Research Center",
+      "state": "processed",
+      "data_type": "Gridded climatology",
+      "resolution": "API grid / point climatology; not station observations",
+      "coverage": "Ten selected Earth reference coordinates",
+      "artifacts": [
+        "data/power/index.json"
+      ],
+      "url": "https://power.larc.nasa.gov/",
+      "limitations": [
+        "Not local weather-station data.",
+        "Air temperature is not surface temperature.",
+        "Precipitation is not water/ice resource abundance."
+      ]
+    },
+    {
+      "id": "sentinel2_l2a_spectral",
+      "name": "Sentinel-2 L2A spectral context",
+      "provider": "ESA Copernicus / Microsoft Planetary Computer",
+      "state": "processed",
+      "data_type": "Surface reflectance spectral context",
+      "resolution": "20 m analysis grids where derived",
+      "coverage": "Ten selected Earth reference windows; inspect individual site result metadata",
+      "artifacts": [
+        "data/pakistan"
+      ],
+      "url": "https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a",
+      "limitations": [
+        "Spectral indices are screening signals, not mineral or brine classification.",
+        "Cloud and seasonal effects remain."
+      ]
+    },
+    {
+      "id": "sentinel2_rgb",
+      "name": "Sentinel-2 true-colour quicklooks",
+      "provider": "ESA Copernicus / Microsoft Planetary Computer",
+      "state": "browse_only",
+      "data_type": "RGB preview image",
+      "resolution": "768 by 768 preview",
+      "coverage": "Quicklook products available for selected Pakistan windows",
+      "artifacts": [
+        "data/pakistan/quicklooks"
+      ],
+      "url": "https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a",
+      "limitations": [
+        "Browse imagery, not calibrated multispectral data.",
+        "Not field validation or geological classification."
+      ]
+    },
+    {
+      "id": "nasa_cmr_modis_merra",
+      "name": "NASA Earthdata CMR MODIS and MERRA-2 catalogue discovery",
+      "provider": "NASA Earthdata",
+      "state": "metadata_only",
+      "data_type": "Collection/granule catalogue metadata",
+      "resolution": "Not applicable until science arrays are downloaded",
+      "coverage": "Selected study boxes and global catalogue entries",
+      "artifacts": [
+        "data/nasa/earthdata_cmr_catalog.json"
+      ],
+      "url": "https://cmr.earthdata.nasa.gov/search/",
+      "limitations": [
+        "Catalogue records only; underlying science arrays have not been downloaded/decoded by this integration.",
+        "A global MERRA-2 granule record is not a site-clipped environmental value."
+      ]
+    },
+    {
+      "id": "nasa_epic",
+      "name": "NASA DSCOVR EPIC",
+      "provider": "NASA GSFC",
+      "state": "browse_only",
+      "data_type": "Full-disc natural-colour image",
+      "resolution": "Global visual context",
+      "coverage": "Whole Earth disc",
+      "artifacts": [
+        "data/nasa/epic_latest.json"
+      ],
+      "url": "https://epic.gsfc.nasa.gov/",
+      "limitations": [
+        "Global context only; not site-scale metric evidence."
+      ]
+    },
+    {
+      "id": "nasa_lola",
+      "name": "NASA LRO LOLA GDR",
+      "provider": "NASA PDS Geosciences Node",
+      "state": "processed",
+      "data_type": "Lunar elevation and return-count grids",
+      "resolution": "80 m native product; selected Shackleton grid aggregated to ~925 m",
+      "coverage": "Selected Shackleton Rim south-polar window",
+      "artifacts": [
+        "data/moon/shackleton_lola_80m.json",
+        "data/moon/lola_access_diagnostic.json"
+      ],
+      "url": "https://pds-geosciences.wustl.edu/missions/lro/",
+      "limitations": [
+        "Elevation surface has interpolation; return counts are separate support evidence.",
+        "Not an illumination/PSR or ice-access map."
+      ]
+    },
+    {
+      "id": "nasa_mola",
+      "name": "NASA MGS MOLA MEGDR",
+      "provider": "NASA PDS Geosciences Node",
+      "state": "processed",
+      "data_type": "Mars elevation and observation-count grids",
+      "resolution": "64 pixels per degree; approximately 925 m near Nili Patera",
+      "coverage": "Selected Nili Patera regional window",
+      "artifacts": [
+        "data/terrain/terrain_comparison.json"
+      ],
+      "url": "https://pds-geosciences.wustl.edu/missions/mgs/megdr.html",
+      "limitations": [
+        "Selected window has 50.53% observed-cell coverage; terrain summary is provisional.",
+        "Not rover safety or site selection."
+      ]
+    },
+    {
+      "id": "nasa_diviner_prp",
+      "name": "NASA Diviner polar resource products V2.0",
+      "provider": "NASA LRO Diviner / PDS",
+      "state": "processed",
+      "data_type": "Historical model-derived thermal summaries",
+      "resolution": "6,823 Shackleton-window triangles processed",
+      "coverage": "Selected Shackleton Rim window",
+      "artifacts": [
+        "data/moon/diviner_prp_diagnostic/report.json"
+      ],
+      "url": "https://pds-geosciences.wustl.edu/missions/lro/",
+      "limitations": [
+        "Ice-depth fields remain withheld pending QA; no accessible-ice claim.",
+        "Historical model-derived summaries are not field measurements."
+      ]
+    },
+    {
+      "id": "nasadem_independent_check",
+      "name": "NASADEM SRTM-derived elevation cross-check",
+      "provider": "NASA LP DAAC / Microsoft Planetary Computer",
+      "state": "planned",
+      "data_type": "Independent-source elevation comparison",
+      "resolution": "1 arc-second source; aggregated to ~925 m support",
+      "coverage": "NASADEM approx 56°S to 60°N; coverage-limited subset of selected sites",
+      "artifacts": [
+        "data/validation/nasadem_crosscheck.json"
+      ],
+      "url": "https://data.nasa.gov/dataset/nasadem-srtm-image-mosaic-global-1-arc-second-v001",
+      "doi_or_identifier": "10.5067/MEASURES/NASADEM/NASADEM_SIM.001",
+      "limitations": [
+        "SRTM-derived source with auxiliary void filling; not a ground survey.",
+        "Different DSM/DEM semantics versus Copernicus; compare descriptors only.",
+        "High-latitude study sites may be outside coverage."
+      ]
+    },
+    {
+      "id": "evk2cnr_glacier_inventory",
+      "name": "Pakistan Glacier Inventory prior work",
+      "provider": "EvK2CNR",
+      "state": "reference_only",
+      "data_type": "Published institutional inventory reference",
+      "coverage": "Pakistan glacier inventory context",
+      "artifacts": [],
+      "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
+      "limitations": [
+        "Cited as prior work; ANALOG-X does not claim glacier discovery or remapping."
+      ]
+    },
+    {
+      "id": "suparco_space4climate",
+      "name": "SUPARCO / Space4Climate / DisasterWatch institutional context",
+      "provider": "SUPARCO / Government of Pakistan",
+      "state": "reference_only",
+      "data_type": "Institutional capability and recommended-practice references",
+      "coverage": "Pakistan institutional context",
+      "artifacts": [],
+      "url": "https://suparco.gov.pk/",
+      "limitations": [
+        "No verified public machine-readable bulk ingestion endpoint or reuse licence claimed."
+      ]
+    },
+    {
+      "id": "ndma_hazard_context",
+      "name": "NDMA hazard and glacier-lake institutional context",
+      "provider": "National Disaster Management Authority Pakistan",
+      "state": "reference_only",
+      "data_type": "Institutional reference context",
+      "coverage": "Pakistan",
+      "artifacts": [],
+      "url": "https://ndma.gov.pk/",
+      "limitations": [
+        "Linked as context only; no redistributable geospatial layers claimed as ingested."
+      ]
+    }
+  ]
+}
