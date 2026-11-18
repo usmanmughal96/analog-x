@@ -77,17 +77,15 @@ def parse_payload(payload:dict[str,Any])->dict[str,Any]:
         row["diurnal_air_temperature_range_c"]=tmax-tmin if tmax is not None and tmin is not None else None
         monthly.append(row)
     precip=[(row["month"],row["corrected_precipitation_mm_day"]) for row in monthly if row["corrected_precipitation_mm_day"] is not None]
-    dry_months=[m for m,v in sorted(precip,key=lambda item:(item[1],MONTHS.index(item[0])))[:3]]
+    dry_months=[m for m,v in sorted(precip,key=lambda item:(item[1],MONTHS.index(item[0])))[:3]] if len(precip)>=3 else []
     tvals=[row["air_temperature_2m_c"] for row in monthly if row["air_temperature_2m_c"] is not None]
+    dtrvals=[row["diurnal_air_temperature_range_c"] for row in monthly if row["diurnal_air_temperature_range_c"] is not None]
     return {
         "annual_metrics":{LABELS[p]:series[p]["annual"] for p in PARAMS},
         "monthly":monthly,
         "derived": {
-            "mean_diurnal_air_temperature_range_c":(
-                sum(row["diurnal_air_temperature_range_c"] for row in monthly if row["diurnal_air_temperature_range_c"] is not None) /
-                max(1,sum(row["diurnal_air_temperature_range_c"] is not None for row in monthly))
-            ),
-            "monthly_mean_air_temperature_span_c":max(tvals)-min(tvals) if tvals else None,
+            "mean_diurnal_air_temperature_range_c":sum(dtrvals)/len(dtrvals) if dtrvals else None,
+            "monthly_mean_air_temperature_span_c":max(tvals)-min(tvals) if len(tvals)>=2 else None,
             "three_driest_climatology_months":dry_months
         }
     }
