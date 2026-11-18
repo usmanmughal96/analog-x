@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-18T15:01:58+00:00",
-  "repository_commit_before_manifest_commit": "244d74b6e180b5bb14e792e33354e0e1c3d2e813",
+  "generated_at_utc": "2026-11-18T17:44:22+00:00",
+  "repository_commit_before_manifest_commit": "4b2cbea9b9d1b1f729dd1e95b28755da21dcf5e2",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -13,32 +13,14 @@
     "requests": "2.34.2",
     "Pillow": null
   },
-  "inventory_scope": {
-    "directories": [
-      "data",
-      "science",
-      "scripts",
-      "docs",
-      ".github",
-      "tests",
-      "assets",
-      "agent-worker",
-      "backend"
-    ],
-    "root_files": [
-      "README.md",
-      "index.html",
-      "demo.html",
-      "discovery.html",
-      "global-discovery.html",
-      "field-validation.html",
-      "transferability.html",
-      "service-worker.js",
-      "manifest.webmanifest"
-    ]
-  },
-  "file_count": 192,
-  "source_registry_sha256": "a89414c92bf0af892e0d4c4c8ba0bbc7b85baf0ecda38f45b86a6b254741d8f0",
+  "inventory_scope": [
+    "data",
+    "science",
+    "scripts",
+    "docs"
+  ],
+  "file_count": 149,
+  "source_registry_sha256": "877ebb1a3687c04c6507d6a184c879fd5d92c08e2e6c443b3f9a18ede5744102",
   "source_registry_records": [
     {
       "id": "copernicus_glo30_regional",
@@ -58,7 +40,7 @@
     },
     {
       "id": "copernicus_glo90_global",
-      "state": "planned",
+      "state": "processed",
       "provider": "Copernicus / Sinergise / AWS Open Data",
       "name": "Copernicus DEM GLO-90",
       "url": "https://registry.opendata.aws/copernicus-dem/",
@@ -195,7 +177,7 @@
     },
     {
       "id": "nasadem_independent_check",
-      "state": "planned",
+      "state": "processed",
       "provider": "NASA LP DAAC / Microsoft Planetary Computer",
       "name": "NASADEM SRTM-derived elevation cross-check",
       "url": "https://doi.org/10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
@@ -264,81 +246,9 @@
         "Land-cover data are processed for the retained global terrain shortlist only; this is not global per-pixel reprocessing of every candidate window.",
         "No physical field validation is implied."
       ]
-    },
-    {
-      "id": "nasa_power_global",
-      "state": "planned",
-      "provider": "NASA Langley Research Center",
-      "name": "NASA POWER global candidate climatology",
-      "url": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
-      "doi_or_identifier": null,
-      "artifacts": [
-        "data/global_discovery/global_power_enrichment.json",
-        "data/global_discovery/global_discovery.json"
-      ],
-      "limitations": [
-        "The enrichment is limited to the retained top-100-per-target shortlist and is not a global climate raster.",
-        "NASA POWER provides gridded climatology, not local field-station observations or current forecasts.",
-        "T2M is 2m air temperature, not surface/rock temperature; precipitation is not evidence of water/ice resources.",
-        "Wind and solar values describe terrestrial atmosphere/surface context and do not reproduce Moon/Mars environment physics."
-      ]
     }
   ],
   "records": [
-    {
-      "path": "README.md",
-      "size_bytes": 30655,
-      "sha256": "70c73c74a086b51c5fe696b2dc219f51986aa1cd499830ba554cc3d6e0d3b227",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "index.html",
-      "size_bytes": 142564,
-      "sha256": "bafb15d22ce2be2b3b09850d5d44f0d92c4c1b3f43ad5a7af5653abc9210a04c",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "demo.html",
-      "size_bytes": 38777,
-      "sha256": "8941d186d70030e7dbf7ea7f5a124c86adaaaa79107baa512267d3ca06c9bc60",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "discovery.html",
-      "size_bytes": 26017,
-      "sha256": "0209da840154448b32540d4c27f9ec3a4c7397fac865b339e47ccbbcc1d1dfc2",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "global-discovery.html",
-      "size_bytes": 22729,
-      "sha256": "447dbb36373ddcc4948da93994c053ccb3793075592ee09e677ca557ae12f1e9",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "field-validation.html",
-      "size_bytes": 21471,
-      "sha256": "41ee334d3e2b460a9a714b97eb55deae9d3adef76d1794144f66033b6888933a",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "transferability.html",
-      "size_bytes": 27368,
-      "sha256": "b84f575e8236789eb9b1ea1fc141fb89244e8990402c9e005455a6c2b1c29485",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "service-worker.js",
-      "size_bytes": 4606,
-      "sha256": "cc56ba8fc0bdd36e4c00854f6161b2d697949b4571202e9509574aacc4621ff9",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "manifest.webmanifest",
-      "size_bytes": 457,
-      "sha256": "84f2a1b54e5c75c23b897d7faa2f1dca914f9eb29156bd82addd4961b69cb1d2",
-      "evidence_class_hint": "method_or_documentation"
-    },
     {
       "path": "data/agents/candidate_catalog.json",
       "size_bytes": 21800,
@@ -356,6 +266,12 @@
       "size_bytes": 374,
       "sha256": "1aeb064e36e5f59fe4b6036a3838ce3e1239a298b68997624b1bc1a7b78ff8a9",
       "evidence_class_hint": "field_evidence_ledger"
+    },
+    {
+      "path": "data/global_discovery/global_discovery.json",
+      "size_bytes": 4012998,
+      "sha256": "de7d1e07c22ecdab60d77cf243cbaed83827752b45adcad39e31cd73c6779110",
+      "evidence_class_hint": "global_discovery_output"
     },
     {
       "path": "data/moon/diviner_prp_diagnostic/report.json",
@@ -767,8 +683,8 @@
     },
     {
       "path": "data/source_registry.json",
-      "size_bytes": 13844,
-      "sha256": "a89414c92bf0af892e0d4c4c8ba0bbc7b85baf0ecda38f45b86a6b254741d8f0",
+      "size_bytes": 12707,
+      "sha256": "877ebb1a3687c04c6507d6a184c879fd5d92c08e2e6c443b3f9a18ede5744102",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -856,9 +772,15 @@
       "evidence_class_hint": "processed_or_derived"
     },
     {
+      "path": "data/validation/nasadem_crosscheck.json",
+      "size_bytes": 14743,
+      "sha256": "a0d40e0caab58021eacae2e406dd81e7aa239b05f344cdab3c904bd83e6f0810",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
       "path": "data/validation/quantitative_validation.json",
-      "size_bytes": 1112,
-      "sha256": "aaa28a7b24767233045b8bdbaa811952bdf51517826990c6905a286386d43fc7",
+      "size_bytes": 3529,
+      "sha256": "16125877ceb4093ae9b0393c2e0ca4ee13d17e061f80af26721af010aaa68887",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -905,8 +827,8 @@
     },
     {
       "path": "scripts/build_global_discovery.py",
-      "size_bytes": 18617,
-      "sha256": "dbbc28e74cc63601d0077dac3c2f39fd4c02ea1f55f1e9be1d918b2b3d1957f0",
+      "size_bytes": 18571,
+      "sha256": "3680a6553607f8bf18a32aa581281aff383bb9787d9df56a60e7536d3dff1489",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -923,14 +845,14 @@
     },
     {
       "path": "scripts/build_quantitative_validation.py",
-      "size_bytes": 5795,
-      "sha256": "b0ecc192434491385f742ff58a5604f877e3a7bc1244f8fb1e80a4ee837a040a",
+      "size_bytes": 5163,
+      "sha256": "b01d1b504bc079a1fc1625fe7df5448d16be6c39e193db1fb83919504cee29eb",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": "scripts/build_reproducibility_manifest.py",
-      "size_bytes": 5287,
-      "sha256": "f4e3546a9dab04887619f55e8eb0251284e4e6de79ec7423adbefa8f23d7fb83",
+      "size_bytes": 4582,
+      "sha256": "202611e51042214c3e73cf906f902722279e181f0d2231172be230a7e4a89701",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -967,12 +889,6 @@
       "path": "scripts/enrich_global_landcover.py",
       "size_bytes": 11997,
       "sha256": "3754672dab0f07abaab215926f5792c9bc5fa47fd88b3023b416ac764ea26588",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "scripts/enrich_global_power.py",
-      "size_bytes": 9203,
-      "sha256": "42d24aa993b7d8c73d185ab3214a310fdbbb9ed0f9007881a824e123b4fa3931",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1013,8 +929,8 @@
     },
     {
       "path": "scripts/merge_global_discovery.py",
-      "size_bytes": 7860,
-      "sha256": "36534d04a04ff83556c8fe337c0f12bbd1c501d0a46a95fe18f065d83e8a72f0",
+      "size_bytes": 7861,
+      "sha256": "dd065d71fc5e84c92160cb473fb61575a1b18e028fd81b799a419f58b7890979",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1037,8 +953,8 @@
     },
     {
       "path": "scripts/refresh_source_registry.py",
-      "size_bytes": 2494,
-      "sha256": "64af7faa7026ea165219b0fdcc0779c180aa3cad0c8e8eca1437dbdb2813894b",
+      "size_bytes": 1918,
+      "sha256": "8d3e3a9e3e0d931f0f35c210ba8dff615644c61dc7b709c66ee993db20bf358e",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1055,8 +971,8 @@
     },
     {
       "path": "scripts/validate_field_observations.py",
-      "size_bytes": 2625,
-      "sha256": "eb3eb20ddb47b704c3ec1d84f65ad97f99e5074a1851e823ee1febc7797be48a",
+      "size_bytes": 2034,
+      "sha256": "2c5f4b7f2c010cc6408eb73a37a254e1c377987f866bbc5cd94620dcc7a1ee19",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1067,8 +983,8 @@
     },
     {
       "path": "scripts/validate_project.mjs",
-      "size_bytes": 10353,
-      "sha256": "bd4d8c3272155bf665be660a4abafb10afe7c654e9e15aeddb7d62014089500d",
+      "size_bytes": 9877,
+      "sha256": "d74fc315416cfd46f1e203dac3d4662f6429e20dc724e0f9141e6c809a3b34f8",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1127,8 +1043,8 @@
     },
     {
       "path": "docs/COMPETITIVE_CAPABILITY_RESPONSE.md",
-      "size_bytes": 7066,
-      "sha256": "bdeb5f5c608ac761bdbb66aa0e6cc261413e992dcc9414c38ddacff0a4533ea8",
+      "size_bytes": 6619,
+      "sha256": "a2cc679e9bebc0750ee4405e9ac47029886eefb5131dd24302807a0570381230",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1145,8 +1061,8 @@
     },
     {
       "path": "docs/DATA_SOURCES.md",
-      "size_bytes": 19344,
-      "sha256": "ad6e5b3776d7dfde754da506ce6119823087a1276afd286752d90c6c4554cfcd",
+      "size_bytes": 16528,
+      "sha256": "2c736600729c3737873268d45f30e8374bc28be494acc6567e46312b4e8b51d6",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1157,8 +1073,8 @@
     },
     {
       "path": "docs/GLOBAL_DISCOVERY_AND_VALIDATION.md",
-      "size_bytes": 9085,
-      "sha256": "e66a6670fffb72b62a1627723ad8382047811efddc949ca1afd9b0c8a075a16a",
+      "size_bytes": 8657,
+      "sha256": "0e2165f7a031c2981f5e71faccd3831846422566c02d2c04fca6cd154c424a76",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1169,8 +1085,8 @@
     },
     {
       "path": "docs/METHODOLOGY.md",
-      "size_bytes": 15082,
-      "sha256": "cce42a1ad3216de6bdc01595b0e19922e7d7ff6509014c927c0c9a2d95d15cb9",
+      "size_bytes": 11812,
+      "sha256": "4b4bdb4a254d9f6338e016e54f2ec2b812d9a44bad72c13afc64c87cc7e64739",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1217,8 +1133,8 @@
     },
     {
       "path": "docs/RESOURCE_INTEGRATION_MATRIX.md",
-      "size_bytes": 18437,
-      "sha256": "2e0c56962c94bfb8d89c5f77742f69d3a005d806bf48b4b3abdb4afb88b8580b",
+      "size_bytes": 15532,
+      "sha256": "52a961d491c252678c01d01f5857829c5247450113da1d895196a02d86ee8207",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1226,222 +1142,11 @@
       "size_bytes": 1260,
       "sha256": "428b1e9f5323a3603c3d1cc87eba1bc6cdef155e17a5272e1aa7c07f2e56f8e6",
       "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": ".github/workflows/build-lunar-lola-80m.yml",
-      "size_bytes": 1787,
-      "sha256": "b53bd60ba45943df5e3cfa51405f6b1f90fb47fd6c2b53d368da7717dd2bc82f",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": ".github/workflows/build-lunar-reference.yml",
-      "size_bytes": 1385,
-      "sha256": "17ceaa33d813a20cc7549980c1f5d69b637c923372ced6302ee0b2f1d405cf40",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": ".github/workflows/build-lunar-resource-profile.yml",
-      "size_bytes": 1312,
-      "sha256": "93b99cc52a99c1e5297588ec63febc49121c770bd0d874e323c3ff0a76f98f27",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": ".github/workflows/build-provenance-manifest.yml",
-      "size_bytes": 3275,
-      "sha256": "a5f71981c1a150391a6e0e8ee11927bffa63acd8572896a5c86d439767fa43f5",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": ".github/workflows/build-terrain-comparison.yml",
-      "size_bytes": 5128,
-      "sha256": "9e3f2dea25e13941ddc20fab3930ab1c236d7d63c1fd911317210870223c178d",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": ".github/workflows/build-transferability.yml",
-      "size_bytes": 3771,
-      "sha256": "94e67dcf9268157ea6af1145793a96fc58b6ef5b228bd525afcfd5ded412a485",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": ".github/workflows/deploy-agent-worker.yml",
-      "size_bytes": 503,
-      "sha256": "f658a495fc79e9b960c1bdd8748f4f1aa14cdc8d85f90257fed5532d6489657a",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": ".github/workflows/diagnose-diviner-prp.yml",
-      "size_bytes": 1642,
-      "sha256": "147d6af2f7b5b921ecf80586eafe615bcc28741a556f7a1682a2f123e8f94e95",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": ".github/workflows/diagnose-lola-access.yml",
-      "size_bytes": 1201,
-      "sha256": "19ecd238477602fceb70abe10a3f4d60322e3881bba1a8e1993fc72644457381",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": ".github/workflows/diagnose-lola-mit.yml",
-      "size_bytes": 1190,
-      "sha256": "4c4dd280c3af0108092e4e645532acfc084b5651b50c4ea499c152cd895ec09c",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": ".github/workflows/fetch-nasa-cmr.yml",
-      "size_bytes": 1334,
-      "sha256": "57fa72a27a2327ac37ae8577381e32dd54c3c9c1e63931598bf9190463608de7",
-      "evidence_class_hint": "metadata_only"
-    },
-    {
-      "path": ".github/workflows/fetch-nasa-power.yml",
-      "size_bytes": 1330,
-      "sha256": "8cb0f09293d3eacacdc4599dd782d677c2b3665b5cb2251c5e208b694de3d7fa",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": ".github/workflows/fetch-public-evidence.yml",
-      "size_bytes": 1958,
-      "sha256": "a0c6705e7584573ff4d65c21a31312f46187c6f0b7d8e05077361d686b4509f6",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": ".github/workflows/global-discovery.yml",
-      "size_bytes": 4231,
-      "sha256": "e4616803bbd0c64c170f65ae1b962a7362eddfd1e04a6a2dd82e0b9a79534717",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": ".github/workflows/global-environment-enrichment.yml",
-      "size_bytes": 2975,
-      "sha256": "e401fd5237754e866bd80d06a715d0fe67f04d37d4b00b867d8cb19ba09a0859",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": ".github/workflows/pages.yml",
-      "size_bytes": 3018,
-      "sha256": "57cf6b4cbbc8fae64d64614e5e29d63a1168f6360f298c83a803f5050520d90b",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": ".github/workflows/process-sentinel-evidence.yml",
-      "size_bytes": 1503,
-      "sha256": "37408dca67841f4e29d5b8642d35f889e2eb3bd815f4a920a58428928bb7a630",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "tests/test_global_discovery.py",
-      "size_bytes": 2672,
-      "sha256": "b8615d3c3d6db2026aa3c9c5a958ef0b4477221cf96dd2032b20cb3e84d460a7",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "tests/test_global_landcover.py",
-      "size_bytes": 1687,
-      "sha256": "2c7b13f4ce13ddf631f5f5995a217c48237a3c7cee474e4797e0d527f9f0fff2",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "tests/test_global_power.py",
-      "size_bytes": 2085,
-      "sha256": "6e25bed596d6c0868ba088ac4b85806bc55c818c02bbfb8b631dbc1cb2591374",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "tests/test_regional_window_scan.py",
-      "size_bytes": 2422,
-      "sha256": "fc8508b1cd0aa38625eb28e421c006ae7d03ae2558b8e1d7172c8f31244bd639",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "assets/analogx-field-passport.css",
-      "size_bytes": 6638,
-      "sha256": "f8d373576807b2420480f586d9c13361eac04e827274aeb7502c8e7430d5a338",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "assets/analogx-field-passport.js",
-      "size_bytes": 29472,
-      "sha256": "4a0e6337d49fab8f3b575b279cca43365b45d160e03a8ab2b21e5574783657f4",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "assets/analogx-icon.svg",
-      "size_bytes": 758,
-      "sha256": "529d5fbdda7c38d3660bf474dce81ae3df84842b5401cd5926822cb989251357",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "assets/analogx-labs.css",
-      "size_bytes": 33191,
-      "sha256": "11254d659624217ebf1bacb1952651c9befa2b136cb35d4ffcc0c859b99a6480",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "assets/analogx-labs.js",
-      "size_bytes": 60325,
-      "sha256": "ba2d79613139b2bc7d28d92c02690aaf98bcbbf89bcbaff5046de1684ee37de5",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "assets/analogx-scout.css",
-      "size_bytes": 3218,
-      "sha256": "8124312ed4eb3411736b8689591074c2dad19106903a4fdd481c4aef371964c4",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "agent-worker/index.js",
-      "size_bytes": 36322,
-      "sha256": "7ceb4605941ecae114bacb40e5f560c34262fbb2f11b1df4afd92f98e9094ca8",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "agent-worker/wrangler.toml",
-      "size_bytes": 345,
-      "sha256": "1654b402df08bca70d2e040f50d25adbaf0811a7ced98a5d44399727208c8a7d",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "backend/.env.example",
-      "size_bytes": 235,
-      "sha256": "e6287d3d7ca3113c13a790c2da4fc7b4b39ca501bf058fbfc4bac7c0babc7422",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "backend/Dockerfile",
-      "size_bytes": 262,
-      "sha256": "edea5195ce857dd3b50d1991995440c207e81b2f857256a052bbcce76288a5a4",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "backend/app.py",
-      "size_bytes": 10708,
-      "sha256": "f7705749d6429b91d640e3555680b253bbdf3c88b2dc71103685d23712782fb6",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "backend/compose.yaml",
-      "size_bytes": 811,
-      "sha256": "29368e979d142a623c86ad14a7832c70f0995697d76c962275048e44d6bc4039",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "backend/requirements.txt",
-      "size_bytes": 105,
-      "sha256": "fa61bc8277ceebec3b58c49bc1345f6d94c3b59e2b401b99fd225547573188c5",
-      "evidence_class_hint": "method_or_documentation"
-    },
-    {
-      "path": "backend/smoke_test.py",
-      "size_bytes": 2695,
-      "sha256": "7d3b150c5a169b87884b102b31f2144baa86d580fe1723e281503d2ee7ce1b7e",
-      "evidence_class_hint": "method_or_documentation"
     }
   ],
   "limitations": [
     "SHA-256 establishes byte-level identity, not scientific validity or source authenticity.",
     "The repository commit is recorded before the manifest file itself is written and committed; the manifest cannot hash its own final committed bytes.",
-    "The inventory includes core source-code, UI, tests, workflows, generated data and research documentation.",
     "Source context is copied from the versioned source registry. Each generated product must still retain acquisition date, item/granule IDs, licence, exact parameters, coordinate reference system and processing logs where available.",
     "Path-based evidence-class hints are not a substitute for the source registry's explicit per-product state.",
     "Catalogue metadata and browse images are not equivalent to downloaded, decoded quantitative science arrays."

@@ -1,17 +1,66 @@
 {
   "schema_version": "1.0.0",
-  "generated_at_utc": "2026-11-18T15:01:58.735552+00:00",
-  "status": "awaiting_global_scan",
-  "note": "Run the global GLO-90 workflow to generate global candidate data.",
+  "generated_at_utc": "2026-11-18T17:44:22+00:00",
+  "status": "diagnostic_only",
+  "global_scan_status": "complete",
+  "global_tile_processing_coverage_pct": 100.0,
+  "targets": {
+    "moon": {
+      "candidate_pool_size": 1200,
+      "core_vs_secondary_spearman": -0.665,
+      "top_25_overlap": 0,
+      "top_100_overlap": 0,
+      "metric_family_interpretation": "Agreement between two descriptor families from the same GLO-90 DEM. This is robustness analysis, not independent-data validation.",
+      "top_25_unique_source_tiles": 25,
+      "top_25_occupied_10deg_cells": 15,
+      "top_100_unique_source_tiles": 97,
+      "top_100_occupied_10deg_cells": 43,
+      "top_500_unique_source_tiles": 399,
+      "top_500_occupied_10deg_cells": 99
+    },
+    "mars": {
+      "candidate_pool_size": 1200,
+      "core_vs_secondary_spearman": -0.7123,
+      "top_25_overlap": 0,
+      "top_100_overlap": 1,
+      "metric_family_interpretation": "Agreement between two descriptor families from the same GLO-90 DEM. This is robustness analysis, not independent-data validation.",
+      "top_25_unique_source_tiles": 25,
+      "top_25_occupied_10deg_cells": 23,
+      "top_100_unique_source_tiles": 100,
+      "top_100_occupied_10deg_cells": 68,
+      "top_500_unique_source_tiles": 473,
+      "top_500_occupied_10deg_cells": 160
+    }
+  },
+  "interpretation": "Metric-family robustness checks the consistency of alternative terrain descriptors from the same DEM. It is not an independent validation set, probability, calibrated accuracy or expert/field truth.",
   "global_land_cover_enrichment": {
     "state": "awaiting_enrichment"
   },
-  "global_nasa_power_climatology": {
-    "state": "awaiting_enrichment"
-  },
   "independent_dem_crosscheck": {
-    "state": "awaiting_validation_run",
-    "note": "NASADEM source check is a separate data-source test and is not yet processed."
+    "state": "processed",
+    "sites_crosschecked": 7,
+    "rank_concordance": {
+      "median_slope_deg": {
+        "spearman_rank_correlation_approx": 0.9643,
+        "n_sites": 7
+      },
+      "p90_slope_deg": {
+        "spearman_rank_correlation_approx": 0.9643,
+        "n_sites": 7
+      },
+      "p90_local_relief_m": {
+        "spearman_rank_correlation_approx": 0.9643,
+        "n_sites": 7
+      }
+    },
+    "source": "NASADEM SRTM-derived elevation compared with Copernicus GLO-30 at selected overlapping sites",
+    "limits": [
+      "NASADEM has approximate coverage from 56\u00b0S to 60\u00b0N; high-latitude sites such as McMurdo, Haughton or Iceland may be outside its coverage.",
+      "NASADEM uses SRTM with auxiliary void filling and is not a perfect independent ground survey.",
+      "NASADEM and Copernicus GLO-30 have different acquisition sensors, processing and DSM/DEM semantics; compare coarse descriptors, not absolute elevation datums.",
+      "This is independent raster-source checking, not in-situ field validation, geological validation or planetary analog validation.",
+      "Rank correlation is only descriptive for this small, selected set and must not be presented as calibrated model accuracy."
+    ]
   },
   "ground_truth_validation": {
     "state": "not_available",

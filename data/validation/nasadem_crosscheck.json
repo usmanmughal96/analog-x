@@ -1,0 +1,341 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "2026-11-18T17:44:21+00:00",
+  "status": "processed",
+  "purpose": "Independent-source elevation cross-check for matched Earth regional terrain profiles.",
+  "source": "NASADEM (SRTM-derived) compared with Copernicus DEM GLO-30 DSM",
+  "sites_attempted": 10,
+  "sites_crosschecked": 7,
+  "rank_concordance": {
+    "median_slope_deg": {
+      "spearman_rank_correlation_approx": 0.9643,
+      "n_sites": 7
+    },
+    "p90_slope_deg": {
+      "spearman_rank_correlation_approx": 0.9643,
+      "n_sites": 7
+    },
+    "p90_local_relief_m": {
+      "spearman_rank_correlation_approx": 0.9643,
+      "n_sites": 7
+    }
+  },
+  "site_results": [
+    {
+      "site_id": "chagai_small_playas",
+      "site_name": "Chagai small salt playas near Nok Kundi",
+      "status": "processed",
+      "source": {
+        "provider": "NASA LP DAAC / NASADEM",
+        "collection": "NASADEM_HGT.001 / NASADEM STAC",
+        "doi": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+        "catalog_api": "https://planetarycomputer.microsoft.com/api/stac/v1",
+        "spatial_coverage_note": "Approximately 56\u00b0S to 60\u00b0N; source pixels are 1 arc-second and include SRTM-based elevation with auxiliary void filling."
+      },
+      "stac_items_found": 1,
+      "elevation_assets_read": 1,
+      "analysis_support_m": 925.0,
+      "valid_cell_percent": 100.0,
+      "nasadem_metrics": {
+        "valid_cell_percent": 100.0,
+        "median_slope_deg": 0.3954295516014099,
+        "p90_slope_deg": 0.9936823844909668,
+        "p90_local_relief_m": 38.356910705566406,
+        "p95_slope_deg": 1.2414299249649048,
+        "slope_under_5_deg_pct": 100.0,
+        "slope_over_20_deg_pct": 0.0,
+        "elevation_iqr_m": 35.5423583984375
+      },
+      "copernicus_glo30_metrics": {
+        "median_slope_deg": 0.3966543374317767,
+        "p90_slope_deg": 1.0095103718732363,
+        "p90_local_relief_m": 38.7901611328125
+      },
+      "nasadem_minus_copdem_absolute_difference": {
+        "median_slope_deg": -0.0012,
+        "p90_slope_deg": -0.0158,
+        "p90_local_relief_m": -0.4333
+      },
+      "relative_difference_percent": {
+        "median_slope_deg": -0.31,
+        "p90_slope_deg": -1.57,
+        "p90_local_relief_m": -1.12
+      },
+      "interpretation": "Independent elevation-source cross-check for coarse terrain descriptors only. Copernicus DSM versus NASADEM surface model semantics differ; disagreement is diagnostic, not a correction or ground truth."
+    },
+    {
+      "site_id": "hamun_i_mashkel",
+      "site_name": "Hamun-i-Mashkel playa / Kharan Basin",
+      "status": "processed",
+      "source": {
+        "provider": "NASA LP DAAC / NASADEM",
+        "collection": "NASADEM_HGT.001 / NASADEM STAC",
+        "doi": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+        "catalog_api": "https://planetarycomputer.microsoft.com/api/stac/v1",
+        "spatial_coverage_note": "Approximately 56\u00b0S to 60\u00b0N; source pixels are 1 arc-second and include SRTM-based elevation with auxiliary void filling."
+      },
+      "stac_items_found": 2,
+      "elevation_assets_read": 2,
+      "analysis_support_m": 925.0,
+      "valid_cell_percent": 100.0,
+      "nasadem_metrics": {
+        "valid_cell_percent": 100.0,
+        "median_slope_deg": 0.01211903803050518,
+        "p90_slope_deg": 0.10329728573560715,
+        "p90_local_relief_m": 4.700976371765137,
+        "p95_slope_deg": 0.24223975837230682,
+        "slope_under_5_deg_pct": 100.0,
+        "slope_over_20_deg_pct": 0.0,
+        "elevation_iqr_m": 1.18756103515625
+      },
+      "copernicus_glo30_metrics": {
+        "median_slope_deg": 0.006523320375316654,
+        "p90_slope_deg": 0.09646678853970264,
+        "p90_local_relief_m": 4.9090820312500085
+      },
+      "nasadem_minus_copdem_absolute_difference": {
+        "median_slope_deg": 0.0056,
+        "p90_slope_deg": 0.0068,
+        "p90_local_relief_m": -0.2081
+      },
+      "relative_difference_percent": {
+        "median_slope_deg": 85.78,
+        "p90_slope_deg": 7.08,
+        "p90_local_relief_m": -4.24
+      },
+      "interpretation": "Independent elevation-source cross-check for coarse terrain descriptors only. Copernicus DSM versus NASADEM surface model semantics differ; disagreement is diagnostic, not a correction or ground truth."
+    },
+    {
+      "site_id": "koh_i_sultan",
+      "site_name": "Koh-i-Sultan / Chagai",
+      "status": "processed",
+      "source": {
+        "provider": "NASA LP DAAC / NASADEM",
+        "collection": "NASADEM_HGT.001 / NASADEM STAC",
+        "doi": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+        "catalog_api": "https://planetarycomputer.microsoft.com/api/stac/v1",
+        "spatial_coverage_note": "Approximately 56\u00b0S to 60\u00b0N; source pixels are 1 arc-second and include SRTM-based elevation with auxiliary void filling."
+      },
+      "stac_items_found": 2,
+      "elevation_assets_read": 2,
+      "analysis_support_m": 925.0,
+      "valid_cell_percent": 100.0,
+      "nasadem_metrics": {
+        "valid_cell_percent": 100.0,
+        "median_slope_deg": 2.6993582248687744,
+        "p90_slope_deg": 5.6747260093688965,
+        "p90_local_relief_m": 248.07315063476562,
+        "p95_slope_deg": 7.006904125213623,
+        "slope_under_5_deg_pct": 86.11111111111111,
+        "slope_over_20_deg_pct": 0.0,
+        "elevation_iqr_m": 401.4521484375
+      },
+      "copernicus_glo30_metrics": {
+        "median_slope_deg": 2.7333626721946516,
+        "p90_slope_deg": 5.662798394056884,
+        "p90_local_relief_m": 246.40473632812507
+      },
+      "nasadem_minus_copdem_absolute_difference": {
+        "median_slope_deg": -0.034,
+        "p90_slope_deg": 0.0119,
+        "p90_local_relief_m": 1.6684
+      },
+      "relative_difference_percent": {
+        "median_slope_deg": -1.24,
+        "p90_slope_deg": 0.21,
+        "p90_local_relief_m": 0.68
+      },
+      "interpretation": "Independent elevation-source cross-check for coarse terrain descriptors only. Copernicus DSM versus NASADEM surface model semantics differ; disagreement is diagnostic, not a correction or ground truth."
+    },
+    {
+      "site_id": "hispar_glacier",
+      "site_name": "Hispar Glacier / Karakoram",
+      "status": "processed",
+      "source": {
+        "provider": "NASA LP DAAC / NASADEM",
+        "collection": "NASADEM_HGT.001 / NASADEM STAC",
+        "doi": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+        "catalog_api": "https://planetarycomputer.microsoft.com/api/stac/v1",
+        "spatial_coverage_note": "Approximately 56\u00b0S to 60\u00b0N; source pixels are 1 arc-second and include SRTM-based elevation with auxiliary void filling."
+      },
+      "stac_items_found": 2,
+      "elevation_assets_read": 2,
+      "analysis_support_m": 925.0,
+      "valid_cell_percent": 100.0,
+      "nasadem_metrics": {
+        "valid_cell_percent": 100.0,
+        "median_slope_deg": 18.117813110351562,
+        "p90_slope_deg": 30.173202514648438,
+        "p90_local_relief_m": 1286.0855712890625,
+        "p95_slope_deg": 33.520904541015625,
+        "slope_under_5_deg_pct": 7.888888888888888,
+        "slope_over_20_deg_pct": 40.11111111111111,
+        "elevation_iqr_m": 844.08154296875
+      },
+      "copernicus_glo30_metrics": {
+        "median_slope_deg": 18.254706525984986,
+        "p90_slope_deg": 29.697712260731866,
+        "p90_local_relief_m": 1308.9645019531251
+      },
+      "nasadem_minus_copdem_absolute_difference": {
+        "median_slope_deg": -0.1369,
+        "p90_slope_deg": 0.4755,
+        "p90_local_relief_m": -22.8789
+      },
+      "relative_difference_percent": {
+        "median_slope_deg": -0.75,
+        "p90_slope_deg": 1.6,
+        "p90_local_relief_m": -1.75
+      },
+      "interpretation": "Independent elevation-source cross-check for coarse terrain descriptors only. Copernicus DSM versus NASADEM surface model semantics differ; disagreement is diagnostic, not a correction or ground truth."
+    },
+    {
+      "site_id": "dallol",
+      "site_name": "Dallol / Danakil Depression",
+      "status": "processed",
+      "source": {
+        "provider": "NASA LP DAAC / NASADEM",
+        "collection": "NASADEM_HGT.001 / NASADEM STAC",
+        "doi": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+        "catalog_api": "https://planetarycomputer.microsoft.com/api/stac/v1",
+        "spatial_coverage_note": "Approximately 56\u00b0S to 60\u00b0N; source pixels are 1 arc-second and include SRTM-based elevation with auxiliary void filling."
+      },
+      "stac_items_found": 1,
+      "elevation_assets_read": 1,
+      "analysis_support_m": 925.0,
+      "valid_cell_percent": 100.0,
+      "nasadem_metrics": {
+        "valid_cell_percent": 100.0,
+        "median_slope_deg": 0.05538003146648407,
+        "p90_slope_deg": 2.4051663875579834,
+        "p90_local_relief_m": 111.31631469726562,
+        "p95_slope_deg": 4.520514965057373,
+        "slope_under_5_deg_pct": 95.88888888888889,
+        "slope_over_20_deg_pct": 0.0,
+        "elevation_iqr_m": 9.502059936523438
+      },
+      "copernicus_glo30_metrics": {
+        "median_slope_deg": 0.04188248659307017,
+        "p90_slope_deg": 2.3207362253237482,
+        "p90_local_relief_m": 107.20050811767578
+      },
+      "nasadem_minus_copdem_absolute_difference": {
+        "median_slope_deg": 0.0135,
+        "p90_slope_deg": 0.0844,
+        "p90_local_relief_m": 4.1158
+      },
+      "relative_difference_percent": {
+        "median_slope_deg": 32.23,
+        "p90_slope_deg": 3.64,
+        "p90_local_relief_m": 3.84
+      },
+      "interpretation": "Independent elevation-source cross-check for coarse terrain descriptors only. Copernicus DSM versus NASADEM surface model semantics differ; disagreement is diagnostic, not a correction or ground truth."
+    },
+    {
+      "site_id": "atacama",
+      "site_name": "Atacama Desert",
+      "status": "processed",
+      "source": {
+        "provider": "NASA LP DAAC / NASADEM",
+        "collection": "NASADEM_HGT.001 / NASADEM STAC",
+        "doi": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+        "catalog_api": "https://planetarycomputer.microsoft.com/api/stac/v1",
+        "spatial_coverage_note": "Approximately 56\u00b0S to 60\u00b0N; source pixels are 1 arc-second and include SRTM-based elevation with auxiliary void filling."
+      },
+      "stac_items_found": 1,
+      "elevation_assets_read": 1,
+      "analysis_support_m": 925.0,
+      "valid_cell_percent": 100.0,
+      "nasadem_metrics": {
+        "valid_cell_percent": 100.0,
+        "median_slope_deg": 0.012886663898825645,
+        "p90_slope_deg": 0.14219948649406433,
+        "p90_local_relief_m": 6.773046970367432,
+        "p95_slope_deg": 0.3297073245048523,
+        "slope_under_5_deg_pct": 100.0,
+        "slope_over_20_deg_pct": 0.0,
+        "elevation_iqr_m": 1.3154296875
+      },
+      "copernicus_glo30_metrics": {
+        "median_slope_deg": 0.0020742380314972136,
+        "p90_slope_deg": 0.01286530267460696,
+        "p90_local_relief_m": 0.6661132812500001
+      },
+      "nasadem_minus_copdem_absolute_difference": {
+        "median_slope_deg": 0.0108,
+        "p90_slope_deg": 0.1293,
+        "p90_local_relief_m": 6.1069
+      },
+      "relative_difference_percent": {
+        "median_slope_deg": 521.27,
+        "p90_slope_deg": 1005.29,
+        "p90_local_relief_m": 916.8
+      },
+      "interpretation": "Independent elevation-source cross-check for coarse terrain descriptors only. Copernicus DSM versus NASADEM surface model semantics differ; disagreement is diagnostic, not a correction or ground truth."
+    },
+    {
+      "site_id": "mcmurdo",
+      "status": "outside_nasadem_coverage",
+      "coverage_note": "NASADEM SRTM-based global product covers approximately 56\u00b0S to 60\u00b0N; no cross-check attempted."
+    },
+    {
+      "site_id": "haughton",
+      "status": "outside_nasadem_coverage",
+      "coverage_note": "NASADEM SRTM-based global product covers approximately 56\u00b0S to 60\u00b0N; no cross-check attempted."
+    },
+    {
+      "site_id": "iceland",
+      "status": "outside_nasadem_coverage",
+      "coverage_note": "NASADEM SRTM-based global product covers approximately 56\u00b0S to 60\u00b0N; no cross-check attempted."
+    },
+    {
+      "site_id": "death",
+      "site_name": "Death Valley region",
+      "status": "processed",
+      "source": {
+        "provider": "NASA LP DAAC / NASADEM",
+        "collection": "NASADEM_HGT.001 / NASADEM STAC",
+        "doi": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+        "catalog_api": "https://planetarycomputer.microsoft.com/api/stac/v1",
+        "spatial_coverage_note": "Approximately 56\u00b0S to 60\u00b0N; source pixels are 1 arc-second and include SRTM-based elevation with auxiliary void filling."
+      },
+      "stac_items_found": 1,
+      "elevation_assets_read": 1,
+      "analysis_support_m": 925.0,
+      "valid_cell_percent": 100.0,
+      "nasadem_metrics": {
+        "valid_cell_percent": 100.0,
+        "median_slope_deg": 4.576359748840332,
+        "p90_slope_deg": 14.66769027709961,
+        "p90_local_relief_m": 601.8707885742188,
+        "p95_slope_deg": 18.156721115112305,
+        "slope_under_5_deg_pct": 53.666666666666664,
+        "slope_over_20_deg_pct": 3.0,
+        "elevation_iqr_m": 894.7122955322266
+      },
+      "copernicus_glo30_metrics": {
+        "median_slope_deg": 4.299621159871506,
+        "p90_slope_deg": 13.452266669068432,
+        "p90_local_relief_m": 584.8784889221191
+      },
+      "nasadem_minus_copdem_absolute_difference": {
+        "median_slope_deg": 0.2767,
+        "p90_slope_deg": 1.2154,
+        "p90_local_relief_m": 16.9923
+      },
+      "relative_difference_percent": {
+        "median_slope_deg": 6.44,
+        "p90_slope_deg": 9.04,
+        "p90_local_relief_m": 2.91
+      },
+      "interpretation": "Independent elevation-source cross-check for coarse terrain descriptors only. Copernicus DSM versus NASADEM surface model semantics differ; disagreement is diagnostic, not a correction or ground truth."
+    }
+  ],
+  "limitations": [
+    "NASADEM has approximate coverage from 56\u00b0S to 60\u00b0N; high-latitude sites such as McMurdo, Haughton or Iceland may be outside its coverage.",
+    "NASADEM uses SRTM with auxiliary void filling and is not a perfect independent ground survey.",
+    "NASADEM and Copernicus GLO-30 have different acquisition sensors, processing and DSM/DEM semantics; compare coarse descriptors, not absolute elevation datums.",
+    "This is independent raster-source checking, not in-situ field validation, geological validation or planetary analog validation.",
+    "Rank correlation is only descriptive for this small, selected set and must not be presented as calibrated model accuracy."
+  ]
+}

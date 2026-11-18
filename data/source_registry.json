@@ -36,7 +36,7 @@
       "id": "copernicus_glo90_global",
       "name": "Copernicus DEM GLO-90",
       "provider": "Copernicus / Sinergise / AWS Open Data",
-      "state": "planned",
+      "state": "processed",
       "data_type": "DSM",
       "resolution": "90 m nominal / 30 arc seconds; local metric grid resampled to ~925 m for candidate windows",
       "coverage": "Worldwide land-tile inventory; oceans have no DEM tiles.",
@@ -49,7 +49,8 @@
         "A global run is complete only when all inventory tiles are processed with no unreported failures.",
         "Global terrain shortlist is coarser than local GLO-30 studies.",
         "DSM is not bare-earth and does not measure geology or operational suitability."
-      ]
+      ],
+      "coverage_pct_processed_tiles": 100.0
     },
     {
       "id": "nasa_power",
@@ -192,10 +193,10 @@
       "id": "nasadem_independent_check",
       "name": "NASADEM SRTM-derived elevation cross-check",
       "provider": "NASA LP DAAC / Microsoft Planetary Computer",
-      "state": "planned",
+      "state": "processed",
       "data_type": "Independent-source elevation comparison",
       "resolution": "1 arc-second (~30 m at equator); resampled to ~925 m for matched regional descriptors",
-      "coverage": "Near-global land coverage: 60°N to 56°S; selected study sites outside this extent are not cross-checked.",
+      "coverage": "Near-global land coverage: 60\u00b0N to 56\u00b0S; selected study sites outside this extent are not cross-checked.",
       "artifacts": [
         "data/validation/nasadem_crosscheck.json"
       ],
@@ -203,10 +204,11 @@
       "doi_or_identifier": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
       "limitations": [
         "NASADEM is primarily SRTM-derived with auxiliary ASTER GDEM and ICESat GLAS control/void-filling inputs; it is not a ground survey.",
-        "Coverage is 60°N to 56°S, so some high-latitude study areas are outside coverage.",
+        "Coverage is 60\u00b0N to 56\u00b0S, so some high-latitude study areas are outside coverage.",
         "NASADEM and Copernicus GLO-30 have different acquisition sensors, processing and DSM/DEM semantics; compare descriptors only.",
         "This is independent raster-source checking, not in-situ field validation, geological validation or planetary analog validation."
-      ]
+      ],
+      "sites_crosschecked": 7
     },
     {
       "id": "evk2cnr_glacier_inventory",
