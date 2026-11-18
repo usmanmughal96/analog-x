@@ -30,7 +30,7 @@ class GlobalLandCoverTests(unittest.TestCase):
 
     def test_landcover_cog_url_signing(self):
         token="?sig=abc"
-        self.assertEqual(lc.sign_href("https://example.test/file.tif",token),"https://example.test/file.tif&sig=abc")
+        self.assertEqual(lc.sign_href("https://example.test/file.tif",token),"https://example.test/file.tif?sig=abc")
         self.assertEqual(lc.sign_href("https://example.test/file.tif?x=1",token),"https://example.test/file.tif?x=1&sig=abc")
         self.assertEqual(lc.sign_href("https://example.test/file.tif",""),"https://example.test/file.tif")
 
