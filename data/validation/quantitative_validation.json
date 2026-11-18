@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "2026-11-18T14:58:45.907528+00:00",
+  "status": "awaiting_global_scan",
+  "note": "Run the global GLO-90 workflow to generate global candidate data.",
+  "global_land_cover_enrichment": {
+    "state": "awaiting_enrichment"
+  },
+  "global_nasa_power_climatology": {
+    "state": "awaiting_enrichment"
+  },
+  "independent_dem_crosscheck": {
+    "state": "awaiting_validation_run",
+    "note": "NASADEM source check is a separate data-source test and is not yet processed."
+  },
+  "ground_truth_validation": {
+    "state": "not_available",
+    "note": "No physical field observations are present in the repository. The field protocol and evidence validator do not substitute for field measurements."
+  },
+  "release_gate": {
+    "independent_source_check": "report only where NASADEM actually processed and site coverage is reported",
+    "field_validation": "requires georeferenced, instrumented observations and independent review",
+    "global_scan": "must have complete tile inventory coverage and zero unreported tile failures before calling complete"
+  }
+}

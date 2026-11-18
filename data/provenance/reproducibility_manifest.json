@@ -1,0 +1,1166 @@
+{
+  "schema_version": "2.0.0",
+  "project": "ANALOG-X",
+  "generated_at_utc": "2026-11-18T14:58:45+00:00",
+  "repository_commit_before_manifest_commit": "cef2a647b81433f65ad12674ba89a00bc1af0129",
+  "working_tree_before_manifest_write": "dirty",
+  "generator": "scripts/build_reproducibility_manifest.py",
+  "python_version": "3.11.18",
+  "runtime_packages": {
+    "numpy": "2.4.6",
+    "rasterio": null,
+    "scipy": null,
+    "requests": null,
+    "Pillow": null
+  },
+  "inventory_scope": [
+    "data",
+    "science",
+    "scripts",
+    "docs"
+  ],
+  "file_count": 148,
+  "source_registry_sha256": "a89414c92bf0af892e0d4c4c8ba0bbc7b85baf0ecda38f45b86a6b254741d8f0",
+  "source_registry_records": [
+    {
+      "id": "copernicus_glo30_regional",
+      "state": "processed",
+      "provider": "Copernicus / Sinergise / AWS",
+      "name": "Copernicus DEM GLO-30 Public",
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/readme.html",
+      "doi_or_identifier": "COP-DEM_GLO-30-DGED",
+      "artifacts": [
+        "data/terrain/terrain_comparison.json"
+      ],
+      "limitations": [
+        "DSM includes surface objects; not bare-earth elevation.",
+        "30 m diagnostic is Earth-only and not a rover-scale safety measure.",
+        "The public GLO-30 tile set has unreleased tiles; do not use it as the global base layer."
+      ]
+    },
+    {
+      "id": "copernicus_glo90_global",
+      "state": "planned",
+      "provider": "Copernicus / Sinergise / AWS Open Data",
+      "name": "Copernicus DEM GLO-90",
+      "url": "https://registry.opendata.aws/copernicus-dem/",
+      "doi_or_identifier": null,
+      "artifacts": [
+        "data/global_discovery/global_discovery.json"
+      ],
+      "limitations": [
+        "A global run is complete only when all inventory tiles are processed with no unreported failures.",
+        "Global terrain shortlist is coarser than local GLO-30 studies.",
+        "DSM is not bare-earth and does not measure geology or operational suitability."
+      ]
+    },
+    {
+      "id": "nasa_power",
+      "state": "processed",
+      "provider": "NASA Langley Research Center",
+      "name": "NASA POWER Climatology",
+      "url": "https://power.larc.nasa.gov/",
+      "doi_or_identifier": null,
+      "artifacts": [
+        "data/power/index.json"
+      ],
+      "limitations": [
+        "Not local weather-station data.",
+        "Air temperature is not surface temperature.",
+        "Precipitation is not water/ice resource abundance."
+      ]
+    },
+    {
+      "id": "sentinel2_l2a_spectral",
+      "state": "processed",
+      "provider": "ESA Copernicus / Microsoft Planetary Computer",
+      "name": "Sentinel-2 L2A spectral context",
+      "url": "https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a",
+      "doi_or_identifier": null,
+      "artifacts": [
+        "data/pakistan"
+      ],
+      "limitations": [
+        "Spectral indices are screening signals, not mineral or brine classification.",
+        "Cloud and seasonal effects remain."
+      ]
+    },
+    {
+      "id": "sentinel2_rgb",
+      "state": "browse_only",
+      "provider": "ESA Copernicus / Microsoft Planetary Computer",
+      "name": "Sentinel-2 true-colour quicklooks",
+      "url": "https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a",
+      "doi_or_identifier": null,
+      "artifacts": [
+        "data/pakistan/quicklooks"
+      ],
+      "limitations": [
+        "Browse imagery, not calibrated multispectral data.",
+        "Not field validation or geological classification."
+      ]
+    },
+    {
+      "id": "nasa_cmr_modis_merra",
+      "state": "metadata_only",
+      "provider": "NASA Earthdata",
+      "name": "NASA Earthdata CMR MODIS and MERRA-2 catalogue discovery",
+      "url": "https://cmr.earthdata.nasa.gov/search/",
+      "doi_or_identifier": null,
+      "artifacts": [
+        "data/nasa/earthdata_cmr_catalog.json"
+      ],
+      "limitations": [
+        "Catalogue records only; underlying science arrays have not been downloaded/decoded by this integration.",
+        "A global MERRA-2 granule record is not a site-clipped environmental value."
+      ]
+    },
+    {
+      "id": "nasa_epic",
+      "state": "browse_only",
+      "provider": "NASA GSFC",
+      "name": "NASA DSCOVR EPIC",
+      "url": "https://epic.gsfc.nasa.gov/",
+      "doi_or_identifier": null,
+      "artifacts": [
+        "data/nasa/epic_latest.json"
+      ],
+      "limitations": [
+        "Global context only; not site-scale metric evidence."
+      ]
+    },
+    {
+      "id": "nasa_lola",
+      "state": "processed",
+      "provider": "NASA PDS Geosciences Node",
+      "name": "NASA LRO LOLA GDR",
+      "url": "https://pds-geosciences.wustl.edu/missions/lro/",
+      "doi_or_identifier": null,
+      "artifacts": [
+        "data/moon/shackleton_lola_80m.json",
+        "data/moon/lola_access_diagnostic.json"
+      ],
+      "limitations": [
+        "Elevation surface has interpolation; return counts are separate support evidence.",
+        "Not an illumination/PSR or ice-access map."
+      ]
+    },
+    {
+      "id": "nasa_mola",
+      "state": "processed",
+      "provider": "NASA PDS Geosciences Node",
+      "name": "NASA MGS MOLA MEGDR",
+      "url": "https://pds-geosciences.wustl.edu/missions/mgs/megdr.html",
+      "doi_or_identifier": null,
+      "artifacts": [
+        "data/terrain/terrain_comparison.json"
+      ],
+      "limitations": [
+        "Selected window has 50.53% observed-cell coverage; terrain summary is provisional.",
+        "Not rover safety or site selection."
+      ]
+    },
+    {
+      "id": "nasa_diviner_prp",
+      "state": "processed",
+      "provider": "NASA LRO Diviner / PDS",
+      "name": "NASA Diviner polar resource products V2.0",
+      "url": "https://pds-geosciences.wustl.edu/missions/lro/",
+      "doi_or_identifier": null,
+      "artifacts": [
+        "data/moon/diviner_prp_diagnostic/report.json"
+      ],
+      "limitations": [
+        "Ice-depth fields remain withheld pending QA; no accessible-ice claim.",
+        "Historical model-derived summaries are not field measurements."
+      ]
+    },
+    {
+      "id": "nasadem_independent_check",
+      "state": "planned",
+      "provider": "NASA LP DAAC / Microsoft Planetary Computer",
+      "name": "NASADEM SRTM-derived elevation cross-check",
+      "url": "https://doi.org/10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+      "doi_or_identifier": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
+      "artifacts": [
+        "data/validation/nasadem_crosscheck.json"
+      ],
+      "limitations": [
+        "NASADEM is primarily SRTM-derived with auxiliary ASTER GDEM and ICESat GLAS control/void-filling inputs; it is not a ground survey.",
+        "Coverage is 60\u00b0N to 56\u00b0S, so some high-latitude study areas are outside coverage.",
+        "NASADEM and Copernicus GLO-30 have different acquisition sensors, processing and DSM/DEM semantics; compare descriptors only.",
+        "This is independent raster-source checking, not in-situ field validation, geological validation or planetary analog validation."
+      ]
+    },
+    {
+      "id": "evk2cnr_glacier_inventory",
+      "state": "reference_only",
+      "provider": "EvK2CNR",
+      "name": "Pakistan Glacier Inventory prior work",
+      "url": "https://www.evk2cnr.org/en/projects/glacier-and-students",
+      "doi_or_identifier": null,
+      "artifacts": [],
+      "limitations": [
+        "Cited as prior work; ANALOG-X does not claim glacier discovery or remapping."
+      ]
+    },
+    {
+      "id": "suparco_space4climate",
+      "state": "reference_only",
+      "provider": "SUPARCO / Government of Pakistan",
+      "name": "SUPARCO / Space4Climate / DisasterWatch institutional context",
+      "url": "https://suparco.gov.pk/",
+      "doi_or_identifier": null,
+      "artifacts": [],
+      "limitations": [
+        "No verified public machine-readable bulk ingestion endpoint or reuse licence claimed."
+      ]
+    },
+    {
+      "id": "ndma_hazard_context",
+      "state": "reference_only",
+      "provider": "National Disaster Management Authority Pakistan",
+      "name": "NDMA hazard and glacier-lake institutional context",
+      "url": "https://ndma.gov.pk/",
+      "doi_or_identifier": null,
+      "artifacts": [],
+      "limitations": [
+        "Linked as context only; no redistributable geospatial layers claimed as ingested."
+      ]
+    },
+    {
+      "id": "io_lulc_global",
+      "state": "planned",
+      "provider": "Impact Observatory / Esri / Microsoft Planetary Computer",
+      "name": "10m Annual Land Use Land Cover (9-class) V2",
+      "url": "https://planetarycomputer.microsoft.com/dataset/io-lulc-annual-v02",
+      "doi_or_identifier": null,
+      "artifacts": [
+        "data/global_discovery/global_landcover_enrichment.json",
+        "data/global_discovery/global_discovery.json"
+      ],
+      "limitations": [
+        "Annual 2023 ML land-cover predictions are environmental context, not lithology, mineralogy, soil chemistry, brine or resource classification.",
+        "Provider-reported average accuracy is above 75%; accuracy varies by class and geography.",
+        "Source is Sentinel-2-derived; it is not a fully independent sensor family from Sentinel-2 imagery.",
+        "Land-cover data are processed for the retained global terrain shortlist only; this is not global per-pixel reprocessing of every candidate window.",
+        "No physical field validation is implied."
+      ]
+    },
+    {
+      "id": "nasa_power_global",
+      "state": "planned",
+      "provider": "NASA Langley Research Center",
+      "name": "NASA POWER global candidate climatology",
+      "url": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
+      "doi_or_identifier": null,
+      "artifacts": [
+        "data/global_discovery/global_power_enrichment.json",
+        "data/global_discovery/global_discovery.json"
+      ],
+      "limitations": [
+        "The enrichment is limited to the retained top-100-per-target shortlist and is not a global climate raster.",
+        "NASA POWER provides gridded climatology, not local field-station observations or current forecasts.",
+        "T2M is 2m air temperature, not surface/rock temperature; precipitation is not evidence of water/ice resources.",
+        "Wind and solar values describe terrestrial atmosphere/surface context and do not reproduce Moon/Mars environment physics."
+      ]
+    }
+  ],
+  "records": [
+    {
+      "path": "data/agents/candidate_catalog.json",
+      "size_bytes": 21800,
+      "sha256": "a1b576a9b3c0bdbd4a3969ec128ba8d1b026ea19d52707fc15de89be1763c251",
+      "evidence_class_hint": "metadata_only"
+    },
+    {
+      "path": "data/analog_benchmark/regional_window_scan.json",
+      "size_bytes": 1006807,
+      "sha256": "d27962599bcf5c5f7dbef9e2ac1e96bdd393a11aa6e1a3aae830f6e60540b859",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/field_validation/observations.json",
+      "size_bytes": 374,
+      "sha256": "1aeb064e36e5f59fe4b6036a3838ce3e1239a298b68997624b1bc1a7b78ff8a9",
+      "evidence_class_hint": "field_evidence_ledger"
+    },
+    {
+      "path": "data/moon/diviner_prp_diagnostic/report.json",
+      "size_bytes": 111730,
+      "sha256": "593f7e991b31befc454ce4b69375063ba13744014684dd127e7b56206bd93fcd",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/moon/lola_access_diagnostic.json",
+      "size_bytes": 1309,
+      "sha256": "76a03b8d5263825a3c768d40badea87b04230abf6e606500f023ad581739ed72",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/moon/mit_lola_diagnostic/LDEC_80S_80M_AUX.XML",
+      "size_bytes": 1655,
+      "sha256": "630372278b2d7728b873d5d2b4d9d8c1c1c05d01eb68295c6aff0155eb5aa8be",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/moon/mit_lola_diagnostic/LDEC_80S_80M_JP2.LBL",
+      "size_bytes": 5917,
+      "sha256": "456b24c9e392b86d54dad1da1b1658c532843041ecaea2c1d08b799efc4474d8",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/moon/mit_lola_diagnostic/LDEM_80S_80M_AUX.XML",
+      "size_bytes": 2387,
+      "sha256": "9f52c7ff05b6f5cb63776a20fb23a4b011cf6e9e10de2468a2f42e7385e5eb12",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/moon/mit_lola_diagnostic/LDEM_80S_80M_JP2.LBL",
+      "size_bytes": 6354,
+      "sha256": "497512747bb56490d50cf3f4945f2cb736bf61cd19b65fa61a826825e2a35d79",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/moon/mit_lola_diagnostic/report.json",
+      "size_bytes": 20100,
+      "sha256": "edb6c206e64bc472a1ca6f1b6911e023ab7323f0b7c7359840ad89f14e8183a1",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/moon/shackleton_diviner_prp.json",
+      "size_bytes": 12069,
+      "sha256": "0359c33a59e7aca3d083f796454b706e5224ee050039a3fa040e634c2f2719fa",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/moon/shackleton_lola_80m.json",
+      "size_bytes": 22570,
+      "sha256": "18336e00a8769ffceaf679b7b2f2b8d18e93dab73f600cc4ae6a0bf96ce7fdfe",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/moon/shackleton_lola_80m_elevation_preview.png",
+      "size_bytes": 34705,
+      "sha256": "66f73e468f677c7ed4d1b9f6573fb0be0263049208ed8766fb0d3c8611801bdd",
+      "evidence_class_hint": "browse_only"
+    },
+    {
+      "path": "data/nasa/earthdata_cmr_catalog.json",
+      "size_bytes": 108403,
+      "sha256": "5508c2c1d655ec37eb5e6cfe0601c563e7548f68266b523c816446317a03f998",
+      "evidence_class_hint": "metadata_only"
+    },
+    {
+      "path": "data/nasa/epic_latest.json",
+      "size_bytes": 1003,
+      "sha256": "5f83c2ef68b95a76ab163d6ec061d7bb3a689bd8731ab95c86f8f92d850a205b",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/epic_latest.png",
+      "size_bytes": 3280129,
+      "sha256": "37b0ab8e12bace0cfbe550ce7e83aa06a14d0f3ec04612a1beaa8d6d0ce07ec9",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/atacama_1.jpg",
+      "size_bytes": 12750,
+      "sha256": "7957ff0a04e1d5264de327b7a3e49b297d5051665a6e83906d04756c7b6fd5fb",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/atacama_2.jpg",
+      "size_bytes": 11447,
+      "sha256": "8e492159dd16c8f59fa58f05df3ef8c0672f27dae017204d204e12d72b041944",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/chagai_small_playas_1.jpg",
+      "size_bytes": 14334,
+      "sha256": "8913300d94fcb47caad39f1c69b9ab0fd3dfd783d26a649ff8e7a71bea0a1a02",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/chagai_small_playas_2.jpg",
+      "size_bytes": 12990,
+      "sha256": "cdef3354253115c991d790389377f80c4d16667b5c9ab0972f6315eae2058365",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/dallol_1.jpg",
+      "size_bytes": 15286,
+      "sha256": "97e7fb820d6bbfc04aa5f7bd07c6ca7a485d7e476bd36e6d7cd605d8c5ccbafc",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/dallol_2.jpg",
+      "size_bytes": 13116,
+      "sha256": "8559411647ca78734a528f8aedaddb680272be588c13584a893061284e920c60",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/death_1.jpg",
+      "size_bytes": 15875,
+      "sha256": "1a973601fc9d2d025187a8e03127a4eb25dca3b23afd6f7a2250469b168b4a21",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/death_2.jpg",
+      "size_bytes": 14636,
+      "sha256": "91be6599019199da3dfd4dd3fbaa9473b2211e51697f8041d58d39c8a94724ca",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/hamun_i_mashkel_1.jpg",
+      "size_bytes": 14334,
+      "sha256": "8913300d94fcb47caad39f1c69b9ab0fd3dfd783d26a649ff8e7a71bea0a1a02",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/hamun_i_mashkel_2.jpg",
+      "size_bytes": 12990,
+      "sha256": "cdef3354253115c991d790389377f80c4d16667b5c9ab0972f6315eae2058365",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/haughton_1.jpg",
+      "size_bytes": 15164,
+      "sha256": "dec1732ca0c9765654fc6bd495e1edba1470f860b8575a23c4b1fdee2e470671",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/haughton_2.jpg",
+      "size_bytes": 15283,
+      "sha256": "0e0654c2510b27d8f20e46ac13c277f92524f0780578f7af757af132f548efb6",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/hispar_glacier_1.jpg",
+      "size_bytes": 21864,
+      "sha256": "9f7d23dcbfc7ddb8a28db44527363c2104b1721e455ccebc60a6b98d2b77dcf6",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/hispar_glacier_2.jpg",
+      "size_bytes": 19037,
+      "sha256": "1d2c41bb91d8b70cfed970c57b1b2d4a1158fdafb6f28ccdbd42cf10fde57b02",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/iceland_1.jpg",
+      "size_bytes": 9638,
+      "sha256": "cc4d4401061cbd77d1188ab1c14cb73212637575489fa4982354bd7ccf13cf93",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/iceland_2.jpg",
+      "size_bytes": 9666,
+      "sha256": "80466ed27fcf0ad77f40521163f443d3fed50da4c83f170faa73bc7074708531",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/koh_i_sultan_1.jpg",
+      "size_bytes": 14334,
+      "sha256": "8913300d94fcb47caad39f1c69b9ab0fd3dfd783d26a649ff8e7a71bea0a1a02",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/koh_i_sultan_2.jpg",
+      "size_bytes": 12990,
+      "sha256": "cdef3354253115c991d790389377f80c4d16667b5c9ab0972f6315eae2058365",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/mcmurdo_1.jpg",
+      "size_bytes": 11331,
+      "sha256": "a4162da73e7e30982f80ef27a8a0e0062824e448517c6423520dc0b82cb031b9",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse/mcmurdo_2.jpg",
+      "size_bytes": 11836,
+      "sha256": "1d9326cfe584bc12b43dd4848ca11a6fd02644e976925c5c589fc2841fba056e",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/nasa/modis_browse_index.json",
+      "size_bytes": 43835,
+      "sha256": "121d1bf11b55d80a0aacf076455ee97336944c05eaac5ae45b8fb5782bd09542",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/pakistan/README.md",
+      "size_bytes": 594,
+      "sha256": "267206693982b8f647e72cd72ce4a24a19f478777c2df70a1b8afafc2add3eb3",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/pakistan/imagery/README.md",
+      "size_bytes": 753,
+      "sha256": "22970b05917e426f5d7644c94f1b47bcf1c5892ed4f30c0059b598552e2288fc",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/pakistan/imagery/chagai_small_playas_index_screen.png",
+      "size_bytes": 999298,
+      "sha256": "68bed979869a1eb2550db437fe324591f26bd94e2e197db7f7e4a6731ffce698",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/pakistan/imagery/chagai_small_playas_spectral_profile.json",
+      "size_bytes": 3599,
+      "sha256": "1df67a9e6bc9779fb37b8efa3df9f3994a4603263b9d707239e45010e6219c23",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/pakistan/imagery/chagai_small_playas_true_color.png",
+      "size_bytes": 1018645,
+      "sha256": "ebb6bc0f85a09f4ceef89e666220cff2f4c811a99b2b0268cd5a0a1bac6f2555",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/pakistan/imagery/hamun_i_mashkel_index_screen.png",
+      "size_bytes": 176799,
+      "sha256": "3add34926331c890146d52614265fb9992cbb96eadcda62869b68c84ed312359",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/pakistan/imagery/hamun_i_mashkel_spectral_profile.json",
+      "size_bytes": 3510,
+      "sha256": "584d0c145f93a6c84837a5d14a2be6891b94502d197321bd55e6a77862a9841d",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/pakistan/imagery/hamun_i_mashkel_true_color.png",
+      "size_bytes": 202579,
+      "sha256": "91d66b3bc3fb8b30b414bf5f32a7bee866a03db66324dee5792e9a818dc3c78e",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/pakistan/imagery/hispar_glacier_index_screen.png",
+      "size_bytes": 1266415,
+      "sha256": "d265fd366269335c179a24c4ef9910477b712c7fea0f4ee386ec5bfe59e92d85",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/pakistan/imagery/hispar_glacier_spectral_profile.json",
+      "size_bytes": 3445,
+      "sha256": "58e2fb9abd77132a4b43cb7e1fd0d0485ab21e56f82d1fb05402ded9e52d6689",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/pakistan/imagery/hispar_glacier_true_color.png",
+      "size_bytes": 1671564,
+      "sha256": "72ec80396077e6ee16f54de630d85d9fbdd23bd04d19e609be844360aca5dd44",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/pakistan/imagery/index.json",
+      "size_bytes": 15892,
+      "sha256": "7b14e75a43e6dec3072ece7c933796725b5b6b69a35786f8f8d68a8776fa0695",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/pakistan/imagery/koh_i_sultan_index_screen.png",
+      "size_bytes": 1396547,
+      "sha256": "bab3e515c8fd4218576fbb31b1a5dc9aee0d719a5a4dab279a2cfc2fd6242c3c",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/pakistan/imagery/koh_i_sultan_spectral_profile.json",
+      "size_bytes": 3435,
+      "sha256": "577976f504a51c2082909a4c622dc305fbda05d18fe6aa7137ca19745f18731b",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/pakistan/imagery/koh_i_sultan_true_color.png",
+      "size_bytes": 1774329,
+      "sha256": "986c1e02216413f56e53ccfdee003cb6299614b718791f0ebcfd5427b172ec88",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/pakistan/public_scene_catalog.json",
+      "size_bytes": 883260,
+      "sha256": "f02042c947e2ab87452668e947be717d20641c3fc06be7ad157e890a2748c945",
+      "evidence_class_hint": "metadata_only"
+    },
+    {
+      "path": "data/pakistan/quicklooks/chagai_small_playas.png",
+      "size_bytes": 757032,
+      "sha256": "e1b1d629a7465e67963c7449e12401dfba471803432e5b1ecbd79f84d66e2f72",
+      "evidence_class_hint": "browse_only"
+    },
+    {
+      "path": "data/pakistan/quicklooks/hamun_i_mashkel.png",
+      "size_bytes": 436899,
+      "sha256": "589021c39a6ec1c276f1f130f30cfe0d8a0a4624bbcb41237d34b12fe79d74d4",
+      "evidence_class_hint": "browse_only"
+    },
+    {
+      "path": "data/pakistan/quicklooks/hispar_glacier.png",
+      "size_bytes": 461740,
+      "sha256": "a8174181b9cfcfa99fdb3a603b43094aa4f4ceca4170ab0edbee25e89d74eef6",
+      "evidence_class_hint": "browse_only"
+    },
+    {
+      "path": "data/pakistan/quicklooks/index.json",
+      "size_bytes": 5107,
+      "sha256": "cd6bbfce54eb533561457c6537f9bb753e84c0c0ca35af405f7260d859382626",
+      "evidence_class_hint": "browse_only"
+    },
+    {
+      "path": "data/pakistan/quicklooks/koh_i_sultan.png",
+      "size_bytes": 911037,
+      "sha256": "0cbf5647af9a55d4e74d8ab5e689e1110965293825ee7516ad3672da929cd3bf",
+      "evidence_class_hint": "browse_only"
+    },
+    {
+      "path": "data/planetary/pds_search.json",
+      "size_bytes": 828621,
+      "sha256": "2786f9c0fd678084ed963aea058f372a7bf6202f07466187dc9ca81cbb4e070c",
+      "evidence_class_hint": "metadata_only"
+    },
+    {
+      "path": "data/power/README.md",
+      "size_bytes": 482,
+      "sha256": "d96671ace965593ef73120ed16f4b63cfef26181138a8e7bbbf211f6ef0902d6",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/power/atacama.json",
+      "size_bytes": 8172,
+      "sha256": "c47e8ef553bf5d9d54bcaf104d0775e5f6ee1b5456c2a0cd2a8cc9089561931b",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/power/chagai_small_playas.json",
+      "size_bytes": 8280,
+      "sha256": "ab45707425a57203e65d891b855fb374a42686dcf9c3d88fdced333fa3fdaf7e",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/power/dallol.json",
+      "size_bytes": 8251,
+      "sha256": "c1aeb1bac90a8f9a07cf604ec2ac4e09bb0679d30d661ed81a886177b176451a",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/power/death.json",
+      "size_bytes": 8220,
+      "sha256": "30cf3440f076d1b5fd856456ed2ddd9f78fc5e5844661d4ebf79f1af7e7a7398",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/power/hamun_i_mashkel.json",
+      "size_bytes": 8270,
+      "sha256": "0391d468f95809117f3b7944f52092b47dd53d3bd918dd1ac46c39852d9906fa",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/power/haughton.json",
+      "size_bytes": 8257,
+      "sha256": "1fb5487d342147840ec18d2bb71f7263e95ad0a60d490fa5504f4d4e9d8cb428",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/power/hispar_glacier.json",
+      "size_bytes": 8207,
+      "sha256": "bb7d2d0cbbf82bf44c447bfb30ec4e0f055fc8bc0647bf1f1f200c07a2176615",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/power/iceland.json",
+      "size_bytes": 8152,
+      "sha256": "34d1d7bc5cea0b1ceb0d32f72872363e131a201f2afb27e12a5fe82ff03a9b0a",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/power/index.json",
+      "size_bytes": 6292,
+      "sha256": "5a84b8d75f179bb1f49b5275ff66ccc6c3fbb9ca6b1426cc2ea0ec8df50bfc9f",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/power/koh.json",
+      "size_bytes": 8173,
+      "sha256": "7f0c3300186eda65d85b9e3fa271435c99f7043bc8e27ec66e62a5ae2789d27a",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/power/mcmurdo.json",
+      "size_bytes": 8294,
+      "sha256": "7c1a5ef6f83c490907e371ed5b1b1ab28656c83347b81cd9ac8327cc907c1a17",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/source_registry.json",
+      "size_bytes": 13844,
+      "sha256": "a89414c92bf0af892e0d4c4c8ba0bbc7b85baf0ecda38f45b86a6b254741d8f0",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
+      "path": "data/terrain/README.md",
+      "size_bytes": 847,
+      "sha256": "b521b0636fed756425dc3a1eeb99e06ef22095854b13f963826a26884be4296f",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/terrain/atacama_copdem_hillshade.png",
+      "size_bytes": 18504,
+      "sha256": "b82066e7d7ede62d809f805ee931f69d9e22db3c9782ec31feb5109cf3584364",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/terrain/chagai_small_playas_copdem_hillshade.png",
+      "size_bytes": 21341,
+      "sha256": "c0591bbaf6ecff811e0bebea038ebb92437701ddfb6c5837b4ffebbcfaf3f0f6",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/terrain/dallol_copdem_hillshade.png",
+      "size_bytes": 7641,
+      "sha256": "709a2ac961416caffd76ae7c5994a7764be809c91050d0faed6eb1d20715024d",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/terrain/death_copdem_hillshade.png",
+      "size_bytes": 16336,
+      "sha256": "587557b7e2c7f104c661fa4e6333ca9f32aaf0e2e7277b08b607bd181d137153",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/terrain/hamun_i_mashkel_copdem_hillshade.png",
+      "size_bytes": 8044,
+      "sha256": "c62ef9aa75aff42c9e98eb69e2de034524787fb6cafc95207e3fe9c3ef9217f3",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/terrain/haughton_copdem_hillshade.png",
+      "size_bytes": 27992,
+      "sha256": "39ee7c5dcd8dfdc34abed36f9bd6aa27862d25735344a014c262e1db90dfdaa5",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/terrain/hispar_glacier_copdem_hillshade.png",
+      "size_bytes": 33093,
+      "sha256": "0911f406f0bcb3fd4fde16f9b1ad0169babf52e301f615d8a7a3c736f9d04ebe",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/terrain/iceland_copdem_hillshade.png",
+      "size_bytes": 19472,
+      "sha256": "5b4cb4b9aae300f868e8ee10c2b9e92fe8bd29715c6e33c5a392dda6da376ead",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/terrain/koh_i_sultan_copdem_hillshade.png",
+      "size_bytes": 18084,
+      "sha256": "29a462049d957195804d44d1f735c9f42e67e76c390b86e09e1dc0a006d48990",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/terrain/mcmurdo_copdem_hillshade.png",
+      "size_bytes": 29062,
+      "sha256": "9890eb7d1f983c123030d5fb68266f9da81e896eaed7628d784341d0a5d68856",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/terrain/nili_patera_mola_hillshade.png",
+      "size_bytes": 27671,
+      "sha256": "f95db273fcc03efc05e9a3f9f4c7ffee26482c1ab1247726f009b6bc5bcb80e8",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/terrain/terrain_comparison.json",
+      "size_bytes": 272327,
+      "sha256": "51883bc7fe8b109d3908b610071c560c60bdbfa1f236199399b29b9a841af3a9",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/transferability/transferability.json",
+      "size_bytes": 388993,
+      "sha256": "10a008241e31f3cf5ff81d07bd4f02dd7b2fb119e7604c0d3acec9c293a42e98",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/validation/quantitative_validation.json",
+      "size_bytes": 1112,
+      "sha256": "1d01e08098a78f932dfe0828deb7e11884cd6954a3bbacc2ed34720189f420ee",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "science/README.md",
+      "size_bytes": 479,
+      "sha256": "ac7b9e639af5356c02cb5fe90bc8dfdcec16db8b39a2fe883ab7cb2dea640a27",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "science/analyze_mola.py",
+      "size_bytes": 3485,
+      "sha256": "3de5196dcfb3e00720efc52e9fca2dc9aeaec818139351bacf3f23a69419e710",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "science/build_regional_window_scan.py",
+      "size_bytes": 24678,
+      "sha256": "baa59fa456fbe40b7129e63e1fb08bfdbceee43534bf0dac2093c381b6b6cdb2",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "science/build_transferability.py",
+      "size_bytes": 23063,
+      "sha256": "626c785530a7bead742122432409753d60b72bb2455c50d4c6426c6149d2d591",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "science/dem_metrics.py",
+      "size_bytes": 3304,
+      "sha256": "a5f15c51df7a0f311e6999c2c145468825e593f35811f5e0ea65a80ad4d2dff8",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "science/field_validation_protocol.json",
+      "size_bytes": 2546,
+      "sha256": "43422b6309ded32f032ec4a96432d1e2eeb7d8d452b0ed35fb12d72125dff4ca",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "science/requirements.txt",
+      "size_bytes": 37,
+      "sha256": "e8aac7c4e454b7dc6419624a3ac509b15a99c86b2efadc343de400a4caa3e8d2",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/build_global_discovery.py",
+      "size_bytes": 18617,
+      "sha256": "dbbc28e74cc63601d0077dac3c2f39fd4c02ea1f55f1e9be1d918b2b3d1957f0",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/build_lunar_south_pole_lola_80m.py",
+      "size_bytes": 13233,
+      "sha256": "ea80222d9a99d9ab2751998ebd95cb26972d947bc320f831109f96ca1778fa46",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/build_lunar_south_pole_reference.py",
+      "size_bytes": 8747,
+      "sha256": "05797315e63355b818bd522e6f8986d241af7e5b060773a23bd98861323bd154",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/build_quantitative_validation.py",
+      "size_bytes": 5795,
+      "sha256": "b0ecc192434491385f742ff58a5604f877e3a7bc1244f8fb1e80a4ee837a040a",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/build_reproducibility_manifest.py",
+      "size_bytes": 4582,
+      "sha256": "202611e51042214c3e73cf906f902722279e181f0d2231172be230a7e4a89701",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/build_scene_quicklooks.py",
+      "size_bytes": 7150,
+      "sha256": "a70fa94d5f10d1d24e512d0801095c5e473ba90e8ed8ea5efd92f96822bf1124",
+      "evidence_class_hint": "browse_only"
+    },
+    {
+      "path": "scripts/build_terrain_comparison.py",
+      "size_bytes": 23399,
+      "sha256": "86799085ef9c55904b5eecde4b5148f23238816ef23160c8058eb33d50ca6d2a",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/diagnose_diviner_prp_access.py",
+      "size_bytes": 5352,
+      "sha256": "6895c4c407fe6f7a988e9620cab4c9063ea1a79f8670aa3d38dd7985b293d73c",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/diagnose_lola_access.py",
+      "size_bytes": 2527,
+      "sha256": "deaae8be0339d72b85b0d12643ab27c8a59dadd85d241c50e141a6bba9e875b2",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/diagnose_lola_mit_access.py",
+      "size_bytes": 2375,
+      "sha256": "101285dfd607876265941953d7517fc02a014b79bfec7da9ed4683fd743322eb",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/enrich_global_landcover.py",
+      "size_bytes": 11997,
+      "sha256": "3754672dab0f07abaab215926f5792c9bc5fa47fd88b3023b416ac764ea26588",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/enrich_global_power.py",
+      "size_bytes": 9203,
+      "sha256": "42d24aa993b7d8c73d185ab3214a310fdbbb9ed0f9007881a824e123b4fa3931",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/fetch_modis_browse.py",
+      "size_bytes": 5395,
+      "sha256": "32c56d6b8c5388579efe7e385f31f262851362d04393c04ba3f945519636ca5c",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/fetch_nasa_cmr_catalog.py",
+      "size_bytes": 6731,
+      "sha256": "bdb81fd282def057d127e6767d7f1535e3be972ac48b8da088b0dc3df1506e97",
+      "evidence_class_hint": "metadata_only"
+    },
+    {
+      "path": "scripts/fetch_nasa_epic.py",
+      "size_bytes": 3139,
+      "sha256": "313d7072a6569e17db12b21d83d385bc236920071ec36fee449fb8dcce51ad0e",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/fetch_nasa_power.py",
+      "size_bytes": 8704,
+      "sha256": "d5dfbfc197b3e044a3f0b2965f53515b501174a51241d470bae96bcd953a8856",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/fetch_pds_search.py",
+      "size_bytes": 6937,
+      "sha256": "0bf1aac1d8e8fdef9108594658d1b8a55e98ebe32a33310420e9f9e5d656c00f",
+      "evidence_class_hint": "metadata_only"
+    },
+    {
+      "path": "scripts/fetch_public_evidence.py",
+      "size_bytes": 14141,
+      "sha256": "24075bd5fc26920088acc430916ce07b2d00489ba7572b92dfc04db0ac4b9435",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/merge_global_discovery.py",
+      "size_bytes": 7860,
+      "sha256": "36534d04a04ff83556c8fe337c0f12bbd1c501d0a46a95fe18f065d83e8a72f0",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/process_diviner_prp.py",
+      "size_bytes": 16413,
+      "sha256": "0262d1a3bc29d747e01e8ca6b4a4fe1f2a02889f27a8a442036377ec4a0b7030",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/process_lunar_base_evidence.py",
+      "size_bytes": 21448,
+      "sha256": "e2d54fa0f8dc09e9e17ca65d6ecd99b365c1d20b2a264a86ea3c863d09b3f271",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/process_sentinel_evidence.py",
+      "size_bytes": 13655,
+      "sha256": "7d5ccb03b81d928661120dde795c31ff6c608fabe2a56539ac755ca67955b001",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/refresh_source_registry.py",
+      "size_bytes": 2494,
+      "sha256": "64af7faa7026ea165219b0fdcc0779c180aa3cad0c8e8eca1437dbdb2813894b",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/sites.json",
+      "size_bytes": 1545,
+      "sha256": "c42bf986de64732f471b63fd65c4d4659eaa0ccf720a91f9f46b93f444e90219",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/validate_evidence_inventory.py",
+      "size_bytes": 1836,
+      "sha256": "0f76b77801045ec4229a924dfe455ed9a9139b70ed1fd7b093d3b7820c805fdb",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/validate_field_observations.py",
+      "size_bytes": 2625,
+      "sha256": "eb3eb20ddb47b704c3ec1d84f65ad97f99e5074a1851e823ee1febc7797be48a",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/validate_nasadem_crosscheck.py",
+      "size_bytes": 10706,
+      "sha256": "19b802f262d08c1f7e7eb9b126a5d398a2f92d0750576bea04f54bb9d11c46b0",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/validate_project.mjs",
+      "size_bytes": 10353,
+      "sha256": "bd4d8c3272155bf665be660a4abafb10afe7c654e9e15aeddb7d62014089500d",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/ACCESS_MATRIX.md",
+      "size_bytes": 4198,
+      "sha256": "239b1a742380103fdab2df67991bb619a4b91aee35e7ff0c0393c9c2eed5f8c6",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/AGENCY_DATA_AUDIT.md",
+      "size_bytes": 16046,
+      "sha256": "69f6a99d5f0ec6364ffa74eb324a7393dbbe6f9ddb7ae4e62a047667fbe238cc",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/AGENTIC_AI_SETUP.md",
+      "size_bytes": 6657,
+      "sha256": "f55897e989709c3f71cb65e441f76cac7ba96630162c3103719a03fdb06c59a1",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/AI_DISCLOSURE.md",
+      "size_bytes": 3457,
+      "sha256": "bf750af1ed83507f4c6367cc94cefe845a01076b84f2d499cd221b852a16b99a",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/ALGORITHM.md",
+      "size_bytes": 2360,
+      "sha256": "30f5595520067de850994afc501f2cc37774f35aba76f3d9a36eba7973d3e970",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/ANALOG_TRANSFERABILITY_AND_FAILURE_ANALYSIS.md",
+      "size_bytes": 10981,
+      "sha256": "29a51c9e4c385c2fbfd6e62e024670138ff66f442bfba3e6c59db489fef6dcc7",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/API_KEY_SETUP.md",
+      "size_bytes": 1955,
+      "sha256": "64f456c160ec7e9f7d88c2a5a71389f0363b8f953ae8d15a71a0ebeb7f357c99",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/BENCHMARK_AND_DIFFERENTIATION.md",
+      "size_bytes": 7628,
+      "sha256": "255377dcc32ae1d3583493205dec73e9adc4589b3d9cd6b1caff4a7d9f25a752",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/CHALLENGE_SUBMISSION_BRIEF.md",
+      "size_bytes": 8987,
+      "sha256": "9372d0b443b00f27d73c602467c20c0db3a9943ecb6f5776ca6f29344feae66d",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/COMPETITIVE_CAPABILITY_RESPONSE.md",
+      "size_bytes": 7066,
+      "sha256": "bdeb5f5c608ac761bdbb66aa0e6cc261413e992dcc9414c38ddacff0a4533ea8",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/COMPETITOR_METHOD_NOTES.md",
+      "size_bytes": 5095,
+      "sha256": "01e8356373cc6f89681cd70c2a1b1a6f1e9c5f8ed006b0abddffedb13a2e191e",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/DATA_ACCESS_AND_SECURITY.md",
+      "size_bytes": 2572,
+      "sha256": "118b1574ce5d314800f6ee3d8a3f11bad876b6306ac1f250868fb792aad8cdaf",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/DATA_SOURCES.md",
+      "size_bytes": 16528,
+      "sha256": "2c736600729c3737873268d45f30e8374bc28be494acc6567e46312b4e8b51d6",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/DECISION_ENGINE.md",
+      "size_bytes": 7625,
+      "sha256": "76156af7a2a65d897c7e5a037ba628dc72b4f76f3af7a0f283f6c4eac840aacc",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/GLOBAL_DISCOVERY_AND_VALIDATION.md",
+      "size_bytes": 9085,
+      "sha256": "e66a6670fffb72b62a1627723ad8382047811efddc949ca1afd9b0c8a075a16a",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/LIMITATIONS.md",
+      "size_bytes": 3458,
+      "sha256": "05a758f46930c6df0ffba2ed5ffe91a5b6632ae782101e6efbcc211abfdc5ea7",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/METHODOLOGY.md",
+      "size_bytes": 11812,
+      "sha256": "4b4bdb4a254d9f6338e016e54f2ec2b812d9a44bad72c13afc64c87cc7e64739",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/NASA_SUBMISSION_TEXT.md",
+      "size_bytes": 6830,
+      "sha256": "3a9c6c2ef40cff51b382b51d60fd08526980ef734c5a8b092da05299e71af955",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/OFFLINE_AND_BACKEND.md",
+      "size_bytes": 6145,
+      "sha256": "12e577d0d4df6b040925ee6ff7b14dafed335d9d01fafd8ad0c2a40c584b0586",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/PROBLEM_AND_DIFFERENTIATION.md",
+      "size_bytes": 8679,
+      "sha256": "00e9d16feb1a55df3a367c7dad6bfb02792802ac40c685651738aaf1aa1cc162",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/PROJECT_POSITIONING.md",
+      "size_bytes": 1978,
+      "sha256": "4edf397a31f9202cf428626a7af7d6086578626ab11eb2d97bf9191920e0cb7b",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/REGIONAL_WINDOW_SCAN.md",
+      "size_bytes": 7808,
+      "sha256": "338fa919da74959b1fbddd579c6b55fbbf50b76248feb4a4c432afa5804bf336",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/REPOSITORY_STATUS.md",
+      "size_bytes": 4758,
+      "sha256": "c136a4aa4ab95815483aa871c26159593c1dc50b06ed3d91ec6d786e71a196f6",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/RESEARCH_GAP_AND_POSITIONING.md",
+      "size_bytes": 5981,
+      "sha256": "7149dfbbbbb7f657bbb03287241c282ce85a023ef73fb1b42f5a96a2535fa02a",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/RESOURCE_INTEGRATION_MATRIX.md",
+      "size_bytes": 15532,
+      "sha256": "52a961d491c252678c01d01f5857829c5247450113da1d895196a02d86ee8207",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/SUPARCO_REQUEST_EMAIL.md",
+      "size_bytes": 1260,
+      "sha256": "428b1e9f5323a3603c3d1cc87eba1bc6cdef155e17a5272e1aa7c07f2e56f8e6",
+      "evidence_class_hint": "method_or_documentation"
+    }
+  ],
+  "limitations": [
+    "SHA-256 establishes byte-level identity, not scientific validity or source authenticity.",
+    "The repository commit is recorded before the manifest file itself is written and committed; the manifest cannot hash its own final committed bytes.",
+    "Source context is copied from the versioned source registry. Each generated product must still retain acquisition date, item/granule IDs, licence, exact parameters, coordinate reference system and processing logs where available.",
+    "Path-based evidence-class hints are not a substitute for the source registry's explicit per-product state.",
+    "Catalogue metadata and browse images are not equivalent to downloaded, decoded quantitative science arrays."
+  ]
+}
