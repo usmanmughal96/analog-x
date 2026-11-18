@@ -61,7 +61,7 @@ The reproducible pipeline combines:
 
 The 3D terrain views display elevation relative to each local grid's median. They are not vertically co-registered across bodies and are not a landing-safety or rover-trafficability model.
 
-## The regional discovery shortlist is deliberately bounded to the ten pre-selected Earth areas; it is not a global Earth scan. Its terrain index is exploratory and terrain-only, not an analog probability, geological match or landing/rover-safety score. The 21 Mars windows that pass the stated local data threshold do not remove the parent MOLA coverage limitation.
+## Each shortlisted sub-window also exposes its parent site's ATFA priority experiment, rehearsal pathways, analogy breaks, next measurements and evidence states. This experiment context remains separate from the terrain index. The regional discovery shortlist is deliberately bounded to the ten pre-selected Earth areas; it is not a global Earth scan. Its terrain index is exploratory and terrain-only, not an analog probability, geological match or landing/rover-safety score. The 21 Mars windows that pass the stated local data threshold do not remove the parent MOLA coverage limitation.
 
 ## Data-status transparency
 
