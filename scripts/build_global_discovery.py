@@ -284,7 +284,7 @@ def tile_candidate_windows(tile: dict[str, Any], shard: int, refs: dict[str, Any
                     "secondary_diagnostic_index": secondary,
                     "consensus_index": consensus,
                     "terrain": metrics,
-                    "metric_family_rank_concordance": round(100 * (1 - abs(core - secondary) / 100), 2),
+                    "metric_family_score_agreement": round(100 * (1 - abs(core - secondary) / 100), 2),
                     "source": {
                         "provider": "Copernicus DEM GLO-90",
                         "collection": "COP-DEM_GLO-90-DGED",
@@ -305,7 +305,7 @@ def tile_candidate_windows(tile: dict[str, Any], shard: int, refs: dict[str, Any
 
 
 def select_diverse(rows: list[dict[str, Any]], limit: int, max_per_tile: int = 4) -> list[dict[str, Any]]:
-    rows = sorted(rows, key=lambda x: (-x["consensus_index"], -x["metric_family_rank_concordance"], x["id"]))
+    rows = sorted(rows, key=lambda x: (-x["consensus_index"], -x["metric_family_score_agreement"], x["id"]))
     out, counts = [], {}
     for item in rows:
         tile_id = item["tile_id"]
