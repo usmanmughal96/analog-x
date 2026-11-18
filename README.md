@@ -100,7 +100,7 @@ The pipeline retrieves an optional full-disc natural-colour Earth image from the
 - **NASA LRO LOLA + Diviner:** An 80 m south-polar LDEM and matched LDEC count map are processed around Shackleton Rim. Diviner PRP V2.0 temperature fields are processed for 6,823 Shackleton-window triangles (median annual-average temperature at 2 cm: 103.786 K; median annual maximum surface temperature: 238.568 K). These are historical model-derived summaries. The ice-depth field contains negative and censored values requiring QA; no accessible-ice claim is made. Formal illumination / PSR mapping is not integrated.
 - **NASA Global Volcano Hazard Frequency:** Historical coarse grid is linked as context only; it is not current volcano alerting or site-scale geology.
 
-See docs/AGENCY_DATA_AUDIT.md for source status, docs/DATA_SOURCES.md for provenance, and docs/RESOURCE_INTEGRATION_MATRIX.md for the status of every NASA and partner resource supplied for the challenge.
+See `docs/AGENCY_DATA_AUDIT.md` for source status, `docs/DATA_SOURCES.md` for provenance, `docs/RESOURCE_INTEGRATION_MATRIX.md` for integration status, and `docs/COMPETITOR_METHOD_NOTES.md` for the public-method benchmark and source-code reuse record.
 
 ## What is differentiated
 Other public 2026 challenge entries already demonstrate analog ranking, mission-to-experiment planning and topographic/lighting comparisons. ANALOG-X does not claim those broad ideas are globally unsolved.
@@ -117,7 +117,7 @@ Our contribution is a Pakistan-first, open-data evidence workflow with a reusabl
 
 The ten-site atlas is a curated starting set—not an exhaustive global scan. The two Chagai playa study windows are under-characterized research leads, not newly discovered or validated mineral/evaporite deposits.
 
-No single universal analog score is calculated.
+No single universal cross-domain analog score is calculated. The new regional scanner exposes a separate terrain-only screening index, with its scope and limitations stated explicitly.
 
 
 ## Field Evidence Passport / offline differentiator
@@ -208,7 +208,7 @@ The 3D terrain-twin view renders source-derived ~925 m elevation grids from Cope
 
 See [`docs/CHALLENGE_SUBMISSION_BRIEF.md`](docs/CHALLENGE_SUBMISSION_BRIEF.md) for the scientific narrative, current evidence, limitations and next validation steps.
 
-## Latest verified science snapshot (15 Nov 2026)
+## Latest verified science snapshot (18 Nov 2026)
 
 - 10 Earth study/reference sites; 10 NASA POWER profiles.
 - 10/10 Copernicus DEM GLO-30 local grids (32×32 at ~925 m support), plus Mars MOLA (33×34) and lunar LOLA (32×32) grids.
