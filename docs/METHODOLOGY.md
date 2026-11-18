@@ -107,3 +107,19 @@ The shortlist is ordered by documented task overlap, then under-characterized le
 ## NASA Earthdata discovery status
 
 CMR returned collection metadata for MOD11A2, MYD11A2, MCD12Q1 and MERRA-2 M2T1NXAER. The app stores ten MOD11A2 granule metadata records over each Pakistan study box and one global October 2026 MERRA-2 granule record. No MODIS or MERRA-2 scientific arrays are decoded in this release. A metadata link must not be presented as a measured temperature or dust field.
+
+## Global candidate-discovery and validation work package (18 November 2026)
+
+The original ten-site seed set and 7,290 regional windows remain a regional study. A separate worldwide terrain search is implemented against the public Copernicus DEM GLO-90 land-tile inventory.
+
+1. **Inventory:** read the provider's one-degree land-tile list and deterministically assign tiles to 24 longitude shards. Each shard records assigned/processed/no-valid-window/failed tiles.
+2. **Terrain grid:** read the 90 m COG, reproject each tile into an appropriate local UTM or polar stereographic CRS, and area-average to nominal ~925 m cells.
+3. **Candidate unit:** calculate non-overlapping 6×6-cell windows (~5.55 km). A window must have at least 70% valid elevation cells and at least 15 valid slope and relief samples.
+4. **Core terrain features:** median slope, P90 slope and P90 3×3 local relief. **Secondary diagnostics:** P95 slope, elevation IQR, detrended roughness RMS and slope fractions. The secondary feature family is computed from the same DEM and is a robustness check, not independent-data validation.
+5. **Planet-specific reference:** calculate reference-window medians for the selected Shackleton Rim (LOLA) and Nili Patera (MOLA) terrain surfaces. Score candidate features against those medians using IQR scales from the ten-region Earth reference dataset. The displayed consensus is the mean of the two feature-family indices. It is exploratory, sample-normalized terrain proximity, not probability, accuracy, geology, trafficability or landing safety.
+6. **Global release gate:** the merged dataset is labelled complete only if all public inventory tiles are assigned and processed and there are zero tile failures. A partial run reports actual tile coverage and failure details; an empty/failed tile is never silently removed from the denominator.
+7. **Independent terrain source:** the NASADEM/SRTM-derived script cross-checks selected overlapping Earth sites against Copernicus GLO-30, reporting per-site coverage, absolute descriptor differences and small-sample rank correlation. This validates source sensitivity of terrain descriptors only; it is not physical ground truth.
+8. **Environmental enrichment:** retained terrain candidates are sampled with 2023 Planetary Computer `io-lulc-annual-v02` global land cover (shortlist only) and NASA POWER monthly/annual climatology at top-100 candidates per target (shortlist only). Both have independent per-candidate coverage and missingness states.
+9. **Field evidence:** the Field Validation Kit exports planned stations and actual observations separately. No candidate is marked field validated without georeferenced measurements, photos, sample/instrument provenance, calibration declaration, permissions/safety notes and independent review.
+
+The reproducibility workflow hashes source code, UI, tests, workflows, documentation and generated data. Its manifest records file SHA-256, size, repository commit before manifest generation, runtime versions and the source registry. A hash proves byte-level identity, not scientific validity. Acquisition dates, source item IDs, licences, analysis parameters, CRS, units and product-specific limitations are retained alongside generated outputs where available.
