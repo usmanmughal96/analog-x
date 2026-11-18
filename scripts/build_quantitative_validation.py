@@ -39,6 +39,20 @@ def main():
         for target in ("moon","mars"):
             rows=data.get("targets",{}).get(target,{}).get("candidate_windows",[])
             payload["targets"][target]=target_report(rows)
+    landcover_path=ROOT/"data/global_discovery/global_landcover_enrichment.json"
+    if landcover_path.exists():
+        landcover=json.loads(landcover_path.read_text(encoding="utf-8"))
+        payload["global_land_cover_enrichment"]={
+            "state":landcover.get("state"),
+            "shortlist_candidate_windows_unique":landcover.get("shortlist_candidate_windows_unique",0),
+            "processed_candidate_windows":landcover.get("processed_candidate_windows",0),
+            "coverage_percent_of_shortlist":landcover.get("coverage_percent_of_shortlist",0),
+            "source_collection":landcover.get("source",{}).get("collection"),
+            "year":landcover.get("source",{}).get("year"),
+            "interpretation":"Global land-cover class fractions for retained terrain shortlist windows only; not a geological, mineralogical or field-validation result."
+        }
+    else:
+        payload["global_land_cover_enrichment"]={"state":"awaiting_enrichment"}
     if NASADEM.exists():
         validation=json.loads(NASADEM.read_text(encoding="utf-8"))
         payload["independent_dem_crosscheck"]={"state":validation.get("status"),"sites_crosschecked":validation.get("sites_crosschecked",0),"rank_concordance":validation.get("rank_concordance",{}),"source":"NASADEM SRTM-derived elevation compared with Copernicus GLO-30 at selected overlapping sites","limits":validation.get("limitations",[])}
