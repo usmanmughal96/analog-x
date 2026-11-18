@@ -32,6 +32,9 @@ class GlobalPowerTests(unittest.TestCase):
         parsed=power.parse_payload({"properties":{"parameter":parameters}})
         self.assertEqual(parsed["monthly"][0]["air_temperature_2m_c"],12.5)
         self.assertIsNone(parsed["monthly"][1]["air_temperature_2m_c"])
+        self.assertIsNone(parsed["derived"]["mean_diurnal_air_temperature_range_c"])
+        self.assertIsNone(parsed["derived"]["monthly_mean_air_temperature_span_c"])
+        self.assertEqual(parsed["derived"]["three_driest_climatology_months"],[])
 
     def test_missing_temperature_rejects_payload(self):
         parameters={name:{month:-999 for month in power.MONTHS} for name in power.PARAMS}
