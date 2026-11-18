@@ -95,9 +95,9 @@ The pipeline retrieves an optional full-disc natural-colour Earth image from the
 
 ## Institutional and planetary evidence
 - **EvK2CNR:** Existing Pakistan Glacier Inventory: 13,032 glaciers, combined area 13,546.93 km². We acknowledge and link this prior work; the project does not claim to have discovered or remapped those glaciers. EvK2CNR has also published preliminary Pakistan glacial-lake inventory work.
-- **SUPARCO / UN-SPIDER:** Official remote-sensing and disaster-monitoring capabilities, recommended practices, DisasterWatch and NatCat are documented. No public bulk-data/API integration from DisasterWatch or Space4Climate has yet been verified.
+- **SUPARCO / UN-SPIDER:** Official remote-sensing and disaster-monitoring capabilities, recommended practices, DisasterWatch, NatCat and Space4Climate are documented as institutional context. The repository does **not** claim ingestion from SUPARCO SGSS / Space4Climate / DisasterWatch: a public machine-readable endpoint, product schema, AOI coverage and reuse licence have not been verified.
 - **NDMA:** Official hazard projections, disaster early warnings and the 2026 Vulnerable Glaciers and Glacial Lakes Atlas listing are linked as existing institutional work. No redistributable geospatial layer has yet been ingested.
-- **NASA LRO LOLA:** An 80 m south-polar LDEM and matched LDEC count map are processed around Shackleton Rim. Native 80 m terrain descriptors and a coarse ~925 m profile are stored. **Diviner** PRP V2.0 thermal summaries are processed for 6,823 Shackleton-window triangles; ice-depth interpretation remains withheld pending QA. Formal illumination / PSR mapping is not integrated.
+- **NASA LRO LOLA + Diviner:** An 80 m south-polar LDEM and matched LDEC count map are processed around Shackleton Rim. Diviner PRP V2.0 temperature fields are processed for 6,823 Shackleton-window triangles (median annual-average temperature at 2 cm: 103.786 K; median annual maximum surface temperature: 238.568 K). These are historical model-derived summaries. The ice-depth field contains negative and censored values requiring QA; no accessible-ice claim is made. Formal illumination / PSR mapping is not integrated.
 - **NASA Global Volcano Hazard Frequency:** Historical coarse grid is linked as context only; it is not current volcano alerting or site-scale geology.
 
 See docs/AGENCY_DATA_AUDIT.md for source status, docs/DATA_SOURCES.md for provenance, and docs/RESOURCE_INTEGRATION_MATRIX.md for the status of every NASA and partner resource supplied for the challenge.
@@ -142,9 +142,10 @@ Scene discovery and Sentinel-2 previews:
     python scripts/fetch_public_evidence.py
     python scripts/build_scene_quicklooks.py
 
-Terrain comparison:
+Terrain comparison and regional window scan:
     python -m pip install --upgrade requests rasterio pillow numpy scipy
     python scripts/build_terrain_comparison.py
+    python science/build_regional_window_scan.py
 
 Optional NASA EPIC global image:
     python scripts/fetch_nasa_epic.py
@@ -165,7 +166,7 @@ The current NASA POWER, NASA GIBS, Microsoft Planetary Computer STAC/SAS and dir
 - USGS maps Koh-i-Sultan as agglomerate, tuff and andesitic lava; no basaltic equivalence with Syrtis Major is claimed. No site-scale mineral map or field samples are integrated.
 - No official EvK2CNR glacier shapefile is redistributed in this repository.
 - NDMA, SUPARCO DisasterWatch and Space4Climate are portal/reference status until data endpoints, access terms and product licences are verified.
-- Diviner PRP V2.0 table access is verified, but site-level thermal/ice-depth statistics are not yet processed. LOLA elevation is interpolated; its LDEC return-count support is reported separately. The Shackleton profile is terrain context, not a landing-safety or base-suitability assessment.
+- Diviner PRP V2.0 has been streamed and processed for a 29.6 × 29.6 km analyst-defined Shackleton comparison window (6,823 triangles). The annual-average temperature-at-2-cm and annual-maximum surface-temperature summaries are available; the ice-depth field includes negative values and -999 censored values and is withheld from scientific interpretation pending QA. These values do not demonstrate exposed or accessible lunar ice. LOLA elevation is interpolated; its LDEC return-count support is reported separately. The Shackleton profile is terrain context, not a landing-safety or base-suitability assessment.
 - NASA Earthdata CMR discovery is not measurement ingestion; MODIS LST and MERRA-2 aerosol granules remain to be downloaded, QA-screened and decoded. NASA POWER is gridded climate context, not local instrumentation.
 - Chagai's historic playa coordinates and Hamun-i-Mashkel's point are not surveyed AOIs; verify current geomorphology, hydrology, land tenure and access before field use.
 - Hamun-i-Mashkel's spectral screen contains 109,692 valid pixels in a 1,108 × 99-cell 20 m grid; this is a narrow Sentinel-2 sample, not a basin-wide survey.
@@ -185,12 +186,19 @@ The module includes ten curated Earth study/reference sites, experiment-level tr
 ### New reproducible pipelines
 
 - `science/build_transferability.py` builds the ATFA site dossiers from the existing NASA POWER, Sentinel-2, Copernicus DEM, MOLA, LOLA and candidate catalogue outputs.
+- `science/build_regional_window_scan.py` derives matched-support 5.55 km regional windows, terrain-only Moon/Mars proximity indices and local rank-sensitivity outputs from the ten existing Earth DEM areas.
 - `scripts/fetch_pds_search.py` queries the public NASA PDS Search API for Nili Patera, MOLA, HiRISE, Shackleton, LOLA and Diviner product metadata.
 - `scripts/fetch_modis_browse.py` queries NASA CMR for MOD11A2 V061 8-day LST granules over ten Earth sites and downloads available public browse JPEGs.
 
 The weekly/manual GitHub Actions workflow validates the science pack and dashboard JavaScript, then commits generated metadata and browse assets. Browse JPEGs are tile-level visual context—not AOI-clipped or calibrated LST measurements. MODIS science HDF access and QA decoding remain separate. PDS metadata is discovery, not binary ingestion. See `docs/ANALOG_TRANSFERABILITY_AND_FAILURE_ANALYSIS.md`.
 
-### Interactive views and backend
+### Regional terrain-window discovery
+
+Open the [Regional Discovery Scan](https://usmanmughal96.github.io/analog-x/discovery.html) to explore the newly generated sub-window shortlist. The current run derives **7,290 valid Earth windows** (729 in each of ten pre-selected 30 km areas), **729 Shackleton windows** and **21 valid Nili Patera windows**. Each window is approximately 5.55 km across and retains approximately 925 m terrain support.
+
+The displayed 0–100 terrain index is calculated from equal-weight IQR-normalized differences in median slope, P90 slope and P90 3×3 local relief. A 500-draw deterministic weight-sensitivity analysis reports how often a window stays in the top decile of its own parent area. This is a regional screening and robustness aid—not a whole-Earth search, probability, confidence interval, geological analogue score or landing/mobility assessment. The source parent grids remain coarse; overlapping windows are spatially dependent; displayed coordinates are approximate map locators derived from nominal grid spacing, not surveyed coordinates. See `docs/REGIONAL_WINDOW_SCAN.md` for the method and interpretation.
+
+## Interactive views and backend
 
 The ATFA module includes a monthly NASA VIIRS true-colour time scrub/animation and a 3D site/pathway scatter view (z = authored experiment-pathway count, not elevation). The FastAPI service now exposes read-only ATFA, PDS metadata and MODIS provenance routes alongside the existing paginated field-notebook CRUD. `backend/smoke_test.py` exercises the science reads and temporary field-record create/list/delete flow in CI. The public GitHub Pages app remains fully usable without deploying the optional API.
 
@@ -207,4 +215,5 @@ See [`docs/CHALLENGE_SUBMISSION_BRIEF.md`](docs/CHALLENGE_SUBMISSION_BRIEF.md) f
 - 20 public NASA MOD11A2 browse JPEGs downloaded and indexed across the ten Earth sites. These are visual browse assets, not calibrated LST arrays.
 - 41 experiment pathways across nine tracks, including biosignature/contamination-control method rehearsal.
 - 500 unique PDS observational metadata records across six capped target/instrument queries; MOLA, LOLA and Diviner instrument queries returned records. The HiRISE target-filtered API query returned no relevant rows; its PDS RDR dataset profile is linked in the dashboard.
+- Regional terrain-window scan: 7,290 valid Earth sub-windows, 729 Shackleton windows and 21 Nili Patera windows; up to 30 spatially separated shortlist windows per target. The scan is confined to the ten existing parent regions.
 - FastAPI read endpoints and field-notebook create/list/delete behavior passed CI smoke tests. The public static site loads the science pack without requiring the optional API.
