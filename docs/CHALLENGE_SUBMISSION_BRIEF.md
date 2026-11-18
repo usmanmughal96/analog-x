@@ -33,7 +33,7 @@ The Pakistan locations are treated as under-characterized candidate leads, not c
 
 ## Planetary reference targets
 
-- **Moon:** Shackleton Rim / lunar south pole, using LRO LOLA elevation and LRO Diviner polar-resource context.
+- **Moon:** Shackleton Rim / lunar south pole, using LRO LOLA elevation plus processed Diviner PRP V2.0 thermal summaries for an analyst-defined 29.6 × 29.6 km comparison window.
 - **Mars:** Nili Patera / Syrtis Major, using MGS MOLA MEGDR topography and observation-count data.
 
 ## Data and methods
@@ -46,7 +46,7 @@ The reproducible pipeline combines:
 - Copernicus DEM GLO-30 DSM for matched-scale Earth terrain analysis.
 - MGS MOLA MEGDR 64 pixels/degree topography and observation counts around Nili Patera.
 - LRO LOLA 80 m polar elevation data, aggregated to approximately 925 m support around Shackleton Rim.
-- LRO Diviner Polar Resource Products context.
+- LRO Diviner PRP V2.0 thermal summary: 6,823 Shackleton-window triangles; median annual-average temperature at 2 cm is 103.786 K and median annual-maximum surface temperature is 238.568 K. The ice-depth field contains negative and -999 censored values and is withheld from interpretation pending QA.
 - NASA PDS Search API metadata queries for Mars, MOLA, HiRISE, Moon, LOLA and Diviner holdings.
 
 ### Current reproducible outputs
@@ -54,11 +54,18 @@ The reproducible pipeline combines:
 - Ten Earth sites with NASA POWER profiles.
 - Ten Earth Copernicus DEM local terrain grids, each 32 × 32 cells at approximately 925 m support.
 - One Mars MOLA grid (33 × 34 cells) and one lunar LOLA grid (32 × 32 cells) at comparable regional support.
-- Twenty public MODIS browse JPEGs (two per Earth site), indexed with CMR granule and source URL provenance.
+- Twenty public MODIS browse JPEGs (two per Earth site), indexed with CMR granule and source URL provenance. These are tile-level visual browse assets, not calibrated, AOI-clipped LST science arrays.
+- 7,290 valid 5.55 km Earth sub-windows sampled from the ten existing 30 km DEM regions, plus 729 valid Shackleton windows and 21 valid Nili Patera windows. The scan uses median slope, P90 slope and P90 local relief at ~925 m support, with 500 deterministic weight-sensitivity draws.
 - Forty-one site-specific experiment pathways across terrain mobility, spectral ground truth, evaporite processes, cryosphere remote sensing, volcanic morphology, dust processes, impact geology, biosignature/contamination-control methods and human/robotic operations.
 - Six PDS Search API target/instrument queries, capped at 100 results each; the current index returns 500 unique observational product records across the queries, including instrument-specific MOLA, LOLA and Diviner products. The target-filtered HiRISE query returns no relevant product rows in this index, so the dashboard links the MRO HiRISE RDR dataset profile separately.
 
 The 3D terrain views display elevation relative to each local grid's median. They are not vertically co-registered across bodies and are not a landing-safety or rover-trafficability model.
+
+## The regional discovery shortlist is deliberately bounded to the ten pre-selected Earth areas; it is not a global Earth scan. Its terrain index is exploratory and terrain-only, not an analog probability, geological match or landing/rover-safety score. The 21 Mars windows that pass the stated local data threshold do not remove the parent MOLA coverage limitation.
+
+## Data-status transparency
+
+NASA CMR/PDS granule and product records are catalogue discovery, not science-array ingestion. MODIS browse JPEGs are visual context only; the underlying MOD11A2 HDF arrays and QA layers have not been decoded for site-level temperature statistics. The 500 PDS records are metadata records, not 500 processed science products. SUPARCO SGSS / Space4Climate / DisasterWatch portals are cited as institutional context; no machine-readable dataset from those portals is claimed as integrated because a reusable endpoint and licence have not been verified.
 
 ## The operational deliverable
 
@@ -87,7 +94,7 @@ They cannot reproduce lunar vacuum, one-sixth gravity, the radiation environment
 2. Ground-truth the Balochistan playa and Koh-i-Sultan hypotheses with field spectroscopy, XRD/XRF, grain-size, crust-strength and sediment-facies observations.
 3. Collect field spectra and temperature transects at selected sites.
 4. Add higher-resolution local DEM/LiDAR and metre-scale mobility trials.
-5. Complete authoritative lunar illumination / permanently shadowed region analysis and validate Diviner product interpretation.
+5. Complete QA of the processed Diviner ice-depth field, then add authoritative lunar illumination / permanently shadowed region analysis. Current Diviner temperature statistics are historical thermal-model summaries, not direct ice measurements.
 6. Run controlled mission-rehearsal protocols with instrument, operator, communications and equipment-failure logs.
 
 ## Scientific integrity statement
