@@ -1,0 +1,122 @@
+name: Build global Copernicus GLO-90 discovery and validation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/build_global_discovery.py"
+      - "scripts/merge_global_discovery.py"
+      - ".github/workflows/global-discovery.yml"
+      - "tests/test_global_discovery.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: analogx-global-discovery-release
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    name: Global terrain scan · longitude shard ${{ matrix.shard }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install geospatial dependencies
+        run: python -m pip install --upgrade requests numpy rasterio scipy
+
+      - name: Check global engine and mathematical tests
+        run: |
+          python -m py_compile scripts/build_global_discovery.py scripts/merge_global_discovery.py
+          python -m unittest tests.test_global_discovery
+
+      - name: Process worldwide GLO-90 land tiles for this shard
+        run: python scripts/build_global_discovery.py --shard ${{ matrix.shard }} --shards 24
+
+      - name: Upload shard result
+        uses: actions/upload-artifact@v4
+        with:
+          name: global-shard-${{ matrix.shard }}
+          path: data/global_discovery/shards/global-shard-*.json
+          if-no-files-found: error
+          retention-days: 7
+
+  aggregate:
+    name: Merge global scan, cross-check and publish science products
+    needs: scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install geospatial and validation dependencies
+        run: python -m pip install --upgrade requests numpy rasterio scipy
+
+      - name: Download all 24 global shards
+        uses: actions/download-artifact@v4
+        with:
+          pattern: global-shard-*
+          path: global-shards
+          merge-multiple: false
+
+      - name: Merge and verify complete land-tile inventory
+        run: python scripts/merge_global_discovery.py --input-dir global-shards
+
+      - name: Cross-check selected sites against NASADEM / SRTM-derived elevations
+        continue-on-error: true
+        run: python scripts/validate_nasadem_crosscheck.py
+
+      - name: Refresh source evidence states
+        run: |
+          python scripts/refresh_source_registry.py
+          python scripts/build_quantitative_validation.py
+
+      - name: Validate field, source and science contracts
+        run: |
+          python scripts/validate_field_observations.py
+          python scripts/validate_evidence_inventory.py
+          python -m py_compile scripts/*.py science/*.py
+          python -m unittest tests.test_global_discovery
+
+      - name: Build SHA-256 reproducibility manifest
+        run: python scripts/build_reproducibility_manifest.py
+
+      - name: Commit generated global discovery and validation products
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/global_discovery/global_discovery.json data/validation/ data/source_registry.json data/provenance/reproducibility_manifest.json
+          if git diff --cached --quiet; then
+            echo "Generated science products are unchanged."
+            exit 0
+          fi
+          git commit -m "Publish global analog discovery and validation results"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase -X theirs origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt * 3))
+          done
+          echo "Could not publish generated science products after five attempts."
+          exit 1
