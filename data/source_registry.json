@@ -271,8 +271,8 @@
         "Land-cover data are processed for the retained global terrain shortlist only; this is not global per-pixel reprocessing of every candidate window.",
         "No physical field validation is implied."
       ],
-      "coverage_pct_processed_candidates": 99.125,
-      "candidate_windows_processed": 2379
+      "coverage_pct_processed_candidates": 99.167,
+      "candidate_windows_processed": 2380
     },
     {
       "id": "nasa_power_global",

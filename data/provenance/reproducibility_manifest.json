@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-18T18:10:26+00:00",
-  "repository_commit_before_manifest_commit": "a4a0f22526d2c741312ae061e8659db557765c1d",
+  "generated_at_utc": "2026-11-18T18:33:00+00:00",
+  "repository_commit_before_manifest_commit": "9a5de6fedb26c74192accc7e01d067ea2430b9b6",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -38,7 +38,7 @@
     ]
   },
   "file_count": 196,
-  "source_registry_sha256": "9d824f04c52c527dba8975082b1af90b52aa9d4d6f6324b978ec685700c4f6e6",
+  "source_registry_sha256": "414999543126dcd4c7ebe4b95b78b8ddb9a063759aac298685cfb210cec72a5e",
   "source_registry_records": [
     {
       "id": "copernicus_glo30_regional",
@@ -359,20 +359,20 @@
     },
     {
       "path": "data/global_discovery/global_discovery.json",
-      "size_bytes": 10410313,
-      "sha256": "4a269972a7518fdb947723a5e91188e7d1df250ffe227376536b83f162536e2d",
+      "size_bytes": 10409585,
+      "sha256": "5b00c1fd5b7e20b80cfe969362bd7e87122e7c4773193f4f28157c90c2ead2a5",
       "evidence_class_hint": "global_discovery_output"
     },
     {
       "path": "data/global_discovery/global_landcover_enrichment.json",
-      "size_bytes": 4191133,
-      "sha256": "a3676e48e3b18c7293286e258a3028a624980b25cdb668b452036dbe82401ca2",
+      "size_bytes": 4192629,
+      "sha256": "1b43c3f48bb417170730b490212a88875cb3c05307f44cccee49587689247f27",
       "evidence_class_hint": "global_discovery_output"
     },
     {
       "path": "data/global_discovery/global_power_enrichment.json",
       "size_bytes": 1486032,
-      "sha256": "d60858e6c0042824ea241127a31546fc2522401ddebfe28cfb50ad9918044b8e",
+      "sha256": "110235ec293bf28ecfe6af53d40f75d0e1aea0a0c510397d3e7dbc67cd8432e5",
       "evidence_class_hint": "global_discovery_output"
     },
     {
@@ -786,7 +786,7 @@
     {
       "path": "data/source_registry.json",
       "size_bytes": 14144,
-      "sha256": "9d824f04c52c527dba8975082b1af90b52aa9d4d6f6324b978ec685700c4f6e6",
+      "sha256": "414999543126dcd4c7ebe4b95b78b8ddb9a063759aac298685cfb210cec72a5e",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -882,7 +882,7 @@
     {
       "path": "data/validation/quantitative_validation.json",
       "size_bytes": 4689,
-      "sha256": "7160467fbced43da07d3ddf7a2adfffe8848f88a9c2f99b013ad1d8550eb0c45",
+      "sha256": "1825a827117c6033959ec8383d368d24dbd31f562c63fa61b871e42de7083b2d",
       "evidence_class_hint": "processed_or_derived"
     },
     {

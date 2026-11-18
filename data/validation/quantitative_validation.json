@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at_utc": "2026-11-18T18:10:26+00:00",
+  "generated_at_utc": "2026-11-18T18:33:00+00:00",
   "status": "diagnostic_only",
   "global_scan_status": "complete",
   "global_tile_processing_coverage_pct": 100.0,
@@ -36,8 +36,8 @@
   "global_land_cover_enrichment": {
     "state": "partially_processed",
     "shortlist_candidate_windows_unique": 2400,
-    "processed_candidate_windows": 2379,
-    "coverage_percent_of_shortlist": 99.125,
+    "processed_candidate_windows": 2380,
+    "coverage_percent_of_shortlist": 99.167,
     "source_collection": "io-lulc-annual-v02",
     "year": 2023,
     "interpretation": "Global land-cover class fractions for retained terrain shortlist windows only; not a geological, mineralogical or field-validation result."

@@ -246,7 +246,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=70.61603&latitude=39.93099&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:04+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:35+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -507,7 +507,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=35.08759&latitude=37.74467&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:04+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:35+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -768,7 +768,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=72.40336&latitude=42.78498&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:04+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:35+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -1027,7 +1027,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-68.17077&latitude=-21.27377&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:04+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:35+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -1286,7 +1286,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=69.58373&latitude=35.82761&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:04+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:35+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -1547,7 +1547,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=104.23863&latitude=21.32438&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:04+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:35+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -1806,7 +1806,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-116.60943&latitude=45.47919&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:04+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:35+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -2065,7 +2065,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-103.87138&latitude=19.431&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:04+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:35+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -2326,7 +2326,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=101.45131&latitude=24.18349&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:05+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:36+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -2589,7 +2589,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=115.5272&latitude=-8.37498&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:05+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:36+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -2849,7 +2849,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=141.6256&latitude=-4.77796&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:05+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:36+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -3112,7 +3112,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=36.72282&latitude=-3.2754&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:05+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:36+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -3371,7 +3371,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-69.32764&latitude=-32.92582&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:05+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:36+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -3645,7 +3645,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=77.26409&latitude=31.99025&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:05+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:36+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -3903,7 +3903,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=169.23491&latitude=-72.06923&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:06+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:37+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -4162,7 +4162,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=44.83539&latitude=42.8793&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:05+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:37+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -4424,7 +4424,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-118.04944&latitude=36.28677&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:06+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:37+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -4684,7 +4684,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-96.10211&latitude=16.0743&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:06+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:37+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -4945,7 +4945,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=108.42109&latitude=-6.92547&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:06+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:37+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -5203,7 +5203,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=165.08714&latitude=-73.42287&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:06+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:37+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -5465,7 +5465,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=28.92431&latitude=-5.02303&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:06+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:37+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -5724,7 +5724,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=97.24231&latitude=26.47722&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:06+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:37+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -5984,7 +5984,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=71.87356&latitude=36.17788&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:06+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:38+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -6243,7 +6243,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=103.306&latitude=28.27798&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:06+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:37+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -6505,7 +6505,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-52.609&latitude=72.13246&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:07+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:38+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -6765,7 +6765,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-26.77286&latitude=70.82838&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:07+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:38+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -7024,7 +7024,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-69.9223&latitude=-31.97311&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:07+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:38+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -7285,7 +7285,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=75.35216&latitude=38.92873&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:07+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:38+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -7546,7 +7546,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=143.17254&latitude=-5.22523&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:07+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:38+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -7806,7 +7806,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-77.42402&latitude=-6.02337&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:07+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:38+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -8067,7 +8067,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=96.34715&latitude=27.68167&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:07+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:38+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -8327,7 +8327,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=108.59266&latitude=31.6873&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:07+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:39+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -8590,7 +8590,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-77.27592&latitude=-8.9266&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:07+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:39+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -8849,7 +8849,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-101.40011&latitude=18.18168&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:07+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:39+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -9109,7 +9109,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=78.87329&latitude=30.84213&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:08+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:39+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -9372,7 +9372,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-78.37207&latitude=-7.82443&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:08+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:39+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -9633,7 +9633,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-91.46035&latitude=14.67752&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:08+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:39+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -9892,7 +9892,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-72.47059&latitude=-13.0706&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:08+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:39+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -10153,7 +10153,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=43.70986&latitude=37.43469&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:08+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:39+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -10415,7 +10415,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=15.03149&latitude=37.72912&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:08+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:40+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -10677,7 +10677,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=10.32099&latitude=45.93494&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:08+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:40+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -10936,7 +10936,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=38.0766&latitude=17.32321&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:08+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:40+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -11196,7 +11196,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-73.35677&latitude=-15.37247&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:08+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:40+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -11457,7 +11457,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-74.10588&latitude=-12.57569&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:09+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:40+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -11719,7 +11719,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=22.27849&latitude=40.0353&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:09+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:40+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -11981,7 +11981,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-77.16573&latitude=-10.07421&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:09+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:40+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -12242,7 +12242,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-70.68281&latitude=-34.66815&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:09+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:40+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -12504,7 +12504,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-139.0618&latitude=59.8763&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:09+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:41+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -12767,7 +12767,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-118.15332&latitude=52.08812&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:09+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:41+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -13028,7 +13028,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-78.17264&latitude=-8.3211&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:09+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:41+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -13290,7 +13290,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=21.0968&latitude=39.4792&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:09+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:41+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -13551,7 +13551,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=101.35868&latitude=28.48703&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:09+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:41+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -13810,7 +13810,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-98.45217&latitude=17.12392&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:10+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:41+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -14070,7 +14070,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-76.82688&latitude=-11.72361&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:10+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:41+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -14330,7 +14330,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=139.07397&latitude=-3.47549&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:10+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:41+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -14602,7 +14602,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=42.02143&latitude=19.27387&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:10+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:41+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -14865,7 +14865,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=120.57274&latitude=-1.3258&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:10+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:42+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -15126,7 +15126,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=38.32885&latitude=12.97597&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:10+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:42+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -15387,7 +15387,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-79.12325&latitude=-5.82607&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:10+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:42+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -15647,7 +15647,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-93.61121&latitude=16.07341&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:10+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:42+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -15907,7 +15907,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=76.51476&latitude=34.88192&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:10+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:42+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -16167,7 +16167,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-68.26092&latitude=-24.42428&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:10+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:42+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -16430,7 +16430,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-143.77227&latitude=61.33173&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:11+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:42+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -16689,7 +16689,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-66.08495&latitude=-28.1088&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:11+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:42+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -16949,7 +16949,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-64.82584&latitude=-20.97098&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:11+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:43+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -17210,7 +17210,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-118.30753&latitude=36.93461&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:11+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:43+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -17473,7 +17473,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=11.86372&latitude=46.07941&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:11+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:43+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -17735,7 +17735,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-121.73839&latitude=50.43631&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:11+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:43+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -17995,7 +17995,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-66.72392&latitude=10.57995&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:11+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:43+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -18270,7 +18270,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-77.97507&latitude=-6.02064&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:11+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:43+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -18530,7 +18530,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-76.52682&latitude=4.77541&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:12+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:43+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -18792,7 +18792,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-67.34949&latitude=-16.87369&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:12+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:43+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -19053,7 +19053,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=96.06187&latitude=28.82616&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:12+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:44+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -19312,7 +19312,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=90.86198&latitude=27.23981&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:12+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:44+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -19573,7 +19573,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-75.87904&latitude=82.52787&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:12+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:44+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -19834,7 +19834,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-147.33489&latitude=61.18113&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:12+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:44+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -20095,7 +20095,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=142.42573&latitude=-5.82739&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:12+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:44+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -20357,7 +20357,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=43.88999&latitude=42.83717&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:12+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:44+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -20619,7 +20619,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-77.92651&latitude=-8.27024&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:12+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:44+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -20882,7 +20882,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=102.54333&latitude=31.33598&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:13+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:44+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -21142,7 +21142,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=74.3306&latitude=35.47689&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:13+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:45+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -21402,7 +21402,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-71.04712&latitude=-16.57623&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:13+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:45+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -21661,7 +21661,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=77.47567&latitude=10.17723&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:13+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:45+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -21920,7 +21920,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-151.51288&latitude=62.88177&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:13+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:45+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -22180,7 +22180,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-65.92566&latitude=0.92485&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:13+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:45+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -22439,7 +22439,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=30.24602&latitude=36.88093&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:13+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:45+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -22699,7 +22699,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-72.36831&latitude=-13.06957&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:13+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:45+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -22961,7 +22961,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=86.86682&latitude=27.17685&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:13+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:45+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -23219,7 +23219,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-62.58853&latitude=-64.97058&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:14+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:46+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -23481,7 +23481,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=77.17329&latitude=10.38003&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:14+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:46+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -23741,7 +23741,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=77.18603&latitude=33.0413&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:14+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:46+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -24001,7 +24001,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-79.22659&latitude=-2.67688&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:14+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:46+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -24263,7 +24263,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=98.83365&latitude=30.42783&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:14+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:46+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -24525,7 +24525,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-72.25866&latitude=-13.72017&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:14+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:46+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -24787,7 +24787,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=70.78838&latitude=37.92839&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:14+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:46+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -25048,7 +25048,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=68.86404&latitude=39.62919&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:14+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:46+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -25307,7 +25307,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-70.93109&latitude=-33.91496&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:15+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:46+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -25569,7 +25569,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=73.28999&latitude=42.42994&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:14+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:47+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -25832,7 +25832,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=70.33911&latitude=38.28427&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:15+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:47+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -26093,7 +26093,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-121.98124&latitude=51.03942&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:15+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:47+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -30028,10 +30028,45 @@
           "global_sample_rank": 15,
           "shortlist_rank": 151,
           "environmental_context": {
-            "state": "unavailable",
-            "valid_pixel_percent": 0,
-            "class_fractions_percent": {},
-            "error": "504 Server Error: Gateway Timeout for url: https://planetarycomputer.microsoft.com/api/stac/v1/search"
+            "state": "processed",
+            "year": 2023,
+            "source_collection": "io-lulc-annual-v02",
+            "native_product_resolution_m": 10,
+            "window_sampling_resolution_m": 30.0,
+            "window_footprint_km": 5.55,
+            "valid_pixel_count": 34225,
+            "sampled_pixel_count": 34225,
+            "valid_pixel_percent": 100.0,
+            "class_fractions_percent": {
+              "trees": 58.174,
+              "crops": 30.796,
+              "built_area": 2.101,
+              "clouds": 0.237,
+              "rangeland": 8.692
+            },
+            "items_used": [
+              {
+                "item_id": "37P-2023",
+                "datetime": null,
+                "asset_href": "https://ai4edataeuwest.blob.core.windows.net/io-lulc/io-annual-lulc-v02/37P_20230101-20240101.tif",
+                "license": "CC-BY-4.0"
+              },
+              {
+                "item_id": "37P-2022",
+                "datetime": null,
+                "asset_href": "https://ai4edataeuwest.blob.core.windows.net/io-lulc/io-annual-lulc-v02/37P_20220101-20230101.tif",
+                "license": "CC-BY-4.0"
+              }
+            ],
+            "items_found": 2,
+            "item_errors": [],
+            "limitations": [
+              "Land-cover classes are machine-learning predictions from annual Sentinel-2 composites, not field observations or detailed lithology/mineralogy.",
+              "The source collection reports assessed average accuracy above 75%; accuracy varies by class, geography and conditions.",
+              "Pixels are resampled by modal class to a 30 m local analysis grid; this does not create 30 m native source information.",
+              "No-data pixels are excluded from class fractions and are reported separately.",
+              "This enrichment is applied only to retained global terrain shortlist windows, not every global terrain window."
+            ]
           }
         },
         {
@@ -108390,7 +108425,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=98.13415&latitude=59.42779&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:15+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:47+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -108649,7 +108684,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=90.44706&latitude=61.18647&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:15+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:47+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -108907,7 +108942,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-115.40397&latitude=30.12935&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:15+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:47+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -109166,7 +109201,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=107.86487&latitude=66.23011&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:15+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:47+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -109426,7 +109461,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-40.60929&latitude=-17.02117&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:15+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:47+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -109685,7 +109720,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=25.78262&latitude=-10.52623&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:15+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:48+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -109946,7 +109981,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=35.77218&latitude=-0.4263&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:15+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:48+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -110207,7 +110242,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=91.11441&latitude=54.27847&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:16+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:48+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -110465,7 +110500,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=21.17494&latitude=-3.77825&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:16+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:48+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -110725,7 +110760,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-60.62689&latitude=4.37549&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:16+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:48+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -111000,7 +111035,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=41.9785&latitude=39.32563&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:16+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:48+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -111262,7 +111297,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=109.65073&latitude=37.23394&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:16+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:48+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -111523,7 +111558,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=74.7148&latitude=20.77703&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:16+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:48+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -111783,7 +111818,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-7.21704&latitude=9.6751&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:16+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:49+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -112042,7 +112077,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-54.04745&latitude=-16.26466&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:16+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:48+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -112303,7 +112338,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=91.69883&latitude=64.83339&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:16+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:49+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -112565,7 +112600,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-69.58696&latitude=58.57884&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:17+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:49+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -112827,7 +112862,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=90.74188&latitude=34.3406&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:17+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:49+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -113087,7 +113122,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-72.89925&latitude=49.64535&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:17+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:49+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -113345,7 +113380,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-51.87534&latitude=0.27204&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:17+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:49+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -113606,7 +113641,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-108.1894&latitude=59.58031&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:17+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:49+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -113866,7 +113901,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=83.62363&latitude=36.08358&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:17+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:49+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -114128,7 +114163,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=170.79284&latitude=-44.92417&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:17+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:49+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -114390,7 +114425,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-54.7603&latitude=-24.57286&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:17+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:50+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -114650,7 +114685,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-74.29143&latitude=48.12838&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:17+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:50+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -114908,7 +114943,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-63.87529&latitude=2.0713&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:17+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:50+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -115166,7 +115201,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-103.09994&latitude=36.82656&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:17+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:50+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -115426,7 +115461,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=15.45775&latitude=-22.22499&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:18+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:50+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -115684,7 +115719,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=117.65457&latitude=49.72791&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:18+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:50+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -115946,7 +115981,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=102.22232&latitude=13.6768&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:18+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:50+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -116205,7 +116240,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=56.6729&latitude=32.77829&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:18+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:50+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -116464,7 +116499,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-108.679&latitude=47.69113&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:18+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:51+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -116726,7 +116761,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=21.41021&latitude=37.87848&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:18+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:51+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -116984,7 +117019,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=49.88015&latitude=9.97903&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:18+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:51+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -117246,7 +117281,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=117.98173&latitude=27.32379&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:18+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:51+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -117505,7 +117540,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=129.11355&latitude=48.87946&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:18+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:51+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -117764,7 +117799,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=22.88156&latitude=-28.9173&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:19+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:51+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -118024,7 +118059,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-75.11659&latitude=9.5748&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:19+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:51+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -118285,7 +118320,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-80.58698&latitude=38.37836&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:19+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:51+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -118547,7 +118582,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-33.8983&latitude=81.57757&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:19+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:52+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -118808,7 +118843,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-86.20522&latitude=48.87678&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:19+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:52+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -119070,7 +119105,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=104.2139&latitude=37.42636&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:19+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:52+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -119331,7 +119366,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=100.95757&latitude=57.47708&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:19+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:52+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -119589,7 +119624,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-89.40391&latitude=17.2313&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:19+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:52+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -119851,7 +119886,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-46.35886&latitude=-14.17385&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:19+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:52+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -120111,7 +120146,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=85.95123&latitude=36.23674&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:19+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:52+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -120370,7 +120405,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=24.17332&latitude=-6.37245&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:20+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:52+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -120641,7 +120676,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=113.97064&latitude=64.72645&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:20+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:53+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -120904,7 +120939,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=62.06602&latitude=69.07951&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:20+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:53+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -121165,7 +121200,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-51.50926&latitude=-16.77704&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:20+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:53+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -121424,7 +121459,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=8.82714&latitude=21.47645&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:20+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:53+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -121683,7 +121718,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=150.35474&latitude=-25.11514&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:20+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:53+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -121945,7 +121980,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=116.81096&latitude=27.07657&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:20+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:53+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -122205,7 +122240,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=42.32214&latitude=36.48254&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:20+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:53+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -122466,7 +122501,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=37.17954&latitude=15.12389&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:20+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:53+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -122728,7 +122763,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-84.747&latitude=34.24062&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:21+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:54+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -122987,7 +123022,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=139.24144&latitude=-29.86859&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:21+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:54+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -123248,7 +123283,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-79.82552&latitude=-0.72793&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:21+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:54+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -123507,7 +123542,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=145.28559&latitude=-18.2708&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:21+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:54+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -123768,7 +123803,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=36.47468&latitude=-9.62368&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:21+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:54+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -124028,7 +124063,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=129.18252&latitude=-17.025&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:21+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:55+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -124286,7 +124321,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-61.62418&latitude=8.22496&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:21+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:54+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -124549,7 +124584,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=149.5626&latitude=-34.51492&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:21+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:55+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -124808,7 +124843,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-41.67978&latitude=-8.97405&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:21+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:55+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -125067,7 +125102,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=122.23866&latitude=59.12938&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:21+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:55+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -125327,7 +125362,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-45.6641&latitude=-17.82663&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:22+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:55+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -125588,7 +125623,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=21.27065&latitude=49.92912&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:21+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:55+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -125848,7 +125883,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-70.52128&latitude=57.58282&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:22+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:55+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -126108,7 +126143,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=85.24834&latitude=46.08002&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:22+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:55+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -126370,7 +126405,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=9.2593&latitude=47.77935&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:22+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:55+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -126633,7 +126668,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=14.48515&latitude=49.77853&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:22+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:56+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -126894,7 +126929,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=25.35712&latitude=-25.01934&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:22+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:56+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -127155,7 +127190,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=86.10572&latitude=52.77632&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:22+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:56+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -127414,7 +127449,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=124.86804&latitude=53.52814&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:22+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:56+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -127674,7 +127709,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-83.59756&latitude=37.08436&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:22+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:56+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -127936,7 +127971,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=2.53649&latitude=46.12936&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:23+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:56+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -128198,7 +128233,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=115.91175&latitude=-33.72508&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:23+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:56+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -128459,7 +128494,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=38.95396&latitude=67.38076&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:23+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:56+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -128720,7 +128755,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=17.07448&latitude=-12.72677&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:23+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:56+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -128979,7 +129014,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=107.38147&latitude=55.68926&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:23+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:57+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -129238,7 +129273,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-9.36953&latitude=9.62482&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:23+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:57+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -129498,7 +129533,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=111.63306&latitude=59.2796&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:23+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:57+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -129757,7 +129792,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=112.22614&latitude=59.38642&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:23+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:57+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -130019,7 +130054,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=106.02101&latitude=30.23525&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:24+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:57+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -130280,7 +130315,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=35.69384&latitude=-16.31824&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:24+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:58+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -130541,7 +130576,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-46.47597&latitude=-4.37573&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:24+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:57+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -130800,7 +130835,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-118.1239&latitude=66.93391&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:24+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:58+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -131060,7 +131095,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=90.48456&latitude=45.98672&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:24+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:58+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -131322,7 +131357,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-65.17823&latitude=57.79233&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:24+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:58+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -131582,7 +131617,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-5.53264&latitude=30.83482&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:24+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:58+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -131841,7 +131876,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=130.90449&latitude=-16.21956&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:24+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:58+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -132100,7 +132135,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-39.92569&latitude=-14.67561&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:24+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:58+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -132362,7 +132397,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=25.44832&latitude=69.53153&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:24+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:58+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -132624,7 +132659,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-98.12799&latitude=19.37379&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:25+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:58+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -132882,7 +132917,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-52.97526&latitude=-0.77783&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:25+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:59+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -133142,7 +133177,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-53.40883&latitude=-15.17153&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:25+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:59+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -133412,7 +133447,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=-60.01138&latitude=-11.56838&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:25+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:59+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -133675,7 +133710,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=7.92527&latitude=52.18866&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:25+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:59+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -133934,7 +133969,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=49.72847&latitude=9.9283&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:25+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:59+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
@@ -134196,7 +134231,7 @@
               ],
               "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=12.31875&latitude=50.5335&format=JSON",
               "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
-              "fetched_at_utc": "2026-11-18T18:10:25+00:00",
+              "fetched_at_utc": "2026-11-18T18:32:59+00:00",
               "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/"
             },
             "annual_metrics": {
