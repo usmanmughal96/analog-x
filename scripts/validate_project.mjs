@@ -77,6 +77,35 @@ assert.equal(southPrp?.range_status, 206, "Diviner south-polar table range probe
 assert.equal(String(southPrp?.content_length), "604800210", "Unexpected Diviner south-polar table size");
 assert(read("docs/DECISION_ENGINE.md").includes("Strict evidence policy"), "Decision method documentation missing");
 
+
+
+// Global discovery, evidence-registry and reproducibility release contracts.
+const globalPage = read("global-discovery.html");
+const globalBuilder = read("scripts/build_global_discovery.py");
+const globalMerger = read("scripts/merge_global_discovery.py");
+const sourceRegistry = JSON.parse(read("data/source_registry.json"));
+const fieldLedger = JSON.parse(read("data/field_validation/observations.json"));
+const fieldProtocol = JSON.parse(read("science/field_validation_protocol.json"));
+assert(html.includes('href="./global-discovery.html"'), "Main portal is missing the Global Discovery Engine CTA");
+assert(html.includes('class="global-featured"'), "Main portal is missing persistent Global Discovery Engine link");
+assert(globalPage.includes("data/global_discovery/global_discovery.json"), "Global discovery page does not load the merged global dataset");
+assert(globalPage.includes("complete" ) && globalPage.includes("partial"), "Global discovery page must distinguish complete from partial scans");
+assert(globalBuilder.includes("Copernicus DEM GLO-90"), "Global discovery builder must declare GLO-90 source");
+assert(globalBuilder.includes("--shard") && globalMerger.includes("Expected all 24 global scan shards"), "Global discovery shard/merge release contract missing");
+assert(read(".github/workflows/global-discovery.yml").includes("matrix:"), "Global discovery workflow matrix missing");
+assert(read("docs/COMPETITIVE_CAPABILITY_RESPONSE.md").includes("Earth Analog Explorer"), "Capability benchmark note missing");
+assert(fieldProtocol.stations && fieldProtocol.validation_states.includes("independently_reviewed"), "Field observation protocol incomplete");
+assert.equal(fieldLedger.status, "not_started", "Empty field ledger must remain not_started");
+assert.equal((fieldLedger.observations || []).length, 0, "No unverified field observations may be silently inserted");
+const registryStates = new Map(sourceRegistry.sources.map((s) => [s.id, s.state]));
+assert.equal(registryStates.get("sentinel2_rgb"), "browse_only", "RGB Sentinel-2 quicklooks must remain browse-only");
+assert.equal(registryStates.get("nasa_cmr_modis_merra"), "metadata_only", "CMR entries must remain metadata-only until science arrays are processed");
+assert.equal(registryStates.get("suparco_space4climate"), "reference_only", "SUPARCO institutional links must remain reference-only");
+assert.equal(registryStates.get("copernicus_glo90_global"), "planned", "Before the full global pipeline publishes, GLO-90 must not be labelled processed");
+assert(read("scripts/build_reproducibility_manifest.py").includes("sha256"), "SHA-256 manifest generator missing");
+assert(read("scripts/validate_evidence_inventory.py").includes("processed state needs artifact path"), "Evidence state integrity validator missing");
+assert(read("docs/COMPETITIVE_CAPABILITY_RESPONSE.md").includes("not independent-data validation"), "Competitive methods note must state independent validation limits");
+
 console.log("ANALOG-X validation passed:");
 console.log(`- ${sites.length} candidate records and ${power.record_count} NASA POWER snapshots`);
 console.log("- Four Pakistan terrain profiles plus Mars MOLA and lunar LOLA inputs");
