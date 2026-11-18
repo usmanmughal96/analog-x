@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TERRAIN_PATH = ROOT / "data/terrain/terrain_comparison.json"
 MOON_PATH = ROOT / "data/moon/shackleton_lola_80m.json"
 CATALOG_PATH = ROOT / "data/agents/candidate_catalog.json"
+ATFA_PATH = ROOT / "data/transferability/transferability.json"
 OUT_PATH = ROOT / "data/analog_benchmark/regional_window_scan.json"
 
 FEATURES = ("median_slope_deg", "p90_slope_deg", "p90_local_relief_m")
@@ -336,6 +337,7 @@ def add_scores(
             "environment_tags": window["environment_tags"],
             "mission_targets": window["mission_targets"],
             "source_references": window["source_references"],
+            "atfa_context": window.get("atfa_context", {}),
         }
 
     moon_or_mars = "Shackleton Rim / lunar south pole" if target_id == "moon" else "Nili Patera / Mars"
@@ -384,7 +386,11 @@ def build() -> dict[str, Any]:
     terrain = read_json(TERRAIN_PATH)
     moon = read_json(MOON_PATH)
     catalog = read_json(CATALOG_PATH)
+    atfa = read_json(ATFA_PATH)
     sites = {site["id"]: site for site in catalog.get("candidate_sites", [])}
+    atfa_sites = {site["id"]: site for site in atfa.get("sites", [])}
+    if len(atfa_sites) < 10:
+        raise RuntimeError(f"Expected ATFA dossiers for ten sites; found {len(atfa_sites)}")
 
     earth_windows: list[dict[str, Any]] = []
     site_windows: dict[str, list[dict[str, Any]]] = {}
@@ -399,6 +405,38 @@ def build() -> dict[str, Any]:
             site=site,
             center_wgs84=center,
         )
+        atfa_site = atfa_sites.get(site_id)
+        if atfa_site is None:
+            raise RuntimeError(f"Missing ATFA dossier for Earth region: {site_id}")
+        evidence_context = {}
+        for key, item in atfa_site.get("evidence", {}).items():
+            evidence_context[key] = {
+                "status": item.get("status"),
+                "source": item.get("source"),
+                "statement": item.get("statement"),
+                "limitation": item.get("limitation"),
+            }
+        experiment_context = [
+            {
+                "track_id": test.get("track_id"),
+                "track": test.get("track"),
+                "transferability": test.get("transferability"),
+                "why_this_site": test.get("why_this_site"),
+                "what_can_be_rehearsed": test.get("what_can_be_rehearsed"),
+                "analogy_breaks": test.get("analogy_breaks"),
+                "next_measurement": test.get("next_measurement"),
+            }
+            for test in atfa_site.get("tests", [])
+        ]
+        atfa_context = {
+            "discovery_tier": atfa_site.get("discovery_tier"),
+            "candidate_status": atfa_site.get("candidate_status"),
+            "priority_experiment": atfa_site.get("priority_experiment"),
+            "evidence": evidence_context,
+            "experiment_tracks": experiment_context,
+        }
+        for window in windows:
+            window["atfa_context"] = atfa_context
         if windows:
             site_windows[site_id] = windows
             earth_windows.extend(windows)
@@ -477,6 +515,8 @@ def build() -> dict[str, Any]:
             "earth": "data/terrain/terrain_comparison.json",
             "moon": "data/moon/shackleton_lola_80m.json",
             "catalog": "data/agents/candidate_catalog.json",
+            "atfa": "data/transferability/transferability.json",
+            "atfa_site_count": len(atfa_sites),
             "earth_region_count": len(site_windows),
             "earth_window_count": len(earth_windows),
             "earth_window_count_by_region": {
