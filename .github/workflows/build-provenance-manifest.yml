@@ -1,0 +1,74 @@
+name: Build source provenance and quantitative readiness report
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/build_reproducibility_manifest.py"
+      - "scripts/build_quantitative_validation.py"
+      - "scripts/validate_evidence_inventory.py"
+      - "data/source_registry.json"
+      - "data/validation/nasadem_crosscheck.json"
+      - "data/global_discovery/global_discovery.json"
+      - "data/global_discovery/global_landcover_enrichment.json"
+      - "data/global_discovery/global_power_enrichment.json"
+      - "science/**"
+      - "scripts/sites.json"
+      - "docs/METHODOLOGY.md"
+      - "docs/LIMITATIONS.md"
+      - "!data/provenance/reproducibility_manifest.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: analogx-provenance-manifest
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install quantitative-report dependency
+        run: python -m pip install --upgrade numpy
+
+      - name: Validate the empty-or-populated field ledger
+        run: python scripts/validate_field_observations.py
+
+      - name: Validate source evidence states and product artifacts
+        run: python scripts/validate_evidence_inventory.py
+
+      - name: Build quantitative validation readiness report
+        run: python scripts/build_quantitative_validation.py
+
+      - name: Generate SHA-256 source and code manifest
+        run: python scripts/build_reproducibility_manifest.py
+
+      - name: Commit manifest and report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/provenance/reproducibility_manifest.json data/validation/quantitative_validation.json
+          if git diff --cached --quiet; then
+            echo "Manifest and readiness report are unchanged."
+            exit 0
+          fi
+          git commit -m "Publish reproducibility manifest and validation readiness report"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase -X theirs origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt * 3))
+          done
+          echo "Could not publish provenance outputs after five attempts."
+          exit 1
