@@ -50,8 +50,13 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install quantitative-report dependency
-        run: python -m pip install --upgrade numpy
+      - name: Install science pipeline dependencies
+        run: python -m pip install --upgrade requests numpy rasterio scipy
+
+      - name: Compile science scripts and run deterministic unit tests
+        run: |
+          python -m py_compile scripts/*.py science/*.py
+          python -m unittest tests.test_global_discovery tests.test_global_landcover tests.test_global_power
 
       - name: Validate the empty-or-populated field ledger
         run: python scripts/validate_field_observations.py
