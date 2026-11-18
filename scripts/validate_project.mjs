@@ -80,6 +80,10 @@ assert(read("docs/DECISION_ENGINE.md").includes("Strict evidence policy"), "Deci
 
 
 // Global discovery, evidence-registry and reproducibility release contracts.
+assert(html.includes('href="./field-validation.html"'), "Main portal is missing Field Validation Kit CTA");
+assert(read("field-validation.html").includes("actual observations collected"), "Field capture must explicitly distinguish field observations from desk research");
+assert(read("service-worker.js").includes('"./field-validation.html"'), "Offline application cache must include Field Validation Kit");
+
 const globalPage = read("global-discovery.html");
 const globalBuilder = read("scripts/build_global_discovery.py");
 const globalMerger = read("scripts/merge_global_discovery.py");
