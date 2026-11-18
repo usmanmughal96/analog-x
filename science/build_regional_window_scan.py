@@ -314,8 +314,8 @@ def add_scores(
             "site_id": window["site_id"],
             "name": window["name"],
             "country": window["country"],
-            "latitude": round(window["latitude"], 5),
-            "longitude": round(window["longitude"], 5),
+            "latitude": round(window["latitude"], 3),
+            "longitude": round(window["longitude"], 3),
             "row": window["row"],
             "column": window["column"],
             "network_rank": window["network_rank"],
@@ -454,6 +454,12 @@ def build() -> dict[str, Any]:
                 "Results identify candidate sub-windows within the ten existing "
                 "study regions only. They are not a whole-Earth scan or newly "
                 "validated geological analog discoveries."
+            ),
+            "coordinate_note": (
+                "Displayed WGS84 window centres are approximate offsets from each "
+                "parent study-area reference centre using nominal grid spacing. "
+                "They are map locators, not surveyed coordinates, field-station "
+                "positions or parcel boundaries."
             ),
             "physical_nontransferability": [
                 "Earth gravity and atmosphere differ from the Moon and Mars.",
