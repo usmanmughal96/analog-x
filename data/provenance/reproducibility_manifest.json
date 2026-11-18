@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-18T15:00:49+00:00",
-  "repository_commit_before_manifest_commit": "789efcb7f119b705b97799e4cc48cfe5ab7d6eaf",
+  "generated_at_utc": "2026-11-18T15:01:58+00:00",
+  "repository_commit_before_manifest_commit": "244d74b6e180b5bb14e792e33354e0e1c3d2e813",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -858,7 +858,7 @@
     {
       "path": "data/validation/quantitative_validation.json",
       "size_bytes": 1112,
-      "sha256": "c6962b7169d13bcd106d603bcd355cab494e8253b3ba1938657960cac004a9ad",
+      "sha256": "aaa28a7b24767233045b8bdbaa811952bdf51517826990c6905a286386d43fc7",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -1145,8 +1145,8 @@
     },
     {
       "path": "docs/DATA_SOURCES.md",
-      "size_bytes": 16528,
-      "sha256": "2c736600729c3737873268d45f30e8374bc28be494acc6567e46312b4e8b51d6",
+      "size_bytes": 19344,
+      "sha256": "ad6e5b3776d7dfde754da506ce6119823087a1276afd286752d90c6c4554cfcd",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1169,8 +1169,8 @@
     },
     {
       "path": "docs/METHODOLOGY.md",
-      "size_bytes": 11812,
-      "sha256": "4b4bdb4a254d9f6338e016e54f2ec2b812d9a44bad72c13afc64c87cc7e64739",
+      "size_bytes": 15082,
+      "sha256": "cce42a1ad3216de6bdc01595b0e19922e7d7ff6509014c927c0c9a2d95d15cb9",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1217,8 +1217,8 @@
     },
     {
       "path": "docs/RESOURCE_INTEGRATION_MATRIX.md",
-      "size_bytes": 15532,
-      "sha256": "52a961d491c252678c01d01f5857829c5247450113da1d895196a02d86ee8207",
+      "size_bytes": 18437,
+      "sha256": "2e0c56962c94bfb8d89c5f77742f69d3a005d806bf48b4b3abdb4afb88b8580b",
       "evidence_class_hint": "method_or_documentation"
     },
     {
