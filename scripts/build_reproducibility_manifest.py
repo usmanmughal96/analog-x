@@ -5,7 +5,8 @@ import hashlib, importlib.metadata, json, subprocess, sys
 from datetime import datetime, timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-INCLUDE_DIRS=("data","science","scripts","docs")
+INCLUDE_DIRS=("data","science","scripts","docs",".github","tests","assets","agent-worker","backend")
+ROOT_FILES=("README.md","index.html","demo.html","discovery.html","global-discovery.html","field-validation.html","transferability.html","service-worker.js","manifest.webmanifest","package.json","package-lock.json")
 OUTPUT=ROOT/"data/provenance/reproducibility_manifest.json"
 EXCLUDE_PARTS={".git","__pycache__",".pytest_cache"}
 def sha256(path):
@@ -39,6 +40,10 @@ def main():
             "artifacts":source.get("artifacts",[]),"limitations":source.get("limitations",[])
         })
     records=[]
+    for relative in ROOT_FILES:
+        path=ROOT/relative
+        if path.is_file() and path!=OUTPUT:
+            records.append({"path":relative,"size_bytes":path.stat().st_size,"sha256":sha256(path),"evidence_class_hint":classify(path)})
     for directory in INCLUDE_DIRS:
         base=ROOT/directory
         if not base.exists():continue
@@ -52,12 +57,13 @@ def main():
         "generator":"scripts/build_reproducibility_manifest.py",
         "python_version":sys.version.split()[0],
         "runtime_packages":{name:package_version(name) for name in ("numpy","rasterio","scipy","requests","Pillow")},
-        "inventory_scope":list(INCLUDE_DIRS),"file_count":len(records),
+        "inventory_scope":{"directories":list(INCLUDE_DIRS),"root_files":[x for x in ROOT_FILES if (ROOT/x).is_file()]},"file_count":len(records),
         "source_registry_sha256":sha256(registry_path) if registry_path.exists() else None,
         "source_registry_records":source_context,"records":records,
         "limitations":[
             "SHA-256 establishes byte-level identity, not scientific validity or source authenticity.",
             "The repository commit is recorded before the manifest file itself is written and committed; the manifest cannot hash its own final committed bytes.",
+            "The inventory includes core source-code, UI, tests, workflows, generated data and research documentation.",
             "Source context is copied from the versioned source registry. Each generated product must still retain acquisition date, item/granule IDs, licence, exact parameters, coordinate reference system and processing logs where available.",
             "Path-based evidence-class hints are not a substitute for the source registry's explicit per-product state.",
             "Catalogue metadata and browse images are not equivalent to downloaded, decoded quantitative science arrays."
