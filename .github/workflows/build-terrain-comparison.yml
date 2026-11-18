@@ -7,6 +7,7 @@ on:
       - "scripts/build_terrain_comparison.py"
       - "science/build_regional_window_scan.py"
       - "data/agents/candidate_catalog.json"
+      - "data/transferability/transferability.json"
       - "data/moon/**"
       - "scripts/fetch_public_evidence.py"
       - ".github/workflows/build-terrain-comparison.yml"
@@ -67,6 +68,9 @@ jobs:
           assert scan["inputs"]["earth_window_count"] >= 7000
           assert scan["targets"]["moon"]["candidate_windows"]
           assert scan["targets"]["mars"]["candidate_windows"]
+          for target in scan["targets"].values():
+              assert all(w.get("atfa_context", {}).get("priority_experiment") for w in target["candidate_windows"])
+              assert all(w.get("atfa_context", {}).get("experiment_tracks") for w in target["candidate_windows"])
           print("Regional scan validated:", scan["inputs"]["earth_window_count"], "Earth windows")
           PY
 
