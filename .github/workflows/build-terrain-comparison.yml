@@ -56,6 +56,35 @@ jobs:
           python -m py_compile science/build_regional_window_scan.py
           python -m unittest discover -s tests -p "test_regional_window_scan.py"
 
+      - name: Validate discovery page JavaScript syntax
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          class Scripts(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.capture=False
+                  self.blocks=[]
+                  self.current=[]
+              def handle_starttag(self, tag, attrs):
+                  if tag == "script" and not dict(attrs).get("src"):
+                      self.capture=True
+                      self.current=[]
+              def handle_endtag(self, tag):
+                  if tag == "script" and self.capture:
+                      self.blocks.append("\\n".join(self.current))
+                      self.capture=False
+              def handle_data(self, data):
+                  if self.capture:
+                      self.current.append(data)
+          parser=Scripts()
+          parser.feed(Path("discovery.html").read_text())
+          Path("/tmp/discovery-inline.js").write_text("\\n".join(parser.blocks))
+          assert parser.blocks, "No inline discovery script found"
+          PY
+          node --check /tmp/discovery-inline.js
+
       - name: Validate terrain and candidate-window outputs
         run: |
           python - <<'PY'
