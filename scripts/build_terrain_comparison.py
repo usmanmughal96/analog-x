@@ -37,6 +37,7 @@ MOLA_COLS=180*MOLA_PPD
 MOLA_NODATA=-32768
 WINDOW_HALF_M=15000.0
 TARGET_RES_M=925.0
+EARTH_FINE_RES_M=30.0
 NILI={"name":"Nili Patera, Syrtis Major quadrangle, Mars","latitude":8.90,"longitude":67.00,
       "gazetteer":"https://planetarynames.wr.usgs.gov/Feature/4272",
       "themis":"https://themis.asu.edu/zoom-20260617a"}
@@ -250,7 +251,50 @@ def get_earth_dem(site_id,site,items,token):
               "native_resolution_m_approx":30,"analysis_resolution_m":TARGET_RES_M,
               "window_size_m":[width*TARGET_RES_M,height*TARGET_RES_M],
               "centre_wgs84":[lon,lat],"dem_type":"Digital Surface Model (DSM)"}
-        return z,valid,stats,meta
+        # Preserve a separate ~30 m Earth DSM diagnostic before the
+        # common-support 925 m downsampling. This adds local roughness context
+        # for Earth study areas only; it is never mixed into Moon/Mars scores.
+        fine_diagnostics = {
+          "status":"unavailable",
+          "source":"Copernicus DEM GLO-30 DSM",
+          "source_native_resolution_m_approx":30,
+          "analysis_resolution_m":EARTH_FINE_RES_M,
+          "role":"Earth-only higher-detail roughness context; not matched to planetary data and not rover-scale",
+          "limitation":"A 30 m DSM still cannot resolve rover-scale obstacles, bearing strength or trafficability."
+        }
+        try:
+            fine_width=int(round((2*half)/EARTH_FINE_RES_M))
+            fine_transform=from_origin(centre_x-half,centre_y+half,EARTH_FINE_RES_M,EARTH_FINE_RES_M)
+            fine_dst=np.full((1,fine_width,fine_width),np.nan,dtype=np.float32)
+            reproject(
+              source=mosaic,destination=fine_dst,
+              src_transform=src_transform,src_crs=src_crs,
+              dst_transform=fine_transform,dst_crs=local_utm(lon,lat),
+              src_nodata=src_nodata,dst_nodata=np.nan,
+              resampling=Resampling.average,num_threads=2
+            )
+            fine_z=fine_dst[0].astype(np.float64)
+            fine_valid=np.isfinite(fine_z)
+            if src_nodata is not None:
+                fine_valid &= fine_z!=src_nodata
+            fine_z[~fine_valid]=np.nan
+            if fine_valid.mean()>=0.9:
+                fine_diagnostics.update({
+                  "status":"processed",
+                  "grid_shape":[int(fine_z.shape[0]),int(fine_z.shape[1])],
+                  "valid_cell_count":int(fine_valid.sum()),
+                  "total_cell_count":int(fine_valid.size),
+                  "coverage_percent":round(float(fine_valid.mean()*100),2),
+                  "window_size_km":round(fine_width*EARTH_FINE_RES_M/1000,2),
+                  "terrain_metrics":terrain_stats(fine_z,fine_valid,EARTH_FINE_RES_M,EARTH_FINE_RES_M),
+                  "local_relief_footprint_m":round(3*EARTH_FINE_RES_M,1)
+                })
+            else:
+                fine_diagnostics["coverage_percent"]=round(float(fine_valid.mean()*100),2)
+                fine_diagnostics["limitation"]="Valid-data coverage below 90%; higher-detail diagnostics withheld."
+        except Exception as fine_error:
+            fine_diagnostics["error"]=str(fine_error)[:500]
+        return z,valid,stats,meta,fine_diagnostics
     finally:
         for ds in opened:
             try:ds.close()
@@ -343,11 +387,12 @@ def main():
       entry=dem_sites.get(key,{})
       items=entry.get("items",[])
       try:
-        z,valid,stats,meta=get_earth_dem(key,site,items,token)
+        z,valid,stats,meta,fine_diagnostics=get_earth_dem(key,site,items,token)
         stats["window_half_width_m"]=WINDOW_HALF_M
         result["earth_sites"][key]={
           "site":site,"status":"processed","source":meta,"terrain_metrics":stats,
           "surface_grid_relative_m":surface_grid_relative_m(z,valid,meta["analysis_resolution_m"],meta["analysis_resolution_m"]),
+          "native_30m_diagnostics":fine_diagnostics,
           "preview_path":f"{key}_copdem_hillshade.png"
         }
         hillshade_png(z,valid,OUT/f"{key}_copdem_hillshade.png")
