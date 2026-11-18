@@ -224,16 +224,17 @@ def build_reference_profiles() -> dict[str, Any]:
         if not rows:
             raise RuntimeError("Planetary reference profile has no valid 5.55 km windows")
         return {key: float(np.median([row[key] for row in rows])) for key in feature_a + feature_b}
+    feature_families = {
+        "core": feature_a,
+        "secondary": feature_b,
+        "secondary_note": "Alternative diagnostic feature family from the same DEM grids; it tests metric-family robustness, not independent-source accuracy."
+    }
     return {
-        "moon": {"name": "Shackleton Rim / lunar south pole", "profile": median_profile(lunar), "valid_reference_windows": len(lunar)},
-        "mars": {"name": "Nili Patera / Mars", "profile": median_profile(mars), "valid_reference_windows": len(mars)},
+        "moon": {"name": "Shackleton Rim / lunar south pole", "profile": median_profile(lunar), "valid_reference_windows": len(lunar), "feature_families": feature_families},
+        "mars": {"name": "Nili Patera / Mars", "profile": median_profile(mars), "valid_reference_windows": len(mars), "feature_families": feature_families},
         "earth_iqr": {**iqr_a, **iqr_b},
         "earth_reference_windows": len(earth),
-        "feature_families": {
-            "core": feature_a,
-            "secondary": feature_b,
-            "secondary_note": "Independent diagnostic feature family from the same DEM grids; it tests metric-family robustness, not independent-source accuracy."
-        }
+        "feature_families": feature_families
     }
 
 
