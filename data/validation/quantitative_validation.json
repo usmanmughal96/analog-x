@@ -1,16 +1,34 @@
 {
-  "schema_version": "1.0.0",
-  "generated_at_utc": "2026-11-19T10:36:46+00:00",
+  "schema_version": "2.0.0",
+  "generated_at_utc": "2026-11-19T10:38:41+00:00",
   "status": "diagnostic_only",
-  "global_scan_status": "complete",
-  "global_tile_processing_coverage_pct": 100.0,
+  "global_scan": {
+    "status": "complete",
+    "global_land_tile_inventory_total": 26475,
+    "tiles_assigned_to_shards": 26475,
+    "tiles_processed": 26475,
+    "tile_failures": 0,
+    "tile_processing_coverage_pct": 100.0,
+    "candidate_windows_evaluated": 5852396,
+    "shards_expected": 24,
+    "shards_received": 24,
+    "complete_global_land_inventory_scan": true,
+    "coverage_definition": "Fraction of Copernicus GLO-90 tileList land tiles whose elevation COG was opened and processed. Ocean has no DEM tile; this is not a claim of ocean coverage."
+  },
   "targets": {
     "moon": {
       "candidate_pool_size": 1200,
+      "primary_ranking": "core_terrain_index descending",
+      "secondary_ranking": "secondary_diagnostic_index descending, diagnostic only",
       "core_vs_secondary_spearman": -0.665,
       "top_25_overlap": 0,
       "top_100_overlap": 0,
-      "metric_family_interpretation": "Agreement between two descriptor families from the same GLO-90 DEM. This is robustness analysis, not independent-data validation.",
+      "median_score_family_gap_points": 8.0259,
+      "top_25_secondary_rank_range": [
+        377,
+        1200
+      ],
+      "interpretation": "This diagnostic compares two different feature families derived from the same Copernicus GLO-90 source within the retained primary shortlist. It tests rank sensitivity to feature choice; it is not independent-source validation, model accuracy, field truth or a calibrated probability.",
       "top_25_unique_source_tiles": 25,
       "top_25_occupied_10deg_cells": 15,
       "top_100_unique_source_tiles": 97,
@@ -20,10 +38,17 @@
     },
     "mars": {
       "candidate_pool_size": 1200,
-      "core_vs_secondary_spearman": -0.7122,
+      "primary_ranking": "core_terrain_index descending",
+      "secondary_ranking": "secondary_diagnostic_index descending, diagnostic only",
+      "core_vs_secondary_spearman": -0.7123,
       "top_25_overlap": 0,
       "top_100_overlap": 1,
-      "metric_family_interpretation": "Agreement between two descriptor families from the same GLO-90 DEM. This is robustness analysis, not independent-data validation.",
+      "median_score_family_gap_points": 0.4952,
+      "top_25_secondary_rank_range": [
+        414,
+        1200
+      ],
+      "interpretation": "This diagnostic compares two different feature families derived from the same Copernicus GLO-90 source within the retained primary shortlist. It tests rank sensitivity to feature choice; it is not independent-source validation, model accuracy, field truth or a calibrated probability.",
       "top_25_unique_source_tiles": 25,
       "top_25_occupied_10deg_cells": 23,
       "top_100_unique_source_tiles": 100,
@@ -32,7 +57,7 @@
       "top_500_occupied_10deg_cells": 160
     }
   },
-  "interpretation": "Metric-family robustness checks the consistency of alternative terrain descriptors from the same DEM. It is not an independent validation set, probability, calibrated accuracy or expert/field truth.",
+  "interpretation": "Global terrain screening is complete only for the enumerated Copernicus GLO-90 land-tile inventory. The stored list is a bounded shortlist, not all evaluated windows. Primary rank uses the core terrain family only; the alternative family is diagnostic. Neither score is a probability, calibrated accuracy or analog verdict.",
   "global_land_cover_enrichment": {
     "state": "partially_processed",
     "shortlist_candidate_windows_unique": 2400,
@@ -40,7 +65,7 @@
     "coverage_percent_of_shortlist": 99.167,
     "source_collection": "io-lulc-annual-v02",
     "year": 2023,
-    "interpretation": "Global land-cover class fractions for retained terrain shortlist windows only; not a geological, mineralogical or field-validation result."
+    "interpretation": "2023 Sentinel-2-derived land-cover context for retained shortlist windows only; not geology or field truth."
   },
   "global_nasa_power_climatology": {
     "state": "processed",
@@ -61,10 +86,14 @@
       "PRECTOTCORR",
       "ALLSKY_SFC_SW_DWN"
     ],
-    "interpretation": "NASA POWER climatology context for retained global shortlist candidates only; gridded climatology, not local ground observations."
+    "interpretation": "NASA POWER gridded climatology at retained candidate coordinates, not in-situ observations or a full global climate raster."
+  },
+  "global_lithology_context": {
+    "state": "awaiting_enrichment"
   },
   "independent_dem_crosscheck": {
     "state": "processed",
+    "sites_attempted": 10,
     "sites_crosschecked": 7,
     "rank_concordance": {
       "median_slope_deg": {
@@ -80,22 +109,51 @@
         "n_sites": 7
       }
     },
-    "source": "NASADEM SRTM-derived elevation compared with Copernicus GLO-30 at selected overlapping sites",
+    "source": "NASADEM (SRTM-derived) compared with Copernicus DEM GLO-30 DSM",
     "limits": [
       "NASADEM has approximate coverage from 56\u00b0S to 60\u00b0N; high-latitude sites such as McMurdo, Haughton or Iceland may be outside its coverage.",
       "NASADEM uses SRTM with auxiliary void filling and is not a perfect independent ground survey.",
       "NASADEM and Copernicus GLO-30 have different acquisition sensors, processing and DSM/DEM semantics; compare coarse descriptors, not absolute elevation datums.",
       "This is independent raster-source checking, not in-situ field validation, geological validation or planetary analog validation.",
       "Rank correlation is only descriptive for this small, selected set and must not be presented as calibrated model accuracy."
-    ]
+    ],
+    "interpretation": "Independent elevation-source check on a small selected overlap set; not field validation or a global accuracy estimate."
   },
   "ground_truth_validation": {
     "state": "not_available",
-    "note": "No physical field observations are present in the repository. The field protocol and evidence validator do not substitute for field measurements."
+    "observations_total": 0,
+    "independently_reviewed_observations": 0,
+    "note": "Physical field validation can only be claimed for properties and locations covered by documented measurements and independent review. Protocols, proposed stations and desk data do not count."
+  },
+  "reproducibility": {
+    "manifest_state": "present",
+    "manifest_sha256": "a9b93b33251a8851a04c287511c064cfd52a9f7bde41e083a90c40e489390011",
+    "hashed_repository_file_count": 198,
+    "source_registry_records": 16,
+    "manifest_generated_at_utc": "2026-11-19T10:36:46+00:00",
+    "limitations": [
+      "SHA-256 establishes byte-level identity, not scientific validity or source authenticity.",
+      "The manifest records the repository commit before its own final commit; it cannot hash its final committed bytes.",
+      "Historical external retrieval metadata may be incomplete and must be traced through source registry and product-specific records."
+    ]
+  },
+  "evidence_registry": {
+    "source_records": 17,
+    "state_counts": {
+      "browse_only": 2,
+      "metadata_only": 1,
+      "partially_processed": 1,
+      "planned": 1,
+      "processed": 9,
+      "reference_only": 3
+    },
+    "rule": "browse_only, metadata_only and reference_only records are not represented as fully processed quantitative science inputs."
   },
   "release_gate": {
-    "independent_source_check": "report only where NASADEM actually processed and site coverage is reported",
-    "field_validation": "requires georeferenced, instrumented observations and independent review",
-    "global_scan": "must have complete tile inventory coverage and zero unreported tile failures before calling complete"
+    "global_scan": "complete only when every enumerated land tile is processed and tile_failures=0",
+    "quantitative_validation": "diagnostic-only until independent labels, spatially blocked tests and defensible held-out validation are available",
+    "field_validation": "requires georeferenced observations, instrument/calibration provenance, permissions and independent review",
+    "data_depth": "each source retains a state; browse images and catalogue metadata are not decoded science arrays",
+    "reproducibility": "manifest and per-product source/method/parameter/provenance records required; hashes alone do not prove validity"
   }
 }

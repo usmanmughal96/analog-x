@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-19T10:36:46+00:00",
-  "repository_commit_before_manifest_commit": "773550392943dc87ea949f07aa01bc9438d807c8",
+  "generated_at_utc": "2026-11-19T10:38:41+00:00",
+  "repository_commit_before_manifest_commit": "61f6a99a553ad76f2eb3ebed4098592e31ae34b8",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -38,7 +38,7 @@
     ]
   },
   "file_count": 198,
-  "source_registry_sha256": "414999543126dcd4c7ebe4b95b78b8ddb9a063759aac298685cfb210cec72a5e",
+  "source_registry_sha256": "b622d76540c9cd7b119568b822c3dea7a378729633d1bb0f535cbac3dc30219e",
   "source_registry_records": [
     {
       "id": "copernicus_glo30_regional",
@@ -281,6 +281,24 @@
         "NASA POWER provides gridded climatology, not local field-station observations or current forecasts.",
         "T2M is 2m air temperature, not surface/rock temperature; precipitation is not evidence of water/ice resources.",
         "Wind and solar values describe terrestrial atmosphere/surface context and do not reproduce Moon/Mars environment physics."
+      ]
+    },
+    {
+      "id": "glim_global_candidate_context",
+      "state": "planned",
+      "provider": "Hartmann and Moosdorf / ArcGIS Feature Service distributor",
+      "name": "Global Lithological Map (GLiM) generalized surface-lithology context",
+      "url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1",
+      "doi_or_identifier": "Paper DOI 10.1029/2012GC004370; data DOI 10.1594/PANGAEA.788537",
+      "artifacts": [
+        "data/global_discovery/global_lithology_enrichment.json",
+        "data/global_discovery/global_discovery.json"
+      ],
+      "limitations": [
+        "Point-in-polygon result at an approximate window centre, not an area-weighted class fraction.",
+        "Generalized global lithology compilation; not local rock exposure, mineralogy, soil chemistry, regolith strength or field ground truth.",
+        "No feature returned remains unknown; do not infer a class.",
+        "Context is restricted to retained shortlist windows and is excluded from terrain ranking."
       ]
     }
   ],
@@ -785,8 +803,8 @@
     },
     {
       "path": "data/source_registry.json",
-      "size_bytes": 14144,
-      "sha256": "414999543126dcd4c7ebe4b95b78b8ddb9a063759aac298685cfb210cec72a5e",
+      "size_bytes": 15644,
+      "sha256": "b622d76540c9cd7b119568b822c3dea7a378729633d1bb0f535cbac3dc30219e",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -881,8 +899,8 @@
     },
     {
       "path": "data/validation/quantitative_validation.json",
-      "size_bytes": 4689,
-      "sha256": "527d7efb3f656189532c9e7d409f5db7fa50163b9284deaccd2b0036b7179df9",
+      "size_bytes": 7761,
+      "sha256": "7d6cbceba4324c21617ae5da786ed15429bd1bdce35e39d695733c0c47a5bd05",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -947,8 +965,8 @@
     },
     {
       "path": "scripts/build_quantitative_validation.py",
-      "size_bytes": 5795,
-      "sha256": "b0ecc192434491385f742ff58a5604f877e3a7bc1244f8fb1e80a4ee837a040a",
+      "size_bytes": 12457,
+      "sha256": "b87baa949184886f60d9e95043ce626b1ba24233b895dbfc6fd6200f945cd4d1",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1067,8 +1085,8 @@
     },
     {
       "path": "scripts/refresh_source_registry.py",
-      "size_bytes": 2494,
-      "sha256": "64af7faa7026ea165219b0fdcc0779c180aa3cad0c8e8eca1437dbdb2813894b",
+      "size_bytes": 3249,
+      "sha256": "cfddd85037f65b2b739c7e0fe2898b7bf40eee42e51503bd7dd7f95fb46e92e4",
       "evidence_class_hint": "method_or_documentation"
     },
     {
