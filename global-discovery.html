@@ -63,7 +63,7 @@ footer{padding:20px 0;color:#728f9f;font-size:9px}
   <div id="map" role="img" aria-label="Global map of terrain-screening candidate windows"></div>
   <div class="mapfoot">OpenStreetMap © contributors · Candidate pins represent approximate centres of 5.55 km windows derived in a local projected grid.</div>
   <div class="panelhead"><b>Ranked global shortlist</b><small>rank within the retained global shortlist</small></div>
-  <div class="tablewrap"><table><thead><tr><th>Rank</th><th>Tile / location</th><th>Primary core</th><th>Core</th><th>Secondary diagnostic</th></tr></thead><tbody id="rows"><tr><td colspan="5">The full global scan has not run yet.</td></tr></tbody></table></div>
+  <div class="tablewrap"><table><thead><tr><th>Rank</th><th>Tile / location</th><th>Primary core</th><th>Secondary diagnostic</th></tr></thead><tbody id="rows"><tr><td colspan="5">The full global scan has not run yet.</td></tr></tbody></table></div>
  </section>
  <aside class="panel">
   <div class="panelhead"><b>Candidate evidence card</b><small id="refName">Selected planetary reference</small></div>
@@ -151,7 +151,7 @@ function render(){
  var t=target();visible=t.candidate_windows||[];
  $("candidateCount").textContent=visible.length.toLocaleString()+" retained candidate windows";
  $("shortlist").textContent=visible.length.toLocaleString();
- $("rows").innerHTML=visible.slice(0,250).map(function(w){return '<tr data-id="'+esc(w.id)+'"><td>#'+esc(w.shortlist_rank)+'</td><td>'+esc(w.tile_id)+'<br><span class="sub">'+fmt(w.latitude,2)+', '+fmt(w.longitude,2)+'</span></td><td>'+fmt(w.core_terrain_index,2)+'</td><td>'+fmt(w.core_terrain_index,2)+'</td><td>'+fmt(w.secondary_diagnostic_index,2)+'</td></tr>';}).join("")||'<tr><td colspan="5">No candidate windows passed the validity threshold.</td></tr>';
+ $("rows").innerHTML=visible.slice(0,250).map(function(w){return '<tr data-id="'+esc(w.id)+'"><td>#'+esc(w.shortlist_rank)+'</td><td>'+esc(w.tile_id)+'<br><span class="sub">'+fmt(w.latitude,2)+', '+fmt(w.longitude,2)+'</span></td><td>'+fmt(w.core_terrain_index,2)+'</td><td>'+fmt(w.secondary_diagnostic_index,2)+'</td></tr>';}).join("")||'<tr><td colspan="4">No candidate windows passed the validity threshold.</td></tr>';
  $("rows").querySelectorAll("tr[data-id]").forEach(function(row){row.onclick=function(){var w=visible.find(function(x){return x.id===row.dataset.id;});if(w){showDetails(w);if(map)map.setView([w.latitude,w.longitude],7);}};});
  if(map){markers.forEach(function(m){map.removeLayer(m);});markers=[];visible.forEach(function(w){if(w.latitude==null||w.longitude==null)return;var m=L.circleMarker([w.latitude,w.longitude],{radius:5,color:"#062536",weight:1,fillColor:"#5cd8ed",fillOpacity:.85}).addTo(map);m.bindTooltip("#"+w.shortlist_rank+" · "+w.tile_id);m.on("click",function(){showDetails(w);});markers.push(m);});if(markers.length){map.fitBounds(L.featureGroup(markers).getBounds().pad(.08),{maxZoom:4});}}
  if(visible.length)showDetails(visible[0]);else $("details").innerHTML='<div class="sub">No candidate windows retained for this planetary target.</div>';
