@@ -134,7 +134,7 @@ function showDetails(w){
  $("details").innerHTML=
  '<h2>'+esc(w.tile_id)+'</h2><div class="sub">Approx. '+fmt(w.latitude,4)+'°, '+fmt(w.longitude,4)+'° · '+esc(w.crs)+'</div>'+
  '<div class="score">'+fmt(w.core_terrain_index,2)+' <small>/ 100 · primary core terrain index</small></div>'+
- '<div class="sub">Primary shortlist rank #'+esc(w.shortlist_rank)+' · secondary rank within shortlist #'+esc(w.secondary_rank_within_primary_shortlist||"—")+' · not a probability or validated analog score</div>'+
+ '<div class="sub">Shortlist rank #'+esc(w.shortlist_rank)+' · secondary rank within shortlist #'+esc(w.secondary_rank_within_primary_shortlist||"—")+' · not a probability or validated analog score</div>'+
  '<div class="metrics"><div class="metric"><b>'+fmt(w.terrain.median_slope_deg,2)+'°</b><span>Median slope</span></div><div class="metric"><b>'+fmt(w.terrain.p90_slope_deg,2)+'°</b><span>P90 slope</span></div><div class="metric"><b>'+fmt(w.terrain.p90_local_relief_m,1)+' m</b><span>P90 local relief</span></div></div>'+
  '<div class="metrics"><div class="metric"><b>'+fmt(w.core_terrain_index,2)+'</b><span>Core index</span></div><div class="metric"><b>'+fmt(w.secondary_diagnostic_index,2)+'</b><span>Secondary index</span></div><div class="metric"><b>'+fmt(w.score_family_gap_points,2)+'</b><span>Score-family gap (points)</span></div></div>'+
  '<div class="card"><b>Additional terrain diagnostics</b><p>P95 slope: '+fmt(w.terrain.p95_slope_deg,2)+'°</p><p>Elevation IQR: '+fmt(w.terrain.elevation_iqr_m,1)+' m</p><p>Detrended roughness RMS: '+fmt(w.terrain.detrended_roughness_rms_m,1)+' m</p><p>Slope under 5°: '+fmt(w.terrain.slope_under_5_deg_pct,1)+'% · over 20°: '+fmt(w.terrain.slope_over_20_deg_pct,1)+'%</p></div>'+
@@ -144,6 +144,7 @@ envHtml+
  '<div class="card"><b>Evidence source</b><p>'+esc(w.source.provider)+' · '+esc(w.source.collection)+'</p><p>Native product resolution: '+esc(w.source.resolution_native_m_approx)+' m · sampled support: '+esc(w.analysis_support_m)+' m</p><p><a href="'+esc(w.source.asset_url)+'" target="_blank" rel="noreferrer">Open source DEM tile ↗</a></p></div>'+
  '<div class="notice"><b>Why it surfaced:</b> this local window has a numerical terrain profile closer to the '+esc(t.reference.name)+' reference profile under the stated feature scales. Independent geology, surface-material evidence and field observations are still required.</div>'+
  '<p class="sub">'+esc(w.interpretation)+'</p>';
+ if(DATA.schema_version!=="1.1.0") $("details").insertAdjacentHTML("afterbegin",'<div class="notice"><b>Rank refresh pending:</b> this saved dataset predates the core-only ranking correction. The displayed shortlist rank is from the preceding blended-score release; wait for schema 1.1.0 before treating ranks as primary-core order.</div>');
  $("rows").querySelectorAll("tr").forEach(function(row){row.classList.toggle("selected",row.dataset.id===w.id);});
 }
 function render(){
@@ -159,7 +160,7 @@ function render(){
 function download(type){
  if(!DATA)return;
  var rows=visible;
- var value=type==="json"?JSON.stringify({project:DATA.project,status:DATA.status,completion_contract:DATA.completion_contract,target:$("target").value,reference:target().reference,candidate_windows:rows,method:DATA.method,limits:DATA.limits},null,2):
+ var value=type==="json"?JSON.stringify({project:DATA.project,schema_version:DATA.schema_version,ranking_ready:DATA.schema_version==="1.1.0",status:DATA.status,completion_contract:DATA.completion_contract,target:$("target").value,reference:target().reference,candidate_windows:rows,method:DATA.method,limits:DATA.limits},null,2):
  ["primary_rank,id,tile_id,latitude,longitude,primary_core_index,secondary_diagnostic_index,score_family_gap_points,median_slope_deg,p90_slope_deg,p90_local_relief_m,p95_slope_deg,elevation_iqr_m,detrended_roughness_rms_m"].concat(rows.map(function(w){return [w.shortlist_rank,w.id,w.tile_id,w.latitude,w.longitude,w.core_terrain_index,w.secondary_diagnostic_index,w.score_family_gap_points,w.terrain.median_slope_deg,w.terrain.p90_slope_deg,w.terrain.p90_local_relief_m,w.terrain.p95_slope_deg,w.terrain.elevation_iqr_m,w.terrain.detrended_roughness_rms_m].map(function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"';}).join(",");})).join("\n");
  var blob=new Blob([value],{type:type==="json"?"application/json":"text/csv;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="analogx-global-"+$("target").value+"-shortlist."+(type==="json"?"json":"csv");a.click();URL.revokeObjectURL(url);
 }
@@ -172,8 +173,8 @@ fetch("./data/global_discovery/global_discovery.json").then(function(r){if(!r.ok
  DATA=d;initMap();
  var c=d.completion_contract||{};
  $("scanStatus").className="status "+(d.status==="complete"?"complete":"partial");
- $("scanStatus").textContent=d.status==="complete"?"Global tile inventory processed":"Partial global inventory";
- $("scanTimestamp").textContent="Generated "+(d.generated_at_utc||"—");
+ $("scanStatus").textContent=d.status==="complete"?(d.schema_version==="1.1.0"?"Global inventory + core-only ranking ready":"Global tiles complete · core-only rank refresh pending"):"Partial global inventory";
+ $("scanTimestamp").textContent="Generated "+(d.generated_at_utc||"—")+" · data schema "+(d.schema_version||"legacy");
  $("tileTotal").textContent=Number(c.global_land_tile_inventory_total||0).toLocaleString();
  $("tileProcessed").textContent=Number(c.tiles_processed||0).toLocaleString();
  $("coverage").textContent=fmt(c.tile_processing_coverage_pct,1)+"%";
