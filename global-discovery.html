@@ -63,7 +63,7 @@ footer{padding:20px 0;color:#728f9f;font-size:9px}
   <div id="map" role="img" aria-label="Global map of terrain-screening candidate windows"></div>
   <div class="mapfoot">OpenStreetMap © contributors · Candidate pins represent approximate centres of 5.55 km windows derived in a local projected grid.</div>
   <div class="panelhead"><b>Ranked global shortlist</b><small>rank within the retained global shortlist</small></div>
-  <div class="tablewrap"><table><thead><tr><th>Rank</th><th>Tile / location</th><th>Consensus</th><th>Core</th><th>Secondary</th></tr></thead><tbody id="rows"><tr><td colspan="5">The full global scan has not run yet.</td></tr></tbody></table></div>
+  <div class="tablewrap"><table><thead><tr><th>Rank</th><th>Tile / location</th><th>Primary core</th><th>Core</th><th>Secondary diagnostic</th></tr></thead><tbody id="rows"><tr><td colspan="5">The full global scan has not run yet.</td></tr></tbody></table></div>
  </section>
  <aside class="panel">
   <div class="panelhead"><b>Candidate evidence card</b><small id="refName">Selected planetary reference</small></div>
@@ -73,7 +73,7 @@ footer{padding:20px 0;color:#728f9f;font-size:9px}
 <section class="method">
  <h3>Method, quantitative checks and evidence limitations</h3>
  <p><b>Global search:</b> the engine enumerates the provider's public one-degree GLO-90 land-tile inventory, partitions it into 24 longitude shards, reads each COG and resamples to a nominal 925 m local metric grid. It then evaluates non-overlapping 6×6-cell windows. The merge report provides assigned, processed, failed and no-window tile counts; incomplete or failed shards prevent a complete-scan status.</p>
- <p><b>Two terrain metric families:</b> the core index uses median slope, P90 slope and P90 local relief. The secondary diagnostics use P95 slope, elevation IQR and detrended roughness. Both compare window descriptors with Moon/Mars reference-window medians using IQR scales from the ten-site Earth reference pack. Their agreement is a robustness check within the same DEM, not independent-source validation or calibrated accuracy.</p>
+ <p><b>Two terrain metric families:</b> the primary shortlist is ordered by median slope, P90 slope and P90 local relief gaps. The secondary diagnostics use P95 slope, elevation IQR and detrended roughness. Both use IQR scales from the ten-site Earth reference pack. They are separate descriptors from the same DEM, not independent validation. Their ranks disagree substantially; inspect the quantitative report and do not treat rank as probability, accuracy or a complete analog verdict.</p>
  <p><b>Independent DEM check:</b> a separate NASADEM/SRTM-derived cross-check is attempted for selected sites within its approximate 56°S–60°N coverage. Copernicus DSM and NASADEM elevation products differ in acquisition and surface semantics. Reported descriptor differences/rank correlations are diagnostic only and are not ground truth.</p>
  <p><b>Field validation:</b> no physical field observations are created by this engine. Pakistan sites remain desk-evidence leads until georeferenced photographs, calibrated instrument readings, sample provenance, permissions and independent review are recorded in the field evidence ledger.</p>
  <div class="notice"><b>Do not over-interpret:</b> Copernicus GLO-90 is a digital surface model. Terrain descriptors do not measure lithology, mineralogy, soil strength, regolith, dust, ice, resources, radiation, illumination, gravity, rover traversability, landing safety or base suitability. The global shortlist has a bounded number of results per target and is not an exhaustive export of every candidate window.</div>
@@ -121,17 +121,24 @@ function showDetails(w){
    '<p class="sub">Impact Observatory / Esri / Microsoft · CC BY 4.0</p>'
    :'<p>Land-cover enrichment: '+esc(env.state||"not processed")+'. '+esc(env.limitation||"No classified pixels were verified for this shortlist window.")+'</p>')+
   '</div>';
+ var geology=w.geology_context||{};
+ var geologyFeatures=geology.lithology_features||[];
+ var geologyHtml='<div class="card"><b>Global geology context · GLiM</b>'+
+  (geology.state==="processed"&&geologyFeatures.length?
+   geologyFeatures.map(function(f){return '<p>'+esc(f.lithology_description||"Lithology label unavailable")+
+    ' <span class="sub">('+esc(f.lithology_level_2_code||"no L2 code")+' / '+esc(f.lithology_level_1_code||"no L1 code")+')</span></p>';}).join("")+
+   '<p class="sub">Generalized map lookup at the approximate centre of this 5.55 km window. Not an area-weighted survey, local field geology or mineral identification.</p>'
+   :'<p>GLiM context: '+esc(geology.state||"not yet enriched")+'. No lithology class is inferred when the map returns no feature.</p>')+
+  '<p class="sub">Source: GLiM · DOI <a href="https://doi.org/10.1029/2012GC004370" target="_blank" rel="noreferrer">10.1029/2012GC004370</a>. Excluded from the terrain ranking.</p></div>';
  $("refName").textContent=t.reference.name;
  $("details").innerHTML=
  '<h2>'+esc(w.tile_id)+'</h2><div class="sub">Approx. '+fmt(w.latitude,4)+'°, '+fmt(w.longitude,4)+'° · '+esc(w.crs)+'</div>'+
- '<div class="score">'+fmt(w.consensus_index,2)+' <small>/ 100 · consensus terrain index</small></div>'+
- '<div class="sub">Shortlist rank #'+esc(w.shortlist_rank)+' · not a probability or validated analog score</div>'+
+ '<div class="score">'+fmt(w.core_terrain_index,2)+' <small>/ 100 · primary core terrain index</small></div>'+
+ '<div class="sub">Primary shortlist rank #'+esc(w.shortlist_rank)+' · secondary rank within shortlist #'+esc(w.secondary_rank_within_primary_shortlist||"—")+' · not a probability or validated analog score</div>'+
  '<div class="metrics"><div class="metric"><b>'+fmt(w.terrain.median_slope_deg,2)+'°</b><span>Median slope</span></div><div class="metric"><b>'+fmt(w.terrain.p90_slope_deg,2)+'°</b><span>P90 slope</span></div><div class="metric"><b>'+fmt(w.terrain.p90_local_relief_m,1)+' m</b><span>P90 local relief</span></div></div>'+
- '<div class="metrics"><div class="metric"><b>'+fmt(w.core_terrain_index,2)+'</b><span>Core index</span></div><div class="metric"><b>'+fmt(w.secondary_diagnostic_index,2)+'</b><span>Secondary index</span></div><div class="metric"><b>'+fmt(w.metric_family_score_agreement,1)+'%</b><span>Metric-family score agreement</span></div></div>'+
+ '<div class="metrics"><div class="metric"><b>'+fmt(w.core_terrain_index,2)+'</b><span>Core index</span></div><div class="metric"><b>'+fmt(w.secondary_diagnostic_index,2)+'</b><span>Secondary index</span></div><div class="metric"><b>'+fmt(w.score_family_gap_points,1)+'%</b><span>Score-family gap (points)</span></div></div>'+
  '<div class="card"><b>Additional terrain diagnostics</b><p>P95 slope: '+fmt(w.terrain.p95_slope_deg,2)+'°</p><p>Elevation IQR: '+fmt(w.terrain.elevation_iqr_m,1)+' m</p><p>Detrended roughness RMS: '+fmt(w.terrain.detrended_roughness_rms_m,1)+' m</p><p>Slope under 5°: '+fmt(w.terrain.slope_under_5_deg_pct,1)+'% · over 20°: '+fmt(w.terrain.slope_over_20_deg_pct,1)+'%</p></div>'+
-envHtml+
- climateHtml+
- envHtml+
+envHtml+\n geologyHtml+\n climateHtml+
  '<div class="card"><b>Evidence source</b><p>'+esc(w.source.provider)+' · '+esc(w.source.collection)+'</p><p>Native product resolution: '+esc(w.source.resolution_native_m_approx)+' m · sampled support: '+esc(w.analysis_support_m)+' m</p><p><a href="'+esc(w.source.asset_url)+'" target="_blank" rel="noreferrer">Open source DEM tile ↗</a></p></div>'+
  '<div class="notice"><b>Why it surfaced:</b> this local window has a numerical terrain profile closer to the '+esc(t.reference.name)+' reference profile under the stated feature scales. Independent geology, surface-material evidence and field observations are still required.</div>'+
  '<p class="sub">'+esc(w.interpretation)+'</p>';
@@ -151,7 +158,7 @@ function download(type){
  if(!DATA)return;
  var rows=visible;
  var value=type==="json"?JSON.stringify({project:DATA.project,status:DATA.status,completion_contract:DATA.completion_contract,target:$("target").value,reference:target().reference,candidate_windows:rows,method:DATA.method,limits:DATA.limits},null,2):
- ["rank,id,tile_id,latitude,longitude,consensus_index,core_index,secondary_index,median_slope_deg,p90_slope_deg,p90_local_relief_m,p95_slope_deg,elevation_iqr_m,detrended_roughness_rms_m"].concat(rows.map(function(w){return [w.shortlist_rank,w.id,w.tile_id,w.latitude,w.longitude,w.consensus_index,w.core_terrain_index,w.secondary_diagnostic_index,w.terrain.median_slope_deg,w.terrain.p90_slope_deg,w.terrain.p90_local_relief_m,w.terrain.p95_slope_deg,w.terrain.elevation_iqr_m,w.terrain.detrended_roughness_rms_m].map(function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"';}).join(",");})).join("\n");
+ ["primary_rank,id,tile_id,latitude,longitude,primary_core_index,secondary_diagnostic_index,score_family_gap_points,median_slope_deg,p90_slope_deg,p90_local_relief_m,p95_slope_deg,elevation_iqr_m,detrended_roughness_rms_m"].concat(rows.map(function(w){return [w.shortlist_rank,w.id,w.tile_id,w.latitude,w.longitude,w.core_terrain_index,w.secondary_diagnostic_index,w.score_family_gap_points,w.terrain.median_slope_deg,w.terrain.p90_slope_deg,w.terrain.p90_local_relief_m,w.terrain.p95_slope_deg,w.terrain.elevation_iqr_m,w.terrain.detrended_roughness_rms_m].map(function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"';}).join(",");})).join("\n");
  var blob=new Blob([value],{type:type==="json"?"application/json":"text/csv;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="analogx-global-"+$("target").value+"-shortlist."+(type==="json"?"json":"csv");a.click();URL.revokeObjectURL(url);
 }
 function showStatusUnavailable(){
