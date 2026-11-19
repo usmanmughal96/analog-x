@@ -34,8 +34,8 @@ jobs:
       - name: Check prerequisites and syntax
         run: |
           test -f data/global_discovery/global_discovery.json
-          python -m py_compile scripts/enrich_global_landcover.py scripts/enrich_global_power.py scripts/refresh_source_registry.py scripts/build_quantitative_validation.py
-          python -m unittest tests.test_global_landcover tests.test_global_power
+          python -m py_compile scripts/enrich_global_landcover.py scripts/enrich_global_power.py scripts/enrich_global_lithology.py scripts/refresh_source_registry.py scripts/build_quantitative_validation.py
+          python -m unittest tests.test_global_landcover tests.test_global_power tests.test_global_lithology
           python scripts/validate_field_observations.py
 
       - name: Enrich global terrain shortlist with annual land-cover classes
@@ -43,6 +43,9 @@ jobs:
 
       - name: Enrich retained global candidates with NASA POWER climatology
         run: python scripts/enrich_global_power.py
+
+      - name: Enrich retained shortlist with global generalized lithology context
+        run: python scripts/enrich_global_lithology.py
 
       - name: Refresh source register and validation summary
         run: |
@@ -58,7 +61,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/global_discovery/global_discovery.json data/global_discovery/global_landcover_enrichment.json data/global_discovery/global_power_enrichment.json data/source_registry.json data/validation/quantitative_validation.json data/provenance/reproducibility_manifest.json
+          git add data/global_discovery/global_discovery.json data/global_discovery/global_landcover_enrichment.json data/global_discovery/global_power_enrichment.json data/global_discovery/global_lithology_enrichment.json data/source_registry.json data/validation/quantitative_validation.json data/provenance/reproducibility_manifest.json
           if git diff --cached --quiet; then
             echo "No enrichment changes to publish."
             exit 0
