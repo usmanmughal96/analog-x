@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.0.0",
-  "generated_at_utc": "2026-11-19T13:37:57+00:00",
+  "schema_version": "2.0.0",
+  "generated_at_utc": "2026-11-19T14:04:26+00:00",
   "status": "diagnostic_only",
   "global_scan": {
     "status": "complete",
@@ -18,10 +18,17 @@
   "targets": {
     "moon": {
       "candidate_pool_size": 1200,
+      "primary_ranking": "core_terrain_index descending",
+      "secondary_ranking": "secondary_diagnostic_index descending, diagnostic only",
       "core_vs_secondary_spearman": 0.0291,
       "top_25_overlap": 1,
       "top_100_overlap": 11,
-      "metric_family_interpretation": "Agreement between two descriptor families from the same GLO-90 DEM. This is robustness analysis, not independent-data validation.",
+      "median_score_family_gap_points": 36.4094,
+      "top_25_secondary_rank_range": [
+        22,
+        1189
+      ],
+      "interpretation": "This diagnostic compares two different feature families derived from the same Copernicus GLO-90 source within the retained primary shortlist. It tests rank sensitivity to feature choice; it is not independent-source validation, model accuracy, field truth or a calibrated probability.",
       "top_25_unique_source_tiles": 25,
       "top_25_occupied_10deg_cells": 14,
       "top_100_unique_source_tiles": 97,
@@ -31,10 +38,17 @@
     },
     "mars": {
       "candidate_pool_size": 1200,
+      "primary_ranking": "core_terrain_index descending",
+      "secondary_ranking": "secondary_diagnostic_index descending, diagnostic only",
       "core_vs_secondary_spearman": -0.0146,
       "top_25_overlap": 1,
       "top_100_overlap": 5,
-      "metric_family_interpretation": "Agreement between two descriptor families from the same GLO-90 DEM. This is robustness analysis, not independent-data validation.",
+      "median_score_family_gap_points": 3.1376,
+      "top_25_secondary_rank_range": [
+        21,
+        1138
+      ],
+      "interpretation": "This diagnostic compares two different feature families derived from the same Copernicus GLO-90 source within the retained primary shortlist. It tests rank sensitivity to feature choice; it is not independent-source validation, model accuracy, field truth or a calibrated probability.",
       "top_25_unique_source_tiles": 25,
       "top_25_occupied_10deg_cells": 23,
       "top_100_unique_source_tiles": 100,
@@ -47,8 +61,8 @@
   "global_land_cover_enrichment": {
     "state": "partially_processed",
     "shortlist_candidate_windows_unique": 2400,
-    "processed_candidate_windows": 2380,
-    "coverage_percent_of_shortlist": 99.167,
+    "processed_candidate_windows": 2391,
+    "coverage_percent_of_shortlist": 99.625,
     "source_collection": "io-lulc-annual-v02",
     "year": 2023,
     "interpretation": "2023 Sentinel-2-derived land-cover context for retained shortlist windows only; not geology or field truth."
@@ -75,7 +89,45 @@
     "interpretation": "NASA POWER gridded climatology at retained candidate coordinates, not in-situ observations or a full global climate raster."
   },
   "global_lithology_context": {
-    "state": "awaiting_enrichment"
+    "state": "processed",
+    "scope": {
+      "top_candidates_per_target": 100,
+      "unique_candidate_points_attempted": 200,
+      "successful_point_queries": 200,
+      "candidate_points_with_lithology_features": 200,
+      "successful_queries_without_returned_feature": 0,
+      "failed_queries": 0,
+      "query_success_coverage_percent": 100.0
+    },
+    "source": {
+      "provider": "GLiM / Global Lithological Map",
+      "version": "GLiM v1.1 simplified ArcGIS FeatureServer layer",
+      "layer": "GLiM_Level2_Pr_SimplifyPolyg (layer 1)",
+      "service_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1",
+      "doi": "10.1029/2012GC004370",
+      "data_doi": "10.1594/PANGAEA.788537",
+      "license": "CC BY 3.0 (PANGAEA gridded GLiM record; confirm terms for the served v1.1 derivative before redistribution)",
+      "attribution": "Hartmann, J. and N. Moosdorf (2012), The new global lithological map database GLiM: A representation of rock properties at the Earth's surface, Geochemistry, Geophysics, Geosystems, 13, Q12004.",
+      "metadata_last_edit_reported": "2026-08-17"
+    },
+    "method": {
+      "operation": "Point-in-polygon lookup at approximate centre of each retained 5.55 km GLO-90 terrain window",
+      "fields": [
+        "LithoL2",
+        "Lithology",
+        "Litho16"
+      ],
+      "role": "Contextual geology evidence only; excluded from all terrain ranking and scoring."
+    },
+    "limitations": [
+      "GLiM is a generalized compilation of regional geological maps; the paper reports an average mapping scale around 1:3,750,000 and the original database is assembled from many national/regional sources.",
+      "The returned class is the polygon intersecting the approximate window centre, not an area-weighted lithology mixture across the full 5.55 km window.",
+      "No local rock exposure, regolith, mineralogy, soil chemistry, alteration, geotechnical properties or field observations are measured.",
+      "Boundary position, source-map scale, compilation and regional mapping coverage can affect the class returned at a point.",
+      "This enrichment is applied only to the retained top-100-per-target shortlist, deduplicated by candidate ID; it is not a global lithology raster reprocessing of all 5.85 million terrain windows.",
+      "A missing feature is reported as no_feature_returned; it is not converted into a lithology class."
+    ],
+    "interpretation": "Generalized GLiM centre-point context for retained candidates only. Not area-weighted, field-verified geology; excluded from candidate scoring."
   },
   "independent_dem_crosscheck": {
     "state": "processed",
@@ -113,10 +165,10 @@
   },
   "reproducibility": {
     "manifest_state": "present",
-    "manifest_sha256": "890d086a88989e05dec50a9f8786762bbf4d972da16207cbb501d3fa463ec624",
+    "manifest_sha256": "837697aae8584d6aacff20de9c9193c96bcaf599f17d97ed28509a56d5e37a4e",
     "hashed_repository_file_count": 200,
     "source_registry_records": 17,
-    "manifest_generated_at_utc": "2026-11-19T10:50:53+00:00",
+    "manifest_generated_at_utc": "2026-11-19T13:37:58+00:00",
     "limitations": [
       "SHA-256 establishes byte-level identity, not scientific validity or source authenticity.",
       "The manifest records the repository commit before its own final commit; it cannot hash its final committed bytes.",
@@ -129,8 +181,7 @@
       "browse_only": 2,
       "metadata_only": 1,
       "partially_processed": 1,
-      "planned": 1,
-      "processed": 9,
+      "processed": 10,
       "reference_only": 3
     },
     "rule": "browse_only, metadata_only and reference_only records are not represented as fully processed quantitative science inputs."

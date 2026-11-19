@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-19T13:37:58+00:00",
-  "repository_commit_before_manifest_commit": "742cd97ea870edc6ed1d616625578c064651233f",
+  "generated_at_utc": "2026-11-19T14:04:26+00:00",
+  "repository_commit_before_manifest_commit": "c8089449024df226cf6bfb70b4b6aabc0bdd807e",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -37,8 +37,8 @@
       "manifest.webmanifest"
     ]
   },
-  "file_count": 200,
-  "source_registry_sha256": "b622d76540c9cd7b119568b822c3dea7a378729633d1bb0f535cbac3dc30219e",
+  "file_count": 201,
+  "source_registry_sha256": "f5975e2a681ea76dc8b8c540bc3725179579b2bd94baf212ba3fefa63fa04b0d",
   "source_registry_records": [
     {
       "id": "copernicus_glo30_regional",
@@ -285,7 +285,7 @@
     },
     {
       "id": "glim_global_candidate_context",
-      "state": "planned",
+      "state": "processed",
       "provider": "Hartmann and Moosdorf / ArcGIS Feature Service distributor",
       "name": "Global Lithological Map (GLiM) generalized surface-lithology context",
       "url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1",
@@ -389,20 +389,26 @@
     },
     {
       "path": "data/global_discovery/global_discovery.json",
-      "size_bytes": 4339458,
-      "sha256": "6af89063601ebffbfa26ee57c8e6e131362bc843028517010fc4708302204b1b",
+      "size_bytes": 11284595,
+      "sha256": "cf58c846ff8915b0b4a4993386cb0edf7c5d6a777be49a8ade6a282106ef446f",
       "evidence_class_hint": "global_discovery_output"
     },
     {
       "path": "data/global_discovery/global_landcover_enrichment.json",
-      "size_bytes": 4192629,
-      "sha256": "1b43c3f48bb417170730b490212a88875cb3c05307f44cccee49587689247f27",
+      "size_bytes": 4211269,
+      "sha256": "0a068e1864c284ce51ec44ca3e848f8615bc577b8f634d102511100ec79ff23d",
+      "evidence_class_hint": "global_discovery_output"
+    },
+    {
+      "path": "data/global_discovery/global_lithology_enrichment.json",
+      "size_bytes": 214215,
+      "sha256": "048ad0edca65451b5ba1271c054c5182e63ff400b6d7037d51d09926893df76a",
       "evidence_class_hint": "global_discovery_output"
     },
     {
       "path": "data/global_discovery/global_power_enrichment.json",
-      "size_bytes": 1486032,
-      "sha256": "110235ec293bf28ecfe6af53d40f75d0e1aea0a0c510397d3e7dbc67cd8432e5",
+      "size_bytes": 1484488,
+      "sha256": "0dc3b0984253248efd707391ebf531ee3811e6b68eda54d9c7b9436d0ca7d7c7",
       "evidence_class_hint": "global_discovery_output"
     },
     {
@@ -815,8 +821,8 @@
     },
     {
       "path": "data/source_registry.json",
-      "size_bytes": 15644,
-      "sha256": "b622d76540c9cd7b119568b822c3dea7a378729633d1bb0f535cbac3dc30219e",
+      "size_bytes": 15799,
+      "sha256": "f5975e2a681ea76dc8b8c540bc3725179579b2bd94baf212ba3fefa63fa04b0d",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -911,8 +917,8 @@
     },
     {
       "path": "data/validation/quantitative_validation.json",
-      "size_bytes": 4690,
-      "sha256": "0cd967d790ea85c8d81e49bd2720a2aea8def725868f9b16ca20b11b760d31a7",
+      "size_bytes": 10342,
+      "sha256": "d54d667e5875a930da3fcde6d7908ff2f6470e8d3c65477db7e832c0b0f39e66",
       "evidence_class_hint": "processed_or_derived"
     },
     {
