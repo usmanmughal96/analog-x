@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def select(rows, limit=1200, max_per_tile=3):
-    rows = sorted(rows, key=lambda x: (-x["consensus_index"], -x["metric_family_score_agreement"], x["id"]))
+    rows = sorted(rows, key=lambda x: (-x["core_terrain_index"], x["id"]))
     chosen, counts = [], {}
     for row in rows:
         tid = row["tile_id"]
@@ -19,8 +19,15 @@ def select(rows, limit=1200, max_per_tile=3):
         chosen.append(row)
         if len(chosen) >= limit:
             break
+    secondary_order = {
+        row["id"]: rank
+        for rank, row in enumerate(
+            sorted(chosen, key=lambda x: (-x["secondary_diagnostic_index"], x["id"])), 1
+        )
+    }
     for i, row in enumerate(chosen, 1):
         row["shortlist_rank"] = i
+        row["secondary_rank_within_primary_shortlist"] = secondary_order[row["id"]]
     return chosen
 
 
@@ -49,7 +56,7 @@ def main():
     ref = shards[0]["target_reference_profiles"]
     full = assigned == inventory_total and processed == assigned and not failed
     result = {
-        "schema_version": "1.0.0",
+        "schema_version": "1.1.0",
         "project": "ANALOG-X Global Discovery & Intelligence Engine",
         "generated_at_utc": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "status": "complete" if full else "partial",
@@ -80,9 +87,11 @@ def main():
             "unit_of_analysis": "Non-overlapping 6x6-cell windows, nominally ~5.55 km x ~5.55 km at ~925 m support, in each one-degree land tile",
             "resampling": "GLO-90 COG resampled by area averaging to a local metric CRS at 925 m nominal cell size",
             "core_features": ref["feature_families"]["core"],
+            "primary_ranking_feature_family": "core",
             "secondary_features": ref["feature_families"]["secondary"],
+            "secondary_ranking_role": "Diagnostic only; not averaged into the primary score or used to order the global shortlist.",
             "secondary_features_role": "Alternative terrain diagnostics used to assess metric-family rank robustness; derived from the same DEM source and not independent-source validation.",
-            "score": "Each feature family's normalized mean absolute gap to the selected planetary reference median, scaled by the IQR of windows in the ten-site Earth reference pack; transformed as 100*exp(-mean_gap). Consensus is the arithmetic mean of core and secondary indexes.",
+            "score": "Core primary index and secondary diagnostic index are calculated separately as 100*exp(-mean normalized absolute feature gap), using IQR scales from the ten-site Earth reference pack. The global shortlist is ordered by core_terrain_index only; no blended consensus score is produced.",
             "target_reference_profiles": ref,
             "target_reference_sources": {
                 "moon": "NASA LRO LOLA GDR LDEM_80S_80M, regional Shackleton Rim grid",
@@ -93,7 +102,7 @@ def main():
             "interpretation": "A terrain-screening lead only. Score is not a probability, calibrated accuracy, geological equivalence, resource estimate, operational suitability, or landing/rover safety."
         },
         "targets": {
-            target: {"reference": ref[target], "shortlist_method": "Top 1,200 consensus candidates, capped at three candidates per 1-degree source tile", "candidate_windows": select(rows[target])}
+            target: {"reference": ref[target], "shortlist_method": "Top 1,200 by primary core terrain index, capped at three candidates per 1-degree source tile; secondary index is diagnostic only", "candidate_windows": select(rows[target])}
             for target in ("moon", "mars")
         },
         "failed_tiles": failed,
@@ -111,7 +120,7 @@ def main():
             "GLO-90 is a DSM and contains surface objects such as vegetation, buildings, snow and ice.",
             "The global data are coarser than the existing selected GLO-30 local study windows; do not merge the two resolutions into an unqualified score.",
             "Copernicus GLO-90 terrain descriptors do not measure lithology, mineralogy, regolith strength, dust, illumination, radiation, water/ice, subsurface resources or trafficability.",
-            "The secondary feature family is a robustness check within the same DEM, not independent-source validation.",
+            "The secondary feature family is an alternative diagnostic from the same DEM, not independent-source validation. Strong rank disagreement is reported and does not change the primary core-only ordering.",
             "The candidate shortlists are bounded to 1,200 ranked windows per target; they are not a complete export of every evaluated window."
         ]
     }
