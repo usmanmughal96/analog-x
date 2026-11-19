@@ -238,7 +238,7 @@ def build_reference_profiles() -> dict[str, Any]:
     }
 
 
-def score_candidate(metrics: dict[str, float], reference: dict[str, Any], scales: dict[str, float]) -> tuple[float, float, float]:
+def score_candidate(metrics: dict[str, float], reference: dict[str, Any], scales: dict[str, float]) -> tuple[float, float]:
     profiles = reference["profile"]
     core_keys = reference["feature_families"]["core"]
     secondary_keys = reference["feature_families"]["secondary"]
@@ -246,8 +246,9 @@ def score_candidate(metrics: dict[str, float], reference: dict[str, Any], scales
     d_secondary = np.mean([abs(metrics[k] - profiles[k]) / scales[k] for k in secondary_keys])
     core = 100 * math.exp(-float(d_core))
     secondary = 100 * math.exp(-float(d_secondary))
-    consensus = (core + secondary) / 2
-    return round(core, 4), round(secondary, 4), round(consensus, 4)
+    # Keep the two feature families separate. Averaging them would hide ranking
+    # instability when the feature-family rankings disagree.
+    return round(core, 4), round(secondary, 4)
 
 
 def tile_candidate_windows(tile: dict[str, Any], shard: int, refs: dict[str, Any]) -> tuple[dict[str, list[dict[str, Any]]], dict[str, Any]]:
@@ -271,7 +272,7 @@ def tile_candidate_windows(tile: dict[str, Any], shard: int, refs: dict[str, Any
             if not (-90 <= lat0 <= 90 and -180 <= lon0 <= 180):
                 continue
             for target in ("moon", "mars"):
-                core, secondary, consensus = score_candidate(metrics, refs[target], refs["earth_iqr"])
+                core, secondary = score_candidate(metrics, refs[target], refs["earth_iqr"])
                 candidates[target].append({
                     "id": f"{tile['tile_id']}_r{r}_c{c}",
                     "tile_id": tile["tile_id"],
@@ -282,9 +283,9 @@ def tile_candidate_windows(tile: dict[str, Any], shard: int, refs: dict[str, Any
                     "crs": crs,
                     "core_terrain_index": core,
                     "secondary_diagnostic_index": secondary,
-                    "consensus_index": consensus,
                     "terrain": metrics,
-                    "metric_family_score_agreement": round(100 * (1 - abs(core - secondary) / 100), 2),
+                    "score_family_gap_points": round(abs(core - secondary), 4),
+                    "ranking_role": "core_terrain_index_only; secondary_diagnostic_index is reported separately and not averaged",
                     "source": {
                         "provider": "Copernicus DEM GLO-90",
                         "collection": "COP-DEM_GLO-90-DGED",
@@ -305,7 +306,7 @@ def tile_candidate_windows(tile: dict[str, Any], shard: int, refs: dict[str, Any
 
 
 def select_diverse(rows: list[dict[str, Any]], limit: int, max_per_tile: int = 4) -> list[dict[str, Any]]:
-    rows = sorted(rows, key=lambda x: (-x["consensus_index"], -x.get("metric_family_score_agreement", x.get("metric_family_rank_concordance", 0)), x["id"]))
+    rows = sorted(rows, key=lambda x: (-x["core_terrain_index"], x["id"]))
     out, counts = [], {}
     for item in rows:
         tile_id = item["tile_id"]
@@ -346,7 +347,7 @@ def run(args: argparse.Namespace) -> None:
                 print(f"shard {args.shard:02d}: {len(failures)} tile failures", file=sys.stderr, flush=True)
     OUT.mkdir(parents=True, exist_ok=True)
     payload = {
-        "schema_version": "1.0.0",
+        "schema_version": "1.1.0",
         "project": "ANALOG-X Global Discovery",
         "generated_at_utc": utcnow(),
         "shard": args.shard, "shard_count": args.shards,
@@ -369,7 +370,8 @@ def run(args: argparse.Namespace) -> None:
             "GLO-90 is used for worldwide terrain coverage; current regional GLO-30 is kept as a separate finer-resolution reference layer.",
             "Candidate windows are non-overlapping 6x6 cells at nominal 925 m support and are screened only where sufficient valid DEM data exist.",
             "Core index reproduces the three-feature terrain-distance concept; the secondary feature family adds P95 slope, elevation IQR and detrended roughness.",
-            "Core and secondary indexes are alternative terrain descriptors from the same Copernicus GLO-90 DEM. Their agreement is not independent-source validation or statistical confidence.",
+            "The core index alone defines the primary shortlist ordering. The secondary index is an alternative diagnostic and is not averaged into a consensus score.",
+            "Metric-family rank disagreement can be substantial; inspect the quantitative validation report before interpreting a primary rank. Neither index is calibrated accuracy or field truth.",
             "Copernicus DEM is a DSM; vegetation, buildings, snow/ice and other surface objects may contribute to elevation."
         ]
     }
