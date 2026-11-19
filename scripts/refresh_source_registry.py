@@ -33,6 +33,14 @@ def main():
         count=int(cross.get("sites_crosschecked",0))
         lookup["nasadem_independent_check"]["state"]="processed" if count>0 else "unavailable"
         lookup["nasadem_independent_check"]["sites_crosschecked"]=count
+    lithology=read("data/global_discovery/global_lithology_enrichment.json")
+    if lithology and "glim_global_candidate_context" in lookup:
+        state=lithology.get("state","unavailable")
+        lookup["glim_global_candidate_context"]["state"]=state if state in {"processed","partially_processed"} else "unavailable"
+        scope=lithology.get("scope",{})
+        lookup["glim_global_candidate_context"]["candidate_points_attempted"]=scope.get("unique_candidate_points_attempted",0)
+        lookup["glim_global_candidate_context"]["candidate_points_with_features"]=scope.get("candidate_points_with_lithology_features",0)
+        lookup["glim_global_candidate_context"]["query_success_coverage_percent"]=scope.get("query_success_coverage_percent",0)
     REG.write_text(json.dumps(registry,indent=2)+"\n",encoding="utf-8")
     print("Updated source register states from generated data.")
 if __name__=="__main__":main()
