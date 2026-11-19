@@ -1,76 +1,253 @@
 #!/usr/bin/env python3
-"""Build quantitative robustness diagnostics; never label them as model accuracy."""
-import json, math
+"""Build transparent global, robustness, second-source, geology and field evidence diagnostics."""
+from __future__ import annotations
+
+import hashlib
+import json
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any
+
 import numpy as np
-ROOT=Path(__file__).resolve().parents[1]
-GLOBAL=ROOT/"data/global_discovery/global_discovery.json"
-NASADEM=ROOT/"data/validation/nasadem_crosscheck.json"
-OUT=ROOT/"data/validation/quantitative_validation.json"
-def rank(values):
-    order=np.argsort(np.argsort(values))
-    return order.astype(float)
-def spearman(a,b):
-    if len(a)<3:return None
-    ra,rb=rank(a),rank(b)
-    if np.std(ra)==0 or np.std(rb)==0:return None
-    return round(float(np.corrcoef(ra,rb)[0,1]),4)
-def target_report(rows):
-    if not rows:return {"status":"no_global_candidates"}
-    core=[float(x["core_terrain_index"]) for x in rows]
-    secondary=[float(x["secondary_diagnostic_index"]) for x in rows]
-    core_order=np.argsort(core)[::-1]
-    secondary_order=np.argsort(secondary)[::-1]
-    rank_corr=spearman(core,secondary)
-    report={"candidate_pool_size":len(rows),"core_vs_secondary_spearman":rank_corr,"top_25_overlap":len(set(core_order[:25])&set(secondary_order[:25])),"top_100_overlap":len(set(core_order[:100])&set(secondary_order[:100])),"metric_family_interpretation":"Agreement between two descriptor families from the same GLO-90 DEM. This is robustness analysis, not independent-data validation."}
-    for n in (25,100,500):
-        selected=[rows[i] for i in core_order[:min(n,len(rows))]]
-        report[f"top_{n}_unique_source_tiles"]=len({x["tile_id"] for x in selected})
-        report[f"top_{n}_occupied_10deg_cells"]=len({(int((x["latitude"]+90)//10),int((x["longitude"]+180)//10)) for x in selected})
+
+ROOT = Path(__file__).resolve().parents[1]
+GLOBAL = ROOT / "data/global_discovery/global_discovery.json"
+NASADEM = ROOT / "data/validation/nasadem_crosscheck.json"
+LANDCOVER = ROOT / "data/global_discovery/global_landcover_enrichment.json"
+POWER = ROOT / "data/global_discovery/global_power_enrichment.json"
+LITHOLOGY = ROOT / "data/global_discovery/global_lithology_enrichment.json"
+FIELD = ROOT / "data/field_validation/observations.json"
+REGISTRY = ROOT / "data/source_registry.json"
+MANIFEST = ROOT / "data/provenance/reproducibility_manifest.json"
+OUT = ROOT / "data/validation/quantitative_validation.json"
+
+
+def read(path: Path) -> dict[str, Any] | None:
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
+
+
+def sha256(path: Path) -> str | None:
+    if not path.exists():
+        return None
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def average_rank(values: list[float]) -> np.ndarray:
+    """One-based average ranks, including deterministic handling of ties."""
+    order = np.argsort(np.asarray(values), kind="mergesort")
+    ranks = np.empty(len(values), dtype=float)
+    start = 0
+    while start < len(order):
+        end = start + 1
+        while end < len(order) and values[order[end]] == values[order[start]]:
+            end += 1
+        ranks[order[start:end]] = (start + 1 + end) / 2.0
+        start = end
+    return ranks
+
+
+def spearman(a: list[float], b: list[float]) -> float | None:
+    if len(a) < 3:
+        return None
+    ra, rb = average_rank(a), average_rank(b)
+    if np.std(ra) == 0 or np.std(rb) == 0:
+        return None
+    return round(float(np.corrcoef(ra, rb)[0, 1]), 4)
+
+
+def target_report(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    if not rows:
+        return {"status": "no_global_candidates"}
+    core = [float(row["core_terrain_index"]) for row in rows]
+    secondary = [float(row["secondary_diagnostic_index"]) for row in rows]
+    core_order = np.argsort(np.asarray(core))[::-1]
+    secondary_order = np.argsort(np.asarray(secondary))[::-1]
+    id_to_secondary_rank = {
+        rows[idx]["id"]: rank for rank, idx in enumerate(secondary_order, 1)
+    }
+    report: dict[str, Any] = {
+        "candidate_pool_size": len(rows),
+        "primary_ranking": "core_terrain_index descending",
+        "secondary_ranking": "secondary_diagnostic_index descending, diagnostic only",
+        "core_vs_secondary_spearman": spearman(core, secondary),
+        "top_25_overlap": len(set(core_order[:25]) & set(secondary_order[:25])),
+        "top_100_overlap": len(set(core_order[:100]) & set(secondary_order[:100])),
+        "median_score_family_gap_points": round(float(np.median([
+            abs(a - b) for a, b in zip(core, secondary)
+        ])), 4),
+        "top_25_secondary_rank_range": [
+            int(min(id_to_secondary_rank[rows[idx]["id"]] for idx in core_order[:min(25, len(rows))])),
+            int(max(id_to_secondary_rank[rows[idx]["id"]] for idx in core_order[:min(25, len(rows))])),
+        ],
+        "interpretation": (
+            "This diagnostic compares two different feature families derived from the same "
+            "Copernicus GLO-90 source within the retained primary shortlist. It tests rank "
+            "sensitivity to feature choice; it is not independent-source validation, model "
+            "accuracy, field truth or a calibrated probability."
+        ),
+    }
+    for n in (25, 100, 500):
+        selected = [rows[i] for i in core_order[:min(n, len(rows))]]
+        report[f"top_{n}_unique_source_tiles"] = len({row["tile_id"] for row in selected})
+        report[f"top_{n}_occupied_10deg_cells"] = len({
+            (int((row["latitude"] + 90) // 10), int((row["longitude"] + 180) // 10))
+            for row in selected
+        })
     return report
-def main():
-    if not GLOBAL.exists():
-        payload={"schema_version":"1.0.0","generated_at_utc":datetime.now(timezone.utc).isoformat(),"status":"awaiting_global_scan","note":"Run the global GLO-90 workflow to generate global candidate data."}
-    else:
-        data=json.loads(GLOBAL.read_text(encoding="utf-8"))
-        payload={"schema_version":"1.0.0","generated_at_utc":datetime.now(timezone.utc).replace(microsecond=0).isoformat(),"status":"diagnostic_only","global_scan_status":data.get("status"),"global_tile_processing_coverage_pct":data.get("completion_contract",{}).get("tile_processing_coverage_pct"),"targets":{},"interpretation":"Metric-family robustness checks the consistency of alternative terrain descriptors from the same DEM. It is not an independent validation set, probability, calibrated accuracy or expert/field truth."}
-        for target in ("moon","mars"):
-            rows=data.get("targets",{}).get(target,{}).get("candidate_windows",[])
-            payload["targets"][target]=target_report(rows)
-    landcover_path=ROOT/"data/global_discovery/global_landcover_enrichment.json"
-    if landcover_path.exists():
-        landcover=json.loads(landcover_path.read_text(encoding="utf-8"))
-        payload["global_land_cover_enrichment"]={
-            "state":landcover.get("state"),
-            "shortlist_candidate_windows_unique":landcover.get("shortlist_candidate_windows_unique",0),
-            "processed_candidate_windows":landcover.get("processed_candidate_windows",0),
-            "coverage_percent_of_shortlist":landcover.get("coverage_percent_of_shortlist",0),
-            "source_collection":landcover.get("source",{}).get("collection"),
-            "year":landcover.get("source",{}).get("year"),
-            "interpretation":"Global land-cover class fractions for retained terrain shortlist windows only; not a geological, mineralogical or field-validation result."
+
+
+def main() -> None:
+    global_data = read(GLOBAL)
+    if not global_data:
+        payload: dict[str, Any] = {
+            "schema_version": "2.0.0",
+            "generated_at_utc": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+            "status": "awaiting_global_scan",
         }
     else:
-        payload["global_land_cover_enrichment"]={"state":"awaiting_enrichment"}
-    power_path=ROOT/"data/global_discovery/global_power_enrichment.json"
-    if power_path.exists():
-        power=json.loads(power_path.read_text(encoding="utf-8"))
-        payload["global_nasa_power_climatology"]={
-            "state":power.get("state"),
-            "scope":power.get("scope",{}),
-            "parameters":power.get("source",{}).get("parameters",[]),
-            "interpretation":"NASA POWER climatology context for retained global shortlist candidates only; gridded climatology, not local ground observations."
+        contract = global_data.get("completion_contract", {})
+        targets: dict[str, Any] = {}
+        for target in ("moon", "mars"):
+            rows = global_data.get("targets", {}).get(target, {}).get("candidate_windows", [])
+            targets[target] = target_report(rows)
+        complete = (
+            global_data.get("status") == "complete"
+            and contract.get("complete_global_land_inventory_scan") is True
+            and contract.get("tiles_processed") == contract.get("global_land_tile_inventory_total")
+            and contract.get("tile_failures") == 0
+        )
+        payload = {
+            "schema_version": "2.0.0",
+            "generated_at_utc": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+            "status": "diagnostic_only",
+            "global_scan": {
+                "status": global_data.get("status"),
+                "global_land_tile_inventory_total": contract.get("global_land_tile_inventory_total"),
+                "tiles_assigned_to_shards": contract.get("tiles_assigned_to_shards"),
+                "tiles_processed": contract.get("tiles_processed"),
+                "tile_failures": contract.get("tile_failures"),
+                "tile_processing_coverage_pct": contract.get("tile_processing_coverage_pct"),
+                "candidate_windows_evaluated": contract.get("candidate_windows_evaluated"),
+                "shards_expected": contract.get("shards_expected"),
+                "shards_received": contract.get("shards_received"),
+                "complete_global_land_inventory_scan": complete,
+                "coverage_definition": contract.get("coverage_definition"),
+            },
+            "targets": targets,
+            "interpretation": (
+                "Global terrain screening is complete only for the enumerated Copernicus GLO-90 "
+                "land-tile inventory. The stored list is a bounded shortlist, not all evaluated "
+                "windows. Primary rank uses the core terrain family only; the alternative family "
+                "is diagnostic. Neither score is a probability, calibrated accuracy or analog verdict."
+            ),
+        }
+
+    landcover = read(LANDCOVER)
+    if landcover:
+        payload["global_land_cover_enrichment"] = {
+            "state": landcover.get("state"),
+            "shortlist_candidate_windows_unique": landcover.get("shortlist_candidate_windows_unique", 0),
+            "processed_candidate_windows": landcover.get("processed_candidate_windows", 0),
+            "coverage_percent_of_shortlist": landcover.get("coverage_percent_of_shortlist", 0),
+            "source_collection": landcover.get("source", {}).get("collection"),
+            "year": landcover.get("source", {}).get("year"),
+            "interpretation": "2023 Sentinel-2-derived land-cover context for retained shortlist windows only; not geology or field truth.",
         }
     else:
-        payload["global_nasa_power_climatology"]={"state":"awaiting_enrichment"}
-    if NASADEM.exists():
-        validation=json.loads(NASADEM.read_text(encoding="utf-8"))
-        payload["independent_dem_crosscheck"]={"state":validation.get("status"),"sites_crosschecked":validation.get("sites_crosschecked",0),"rank_concordance":validation.get("rank_concordance",{}),"source":"NASADEM SRTM-derived elevation compared with Copernicus GLO-30 at selected overlapping sites","limits":validation.get("limitations",[])}
+        payload["global_land_cover_enrichment"] = {"state": "awaiting_enrichment"}
+
+    power = read(POWER)
+    if power:
+        payload["global_nasa_power_climatology"] = {
+            "state": power.get("state"),
+            "scope": power.get("scope", {}),
+            "parameters": power.get("source", {}).get("parameters", []),
+            "interpretation": "NASA POWER gridded climatology at retained candidate coordinates, not in-situ observations or a full global climate raster.",
+        }
     else:
-        payload["independent_dem_crosscheck"]={"state":"awaiting_validation_run","note":"NASADEM source check is a separate data-source test and is not yet processed."}
-    payload["ground_truth_validation"]={"state":"not_available","note":"No physical field observations are present in the repository. The field protocol and evidence validator do not substitute for field measurements."}
-    payload["release_gate"]={"independent_source_check":"report only where NASADEM actually processed and site coverage is reported","field_validation":"requires georeferenced, instrumented observations and independent review","global_scan":"must have complete tile inventory coverage and zero unreported tile failures before calling complete"}
-    OUT.parent.mkdir(parents=True,exist_ok=True);OUT.write_text(json.dumps(payload,indent=2)+"\n",encoding="utf-8")
+        payload["global_nasa_power_climatology"] = {"state": "awaiting_enrichment"}
+
+    lithology = read(LITHOLOGY)
+    if lithology:
+        payload["global_lithology_context"] = {
+            "state": lithology.get("state"),
+            "scope": lithology.get("scope", {}),
+            "source": lithology.get("source", {}),
+            "method": lithology.get("method", {}),
+            "limitations": lithology.get("limitations", []),
+            "interpretation": "Generalized GLiM centre-point context for retained candidates only. Not area-weighted, field-verified geology; excluded from candidate scoring.",
+        }
+    else:
+        payload["global_lithology_context"] = {"state": "awaiting_enrichment"}
+
+    nasadem = read(NASADEM)
+    if nasadem:
+        payload["independent_dem_crosscheck"] = {
+            "state": nasadem.get("status"),
+            "sites_attempted": nasadem.get("sites_attempted"),
+            "sites_crosschecked": nasadem.get("sites_crosschecked", 0),
+            "rank_concordance": nasadem.get("rank_concordance", {}),
+            "source": nasadem.get("source"),
+            "limits": nasadem.get("limitations", []),
+            "interpretation": "Independent elevation-source check on a small selected overlap set; not field validation or a global accuracy estimate.",
+        }
+    else:
+        payload["independent_dem_crosscheck"] = {"state": "awaiting_validation_run"}
+
+    field = read(FIELD) or {"status": "not_started", "observations": []}
+    observations = field.get("observations", [])
+    reviewed = [row for row in observations if row.get("review_status") == "independently_reviewed"]
+    payload["ground_truth_validation"] = {
+        "state": "independently_reviewed_observations_present" if reviewed else (
+            "field_observations_unreviewed" if observations else "not_available"
+        ),
+        "observations_total": len(observations),
+        "independently_reviewed_observations": len(reviewed),
+        "note": (
+            "Physical field validation can only be claimed for properties and locations covered by "
+            "documented measurements and independent review. Protocols, proposed stations and desk data do not count."
+        ),
+    }
+
+    manifest = read(MANIFEST)
+    payload["reproducibility"] = {
+        "manifest_state": "present" if manifest else "not_built",
+        "manifest_sha256": sha256(MANIFEST),
+        "hashed_repository_file_count": manifest.get("file_count") if manifest else 0,
+        "source_registry_records": len(manifest.get("source_registry_records", [])) if manifest else 0,
+        "manifest_generated_at_utc": manifest.get("generated_at_utc") if manifest else None,
+        "limitations": [
+            "SHA-256 establishes byte-level identity, not scientific validity or source authenticity.",
+            "The manifest records the repository commit before its own final commit; it cannot hash its final committed bytes.",
+            "Historical external retrieval metadata may be incomplete and must be traced through source registry and product-specific records.",
+        ],
+    }
+
+    registry = read(REGISTRY) or {"sources": []}
+    state_counts = Counter(row.get("state", "missing") for row in registry.get("sources", []))
+    payload["evidence_registry"] = {
+        "source_records": len(registry.get("sources", [])),
+        "state_counts": dict(sorted(state_counts.items())),
+        "rule": "browse_only, metadata_only and reference_only records are not represented as fully processed quantitative science inputs.",
+    }
+
+    payload["release_gate"] = {
+        "global_scan": "complete only when every enumerated land tile is processed and tile_failures=0",
+        "quantitative_validation": "diagnostic-only until independent labels, spatially blocked tests and defensible held-out validation are available",
+        "field_validation": "requires georeferenced observations, instrument/calibration provenance, permissions and independent review",
+        "data_depth": "each source retains a state; browse images and catalogue metadata are not decoded science arrays",
+        "reproducibility": "manifest and per-product source/method/parameter/provenance records required; hashes alone do not prove validity",
+    }
+
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    OUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {OUT.relative_to(ROOT)} ({payload['status']})")
-if __name__=="__main__":main()
+
+
+if __name__ == "__main__":
+    main()
