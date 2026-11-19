@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-19T10:50:03+00:00",
-  "repository_commit_before_manifest_commit": "08d61ffdf3d0d1b4c595f0b0532763697e8d7104",
+  "generated_at_utc": "2026-11-19T10:50:53+00:00",
+  "repository_commit_before_manifest_commit": "7aa15a73970e610862cacb8588ac7a462b4fdea4",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -305,8 +305,8 @@
   "records": [
     {
       "path": "README.md",
-      "size_bytes": 32179,
-      "sha256": "1f3a186cb7f30293676cf077944c852c968f9fe8e5c55c4008ef3f9b4a4f12a0",
+      "size_bytes": 32172,
+      "sha256": "171ec832130829079d047c39d8e2c10d68066365dbc746b2bfac7bd679ba0656",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -912,7 +912,7 @@
     {
       "path": "data/validation/quantitative_validation.json",
       "size_bytes": 7761,
-      "sha256": "bc1d0f7ee75ba87c7c7099064c704dc29f43f385ca69da45a82ba184768f207f",
+      "sha256": "d4dd46a1ff792da443d3f0ae588d4ea66fdb215c8d9310cf375960dae9546dbe",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -1187,8 +1187,8 @@
     },
     {
       "path": "docs/COMPETITIVE_CAPABILITY_RESPONSE.md",
-      "size_bytes": 9378,
-      "sha256": "b8a3ff6e32bcb189163d6439c1c929af8d1a12d42a9ffee908e413abdc825085",
+      "size_bytes": 9519,
+      "sha256": "ab110ad023a1c60e3c8558f21f82ab8422c538a0f062819a5214962b31a3ad15",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1217,8 +1217,8 @@
     },
     {
       "path": "docs/GLOBAL_DISCOVERY_AND_VALIDATION.md",
-      "size_bytes": 13471,
-      "sha256": "47d2cedb0a835273070d2c56158f651a93b85e6187a85215bba30f782c7d1ac1",
+      "size_bytes": 13677,
+      "sha256": "f1d954b349e60d960ea164f0ddcff83eb5fb3c231a29471f87535e16b117d028",
       "evidence_class_hint": "method_or_documentation"
     },
     {
