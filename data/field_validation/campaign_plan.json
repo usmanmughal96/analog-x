@@ -1,0 +1,237 @@
+{
+  "schema_version": "1.0.0",
+  "project": "ANALOG-X Pakistan field validation campaign",
+  "status": "planned_not_fieldwork",
+  "created_at_utc": "2026-11-19T10:30:00Z",
+  "purpose": "Collect georeferenced, instrumented observations that can validate specific Earth-site properties used in ANALOG-X. Field evidence does not validate Moon/Mars equivalence, resource abundance, landing safety or rover traversability.",
+  "governance": {
+    "no_fieldwork_without": [
+      "landowner or competent-authority permission",
+      "protected-area and environmental clearance where applicable",
+      "local security and travel clearance",
+      "site-specific risk assessment and weather review",
+      "named field lead, emergency contacts and communications plan",
+      "instrument identification and calibration/field-check records"
+    ],
+    "data_integrity": [
+      "Record UTC timestamps and WGS84 coordinates with method and accuracy",
+      "Use unique station, photograph and sample identifiers",
+      "Separate direct observation from interpretation",
+      "Record non-observations and inaccessible areas",
+      "Preserve original media and unedited instrument exports",
+      "Maintain sample custody and permit restrictions",
+      "Do not promote an observation to independently_reviewed without an identified reviewer, review date and defined review scope"
+    ],
+    "access_note": "Locations are approximate research areas only. This document does not authorize entry or travel. Obtain current local approvals and site-specific advice before a visit."
+  },
+  "field_kit": {
+    "required_minimum": [
+      "GNSS-enabled location recorder with stated accuracy",
+      "camera with original files and recorded bearings",
+      "field notebook or digital observation log",
+      "thermometer for air and/or surface readings with instrument ID",
+      "site map, communications and first-aid/emergency equipment appropriate to risk"
+    ],
+    "optional_by_method": [
+      "portable electrical-conductivity meter for authorized salinity screening",
+      "grain-size scale or sieve set",
+      "hand lens",
+      "anemometer",
+      "hygrometer",
+      "barometer",
+      "calibrated surface-temperature instrument",
+      "sample bags, labels, seals and chain-of-custody log"
+    ],
+    "calibration": "Record instrument make/model/serial, calibration date or field-check procedure, units, precision and any known offsets. Do not enter a value as measured if the relevant instrument was not used."
+  },
+  "candidate_campaigns": [
+    {
+      "candidate_id": "chagai_small_playas",
+      "site_name": "Chagai small salt playas near Nok Kundi",
+      "status": "candidate_for_permission_and_reconnaissance",
+      "research_question": "What surface, crust, sediment and playa-margin characteristics are directly observable, and how do they vary from margin to interior?",
+      "station_design": [
+        {
+          "station_id": "CHG-M01",
+          "station_type": "playa-margin transition",
+          "purpose": "Document fan/playa boundary, sediment transition and surface crust at a safe accessible margin"
+        },
+        {
+          "station_id": "CHG-T01",
+          "station_type": "transect intermediate point",
+          "purpose": "Capture repeatable surface texture and landform changes along a permitted transect"
+        },
+        {
+          "station_id": "CHG-I01",
+          "station_type": "playa interior (only if permitted and safe)",
+          "purpose": "Describe crust continuity, texture and surface condition; no subsurface inference"
+        }
+      ],
+      "observations": [
+        "geomorphic setting and boundary position",
+        "directly visible crust type, continuity and thickness only where naturally exposed",
+        "sediment grain size, sorting and clast description using a recorded method",
+        "surface and air temperature, humidity and wind with instrument IDs",
+        "electrical conductivity only if an authorized instrument and sampling method are available",
+        "geotagged photographs with bearings and scale reference"
+      ],
+      "specific_limits": [
+        "Approximate research AOI is not a surveyed playa boundary",
+        "Do not infer salt-resource volume, brine, subsurface water or mineral grade",
+        "Do not disturb or collect material without explicit permission"
+      ]
+    },
+    {
+      "candidate_id": "hamun_i_mashkel",
+      "site_name": "Hamun-i-Mashkel / Kharan Basin",
+      "status": "candidate_for_permission_and_reconnaissance",
+      "research_question": "Which basin-margin, playa-surface and drainage features are present at sampled locations, and what is directly observed versus inferred from regional imagery?",
+      "station_design": [
+        {
+          "station_id": "HAM-B01",
+          "station_type": "basin-margin setting",
+          "purpose": "Record landform, sediment and drainage transition at an authorized accessible margin"
+        },
+        {
+          "station_id": "HAM-P01",
+          "station_type": "playa surface",
+          "purpose": "Describe surface crust, moisture appearance, texture and vegetation without implying subsurface water"
+        },
+        {
+          "station_id": "HAM-D01",
+          "station_type": "ephemeral channel or fan transition",
+          "purpose": "Document channel/fan material, sediment size and visible depositional features"
+        }
+      ],
+      "observations": [
+        "directly observed landform and drainage features",
+        "surface condition and moisture indicators with method and uncertainty",
+        "crust/sediment texture and grain-size description",
+        "vegetation cover at station scale as an observation, not a full-cover map",
+        "temperature, humidity and wind where measured",
+        "photographs and coordinate accuracy"
+      ],
+      "specific_limits": [
+        "Hydrological boundaries and intermittent activity require independent, time-stamped evidence",
+        "Do not interpret a single visit as seasonal hydrology",
+        "No claims of brine, water resources or unique evaporite deposits"
+      ]
+    },
+    {
+      "candidate_id": "koh_i_sultan",
+      "site_name": "Koh-i-Sultan / Chagai volcanic field",
+      "status": "candidate_for_expert_led_geological_reconnaissance",
+      "research_question": "Can mapped volcanic units and alteration/weathering features be verified at accessible exposures, with lithology described by qualified field geologists?",
+      "station_design": [
+        {
+          "station_id": "KSI-U01",
+          "station_type": "mapped unit exposure",
+          "purpose": "Describe the exposed unit and record whether the outcrop matches published map terminology"
+        },
+        {
+          "station_id": "KSI-C01",
+          "station_type": "contact or transition",
+          "purpose": "Document observed contacts, mixed material and uncertainty without assuming continuity"
+        },
+        {
+          "station_id": "KSI-W01",
+          "station_type": "weathering or alteration feature",
+          "purpose": "Record visible feature and its context; specialist analytical work required for any mineral claim"
+        }
+      ],
+      "observations": [
+        "outcrop-scale lithology by qualified geologist",
+        "field photographs with scale, bearing and exposure context",
+        "weathering/alteration descriptions kept separate from interpretation",
+        "grain size, clast/support and structural observations where exposed",
+        "sample IDs only where permitted and with chain of custody",
+        "optional portable measurements with method, instrument and limitations"
+      ],
+      "specific_limits": [
+        "Published descriptions include agglomerate, tuff and andesitic lava; do not label the site a basaltic Mars match by assumption",
+        "No mineral identification or grade claim from visual inspection or spectral browse imagery",
+        "No sampling without permits and competent geological oversight"
+      ]
+    },
+    {
+      "candidate_id": "hispar_glacier",
+      "site_name": "Hispar Glacier / Karakoram",
+      "status": "high_hazard_professional_glacier_team_required",
+      "research_question": "How do glacier ice, debris cover, moraine and adjacent sediment appear at safely accessible observation points, and what limits remote-sensing interpretation?",
+      "station_design": [
+        {
+          "station_id": "HIS-P01",
+          "station_type": "safe proximal viewpoint",
+          "purpose": "Use remote photography and binocular/telephoto observation from a professionally assessed safe location"
+        },
+        {
+          "station_id": "HIS-D01",
+          "station_type": "accessible debris-covered margin (only after clearance)",
+          "purpose": "Describe debris cover, sediment and visible ice relation without approaching crevasse or unstable terrain"
+        },
+        {
+          "station_id": "HIS-M01",
+          "station_type": "moraine or proglacial reference",
+          "purpose": "Document sediment and landform context at an approved stable location"
+        }
+      ],
+      "observations": [
+        "glacier/debris features from a safe assessed location",
+        "visible crevasse, avalanche, rockfall and meltwater hazards from distance",
+        "sediment and moraine descriptions at accessible stable ground",
+        "time-stamped photographs and station coordinates",
+        "weather and access constraints"
+      ],
+      "specific_limits": [
+        "No glacier-surface access without qualified glacier guides, a professional hazard assessment, rope/rescue capability and a specific expedition safety plan",
+        "Do not enter crevasse fields, unstable ice or avalanche terrain for this project",
+        "Terrestrial glacier ice is not evidence of lunar polar ice accessibility or equivalent thermal conditions"
+      ]
+    }
+  ],
+  "minimum_release_requirements": {
+    "before_visit": [
+      "permissions and safety plan approved",
+      "station IDs and transects finalized by field lead",
+      "instruments and calibration/field checks documented",
+      "team roles and emergency plan recorded"
+    ],
+    "per_station": [
+      "station_id",
+      "candidate_id",
+      "date_utc",
+      "observer_ids",
+      "latitude_wgs84",
+      "longitude_wgs84",
+      "coordinate_accuracy_m",
+      "coordinate_method",
+      "photo_ids",
+      "surface_description",
+      "instrument_ids",
+      "calibration_status",
+      "uncertainty_notes",
+      "permission_status",
+      "safety_observations"
+    ],
+    "after_visit": [
+      "preserve original photos and instrument files",
+      "validate metadata and coordinate ranges",
+      "record non-observations and missing measurements",
+      "maintain sample chain of custody",
+      "independent review before changing status to independently_reviewed"
+    ],
+    "review_scope": "Each review applies only to the observations and site properties actually inspected. It does not confer planetary-analog certification."
+  },
+  "repository_workflow": {
+    "capture_tool": "field-validation.html",
+    "local_storage_only": true,
+    "export_formats": [
+      "JSON",
+      "CSV"
+    ],
+    "submission_target": "data/field_validation/observations.json",
+    "validator": "scripts/validate_field_observations.py",
+    "evidence_registry": "data/source_registry.json",
+    "explicit_note": "The browser kit does not upload records. Export, preserve originals, review and commit through a controlled repository change."
+  }
+}
