@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-18T18:33:00+00:00",
-  "repository_commit_before_manifest_commit": "9a5de6fedb26c74192accc7e01d067ea2430b9b6",
+  "generated_at_utc": "2026-11-19T10:27:43+00:00",
+  "repository_commit_before_manifest_commit": "4d47276b248c0dc57b712bea7e4dc3dee29c0c95",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -37,7 +37,7 @@
       "manifest.webmanifest"
     ]
   },
-  "file_count": 196,
+  "file_count": 198,
   "source_registry_sha256": "414999543126dcd4c7ebe4b95b78b8ddb9a063759aac298685cfb210cec72a5e",
   "source_registry_records": [
     {
@@ -882,7 +882,7 @@
     {
       "path": "data/validation/quantitative_validation.json",
       "size_bytes": 4689,
-      "sha256": "1825a827117c6033959ec8383d368d24dbd31f562c63fa61b871e42de7083b2d",
+      "sha256": "ad932f129699d74946d4f638acd44833cd7d40f9faf78a55150c1fdeb69fef16",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -991,6 +991,12 @@
       "path": "scripts/enrich_global_landcover.py",
       "size_bytes": 11997,
       "sha256": "3754672dab0f07abaab215926f5792c9bc5fa47fd88b3023b416ac764ea26588",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/enrich_global_lithology.py",
+      "size_bytes": 9554,
+      "sha256": "ff885cc72169d1595359e1d32d711a0806cc05b3764e40662a620faa4ab1b191",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1363,6 +1369,12 @@
       "path": "tests/test_global_landcover.py",
       "size_bytes": 1687,
       "sha256": "2c7b13f4ce13ddf631f5f5995a217c48237a3c7cee474e4797e0d527f9f0fff2",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "tests/test_global_lithology.py",
+      "size_bytes": 1924,
+      "sha256": "f51025fc551d06d2ea05ad1fcbe2e0aca3b4dbd36a741f717c33608014709e91",
       "evidence_class_hint": "method_or_documentation"
     },
     {
