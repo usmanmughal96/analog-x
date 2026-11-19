@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-19T10:36:05+00:00",
-  "repository_commit_before_manifest_commit": "0b73b52b5060ee2fdfced4a96dfcb06fb5f986d2",
+  "generated_at_utc": "2026-11-19T10:36:46+00:00",
+  "repository_commit_before_manifest_commit": "773550392943dc87ea949f07aa01bc9438d807c8",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -312,7 +312,7 @@
     {
       "path": "global-discovery.html",
       "size_bytes": 23927,
-      "sha256": "91562da33af4723e7385bea44c2c6f3a6b306de5d985d995d601bc563c7ce5f5",
+      "sha256": "326d3ad2639d8818e7bf76c4f0bc3673efc47d8dbc42f7a44ecea188ff4e2d0e",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -882,7 +882,7 @@
     {
       "path": "data/validation/quantitative_validation.json",
       "size_bytes": 4689,
-      "sha256": "77f913d9e6279292fc9c92e084bcc5257a670e9d80368f0c26b5efae07249c8b",
+      "sha256": "527d7efb3f656189532c9e7d409f5db7fa50163b9284deaccd2b0036b7179df9",
       "evidence_class_hint": "processed_or_derived"
     },
     {

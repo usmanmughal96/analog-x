@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at_utc": "2026-11-19T10:36:04+00:00",
+  "generated_at_utc": "2026-11-19T10:36:46+00:00",
   "status": "diagnostic_only",
   "global_scan_status": "complete",
   "global_tile_processing_coverage_pct": 100.0,
@@ -20,7 +20,7 @@
     },
     "mars": {
       "candidate_pool_size": 1200,
-      "core_vs_secondary_spearman": -0.7123,
+      "core_vs_secondary_spearman": -0.7122,
       "top_25_overlap": 0,
       "top_100_overlap": 1,
       "metric_family_interpretation": "Agreement between two descriptor families from the same GLO-90 DEM. This is robustness analysis, not independent-data validation.",
