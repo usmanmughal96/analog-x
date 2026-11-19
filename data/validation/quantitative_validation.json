@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0.0",
-  "generated_at_utc": "2026-11-19T10:50:53+00:00",
+  "generated_at_utc": "2026-11-19T10:57:48+00:00",
   "status": "diagnostic_only",
   "global_scan": {
     "status": "complete",
@@ -127,10 +127,10 @@
   },
   "reproducibility": {
     "manifest_state": "present",
-    "manifest_sha256": "25052921e9125f5d419ddd946cc4428c4f22694c3a7eed9bef5f07ec1b91a5b3",
+    "manifest_sha256": "890d086a88989e05dec50a9f8786762bbf4d972da16207cbb501d3fa463ec624",
     "hashed_repository_file_count": 200,
     "source_registry_records": 17,
-    "manifest_generated_at_utc": "2026-11-19T10:50:03+00:00",
+    "manifest_generated_at_utc": "2026-11-19T10:50:53+00:00",
     "limitations": [
       "SHA-256 establishes byte-level identity, not scientific validity or source authenticity.",
       "The manifest records the repository commit before its own final commit; it cannot hash its final committed bytes.",
