@@ -46,7 +46,7 @@ The global workflow has been revised so:
 3. The secondary rank is displayed within the retained primary shortlist, making the feature-family disagreement inspectable.
 4. No averaged consensus score or score-family "agreement percentage" is presented.
 
-The current quantitative report is diagnostic only. A new global release is required to regenerate the output under this corrected ranking method.
+The two feature families use the same DEM and are not independent-data validation. The current quantitative report is diagnostic only. A new global release is required to regenerate the output under this corrected ranking method.
 
 ## 5. Competitive priorities still open
 
