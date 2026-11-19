@@ -50,11 +50,20 @@ class GlobalDiscoveryTests(unittest.TestCase):
     def test_diverse_selector_limits_tile_concentration(self):
         rows = []
         for i in range(6):
-            rows.append({"id": f"a{i}", "tile_id": "tile-a", "consensus_index": 99-i, "metric_family_score_agreement": 90})
-        rows.append({"id": "b", "tile_id": "tile-b", "consensus_index": 80, "metric_family_rank_concordance": 90})
+            rows.append({"id": f"a{i}", "tile_id": "tile-a", "core_terrain_index": 99-i, "secondary_diagnostic_index": i})
+        rows.append({"id": "b", "tile_id": "tile-b", "core_terrain_index": 80, "secondary_diagnostic_index": 90})
         selected = gd.select_diverse(rows, limit=5, max_per_tile=2)
         self.assertEqual(sum(x["tile_id"] == "tile-a" for x in selected), 2)
         self.assertIn("tile-b", [x["tile_id"] for x in selected])
+
+    def test_selector_uses_core_index_not_secondary_or_legacy_consensus(self):
+        rows = [
+            {"id": "core-best", "tile_id": "a", "core_terrain_index": 95, "secondary_diagnostic_index": 10, "consensus_index": 20},
+            {"id": "secondary-best", "tile_id": "b", "core_terrain_index": 70, "secondary_diagnostic_index": 99, "consensus_index": 99},
+        ]
+        selected = gd.select_diverse(rows, limit=2, max_per_tile=4)
+        self.assertEqual(selected[0]["id"], "core-best")
+        self.assertEqual(selected[1]["id"], "secondary-best")
 
 
 if __name__ == "__main__":
