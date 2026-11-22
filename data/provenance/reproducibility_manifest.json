@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-22T18:51:23+00:00",
-  "repository_commit_before_manifest_commit": "f8f796dda3014ce8d2cbe12795dfb9b13dd351fb",
+  "generated_at_utc": "2026-11-22T18:56:16+00:00",
+  "repository_commit_before_manifest_commit": "a62c90259b1de9d4dc917a4e1c8210d2df604fbc",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -37,7 +37,7 @@
       "manifest.webmanifest"
     ]
   },
-  "file_count": 211,
+  "file_count": 212,
   "source_registry_sha256": "f5975e2a681ea76dc8b8c540bc3725179579b2bd94baf212ba3fefa63fa04b0d",
   "source_registry_records": [
     {
@@ -414,7 +414,7 @@
     {
       "path": "data/moon/diviner_prp_diagnostic/report.json",
       "size_bytes": 111730,
-      "sha256": "759c821e1fe2e217c2950ed827eef2a0e2be1bb8e7838d9936d99f10281fcd34",
+      "sha256": "88cf9f6f88f5077817796ef43557e76590c0b5a4a0cbc4c9ca1c782a999769fd",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -474,7 +474,7 @@
     {
       "path": "data/moon/shackleton_polar_evidence.json",
       "size_bytes": 11866,
-      "sha256": "81e36725a6040d21e06ef1862360558530616d33d3b6010219938ab3d6260855",
+      "sha256": "921d21cb501fc2167707c9c12629505f6b3c5d1e64fc4153f04863941baafd34",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -942,7 +942,7 @@
     {
       "path": "data/validation/quantitative_validation.json",
       "size_bytes": 11777,
-      "sha256": "f53c7f58ec910e46d31015418253c6c1c4595f8e632594187e8d0c6ccd5e10f9",
+      "sha256": "0190ff05b338720c5d81b654c17c9874734d85923c8b953eabf94089e2498b2c",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -1001,8 +1001,8 @@
     },
     {
       "path": "scripts/build_lunar_south_pole_reference.py",
-      "size_bytes": 8747,
-      "sha256": "05797315e63355b818bd522e6f8986d241af7e5b060773a23bd98861323bd154",
+      "size_bytes": 11210,
+      "sha256": "0036b19fa9ad38d433144852d341e7e8d79bfaf5dea6e2b4f56e66aec1d2060f",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1343,8 +1343,8 @@
     },
     {
       "path": ".github/workflows/build-lunar-reference.yml",
-      "size_bytes": 1385,
-      "sha256": "17ceaa33d813a20cc7549980c1f5d69b637c923372ced6302ee0b2f1d405cf40",
+      "size_bytes": 1875,
+      "sha256": "11edf8573f551abb6a87ad87d34ffa6d5de22403c58c3bfbb65c809aa12c5d30",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1471,6 +1471,12 @@
       "path": "tests/test_lunar_base_evidence.py",
       "size_bytes": 2448,
       "sha256": "40a528ff6b60baf03face210ead8138e7de620aa34f0a061e302d23c3cdf7447",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "tests/test_lunar_reference_source.py",
+      "size_bytes": 2049,
+      "sha256": "822fd0232245079fb01df7c58eb568265a8aef632f1e8dab553dc3c35562bcac",
       "evidence_class_hint": "method_or_documentation"
     },
     {
