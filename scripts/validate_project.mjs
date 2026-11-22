@@ -103,7 +103,7 @@ assert(html.includes('class="global-featured"'), "Main portal is missing persist
 assert(globalPage.includes("data/global_discovery/global_discovery.json"), "Global discovery page does not load the merged global dataset");
 assert(globalPage.includes("complete" ) && globalPage.includes("partial"), "Global discovery page must distinguish complete from partial scans");
 assert(globalBuilder.includes("Copernicus DEM GLO-90"), "Global discovery builder must declare GLO-90 source");
-assert(globalBuilder.includes("--shard") && globalMerger.includes("Expected all 24 global scan shards"), "Global discovery shard/merge release contract missing");
+assert(globalBuilder.includes("--shard") && globalMerger.includes("EXPECTED_SHARDS = 24") && globalMerger.includes("Expected exactly") && globalMerger.includes("Shard set is incomplete"), "Global discovery shard/merge release contract missing");
 assert(read(".github/workflows/global-discovery.yml").includes("matrix:"), "Global discovery workflow matrix missing");
 assert(read("docs/COMPETITIVE_CAPABILITY_RESPONSE.md").includes("Earth Analog Explorer"), "Capability benchmark note missing");
 assert(fieldProtocol.stations && fieldProtocol.validation_states.includes("independently_reviewed"), "Field observation protocol incomplete");
