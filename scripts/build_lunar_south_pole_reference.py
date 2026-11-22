@@ -272,7 +272,7 @@ def main():
    d.close()
   ds.clear()
   make_preview(dem_path,slope_path,count_path,OUT/"shackleton_rim_lola_5m_hillshade.png")
-  (OUT/"shackleton_rim_lola.json").write_text(json.dumps(result,indent=2,allow_nan=False)+"\n",encoding="utf-8")
+  (OUT/"shackleton_rim_lola.json").write_text(json.dumps(json_safe(result),indent=2,allow_nan=False)+"\n",encoding="utf-8")
   print(json.dumps({"status":"success","dimensions":[width,height],"valid_percent":result["grid_coverage"]["terrain_coverage_percent"],"slope_p50":result["terrain_metrics"]["slope_deg_source_lola_product"]["median"]},indent=2),flush=True)
   return 0
  except Exception as exc:
