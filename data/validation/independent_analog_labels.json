@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "project": "ANALOG-X",
+  "purpose": "Empty template for independently sourced and reviewed analog-screening reference labels. Do not add labels without evidence and reviewer provenance.",
+  "label_policy": {
+    "positive": "A candidate meeting a predeclared, target-specific analog criterion supported by an external source or expert-reviewed evidence.",
+    "negative": "A deliberate hard negative or lookalike that fails the same predeclared criterion, with the reason and evidence recorded.",
+    "spatial_group": "A predeclared geographic/geologic block that keeps neighbouring or related windows in the same train/test partition.",
+    "required_independent_review": true,
+    "no_synthetic_or_inferred_labels": true
+  },
+  "labels": []
+}
