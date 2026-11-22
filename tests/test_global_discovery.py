@@ -70,7 +70,7 @@ class GlobalMergeReleaseTests(unittest.TestCase):
     def _shard(self, shard_id, tile_id):
         return {
             "shard": shard_id, "shard_count": 24, "tile_inventory_total": 24,
-            "tiles_assigned": 1, "tiles_processed": 1, "tile_failures": [],
+            "tiles_assigned": 1, "tiles_processed": 1, "tiles_without_valid_windows": 0, "tile_failures": [],
             "candidate_windows_evaluated": 2, "is_smoke_test": False,
             "target_reference_profiles": {"moon": {"name": "Moon test", "profile": {}, "feature_families": {"core": ["a"], "secondary": ["b"]}}, "mars": {"name": "Mars test", "profile": {}, "feature_families": {"core": ["a"], "secondary": ["b"]}}, "earth_iqr": {}, "feature_families": {"core": ["a"], "secondary": ["b"]}},
             "targets": {
