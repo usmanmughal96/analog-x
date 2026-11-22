@@ -34,7 +34,21 @@ jobs:
         run: python -m pip install --upgrade rasterio pillow numpy scipy
 
       - name: Process NASA LOLA 5 m Shackleton Rim products
-        run: python scripts/build_lunar_south_pole_reference.py
+        shell: bash
+        run: |
+          for attempt in 1 2 3; do
+            echo "LOLA remote COG processing attempt $attempt/3"
+            if python scripts/build_lunar_south_pole_reference.py; then
+              exit 0
+            fi
+            if [[ "$attempt" -lt 3 ]]; then
+              delay=$((attempt * 20))
+              echo "Remote COG read or processing failed; retrying in $delay seconds."
+              sleep "$delay"
+            fi
+          done
+          echo "LOLA 5 m processing failed after three attempts."
+          exit 1
 
       - name: Commit lunar south-pole evidence
         run: |
