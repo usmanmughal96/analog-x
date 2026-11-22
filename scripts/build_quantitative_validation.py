@@ -92,13 +92,23 @@ def ranking_integrity(global_data: dict[str, Any]) -> dict[str, Any]:
         and contract.get("primary_feature_family") == "core"
         and contract.get("consensus_score") is False
     )
-    ready = bool(all_valid and contract_ok)
+    completion = global_data.get("completion_contract", {})
+    inventory_complete = (
+        global_data.get("status") == "complete"
+        and completion.get("complete_global_land_inventory_scan") is True
+        and completion.get("shards_received") == completion.get("shards_expected") == 24
+        and completion.get("tiles_assigned_to_shards") == completion.get("global_land_tile_inventory_total")
+        and completion.get("tiles_processed") == completion.get("global_land_tile_inventory_total")
+        and completion.get("tile_failures") == 0
+    )
+    ready = bool(all_valid and contract_ok and inventory_complete)
     return {
         "status": "ready" if ready else "stale_or_invalid",
         "ranking_ready": ready,
         "dataset_schema_version": global_data.get("schema_version"),
         "required_schema_version": "1.1.0",
         "ranking_contract_present": contract_ok,
+        "complete_failure_free_inventory": inventory_complete,
         "targets": checks,
         "note": "Ranking readiness verifies data schema, ordering and rank integrity only. It does not establish independent scientific accuracy or planetary analog validity.",
     }
