@@ -4,6 +4,9 @@ on:
     branches: [main]
     paths:
       - "scripts/verify_global_ranking_release.py"
+      - "scripts/build_independent_review_pack.py"
+      - "scripts/import_independent_review_labels.py"
+      - "tests/test_research_phase_pack.py"
       - ".github/workflows/global-ranking-release.yml"
   workflow_dispatch:
 permissions:
@@ -25,6 +28,7 @@ jobs:
       - name: Verify existing 24-shard scan and core-only shortlist
         run: |
           python scripts/verify_global_ranking_release.py
+          python scripts/build_independent_review_pack.py --key-output /tmp/analogx-private-review-case-key.json
           python scripts/validate_analog_labels.py
           python scripts/build_quantitative_validation.py --require-ranking-ready
       - name: Validate evidence ledgers
@@ -33,5 +37,6 @@ jobs:
           python scripts/validate_evidence_inventory.py
           python -m unittest tests.test_validation_release
           python -m unittest tests.test_analog_label_validation
+          python -m unittest tests.test_research_phase_pack
       - name: Publish ranking contract and validation status
-        run: bash scripts/commit_generated_data.sh "Release verified global core-only ranking contract" data/global_discovery/global_discovery.json data/validation/ data/provenance/reproducibility_manifest.json
+        run: bash scripts/commit_generated_data.sh "Release verified global core-only ranking contract" data/global_discovery/global_discovery.json data/global_discovery/top_ranked_candidates.json data/validation/ data/provenance/reproducibility_manifest.json
