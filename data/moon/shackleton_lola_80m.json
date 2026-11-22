@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-15T08:59:18+00:00",
+  "generated_at_utc": "2026-11-22T20:05:21+00:00",
   "provider": "NASA LRO LOLA PDS GDR hosted by MIT Imbrium mirror",
   "product": "LDEM_80S_80M and LDEC_80S_80M",
   "source_urls": {
@@ -68,7 +68,7 @@
     "total_cells": 1024,
     "elevation_coverage_percent": 100.0,
     "slope_deg": {
-      "median": 13.396506309509277,
+      "median": 13.396507263183594,
       "p90": 30.935405731201172,
       "p95": 31.61575698852539,
       "valid_3x3_neighbourhoods": 900
