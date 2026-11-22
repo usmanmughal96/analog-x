@@ -6,17 +6,27 @@ slope map) from PGDA product 78. Only the derived JSON and a browse PNG are
 committed; the source raster assets are read through GDAL /vsicurl range reads.
 """
 from __future__ import annotations
-import json, sys
+import json, sys, time
 from datetime import datetime, timezone
 from pathlib import Path
 import numpy as np
 import rasterio
+import requests
 from rasterio.enums import Resampling
 from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"data"/"moon"
-BASE="https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/Site04/"
+RAW=Path("/tmp/analogx_lola_5m_site04")
+SOURCE_BASES=(
+ "https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/Site04/",
+ "https://core2.gsfc.nasa.gov/PGDA/LOLA_5mpp/Site04/",
+)
+SESSION=requests.Session()
+SESSION.headers.update({
+ "User-Agent":"ANALOG-X/1.0 (NASA LOLA public-data processing; https://github.com/usmanmughal96/analog-x)",
+ "Accept-Encoding":"identity",
+})
 FILES={
  "elevation":"Site04_final_adj_5mpp_surf.tif",
  "counts":"Site04_final_adj_5mpp_ldec.tif",
@@ -30,13 +40,63 @@ SITE={
  "source_coordinate_note":"Lunar Surface Data Book coordinate for R04/Site04. The DEM tile is a site-specific product; its pixel CRS is Moon south-polar stereographic (MOON_ME, DE421)."
 }
 session_env={
- "GDAL_DISABLE_READDIR_ON_OPEN":"EMPTY_DIR",
- "CPL_VSIL_CURL_ALLOWED_EXTENSIONS":".tif",
- "GDAL_HTTP_MAX_RETRY":"4",
- "GDAL_HTTP_RETRY_DELAY":"1",
- "GDAL_HTTP_TIMEOUT":"60",
  "GDAL_CACHEMAX":512
 }
+
+TIFF_SIGNATURES={b"II*\\x00",b"MM\\x00*",b"II+\\x00",b"MM\\x00+"}
+
+def validate_downloaded_tiff(path,expected_bytes=None,min_bytes=1_000_000):
+ size=path.stat().st_size
+ if size<min_bytes:
+  raise RuntimeError(f"Downloaded raster is suspiciously small ({size:,} bytes)")
+ if expected_bytes is not None and size!=expected_bytes:
+  raise RuntimeError(f"Incomplete raster download: expected {expected_bytes:,} bytes, received {size:,}")
+ with path.open("rb") as f:
+  signature=f.read(4)
+ if signature not in TIFF_SIGNATURES:
+  raise RuntimeError(f"Downloaded content is not a TIFF (header={signature!r})")
+ return size
+
+def download_source(kind):
+ RAW.mkdir(parents=True,exist_ok=True)
+ filename=FILES[kind]
+ destination=RAW/filename
+ if destination.exists():
+  try:
+   validate_downloaded_tiff(destination)
+   return destination, next((base+filename for base in SOURCE_BASES), SOURCE_BASES[0]+filename)
+  except Exception:
+   destination.unlink(missing_ok=True)
+
+ errors=[]
+ for base in SOURCE_BASES:
+  url=base+filename
+  for attempt in range(1,4):
+   temp=destination.with_suffix(destination.suffix+".part")
+   try:
+    with SESSION.get(url,stream=True,timeout=(30,300)) as response:
+     # This pipeline deliberately downloads a complete file. Reject a range
+     # response: some mirrors return partial-content/error payloads for a
+     # non-range request, which GDAL later reports only as an opaque Read failed.
+     if response.status_code!=200:
+      raise RuntimeError(f"HTTP {response.status_code}; expected full-file HTTP 200")
+     content_length=response.headers.get("Content-Length")
+     expected=int(content_length) if content_length and content_length.isdigit() else None
+     if expected is not None and expected<1_000_000:
+      raise RuntimeError(f"Refusing suspicious {expected:,}-byte response")
+     with temp.open("wb") as target:
+      for chunk in response.iter_content(chunk_size=1024*1024):
+       if chunk:
+        target.write(chunk)
+    validate_downloaded_tiff(temp,expected_bytes=expected)
+    temp.replace(destination)
+    return destination,url
+   except Exception as exc:
+    errors.append(f"{url} attempt {attempt}: {exc}")
+    temp.unlink(missing_ok=True)
+    if attempt<3:
+     time.sleep(attempt*5)
+ raise RuntimeError("Unable to download a complete public LOLA TIFF: "+" | ".join(errors))
 
 def utcnow():
  return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
@@ -56,19 +116,19 @@ def stats(values):
  }
 
 def open_source(kind):
- url=BASE+FILES[kind]
+ path,url=download_source(kind)
  try:
-  ds=rasterio.open("/vsicurl/"+url)
+  ds=rasterio.open(path)
  except Exception as exc:
-  raise RuntimeError(f"Cannot open public PGDA COG ({kind}): {exc}") from exc
- return ds,url
+  raise RuntimeError(f"Cannot open downloaded NASA PGDA LOLA TIFF ({kind}): {exc}") from exc
+ return ds,url,path
 
 def make_preview(dem_path,slope_path,count_path,outpath):
  # Native grids are read as overviews for a fast, auditable browse layer.
  with rasterio.Env(**session_env):
-  with rasterio.open("/vsicurl/"+dem_path) as dem, \
-       rasterio.open("/vsicurl/"+slope_path) as slope, \
-       rasterio.open("/vsicurl/"+count_path) as counts:
+  with rasterio.open(dem_path) as dem, \
+       rasterio.open(slope_path) as slope, \
+       rasterio.open(count_path) as counts:
    target=(900,900)
    z=dem.read(1,out_shape=target,resampling=Resampling.average).astype("float32")
    s=slope.read(1,out_shape=target,resampling=Resampling.average).astype("float32")
