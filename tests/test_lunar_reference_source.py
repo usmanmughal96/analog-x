@@ -1,3 +1,4 @@
+import json
 import sys
 import tempfile
 import unittest
@@ -74,7 +75,7 @@ class Lunar5mSourceValidationTests(unittest.TestCase):
         self.assertIsNone(safe["numpy_value"])
         self.assertEqual(safe["nested"], [1.25, None, {"finite": 2.5}])
         # The exact same strict encoder used by the build must accept the output.
-        encoded = __import__("json").dumps(safe, allow_nan=False)
+        encoded = json.dumps(safe, allow_nan=False)
         self.assertIn('"nodata": null', encoded)
 
     def test_rejects_misaligned_lola_arrays(self):
