@@ -6,6 +6,7 @@ on:
     paths:
       - "scripts/diagnose_diviner_prp_access.py"
       - "scripts/process_lunar_base_evidence.py"
+      - "tests/test_lunar_base_evidence.py"
       - ".github/workflows/diagnose-diviner-prp.yml"
   workflow_dispatch:
 
@@ -31,6 +32,8 @@ jobs:
           python-version: "3.11"
       - name: Install scientific processing dependencies
         run: python -m pip install --upgrade requests numpy rasterio pillow pyproj
+      - name: Test integer-safe masked raster conversion
+        run: python -m unittest tests.test_lunar_base_evidence
       - name: Diagnose Diviner source metadata and data access
         run: python scripts/diagnose_diviner_prp_access.py
       - name: Process Diviner thermal / ice stability and LROC illumination data
