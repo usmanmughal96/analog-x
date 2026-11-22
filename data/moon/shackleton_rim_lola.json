@@ -1,0 +1,105 @@
+{
+  "generated_at_utc": "2026-11-22T20:17:43+00:00",
+  "provider": "NASA GSFC Planetary Geosciences Data Archive (PGDA), LRO LOLA",
+  "product": "High-Resolution LOLA Topography for Lunar South Pole Sites (PGDA product 78)",
+  "site": {
+    "id": "Site04",
+    "name": "Shackleton Rim",
+    "latitude_south_deg": -89.7668,
+    "longitude_east_deg": 188.13,
+    "source_coordinate_note": "Lunar Surface Data Book coordinate for R04/Site04. The DEM tile is a site-specific product; its pixel CRS is Moon south-polar stereographic (MOON_ME, DE421)."
+  },
+  "source_products": {
+    "elevation": {
+      "filename": "Site04_final_adj_5mpp_surf.tif",
+      "url": "https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/Site04/Site04_final_adj_5mpp_surf.tif",
+      "crs": "PROJCS[\"unnamed\",GEOGCS[\"unnamed ellipse\",DATUM[\"unknown\",SPHEROID[\"unnamed\",1737400,0]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Polar_Stereographic\"],PARAMETER[\"latitude_of_origin\",-90],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1],AXIS[\"Easting\",NORTH],AXIS[\"Northing\",NORTH]]",
+      "width_px": 3200,
+      "height_px": 3200,
+      "pixel_size_crs_units": [
+        5.0,
+        -5.0
+      ],
+      "nodata": null,
+      "dtype": "float32"
+    },
+    "counts": {
+      "filename": "Site04_final_adj_5mpp_ldec.tif",
+      "url": "https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/Site04/Site04_final_adj_5mpp_ldec.tif",
+      "crs": "PROJCS[\"unnamed\",GEOGCS[\"unnamed ellipse\",DATUM[\"unknown\",SPHEROID[\"unnamed\",1737400,0]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Polar_Stereographic\"],PARAMETER[\"latitude_of_origin\",-90],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1],AXIS[\"Easting\",NORTH],AXIS[\"Northing\",NORTH]]",
+      "width_px": 3200,
+      "height_px": 3200,
+      "pixel_size_crs_units": [
+        5.0,
+        -5.0
+      ],
+      "nodata": null,
+      "dtype": "float32"
+    },
+    "slope": {
+      "filename": "Site04_final_adj_5mpp_slp.tif",
+      "url": "https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/Site04/Site04_final_adj_5mpp_slp.tif",
+      "crs": "PROJCS[\"unnamed\",GEOGCS[\"unnamed ellipse\",DATUM[\"unknown\",SPHEROID[\"unnamed\",1737400,0]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Polar_Stereographic\"],PARAMETER[\"latitude_of_origin\",-90],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1],AXIS[\"Easting\",NORTH],AXIS[\"Northing\",NORTH]]",
+      "width_px": 3200,
+      "height_px": 3200,
+      "pixel_size_crs_units": [
+        5.0,
+        -5.0
+      ],
+      "nodata": null,
+      "dtype": "float32"
+    }
+  },
+  "native_pixel_scale_m": 5,
+  "grid_coverage": {
+    "valid_interpolated_terrain_pixels": 10240000,
+    "total_pixels": 10240000,
+    "terrain_coverage_percent": 100.0,
+    "complete_3x3_terrain_neighborhoods": 10227204,
+    "valid_count_map_pixels": 10240000,
+    "positive_lola_return_pixels": 937381,
+    "positive_return_coverage_percent": 9.154,
+    "mean_lola_returns_per_valid_count_pixel": 0.09608525390625,
+    "median_lola_returns_per_valid_count_pixel": 0.0
+  },
+  "terrain_metrics": {
+    "elevation_m_moon_me_de421": {
+      "count": 10240000,
+      "p10": -1863.3876098632813,
+      "median": 668.1879272460938,
+      "p90": 1479.5949829101562,
+      "p95": 1582.9215209960935,
+      "min": -2847.877197265625,
+      "max": 1805.0726318359375
+    },
+    "slope_deg_source_lola_product": {
+      "count": 10240000,
+      "p10": 7.269358158111572,
+      "median": 20.550517082214355,
+      "p90": 33.16253662109375,
+      "p95": 34.5591510772705,
+      "min": 0.0,
+      "max": 69.64722442626953
+    },
+    "3x3_local_relief_m_15m_footprint": {
+      "count": 10227204,
+      "p10": 1.61181640625,
+      "median": 4.9034423828125,
+      "p90": 8.609893798828125,
+      "p95": 9.111572265625,
+      "min": 0.010986328125,
+      "max": 29.160400390625
+    },
+    "slope_fraction": {
+      "under_5_deg_percent": 4.655595703125,
+      "under_10_deg_percent": 18.8099609375,
+      "over_20_deg_percent": 51.019228515625
+    }
+  },
+  "preview_path": "shackleton_rim_lola_5m_hillshade.png",
+  "interpretation": "High-resolution south-polar terrain context for a named Shackleton Rim candidate site. LDEM interpolated elevations remain valid where LDEC records zero direct returns; positive-return coverage is reported separately as measurement support. These descriptors alone do not establish illumination, PSR status, water-ice abundance, landing suitability, rover traversability or engineering safety.",
+  "citations": [
+    "Barker et al. (2023), A New View of the Lunar South Pole from LOLA, Planetary Science Journal 4, 183, DOI 10.3847/PSJ/acf3e1.",
+    "Barker et al. (2021), Improved LOLA Elevation Maps for South Pole Landing Sites: Error Estimates and Their Impact on Illumination Conditions, Planetary and Space Science 203, 105119."
+  ]
+}
