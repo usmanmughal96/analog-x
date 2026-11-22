@@ -43,7 +43,7 @@ session_env={
  "GDAL_CACHEMAX":512
 }
 
-TIFF_SIGNATURES={b"II*\\x00",b"MM\\x00*",b"II+\\x00",b"MM\\x00+"}
+TIFF_SIGNATURES={b"II*\x00",b"MM\x00*",b"II+\x00",b"MM\x00+"}
 
 def validate_downloaded_tiff(path,expected_bytes=None,min_bytes=1_000_000):
  size=path.stat().st_size
