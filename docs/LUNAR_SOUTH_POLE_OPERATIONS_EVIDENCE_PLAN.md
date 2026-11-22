@@ -6,18 +6,19 @@
 
 - NASA GSFC PGDA LRO-LOLA product 78 Site04 at 5 m/pixel: elevation, LDEC return count and slope.
 - NASA LRO LROC WAC 100 m time-weighted and percentage-based historical illumination layers.
+- The NASA PGDA Site04 product directory also publishes total elevation RMS-error and slope RMS-error GeoTIFFs and 100 elevation clones; the workflow is being extended to ingest the two uncertainty rasters.
 - NASA Diviner PRP V2.0 model-derived temperature and water-ice stability-depth context.
 - A separate 80 m LOLA polar elevation/support profile.
 
 ## Newly adopted uncertainty products
 
-NASA PGDA product 78 publishes Site04 total elevation RMS-error and slope RMS-error GeoTIFFs alongside the DEM, count and slope products, as well as 100 DEM clones. ANALOG-X will ingest the two uncertainty rasters first, preserve their units and masks, and report distributions separately from the terrain measurements. The current 5 m build does not yet calculate clone-based illumination intervals; no illumination uncertainty should be implied until that analysis is implemented.
+NASA PGDA product 78 publishes Site04 total elevation RMS-error and slope RMS-error GeoTIFFs alongside the DEM, count and slope products, as well as 100 DEM clones. The updated build now downloads and validates both uncertainty rasters against the elevation/count/slope grids, preserves their units and masks, and reports their distributions separately from terrain measurements. Clone-based illumination intervals remain a distinct future analysis; no illumination uncertainty is implied by RMS error alone.
 
 ## Formal PSR and illumination sources
 
-1. **LROC Permanently Shadowed Regions Atlas:** use the original PSR map, PSR record and source image/coverage metadata, not a 5% threshold applied to WAC frequency. Each PSR geometry must be intersected with the project AOI in the correct lunar coordinate system and linked to its atlas ID, pixel scale and coverage/quality metadata.
+1. **LROC Permanently Shadowed Regions Atlas:** use the [official PSR Atlas](https://lroc.im-ldi.com/atlases/psr), its downloadable atlas and source record/map metadata, not a 5% threshold applied to WAC frequency. Each PSR geometry must be intersected with the project AOI in the correct lunar coordinate system and linked to its atlas ID, pixel-scale range and coverage/quality metadata. The registry keeps the atlas as reference_only until a verified AOI geometry is ingested.
 2. **NASA LROC WAC historical illumination:** retain current two integrated WAC products as historical screening evidence only. Do not label their 2010–2011 frequency as a 2026–2030 forecast.
-3. **Mission-date illumination:** use a terrain-based Sun-vector/ephemeris simulation over the planned mission interval, with explicit latitude/longitude, reference frame, terrain resolution, observer height and time step. Compare modeled illumination with the LROC WAC historical product as a consistency check, not as interchangeable data.
+3. **Mission-date illumination:** use pinned NASA/JPL [NAIF SPICE kernels](https://naif.jpl.nasa.gov/naif/data.html) for a terrain-based Sun-vector/ephemeris simulation over the planned mission interval, with explicit time system, kernel versions, lunar frame, latitude/longitude, terrain resolution, observer height and time step. Compare modeled illumination with the LROC WAC historical product as a consistency check, not as interchangeable data.
 4. **LOLA uncertainty ensemble:** use the published Site04 clones or propagate the supplied height/slope RMS error through an appropriate ensemble method. Report the spread in slope and illumination statistics. A per-pixel RMS layer alone is not a probability of safety.
 
 ## Rover-scale hazard and traverse requirements
