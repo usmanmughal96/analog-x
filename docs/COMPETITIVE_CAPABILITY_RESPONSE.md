@@ -38,7 +38,7 @@ ANALOG-X should not claim that it beats competitors on data breadth, mineralogic
 
 ## 4. Ranking governance — no synthetic consensus
 
-The prior global output combined the core and secondary indices by arithmetic average. The quantitative diagnostic showed poor concordance between the two families in the retained set (Moon Spearman -0.6650, Mars -0.7122, with almost no top-100 overlap). This is a material ranking-stability problem, not a strength.
+The prior global output combined the core and secondary indices by arithmetic average. The subsequent 19 November diagnostic snapshot reports core-vs-secondary Spearman 0.0291 for Moon and -0.0146 for Mars, with top-100 overlap of 11/100 and 5/100 respectively. These descriptors come from the same GLO-90 source; this is metric-family sensitivity, not independent validation. The previously published negative correlations refer to an earlier report version and should not be carried forward as current values.
 
 The global workflow has been revised so:
 1. The primary shortlist is ordered by the core terrain feature family only: median slope, P90 slope and P90 local relief.
