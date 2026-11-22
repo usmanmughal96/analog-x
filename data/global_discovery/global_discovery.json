@@ -232967,5 +232967,19 @@
     "Copernicus GLO-90 terrain descriptors do not measure lithology, mineralogy, regolith strength, dust, illumination, radiation, water/ice, subsurface resources or trafficability.",
     "The secondary feature family is an alternative diagnostic from the same DEM, not independent-source validation. Strong rank disagreement is reported and does not change the primary core-only ordering.",
     "The candidate shortlists are bounded to 1,200 ranked windows per target; they are not a complete export of every evaluated window."
-  ]
+  ],
+  "ranking_contract": {
+    "schema_version": "1.1.0",
+    "ranking_ready": true,
+    "primary_feature_family": "core",
+    "primary_sort": [
+      "core_terrain_index descending",
+      "id ascending"
+    ],
+    "secondary_role": "diagnostic_only",
+    "consensus_score": false,
+    "candidate_rows_validated": true,
+    "contract_repaired_without_rescan": true,
+    "note": "The existing complete inventory and candidate rows passed the current core-only ordering and rank-integrity checks. This is ranking-file readiness, not independent analog accuracy or field validation."
+  }
 }

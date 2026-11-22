@@ -1,13 +1,13 @@
 {
   "schema_version": "2.1.0",
-  "generated_at_utc": "2026-11-22T20:55:36+00:00",
+  "generated_at_utc": "2026-11-22T20:56:51+00:00",
   "status": "diagnostic_only",
   "ranking_release": {
-    "status": "stale_or_invalid",
-    "ranking_ready": false,
+    "status": "ready",
+    "ranking_ready": true,
     "dataset_schema_version": "1.1.0",
     "required_schema_version": "1.1.0",
-    "ranking_contract_present": false,
+    "ranking_contract_present": true,
     "complete_failure_free_inventory": true,
     "targets": {
       "moon": {
@@ -86,8 +86,51 @@
   },
   "interpretation": "Global terrain screening is complete only for the enumerated Copernicus GLO-90 land-tile inventory. The stored list is a bounded shortlist, not all evaluated windows. Primary rank uses the core terrain family only; the alternative family is diagnostic. Neither score is a probability, calibrated accuracy or analog verdict.",
   "independent_analog_label_validation": {
-    "status": "awaiting_reference_labels",
-    "note": "No independently sourced, reviewed positive/negative analog label file is present. No AUC or accuracy is inferred."
+    "schema_version": "1.0.0",
+    "generated_at_utc": "2026-11-22T20:56:51+00:00",
+    "status": "awaiting_spatially_blocked_labels",
+    "method": {
+      "score": "core_terrain_index",
+      "holdout": "deterministic 20% holdout by spatial_group; all records from one group remain in one split",
+      "unit_of_independence": "spatial_group, not individual candidate window",
+      "uncertainty": "Deterministic 2,000-resample spatial-group bootstrap interval where at least 200 valid resamples are available; still exploratory and not an accuracy claim."
+    },
+    "targets": {
+      "moon": {
+        "status": "awaiting_spatially_blocked_labels",
+        "n_total": 0,
+        "n_spatial_groups": 0,
+        "n_train": 0,
+        "n_test": 0,
+        "n_test_positive": 0,
+        "n_test_negative": 0,
+        "held_out_groups": [],
+        "roc_auc": null,
+        "roc_auc_group_bootstrap_95pct_ci": null,
+        "bootstrap_resamples": 2000,
+        "interpretation": "Exploratory spatial-group holdout on reviewer-labelled candidates. It is not a universal accuracy estimate; assess label quality, group design and uncertainty before drawing conclusions."
+      },
+      "mars": {
+        "status": "awaiting_spatially_blocked_labels",
+        "n_total": 0,
+        "n_spatial_groups": 0,
+        "n_train": 0,
+        "n_test": 0,
+        "n_test_positive": 0,
+        "n_test_negative": 0,
+        "held_out_groups": [],
+        "roc_auc": null,
+        "roc_auc_group_bootstrap_95pct_ci": null,
+        "bootstrap_resamples": 2000,
+        "interpretation": "Exploratory spatial-group holdout on reviewer-labelled candidates. It is not a universal accuracy estimate; assess label quality, group design and uncertainty before drawing conclusions."
+      }
+    },
+    "limitations": [
+      "Labels must be independently sourced and reviewed; the script does not create or infer labels.",
+      "A held-out split must contain both positive and negative labels; otherwise AUC is withheld.",
+      "Spatial groups must be defined before looking at scores and should separate neighbouring or geologically related candidates.",
+      "This evaluates terrain-screening scores against supplied labels only; it does not prove planetary process equivalence or field truth."
+    ]
   },
   "global_land_cover_enrichment": {
     "state": "partially_processed",
@@ -196,10 +239,10 @@
   },
   "reproducibility": {
     "manifest_state": "present",
-    "manifest_sha256": "0de16502a7233fe936f5250ba535197d7288ecd1b064bde3c04c052b00b5e013",
+    "manifest_sha256": "4d187e177f3066c131625273aa399493a36d448a9b90d151b1d35a82f867cd6e",
     "hashed_repository_file_count": 216,
     "source_registry_records": 17,
-    "manifest_generated_at_utc": "2026-11-22T20:27:21+00:00",
+    "manifest_generated_at_utc": "2026-11-22T20:55:36+00:00",
     "limitations": [
       "SHA-256 establishes byte-level identity, not scientific validity or source authenticity.",
       "The manifest records the repository commit before its own final commit; it cannot hash its final committed bytes.",

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "2026-11-22T20:56:51+00:00",
+  "status": "awaiting_spatially_blocked_labels",
+  "method": {
+    "score": "core_terrain_index",
+    "holdout": "deterministic 20% holdout by spatial_group; all records from one group remain in one split",
+    "unit_of_independence": "spatial_group, not individual candidate window",
+    "uncertainty": "Deterministic 2,000-resample spatial-group bootstrap interval where at least 200 valid resamples are available; still exploratory and not an accuracy claim."
+  },
+  "targets": {
+    "moon": {
+      "status": "awaiting_spatially_blocked_labels",
+      "n_total": 0,
+      "n_spatial_groups": 0,
+      "n_train": 0,
+      "n_test": 0,
+      "n_test_positive": 0,
+      "n_test_negative": 0,
+      "held_out_groups": [],
+      "roc_auc": null,
+      "roc_auc_group_bootstrap_95pct_ci": null,
+      "bootstrap_resamples": 2000,
+      "interpretation": "Exploratory spatial-group holdout on reviewer-labelled candidates. It is not a universal accuracy estimate; assess label quality, group design and uncertainty before drawing conclusions."
+    },
+    "mars": {
+      "status": "awaiting_spatially_blocked_labels",
+      "n_total": 0,
+      "n_spatial_groups": 0,
+      "n_train": 0,
+      "n_test": 0,
+      "n_test_positive": 0,
+      "n_test_negative": 0,
+      "held_out_groups": [],
+      "roc_auc": null,
+      "roc_auc_group_bootstrap_95pct_ci": null,
+      "bootstrap_resamples": 2000,
+      "interpretation": "Exploratory spatial-group holdout on reviewer-labelled candidates. It is not a universal accuracy estimate; assess label quality, group design and uncertainty before drawing conclusions."
+    }
+  },
+  "limitations": [
+    "Labels must be independently sourced and reviewed; the script does not create or infer labels.",
+    "A held-out split must contain both positive and negative labels; otherwise AUC is withheld.",
+    "Spatial groups must be defined before looking at scores and should separate neighbouring or geologically related candidates.",
+    "This evaluates terrain-screening scores against supplied labels only; it does not prove planetary process equivalence or field truth."
+  ]
+}
