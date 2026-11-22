@@ -1,6 +1,11 @@
 name: Deploy ANALOG-X Agent API (Cloudflare Workers AI)
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "agent-worker/**"
+      - ".github/workflows/deploy-agent-worker.yml"
   workflow_dispatch:
 
 permissions:
@@ -12,10 +17,37 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Deploy Worker
-        uses: cloudflare/wrangler-action@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          workingDirectory: agent-worker
-          command: deploy
+          node-version: "22"
+
+      - name: Install supported Wrangler version
+        run: npm install --global wrangler@4.162.0
+
+      - name: Validate Worker bundle and Wrangler configuration
+        working-directory: agent-worker
+        run: wrangler deploy --dry-run
+
+      - name: Check Cloudflare deployment credentials
+        id: cloudflare
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [[ -z "$CLOUDFLARE_API_TOKEN" || -z "$CLOUDFLARE_ACCOUNT_ID" ]]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::Cloudflare deployment skipped. Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID under Settings > Secrets and variables > Actions to enable the hosted Mission Director API."
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deploy Worker
+        if: steps.cloudflare.outputs.configured == 'true'
+        working-directory: agent-worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: wrangler deploy
