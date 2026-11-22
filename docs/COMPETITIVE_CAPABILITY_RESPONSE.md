@@ -54,6 +54,7 @@ The two feature families use the same DEM and are not independent-data validatio
 - The quantitative report now verifies schema 1.1.0, the core-only ranking contract, primary ordering, sequential ranks, secondary diagnostic rank permutations and unique IDs. A ranking-ready release is not labelled accuracy-validated.
 - A separate independent-label evaluator accepts only reviewer-attributed positive/negative labels with evidence references and spatial groups. It uses a deterministic spatial-group holdout and withholds ROC-AUC when the held-out split lacks both classes. No labels or scores are fabricated.
 - Pull requests run a fast scientific-contract and unit-test job; the expensive 24-shard scan is reserved for non-PR release runs.
+- Added a planetary target registry: two active data-backed profiles, nine updated Artemis III south-pole regions and six Mars geological environments in the planned ingestion queue. Planned targets are not scored until their own authoritative DEM, ROI, masks and quality checks are ingested. See docs/PLANETARY_TARGET_EXPANSION.md.
 
 ## 6. Competitive priorities still open
 
