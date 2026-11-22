@@ -6,7 +6,7 @@ ANALOG-X currently has two data-backed target profiles in its global terrain-ran
 
 The registry includes NASA's updated 2024 Artemis III candidate-region set: Peak near Cabeus B, Haworth, Malapert Massif, Mons Mouton Plateau, Mons Mouton, Nobile Rim 1, Nobile Rim 2, de Gerlache Rim 2 and Slater Plain. NASA describes these as candidate regions assessed using science value, mission availability, terrain, communication and illumination constraints. They are not final landing-site selections and are not all represented by a local terrain profile in ANALOG-X.
 
-Official source: https://www.nasa.gov/news-release/nasa-provides-update-on-nasa-artemis-iii-moon-landing-regions/
+Official source: https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/
 
 ## Mars expansion queue
 
