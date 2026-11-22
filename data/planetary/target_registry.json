@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0.0",
+  "project": "ANALOG-X",
+  "purpose": "Target-expansion registry separating active, data-backed planetary reference profiles from candidate regions awaiting compatible DEM ingestion and QA.",
+  "policy": [
+    "A target marked planned is not active in the scoring pipeline.",
+    "Do not assign coordinates, terrain metrics or scores until the authoritative planetary product and coordinate reference are ingested and validated.",
+    "Artemis landing-region labels describe NASA-published candidate regions at the cited release date; they are not current operational landing-site selections or endorsements.",
+    "One target's terrain profile must not be substituted for another target within the same planetary body."
+  ],
+  "active_profiles": [
+    {
+      "id": "moon_shackleton_rim",
+      "body": "Moon",
+      "name": "Shackleton Rim / lunar south pole",
+      "status": "active_reference_profile",
+      "data_artifact": "data/moon/shackleton_lola_80m.json",
+      "source": "NASA LRO LOLA GDR",
+      "limitations": ["Selected regional window only", "Not an illumination, permanently shadowed region, ice-access or landing-safety map"]
+    },
+    {
+      "id": "mars_nili_patera",
+      "body": "Mars",
+      "name": "Nili Patera",
+      "status": "active_reference_profile",
+      "data_artifact": "data/terrain/terrain_comparison.json",
+      "source": "NASA MGS MOLA MEGDR",
+      "limitations": ["Selected regional window only", "Current selected window has incomplete observation support", "Not a rover-safety or mission-site assessment"]
+    }
+  ],
+  "planned_lunar_regions": [
+    {"id":"artemis3_peak_near_cabeus_b","name":"Peak near Cabeus B"},
+    {"id":"artemis3_haworth","name":"Haworth"},
+    {"id":"artemis3_malapert_massif","name":"Malapert Massif"},
+    {"id":"artemis3_mons_mouton_plateau","name":"Mons Mouton Plateau"},
+    {"id":"artemis3_mons_mouton","name":"Mons Mouton"},
+    {"id":"artemis3_nobile_rim_1","name":"Nobile Rim 1"},
+    {"id":"artemis3_nobile_rim_2","name":"Nobile Rim 2"},
+    {"id":"artemis3_de_gerlache_rim_2","name":"de Gerlache Rim 2"},
+    {"id":"artemis3_slater_plain","name":"Slater Plain"}
+  ],
+  "planned_mars_regions": [
+    {"id":"mars_jezero_crater","name":"Jezero Crater","research_context":"Ancient lake-delta and sedimentary processes"},
+    {"id":"mars_gale_crater","name":"Gale Crater","research_context":"Layered sedimentary deposits and long-duration environmental records"},
+    {"id":"mars_eberswalde_crater","name":"Eberswalde Crater","research_context":"Preserved fluvial-delta landforms"},
+    {"id":"mars_mawrth_vallis","name":"Mawrth Vallis","research_context":"Phyllosilicate-rich altered terrains"},
+    {"id":"mars_arcadia_planitia","name":"Arcadia Planitia","research_context":"Mid-latitude plains and subsurface-ice investigation context"},
+    {"id":"mars_valles_marineris","name":"Valles Marineris","research_context":"Layered canyon walls, landslides and complex geomorphology"}
+  ],
+  "planned_ingestion_contract": {
+    "required_before_activation": [
+      "authoritative LOLA or MOLA product identifiers and version",
+      "native product labels, coordinate reference and map projection",
+      "coverage and valid-pixel masks",
+      "target-specific region-of-interest geometry with provenance",
+      "terrain grids and descriptor derivation at documented spatial support",
+      "independent source/quality checks and reproducibility hashes"
+    ],
+    "lunar_context_source": "https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/",
+    "mars_topography_source": "https://pds-geosciences.wustl.edu/missions/mgs/mola.html",
+    "status_note": "The planned regions are a curated ingestion queue only. They are not currently scored or rendered as active planetary targets by the global discovery engine."
+  }
+}

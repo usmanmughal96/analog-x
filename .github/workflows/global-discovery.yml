@@ -6,7 +6,21 @@ on:
     paths:
       - "scripts/build_global_discovery.py"
       - "scripts/merge_global_discovery.py"
+      - "scripts/build_quantitative_validation.py"
+      - "scripts/validate_analog_labels.py"
+      - "scripts/refresh_source_registry.py"
+      - "tests/test_analog_label_validation.py"
+      - "tests/test_validation_release.py"
       - ".github/workflows/global-discovery.yml"
+      - "tests/test_global_discovery.py"
+  pull_request:
+    paths:
+      - "scripts/build_global_discovery.py"
+      - "scripts/merge_global_discovery.py"
+      - "scripts/build_quantitative_validation.py"
+      - "scripts/validate_analog_labels.py"
+      - ".github/workflows/global-discovery.yml"
+      - "tests/test_analog_label_validation.py"
       - "tests/test_global_discovery.py"
   workflow_dispatch:
 
@@ -18,8 +32,31 @@ concurrency:
   group: analogx-global-discovery-release-v3
   cancel-in-progress: true
 
+# Pull requests run contract tests only; the full inventory scan runs on release events.
 jobs:
+  tests:
+    name: Fast scientific contracts and unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test dependencies
+        run: python -m pip install --upgrade numpy requests rasterio scipy
+      - name: Compile and run tests
+        run: |
+          python -m py_compile scripts/*.py science/*.py
+          python -m unittest tests.test_global_discovery
+          python -m unittest tests.test_analog_label_validation
+          python -m unittest tests.test_validation_release
+          python scripts/validate_analog_labels.py
+          python scripts/build_quantitative_validation.py
+          python scripts/validate_field_observations.py
+          python scripts/validate_evidence_inventory.py
+
   scan:
+    if: github.event_name != 'pull_request'
     name: Global terrain scan · longitude shard ${{ matrix.shard }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
@@ -58,7 +95,7 @@ jobs:
 
   aggregate:
     name: Merge global scan, cross-check and publish science products
-    needs: scan
+    needs: [scan, tests]
     runs-on: ubuntu-latest
     timeout-minutes: 360
     steps:
@@ -90,7 +127,8 @@ jobs:
       - name: Refresh source evidence states
         run: |
           python scripts/refresh_source_registry.py
-          python scripts/build_quantitative_validation.py
+          python scripts/validate_analog_labels.py
+          python scripts/build_quantitative_validation.py --require-ranking-ready
 
       - name: Validate field, source and science contracts
         run: |

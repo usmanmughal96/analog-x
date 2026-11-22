@@ -1,6 +1,6 @@
 # Competitive capability response: ANALOG-X
 
-**Benchmark review date:** 19 November 2026  
+**Benchmark review date:** 22 November 2026  
 **Purpose:** Translate publicly reported competitor strengths into implemented ANALOG-X capabilities while preserving methodological differences. Competitor numbers below are self-reported project claims, not independently audited measurements.
 
 ## 1. Public benchmark comparison
@@ -30,15 +30,15 @@ ANALOG-X should not claim that it beats competitors on data breadth, mineralogic
 | Competitor capability pattern | ANALOG-X implementation | Evidence in repository | Remaining limitation |
 |---|---|---|---|
 | Broader Earth candidate discovery | 24-shard GLO-90 inventory scan and spatially diversified shortlists | scripts/build_global_discovery.py; scripts/merge_global_discovery.py; data/global_discovery/global_discovery.json; global-discovery.html | Complete for the listed public land-tile inventory only; ocean excluded; shortlist is bounded and terrain-only. |
-| More target and source breadth | Separate global GLO-90 terrain, 2023 land-cover sampling, NASA POWER climatology, GLiM generalized geology context, regional GLO-30, Sentinel-2 L2A, NASA CMR/PDS discovery, LOLA, MOLA and Diviner evidence | data/source_registry.json; data/global_discovery; data/validation | Each source has a different support, coverage and state. Metadata-only and browse-only inputs remain visibly distinguished. |
-| Rock/geology contextualization | GLiM centre-point polygon lookup script and automatic enrichment workflow for retained leading windows | scripts/enrich_global_lithology.py; tests/test_global_lithology.py; data/source_registry.json | Execution/output is pending; source state remains planned until the generated file is committed. Generalized mapping at coarse scale; no area-weighting or field verification; excluded from ranking. The served derivative's licence terms require confirmation. |
+| More target and source breadth | Separate global GLO-90 terrain, 2023 land-cover sampling, NASA POWER climatology, processed GLiM centre-point generalized geology context (200/200 retained top-candidate queries), regional GLO-30, Sentinel-2 L2A, NASA CMR/PDS discovery, LOLA, MOLA and Diviner evidence | data/source_registry.json; data/global_discovery; data/validation | Each source has a different support, coverage and state. Metadata-only and browse-only inputs remain visibly distinguished. |
+| Rock/geology contextualization | GLiM centre-point polygon lookup script and automatic enrichment workflow for retained leading windows | scripts/enrich_global_lithology.py; tests/test_global_lithology.py; data/source_registry.json | A committed output records 200/200 successful point queries for the retained top-100-per-target shortlist. Generalized centre-point mapping at coarse scale; no area-weighting or field verification; excluded from ranking. The served derivative's licence terms require confirmation. |
 | Terrain robustness and validation | Primary core-family ranking, secondary feature diagnostics, source-to-source NASADEM cross-check and explicit shortlist rank-sensitivity reports | scripts/build_quantitative_validation.py; scripts/validate_nasadem_crosscheck.py; data/validation | Two feature families from the same DEM are not independent. NASADEM comparison covers only selected overlapping Earth sites. No calibrated analog-ranking accuracy. |
 | Environmental candidate scan | NASA POWER and 2023 land-cover context at shortlisted global candidates; regional Sentinel-2 spectral context remains separate | scripts/enrich_global_power.py; scripts/enrich_global_landcover.py; data/global_discovery | Context is limited to the retained shortlist, not a full global climate or land-cover reprocessing of every candidate window. Sentinel-derived products are not geological or mineral labels. |
 | Mission workflow and field evidence | ATFA, Mission Rehearsal Lab, deterministic Agent Bay, Field Validation Kit and Pakistan campaign plan | docs/ANALOG_TRANSFERABILITY_AND_FAILURE_ANALYSIS.md; field-validation.html; data/field_validation/campaign_plan.json | Field ledger is empty until real, permission-led observations are collected and independently reviewed. |
 
 ## 4. Ranking governance — no synthetic consensus
 
-The prior global output combined the core and secondary indices by arithmetic average. The quantitative diagnostic showed poor concordance between the two families in the retained set (Moon Spearman -0.6650, Mars -0.7122, with almost no top-100 overlap). This is a material ranking-stability problem, not a strength.
+The prior global output combined the core and secondary indices by arithmetic average. The subsequent 19 November diagnostic snapshot reports core-vs-secondary Spearman 0.0291 for Moon and -0.0146 for Mars, with top-100 overlap of 11/100 and 5/100 respectively. These descriptors come from the same GLO-90 source; this is metric-family sensitivity, not independent validation. The previously published negative correlations refer to an earlier report version and should not be carried forward as current values.
 
 The global workflow has been revised so:
 1. The primary shortlist is ordered by the core terrain feature family only: median slope, P90 slope and P90 local relief.
@@ -46,9 +46,17 @@ The global workflow has been revised so:
 3. The secondary rank is displayed within the retained primary shortlist, making the feature-family disagreement inspectable.
 4. No averaged consensus score or score-family "agreement percentage" is presented.
 
-The two feature families use the same DEM and are not independent-data validation. The current quantitative report is diagnostic only. A new global release is required to regenerate the output under this corrected ranking method.
+The two feature families use the same DEM and are not independent-data validation. The current quantitative report is diagnostic only. The merge code now enforces schema 1.1.0, core-only ordering, unique IDs, finite score values, WGS84 bounds and secondary-rank permutations. The saved dataset remains stale until the 24-shard workflow regenerates it; the interface and quantitative report expose this as a ranking-release gate.
 
-## 5. Competitive priorities still open
+## 5. Validation engineering added in the current development branch
+
+- Merge-time checks reject incomplete shard sets, inconsistent inventories/reference profiles, invalid per-shard processed/failed accounting, duplicate candidates, non-finite scores, invalid WGS84 coordinates and malformed target outputs.
+- The quantitative report now verifies schema 1.1.0, the core-only ranking contract, primary ordering, sequential ranks, secondary diagnostic rank permutations and unique IDs. A ranking-ready release is not labelled accuracy-validated.
+- A separate independent-label evaluator accepts only reviewer-attributed positive/negative labels with evidence references and spatial groups. It uses a deterministic spatial-group holdout and withholds ROC-AUC when the held-out split lacks both classes. No labels or scores are fabricated.
+- Pull requests run a fast scientific-contract and unit-test job; the expensive 24-shard scan is reserved for non-PR release runs.
+- Added a planetary target registry: two active data-backed profiles, nine updated Artemis III south-pole regions and six Mars geological environments in the planned ingestion queue. Planned targets are not scored until their own authoritative DEM, ROI, masks and quality checks are ingested. See docs/PLANETARY_TARGET_EXPANSION.md.
+
+## 6. Competitive priorities still open
 
 - Improve evidence depth with additional independently processed datasets, not merely a larger source list.
 - Add defensible illumination / shadow / solar geometry context for the Moon and Mars with compatible time and terrain support.
@@ -57,6 +65,6 @@ The two feature families use the same DEM and are not independent-data validatio
 - Expand geology from point context toward appropriate regional mapping and field evidence, while keeping source scale and mapping uncertainty visible.
 - Retain reproducible run manifests, failed-tile reporting, source licences and exact method parameters for each released dataset.
 
-## 6. Release language
+## 7. Release language
 
 Use "global terrain-screening candidate" rather than "confirmed planetary analog"; report competitors' headline counts as their own published claims; do not describe browse imagery or catalogue metadata as processed science arrays; do not claim physical field validation until documented, independently reviewed observations are actually present.
