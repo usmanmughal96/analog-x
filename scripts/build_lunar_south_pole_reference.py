@@ -101,6 +101,24 @@ def download_source(kind):
 def utcnow():
  return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
+def json_safe(value):
+ """Convert nested scientific output to strict RFC-compliant JSON values.
+
+ Raster metadata can expose NaN as a nodata sentinel. JSON's default encoder
+ writes NaN/Infinity extensions, but this pipeline intentionally rejects them.
+ Preserve finite values and represent non-finite measurements or sentinels as
+ null so downstream consumers can distinguish missing data from real numbers.
+ """
+ if isinstance(value,dict):
+  return {str(key):json_safe(item) for key,item in value.items()}
+ if isinstance(value,(list,tuple)):
+  return [json_safe(item) for item in value]
+ if isinstance(value,np.generic):
+  return json_safe(value.item())
+ if isinstance(value,float) and not np.isfinite(value):
+  return None
+ return value
+
 def stats(values):
  x=np.asarray(values,dtype=np.float64)
  x=x[np.isfinite(x)]
@@ -254,7 +272,7 @@ def main():
    d.close()
   ds.clear()
   make_preview(dem_path,slope_path,count_path,OUT/"shackleton_rim_lola_5m_hillshade.png")
-  (OUT/"shackleton_rim_lola.json").write_text(json.dumps(result,indent=2,allow_nan=False)+"\n",encoding="utf-8")
+  (OUT/"shackleton_rim_lola.json").write_text(json.dumps(json_safe(result),indent=2,allow_nan=False)+"\n",encoding="utf-8")
   print(json.dumps({"status":"success","dimensions":[width,height],"valid_percent":result["grid_coverage"]["terrain_coverage_percent"],"slope_p50":result["terrain_metrics"]["slope_deg_source_lola_product"]["median"]},indent=2),flush=True)
   return 0
  except Exception as exc:

@@ -7,6 +7,11 @@ on:
       - "scripts/build_lunar_south_pole_reference.py"
       - "tests/test_lunar_reference_source.py"
       - ".github/workflows/build-lunar-reference.yml"
+  pull_request:
+    paths:
+      - "scripts/build_lunar_south_pole_reference.py"
+      - "tests/test_lunar_reference_source.py"
+      - ".github/workflows/build-lunar-reference.yml"
   workflow_dispatch:
 
 permissions:
@@ -17,7 +22,23 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  pull-request-tests:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout pull request
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install geospatial dependencies
+        run: python -m pip install --upgrade requests rasterio pillow numpy scipy
+      - name: Run LOLA source and serialization tests
+        run: python -m unittest tests.test_lunar_reference_source
+
   lunar-reference:
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
