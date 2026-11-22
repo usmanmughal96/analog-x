@@ -153,10 +153,11 @@ def main():
  OUT.mkdir(parents=True,exist_ok=True)
  ds={}
  urls={}
+ local_paths={}
  try:
   with rasterio.Env(**session_env):
    for kind in FILES:
-    ds[kind],urls[kind]=open_source(kind)
+    ds[kind],urls[kind],local_paths[kind]=open_source(kind)
    dem,counts,slope=ds["elevation"],ds["counts"],ds["slope"]
    signatures={(d.width,d.height,d.crs,d.transform) for d in ds.values()}
    if len(signatures)!=1:
