@@ -7,7 +7,9 @@ on:
       - "scripts/build_global_discovery.py"
       - "scripts/merge_global_discovery.py"
       - "scripts/build_quantitative_validation.py"
+      - "scripts/validate_analog_labels.py"
       - "scripts/refresh_source_registry.py"
+      - "tests/test_analog_label_validation.py"
       - ".github/workflows/global-discovery.yml"
       - "tests/test_global_discovery.py"
   pull_request:
@@ -15,7 +17,9 @@ on:
       - "scripts/build_global_discovery.py"
       - "scripts/merge_global_discovery.py"
       - "scripts/build_quantitative_validation.py"
+      - "scripts/validate_analog_labels.py"
       - ".github/workflows/global-discovery.yml"
+      - "tests/test_analog_label_validation.py"
       - "tests/test_global_discovery.py"
   workflow_dispatch:
 
@@ -42,6 +46,8 @@ jobs:
         run: |
           python -m py_compile scripts/*.py science/*.py
           python -m unittest tests.test_global_discovery
+          python -m unittest tests.test_analog_label_validation
+          python scripts/validate_analog_labels.py
           python scripts/build_quantitative_validation.py
           python scripts/validate_field_observations.py
           python scripts/validate_evidence_inventory.py
@@ -118,6 +124,7 @@ jobs:
       - name: Refresh source evidence states
         run: |
           python scripts/refresh_source_registry.py
+          python scripts/validate_analog_labels.py
           python scripts/build_quantitative_validation.py --require-ranking-ready
 
       - name: Validate field, source and science contracts
