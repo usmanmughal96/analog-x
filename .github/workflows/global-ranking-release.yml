@@ -57,7 +57,6 @@ jobs:
           python scripts/verify_global_ranking_release.py
           python scripts/build_independent_review_pack.py --key-output /tmp/analogx-private-review-case-key.json
           python scripts/validate_analog_labels.py
-          python scripts/build_quantitative_validation.py --require-ranking-ready
       - name: Validate evidence ledgers
         run: |
           python scripts/validate_field_observations.py
@@ -65,5 +64,9 @@ jobs:
           python -m unittest tests.test_validation_release
           python -m unittest tests.test_analog_label_validation
           python -m unittest tests.test_research_phase_pack
+      - name: Generate manifest, then quantitative report
+        run: |
+          python scripts/build_reproducibility_manifest.py
+          python scripts/build_quantitative_validation.py --require-ranking-ready
       - name: Publish ranking contract and validation status
         run: bash scripts/commit_generated_data.sh "Release verified global core-only ranking contract" data/global_discovery/global_discovery.json data/global_discovery/top_ranked_candidates.json data/validation/ data/provenance/reproducibility_manifest.json
