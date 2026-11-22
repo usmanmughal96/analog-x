@@ -35,7 +35,12 @@ class LunarBaseEvidenceRasterTests(unittest.TestCase):
 
     def test_make_preview_writes_grayscale_browse_image(self):
         values = np.array(
-            [[0.0, 10.0, 20.0], [30.0, 40.0, np.nan], [50.0, 60.0, 70.0]],
+            [
+                [0.0, 10.0, 20.0, 30.0],
+                [40.0, 50.0, 60.0, 70.0],
+                [80.0, 90.0, 100.0, np.nan],
+                [15.0, 25.0, 35.0, 45.0],
+            ],
             dtype=np.float64,
         )
         from tempfile import TemporaryDirectory
@@ -47,7 +52,7 @@ class LunarBaseEvidenceRasterTests(unittest.TestCase):
             self.assertTrue(output.exists())
             with Image.open(output) as image:
                 self.assertEqual(image.mode, "L")
-                self.assertEqual(image.size, (3, 3))
+                self.assertEqual(image.size, (4, 4))
                 pixels = np.asarray(image)
                 self.assertGreater(int(pixels[2, 1]), int(pixels[0, 1]))
                 self.assertEqual(int(pixels[1, 2]), 0)
