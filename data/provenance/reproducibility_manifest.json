@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-22T19:59:24+00:00",
-  "repository_commit_before_manifest_commit": "24161200ff1ca7fa27b0edabd9714f4ba64fd79f",
+  "generated_at_utc": "2026-11-22T20:17:05+00:00",
+  "repository_commit_before_manifest_commit": "233e3dcde90805ac5e0f435c9cff3afb36d2197e",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -366,7 +366,7 @@
     {
       "path": "data/analog_benchmark/regional_window_scan.json",
       "size_bytes": 1006807,
-      "sha256": "d27962599bcf5c5f7dbef9e2ac1e96bdd393a11aa6e1a3aae830f6e60540b859",
+      "sha256": "17bc34641559295e894533f0e1919cf99bbbad72cfd2a4b32e071e060a141efd",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -414,13 +414,13 @@
     {
       "path": "data/moon/diviner_prp_diagnostic/report.json",
       "size_bytes": 111730,
-      "sha256": "88cf9f6f88f5077817796ef43557e76590c0b5a4a0cbc4c9ca1c782a999769fd",
+      "sha256": "8346d1af77f147db1aca0ff0ff4afb218d831bbe391548923465e331f02151ad",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/moon/lola_access_diagnostic.json",
       "size_bytes": 1309,
-      "sha256": "76a03b8d5263825a3c768d40badea87b04230abf6e606500f023ad581739ed72",
+      "sha256": "4f4ae010ab7dca4eca8bbb8c9e56e9f1ad52ec1982a1c02b920c2af871930f5f",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -450,19 +450,19 @@
     {
       "path": "data/moon/mit_lola_diagnostic/report.json",
       "size_bytes": 20100,
-      "sha256": "edb6c206e64bc472a1ca6f1b6911e023ab7323f0b7c7359840ad89f14e8183a1",
+      "sha256": "5d1e3ef099a10c958adabb58c9476c1c2246bc0e3aba0ed36a81967ae7bdf9c4",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/moon/shackleton_diviner_prp.json",
-      "size_bytes": 12069,
-      "sha256": "0359c33a59e7aca3d083f796454b706e5224ee050039a3fa040e634c2f2719fa",
+      "size_bytes": 12280,
+      "sha256": "9bb07ffd78a4afe39460f2f0ca6e7e2e74708c039093a8d881a076ceb0c9ddfc",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/moon/shackleton_lola_80m.json",
       "size_bytes": 22570,
-      "sha256": "18336e00a8769ffceaf679b7b2f2b8d18e93dab73f600cc4ae6a0bf96ce7fdfe",
+      "sha256": "d1b065d16466d38bd1869565871b6cdc38cc276a0b6615a5085cd933af6d560f",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -474,7 +474,7 @@
     {
       "path": "data/moon/shackleton_polar_evidence.json",
       "size_bytes": 11866,
-      "sha256": "921d21cb501fc2167707c9c12629505f6b3c5d1e64fc4153f04863941baafd34",
+      "sha256": "7b292c5c0c460cc0270f225a561743e8b7bab482eb833a5ee06f950c5dc0ca05",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -485,20 +485,20 @@
     },
     {
       "path": "data/nasa/earthdata_cmr_catalog.json",
-      "size_bytes": 108403,
-      "sha256": "5508c2c1d655ec37eb5e6cfe0601c563e7548f68266b523c816446317a03f998",
+      "size_bytes": 108800,
+      "sha256": "612b05a9d1c10a963131f536e662c4202d635c09bdaaeab5355581178c7d87c4",
       "evidence_class_hint": "metadata_only"
     },
     {
       "path": "data/nasa/epic_latest.json",
-      "size_bytes": 1003,
-      "sha256": "5f83c2ef68b95a76ab163d6ec061d7bb3a689bd8731ab95c86f8f92d850a205b",
+      "size_bytes": 1004,
+      "sha256": "6cce88c4519fd8d46478ee380a00e6c21cbc7d0d3c3945c85b64e6f2e4564c98",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/epic_latest.png",
-      "size_bytes": 3280129,
-      "sha256": "37b0ab8e12bace0cfbe550ce7e83aa06a14d0f3ec04612a1beaa8d6d0ce07ec9",
+      "size_bytes": 3387213,
+      "sha256": "ce95c5342562efd8745b28235d8f2a5d30d90165253826f9386ccd3efea0a1ae",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -624,7 +624,7 @@
     {
       "path": "data/nasa/modis_browse_index.json",
       "size_bytes": 43836,
-      "sha256": "528b9d5acb7caf9511ca7bfd030a9f77c986ada5b7e7fc63701781d922ca2380",
+      "sha256": "17283e727090686b092855a31e796043503204dd8d5b47433e973e09e433a4cc",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -648,7 +648,7 @@
     {
       "path": "data/pakistan/imagery/chagai_small_playas_spectral_profile.json",
       "size_bytes": 3599,
-      "sha256": "1df67a9e6bc9779fb37b8efa3df9f3994a4603263b9d707239e45010e6219c23",
+      "sha256": "1ebd9eb3c0b3f8f20d2296ed653fdcb8c425d3d6544d1e0faa566d6ad635cd5d",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -666,7 +666,7 @@
     {
       "path": "data/pakistan/imagery/hamun_i_mashkel_spectral_profile.json",
       "size_bytes": 3510,
-      "sha256": "584d0c145f93a6c84837a5d14a2be6891b94502d197321bd55e6a77862a9841d",
+      "sha256": "fbd8b8096977d24596dedc7057e48f7e3d865f94686234417ffd287b8be38dda",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -684,7 +684,7 @@
     {
       "path": "data/pakistan/imagery/hispar_glacier_spectral_profile.json",
       "size_bytes": 3445,
-      "sha256": "58e2fb9abd77132a4b43cb7e1fd0d0485ab21e56f82d1fb05402ded9e52d6689",
+      "sha256": "3b754db9cb8ce72c62a3a20a8231a768a5d5a80a32f8f9da440e25426de9b11c",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -696,7 +696,7 @@
     {
       "path": "data/pakistan/imagery/index.json",
       "size_bytes": 15892,
-      "sha256": "7b14e75a43e6dec3072ece7c933796725b5b6b69a35786f8f8d68a8776fa0695",
+      "sha256": "021df2cab68c4e65ec849fe28dab95c859bb488bf72d18369d015c8d410c7fac",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -708,7 +708,7 @@
     {
       "path": "data/pakistan/imagery/koh_i_sultan_spectral_profile.json",
       "size_bytes": 3435,
-      "sha256": "577976f504a51c2082909a4c622dc305fbda05d18fe6aa7137ca19745f18731b",
+      "sha256": "edd1dadbee642a12d607505770e90ef28d4c8edbcccb1b4196381c71f45db18f",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -720,7 +720,7 @@
     {
       "path": "data/pakistan/public_scene_catalog.json",
       "size_bytes": 883260,
-      "sha256": "f02042c947e2ab87452668e947be717d20641c3fc06be7ad157e890a2748c945",
+      "sha256": "d2c5949e4cc6e9187fa65a92d108d0a7fcf50ec2378a59f970dc2bd20562c04f",
       "evidence_class_hint": "metadata_only"
     },
     {
@@ -744,7 +744,7 @@
     {
       "path": "data/pakistan/quicklooks/index.json",
       "size_bytes": 5107,
-      "sha256": "cd6bbfce54eb533561457c6537f9bb753e84c0c0ca35af405f7260d859382626",
+      "sha256": "afd4376ea043146b551bb9ff3c0802cc038068ce7ec8e78f166073d71eaed15f",
       "evidence_class_hint": "browse_only"
     },
     {
@@ -756,7 +756,7 @@
     {
       "path": "data/planetary/pds_search.json",
       "size_bytes": 829011,
-      "sha256": "6d0a4f00252cfc7117b2538d9bc3a2f45a298358663992ac36596950a0f77f2e",
+      "sha256": "87b9e710c4b93042eeb97f7692655fb1278d560d9a5af1814e2aae672176b4a3",
       "evidence_class_hint": "metadata_only"
     },
     {
@@ -774,67 +774,67 @@
     {
       "path": "data/power/atacama.json",
       "size_bytes": 8172,
-      "sha256": "c47e8ef553bf5d9d54bcaf104d0775e5f6ee1b5456c2a0cd2a8cc9089561931b",
+      "sha256": "783a0359d855cae22ac4b92b0ca67a45feb267340dfd5dfa2cc867a2a183bb59",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/chagai_small_playas.json",
       "size_bytes": 8280,
-      "sha256": "ab45707425a57203e65d891b855fb374a42686dcf9c3d88fdced333fa3fdaf7e",
+      "sha256": "14bad7200ef9364b4aad96b3274c60968d171fab908920cbe2f4c7af66801803",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/dallol.json",
-      "size_bytes": 8251,
-      "sha256": "c1aeb1bac90a8f9a07cf604ec2ac4e09bb0679d30d661ed81a886177b176451a",
+      "size_bytes": 8250,
+      "sha256": "367a83e6bd223d03904da45b10c8fcd8fe4077e95e849efaa2b792bbcb5cef22",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/death.json",
       "size_bytes": 8220,
-      "sha256": "30cf3440f076d1b5fd856456ed2ddd9f78fc5e5844661d4ebf79f1af7e7a7398",
+      "sha256": "33267a9d7d71e5502faa8d31c7cdab61f493b1867f6bdddd392734f74b8040fd",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/hamun_i_mashkel.json",
       "size_bytes": 8270,
-      "sha256": "0391d468f95809117f3b7944f52092b47dd53d3bd918dd1ac46c39852d9906fa",
+      "sha256": "79bd0b3d020de731dc558bebb70998f011a946cea20b788dc0170d155c7d12da",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/haughton.json",
       "size_bytes": 8257,
-      "sha256": "1fb5487d342147840ec18d2bb71f7263e95ad0a60d490fa5504f4d4e9d8cb428",
+      "sha256": "46eecefc4c47beae1a9096163f81e1db3cc628764b2e7ff29aee0395960b9011",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/hispar_glacier.json",
       "size_bytes": 8207,
-      "sha256": "bb7d2d0cbbf82bf44c447bfb30ec4e0f055fc8bc0647bf1f1f200c07a2176615",
+      "sha256": "b058005c41cf8f454a450696a03432c9097e234da842e2ec5df970b6629f7745",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/iceland.json",
-      "size_bytes": 8152,
-      "sha256": "34d1d7bc5cea0b1ceb0d32f72872363e131a201f2afb27e12a5fe82ff03a9b0a",
+      "size_bytes": 8151,
+      "sha256": "1c2f6dad63c27a7957ccc5ed3ddd9c6f35fcbadfdeb097b2c32b202475b7e9b5",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/index.json",
       "size_bytes": 6292,
-      "sha256": "5a84b8d75f179bb1f49b5275ff66ccc6c3fbb9ca6b1426cc2ea0ec8df50bfc9f",
+      "sha256": "124763b5900a703731c7518e054c3c65fa8926abe27d2bf91adf7a8a222d742d",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/koh.json",
-      "size_bytes": 8173,
-      "sha256": "7f0c3300186eda65d85b9e3fa271435c99f7043bc8e27ec66e62a5ae2789d27a",
+      "size_bytes": 8172,
+      "sha256": "b5e1cd1d3099440fe5cc81e8ebf748ef543eb8dd3eb6feaae60d07e12af21f5a",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/mcmurdo.json",
       "size_bytes": 8294,
-      "sha256": "7c1a5ef6f83c490907e371ed5b1b1ab28656c83347b81cd9ac8327cc907c1a17",
+      "sha256": "a4a20e052eb6b8e5719e772f168fe349d58aebc711f04d57890c211dc742581d",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -918,13 +918,13 @@
     {
       "path": "data/terrain/terrain_comparison.json",
       "size_bytes": 272327,
-      "sha256": "51883bc7fe8b109d3908b610071c560c60bdbfa1f236199399b29b9a841af3a9",
+      "sha256": "d76a063a2312d75529960a5718e2fef739b756758b8a42421c10ed3a63757a33",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/transferability/transferability.json",
       "size_bytes": 388993,
-      "sha256": "946491d5f5061153d75115e5b004de80069b64767d3ff2ffd1ecf638b3f8c253",
+      "sha256": "b51a504f1899502408aa8ce61eae4eca5e31f2187b9451b71986dd81e7d2a4e6",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -942,7 +942,7 @@
     {
       "path": "data/validation/quantitative_validation.json",
       "size_bytes": 11777,
-      "sha256": "8cfdf3d050a98022e96e5fa1d503ad1973c243d1a6350720a65ea27d514da4d7",
+      "sha256": "5836cc1ca5fc5337ac476c799f8ddf68afddcaa9865f23834b9be3bf90a8db37",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -1001,8 +1001,8 @@
     },
     {
       "path": "scripts/build_lunar_south_pole_reference.py",
-      "size_bytes": 12624,
-      "sha256": "c25c024acaef09be220c8e8ef848f1f039708758693376487e95b6f41bb7780c",
+      "size_bytes": 13376,
+      "sha256": "6e5a9a2a2495846e263197dc7b663d3f9224a9db9373c3b20cf77e25f31327f8",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1343,20 +1343,20 @@
     },
     {
       "path": ".github/workflows/build-lunar-lola-80m.yml",
-      "size_bytes": 1328,
-      "sha256": "7ccadee1caf0ec87b4c53e554cf3fc4a80a83d9045836e80bb8a5565633be2c7",
+      "size_bytes": 1351,
+      "sha256": "c606497f5102c57e093fcfce0b83060c2394f3a3a988b4a244dd7b7f6346417e",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": ".github/workflows/build-lunar-reference.yml",
-      "size_bytes": 1721,
-      "sha256": "22024b36ea8b882de9a4be55d22bd990572259e9ff7ea1588a24bc03da337d98",
+      "size_bytes": 2506,
+      "sha256": "9604e71151cffd9cbbc72e4683347747efdd1353ab137661a165bbc461cacf16",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": ".github/workflows/build-lunar-resource-profile.yml",
-      "size_bytes": 1076,
-      "sha256": "50ca5d66c72b3f7ae6318201fca842f9373dcaaeafe2da6a5232aea84514f267",
+      "size_bytes": 1099,
+      "sha256": "bef2c67e53f957842611693dec46485b63cf8600645663340c78937d1f28763a",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1367,8 +1367,8 @@
     },
     {
       "path": ".github/workflows/build-terrain-comparison.yml",
-      "size_bytes": 4546,
-      "sha256": "3cfbbe3dff15d3e4a182845fe579324149cfc8550acfd9ef6f529c439935678c",
+      "size_bytes": 4569,
+      "sha256": "95c5a29b95b176de9f5a35cda4ad6880e850e13bf90efbe5341b0371c5f0a413",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1385,38 +1385,38 @@
     },
     {
       "path": ".github/workflows/diagnose-diviner-prp.yml",
-      "size_bytes": 1563,
-      "sha256": "976184e96f560fdba606f5cb18176b1c07f12775b57dfc810ab5a4bd3fe51196",
+      "size_bytes": 1586,
+      "sha256": "dd0092be41b467a6676cce339734e4cd9ad90b6dd6e60b1100be490a5c89b86d",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": ".github/workflows/diagnose-lola-access.yml",
-      "size_bytes": 1201,
-      "sha256": "19ecd238477602fceb70abe10a3f4d60322e3881bba1a8e1993fc72644457381",
+      "size_bytes": 1018,
+      "sha256": "b7841b9a0f9c6de081dbb929b43b6b0de5c304331a678aec3c8a2edb86bf9d27",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": ".github/workflows/diagnose-lola-mit.yml",
-      "size_bytes": 1190,
-      "sha256": "4c4dd280c3af0108092e4e645532acfc084b5651b50c4ea499c152cd895ec09c",
+      "size_bytes": 1007,
+      "sha256": "b5d12288f1a09c9429645e207e5bb6619a59aed2fa634e91dd5548133fe9fb97",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": ".github/workflows/fetch-nasa-cmr.yml",
-      "size_bytes": 1334,
-      "sha256": "57fa72a27a2327ac37ae8577381e32dd54c3c9c1e63931598bf9190463608de7",
+      "size_bytes": 1024,
+      "sha256": "1d02e0ce0515161487655e605762e8da1fb2d52e32d93266628205e367e362e8",
       "evidence_class_hint": "metadata_only"
     },
     {
       "path": ".github/workflows/fetch-nasa-power.yml",
-      "size_bytes": 995,
-      "sha256": "51c8eb9905e1e23b64f0b21f89820b70b7571cff642d1e04f657d0698eef8ee9",
+      "size_bytes": 1018,
+      "sha256": "f4998a3571c57ac0bbc2e9b6e53933acedb99407ae16da3d49b15fa180d5b91d",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": ".github/workflows/fetch-public-evidence.yml",
-      "size_bytes": 1376,
-      "sha256": "b41d79e6bb6f2d8468368c7d32832824bb222f0874b96d715d979558416a4fbb",
+      "size_bytes": 1399,
+      "sha256": "26387f828fec69a2aebfaea4fcbe392573676f03580ea8a45a7272b0686639e4",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1427,8 +1427,8 @@
     },
     {
       "path": ".github/workflows/global-environment-enrichment.yml",
-      "size_bytes": 3231,
-      "sha256": "b74814dd3e47df14df7e966cbf9bf2dbcb90b3b83cd8c74ae2871a40045d953e",
+      "size_bytes": 2726,
+      "sha256": "3adb8ad7c593f6b8c447b87fd4f7501b2377b134488a7c19515b32965c4e1b7d",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1487,8 +1487,8 @@
     },
     {
       "path": "tests/test_lunar_reference_source.py",
-      "size_bytes": 3237,
-      "sha256": "98f15295cb4da56719d8e96082c3dcb3f5889009fa525b015eca62df94801314",
+      "size_bytes": 4089,
+      "sha256": "35db8d503e7cf84d37f61ba5a69fc1a2f5faac13e18bb77dc45123af4dbc2afa",
       "evidence_class_hint": "method_or_documentation"
     },
     {
