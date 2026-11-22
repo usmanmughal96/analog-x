@@ -120,6 +120,12 @@ def build_release(shards: dict[int, dict[str, Any]]) -> dict[str, Any]:
     assigned = sum(payload["tiles_assigned"] for payload in shards.values())
     processed = sum(payload["tiles_processed"] for payload in shards.values())
     failed = [item for payload in shards.values() for item in payload["tile_failures"]]
+    inventory_total = shards[0]["tile_inventory_total"]
+    if assigned != inventory_total:
+        raise ValueError(f"Shard assignments ({assigned}) do not equal provider inventory ({inventory_total})")
+    for shard_id, payload in shards.items():
+        if payload["tiles_processed"] + len(payload["tile_failures"]) != payload["tiles_assigned"]:
+            raise ValueError(f"Shard {shard_id}: processed + failed tiles does not equal assigned tiles")
     windows = sum(payload["candidate_windows_evaluated"] for payload in shards.values())
     candidate_rows = {
         target: [row for payload in shards.values() for row in payload["targets"][target]["candidate_windows"]]
