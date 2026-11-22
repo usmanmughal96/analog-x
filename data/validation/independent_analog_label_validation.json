@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at_utc": "2026-11-22T20:56:51+00:00",
+  "generated_at_utc": "2026-11-22T21:07:49+00:00",
   "status": "awaiting_spatially_blocked_labels",
   "method": {
     "score": "core_terrain_index",

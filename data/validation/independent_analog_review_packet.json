@@ -1,0 +1,2432 @@
+{
+  "schema_version": "1.0.0",
+  "project": "ANALOG-X",
+  "review_version": "terrain_morphology_transfer_v1",
+  "status": "ready_for_external_review",
+  "purpose": "Blind, spatially stratified review of terrain-morphology transferability for the current global candidate shortlist.",
+  "sampling": {
+    "design": "Six predeclared shortlist-rank strata per target; eight candidates per stratum; spatial diversity preferred within each stratum.",
+    "selection_seed": "SHA256(ANALOG-X-review-v1 | target | rank-bin | candidate-id)",
+    "spatial_group": "Predeclared 10-degree geographic grid cell; an expert may coalesce adjacent cells into a single geologic block before evaluation, but must not split neighbouring geology across train/test.",
+    "cases_per_target": 48,
+    "rank_and_score_withheld": true
+  },
+  "review_instructions": [
+    "Do not request or use ANALOG-X scores or ranks before recording a review.",
+    "Assess only the stated terrain-morphology criterion against independent maps, papers, datasets or first-hand expertise.",
+    "Positive means the external evidence supports the stated target-relevant morphology/process match; negative means a plausible lookalike fails the criterion; inconclusive or insufficient_evidence must remain unlabelled.",
+    "Cite at least one independent evidence reference for positive or negative labels.",
+    "Record reviewer qualifications, affiliation, date, confidence and limitations.",
+    "Do not treat this terrain-only screen as evidence of volatile access, illumination, radiation, mission safety or overall planetary equivalence."
+  ],
+  "cases": [
+    {
+      "review_case_id": "AX-M-01F4B4F1F8F6",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 12.52714,
+        "longitude_wgs84_deg": 107.6854
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-033F7B4AB7BF",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 46.97869,
+        "longitude_wgs84_deg": -68.59865
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-08A69CABCD7C",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": -19.22219,
+        "longitude_wgs84_deg": -47.29179
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-123ABE34CB89",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 52.18172,
+        "longitude_wgs84_deg": -115.32844
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-13D9280CD7F1",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 69.38977,
+        "longitude_wgs84_deg": 101.15529
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-15E80AAD1527",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 57.18035,
+        "longitude_wgs84_deg": 104.50008
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-2077EE1B0361",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": -70.02425,
+        "longitude_wgs84_deg": 36.9434
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-29F812163BB1",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 28.08085,
+        "longitude_wgs84_deg": -106.40851
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-324308CB4696",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 37.98748,
+        "longitude_wgs84_deg": -1.96857
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-33AFF618ACD5",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": -41.70585,
+        "longitude_wgs84_deg": -66.10868
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-391DA782698F",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 6.27282,
+        "longitude_wgs84_deg": 38.47611
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-3D3C7242BDEC",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 52.52924,
+        "longitude_wgs84_deg": -63.48019
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-3D994A4D7B29",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": -10.8766,
+        "longitude_wgs84_deg": 16.43115
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-3E5FABA4C1E5",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 63.97644,
+        "longitude_wgs84_deg": 91.10067
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-4061213711BB",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 18.726,
+        "longitude_wgs84_deg": 8.44327
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-420C7E75068C",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 14.12448,
+        "longitude_wgs84_deg": 25.2816
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-4B70FD51E0B7",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 41.22866,
+        "longitude_wgs84_deg": 110.5594
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-4FE71CE36C7C",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 33.82843,
+        "longitude_wgs84_deg": 57.32988
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-5A9B5DC0061B",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 53.58013,
+        "longitude_wgs84_deg": 56.95039
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-6686CEE21A9A",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 38.77919,
+        "longitude_wgs84_deg": 98.91569
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-6C6B0B99341A",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 38.0327,
+        "longitude_wgs84_deg": 67.53661
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-70BE1699BBF1",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": -16.3189,
+        "longitude_wgs84_deg": 29.64194
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-7514C5780E83",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 42.18333,
+        "longitude_wgs84_deg": -72.32033
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-88BD54C24C80",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": -38.67168,
+        "longitude_wgs84_deg": 176.08642
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-893DB68763FD",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 16.52533,
+        "longitude_wgs84_deg": 44.54342
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-95907331CA92",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 21.23174,
+        "longitude_wgs84_deg": 18.503
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-985957F92F34",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 59.72968,
+        "longitude_wgs84_deg": 123.04935
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-9E24DA0FD0AA",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 46.79658,
+        "longitude_wgs84_deg": 119.02881
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-A10D5E236063",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 37.8935,
+        "longitude_wgs84_deg": 41.15489
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-AF6E6DA28280",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 40.34171,
+        "longitude_wgs84_deg": -78.72556
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-B1694F1C3553",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 49.47985,
+        "longitude_wgs84_deg": 15.26816
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-B33534157FD5",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": -34.72382,
+        "longitude_wgs84_deg": 148.20881
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-B42320390FB4",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 66.28586,
+        "longitude_wgs84_deg": 163.78139
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-BE433CEFC87B",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 26.37784,
+        "longitude_wgs84_deg": 106.68992
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-C0BB50E98EAB",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 45.48424,
+        "longitude_wgs84_deg": 133.58659
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-C3A23892BE0B",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 50.44211,
+        "longitude_wgs84_deg": 6.71479
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-C8B91320F379",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 60.1823,
+        "longitude_wgs84_deg": -143.76633
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-CE99FF0022D8",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 31.42634,
+        "longitude_wgs84_deg": -8.32844
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-CFFCEC62E24F",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": -9.12181,
+        "longitude_wgs84_deg": 35.57531
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-D4B849B38929",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": -21.17469,
+        "longitude_wgs84_deg": -43.87201
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-D915C4950B60",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": -27.87247,
+        "longitude_wgs84_deg": 30.73697
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-E00738325F06",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 50.8395,
+        "longitude_wgs84_deg": 12.61659
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-E22C5884C34A",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": -9.77213,
+        "longitude_wgs84_deg": 17.78236
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-E29181C64BC5",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 71.33042,
+        "longitude_wgs84_deg": -50.61164
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-E77E5AB5905E",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 15.72629,
+        "longitude_wgs84_deg": 39.18131
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-F0154A6E5958",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 66.13499,
+        "longitude_wgs84_deg": 149.60806
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-F4F0737C52C4",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 34.3785,
+        "longitude_wgs84_deg": -2.96982
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-F5A2C0A57A17",
+      "target": "mars",
+      "reference_profile": "Nili Patera",
+      "location": {
+        "latitude_wgs84_deg": 34.12822,
+        "longitude_wgs84_deg": 2.93141
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-00096BA9FC53",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 54.48676,
+        "longitude_wgs84_deg": -127.79837
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-036872386F47",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 17.17353,
+        "longitude_wgs84_deg": -95.97671
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-10D5589D3EF0",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 31.6873,
+        "longitude_wgs84_deg": 108.59266
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-1E71D6A09B79",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 39.44624,
+        "longitude_wgs84_deg": 72.9805
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-2909BC543C72",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 27.83349,
+        "longitude_wgs84_deg": 97.74561
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-297A6DE49942",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 33.82694,
+        "longitude_wgs84_deg": 75.68973
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-2B4217C41F7A",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 19.32396,
+        "longitude_wgs84_deg": 42.02052
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-2F9AA4253A0F",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 46.62881,
+        "longitude_wgs84_deg": 93.47126
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-31E0C6031B9D",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": -34.07171,
+        "longitude_wgs84_deg": -69.91062
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-3CBF10FB9E56",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": -41.10504,
+        "longitude_wgs84_deg": -72.06913
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-45D012EC36BA",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 29.72706,
+        "longitude_wgs84_deg": 110.42326
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-4D14785E08FD",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": -5.27572,
+        "longitude_wgs84_deg": 141.72625
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-595C2334942A",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": -10.42206,
+        "longitude_wgs84_deg": -76.9773
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-59C1A2E7B6CD",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 46.32804,
+        "longitude_wgs84_deg": 9.68498
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-5D64C32CBA43",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 50.88451,
+        "longitude_wgs84_deg": -115.64742
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-68DEF68C2004",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": -15.37247,
+        "longitude_wgs84_deg": -73.35677
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-6D6BE984F3E1",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 41.94302,
+        "longitude_wgs84_deg": 78.79301
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-6FD97459801E",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": -43.35368,
+        "longitude_wgs84_deg": -72.02838
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-74AE86074454",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": -85.29561,
+        "longitude_wgs84_deg": -167.12499
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-74ECDEB4B12D",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": -42.55726,
+        "longitude_wgs84_deg": -72.16917
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-7A66C3CB39B5",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 30.84213,
+        "longitude_wgs84_deg": 78.87329
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-7CA19E5980E6",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 52.23083,
+        "longitude_wgs84_deg": -126.18131
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-7CB98878292A",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": -8.27292,
+        "longitude_wgs84_deg": -76.87543
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-800D035CF55C",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 41.09203,
+        "longitude_wgs84_deg": 41.26955
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-894760298B0B",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 3.72563,
+        "longitude_wgs84_deg": -76.07717
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-8CB683487ECA",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": -47.56207,
+        "longitude_wgs84_deg": -72.38957
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-9BF2076BBBC7",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": -71.57119,
+        "longitude_wgs84_deg": 170.36343
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-A1DF383BA66A",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": -78.0714,
+        "longitude_wgs84_deg": 162.58425
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-A4F38681F745",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 40.93852,
+        "longitude_wgs84_deg": 77.42665
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-A7F220E3E0B5",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 73.77695,
+        "longitude_wgs84_deg": -26.19909
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-A89A5F0B3280",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": -13.67539,
+        "longitude_wgs84_deg": -70.4156
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-B050A158594C",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": -11.82488,
+        "longitude_wgs84_deg": -76.67476
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-B1193D509BE8",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 29.42776,
+        "longitude_wgs84_deg": 92.93992
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-B2C01481F81C",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": -9.42498,
+        "longitude_wgs84_deg": -76.47181
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-B319EDB083DB",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 40.08384,
+        "longitude_wgs84_deg": 72.35429
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-B35EC3272F02",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": -24.86449,
+        "longitude_wgs84_deg": -65.77352
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-B50ABE23BA25",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 31.63089,
+        "longitude_wgs84_deg": -6.27667
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-BC642C54FC31",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 70.82838,
+        "longitude_wgs84_deg": -26.77286
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-BE8AE7CF0B1C",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 27.0246,
+        "longitude_wgs84_deg": 98.25155
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-C6FB92702D36",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 28.0766,
+        "longitude_wgs84_deg": 98.70535
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-C75EDE562DBF",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 23.17384,
+        "longitude_wgs84_deg": 57.84048
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-CF23EABEC33D",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 28.27489,
+        "longitude_wgs84_deg": 100.92673
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-CF9E07DAEEB9",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 42.79217,
+        "longitude_wgs84_deg": 42.74235
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-D4096EFEFC5D",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 36.33178,
+        "longitude_wgs84_deg": 82.51699
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-E51C98527BD9",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 28.43202,
+        "longitude_wgs84_deg": 85.64353
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-E59166585EEE",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 42.39688,
+        "longitude_wgs84_deg": 83.01445
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-E75A87F47AA6",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 27.9326,
+        "longitude_wgs84_deg": 91.63166
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    },
+    {
+      "review_case_id": "AX-M-F5689DA4582D",
+      "target": "moon",
+      "reference_profile": "Shackleton Rim",
+      "location": {
+        "latitude_wgs84_deg": 43.08495,
+        "longitude_wgs84_deg": 77.61769
+      },
+      "analysis_window_km": 5.55,
+      "analysis_support_m": 925.0,
+      "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
+      "independent_review": {
+        "label": null,
+        "criterion_version": "terrain_morphology_transfer_v1",
+        "evidence_refs": [],
+        "reviewer_name": null,
+        "reviewer_affiliation": null,
+        "reviewer_qualification": null,
+        "review_date_utc": null,
+        "confidence_1_to_5": null,
+        "independent_of_analogx_score": null,
+        "rationale": null,
+        "limitations": []
+      }
+    }
+  ],
+  "quality_gate": {
+    "required_evidence_refs_for_binary_label": true,
+    "required_reviewer_provenance": true,
+    "required_confidence": true,
+    "required_independence_declaration": true,
+    "inconclusive_labels_excluded_from_auc": true
+  },
+  "private_key_policy": "The case key contains candidate IDs, ranks and scores. Generate it locally and keep it outside the public repository. Never send it to reviewers."
+}
