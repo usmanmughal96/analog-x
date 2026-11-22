@@ -10,6 +10,7 @@ on:
       - "scripts/validate_analog_labels.py"
       - "scripts/refresh_source_registry.py"
       - "tests/test_analog_label_validation.py"
+      - "tests/test_validation_release.py"
       - ".github/workflows/global-discovery.yml"
       - "tests/test_global_discovery.py"
   pull_request:
@@ -47,6 +48,7 @@ jobs:
           python -m py_compile scripts/*.py science/*.py
           python -m unittest tests.test_global_discovery
           python -m unittest tests.test_analog_label_validation
+          python -m unittest tests.test_validation_release
           python scripts/validate_analog_labels.py
           python scripts/build_quantitative_validation.py
           python scripts/validate_field_observations.py
