@@ -1,6 +1,6 @@
 # Global Discovery, Quantitative Validation & Field Evidence
 
-**Last evidence review:** 23 November 2026 · release status: full inventory scan is complete; a separate no-rescan ranking-contract verifier is being added  
+**Last evidence review:** 23 November 2026 · release status: global ranking contract verified and released without a new DEM scan  
 **Project:** ANALOG-X · NASA Space Apps Challenge 2026
 
 This document distinguishes completed processing, robustness diagnostics, generalized map context, browse/metadata-only inputs, field plans and evidence that does not yet exist.
@@ -41,7 +41,7 @@ The earlier release averaged a core feature-family index and a second diagnostic
 | Shackleton / Moon | -0.6650 | 0 / 25 | 0 / 100 |
 | Nili Patera / Mars | -0.7122 | 0 / 25 | 1 / 100 |
 
-Those results show that feature selection materially changes candidate order. They are **not** evidence of model accuracy. The merge pipeline orders the primary shortlist by the declared core feature family only (median slope, P90 slope, P90 local relief); the secondary family (P95 slope, elevation IQR, detrended roughness) is retained as a separate diagnostic. No consensus or averaged index is produced. The current shortlist has schema 1.1.0 and passes target-level ordering/rank diagnostics, but the generated artifact lacked the explicit ranking_contract object. A lightweight verifier checks the already-complete inventory, core-only ordering, finite scores/coordinates, candidate IDs and rank permutations, then writes the contract without rescanning the 26,475 tiles. This is a release-integrity assertion, not scientific validation. A merge-time integrity gate now checks all 24 shards, assignment accounting, per-shard processed/failed accounting, reference-profile consistency, candidate uniqueness, finite scores, WGS84 coordinates and core-only ordering.
+Those results show that feature selection materially changes candidate order. They are **not** evidence of model accuracy. The merge pipeline orders the primary shortlist by the declared core feature family only (median slope, P90 slope, P90 local relief); the secondary family (P95 slope, elevation IQR, detrended roughness) is retained as a separate diagnostic. No consensus or averaged index is produced. The saved shortlist was missing the explicit ranking_contract object even though its candidate rows and 24-shard inventory were complete. The new lightweight verifier checked the existing inventory, core-only ordering, finite scores/coordinates, candidate IDs and rank permutations, then wrote the contract without rescanning the 26,475 tiles. The resulting quantitative-validation artifact now reports ranking_ready=true for both Moon and Mars (1,200 candidates each). This is release-integrity readiness, not scientific validation. A merge-time integrity gate now checks all 24 shards, assignment accounting, per-shard processed/failed accounting, reference-profile consistency, candidate uniqueness, finite scores, WGS84 coordinates and core-only ordering.
 
 A score is an exploratory terrain-distance transform on IQR-normalized features, not a probability, calibrated accuracy, geological-equivalence claim, safe-access estimate or landing-site decision.
 
@@ -79,7 +79,7 @@ The canonical release values are read from the committed generated artifacts and
 - NASADEM cross-check: 7 / 10 selected sites, processed; a small independent raster-source consistency check only.
 - Ground-truth ledger: 0 observations, 0 independently reviewed.
 
-The validation builder emits a separate ranking-release status. A new lightweight workflow verifies and attaches the missing contract to the existing complete scan without rerunning worldwide DEM processing. The gate checks schema, inventory accounting, core-only primary order, sequential ranks, secondary-rank permutation, unique IDs, finite score/coordinate values and WGS84 bounds. It does not convert a ranking-ready file into an accuracy-validated analog model.
+The validation builder emits a separate ranking-release status. The lightweight ranking-release workflow passed on 23 November and attached the missing contract to the existing complete scan without rerunning worldwide DEM processing. The gate checks schema, inventory accounting, core-only primary order, sequential ranks, secondary-rank permutation, unique IDs, finite score/coordinate values and WGS84 bounds. It does not convert a ranking-ready file into an accuracy-validated analog model.
 
 ## 3. Lunar south-pole evidence — integrated, with operational limits
 
