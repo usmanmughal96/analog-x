@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-22T20:17:05+00:00",
-  "repository_commit_before_manifest_commit": "233e3dcde90805ac5e0f435c9cff3afb36d2197e",
+  "generated_at_utc": "2026-11-22T20:27:21+00:00",
+  "repository_commit_before_manifest_commit": "473ad7373972d4f42b03c5dc02a645e42f92f2fd",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -37,7 +37,7 @@
       "manifest.webmanifest"
     ]
   },
-  "file_count": 214,
+  "file_count": 216,
   "source_registry_sha256": "f5975e2a681ea76dc8b8c540bc3725179579b2bd94baf212ba3fefa63fa04b0d",
   "source_registry_records": [
     {
@@ -305,8 +305,8 @@
   "records": [
     {
       "path": "README.md",
-      "size_bytes": 32172,
-      "sha256": "171ec832130829079d047c39d8e2c10d68066365dbc746b2bfac7bd679ba0656",
+      "size_bytes": 17147,
+      "sha256": "b06dac1b3045ded3b094d534fd5a9e2b1faaa418963570184142843459fead05",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -475,6 +475,18 @@
       "path": "data/moon/shackleton_polar_evidence.json",
       "size_bytes": 11866,
       "sha256": "7b292c5c0c460cc0270f225a561743e8b7bab482eb833a5ee06f950c5dc0ca05",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/moon/shackleton_rim_lola.json",
+      "size_bytes": 5167,
+      "sha256": "de9e66d9d9ba3aa9ac9d3b8171c414bcfd342687310eff2d32d55ac06bb17fe9",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
+      "path": "data/moon/shackleton_rim_lola_5m_hillshade.png",
+      "size_bytes": 331709,
+      "sha256": "c8ed04c81bb2c3da4f286e567a1d642608a9da838f1b91d15e3d190dc369d5d5",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -942,7 +954,7 @@
     {
       "path": "data/validation/quantitative_validation.json",
       "size_bytes": 11777,
-      "sha256": "5836cc1ca5fc5337ac476c799f8ddf68afddcaa9865f23834b9be3bf90a8db37",
+      "sha256": "6e30764ee1fa9f1b83413ec61ecea725d3242e4a1a6e6f89de81b8f370116738",
       "evidence_class_hint": "processed_or_derived"
     },
     {
