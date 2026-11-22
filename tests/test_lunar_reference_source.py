@@ -89,5 +89,31 @@ class Lunar5mSourceValidationTests(unittest.TestCase):
                 source.validate_downloaded_tiff(path, expected_bytes=100, min_bytes=4)
 
 
+    def test_uncertainty_mask_rejects_nodata_and_nonfinite(self):
+        values = np.array([[0.2, 0.0], [np.nan, -0.1]], dtype=float)
+        mask = source.valid_uncertainty_mask(values, nodata=0.0)
+        self.assertTrue(mask[0, 0])
+        self.assertFalse(mask[0, 1])
+        self.assertFalse(mask[1, 0])
+        self.assertFalse(mask[1, 1])
+
+    def test_all_lola_uncertainty_products_must_share_grid(self):
+        class Dataset:
+            def __init__(self, width, height):
+                self.width=width
+                self.height=height
+                self.crs="MOON_ME"
+                self.transform=(5,0,0,0,-5,0)
+        self.assertTrue(source.validate_lola_product_alignment({
+            "dem":Dataset(10,10),"count":Dataset(10,10),
+            "slope":Dataset(10,10),"zerr":Dataset(10,10),"serr":Dataset(10,10)
+        }))
+        with self.assertRaisesRegex(RuntimeError,"do not share identical grid geometry"):
+            source.validate_lola_product_alignment({
+                "dem":Dataset(10,10),"count":Dataset(10,10),
+                "slope":Dataset(10,10),"zerr":Dataset(10,10),"serr":Dataset(9,10)
+            })
+
+
 if __name__ == "__main__":
     unittest.main()

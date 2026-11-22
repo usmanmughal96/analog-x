@@ -19,6 +19,8 @@
 | [ATFA Science Module](https://usmanmughal96.github.io/analog-x/transferability.html) | Experiment-level transferability and analogy-failure analysis |
 | [Regional Discovery Scan](https://usmanmughal96.github.io/analog-x/discovery.html) | Local terrain-window comparison within the ten curated Earth regions |
 | [Global Discovery Engine](https://usmanmughal96.github.io/analog-x/global-discovery.html) | Worldwide Copernicus GLO-90 land-inventory screening |
+| [Top-ranked global candidates](data/global_discovery/top_ranked_candidates.json) | Separate top-25 Moon and Mars ranks with coordinates, scores and terrain metrics |
+| [Independent-review packet](data/validation/independent_analog_review_packet.json) | Blind, spatially stratified expert-review sample (no scores/ranks exposed) |
 | [Pakistan Field Validation Kit](https://usmanmughal96.github.io/analog-x/field-validation.html) | Offline-first field protocols, stations and observation capture |
 | [Source repository](https://github.com/usmanmughal96/analog-x) | Code, datasets, tests, methods and provenance |
 
@@ -81,6 +83,8 @@ The separate [Global Discovery Engine](https://usmanmughal96.github.io/analog-x/
 **Global ranking release status:** **Ranking ready.** The no-rescan release verifier has passed. The committed 24-shard inventory is complete (26,475/26,475 land tiles; zero failures; 5,852,396 windows evaluated), and both Moon and Mars shortlists pass schema, core-only ordering, sequential-rank, unique-ID and rank-integrity checks. This is release readiness of the ranking file, not independent scientific accuracy or planetary-analog validation. See [Global Discovery & Quantitative Validation](docs/GLOBAL_DISCOVERY_AND_VALIDATION.md).
 
 ### 5. Field Evidence Passport and Pakistan Field Validation Kit
+
+The next-phase execution plan is in [Pakistan Field Campaign Execution Plan](docs/PAKISTAN_FIELD_CAMPAIGN_EXECUTION_PLAN.md). The [Lunar South-Pole Operations Evidence Plan](docs/LUNAR_SOUTH_POLE_OPERATIONS_EVIDENCE_PLAN.md) defines PSR, illumination, uncertainty and rover-mobility release gates.
 
 The Field Evidence Passport helps define a site-specific field experiment, inspect independent evidence layers, identify unsupported claims and export a proposed protocol.
 

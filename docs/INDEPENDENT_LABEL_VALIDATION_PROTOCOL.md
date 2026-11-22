@@ -25,6 +25,29 @@ Each row in `data/validation/independent_analog_labels.json` must contain:
 5. Do not use the same DEM-derived descriptors both to assign labels and to claim independent validation of those descriptors.
 6. Have a qualified reviewer record the evidence scope, date and limitations. One label validates only the stated target criterion, not all mission processes.
 
+## Blind reviewer packet and sampling design
+
+The repository now generates `data/validation/independent_analog_review_packet.json` from the released schema 1.1.0 shortlist. It samples eight candidates in each of six predeclared rank strata per target (48 Moon + 48 Mars), preferring distinct 10-degree geographic cells within each stratum. The packet exposes case code, target, approximate centre coordinate, window size and required review fields, but does not expose candidate ID, score, rank or terrain metrics.
+
+The matching private case key contains candidate IDs, ranks, scores and geographic-group IDs. Generate it locally and keep it outside the repository:
+
+```bash
+python scripts/build_independent_review_pack.py --key-output "$HOME/analogx-private/independent-review-case-key.json"
+```
+
+Never send the key to reviewers or commit it. Reviewers should complete the `independent_review` block in the packet and return the packet only. Import binary labels locally:
+
+```bash
+python scripts/import_independent_review_labels.py --key "$HOME/analogx-private/independent-review-case-key.json" --dry-run
+python scripts/import_independent_review_labels.py --key "$HOME/analogx-private/independent-review-case-key.json"
+python scripts/validate_analog_labels.py
+python scripts/build_quantitative_validation.py
+```
+
+The importer requires an independent-of-score attestation, reviewer qualification/affiliation, date, criterion version, evidence reference, confidence and rationale. It ignores inconclusive/insufficient-evidence cases for AUC. Duplicate candidate labels are rejected pending explicit adjudication. The private key must match the exact review packet revision.
+
+The 10-degree grid cell is a predeclared geographic blocking proxy, not a guaranteed geological boundary. A qualified reviewer should merge cells belonging to one geologic province before evaluation when necessary. Do not split neighbouring or genetically related terrain across train/test.
+
 ## Evaluation
 
 Run:
@@ -34,10 +57,10 @@ python scripts/validate_analog_labels.py
 python scripts/build_quantitative_validation.py
 ```
 
-The evaluator uses a deterministic 20% spatial-group holdout; all records from a group remain together. It reports ROC-AUC only if the held-out split contains both positive and negative examples and at least five groups exist. This first implementation does not report confidence intervals. Before any performance claim, add a predeclared group bootstrap, inspect class balance and group independence, and seek external expert review.
+The evaluator uses a deterministic 20% spatial-group holdout; all records from a group remain together. It reports ROC-AUC only if the held-out split contains both positive and negative examples and at least five groups exist. A deterministic 2,000-resample group bootstrap now estimates a 95% interval when at least 200 valid resamples can be produced. The output remains exploratory and must be interpreted with class balance, group independence, label scope and reviewer quality; it is not a universal accuracy estimate.
 
 A ranking-ready global dataset (schema 1.1.0) is a prerequisite for a reproducible score evaluation, but ranking readiness is not model accuracy. If the label file is empty or the held-out classes are incomplete, the report must say that validation is awaiting labels.
 
 ## Current status
 
-No independent label records are currently supplied. ANALOG-X must not claim a validated AUC, accuracy, sensitivity, specificity or planetary analog success rate.
+The first blind review packet is a sampling instrument only; no independent label records are currently supplied. ANALOG-X must not claim a validated AUC, accuracy, sensitivity, specificity or planetary analog success rate.
