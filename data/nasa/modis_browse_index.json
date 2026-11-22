@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-11-18T14:22:30+00:00",
+  "generated_at_utc": "2026-11-22T18:27:40+00:00",
   "provider": "NASA Earthdata CMR / MODIS Terra MOD11A2 V061",
   "product": "8-day land-surface temperature and emissivity, 1 km sinusoidal grid",
   "purpose": "Recent public browse-tile discovery for the curated Earth study sites.",
@@ -22,6 +22,29 @@
       "status": "browse_downloaded",
       "granules": [
         {
+          "id": "G4418333957-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026313.h23v06.061.2026323215408",
+          "time_start": "2026-11-09T00:00:00.000Z",
+          "time_end": "2026-11-16T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "browse_urls": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h23v06.061.2026323215408/BROWSE.MOD11A2.A2026313.h23v06.061.2026323165409.1.jpg",
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h23v06.061.2026323215408/BROWSE.MOD11A2.A2026313.h23v06.061.2026323165409.2.jpg"
+          ],
+          "downloaded_browse": [
+            {
+              "path": "data/nasa/modis_browse/chagai_small_playas_1.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h23v06.061.2026323215408/BROWSE.MOD11A2.A2026313.h23v06.061.2026323165409.1.jpg",
+              "bytes": 14156
+            },
+            {
+              "path": "data/nasa/modis_browse/chagai_small_playas_2.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h23v06.061.2026323215408/BROWSE.MOD11A2.A2026313.h23v06.061.2026323165409.2.jpg",
+              "bytes": 13304
+            }
+          ]
+        },
+        {
           "id": "G4407651606-LPCLOUD",
           "producer_granule_id": "MOD11A2.A2026305.h23v06.061.2026314143112",
           "time_start": "2026-11-01T00:00:00.000Z",
@@ -30,18 +53,6 @@
           "browse_urls": [
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.2.jpg"
-          ],
-          "downloaded_browse": [
-            {
-              "path": "data/nasa/modis_browse/chagai_small_playas_1.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.1.jpg",
-              "bytes": 14334
-            },
-            {
-              "path": "data/nasa/modis_browse/chagai_small_playas_2.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.2.jpg",
-              "bytes": 12990
-            }
           ]
         },
         {
@@ -75,17 +86,6 @@
           "browse_urls": [
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h23v06.061.2026290035626/BROWSE.MOD11A2.A2026281.h23v06.061.2026289235628.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h23v06.061.2026290035626/BROWSE.MOD11A2.A2026281.h23v06.061.2026289235628.2.jpg"
-          ]
-        },
-        {
-          "id": "G4362565750-LPCLOUD",
-          "producer_granule_id": "MOD11A2.A2026273.h23v06.061.2026286144506",
-          "time_start": "2026-09-30T00:00:00.000Z",
-          "time_end": "2026-10-07T23:59:59.000Z",
-          "day_night_flag": "BOTH",
-          "browse_urls": [
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h23v06.061.2026286144506/BROWSE.MOD11A2.A2026273.h23v06.061.2026286104508.1.jpg",
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h23v06.061.2026286144506/BROWSE.MOD11A2.A2026273.h23v06.061.2026286104508.2.jpg"
           ]
         }
       ]
@@ -99,6 +99,29 @@
       "status": "browse_downloaded",
       "granules": [
         {
+          "id": "G4418333957-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026313.h23v06.061.2026323215408",
+          "time_start": "2026-11-09T00:00:00.000Z",
+          "time_end": "2026-11-16T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "browse_urls": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h23v06.061.2026323215408/BROWSE.MOD11A2.A2026313.h23v06.061.2026323165409.1.jpg",
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h23v06.061.2026323215408/BROWSE.MOD11A2.A2026313.h23v06.061.2026323165409.2.jpg"
+          ],
+          "downloaded_browse": [
+            {
+              "path": "data/nasa/modis_browse/hamun_i_mashkel_1.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h23v06.061.2026323215408/BROWSE.MOD11A2.A2026313.h23v06.061.2026323165409.1.jpg",
+              "bytes": 14156
+            },
+            {
+              "path": "data/nasa/modis_browse/hamun_i_mashkel_2.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h23v06.061.2026323215408/BROWSE.MOD11A2.A2026313.h23v06.061.2026323165409.2.jpg",
+              "bytes": 13304
+            }
+          ]
+        },
+        {
           "id": "G4407651606-LPCLOUD",
           "producer_granule_id": "MOD11A2.A2026305.h23v06.061.2026314143112",
           "time_start": "2026-11-01T00:00:00.000Z",
@@ -107,18 +130,6 @@
           "browse_urls": [
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.2.jpg"
-          ],
-          "downloaded_browse": [
-            {
-              "path": "data/nasa/modis_browse/hamun_i_mashkel_1.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.1.jpg",
-              "bytes": 14334
-            },
-            {
-              "path": "data/nasa/modis_browse/hamun_i_mashkel_2.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.2.jpg",
-              "bytes": 12990
-            }
           ]
         },
         {
@@ -152,17 +163,6 @@
           "browse_urls": [
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h23v06.061.2026290035626/BROWSE.MOD11A2.A2026281.h23v06.061.2026289235628.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h23v06.061.2026290035626/BROWSE.MOD11A2.A2026281.h23v06.061.2026289235628.2.jpg"
-          ]
-        },
-        {
-          "id": "G4362565750-LPCLOUD",
-          "producer_granule_id": "MOD11A2.A2026273.h23v06.061.2026286144506",
-          "time_start": "2026-09-30T00:00:00.000Z",
-          "time_end": "2026-10-07T23:59:59.000Z",
-          "day_night_flag": "BOTH",
-          "browse_urls": [
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h23v06.061.2026286144506/BROWSE.MOD11A2.A2026273.h23v06.061.2026286104508.1.jpg",
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h23v06.061.2026286144506/BROWSE.MOD11A2.A2026273.h23v06.061.2026286104508.2.jpg"
           ]
         }
       ]
@@ -176,6 +176,29 @@
       "status": "browse_downloaded",
       "granules": [
         {
+          "id": "G4418333957-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026313.h23v06.061.2026323215408",
+          "time_start": "2026-11-09T00:00:00.000Z",
+          "time_end": "2026-11-16T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "browse_urls": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h23v06.061.2026323215408/BROWSE.MOD11A2.A2026313.h23v06.061.2026323165409.1.jpg",
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h23v06.061.2026323215408/BROWSE.MOD11A2.A2026313.h23v06.061.2026323165409.2.jpg"
+          ],
+          "downloaded_browse": [
+            {
+              "path": "data/nasa/modis_browse/koh_i_sultan_1.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h23v06.061.2026323215408/BROWSE.MOD11A2.A2026313.h23v06.061.2026323165409.1.jpg",
+              "bytes": 14156
+            },
+            {
+              "path": "data/nasa/modis_browse/koh_i_sultan_2.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h23v06.061.2026323215408/BROWSE.MOD11A2.A2026313.h23v06.061.2026323165409.2.jpg",
+              "bytes": 13304
+            }
+          ]
+        },
+        {
           "id": "G4407651606-LPCLOUD",
           "producer_granule_id": "MOD11A2.A2026305.h23v06.061.2026314143112",
           "time_start": "2026-11-01T00:00:00.000Z",
@@ -184,18 +207,6 @@
           "browse_urls": [
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.2.jpg"
-          ],
-          "downloaded_browse": [
-            {
-              "path": "data/nasa/modis_browse/koh_i_sultan_1.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.1.jpg",
-              "bytes": 14334
-            },
-            {
-              "path": "data/nasa/modis_browse/koh_i_sultan_2.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h23v06.061.2026314143112/BROWSE.MOD11A2.A2026305.h23v06.061.2026314093113.2.jpg",
-              "bytes": 12990
-            }
           ]
         },
         {
@@ -230,17 +241,6 @@
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h23v06.061.2026290035626/BROWSE.MOD11A2.A2026281.h23v06.061.2026289235628.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h23v06.061.2026290035626/BROWSE.MOD11A2.A2026281.h23v06.061.2026289235628.2.jpg"
           ]
-        },
-        {
-          "id": "G4362565750-LPCLOUD",
-          "producer_granule_id": "MOD11A2.A2026273.h23v06.061.2026286144506",
-          "time_start": "2026-09-30T00:00:00.000Z",
-          "time_end": "2026-10-07T23:59:59.000Z",
-          "day_night_flag": "BOTH",
-          "browse_urls": [
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h23v06.061.2026286144506/BROWSE.MOD11A2.A2026273.h23v06.061.2026286104508.1.jpg",
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h23v06.061.2026286144506/BROWSE.MOD11A2.A2026273.h23v06.061.2026286104508.2.jpg"
-          ]
         }
       ]
     },
@@ -253,6 +253,29 @@
       "status": "browse_downloaded",
       "granules": [
         {
+          "id": "G4418422608-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026313.h24v05.061.2026323215814",
+          "time_start": "2026-11-09T00:00:00.000Z",
+          "time_end": "2026-11-16T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "browse_urls": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h24v05.061.2026323215814/BROWSE.MOD11A2.A2026313.h24v05.061.2026323165814.1.jpg",
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h24v05.061.2026323215814/BROWSE.MOD11A2.A2026313.h24v05.061.2026323165814.2.jpg"
+          ],
+          "downloaded_browse": [
+            {
+              "path": "data/nasa/modis_browse/hispar_glacier_1.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h24v05.061.2026323215814/BROWSE.MOD11A2.A2026313.h24v05.061.2026323165814.1.jpg",
+              "bytes": 22092
+            },
+            {
+              "path": "data/nasa/modis_browse/hispar_glacier_2.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h24v05.061.2026323215814/BROWSE.MOD11A2.A2026313.h24v05.061.2026323165814.2.jpg",
+              "bytes": 19757
+            }
+          ]
+        },
+        {
           "id": "G4407672628-LPCLOUD",
           "producer_granule_id": "MOD11A2.A2026305.h24v05.061.2026314143533",
           "time_start": "2026-11-01T00:00:00.000Z",
@@ -261,18 +284,6 @@
           "browse_urls": [
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h24v05.061.2026314143533/BROWSE.MOD11A2.A2026305.h24v05.061.2026314093534.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h24v05.061.2026314143533/BROWSE.MOD11A2.A2026305.h24v05.061.2026314093534.2.jpg"
-          ],
-          "downloaded_browse": [
-            {
-              "path": "data/nasa/modis_browse/hispar_glacier_1.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h24v05.061.2026314143533/BROWSE.MOD11A2.A2026305.h24v05.061.2026314093534.1.jpg",
-              "bytes": 21864
-            },
-            {
-              "path": "data/nasa/modis_browse/hispar_glacier_2.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h24v05.061.2026314143533/BROWSE.MOD11A2.A2026305.h24v05.061.2026314093534.2.jpg",
-              "bytes": 19037
-            }
           ]
         },
         {
@@ -307,17 +318,6 @@
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h24v05.061.2026290035338/BROWSE.MOD11A2.A2026281.h24v05.061.2026289235339.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h24v05.061.2026290035338/BROWSE.MOD11A2.A2026281.h24v05.061.2026289235339.2.jpg"
           ]
-        },
-        {
-          "id": "G4362586773-LPCLOUD",
-          "producer_granule_id": "MOD11A2.A2026273.h24v05.061.2026286144749",
-          "time_start": "2026-09-30T00:00:00.000Z",
-          "time_end": "2026-10-07T23:59:59.000Z",
-          "day_night_flag": "BOTH",
-          "browse_urls": [
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h24v05.061.2026286144749/BROWSE.MOD11A2.A2026273.h24v05.061.2026286104750.1.jpg",
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h24v05.061.2026286144749/BROWSE.MOD11A2.A2026273.h24v05.061.2026286104750.2.jpg"
-          ]
         }
       ]
     },
@@ -330,6 +330,29 @@
       "status": "browse_downloaded",
       "granules": [
         {
+          "id": "G4418200263-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026313.h21v07.061.2026323214654",
+          "time_start": "2026-11-09T00:00:00.000Z",
+          "time_end": "2026-11-16T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "browse_urls": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h21v07.061.2026323214654/BROWSE.MOD11A2.A2026313.h21v07.061.2026323164654.1.jpg",
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h21v07.061.2026323214654/BROWSE.MOD11A2.A2026313.h21v07.061.2026323164654.2.jpg"
+          ],
+          "downloaded_browse": [
+            {
+              "path": "data/nasa/modis_browse/dallol_1.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h21v07.061.2026323214654/BROWSE.MOD11A2.A2026313.h21v07.061.2026323164654.1.jpg",
+              "bytes": 15244
+            },
+            {
+              "path": "data/nasa/modis_browse/dallol_2.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h21v07.061.2026323214654/BROWSE.MOD11A2.A2026313.h21v07.061.2026323164654.2.jpg",
+              "bytes": 14077
+            }
+          ]
+        },
+        {
           "id": "G4407635526-LPCLOUD",
           "producer_granule_id": "MOD11A2.A2026305.h21v07.061.2026314142621",
           "time_start": "2026-11-01T00:00:00.000Z",
@@ -338,18 +361,6 @@
           "browse_urls": [
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h21v07.061.2026314142621/BROWSE.MOD11A2.A2026305.h21v07.061.2026314092621.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h21v07.061.2026314142621/BROWSE.MOD11A2.A2026305.h21v07.061.2026314092621.2.jpg"
-          ],
-          "downloaded_browse": [
-            {
-              "path": "data/nasa/modis_browse/dallol_1.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h21v07.061.2026314142621/BROWSE.MOD11A2.A2026305.h21v07.061.2026314092621.1.jpg",
-              "bytes": 15286
-            },
-            {
-              "path": "data/nasa/modis_browse/dallol_2.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h21v07.061.2026314142621/BROWSE.MOD11A2.A2026305.h21v07.061.2026314092621.2.jpg",
-              "bytes": 13116
-            }
           ]
         },
         {
@@ -384,17 +395,6 @@
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h21v07.061.2026290035446/BROWSE.MOD11A2.A2026281.h21v07.061.2026289235446.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h21v07.061.2026290035446/BROWSE.MOD11A2.A2026281.h21v07.061.2026289235446.2.jpg"
           ]
-        },
-        {
-          "id": "G4362541621-LPCLOUD",
-          "producer_granule_id": "MOD11A2.A2026273.h21v07.061.2026286144252",
-          "time_start": "2026-09-30T00:00:00.000Z",
-          "time_end": "2026-10-07T23:59:59.000Z",
-          "day_night_flag": "BOTH",
-          "browse_urls": [
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h21v07.061.2026286144252/BROWSE.MOD11A2.A2026273.h21v07.061.2026286104252.1.jpg",
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h21v07.061.2026286144252/BROWSE.MOD11A2.A2026273.h21v07.061.2026286104252.2.jpg"
-          ]
         }
       ]
     },
@@ -407,6 +407,29 @@
       "status": "browse_downloaded",
       "granules": [
         {
+          "id": "G4418328466-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026313.h11v11.061.2026323215243",
+          "time_start": "2026-11-09T00:00:00.000Z",
+          "time_end": "2026-11-16T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "browse_urls": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h11v11.061.2026323215243/BROWSE.MOD11A2.A2026313.h11v11.061.2026323165244.1.jpg",
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h11v11.061.2026323215243/BROWSE.MOD11A2.A2026313.h11v11.061.2026323165244.2.jpg"
+          ],
+          "downloaded_browse": [
+            {
+              "path": "data/nasa/modis_browse/atacama_1.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h11v11.061.2026323215243/BROWSE.MOD11A2.A2026313.h11v11.061.2026323165244.1.jpg",
+              "bytes": 12818
+            },
+            {
+              "path": "data/nasa/modis_browse/atacama_2.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h11v11.061.2026323215243/BROWSE.MOD11A2.A2026313.h11v11.061.2026323165244.2.jpg",
+              "bytes": 11479
+            }
+          ]
+        },
+        {
           "id": "G4407628626-LPCLOUD",
           "producer_granule_id": "MOD11A2.A2026305.h11v11.061.2026314142925",
           "time_start": "2026-11-01T00:00:00.000Z",
@@ -415,18 +438,6 @@
           "browse_urls": [
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h11v11.061.2026314142925/BROWSE.MOD11A2.A2026305.h11v11.061.2026314092925.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h11v11.061.2026314142925/BROWSE.MOD11A2.A2026305.h11v11.061.2026314092925.2.jpg"
-          ],
-          "downloaded_browse": [
-            {
-              "path": "data/nasa/modis_browse/atacama_1.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h11v11.061.2026314142925/BROWSE.MOD11A2.A2026305.h11v11.061.2026314092925.1.jpg",
-              "bytes": 12750
-            },
-            {
-              "path": "data/nasa/modis_browse/atacama_2.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h11v11.061.2026314142925/BROWSE.MOD11A2.A2026305.h11v11.061.2026314092925.2.jpg",
-              "bytes": 11447
-            }
           ]
         },
         {
@@ -461,17 +472,6 @@
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h11v11.061.2026290035011/BROWSE.MOD11A2.A2026281.h11v11.061.2026289235020.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h11v11.061.2026290035011/BROWSE.MOD11A2.A2026281.h11v11.061.2026289235020.2.jpg"
           ]
-        },
-        {
-          "id": "G4362553782-LPCLOUD",
-          "producer_granule_id": "MOD11A2.A2026273.h11v11.061.2026286144256",
-          "time_start": "2026-09-30T00:00:00.000Z",
-          "time_end": "2026-10-07T23:59:59.000Z",
-          "day_night_flag": "BOTH",
-          "browse_urls": [
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h11v11.061.2026286144256/BROWSE.MOD11A2.A2026273.h11v11.061.2026286104256.1.jpg",
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h11v11.061.2026286144256/BROWSE.MOD11A2.A2026273.h11v11.061.2026286104256.2.jpg"
-          ]
         }
       ]
     },
@@ -484,6 +484,62 @@
       "status": "browse_downloaded",
       "granules": [
         {
+          "id": "G4418464171-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026313.h21v16.061.2026323221638",
+          "time_start": "2026-11-09T00:00:00.000Z",
+          "time_end": "2026-11-16T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "browse_urls": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h21v16.061.2026323221638/BROWSE.MOD11A2.A2026313.h21v16.061.2026323171638.1.jpg",
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h21v16.061.2026323221638/BROWSE.MOD11A2.A2026313.h21v16.061.2026323171638.2.jpg"
+          ],
+          "downloaded_browse": [
+            {
+              "path": "data/nasa/modis_browse/mcmurdo_1.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h21v16.061.2026323221638/BROWSE.MOD11A2.A2026313.h21v16.061.2026323171638.1.jpg",
+              "bytes": 12956
+            },
+            {
+              "path": "data/nasa/modis_browse/mcmurdo_2.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h21v16.061.2026323221638/BROWSE.MOD11A2.A2026313.h21v16.061.2026323171638.2.jpg",
+              "bytes": 11984
+            }
+          ]
+        },
+        {
+          "id": "G4418495920-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026313.h22v16.061.2026323221803",
+          "time_start": "2026-11-09T00:00:00.000Z",
+          "time_end": "2026-11-16T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "browse_urls": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h22v16.061.2026323221803/BROWSE.MOD11A2.A2026313.h22v16.061.2026323171803.1.jpg",
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h22v16.061.2026323221803/BROWSE.MOD11A2.A2026313.h22v16.061.2026323171803.2.jpg"
+          ]
+        },
+        {
+          "id": "G4418501205-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026313.h20v16.061.2026323222400",
+          "time_start": "2026-11-09T00:00:00.000Z",
+          "time_end": "2026-11-16T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "browse_urls": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h20v16.061.2026323222400/BROWSE.MOD11A2.A2026313.h20v16.061.2026323172400.1.jpg",
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h20v16.061.2026323222400/BROWSE.MOD11A2.A2026313.h20v16.061.2026323172400.2.jpg"
+          ]
+        },
+        {
+          "id": "G4418504923-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026313.h15v16.061.2026323222430",
+          "time_start": "2026-11-09T00:00:00.000Z",
+          "time_end": "2026-11-16T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "browse_urls": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h15v16.061.2026323222430/BROWSE.MOD11A2.A2026313.h15v16.061.2026323172430.1.jpg",
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h15v16.061.2026323222430/BROWSE.MOD11A2.A2026313.h15v16.061.2026323172430.2.jpg"
+          ]
+        },
+        {
           "id": "G4407662579-LPCLOUD",
           "producer_granule_id": "MOD11A2.A2026305.h21v16.061.2026314150635",
           "time_start": "2026-11-01T00:00:00.000Z",
@@ -492,62 +548,6 @@
           "browse_urls": [
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h21v16.061.2026314150635/BROWSE.MOD11A2.A2026305.h21v16.061.2026314100636.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h21v16.061.2026314150635/BROWSE.MOD11A2.A2026305.h21v16.061.2026314100636.2.jpg"
-          ],
-          "downloaded_browse": [
-            {
-              "path": "data/nasa/modis_browse/mcmurdo_1.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h21v16.061.2026314150635/BROWSE.MOD11A2.A2026305.h21v16.061.2026314100636.1.jpg",
-              "bytes": 11331
-            },
-            {
-              "path": "data/nasa/modis_browse/mcmurdo_2.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h21v16.061.2026314150635/BROWSE.MOD11A2.A2026305.h21v16.061.2026314100636.2.jpg",
-              "bytes": 11836
-            }
-          ]
-        },
-        {
-          "id": "G4407667358-LPCLOUD",
-          "producer_granule_id": "MOD11A2.A2026305.h22v16.061.2026314144243",
-          "time_start": "2026-11-01T00:00:00.000Z",
-          "time_end": "2026-11-08T23:59:59.000Z",
-          "day_night_flag": "BOTH",
-          "browse_urls": [
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h22v16.061.2026314144243/BROWSE.MOD11A2.A2026305.h22v16.061.2026314094243.1.jpg",
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h22v16.061.2026314144243/BROWSE.MOD11A2.A2026305.h22v16.061.2026314094243.2.jpg"
-          ]
-        },
-        {
-          "id": "G4407669646-LPCLOUD",
-          "producer_granule_id": "MOD11A2.A2026305.h20v16.061.2026314151355",
-          "time_start": "2026-11-01T00:00:00.000Z",
-          "time_end": "2026-11-08T23:59:59.000Z",
-          "day_night_flag": "BOTH",
-          "browse_urls": [
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h20v16.061.2026314151355/BROWSE.MOD11A2.A2026305.h20v16.061.2026314101355.1.jpg",
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h20v16.061.2026314151355/BROWSE.MOD11A2.A2026305.h20v16.061.2026314101355.2.jpg"
-          ]
-        },
-        {
-          "id": "G4407679250-LPCLOUD",
-          "producer_granule_id": "MOD11A2.A2026305.h15v16.061.2026314150618",
-          "time_start": "2026-11-01T00:00:00.000Z",
-          "time_end": "2026-11-08T23:59:59.000Z",
-          "day_night_flag": "BOTH",
-          "browse_urls": [
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h15v16.061.2026314150618/BROWSE.MOD11A2.A2026305.h15v16.061.2026314100618.1.jpg",
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h15v16.061.2026314150618/BROWSE.MOD11A2.A2026305.h15v16.061.2026314100618.2.jpg"
-          ]
-        },
-        {
-          "id": "G4399582894-LPCLOUD",
-          "producer_granule_id": "MOD11A2.A2026297.h21v16.061.2026307173008",
-          "time_start": "2026-10-24T00:00:00.000Z",
-          "time_end": "2026-10-31T23:59:59.000Z",
-          "day_night_flag": "BOTH",
-          "browse_urls": [
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026297.h21v16.061.2026307173008/BROWSE.MOD11A2.A2026297.h21v16.061.2026307123008.1.jpg",
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026297.h21v16.061.2026307173008/BROWSE.MOD11A2.A2026297.h21v16.061.2026307123008.2.jpg"
           ]
         }
       ]
@@ -561,6 +561,40 @@
       "status": "browse_downloaded",
       "granules": [
         {
+          "id": "G4418314117-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026313.h14v01.061.2026323214056",
+          "time_start": "2026-11-09T00:00:00.000Z",
+          "time_end": "2026-11-16T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "browse_urls": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h14v01.061.2026323214056/BROWSE.MOD11A2.A2026313.h14v01.061.2026323164056.1.jpg",
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h14v01.061.2026323214056/BROWSE.MOD11A2.A2026313.h14v01.061.2026323164056.2.jpg"
+          ],
+          "downloaded_browse": [
+            {
+              "path": "data/nasa/modis_browse/haughton_1.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h14v01.061.2026323214056/BROWSE.MOD11A2.A2026313.h14v01.061.2026323164056.1.jpg",
+              "bytes": 15071
+            },
+            {
+              "path": "data/nasa/modis_browse/haughton_2.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h14v01.061.2026323214056/BROWSE.MOD11A2.A2026313.h14v01.061.2026323164056.2.jpg",
+              "bytes": 15045
+            }
+          ]
+        },
+        {
+          "id": "G4418392795-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026313.h15v01.061.2026323215013",
+          "time_start": "2026-11-09T00:00:00.000Z",
+          "time_end": "2026-11-16T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "browse_urls": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h15v01.061.2026323215013/BROWSE.MOD11A2.A2026313.h15v01.061.2026323165013.1.jpg",
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h15v01.061.2026323215013/BROWSE.MOD11A2.A2026313.h15v01.061.2026323165013.2.jpg"
+          ]
+        },
+        {
           "id": "G4407650313-LPCLOUD",
           "producer_granule_id": "MOD11A2.A2026305.h14v01.061.2026314143605",
           "time_start": "2026-11-01T00:00:00.000Z",
@@ -569,18 +603,6 @@
           "browse_urls": [
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h14v01.061.2026314143605/BROWSE.MOD11A2.A2026305.h14v01.061.2026314093605.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h14v01.061.2026314143605/BROWSE.MOD11A2.A2026305.h14v01.061.2026314093605.2.jpg"
-          ],
-          "downloaded_browse": [
-            {
-              "path": "data/nasa/modis_browse/haughton_1.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h14v01.061.2026314143605/BROWSE.MOD11A2.A2026305.h14v01.061.2026314093605.1.jpg",
-              "bytes": 15164
-            },
-            {
-              "path": "data/nasa/modis_browse/haughton_2.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h14v01.061.2026314143605/BROWSE.MOD11A2.A2026305.h14v01.061.2026314093605.2.jpg",
-              "bytes": 15283
-            }
           ]
         },
         {
@@ -604,28 +626,6 @@
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026297.h15v01.061.2026307171318/BROWSE.MOD11A2.A2026297.h15v01.061.2026307121319.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026297.h15v01.061.2026307171318/BROWSE.MOD11A2.A2026297.h15v01.061.2026307121319.2.jpg"
           ]
-        },
-        {
-          "id": "G4399653331-LPCLOUD",
-          "producer_granule_id": "MOD11A2.A2026297.h14v01.061.2026307175346",
-          "time_start": "2026-10-24T00:00:00.000Z",
-          "time_end": "2026-10-31T23:59:59.000Z",
-          "day_night_flag": "BOTH",
-          "browse_urls": [
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026297.h14v01.061.2026307175346/BROWSE.MOD11A2.A2026297.h14v01.061.2026307125346.1.jpg",
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026297.h14v01.061.2026307175346/BROWSE.MOD11A2.A2026297.h14v01.061.2026307125346.2.jpg"
-          ]
-        },
-        {
-          "id": "G4391018858-LPCLOUD",
-          "producer_granule_id": "MOD11A2.A2026289.h15v01.061.2026300184633",
-          "time_start": "2026-10-16T00:00:00.000Z",
-          "time_end": "2026-10-23T23:59:59.000Z",
-          "day_night_flag": "BOTH",
-          "browse_urls": [
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026289.h15v01.061.2026300184633/BROWSE.MOD11A2.A2026289.h15v01.061.2026300144654.1.jpg",
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026289.h15v01.061.2026300184633/BROWSE.MOD11A2.A2026289.h15v01.061.2026300144654.2.jpg"
-          ]
         }
       ]
     },
@@ -638,6 +638,29 @@
       "status": "browse_downloaded",
       "granules": [
         {
+          "id": "G4418457955-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026313.h17v02.061.2026323215707",
+          "time_start": "2026-11-09T00:00:00.000Z",
+          "time_end": "2026-11-16T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "browse_urls": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h17v02.061.2026323215707/BROWSE.MOD11A2.A2026313.h17v02.061.2026323165708.1.jpg",
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h17v02.061.2026323215707/BROWSE.MOD11A2.A2026313.h17v02.061.2026323165708.2.jpg"
+          ],
+          "downloaded_browse": [
+            {
+              "path": "data/nasa/modis_browse/iceland_1.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h17v02.061.2026323215707/BROWSE.MOD11A2.A2026313.h17v02.061.2026323165708.1.jpg",
+              "bytes": 10195
+            },
+            {
+              "path": "data/nasa/modis_browse/iceland_2.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h17v02.061.2026323215707/BROWSE.MOD11A2.A2026313.h17v02.061.2026323165708.2.jpg",
+              "bytes": 9809
+            }
+          ]
+        },
+        {
           "id": "G4407664302-LPCLOUD",
           "producer_granule_id": "MOD11A2.A2026305.h17v02.061.2026314144007",
           "time_start": "2026-11-01T00:00:00.000Z",
@@ -646,18 +669,6 @@
           "browse_urls": [
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h17v02.061.2026314144007/BROWSE.MOD11A2.A2026305.h17v02.061.2026314094007.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h17v02.061.2026314144007/BROWSE.MOD11A2.A2026305.h17v02.061.2026314094007.2.jpg"
-          ],
-          "downloaded_browse": [
-            {
-              "path": "data/nasa/modis_browse/iceland_1.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h17v02.061.2026314144007/BROWSE.MOD11A2.A2026305.h17v02.061.2026314094007.1.jpg",
-              "bytes": 9638
-            },
-            {
-              "path": "data/nasa/modis_browse/iceland_2.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h17v02.061.2026314144007/BROWSE.MOD11A2.A2026305.h17v02.061.2026314094007.2.jpg",
-              "bytes": 9666
-            }
           ]
         },
         {
@@ -692,17 +703,6 @@
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h17v02.061.2026290041409/BROWSE.MOD11A2.A2026281.h17v02.061.2026290001409.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h17v02.061.2026290041409/BROWSE.MOD11A2.A2026281.h17v02.061.2026290001409.2.jpg"
           ]
-        },
-        {
-          "id": "G4362652484-LPCLOUD",
-          "producer_granule_id": "MOD11A2.A2026273.h17v02.061.2026286145951",
-          "time_start": "2026-09-30T00:00:00.000Z",
-          "time_end": "2026-10-07T23:59:59.000Z",
-          "day_night_flag": "BOTH",
-          "browse_urls": [
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h17v02.061.2026286145951/BROWSE.MOD11A2.A2026273.h17v02.061.2026286105951.1.jpg",
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h17v02.061.2026286145951/BROWSE.MOD11A2.A2026273.h17v02.061.2026286105951.2.jpg"
-          ]
         }
       ]
     },
@@ -715,6 +715,29 @@
       "status": "browse_downloaded",
       "granules": [
         {
+          "id": "G4418437019-LPCLOUD",
+          "producer_granule_id": "MOD11A2.A2026313.h08v05.061.2026323215512",
+          "time_start": "2026-11-09T00:00:00.000Z",
+          "time_end": "2026-11-16T23:59:59.000Z",
+          "day_night_flag": "BOTH",
+          "browse_urls": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h08v05.061.2026323215512/BROWSE.MOD11A2.A2026313.h08v05.061.2026323165516.1.jpg",
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h08v05.061.2026323215512/BROWSE.MOD11A2.A2026313.h08v05.061.2026323165516.2.jpg"
+          ],
+          "downloaded_browse": [
+            {
+              "path": "data/nasa/modis_browse/death_1.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h08v05.061.2026323215512/BROWSE.MOD11A2.A2026313.h08v05.061.2026323165516.1.jpg",
+              "bytes": 16168
+            },
+            {
+              "path": "data/nasa/modis_browse/death_2.jpg",
+              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026313.h08v05.061.2026323215512/BROWSE.MOD11A2.A2026313.h08v05.061.2026323165516.2.jpg",
+              "bytes": 15197
+            }
+          ]
+        },
+        {
           "id": "G4407656950-LPCLOUD",
           "producer_granule_id": "MOD11A2.A2026305.h08v05.061.2026314143815",
           "time_start": "2026-11-01T00:00:00.000Z",
@@ -723,18 +746,6 @@
           "browse_urls": [
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h08v05.061.2026314143815/BROWSE.MOD11A2.A2026305.h08v05.061.2026314093819.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h08v05.061.2026314143815/BROWSE.MOD11A2.A2026305.h08v05.061.2026314093819.2.jpg"
-          ],
-          "downloaded_browse": [
-            {
-              "path": "data/nasa/modis_browse/death_1.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h08v05.061.2026314143815/BROWSE.MOD11A2.A2026305.h08v05.061.2026314093819.1.jpg",
-              "bytes": 15875
-            },
-            {
-              "path": "data/nasa/modis_browse/death_2.jpg",
-              "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026305.h08v05.061.2026314143815/BROWSE.MOD11A2.A2026305.h08v05.061.2026314093819.2.jpg",
-              "bytes": 14636
-            }
           ]
         },
         {
@@ -768,17 +779,6 @@
           "browse_urls": [
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h08v05.061.2026290035926/BROWSE.MOD11A2.A2026281.h08v05.061.2026289235930.1.jpg",
             "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026281.h08v05.061.2026290035926/BROWSE.MOD11A2.A2026281.h08v05.061.2026289235930.2.jpg"
-          ]
-        },
-        {
-          "id": "G4362581250-LPCLOUD",
-          "producer_granule_id": "MOD11A2.A2026273.h08v05.061.2026286144716",
-          "time_start": "2026-09-30T00:00:00.000Z",
-          "time_end": "2026-10-07T23:59:59.000Z",
-          "day_night_flag": "BOTH",
-          "browse_urls": [
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h08v05.061.2026286144716/BROWSE.MOD11A2.A2026273.h08v05.061.2026286104721.1.jpg",
-            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/MOD11A2.061/MOD11A2.A2026273.h08v05.061.2026286144716/BROWSE.MOD11A2.A2026273.h08v05.061.2026286104721.2.jpg"
           ]
         }
       ]
