@@ -33,10 +33,4 @@ jobs:
       - name: Probe NASA LOLA PDS mirror
         run: python scripts/diagnose_lola_mit_access.py
       - name: Commit diagnostics
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/moon/mit_lola_diagnostic/
-          git commit -m "Add MIT LOLA PDS mirror access diagnostic"
-          git pull --rebase origin main
-          git push
+        run: bash scripts/commit_generated_data.sh "Add MIT LOLA PDS mirror access diagnostic" data/moon/mit_lola_diagnostic/
