@@ -2,6 +2,7 @@
 """Build transparent global, robustness, second-source, geology and field evidence diagnostics."""
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 from collections import Counter
@@ -18,6 +19,7 @@ LANDCOVER = ROOT / "data/global_discovery/global_landcover_enrichment.json"
 POWER = ROOT / "data/global_discovery/global_power_enrichment.json"
 LITHOLOGY = ROOT / "data/global_discovery/global_lithology_enrichment.json"
 FIELD = ROOT / "data/field_validation/observations.json"
+LABEL_VALIDATION = ROOT / "data/validation/independent_analog_label_validation.json"
 REGISTRY = ROOT / "data/source_registry.json"
 MANIFEST = ROOT / "data/provenance/reproducibility_manifest.json"
 OUT = ROOT / "data/validation/quantitative_validation.json"
@@ -58,6 +60,48 @@ def spearman(a: list[float], b: list[float]) -> float | None:
     if np.std(ra) == 0 or np.std(rb) == 0:
         return None
     return round(float(np.corrcoef(ra, rb)[0, 1]), 4)
+
+
+def ranking_integrity(global_data: dict[str, Any]) -> dict[str, Any]:
+    """Verify the published shortlist really follows the declared core-only contract."""
+    checks: dict[str, Any] = {}
+    all_valid = global_data.get("schema_version") == "1.1.0"
+    for target in ("moon", "mars"):
+        rows = global_data.get("targets", {}).get(target, {}).get("candidate_windows", [])
+        ids = [row.get("id") for row in rows]
+        expected = sorted(rows, key=lambda row: (-float(row["core_terrain_index"]), row["id"]))
+        order_ok = ids == [row.get("id") for row in expected]
+        primary_ranks = [row.get("shortlist_rank") for row in rows]
+        secondary_ranks = [row.get("secondary_rank_within_primary_shortlist") for row in rows]
+        rank_ok = primary_ranks == list(range(1, len(rows) + 1))
+        secondary_ok = sorted(secondary_ranks) == list(range(1, len(rows) + 1))
+        unique_ok = len(ids) == len(set(ids))
+        target_ok = bool(rows) and order_ok and rank_ok and secondary_ok and unique_ok
+        checks[target] = {
+            "candidate_count": len(rows),
+            "primary_core_order_valid": order_ok,
+            "primary_ranks_sequential": rank_ok,
+            "secondary_diagnostic_ranks_permutation": secondary_ok,
+            "candidate_ids_unique": unique_ok,
+            "ranking_valid": target_ok,
+        }
+        all_valid = all_valid and target_ok
+    contract = global_data.get("ranking_contract", {})
+    contract_ok = (
+        contract.get("ranking_ready") is True
+        and contract.get("primary_feature_family") == "core"
+        and contract.get("consensus_score") is False
+    )
+    ready = bool(all_valid and contract_ok)
+    return {
+        "status": "ready" if ready else "stale_or_invalid",
+        "ranking_ready": ready,
+        "dataset_schema_version": global_data.get("schema_version"),
+        "required_schema_version": "1.1.0",
+        "ranking_contract_present": contract_ok,
+        "targets": checks,
+        "note": "Ranking readiness verifies data schema, ordering and rank integrity only. It does not establish independent scientific accuracy or planetary analog validity.",
+    }
 
 
 def target_report(rows: list[dict[str, Any]]) -> dict[str, Any]:
@@ -102,6 +146,9 @@ def target_report(rows: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--require-ranking-ready", action="store_true")
+    args = parser.parse_args()
     global_data = read(GLOBAL)
     if not global_data:
         payload: dict[str, Any] = {
@@ -122,9 +169,10 @@ def main() -> None:
             and contract.get("tile_failures") == 0
         )
         payload = {
-            "schema_version": "2.0.0",
+            "schema_version": "2.1.0",
             "generated_at_utc": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
             "status": "diagnostic_only",
+            "ranking_release": ranking_integrity(global_data),
             "global_scan": {
                 "status": global_data.get("status"),
                 "global_land_tile_inventory_total": contract.get("global_land_tile_inventory_total"),
@@ -146,6 +194,20 @@ def main() -> None:
                 "is diagnostic. Neither score is a probability, calibrated accuracy or analog verdict."
             ),
         }
+
+    if not global_data:
+        payload["ranking_release"] = {
+            "status": "awaiting_global_scan",
+            "ranking_ready": False,
+            "required_schema_version": "1.1.0",
+            "targets": {},
+        }
+
+    label_validation = read(LABEL_VALIDATION)
+    payload["independent_analog_label_validation"] = label_validation or {
+        "status": "awaiting_reference_labels",
+        "note": "No independently sourced, reviewed positive/negative analog label file is present. No AUC or accuracy is inferred.",
+    }
 
     landcover = read(LANDCOVER)
     if landcover:
@@ -237,6 +299,8 @@ def main() -> None:
     }
 
     payload["release_gate"] = {
+        "ranking_release": "ready only when schema 1.1.0 core-only ordering and rank-integrity checks pass",
+        "independent_analog_validation": "awaiting independently sourced, reviewed labels and spatially blocked held-out evaluation",
         "global_scan": "complete only when every enumerated land tile is processed and tile_failures=0",
         "quantitative_validation": "diagnostic-only until independent labels, spatially blocked tests and defensible held-out validation are available",
         "field_validation": "requires georeferenced observations, instrument/calibration provenance, permissions and independent review",
@@ -247,6 +311,10 @@ def main() -> None:
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {OUT.relative_to(ROOT)} ({payload['status']})")
+    ranking = payload.get("ranking_release", {})
+    print(f"Ranking release: {ranking.get('status', 'unknown')}")
+    if args.require_ranking_ready and ranking.get("ranking_ready") is not True:
+        raise SystemExit("Ranking release gate failed: regenerate and verify the schema 1.1.0 core-only shortlist.")
 
 
 if __name__ == "__main__":
