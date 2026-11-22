@@ -33,10 +33,4 @@ jobs:
       - name: Inspect LOLA GeoTIFF metadata and small windows
         run: python scripts/diagnose_lola_access.py
       - name: Commit diagnostic report
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/moon/lola_access_diagnostic.json
-          git commit -m "Add LOLA data access diagnostic report"
-          git pull --rebase origin main
-          git push
+        run: bash scripts/commit_generated_data.sh "Add LOLA data access diagnostic report" data/moon/lola_access_diagnostic.json
