@@ -64,11 +64,11 @@ jobs:
       - name: Validate source evidence states and product artifacts
         run: python scripts/validate_evidence_inventory.py
 
-      - name: Build quantitative validation readiness report
-        run: python scripts/build_quantitative_validation.py
-
       - name: Generate SHA-256 source and code manifest
         run: python scripts/build_reproducibility_manifest.py
+
+      - name: Build quantitative validation readiness report against this manifest
+        run: python scripts/build_quantitative_validation.py
 
       - name: Commit manifest and report
         run: bash scripts/commit_generated_data.sh "Publish reproducibility manifest and validation readiness report" data/provenance/reproducibility_manifest.json data/validation/quantitative_validation.json
