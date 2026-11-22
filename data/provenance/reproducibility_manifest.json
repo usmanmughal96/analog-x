@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-22T18:56:16+00:00",
-  "repository_commit_before_manifest_commit": "a62c90259b1de9d4dc917a4e1c8210d2df604fbc",
+  "generated_at_utc": "2026-11-22T19:59:24+00:00",
+  "repository_commit_before_manifest_commit": "24161200ff1ca7fa27b0edabd9714f4ba64fd79f",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -37,7 +37,7 @@
       "manifest.webmanifest"
     ]
   },
-  "file_count": 212,
+  "file_count": 214,
   "source_registry_sha256": "f5975e2a681ea76dc8b8c540bc3725179579b2bd94baf212ba3fefa63fa04b0d",
   "source_registry_records": [
     {
@@ -942,7 +942,7 @@
     {
       "path": "data/validation/quantitative_validation.json",
       "size_bytes": 11777,
-      "sha256": "0190ff05b338720c5d81b654c17c9874734d85923c8b953eabf94089e2498b2c",
+      "sha256": "8cfdf3d050a98022e96e5fa1d503ad1973c243d1a6350720a65ea27d514da4d7",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -1001,8 +1001,8 @@
     },
     {
       "path": "scripts/build_lunar_south_pole_reference.py",
-      "size_bytes": 11210,
-      "sha256": "0036b19fa9ad38d433144852d341e7e8d79bfaf5dea6e2b4f56e66aec1d2060f",
+      "size_bytes": 12624,
+      "sha256": "c25c024acaef09be220c8e8ef848f1f039708758693376487e95b6f41bb7780c",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1027,6 +1027,12 @@
       "path": "scripts/build_terrain_comparison.py",
       "size_bytes": 23399,
       "sha256": "86799085ef9c55904b5eecde4b5148f23238816ef23160c8058eb33d50ca6d2a",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/commit_generated_data.sh",
+      "size_bytes": 1128,
+      "sha256": "fcba8b02b2e1b51cdc3b7597d06fa050828477841a155c0ebca30a0f08d5d8b2",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1109,8 +1115,8 @@
     },
     {
       "path": "scripts/process_diviner_prp.py",
-      "size_bytes": 16413,
-      "sha256": "0262d1a3bc29d747e01e8ca6b4a4fe1f2a02889f27a8a442036377ec4a0b7030",
+      "size_bytes": 19581,
+      "sha256": "7c3d4abe48b979d0f53791524ca12eebff3016dcc8f42ab66544aad693235f9a",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1337,38 +1343,38 @@
     },
     {
       "path": ".github/workflows/build-lunar-lola-80m.yml",
-      "size_bytes": 1787,
-      "sha256": "b53bd60ba45943df5e3cfa51405f6b1f90fb47fd6c2b53d368da7717dd2bc82f",
+      "size_bytes": 1328,
+      "sha256": "7ccadee1caf0ec87b4c53e554cf3fc4a80a83d9045836e80bb8a5565633be2c7",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": ".github/workflows/build-lunar-reference.yml",
-      "size_bytes": 1875,
-      "sha256": "11edf8573f551abb6a87ad87d34ffa6d5de22403c58c3bfbb65c809aa12c5d30",
+      "size_bytes": 1721,
+      "sha256": "22024b36ea8b882de9a4be55d22bd990572259e9ff7ea1588a24bc03da337d98",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": ".github/workflows/build-lunar-resource-profile.yml",
-      "size_bytes": 1312,
-      "sha256": "93b99cc52a99c1e5297588ec63febc49121c770bd0d874e323c3ff0a76f98f27",
+      "size_bytes": 1076,
+      "sha256": "50ca5d66c72b3f7ae6318201fca842f9373dcaaeafe2da6a5232aea84514f267",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": ".github/workflows/build-provenance-manifest.yml",
-      "size_bytes": 3275,
-      "sha256": "a5f71981c1a150391a6e0e8ee11927bffa63acd8572896a5c86d439767fa43f5",
+      "size_bytes": 2669,
+      "sha256": "4a1b24ae988dd6aa6b96e80350916f1d631a3d0b8d068e6fd0b0fcb3ded862ed",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": ".github/workflows/build-terrain-comparison.yml",
-      "size_bytes": 5128,
-      "sha256": "9e3f2dea25e13941ddc20fab3930ab1c236d7d63c1fd911317210870223c178d",
+      "size_bytes": 4546,
+      "sha256": "3cfbbe3dff15d3e4a182845fe579324149cfc8550acfd9ef6f529c439935678c",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": ".github/workflows/build-transferability.yml",
-      "size_bytes": 3771,
-      "sha256": "94e67dcf9268157ea6af1145793a96fc58b6ef5b228bd525afcfd5ded412a485",
+      "size_bytes": 3994,
+      "sha256": "afa0ce73f65ee76ebee3063c68f9eb24bd53ced64294084cb123a735679c0c29",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1379,8 +1385,8 @@
     },
     {
       "path": ".github/workflows/diagnose-diviner-prp.yml",
-      "size_bytes": 1806,
-      "sha256": "2ea948cbcd9d2cdb71c1e262ed661a088ae87dd85b93dbb5f997414ab4a1d9ae",
+      "size_bytes": 1563,
+      "sha256": "976184e96f560fdba606f5cb18176b1c07f12775b57dfc810ab5a4bd3fe51196",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1403,20 +1409,20 @@
     },
     {
       "path": ".github/workflows/fetch-nasa-power.yml",
-      "size_bytes": 1330,
-      "sha256": "8cb0f09293d3eacacdc4599dd782d677c2b3665b5cb2251c5e208b694de3d7fa",
+      "size_bytes": 995,
+      "sha256": "51c8eb9905e1e23b64f0b21f89820b70b7571cff642d1e04f657d0698eef8ee9",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": ".github/workflows/fetch-public-evidence.yml",
-      "size_bytes": 1958,
-      "sha256": "a0c6705e7584573ff4d65c21a31312f46187c6f0b7d8e05077361d686b4509f6",
+      "size_bytes": 1376,
+      "sha256": "b41d79e6bb6f2d8468368c7d32832824bb222f0874b96d715d979558416a4fbb",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": ".github/workflows/global-discovery.yml",
-      "size_bytes": 5869,
-      "sha256": "e09959853c043d1fe015755a113a91aeba6bc558f7a9a6b14964563607ceb33e",
+      "size_bytes": 5258,
+      "sha256": "c8b461b1adb7251ba960a05086f7b227577c4f8836e8b7e98968eccee02772a5",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1433,14 +1439,20 @@
     },
     {
       "path": ".github/workflows/process-sentinel-evidence.yml",
-      "size_bytes": 1503,
-      "sha256": "37408dca67841f4e29d5b8642d35f889e2eb3bd815f4a920a58428928bb7a630",
+      "size_bytes": 1169,
+      "sha256": "3e2c9c4f6af9288f6c57043fa27ad5187654366d9414d6f1cf64ac9166059ee1",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": "tests/test_analog_label_validation.py",
       "size_bytes": 1491,
       "sha256": "65999948ca7c18a0724e310b065e62a6762801a508b69ae8c11323dbde872dab",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "tests/test_diviner_prp.py",
+      "size_bytes": 1646,
+      "sha256": "772c0bfdb14a60618bc3df49b6e2999ed68e0ffc34072de12f40c422d1178aa8",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1475,8 +1487,8 @@
     },
     {
       "path": "tests/test_lunar_reference_source.py",
-      "size_bytes": 2049,
-      "sha256": "822fd0232245079fb01df7c58eb568265a8aef632f1e8dab553dc3c35562bcac",
+      "size_bytes": 3237,
+      "sha256": "98f15295cb4da56719d8e96082c3dcb3f5889009fa525b015eca62df94801314",
       "evidence_class_hint": "method_or_documentation"
     },
     {
