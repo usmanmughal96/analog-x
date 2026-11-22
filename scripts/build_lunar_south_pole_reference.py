@@ -101,6 +101,24 @@ def download_source(kind):
 def utcnow():
  return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
+def json_safe(value):
+ """Convert nested scientific output to strict RFC-compliant JSON values.
+
+ Raster metadata can expose NaN as a nodata sentinel. JSON's default encoder
+ writes NaN/Infinity extensions, but this pipeline intentionally rejects them.
+ Preserve finite values and represent non-finite measurements or sentinels as
+ null so downstream consumers can distinguish missing data from real numbers.
+ """
+ if isinstance(value,dict):
+  return {str(key):json_safe(item) for key,item in value.items()}
+ if isinstance(value,(list,tuple)):
+  return [json_safe(item) for item in value]
+ if isinstance(value,np.generic):
+  return json_safe(value.item())
+ if isinstance(value,float) and not np.isfinite(value):
+  return None
+ return value
+
 def stats(values):
  x=np.asarray(values,dtype=np.float64)
  x=x[np.isfinite(x)]
