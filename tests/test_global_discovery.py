@@ -72,7 +72,7 @@ class GlobalMergeReleaseTests(unittest.TestCase):
             "shard": shard_id, "shard_count": 24, "tile_inventory_total": 24,
             "tiles_assigned": 1, "tiles_processed": 1, "tile_failures": [],
             "candidate_windows_evaluated": 2, "is_smoke_test": False,
-            "target_reference_profiles": {"feature_families": {"core": ["a"], "secondary": ["b"]}},
+            "target_reference_profiles": {"moon": {"name": "Moon test", "profile": {}, "feature_families": {"core": ["a"], "secondary": ["b"]}}, "mars": {"name": "Mars test", "profile": {}, "feature_families": {"core": ["a"], "secondary": ["b"]}}, "earth_iqr": {}, "feature_families": {"core": ["a"], "secondary": ["b"]}},
             "targets": {
                 target: {"candidate_windows": [{
                     "id": f"{target}-{shard_id}", "tile_id": tile_id,
