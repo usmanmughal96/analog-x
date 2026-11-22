@@ -118,6 +118,26 @@ class GlobalMergeReleaseTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             merge.build_release(shards)
 
+    def test_complete_merge_emits_explicit_core_only_release_contract(self):
+        import merge_global_discovery as merge
+        shards = {i: self._shard(i, f"tile-{i}") for i in range(24)}
+        release = merge.build_release(shards)
+        self.assertEqual(release["schema_version"], "1.1.0")
+        self.assertTrue(release["ranking_contract"]["ranking_ready"])
+        self.assertEqual(release["ranking_contract"]["primary_feature_family"], "core")
+        self.assertFalse(release["ranking_contract"]["consensus_score"])
+        self.assertTrue(release["completion_contract"]["complete_global_land_inventory_scan"])
+        for target in ("moon", "mars"):
+            rows = release["targets"][target]["candidate_windows"]
+            self.assertEqual(
+                [row["shortlist_rank"] for row in rows],
+                list(range(1, len(rows) + 1))
+            )
+            self.assertEqual(
+                [row["id"] for row in rows],
+                [row["id"] for row in sorted(rows, key=lambda row: (-row["core_terrain_index"], row["id"]))]
+            )
+
 
 if __name__ == "__main__":
     unittest.main()
