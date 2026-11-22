@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-22T18:27:20+00:00",
-  "repository_commit_before_manifest_commit": "b9ce75b178758f1f0ae0fea8a87029f3947ac89c",
+  "generated_at_utc": "2026-11-22T18:34:02+00:00",
+  "repository_commit_before_manifest_commit": "2604e6f48a7432adc39f4ffd92a0fc9cc732e9d3",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -491,128 +491,128 @@
     },
     {
       "path": "data/nasa/modis_browse/atacama_1.jpg",
-      "size_bytes": 12750,
-      "sha256": "7957ff0a04e1d5264de327b7a3e49b297d5051665a6e83906d04756c7b6fd5fb",
+      "size_bytes": 12818,
+      "sha256": "6e063e97822f60c3ff7a13cb13c49e757b40d86db7f67ce641576e90ef599e0f",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/atacama_2.jpg",
-      "size_bytes": 11447,
-      "sha256": "8e492159dd16c8f59fa58f05df3ef8c0672f27dae017204d204e12d72b041944",
+      "size_bytes": 11479,
+      "sha256": "09be0688eed74769aac2df9d5562b620f703603c5e785f8db34899be1a4fbc5a",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/chagai_small_playas_1.jpg",
-      "size_bytes": 14334,
-      "sha256": "8913300d94fcb47caad39f1c69b9ab0fd3dfd783d26a649ff8e7a71bea0a1a02",
+      "size_bytes": 14156,
+      "sha256": "508923b3b835eb496b6f3bbfc2394ff3ebce348556ebb3fef0d78406e6f0c348",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/chagai_small_playas_2.jpg",
-      "size_bytes": 12990,
-      "sha256": "cdef3354253115c991d790389377f80c4d16667b5c9ab0972f6315eae2058365",
+      "size_bytes": 13304,
+      "sha256": "715c4c96afa92efbacc615bbbe14cd24747d1b405179ee3e3b353bfdd5efe920",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/dallol_1.jpg",
-      "size_bytes": 15286,
-      "sha256": "97e7fb820d6bbfc04aa5f7bd07c6ca7a485d7e476bd36e6d7cd605d8c5ccbafc",
+      "size_bytes": 15244,
+      "sha256": "8ba00e719bd9f13da46855a50d4f6c6f9629d6266b583493f55513b82e5c39af",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/dallol_2.jpg",
-      "size_bytes": 13116,
-      "sha256": "8559411647ca78734a528f8aedaddb680272be588c13584a893061284e920c60",
+      "size_bytes": 14077,
+      "sha256": "7bdc994e18cbfc6c054ed95325fa029b66ddd602e4c55ad01aa3198ae719c7b6",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/death_1.jpg",
-      "size_bytes": 15875,
-      "sha256": "1a973601fc9d2d025187a8e03127a4eb25dca3b23afd6f7a2250469b168b4a21",
+      "size_bytes": 16168,
+      "sha256": "8758f361998b15e37c51bb9ac1bee8afc56b8d771452b4a58f7f960cbdeb22a6",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/death_2.jpg",
-      "size_bytes": 14636,
-      "sha256": "91be6599019199da3dfd4dd3fbaa9473b2211e51697f8041d58d39c8a94724ca",
+      "size_bytes": 15197,
+      "sha256": "5c16fc020595746fa95019830153a77ee592903bd431850e0ceaa4524eeded4e",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/hamun_i_mashkel_1.jpg",
-      "size_bytes": 14334,
-      "sha256": "8913300d94fcb47caad39f1c69b9ab0fd3dfd783d26a649ff8e7a71bea0a1a02",
+      "size_bytes": 14156,
+      "sha256": "508923b3b835eb496b6f3bbfc2394ff3ebce348556ebb3fef0d78406e6f0c348",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/hamun_i_mashkel_2.jpg",
-      "size_bytes": 12990,
-      "sha256": "cdef3354253115c991d790389377f80c4d16667b5c9ab0972f6315eae2058365",
+      "size_bytes": 13304,
+      "sha256": "715c4c96afa92efbacc615bbbe14cd24747d1b405179ee3e3b353bfdd5efe920",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/haughton_1.jpg",
-      "size_bytes": 15164,
-      "sha256": "dec1732ca0c9765654fc6bd495e1edba1470f860b8575a23c4b1fdee2e470671",
+      "size_bytes": 15071,
+      "sha256": "0cc14305c9bb54be97212b64c1656f6ea03d150934878f8330f9e7de4e007e05",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/haughton_2.jpg",
-      "size_bytes": 15283,
-      "sha256": "0e0654c2510b27d8f20e46ac13c277f92524f0780578f7af757af132f548efb6",
+      "size_bytes": 15045,
+      "sha256": "56b4d1fa010cbf3e4c09b995de36b3dfca2af07a952174854679d09e9befa5fb",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/hispar_glacier_1.jpg",
-      "size_bytes": 21864,
-      "sha256": "9f7d23dcbfc7ddb8a28db44527363c2104b1721e455ccebc60a6b98d2b77dcf6",
+      "size_bytes": 22092,
+      "sha256": "3615e9bb34981e8f30ab24d5c69d5faf0566d15e082a9a120cf48135ff540eee",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/hispar_glacier_2.jpg",
-      "size_bytes": 19037,
-      "sha256": "1d2c41bb91d8b70cfed970c57b1b2d4a1158fdafb6f28ccdbd42cf10fde57b02",
+      "size_bytes": 19757,
+      "sha256": "506e6427966b24ae3880174062bc3b3417b9d1a26915ef137d9512c6e9f18bf7",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/iceland_1.jpg",
-      "size_bytes": 9638,
-      "sha256": "cc4d4401061cbd77d1188ab1c14cb73212637575489fa4982354bd7ccf13cf93",
+      "size_bytes": 10195,
+      "sha256": "58dd2a6d9ce1f04cc20edcabbf7eee0f78b66fe4e1e0da613d68e0497e18142c",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/iceland_2.jpg",
-      "size_bytes": 9666,
-      "sha256": "80466ed27fcf0ad77f40521163f443d3fed50da4c83f170faa73bc7074708531",
+      "size_bytes": 9809,
+      "sha256": "163b68558f74397668138ea7da4b0d05a284c484b3dd930a502968720084d1c9",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/koh_i_sultan_1.jpg",
-      "size_bytes": 14334,
-      "sha256": "8913300d94fcb47caad39f1c69b9ab0fd3dfd783d26a649ff8e7a71bea0a1a02",
+      "size_bytes": 14156,
+      "sha256": "508923b3b835eb496b6f3bbfc2394ff3ebce348556ebb3fef0d78406e6f0c348",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/koh_i_sultan_2.jpg",
-      "size_bytes": 12990,
-      "sha256": "cdef3354253115c991d790389377f80c4d16667b5c9ab0972f6315eae2058365",
+      "size_bytes": 13304,
+      "sha256": "715c4c96afa92efbacc615bbbe14cd24747d1b405179ee3e3b353bfdd5efe920",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/mcmurdo_1.jpg",
-      "size_bytes": 11331,
-      "sha256": "a4162da73e7e30982f80ef27a8a0e0062824e448517c6423520dc0b82cb031b9",
+      "size_bytes": 12956,
+      "sha256": "f1bb901793f177d4e0b866227ebefb3a573f74d56f442a1d329287db5e3776ac",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse/mcmurdo_2.jpg",
-      "size_bytes": 11836,
-      "sha256": "1d9326cfe584bc12b43dd4848ca11a6fd02644e976925c5c589fc2841fba056e",
+      "size_bytes": 11984,
+      "sha256": "2bdf3dc34692ead3d75cff9a042be43f9b3b6d37b085130c8807785cdcc1e28d",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/modis_browse_index.json",
-      "size_bytes": 43835,
-      "sha256": "121d1bf11b55d80a0aacf076455ee97336944c05eaac5ae45b8fb5782bd09542",
+      "size_bytes": 43836,
+      "sha256": "528b9d5acb7caf9511ca7bfd030a9f77c986ada5b7e7fc63701781d922ca2380",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -743,8 +743,8 @@
     },
     {
       "path": "data/planetary/pds_search.json",
-      "size_bytes": 828621,
-      "sha256": "2786f9c0fd678084ed963aea058f372a7bf6202f07466187dc9ca81cbb4e070c",
+      "size_bytes": 829011,
+      "sha256": "6d0a4f00252cfc7117b2538d9bc3a2f45a298358663992ac36596950a0f77f2e",
       "evidence_class_hint": "metadata_only"
     },
     {
@@ -912,7 +912,7 @@
     {
       "path": "data/transferability/transferability.json",
       "size_bytes": 388993,
-      "sha256": "10a008241e31f3cf5ff81d07bd4f02dd7b2fb119e7604c0d3acec9c293a42e98",
+      "sha256": "946491d5f5061153d75115e5b004de80069b64767d3ff2ffd1ecf638b3f8c253",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -930,7 +930,7 @@
     {
       "path": "data/validation/quantitative_validation.json",
       "size_bytes": 11777,
-      "sha256": "c0ba7ec606f6d3532e6dae330e21413ac3598d1746d7846f9258fc2062feb2b6",
+      "sha256": "44c9c8f63abe9333fe6e2244f54623bd3a62789fac0f22195c71b6b7182193e6",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -1433,8 +1433,8 @@
     },
     {
       "path": "tests/test_global_discovery.py",
-      "size_bytes": 5944,
-      "sha256": "1424e23335e8797b73b201c988fc0512e2c39ed0ef6fee09bf7755a2b5601cf0",
+      "size_bytes": 7280,
+      "sha256": "4221cf0f8813a3591412836b17ce3fd2887b85c4e2f55e85c57901b5a1bfe6a5",
       "evidence_class_hint": "method_or_documentation"
     },
     {
