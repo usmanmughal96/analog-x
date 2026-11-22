@@ -46,15 +46,17 @@ jobs:
       - name: Enrich retained shortlist with global generalized lithology context
         run: python scripts/enrich_global_lithology.py
 
-      - name: Refresh source register and validation summary
+      - name: Refresh source register and validate evidence
         run: |
           python scripts/refresh_source_registry.py
-          python scripts/build_quantitative_validation.py
           python scripts/validate_evidence_inventory.py
           python scripts/validate_field_observations.py
 
       - name: Build SHA-256 provenance manifest
         run: python scripts/build_reproducibility_manifest.py
+
+      - name: Build quantitative validation against this manifest
+        run: python scripts/build_quantitative_validation.py
 
       - name: Commit land-cover enrichment and provenance
         run: >-
