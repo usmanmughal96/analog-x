@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "scripts/process_diviner_prp.py"
+      - "tests/test_diviner_prp.py"
       - "data/moon/shackleton_lola_80m.json"
       - ".github/workflows/build-lunar-resource-profile.yml"
   workflow_dispatch:
@@ -31,6 +32,8 @@ jobs:
           python-version: "3.11"
       - name: Install processing dependency
         run: python -m pip install --upgrade requests
+      - name: Test Diviner PDS layout and ice-depth QA rules
+        run: python -m unittest tests.test_diviner_prp
       - name: Process Diviner south-polar PRP over Shackleton Rim
         run: python scripts/process_diviner_prp.py
       - name: Commit derived lunar resource profile
