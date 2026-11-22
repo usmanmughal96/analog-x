@@ -15,7 +15,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: analogx-repository-data-refresh
+  group: analogx-repository-data-refresh-${{ github.workflow }}
   cancel-in-progress: false
 
 jobs:
