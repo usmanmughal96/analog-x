@@ -35,9 +35,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: analogx-provenance-manifest
-  cancel-in-progress: true
-
+  group: analogx-science-data-publish
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
