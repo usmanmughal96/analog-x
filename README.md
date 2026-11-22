@@ -78,7 +78,7 @@ A 500-draw deterministic weight-sensitivity diagnostic shows how shortlist place
 
 The separate [Global Discovery Engine](https://usmanmughal96.github.io/analog-x/global-discovery.html) processes the public Copernicus DEM GLO-90 land-tile inventory using 24 longitude shards. Its previous completed inventory release processed 26,475 of 26,475 land tiles, with zero reported tile failures, and evaluated 5,852,396 terrain windows. Ocean coverage is not implied.
 
-**Global ranking release status:** the latest quantitative-validation artifact currently reports `ranking_ready = false` because the saved shortlist does not yet satisfy the required ranking-contract gate. The full-inventory baseline above is a completed prior release; the refreshed core-only shortlist must pass the current 24-shard aggregation and validation workflow before its ranks should be treated as current. See [Global Discovery & Quantitative Validation](docs/GLOBAL_DISCOVERY_AND_VALIDATION.md).
+**Global ranking release status:** the committed baseline records a complete 24-shard, failure-free GLO-90 land inventory (26,475/26,475 tiles; 5,852,396 windows evaluated). The shortlist passes target-level order/rank diagnostics, but the quantitative artifact still needs the explicit ranking-contract gate. A lightweight release workflow verifies the existing artifact and writes that contract without repeating the 24-shard scan. Ranking readiness is a data-integrity status, not scientific accuracy or analog validation. See [Global Discovery & Quantitative Validation](docs/GLOBAL_DISCOVERY_AND_VALIDATION.md).
 
 ### 5. Field Evidence Passport and Pakistan Field Validation Kit
 

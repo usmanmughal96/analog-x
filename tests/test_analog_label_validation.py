@@ -35,6 +35,23 @@ class AnalogLabelValidationTests(unittest.TestCase):
     def test_spatial_group_assignment_is_deterministic(self):
         self.assertEqual(labels.group_is_held_out("region-alpha"), labels.group_is_held_out("region-alpha"))
 
+    def test_nonfinite_score_rejected(self):
+        row = {
+            "target":"moon","candidate_id":"a","label":"positive","spatial_group":"g1",
+            "evidence_ref":"doi:example","reviewer":"independent reviewer",
+            "review_date_utc":"2026-11-22","core_terrain_index":float("nan")
+        }
+        with self.assertRaisesRegex(ValueError, "finite numeric"):
+            labels.validate_rows([row])
+
+    def test_current_candidate_score_must_match_release(self):
+        row = {
+            "target":"moon","candidate_id":"a","label":"positive","spatial_group":"g1",
+            "evidence_ref":"doi:example","reviewer":"independent reviewer",
+            "review_date_utc":"2026-11-22","core_terrain_index":81
+        }
+        with self.assertRaisesRegex(ValueError, "does not match"):
+            labels.validate_rows([row], {("moon","a"):80.0})
 
 if __name__ == "__main__":
     unittest.main()
