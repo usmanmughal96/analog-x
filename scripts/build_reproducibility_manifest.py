@@ -9,6 +9,15 @@ INCLUDE_DIRS=("data","science","scripts","docs",".github","tests","assets","agen
 ROOT_FILES=("README.md","index.html","demo.html","discovery.html","global-discovery.html","field-validation.html","transferability.html","service-worker.js","manifest.webmanifest","package.json","package-lock.json")
 OUTPUT=ROOT/"data/provenance/reproducibility_manifest.json"
 EXCLUDE_PARTS={".git","__pycache__",".pytest_cache"}
+# The quantitative report consumes this manifest's hash and inventory count.
+# Excluding the report prevents a circular dependency and lets it reference
+# the manifest generated in the same workflow run.
+EXCLUDE_FILES={
+    "data/provenance/reproducibility_manifest.json",
+    "data/validation/quantitative_validation.json",
+}
+def include_in_manifest(path: Path) -> bool:
+    return path.relative_to(ROOT).as_posix() not in EXCLUDE_FILES
 def sha256(path):
     h=hashlib.sha256()
     with path.open("rb") as f:
@@ -42,13 +51,13 @@ def main():
     records=[]
     for relative in ROOT_FILES:
         path=ROOT/relative
-        if path.is_file() and path!=OUTPUT:
+        if path.is_file() and include_in_manifest(path):
             records.append({"path":relative,"size_bytes":path.stat().st_size,"sha256":sha256(path),"evidence_class_hint":classify(path)})
     for directory in INCLUDE_DIRS:
         base=ROOT/directory
         if not base.exists():continue
         for path in sorted(base.rglob("*")):
-            if not path.is_file() or any(part in EXCLUDE_PARTS for part in path.parts) or path==OUTPUT:continue
+            if not path.is_file() or any(part in EXCLUDE_PARTS for part in path.parts) or not include_in_manifest(path):continue
             records.append({"path":path.relative_to(ROOT).as_posix(),"size_bytes":path.stat().st_size,"sha256":sha256(path),"evidence_class_hint":classify(path)})
     payload={
         "schema_version":"2.0.0","project":"ANALOG-X","generated_at_utc":datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
