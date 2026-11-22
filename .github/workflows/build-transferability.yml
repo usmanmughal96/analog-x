@@ -42,13 +42,35 @@ jobs:
       - name: Validate dashboard JavaScript syntax
         run: |
           python - <<'PY'
-          import re
+          from html.parser import HTMLParser
           from pathlib import Path
-          html=Path('transferability.html').read_text(encoding='utf-8')
-          scripts=re.findall(r'<script(?:\\s[^>]*)?>(.*?)</script>', html, re.S)
-          inline=[s for s in scripts if s.strip()]
-          assert inline, 'No inline dashboard script found'
-          Path('/tmp/atfa-dashboard.js').write_text('\\n'.join(inline), encoding='utf-8')
+
+          class InlineScripts(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.capture = False
+                  self.current = []
+                  self.blocks = []
+
+              def handle_starttag(self, tag, attrs):
+                  if tag == "script":
+                      self.capture = not any(key.lower() == "src" for key, _ in attrs)
+                      self.current = []
+
+              def handle_endtag(self, tag):
+                  if tag == "script" and self.capture:
+                      self.blocks.append("\\n".join(self.current))
+                      self.capture = False
+
+              def handle_data(self, data):
+                  if self.capture:
+                      self.current.append(data)
+
+          parser = InlineScripts()
+          parser.feed(Path("transferability.html").read_text(encoding="utf-8"))
+          if not parser.blocks:
+              raise SystemExit("No inline dashboard script found")
+          Path("/tmp/atfa-dashboard.js").write_text("\\n".join(parser.blocks), encoding="utf-8")
           PY
           node --check /tmp/atfa-dashboard.js
       - name: Validate backend Python syntax
