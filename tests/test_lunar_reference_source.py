@@ -1,6 +1,8 @@
 import sys
 import tempfile
 import unittest
+
+import numpy as np
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -35,6 +37,30 @@ class Lunar5mSourceValidationTests(unittest.TestCase):
             path = self.write_file(directory, "short.tif", b"II*\x00" + b"x" * 4)
             with self.assertRaisesRegex(RuntimeError, "suspiciously small"):
                 source.validate_downloaded_tiff(path, min_bytes=32)
+
+    def test_zero_return_count_does_not_invalidate_interpolated_elevation(self):
+        elevation = np.array([[10.0, 11.0], [12.0, 13.0]])
+        counts = np.array([[0.0, 2.0], [3.0, 0.0]])
+        slope = np.array([[1.0, 1.5], [2.0, 2.5]])
+        terrain, count_valid, positive = source.lola_support_masks(elevation, counts, slope)
+        self.assertTrue(terrain.all())
+        self.assertTrue(count_valid.all())
+        self.assertEqual(int(positive.sum()), 2)
+
+    def test_count_nodata_is_separate_from_dem_validity(self):
+        elevation = np.array([[10.0, 11.0], [12.0, 13.0]])
+        counts = np.array([[0.0, -9999.0], [3.0, 0.0]])
+        slope = np.array([[1.0, 1.5], [2.0, 2.5]])
+        terrain, count_valid, positive = source.lola_support_masks(
+            elevation, counts, slope, nodata_counts=-9999.0
+        )
+        self.assertTrue(terrain.all())
+        self.assertFalse(count_valid[0, 1])
+        self.assertFalse(positive[0, 1])
+
+    def test_rejects_misaligned_lola_arrays(self):
+        with self.assertRaisesRegex(ValueError, "share one grid"):
+            source.lola_support_masks(np.ones((2, 2)), np.ones((2, 3)), np.ones((2, 2)))
 
     def test_rejects_content_length_mismatch(self):
         with tempfile.TemporaryDirectory() as directory:
