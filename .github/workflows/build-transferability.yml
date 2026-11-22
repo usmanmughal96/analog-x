@@ -70,20 +70,4 @@ jobs:
           assert d["planetary_targets"]["mars"]["terrain"]
           PY
       - name: Commit refreshed public science pack
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/transferability/transferability.json data/planetary/pds_search.json data/nasa/modis_browse_index.json data/nasa/modis_browse/
-          if ! git diff --cached --quiet; then
-            git commit -m "Build planetary analog transferability science pack"
-            for attempt in 1 2 3 4 5; do
-              git fetch origin main
-              git rebase -X theirs origin/main
-              if git push origin HEAD:main; then
-                exit 0
-              fi
-              sleep $((attempt * 2))
-            done
-            echo "Push retry limit reached."
-            exit 1
-          fi
+        run: bash scripts/commit_generated_data.sh "Build planetary analog transferability science pack" data/transferability/transferability.json data/planetary/pds_search.json data/nasa/modis_browse_index.json data/nasa/modis_browse/
