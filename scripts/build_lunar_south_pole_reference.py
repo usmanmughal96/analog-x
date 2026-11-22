@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Process NASA GSFC LOLA 5 m south-pole terrain products for Shackleton Rim.
 
-Inputs are public Cloud-Optimized GeoTIFFs (LDEM, LDEC count map and LDSM
-slope map) from PGDA product 78. Only the derived JSON and a browse PNG are
+Inputs are public Cloud-Optimized GeoTIFFs (LDEM, LDEC count map, LDSM
+slope map, total elevation RMS error and slope RMS error) from PGDA product 78. Only the derived JSON and a browse PNG are
 committed; the source raster assets are read through GDAL /vsicurl range reads.
 """
 from __future__ import annotations
@@ -30,7 +30,9 @@ SESSION.headers.update({
 FILES={
  "elevation":"Site04_final_adj_5mpp_surf.tif",
  "counts":"Site04_final_adj_5mpp_ldec.tif",
- "slope":"Site04_final_adj_5mpp_slp.tif"
+ "slope":"Site04_final_adj_5mpp_slp.tif",
+ "elevation_uncertainty":"Site04_final_adj_5mpp_toterr.tif",
+ "slope_uncertainty":"Site04_final_adj_5mpp_slperr.tif"
 }
 SITE={
  "id":"Site04",
@@ -141,6 +143,22 @@ def open_source(kind):
   raise RuntimeError(f"Cannot open downloaded NASA PGDA LOLA TIFF ({kind}): {exc}") from exc
  return ds,url,path
 
+def validate_lola_product_alignment(datasets):
+ signatures = {
+  (d.width,d.height,d.crs,d.transform)
+  for d in datasets.values()
+ }
+ if len(signatures)!=1:
+  raise RuntimeError("LOLA elevation, count, slope and uncertainty rasters do not share identical grid geometry")
+ return True
+
+def valid_uncertainty_mask(values,nodata=None):
+ values=np.asarray(values)
+ mask=np.isfinite(values)
+ if nodata is not None:
+  mask &= values!=nodata
+ return mask
+
 def lola_support_masks(elevation, counts, slope, nodata_elevation=None, nodata_counts=None, nodata_slope=None):
  """Keep interpolated DEM validity separate from LOLA return-count support.
 
@@ -196,9 +214,7 @@ def main():
    for kind in FILES:
     ds[kind],urls[kind],local_paths[kind]=open_source(kind)
    dem,counts,slope=ds["elevation"],ds["counts"],ds["slope"]
-   signatures={(d.width,d.height,d.crs,d.transform) for d in ds.values()}
-   if len(signatures)!=1:
-    raise RuntimeError("LOLA elevation, count and slope rasters do not share identical grid geometry")
+   validate_lola_product_alignment(ds)
    width,height=dem.width,dem.height
    if width<10 or height<10:raise RuntimeError("LOLA COG dimensions are implausibly small")
    # Read native rasters. The product is a site-sized 5 m map; the pipeline
@@ -209,6 +225,12 @@ def main():
    z=np.asarray(z.filled(np.nan))
    n=np.asarray(n.filled(np.nan))
    sl=np.asarray(sl.filled(np.nan))
+   zerr=ds["elevation_uncertainty"].read(1,masked=True).astype("float64")
+   serr=ds["slope_uncertainty"].read(1,masked=True).astype("float64")
+   zerr=np.asarray(zerr.filled(np.nan))
+   serr=np.asarray(serr.filled(np.nan))
+   zerr_valid=valid_uncertainty_mask(zerr,ds["elevation_uncertainty"].nodata)
+   serr_valid=valid_uncertainty_mask(serr,ds["slope_uncertainty"].nodata)
    terrain_valid,count_valid,positive_returns=lola_support_masks(
     z,n,sl,dem.nodata,counts.nodata,slope.nodata
    )
@@ -246,11 +268,15 @@ def main():
       "positive_lola_return_pixels":int(positive_returns.sum()),
       "positive_return_coverage_percent":round(100*float(positive_returns.sum()/count_valid.sum()),3) if count_valid.any() else None,
       "mean_lola_returns_per_valid_count_pixel":float(np.mean(count_values)) if count_values.size else None,
-      "median_lola_returns_per_valid_count_pixel":float(np.median(count_values)) if count_values.size else None
+      "median_lola_returns_per_valid_count_pixel":float(np.median(count_values)) if count_values.size else None,
+      "valid_elevation_rms_uncertainty_pixels":int(zerr_valid.sum()),
+      "valid_slope_rms_uncertainty_pixels":int(serr_valid.sum())
     },
     "terrain_metrics":{
       "elevation_m_moon_me_de421":stats(z_values),
       "slope_deg_source_lola_product":stats(slope_values),
+      "elevation_rms_uncertainty_m":stats(zerr[zerr_valid]),
+      "slope_rms_uncertainty_deg":stats(serr[serr_valid]),
       "3x3_local_relief_m_15m_footprint":stats(relief),
       "slope_fraction":{
         "under_5_deg_percent":float(np.mean(slope_values<5)*100),
@@ -259,10 +285,11 @@ def main():
       }
     },
     "preview_path":"shackleton_rim_lola_5m_hillshade.png",
-    "interpretation":"High-resolution south-polar terrain context for a named Shackleton Rim candidate site. LDEM interpolated elevations remain valid where LDEC records zero direct returns; positive-return coverage is reported separately as measurement support. These descriptors alone do not establish illumination, PSR status, water-ice abundance, landing suitability, rover traversability or engineering safety.",
+    "interpretation":"High-resolution south-polar terrain context for a named Shackleton Rim candidate site. LDEM interpolated elevations remain valid where LDEC records zero direct returns; positive-return coverage is reported separately as measurement support. The total elevation and slope RMS-error rasters are source uncertainty products; their distributions are not probabilities of failure or stand-alone safety bounds. These descriptors alone do not establish illumination, PSR status, water-ice abundance, landing suitability, rover traversability or engineering safety.",
     "citations":[
       "Barker et al. (2023), A New View of the Lunar South Pole from LOLA, Planetary Science Journal 4, 183, DOI 10.3847/PSJ/acf3e1.",
-      "Barker et al. (2021), Improved LOLA Elevation Maps for South Pole Landing Sites: Error Estimates and Their Impact on Illumination Conditions, Planetary and Space Science 203, 105119."
+      "Barker et al. (2021), Improved LOLA Elevation Maps for South Pole Landing Sites: Error Estimates and Their Impact on Illumination Conditions, Planetary and Space Science 203, 105119, DOI 10.1016/j.pss.2020.105119.",
+      "NASA GSFC PGDA product 78: https://pgda.gsfc.nasa.gov/products/78"
     ]
    }
   # Render the browse overview from validated local copies of the source COGs.
