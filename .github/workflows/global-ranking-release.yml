@@ -8,6 +8,14 @@ on:
       - "scripts/import_independent_review_labels.py"
       - "tests/test_research_phase_pack.py"
       - ".github/workflows/global-ranking-release.yml"
+  pull_request:
+    paths:
+      - "scripts/build_independent_review_pack.py"
+      - "scripts/import_independent_review_labels.py"
+      - "scripts/build_lunar_south_pole_reference.py"
+      - "tests/test_research_phase_pack.py"
+      - "tests/test_lunar_reference_source.py"
+      - ".github/workflows/global-ranking-release.yml"
   workflow_dispatch:
 permissions:
   contents: write
@@ -15,7 +23,26 @@ concurrency:
   group: analogx-global-ranking-contract
   cancel-in-progress: false
 jobs:
+  scientific-tests:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install scientific test dependencies
+        run: python -m pip install --upgrade numpy requests rasterio pillow
+      - name: Compile and run independent-validation and lunar-QA tests
+        run: |
+          python -m py_compile scripts/build_independent_review_pack.py scripts/import_independent_review_labels.py scripts/build_lunar_south_pole_reference.py
+          python -m unittest tests.test_research_phase_pack
+          python -m unittest tests.test_lunar_reference_source
+          python -m unittest tests.test_analog_label_validation
+          python -m unittest tests.test_validation_release
+
   release:
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
