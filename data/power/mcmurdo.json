@@ -23,7 +23,7 @@
     ],
     "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=161.8&latitude=-77.5&format=JSON",
     "request_mode": "one multi-parameter request",
-    "fetched_at_utc": "2026-11-16T11:14:36+00:00",
+    "fetched_at_utc": "2026-11-22T20:00:04+00:00",
     "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
     "community_documentation": "https://power.larc.nasa.gov/docs/methodology/communities/",
     "parameter_errors": {}
@@ -296,12 +296,12 @@
     "header": {
       "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
       "api": {
-        "version": "v2.10.1",
+        "version": "v2.10.2",
         "name": "POWER Climatology API"
       },
       "sources": [
-        "SYN1DEG",
         "MERRA2",
+        "SYN1DEG",
         "POWER"
       ],
       "fill_value": -999.0,
@@ -342,7 +342,7 @@
       }
     },
     "times": {
-      "data": 0.273,
+      "data": 0.384,
       "process": 0.03
     }
   },
