@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "scripts/build_lunar_south_pole_reference.py"
+      - "tests/test_lunar_reference_source.py"
       - ".github/workflows/build-lunar-reference.yml"
   workflow_dispatch:
 
@@ -31,7 +32,10 @@ jobs:
           python-version: "3.11"
 
       - name: Install geospatial dependencies
-        run: python -m pip install --upgrade rasterio pillow numpy scipy
+        run: python -m pip install --upgrade requests rasterio pillow numpy scipy
+
+      - name: Test LOLA source download validation
+        run: python -m unittest tests.test_lunar_reference_source
 
       - name: Process NASA LOLA 5 m Shackleton Rim products
         shell: bash
