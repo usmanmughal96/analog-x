@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Seven-slide ANALOG-X project walkthrough: experiment-level planetary analog research, Pakistan field candidates, multi-source evidence, ATFA, global discovery and scientific validation boundaries.">
 <title>ANALOG-X | NASA Space Apps 2026 Demo</title>
 <style>
 :root{--bg:#061321;--panel:#0a1e2d;--panel2:#0d2637;--line:#1d4358;--text:#edf6f8;--muted:#9ab2bf;--cyan:#5bd7eb;--mint:#75d8bd;--gold:#e4bd7d;--red:#e9a18d}
@@ -137,7 +138,7 @@ a{color:#82e1ec;text-decoration:none}a:hover{text-decoration:underline}
 <div class="deck">
 <section class="slide active">
  <div class="topline"><div class="brand"><div class="brandmark">AX</div><span>ANALOG-X / PLANETARY FIELD LAB</span></div><span>NASA SPACE APPS · CHALLENGE 10 · 2026</span></div>
- <div class="kicker">Identify Earth locations that analog the permanent Moon base locations and Mars</div>
+ <div class="kicker">Experiment-level analog discovery for permanent Moon bases and Mars missions</div>
  <h1>A place can look like Mars.<br><span class="accent">That doesn't mean it can prepare us for Mars.</span></h1>
  <p class="lede">ANALOG-X helps mission teams answer a more useful question: which Earth experiments can prepare us for work on the Moon or Mars, what evidence supports that choice, and where does the comparison break?</p>
  <div class="storySplit">
@@ -194,13 +195,13 @@ a{color:#82e1ec;text-decoration:none}a:hover{text-decoration:underline}
  <div class="dataGrid">
   <div class="dataCard"><div class="dataTitle">Earth environment</div><div class="dataMetric">10 NASA POWER profiles</div><p>Temperature, humidity, wind, rainfall and solar climatology for all ten Earth study sites. Sentinel-2 L2A scene discovery adds dated satellite context across the site windows.</p></div>
   <div class="dataCard"><div class="dataTitle">Regional terrain discovery</div><div class="dataMetric">7,290 Earth windows</div><p>Ten existing Copernicus DEM areas are subdivided into overlapping 5.55 km windows at approximately 925 m support. A separate ~30 m Earth-only parent-area roughness summary preserves detail lost in aggregation; it does not enter the planetary score.</p></div>
-  <div class="dataCard"><div class="dataTitle">Planetary comparison windows</div><div class="dataMetric">729 Moon · 21 Mars</div><p>Local windows are compared with Shackleton LOLA and Nili Patera MOLA profiles. Diviner thermal summaries cover 6,823 lunar triangles (median 2 cm average: 103.786 K; annual max surface: 238.568 K).</p></div>
-  <div class="dataCard"><div class="dataTitle">NASA archive discovery</div><div class="dataMetric">20 browse images · 500 metadata records</div><p>MODIS browse previews are indexed for ten Earth sites. PDS observational product metadata is catalogued across six queries for planetary-data discovery.</p></div>
-  <div class="dataCard"><div class="dataTitle">Global discovery & environmental context</div><div class="dataMetric">GLO-90 worldwide land tiles</div><p>A 24-shard pipeline screens public Copernicus GLO-90 terrain tiles beyond the ten regional study seeds. Retained candidates can receive 2023 global land-cover classes and NASA POWER monthly/annual climate context. Tile coverage, failures, data coverage and source requests are exposed; the scan is not called complete until the full available land-tile inventory is processed.</p></div>
+  <div class="dataCard"><div class="dataTitle">Planetary comparison windows</div><div class="dataMetric">729 Moon · 21 Mars</div><p>Common-support regional comparisons use Shackleton 80 m LOLA and Nili Patera MOLA. Diviner summaries cover 6,823 lunar triangles (median annual average at 2 cm: 103.786 K; median annual maximum surface: 238.568 K).</p></div>
+  <div class="dataCard"><div class="dataTitle">High-resolution lunar terrain</div><div class="dataMetric">5 m LOLA · 10.24m pixels</div><p>NASA PGDA Shackleton Site04 elevation, return-count and slope files are processed on a 3,200 × 3,200 grid. Interpolated terrain coverage is 100%; positive direct-return coverage is 9.154%. These are different evidence measures.</p></div>
+  <div class="dataCard"><div class="dataTitle">Global discovery & environmental context</div><div class="dataMetric">26,475 tiles · 5.85m windows</div><p>A prior full GLO-90 land-inventory release processed 26,475 tiles with zero reported failures and evaluated 5,852,396 windows. The refreshed core-only shortlist is not ranking-ready until the schema and ranking-contract checks pass.</p></div>
  </div>
  <div class="storySplit" style="margin-top:12px">
-  <div class="storyPanel"><div class="storyLabel">WHAT THIS GIVES THE JUDGE</div><h3>Two scales of discovery.</h3><p>The reproducible regional release scans 7,290 Earth sub-windows and tests ranking sensitivity with 500 weight draws. A separate GLO-90 global pipeline expands candidate discovery beyond the ten regional seeds and exposes its true tile coverage and failures.</p></div>
-  <div class="storyPanel problem"><div class="storyLabel">WHAT WE DO NOT PRETEND</div><h3>Evidence types stay separate.</h3><p>MODIS JPEGs are previews, not calibrated temperature arrays. PDS/CMR catalogue entries are metadata, not decoded science products. 2023 land-cover classes are model predictions, not lithology. The ~925 m terrain grid is not rover-scale hazard data, and no candidate is field-validated without observed evidence and independent review.</p></div>
+  <div class="storyPanel"><div class="storyLabel">WHAT THIS GIVES THE JUDGE</div><h3>Two scales of discovery.</h3><p>The regional release scans 7,290 Earth sub-windows and tests ranking sensitivity with 500 weight draws. A separate GLO-90 baseline processed the full published land-tile inventory; its refreshed core-only ranking still has to pass the release gate.</p></div>
+  <div class="storyPanel problem"><div class="storyLabel">WHAT WE DO NOT PRETEND</div><h3>Evidence types stay separate.</h3><p>MODIS JPEGs are previews; PDS/CMR entries are metadata. Retained candidates have 2023 land cover for 2,391 / 2,400 windows, plus NASA POWER and GLiM context for 200 / 200 candidate points each. These are not field truth or independent analog validation. The ~925 m terrain grid cannot resolve rover-scale hazards, and field validation still requires observed evidence and independent review.</p></div>
  </div>
  <div class="foot"><span>Sources include NASA POWER, NASA CMR / MODIS, NASA PDS, MOLA, LOLA, Diviner, Copernicus DEM and Copernicus Sentinel-2.</span><span>03 / 07</span></div>
 </section>
@@ -244,7 +245,7 @@ a{color:#82e1ec;text-decoration:none}a:hover{text-decoration:underline}
   <div class="card">
    <div class="eyebrow">Compare Earth with a real planetary reference</div>
    <div class="compareTargets">
-    <div class="targetBox"><small>MOON</small><b>Shackleton Rim</b><span>LOLA terrain + Diviner thermal context</span></div>
+    <div class="targetBox"><small>MOON</small><b>Shackleton Rim</b><span>5 m Site04 + 80 m LOLA terrain; Diviner thermal context</span></div>
     <div class="targetBox"><small>MARS</small><b>Nili Patera</b><span>MOLA terrain reference</span></div>
    </div>
    <div class="cleanList">
@@ -306,13 +307,13 @@ a{color:#82e1ec;text-decoration:none}a:hover{text-decoration:underline}
  <h2>What the challenge asked for. <span class="mint">What judges can inspect.</span></h2>
  <div class="requireGrid">
   <div class="requireRow"><b>Use open Earth, Moon & Mars data</b><span>NASA and partner datasets connected through the evidence engine: climate, imagery, terrain and planetary references.</span><em>DELIVERED</em></div>
-  <div class="requireRow"><b>Identify and characterize analog environments</b><span>Ten curated Earth study/reference regions and 7,290 regional terrain windows are delivered. A separate worldwide Copernicus GLO-90 tile scanner extends discovery beyond those seeds, with tile-level completion checks; the global release is only described as complete when its full land-tile inventory is processed.</span><em>REGIONAL + GLOBAL PIPELINE</em></div>
-  <div class="requireRow"><b>Surface candidate terrestrial analogs</b><span>Four Pakistan candidate leads, six global references and a separate GLO-90 global candidate pipeline. Retained candidates can carry 2023 global land-cover context, source-item provenance and terrain feature diagnostics. Pakistan candidates remain field leads until ground observations are independently reviewed.</span><em>BOUNDED / EVIDENCE-GATED</em></div>
+  <div class="requireRow"><b>Identify and characterize analog environments</b><span>Ten curated Earth regions and 7,290 regional windows. A previous GLO-90 release processed 26,475 / 26,475 land tiles (zero failures) and evaluated 5,852,396 windows; the refreshed core-only ranking must still pass its release gate.</span><em>GLOBAL REBUILD / GATE PENDING</em></div>
+  <div class="requireRow"><b>Surface candidate terrestrial analogs</b><span>Four Pakistan candidate leads and six global references. Retained-candidate context includes land cover on 2,391 / 2,400 windows, plus NASA POWER and GLiM on 200 / 200 points each. None substitutes for field geology or independent validation.</span><em>BOUNDED / EVIDENCE-GATED</em></div>
   <div class="requireRow"><b>Present findings as a map, visualization or tool</b><span>Live Evidence Operations atlas, 7,290-window regional scan with ATFA rehearsal dossiers, terrain views, evidence charts and exportable experiment briefs.</span><em>DELIVERED</em></div>
  </div>
  <div class="storySplit" style="margin-top:11px">
   <div class="storyPanel breakthrough"><div class="storyLabel">WHY THIS IS DIFFERENT</div><h3>From “Mars-like place” to “testable mission rehearsal.”</h3><p>ANALOG-X does not hide uncertainty behind one score. It tells researchers what a site may help test, what it cannot prove, and what data to collect next.</p></div>
-  <div class="storyPanel problem"><div class="storyLabel">SCIENTIFIC BOUNDARIES</div><h3>What remains for the next validation phase.</h3><p>Field mineralogy and chemistry, ground-truth station campaigns, higher-resolution rover-scale terrain, authoritative lunar illumination / PSR analysis, cave environments and actual ISRU resource abundance are not established in this release.</p></div>
+  <div class="storyPanel problem"><div class="storyLabel">SCIENTIFIC BOUNDARIES</div><h3>What remains for the next validation phase.</h3><p>Independent analog labels and physical field observations are still absent. Field mineralogy and chemistry, rover-scale terrain, authoritative lunar illumination / PSR analysis, cave environments and demonstrated resource abundance are not established in this release.</p></div>
  </div>
  <div class="judgeLenses">
   <div class="judgeLens"><b>IMPACT</b><span>Better experiment and field-site decisions</span></div>
