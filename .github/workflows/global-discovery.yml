@@ -141,20 +141,4 @@ jobs:
         run: python scripts/build_reproducibility_manifest.py
 
       - name: Commit generated global discovery and validation products
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/global_discovery/global_discovery.json data/validation/ data/source_registry.json data/provenance/reproducibility_manifest.json
-          if git diff --cached --quiet; then
-            echo "Generated science products are unchanged."
-            exit 0
-          fi
-          git commit -m "Publish global analog discovery and validation results"
-          for attempt in 1 2 3 4 5; do
-            git fetch origin main
-            git rebase -X theirs origin/main
-            if git push origin HEAD:main; then exit 0; fi
-            sleep $((attempt * 3))
-          done
-          echo "Could not publish generated science products after five attempts."
-          exit 1
+        run: bash scripts/commit_generated_data.sh "Publish global analog discovery and validation results" data/global_discovery/global_discovery.json data/validation/ data/source_registry.json data/provenance/reproducibility_manifest.json

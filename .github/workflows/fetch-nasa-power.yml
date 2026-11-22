@@ -39,14 +39,4 @@ jobs:
         run: python scripts/fetch_nasa_power.py
 
       - name: Commit data snapshot
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/power/
-          if git diff --cached --quiet; then
-            echo "NASA POWER snapshots unchanged."
-            exit 0
-          fi
-          git commit -m "Refresh NASA POWER climatology snapshots"
-          git pull --rebase origin main
-          git push
+        run: bash scripts/commit_generated_data.sh "Refresh NASA POWER climatology snapshots" data/power/

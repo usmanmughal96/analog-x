@@ -123,22 +123,41 @@ def open_source(kind):
   raise RuntimeError(f"Cannot open downloaded NASA PGDA LOLA TIFF ({kind}): {exc}") from exc
  return ds,url,path
 
+def lola_support_masks(elevation, counts, slope, nodata_elevation=None, nodata_counts=None, nodata_slope=None):
+ """Keep interpolated DEM validity separate from LOLA return-count support.
+
+ LDEM is an interpolated surface. A zero in the LDEC count raster means no
+ direct laser returns at that cell; it does not make the LDEM elevation nodata.
+ """
+ elevation=np.asarray(elevation)
+ counts=np.asarray(counts)
+ slope=np.asarray(slope)
+ if elevation.shape!=counts.shape or elevation.shape!=slope.shape:
+  raise ValueError("LOLA elevation, count and slope arrays must share one grid")
+ terrain_valid=np.isfinite(elevation)&np.isfinite(slope)
+ if nodata_elevation is not None:terrain_valid &= elevation!=nodata_elevation
+ if nodata_slope is not None:terrain_valid &= slope!=nodata_slope
+ count_valid=np.isfinite(counts)
+ if nodata_counts is not None:count_valid &= counts!=nodata_counts
+ positive_returns=count_valid&(counts>0)
+ return terrain_valid,count_valid,positive_returns
+
+
 def make_preview(dem_path,slope_path,count_path,outpath):
  # Native grids are read as overviews for a fast, auditable browse layer.
+ # Count=0 is a measurement-support flag, not a missing interpolated DEM cell.
  with rasterio.Env(**session_env):
-  with rasterio.open(dem_path) as dem, \
-       rasterio.open(slope_path) as slope, \
-       rasterio.open(count_path) as counts:
+  with rasterio.open(dem_path) as dem, rasterio.open(slope_path) as slope:
    target=(900,900)
-   z=dem.read(1,out_shape=target,resampling=Resampling.average).astype("float32")
-   s=slope.read(1,out_shape=target,resampling=Resampling.average).astype("float32")
-   n=counts.read(1,out_shape=target,resampling=Resampling.average).astype("float32")
- valid=np.isfinite(z)&np.isfinite(s)&np.isfinite(n)&(n>0)
+   z=np.asarray(dem.read(1,out_shape=target,resampling=Resampling.average,masked=True).astype("float64").filled(np.nan),dtype="float32")
+   s=np.asarray(slope.read(1,out_shape=target,resampling=Resampling.average,masked=True).astype("float64").filled(np.nan),dtype="float32")
+   pixel_x=abs(dem.transform.a)*dem.width/target[1]
+   pixel_y=abs(dem.transform.e)*dem.height/target[0]
+ valid=np.isfinite(z)&np.isfinite(s)
  if valid.sum()<10:raise RuntimeError("No valid sample pixels in the LOLA overview")
  zfill=np.where(valid,z,np.nanmedian(z[valid]))
- gy,gx=np.gradient(zfill,5.0*(dem.width/target[1]),5.0*(dem.height/target[0]))
- # Simple hillshade from the elevation overview. Scale uses the actual
- # downsampled pixel spacing reported by the source product.
+ gy,gx=np.gradient(zfill,pixel_y,pixel_x)
+ # Simple hillshade from the elevation overview. Scale uses actual pixel spacing.
  az=np.deg2rad(315.0);alt=np.deg2rad(40.0)
  slope_rad=np.arctan(np.hypot(gx,gy))
  aspect=np.arctan2(-gx,gy)
@@ -172,22 +191,18 @@ def main():
    z=np.asarray(z.filled(np.nan))
    n=np.asarray(n.filled(np.nan))
    sl=np.asarray(sl.filled(np.nan))
-   nodata_z=dem.nodata
-   nodata_n=counts.nodata
-   nodata_sl=slope.nodata
-   valid=np.isfinite(z)&np.isfinite(n)&np.isfinite(sl)&(n>0)
-   if nodata_z is not None:valid &= z!=nodata_z
-   if nodata_n is not None:valid &= n!=nodata_n
-   if nodata_sl is not None:valid &= sl!=nodata_sl
-   if valid.sum()<1000:raise RuntimeError(f"Too few LOLA-observed pixels ({int(valid.sum())})")
-   z_values=z[valid]
-   slope_values=sl[valid]
-   count_values=n[valid]
-   # Local relief at a 15 m footprint (3x3 pixels). For this fine-resolution
-   # panel, report only neighbourhoods where all nine cells have LOLA returns.
+   terrain_valid,count_valid,positive_returns=lola_support_masks(
+    z,n,sl,dem.nodata,counts.nodata,slope.nodata
+   )
+   if terrain_valid.sum()<1000:raise RuntimeError(f"Too few valid interpolated LOLA terrain pixels ({int(terrain_valid.sum())})")
+   z_values=z[terrain_valid]
+   slope_values=sl[terrain_valid]
+   count_values=n[count_valid]
+   # Local relief at a 15 m footprint (3x3 pixels). Complete neighborhoods
+   # require valid elevation and slope, not a positive laser-return count.
    from scipy.ndimage import maximum_filter,minimum_filter
-   complete=minimum_filter(valid.astype(np.uint8),size=3,mode="constant",cval=0)==1
-   zfill=np.where(valid,z,np.nanmedian(z_values))
+   complete=minimum_filter(terrain_valid.astype(np.uint8),size=3,mode="constant",cval=0)==1
+   zfill=np.where(terrain_valid,z,np.nanmedian(z_values))
    rel=maximum_filter(zfill,size=3,mode="nearest")-minimum_filter(zfill,size=3,mode="nearest")
    relief=rel[complete]
    if relief.size<100:raise RuntimeError("Too few complete 3x3 neighborhoods for local relief")
@@ -205,12 +220,15 @@ def main():
     },
     "native_pixel_scale_m":5,
     "grid_coverage":{
-      "valid_lola_return_pixels":int(valid.sum()),
-      "total_pixels":int(valid.size),
-      "valid_coverage_percent":round(100*float(valid.mean()),3),
-      "complete_3x3_neighborhoods":int(relief.size),
-      "mean_lola_returns_per_valid_pixel":float(np.mean(count_values)),
-      "median_lola_returns_per_valid_pixel":float(np.median(count_values))
+      "valid_interpolated_terrain_pixels":int(terrain_valid.sum()),
+      "total_pixels":int(terrain_valid.size),
+      "terrain_coverage_percent":round(100*float(terrain_valid.mean()),3),
+      "complete_3x3_terrain_neighborhoods":int(relief.size),
+      "valid_count_map_pixels":int(count_valid.sum()),
+      "positive_lola_return_pixels":int(positive_returns.sum()),
+      "positive_return_coverage_percent":round(100*float(positive_returns.sum()/count_valid.sum()),3) if count_valid.any() else None,
+      "mean_lola_returns_per_valid_count_pixel":float(np.mean(count_values)) if count_values.size else None,
+      "median_lola_returns_per_valid_count_pixel":float(np.median(count_values)) if count_values.size else None
     },
     "terrain_metrics":{
       "elevation_m_moon_me_de421":stats(z_values),
@@ -223,7 +241,7 @@ def main():
       }
     },
     "preview_path":"shackleton_rim_lola_5m_hillshade.png",
-    "interpretation":"High-resolution south-polar terrain context for a named Shackleton Rim candidate site. The DEM is interpolated surface elevation; LDEC count map is used as a measurement-support mask. These descriptors alone do not establish illumination, PSR status, water-ice abundance, landing suitability, rover traversability or engineering safety.",
+    "interpretation":"High-resolution south-polar terrain context for a named Shackleton Rim candidate site. LDEM interpolated elevations remain valid where LDEC records zero direct returns; positive-return coverage is reported separately as measurement support. These descriptors alone do not establish illumination, PSR status, water-ice abundance, landing suitability, rover traversability or engineering safety.",
     "citations":[
       "Barker et al. (2023), A New View of the Lunar South Pole from LOLA, Planetary Science Journal 4, 183, DOI 10.3847/PSJ/acf3e1.",
       "Barker et al. (2021), Improved LOLA Elevation Maps for South Pole Landing Sites: Error Estimates and Their Impact on Illumination Conditions, Planetary and Space Science 203, 105119."
@@ -237,7 +255,7 @@ def main():
   ds.clear()
   make_preview(dem_path,slope_path,count_path,OUT/"shackleton_rim_lola_5m_hillshade.png")
   (OUT/"shackleton_rim_lola.json").write_text(json.dumps(result,indent=2,allow_nan=False)+"\n",encoding="utf-8")
-  print(json.dumps({"status":"success","dimensions":[width,height],"valid_percent":result["grid_coverage"]["valid_coverage_percent"],"slope_p50":result["terrain_metrics"]["slope_deg_source_lola_product"]["median"]},indent=2),flush=True)
+  print(json.dumps({"status":"success","dimensions":[width,height],"valid_percent":result["grid_coverage"]["terrain_coverage_percent"],"slope_p50":result["terrain_metrics"]["slope_deg_source_lola_product"]["median"]},indent=2),flush=True)
   return 0
  except Exception as exc:
   print(f"LOLA south-pole processing failed: {exc}",file=sys.stderr,flush=True)
