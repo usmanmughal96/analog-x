@@ -8,6 +8,13 @@ on:
       - "scripts/merge_global_discovery.py"
       - ".github/workflows/global-discovery.yml"
       - "tests/test_global_discovery.py"
+  pull_request:
+    paths:
+      - "scripts/build_global_discovery.py"
+      - "scripts/merge_global_discovery.py"
+      - "scripts/build_quantitative_validation.py"
+      - ".github/workflows/global-discovery.yml"
+      - "tests/test_global_discovery.py"
   workflow_dispatch:
 
 permissions:
@@ -19,7 +26,27 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  tests:
+    name: Fast scientific contracts and unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test dependencies
+        run: python -m pip install --upgrade numpy requests rasterio scipy
+      - name: Compile and run tests
+        run: |
+          python -m py_compile scripts/*.py science/*.py
+          python -m unittest tests.test_global_discovery
+          python scripts/build_quantitative_validation.py --require-ranking-ready
+          python scripts/build_quantitative_validation.py
+          python scripts/validate_field_observations.py
+          python scripts/validate_evidence_inventory.py
+
   scan:
+    if: github.event_name != 'pull_request'
     name: Global terrain scan · longitude shard ${{ matrix.shard }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
@@ -58,7 +85,7 @@ jobs:
 
   aggregate:
     name: Merge global scan, cross-check and publish science products
-    needs: scan
+    needs: [scan, tests]
     runs-on: ubuntu-latest
     timeout-minutes: 360
     steps:
