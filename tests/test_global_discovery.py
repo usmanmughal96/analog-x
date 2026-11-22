@@ -66,5 +66,58 @@ class GlobalDiscoveryTests(unittest.TestCase):
         self.assertEqual(selected[1]["id"], "secondary-best")
 
 
+class GlobalMergeReleaseTests(unittest.TestCase):
+    def _shard(self, shard_id, tile_id):
+        return {
+            "shard": shard_id, "shard_count": 24, "tile_inventory_total": 24,
+            "tiles_assigned": 1, "tiles_processed": 1, "tile_failures": [],
+            "candidate_windows_evaluated": 2, "is_smoke_test": False,
+            "target_reference_profiles": {"feature_families": {"core": ["a"], "secondary": ["b"]}},
+            "targets": {
+                target: {"candidate_windows": [{
+                    "id": f"{target}-{shard_id}", "tile_id": tile_id,
+                    "latitude": 0.0, "longitude": float(shard_id),
+                    "core_terrain_index": float(100-shard_id),
+                    "secondary_diagnostic_index": float(shard_id),
+                }]} for target in ("moon", "mars")
+            }
+        }
+
+    def test_merge_rejects_missing_shards(self):
+        import merge_global_discovery as merge
+        with self.assertRaises(ValueError):
+            merge.load_shards(Path("/definitely/not/a/real/shard/directory"))
+
+    def test_core_only_selector_and_secondary_rank(self):
+        import merge_global_discovery as merge
+        rows = [
+            {"id": "core", "tile_id": "a", "core_terrain_index": 90, "secondary_diagnostic_index": 10},
+            {"id": "secondary", "tile_id": "b", "core_terrain_index": 80, "secondary_diagnostic_index": 99},
+        ]
+        selected = merge.select(rows, limit=2, max_per_tile=2)
+        self.assertEqual([x["id"] for x in selected], ["core", "secondary"])
+        self.assertEqual(selected[0]["shortlist_rank"], 1)
+        self.assertEqual(selected[0]["secondary_rank_within_primary_shortlist"], 2)
+
+    def test_candidate_validation_rejects_duplicate_ids(self):
+        import merge_global_discovery as merge
+        row = {"id": "same", "tile_id": "a", "core_terrain_index": 90, "secondary_diagnostic_index": 10, "latitude": 0, "longitude": 0}
+        with self.assertRaises(ValueError):
+            merge.validate_candidate_rows([row, dict(row)], "moon")
+
+    def test_candidate_validation_rejects_nan(self):
+        import merge_global_discovery as merge
+        row = {"id": "bad", "tile_id": "a", "core_terrain_index": float("nan"), "secondary_diagnostic_index": 10, "latitude": 0, "longitude": 0}
+        with self.assertRaises(ValueError):
+            merge.validate_candidate_rows([row], "mars")
+
+    def test_merge_requires_complete_assignment_accounting(self):
+        import merge_global_discovery as merge
+        shards = {i: self._shard(i, f"tile-{i}") for i in range(24)}
+        shards[0]["tiles_assigned"] = 2
+        with self.assertRaises(ValueError):
+            merge.build_release(shards)
+
+
 if __name__ == "__main__":
     unittest.main()
