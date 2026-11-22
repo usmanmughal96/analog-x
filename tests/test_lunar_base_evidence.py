@@ -1,5 +1,6 @@
 import sys
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 import numpy as np
@@ -30,6 +31,30 @@ class LunarBaseEvidenceRasterTests(unittest.TestCase):
         )
         self.assertEqual(summary["valid_pixel_count"], 3)
         self.assertEqual(summary["illumination_percent"]["median"], 20.0)
+
+
+    def test_make_preview_writes_grayscale_browse_image(self):
+        values = np.array(
+            [[0.0, 10.0, 20.0], [30.0, 40.0, np.nan], [50.0, 60.0, 70.0]],
+            dtype=np.float64,
+        )
+        from tempfile import TemporaryDirectory
+        from PIL import Image
+        with TemporaryDirectory() as directory:
+            output = Path(directory) / "preview.png"
+            with patch.object(lunar, "PREVIEW_PATH", output):
+                lunar.make_preview(values)
+            self.assertTrue(output.exists())
+            with Image.open(output) as image:
+                self.assertEqual(image.mode, "L")
+                self.assertEqual(image.size, (3, 3))
+                pixels = np.asarray(image)
+                self.assertGreater(int(pixels[2, 1]), int(pixels[0, 1]))
+                self.assertEqual(int(pixels[1, 2]), 0)
+
+    def test_make_preview_rejects_insufficient_valid_cells(self):
+        with self.assertRaises(RuntimeError):
+            lunar.make_preview(np.array([[1.0, np.nan], [np.nan, 2.0]]))
 
 
 if __name__ == "__main__":
