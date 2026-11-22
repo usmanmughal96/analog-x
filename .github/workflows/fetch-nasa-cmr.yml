@@ -34,14 +34,4 @@ jobs:
       - name: Search NASA Earthdata CMR
         run: python scripts/fetch_nasa_cmr_catalog.py
       - name: Commit CMR catalogue evidence
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/nasa/earthdata_cmr_catalog.json
-          if git diff --cached --quiet; then
-            echo "Earthdata catalogue unchanged."
-            exit 0
-          fi
-          git commit -m "Add NASA Earthdata CMR collection and granule catalog"
-          git pull --rebase origin main
-          git push
+        run: bash scripts/commit_generated_data.sh "Add NASA Earthdata CMR collection and granule catalog" data/nasa/earthdata_cmr_catalog.json
