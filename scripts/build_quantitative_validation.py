@@ -74,7 +74,11 @@ def ranking_integrity(global_data: dict[str, Any]) -> dict[str, Any]:
         primary_ranks = [row.get("shortlist_rank") for row in rows]
         secondary_ranks = [row.get("secondary_rank_within_primary_shortlist") for row in rows]
         rank_ok = primary_ranks == list(range(1, len(rows) + 1))
-        secondary_ok = sorted(secondary_ranks) == list(range(1, len(rows) + 1))
+        secondary_ok = (
+            len(secondary_ranks) == len(rows)
+            and all(isinstance(rank, int) and not isinstance(rank, bool) for rank in secondary_ranks)
+            and sorted(secondary_ranks) == list(range(1, len(rows) + 1))
+        )
         unique_ok = len(ids) == len(set(ids))
         target_ok = bool(rows) and order_ok and rank_ok and secondary_ok and unique_ok
         checks[target] = {
