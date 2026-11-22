@@ -133,7 +133,6 @@ jobs:
         run: |
           python scripts/refresh_source_registry.py
           python scripts/validate_analog_labels.py
-          python scripts/build_quantitative_validation.py --require-ranking-ready
 
       - name: Validate field, source and science contracts
         run: |
@@ -144,6 +143,9 @@ jobs:
 
       - name: Build SHA-256 reproducibility manifest
         run: python scripts/build_reproducibility_manifest.py
+
+      - name: Build quantitative validation against this manifest
+        run: python scripts/build_quantitative_validation.py --require-ranking-ready
 
       - name: Commit generated global discovery and validation products
         run: bash scripts/commit_generated_data.sh "Publish global analog discovery and validation results" data/global_discovery/global_discovery.json data/validation/ data/source_registry.json data/provenance/reproducibility_manifest.json
