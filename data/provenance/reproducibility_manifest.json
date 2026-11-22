@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-22T18:34:02+00:00",
-  "repository_commit_before_manifest_commit": "2604e6f48a7432adc39f4ffd92a0fc9cc732e9d3",
+  "generated_at_utc": "2026-11-22T18:47:06+00:00",
+  "repository_commit_before_manifest_commit": "741a7ce8af0c2f5b2ff2d347cb6d73c55ae4c89f",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -37,7 +37,7 @@
       "manifest.webmanifest"
     ]
   },
-  "file_count": 208,
+  "file_count": 209,
   "source_registry_sha256": "f5975e2a681ea76dc8b8c540bc3725179579b2bd94baf212ba3fefa63fa04b0d",
   "source_registry_records": [
     {
@@ -930,7 +930,7 @@
     {
       "path": "data/validation/quantitative_validation.json",
       "size_bytes": 11777,
-      "sha256": "44c9c8f63abe9333fe6e2244f54623bd3a62789fac0f22195c71b6b7182193e6",
+      "sha256": "4b220c5f89f017b78e4011ae081501d3b3b614462d47ad49a3845fcdbe4ae2e9",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -1103,8 +1103,8 @@
     },
     {
       "path": "scripts/process_lunar_base_evidence.py",
-      "size_bytes": 21448,
-      "sha256": "e2d54fa0f8dc09e9e17ca65d6ecd99b365c1d20b2a264a86ea3c863d09b3f271",
+      "size_bytes": 21846,
+      "sha256": "6b2417db9e65841a895b3f592e117aac93482615ead9174c2554b386b8dd74cc",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1151,8 +1151,8 @@
     },
     {
       "path": "scripts/validate_project.mjs",
-      "size_bytes": 10353,
-      "sha256": "bd4d8c3272155bf665be660a4abafb10afe7c654e9e15aeddb7d62014089500d",
+      "size_bytes": 10436,
+      "sha256": "cfe469feb254e0e8d74eee25247b9ef9780cae4274d63d79842ae5fbdacb66af",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1453,6 +1453,12 @@
       "path": "tests/test_global_power.py",
       "size_bytes": 2085,
       "sha256": "6e25bed596d6c0868ba088ac4b85806bc55c818c02bbfb8b631dbc1cb2591374",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "tests/test_lunar_base_evidence.py",
+      "size_bytes": 1250,
+      "sha256": "9845e1fb14eb38b21c2156da21ff8258c92f2d5086c5ea346435e98c9c6f93d1",
       "evidence_class_hint": "method_or_documentation"
     },
     {
