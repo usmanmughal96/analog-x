@@ -43,18 +43,4 @@ jobs:
         run: python scripts/build_lunar_south_pole_lola_80m.py
 
       - name: Commit derived lunar evidence only
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/moon/shackleton_lola_80m.json data/moon/shackleton_lola_80m_elevation_preview.png
-          git commit -m "Add Shackleton Rim LOLA 80m terrain profile"
-          for attempt in 1 2 3 4 5; do
-            git fetch origin main
-            git rebase -X theirs origin/main
-            if git push origin HEAD:main; then
-              exit 0
-            fi
-            sleep $((attempt * 2))
-          done
-          echo "Push retry limit reached."
-          exit 1
+        run: bash scripts/commit_generated_data.sh "Add Shackleton Rim LOLA 80m terrain profile" data/moon/shackleton_lola_80m.json data/moon/shackleton_lola_80m_elevation_preview.png
