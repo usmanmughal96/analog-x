@@ -56,7 +56,14 @@ jobs:
           python scripts/validate_evidence_inventory.py
 
   scan:
-    if: github.event_name != 'pull_request'
+    # Do not repeat the expensive 24-shard DEM scan for label/validation/docs-only changes.
+    # Full scans run on manual dispatch or when the discovery/merge algorithms themselves change.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'push' && (
+        contains(join(github.event.head_commit.modified, ','), 'scripts/build_global_discovery.py') ||
+        contains(join(github.event.head_commit.modified, ','), 'scripts/merge_global_discovery.py')
+      ))
     name: Global terrain scan · longitude shard ${{ matrix.shard }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
