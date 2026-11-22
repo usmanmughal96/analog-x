@@ -120,7 +120,6 @@ def build_release(shards: dict[int, dict[str, Any]]) -> dict[str, Any]:
     assigned = sum(payload["tiles_assigned"] for payload in shards.values())
     processed = sum(payload["tiles_processed"] for payload in shards.values())
     failed = [item for payload in shards.values() for item in payload["tile_failures"]]
-    inventory_total = shards[0]["tile_inventory_total"]
     if assigned != inventory_total:
         raise ValueError(f"Shard assignments ({assigned}) do not equal provider inventory ({inventory_total})")
     for shard_id, payload in shards.items():
@@ -142,13 +141,13 @@ def build_release(shards: dict[int, dict[str, Any]]) -> dict[str, Any]:
         "status": "complete" if full else "partial",
         "ranking_contract": {
             "schema_version": "1.1.0",
-            "ranking_ready": True,
+            "ranking_ready": full,
             "primary_feature_family": "core",
             "primary_sort": ["core_terrain_index descending", "id ascending"],
             "secondary_role": "diagnostic_only",
             "consensus_score": False,
             "candidate_rows_validated": True,
-            "note": "A ranking-ready terrain-screening release is not an independently validated planetary analog model."
+            "note": "Ranking readiness requires a complete, failure-free provider land-tile inventory scan and verified core-only order. It is not an independently validated planetary analog model."
         },
         "completion_contract": {
             "global_land_tile_inventory_total": inventory_total,
