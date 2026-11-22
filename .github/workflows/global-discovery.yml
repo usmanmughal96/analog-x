@@ -29,10 +29,8 @@ permissions:
   actions: read
 
 concurrency:
-  group: analogx-global-discovery-release-v3
-  cancel-in-progress: true
-
-# Pull requests run contract tests only; the full inventory scan runs on release events.
+  group: ${{ github.event_name == 'pull_request' && format('analogx-pr-{0}-{1}', github.workflow, github.event.pull_request.number) || 'analogx-science-data-publish' }}
+  cancel-in-progress: false
 jobs:
   tests:
     name: Fast scientific contracts and unit tests
