@@ -90,12 +90,12 @@ class Lunar5mSourceValidationTests(unittest.TestCase):
 
 
     def test_uncertainty_mask_rejects_nodata_and_nonfinite(self):
-        values = np.array([[0.2, 0.0], [np.nan, 0.5]], dtype=float)
+        values = np.array([[0.2, 0.0], [np.nan, -0.1]], dtype=float)
         mask = source.valid_uncertainty_mask(values, nodata=0.0)
         self.assertTrue(mask[0, 0])
         self.assertFalse(mask[0, 1])
         self.assertFalse(mask[1, 0])
-        self.assertTrue(mask[1, 1])
+        self.assertFalse(mask[1, 1])
 
     def test_all_lola_uncertainty_products_must_share_grid(self):
         class Dataset:
