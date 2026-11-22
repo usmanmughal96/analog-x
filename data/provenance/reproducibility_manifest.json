@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-22T20:55:36+00:00",
-  "repository_commit_before_manifest_commit": "422a02289a72ea0b20c6af709be1c0019812f1b4",
+  "generated_at_utc": "2026-11-22T20:57:54+00:00",
+  "repository_commit_before_manifest_commit": "89bed7cc939f99e786c808bb42e06255dd3a567b",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -37,8 +37,8 @@
       "manifest.webmanifest"
     ]
   },
-  "file_count": 216,
-  "source_registry_sha256": "f5975e2a681ea76dc8b8c540bc3725179579b2bd94baf212ba3fefa63fa04b0d",
+  "file_count": 219,
+  "source_registry_sha256": "1fcf6bbd533393e42c812165968c888c102e33e73396d03075677c010c726378",
   "source_registry_records": [
     {
       "id": "copernicus_glo30_regional",
@@ -186,11 +186,14 @@
       "url": "https://pds-geosciences.wustl.edu/missions/lro/",
       "doi_or_identifier": null,
       "artifacts": [
-        "data/moon/diviner_prp_diagnostic/report.json"
+        "data/moon/shackleton_diviner_prp.json",
+        "data/moon/shackleton_polar_evidence.json"
       ],
       "limitations": [
-        "Ice-depth fields remain withheld pending QA; no accessible-ice claim.",
-        "Historical model-derived summaries are not field measurements."
+        "Diviner PRP V2.0 is a historical model-derived thermal product, not an in-situ ice measurement.",
+        "The -999 sentinel is a censored model depth greater than 2.8738 m; it is not zero or a valid numeric depth.",
+        "Negative non-sentinel and above-threshold depths are excluded from valid-depth statistics and separately counted by QA.",
+        "A surface-stability classification does not establish ice abundance, concentration, purity, thickness, accessibility, extractability or reserves."
       ]
     },
     {
@@ -305,8 +308,8 @@
   "records": [
     {
       "path": "README.md",
-      "size_bytes": 17147,
-      "sha256": "b06dac1b3045ded3b094d534fd5a9e2b1faaa418963570184142843459fead05",
+      "size_bytes": 17179,
+      "sha256": "b03910478f691049fca6d1425d79de9296e3e7b9f10d85baa42e783c5331a3df",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -389,8 +392,8 @@
     },
     {
       "path": "data/global_discovery/global_discovery.json",
-      "size_bytes": 11284595,
-      "sha256": "cf58c846ff8915b0b4a4993386cb0edf7c5d6a777be49a8ade6a282106ef446f",
+      "size_bytes": 11285179,
+      "sha256": "d2635e39412f6a3fc78b534ef90ff40e777e142520f46ff9633cececf6bf3014",
       "evidence_class_hint": "global_discovery_output"
     },
     {
@@ -455,8 +458,8 @@
     },
     {
       "path": "data/moon/shackleton_diviner_prp.json",
-      "size_bytes": 12280,
-      "sha256": "9bb07ffd78a4afe39460f2f0ca6e7e2e74708c039093a8d881a076ceb0c9ddfc",
+      "size_bytes": 12919,
+      "sha256": "c3c11a081fef7f6b32feeb20b1b8d532dfb609fed048c85d87fb7e148b28ae92",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -851,8 +854,8 @@
     },
     {
       "path": "data/source_registry.json",
-      "size_bytes": 15799,
-      "sha256": "f5975e2a681ea76dc8b8c540bc3725179579b2bd94baf212ba3fefa63fa04b0d",
+      "size_bytes": 16181,
+      "sha256": "1fcf6bbd533393e42c812165968c888c102e33e73396d03075677c010c726378",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -940,6 +943,12 @@
       "evidence_class_hint": "processed_or_derived"
     },
     {
+      "path": "data/validation/independent_analog_label_validation.json",
+      "size_bytes": 2199,
+      "sha256": "d2b4823e74b36616ead6be136fa3bc53f1f9f388065f348e098144f3ea0edf17",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
       "path": "data/validation/independent_analog_labels.json",
       "size_bytes": 778,
       "sha256": "9a60a2480fc64b93e874c4b523c10f651d3835d280a6c7b445f01dd39b15f1c7",
@@ -953,8 +962,8 @@
     },
     {
       "path": "data/validation/quantitative_validation.json",
-      "size_bytes": 11777,
-      "sha256": "97d4e8aaa8e1cb3f6bc9c07c270f2c6cdbe660e5b86937697d60f59b8e54e294",
+      "size_bytes": 13877,
+      "sha256": "ee12e750ad426fd65dbc3e1cdb100d6a7653efe6e328c78b329e1dbb72c801dd",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -1157,8 +1166,8 @@
     },
     {
       "path": "scripts/validate_analog_labels.py",
-      "size_bytes": 6457,
-      "sha256": "6f8b1ab2bb70bdca74228922daebb04cd2474d383f86483876056292bb41a0d3",
+      "size_bytes": 9144,
+      "sha256": "1a8fcf2b904f41f76ab363d82066f1112c202a1c02dd7f25d1984a1ff98a2be0",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1183,6 +1192,12 @@
       "path": "scripts/validate_project.mjs",
       "size_bytes": 10436,
       "sha256": "cfe469feb254e0e8d74eee25247b9ef9780cae4274d63d79842ae5fbdacb66af",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/verify_global_ranking_release.py",
+      "size_bytes": 3850,
+      "sha256": "594fa4d9b20758bab37c49c5cf9779f9602c7650439aab4f118a7c5a19d43eda",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1271,8 +1286,8 @@
     },
     {
       "path": "docs/GLOBAL_DISCOVERY_AND_VALIDATION.md",
-      "size_bytes": 15391,
-      "sha256": "38e6652a4be49ab3d8232aea6a4a5bd99838b6ac899ad304223bdca8a51f8897",
+      "size_bytes": 17932,
+      "sha256": "a9c940ebc59f148ffa6cf13cbc073776939c0e2374f8078bdd2f03b86dda7a58",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1367,8 +1382,8 @@
     },
     {
       "path": ".github/workflows/build-lunar-resource-profile.yml",
-      "size_bytes": 1099,
-      "sha256": "bef2c67e53f957842611693dec46485b63cf8600645663340c78937d1f28763a",
+      "size_bytes": 1251,
+      "sha256": "2632e946d5435e3bab3cbd2afb6dbba5663ac378408655ade5c42328df5f71cb",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1444,6 +1459,12 @@
       "evidence_class_hint": "method_or_documentation"
     },
     {
+      "path": ".github/workflows/global-ranking-release.yml",
+      "size_bytes": 1445,
+      "sha256": "c396ce9d2488bfcc2f76bd8c7cbea943a46c7c9a4e5f13b2c164a40907143376",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
       "path": ".github/workflows/pages.yml",
       "size_bytes": 3018,
       "sha256": "57cf6b4cbbc8fae64d64614e5e29d63a1168f6360f298c83a803f5050520d90b",
@@ -1457,8 +1478,8 @@
     },
     {
       "path": "tests/test_analog_label_validation.py",
-      "size_bytes": 1491,
-      "sha256": "65999948ca7c18a0724e310b065e62a6762801a508b69ae8c11323dbde872dab",
+      "size_bytes": 2359,
+      "sha256": "4220bb597d8eef86ed99df95e8c4fd5d79ec22296f0c3d68ce8a7050b638ccdc",
       "evidence_class_hint": "method_or_documentation"
     },
     {
