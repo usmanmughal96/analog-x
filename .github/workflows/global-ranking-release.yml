@@ -20,7 +20,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: analogx-global-ranking-contract
+  group: analogx-science-data-publish
   cancel-in-progress: false
 jobs:
   scientific-tests:
