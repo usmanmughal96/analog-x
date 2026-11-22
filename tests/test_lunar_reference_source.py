@@ -58,6 +58,25 @@ class Lunar5mSourceValidationTests(unittest.TestCase):
         self.assertFalse(count_valid[0, 1])
         self.assertFalse(positive[0, 1])
 
+
+    def test_json_safe_converts_non_finite_raster_metadata_to_null(self):
+        payload = {
+            "nodata": float("nan"),
+            "positive_infinity": float("inf"),
+            "negative_infinity": float("-inf"),
+            "numpy_value": np.float32(np.nan),
+            "nested": [1.25, None, {"finite": np.float64(2.5)}],
+        }
+        safe = source.json_safe(payload)
+        self.assertIsNone(safe["nodata"])
+        self.assertIsNone(safe["positive_infinity"])
+        self.assertIsNone(safe["negative_infinity"])
+        self.assertIsNone(safe["numpy_value"])
+        self.assertEqual(safe["nested"], [1.25, None, {"finite": 2.5}])
+        # The exact same strict encoder used by the build must accept the output.
+        encoded = __import__("json").dumps(safe, allow_nan=False)
+        self.assertIn('"nodata": null', encoded)
+
     def test_rejects_misaligned_lola_arrays(self):
         with self.assertRaisesRegex(ValueError, "share one grid"):
             source.lola_support_masks(np.ones((2, 2)), np.ones((2, 3)), np.ones((2, 2)))
