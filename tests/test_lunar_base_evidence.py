@@ -55,7 +55,7 @@ class LunarBaseEvidenceRasterTests(unittest.TestCase):
                 self.assertEqual(image.size, (4, 4))
                 pixels = np.asarray(image)
                 self.assertGreater(int(pixels[2, 1]), int(pixels[0, 1]))
-                self.assertEqual(int(pixels[1, 2]), 0)
+                self.assertEqual(int(pixels[2, 3]), 0)
 
     def test_make_preview_rejects_insufficient_valid_cells(self):
         with self.assertRaises(RuntimeError):
