@@ -437,6 +437,33 @@ def process_wac_product(name: str, url: str) -> tuple[dict, np.ndarray]:
         return summary, preview
 
 
+
+def make_preview(values: np.ndarray) -> None:
+    """Write a grayscale browse preview of WAC illumination percentages.
+
+    This is a visualization only: percent values are linearly stretched between
+    the valid 2nd and 98th percentiles for display. It is not a calibrated
+    engineering illumination map and does not alter the numerical JSON output.
+    """
+    array = np.asarray(values, dtype=np.float64)
+    valid = np.isfinite(array) & (array >= 0.0) & (array <= 100.0)
+    if int(valid.sum()) < 10:
+        raise RuntimeError(
+            f"Too few valid illumination cells to render a preview: {int(valid.sum())}"
+        )
+
+    low, high = np.percentile(array[valid], [2, 98])
+    preview = np.zeros(array.shape, dtype=np.uint8)
+    if high > low:
+        scaled = np.clip((array[valid] - low) / (high - low), 0.0, 1.0)
+        preview[valid] = np.round(scaled * 255.0).astype(np.uint8)
+    else:
+        preview[valid] = 128
+
+    PREVIEW_PATH.parent.mkdir(parents=True, exist_ok=True)
+    Image.fromarray(preview, mode="L").save(PREVIEW_PATH, optimize=True)
+
+
 def main() -> None:
     DIAG_DIR.mkdir(parents=True, exist_ok=True)
     print("Streaming NASA Diviner south-polar resource product…", flush=True)
