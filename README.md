@@ -1,245 +1,204 @@
-# ANALOG-X — Pakistan Analog Evidence Operations
+# ANALOG-X
+### Experiment-Level Planetary Analog Discovery, Transferability & Failure Intelligence
+
+**A Pakistan-first, open-data research and field-readiness platform for testing what Earth environments can teach us about operating on the Moon and Mars.**
+
+[![GitHub Pages](https://github.com/usmanmughal96/analog-x/actions/workflows/pages.yml/badge.svg?branch=main)](https://github.com/usmanmughal96/analog-x/actions/workflows/pages.yml)
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 **NASA Space Apps Challenge 2026** · Team **X Æ A-Xii** · Participant **Muhammad Usman Mughal**
 
-## Live project
-- Evidence Operations console: https://usmanmughal96.github.io/analog-x/
-- Seven-slide project demo: https://usmanmughal96.github.io/analog-x/demo.html
-- Source repository: https://github.com/usmanmughal96/analog-x
+---
 
-## What the product does
-ANALOG-X is a Pakistan-first evidence and field-readiness atlas for candidate terrestrial environments relevant to Moon/Mars exploration fieldwork.
+## Explore ANALOG-X
 
-The console now covers ten Earth study/reference windows: four Pakistan field leads (Koh-i-Sultan, Hispar Glacier, Chagai small salt playas and Hamun-i-Mashkel) plus six global reference environments (Dallol, Atacama, McMurdo Dry Valleys, Haughton, Iceland and Death Valley).
+| Experience | What it offers |
+|---|---|
+| [Evidence Operations Console](https://usmanmughal96.github.io/analog-x/) | Main map-led project workspace and candidate atlas |
+| [Seven-slide demo](https://usmanmughal96.github.io/analog-x/demo.html) | Short project walkthrough |
+| [ATFA Science Module](https://usmanmughal96.github.io/analog-x/transferability.html) | Experiment-level transferability and analogy-failure analysis |
+| [Regional Discovery Scan](https://usmanmughal96.github.io/analog-x/discovery.html) | Local terrain-window comparison within the ten curated Earth regions |
+| [Global Discovery Engine](https://usmanmughal96.github.io/analog-x/global-discovery.html) | Worldwide Copernicus GLO-90 land-inventory screening |
+| [Pakistan Field Validation Kit](https://usmanmughal96.github.io/analog-x/field-validation.html) | Offline-first field protocols, stations and observation capture |
+| [Source repository](https://github.com/usmanmughal96/analog-x) | Code, datasets, tests, methods and provenance |
 
-1. **Chagai small salt playas near Nok Kundi** — an under-characterized evaporite/playa-process lead grounded in a 1974 NASA technical report that identifies two small salt-surfaced playas. Its coordinates and bounding box are screening references, not a surveyed polygon.
-2. **Hamun-i-Mashkel / Kharan Basin** — a regional closed-basin/intermittent-playa process candidate. Its point and AOI remain approximate; basin-scale hydrology needs current verification.
-3. **Koh-i-Sultan / Chagai** — a documented Pleistocene volcanic field for volcanic/hydrothermal reconnaissance, alteration mapping and remote-sensing-to-ground validation. USGS maps agglomerate, tuff and andesitic lava; it is not a basaltic composition match for Mars.
-4. **Hispar Glacier / Karakoram** — a cryosphere case study for ice/debris interpretation and cold-region field-method rehearsal, using EvK2CNR's existing glacier inventory as a prior baseline.
+## The mission
 
-The console combines NASA POWER climatology, Sentinel-2 scene discovery and spectral-context screens, true-colour previews, Copernicus DEM terrain descriptors, Moon/Mars reference profiles, institutional baselines and explicit data gaps. The two playa areas are research leads—not confirmed mineral/brine deposits or validated new-to-science analogs. No site is presented as a complete Moon/Mars analog.
+Choosing a terrestrial analog is not simply a matter of finding a landscape that looks like the Moon or Mars. A useful analog depends on the **specific experiment, physical process or operational procedure** being rehearsed—and on understanding exactly where that comparison breaks down.
 
-### Mission Rehearsal Lab and evidence decision layer
-The Mission Rehearsal Lab compares regional terrain descriptors for selected Earth sites against **Shackleton Rim (Moon)** and **Nili Patera (Mars)** separately. It reports median slope, P90 slope and P90 3×3 local relief at approximately common 925 m support, plus absolute differences and the closest Earth profile on each descriptor. The app also derives three low-precipitation months from NASA POWER climatology and provides task-specific protocols and equipment checklists. These are planning signals, not forecasts or safe-access guarantees.
+ANALOG-X is built around five questions:
 
-The Agent Bay adds a wider **10-site candidate decision engine**. It reads each site's documented rehearsal tasks and environment tags, filters by Moon/Mars eligibility, and displays four separate evidence layers: NASA POWER, Sentinel-2 spectral context, processed terrain and source references. Strict mode requires mission eligibility, a documented task overlap, a traceable source, NASA POWER and at least one site-specific Sentinel-2 or processed terrain layer. Exploratory mode surfaces weaker environmental-context leads with their limits. The ordering is a transparent research-triage rule, not a calibrated similarity score or probability. Ties remain ties.
+1. What can a mission team realistically rehearse at this Earth site?
+2. Which observations and source products support that claim?
+3. Which planetary conditions make the analogy incomplete or invalid?
+4. What measurement or field validation is still needed?
+5. Can another researcher trace the result back to its data, method and limitations?
 
-The two systems intentionally do **not** collapse unlike measurements into a universal Earth-to-Moon/Mars percentage. A numerically closer terrain descriptor does not prove matching geology, surface material, rover trafficability, landing safety, ice access or complete planetary analogy. The ~925 m products support regional reconnaissance only; rover-scale work requires higher-resolution data and independent validation. The interactive Field School adds persistent learning XP for the quiz; XP has no effect on the scientific decision.
+The system deliberately separates measured data, browse imagery, catalogue metadata, institutional references, planned integrations and field observations. It does not present a universal Earth-to-Moon/Mars similarity percentage.
 
+## What is implemented
 
-## Discovery Atlas and Agentic Science Operations
+### 1. A Pakistan-first Earth study network
 
-The live portal includes a map-led candidate atlas with ten curated Earth seeds. It separates **under-characterized candidate leads** (the two Balochistan playa study windows) from established Pakistan and global references. This is a documented seed set, not an exhaustive global scan.
+The atlas combines ten curated environments:
 
-The Agent Bay has four deterministic evidence specialists: terrain morphology, climate/campaign planning, surface spectral context and evidence integrity. Its offline review runs without an LLM/API key and exports a JSON decision brief. The cloud Mission Director is optional; it is not a dependency for core assessments. The Worker source and deployment instructions are in docs/AGENTIC_AI_SETUP.md. Model output is not a measurement or validation result.
+- **Pakistan field leads:** Chagai small salt playas near Nok Kundi, Hamun-i-Mashkel / Kharan Basin, Koh-i-Sultan and Hispar Glacier.
+- **Global reference environments:** Dallol, Atacama, McMurdo Dry Valleys, Haughton impact structure, Iceland and Death Valley.
 
-The four-stage Field School simulator teaches playa/evaporite, volcanic mapping, lunar cryosphere and terrain-data-quality decisions. Its learning XP is browser-local and does not affect scientific ranking. A completed scenario can be sent straight into the offline Mission Director for evidence review.
+The Pakistan locations are under-characterized research leads, not confirmed new analog discoveries or validated mineral/brine deposits. Coordinates and study windows are screening references; they are not surveyed field boundaries.
 
-## Live web layers and offline resilience
+### 2. Analog Transferability & Failure Analysis (ATFA)
 
-The main console now prefers a real interactive Leaflet map. It uses standard OpenStreetMap streets as its free default basemap, and exposes NASA GIBS VIIRS corrected-reflectance true-colour imagery as an optional dated WMS overlay. Study-site markers use the curated WGS84 coordinates already stored in the science pack.
+ATFA changes the unit of comparison from whole-site resemblance to a named experiment or physical process. Each pathway records the Earth rehearsal opportunity, why the environment is relevant, where transfer fails, what evidence supports the claim and what should be measured next.
 
-The climate panel attempts a browser-side NASA POWER Daily Point API request for the selected site, using the latest 30-day window ending three days before the current date to reduce near-real-time data-latency issues. It reports the returned period explicitly and labels the values as a 30-day daily mean. If the live request fails, the console retains the committed NASA POWER climatology snapshot and all existing local science assets.
+Transferability classes are transparent, expert-authored research rules. They are not model probabilities, calibrated scientific accuracy or NASA certification.
 
-The map itself degrades to the built-in schematic SVG locator if the Leaflet CDN fails or the live basemap cannot load its tiles. The offline locator is deliberately labelled as schematic and is not presented as a geospatial basemap. Live map tiles and NASA imagery require an internet connection; the science pack, saved terrain profiles, quicklooks and offline tools remain local.
+### 3. Mission Rehearsal Lab and evidence decision layer
 
-## Verified integrations
+The Mission Rehearsal Lab compares selected Earth terrain descriptors with two planetary reference areas:
 
-### NASA POWER
-Server-side GitHub Actions fetch the public NASA POWER Climatology API for ten coordinates: Koh-i-Sultan, Hispar Glacier, Chagai small salt playas, Hamun-i-Mashkel, Dallol, Atacama, McMurdo Dry Valleys, Haughton impact structure, Iceland and Death Valley.
+- **Moon:** Shackleton Rim, using NASA LRO LOLA products.
+- **Mars:** Nili Patera, using MOLA MEGDR topography.
 
-Variables include T2M, T2M_MAX, T2M_MIN, RH2M, WS10M, PRECTOTCORR and ALLSKY_SFC_SW_DWN. The current committed index has ten records and no failed sites. Records include original source response, request URL, community, timestamps, monthly values, metrics and missing-parameter information.
+The common-support terrain comparison uses approximately 925 m grids and reports median slope, P90 slope and P90 3×3 local relief, with absolute differences. These are regional reconnaissance descriptors. They do not prove geological equivalence, surface-material similarity, rover trafficability, landing safety or resource access.
 
-NASA POWER is gridded climatology, not a ground weather station.
+The Agent Bay separates mission/task eligibility from four evidence layers: NASA POWER climate context, Sentinel-2 spectral context, processed terrain and source references. Its deterministic review works without an LLM or API key. An optional cloud Mission Director can provide an additional tool-using review; model output is not a measurement.
 
-### Microsoft Planetary Computer / Sentinel-2 L2A
-The anonymous STAC API is queried for ten Earth study/reference windows: four Pakistan field leads plus Dallol, Atacama, McMurdo Dry Valleys, Haughton, Iceland and Death Valley. The pipeline records acquisition date, platform, cloud fraction, MGRS tile and asset provenance, then obtains a public SAS token and clips 768×768 true-colour previews from COG assets.
+### 4. Regional and global terrain discovery
 
-Current previews:
-- data/pakistan/quicklooks/koh_i_sultan.png
-- data/pakistan/quicklooks/hispar_glacier.png
-- data/pakistan/quicklooks/chagai_small_playas.png
-- data/pakistan/quicklooks/hamun_i_mashkel.png
+The [Regional Discovery Scan](https://usmanmughal96.github.io/analog-x/discovery.html) divides the ten existing Earth DEM regions into approximately 5.55 km windows at approximately 925 m terrain support. The committed regional run contains:
 
-This is RGB visual evidence, not mineral classification or field validation. Copernicus Sentinel data terms apply.
+| Input | Valid windows |
+|---|---:|
+| Ten curated Earth regions | 7,290 |
+| Shackleton Rim | 729 |
+| Nili Patera | 21 |
 
-### NASA Earthdata / CMR discovery
+A 500-draw deterministic weight-sensitivity diagnostic shows how shortlist placement changes under alternative terrain-feature weights. Overlapping windows are spatially dependent; the index is a terrain-screening aid, not a probability, field truth or planetary analog verdict. This regional scan does not expand the geographic coverage of its ten source regions.
 
-The public NASA Common Metadata Repository API is queried for Terra/Aqua MODIS land-surface-temperature collections, MODIS land cover and MERRA-2 aerosol diagnostics. Ten MOD11A2 granule metadata records were discovered for each Pakistan study box, and one October 2026 global MERRA-2 aerosol granule record was discovered. These are catalogue records only: protected LP DAAC/GES DISC data have not yet been downloaded or decoded, and the MERRA-2 granule is global rather than site-clipped.
+The separate [Global Discovery Engine](https://usmanmughal96.github.io/analog-x/global-discovery.html) processes the public Copernicus DEM GLO-90 land-tile inventory using 24 longitude shards. Its previous completed inventory release processed 26,475 of 26,475 land tiles, with zero reported tile failures, and evaluated 5,852,396 terrain windows. Ocean coverage is not implied.
 
-### Copernicus DEM GLO-30 + NASA MOLA MEGDR 64 ppd
-The project computes coarse matched-support terrain profiles for up to ten Earth windows where Copernicus GLO-30 tiles are available, plus Nili Patera on Mars. Shackleton Rim has a separate LOLA terrain profile aggregated to the same nominal support.
+**Global ranking release status:** the latest quantitative-validation artifact currently reports `ranking_ready = false` because the saved shortlist does not yet satisfy the required ranking-contract gate. The full-inventory baseline above is a completed prior release; the refreshed core-only shortlist must pass the current 24-shard aggregation and validation workflow before its ranks should be treated as current. See [Global Discovery & Quantitative Validation](docs/GLOBAL_DISCOVERY_AND_VALIDATION.md).
 
-Earth Copernicus DEM GLO-30 DSM tiles are mosaicked across neighbouring one-degree tiles, reprojected to local UTM and averaged to approximately 925 m. Mars MOLA MEGDR topography and observation-count rasters at 64 pixels/degree are cropped around Nili Patera. Slope and 3×3 local relief are calculated on approximately comparable support.
+### 5. Field Evidence Passport and Pakistan Field Validation Kit
 
-Current terrain output:
-- data/terrain/terrain_comparison.json
-- data/terrain/koh_i_sultan_copdem_hillshade.png
-- data/terrain/hispar_glacier_copdem_hillshade.png
-- data/terrain/chagai_small_playas_copdem_hillshade.png
-- data/terrain/hamun_i_mashkel_copdem_hillshade.png
-- data/terrain/nili_patera_mola_hillshade.png
+The Field Evidence Passport helps define a site-specific field experiment, inspect independent evidence layers, identify unsupported claims and export a proposed protocol.
 
-**Coverage caveat:** the selected Nili Patera MOLA window has 50.53% valid observed-cell coverage (567/1,122 cells) and 87 complete 3×3 neighborhoods. The app flags this as limited coverage. The results are coarse terrain descriptors—not a geological-equivalence score, rover safety assessment or landing suitability rating. Absolute elevation is not compared across different vertical datums. Earth DSM is not bare-earth elevation.
+The offline-first Field Validation Kit supports station plans and user-entered GNSS observations, methods, instruments, uncertainty, notes and optional photos. Records remain in the browser until a user exports them. The committed observation ledger is currently empty: **no physical field observations or independent field validation are claimed.**
 
-### NASA LRO LOLA / Shackleton Rim
+### 6. Offline-first operation and optional services
 
-A public NASA LRO LOLA PDS GDR 80 m south-polar elevation grid (LDEM_80S_80M) and matching observation-count grid (LDEC_80S_80M) are processed around Shackleton Rim. The 29.6 × 29.6 km window contains 90,000 native cells; the interpolated elevation surface is valid throughout, and 89,996 cells have positive laser-return counts. The DEM is also averaged to 32 × 32 cells at approximately 925 m support so the coarse terrain profile can be compared with the Earth/Mars profiles.
+The public GitHub Pages application is a static web app. After its first connected visit and cache setup, the core science pack, deterministic Mission Director, Field School, Field Evidence Passport and local field notebook can operate offline on the same browser/device.
 
-At ~925 m support the Shackleton window has median slope 13.40°, P90 slope 30.94°, and P90 3×3 local relief 1,391 m (the relief statistic spans a ~2.775 km footprint). These values describe a rugged selected rim window; they do not establish suitability for landing or a permanent base.
+Optional deployment paths are included but are not required for the core experience:
 
-The original PGDA 5 m Site04 files were inaccessible from the automated runner. The working 80 m products are read from NASA's LOLA PDS GDR mirror at MIT Imbrium. The surface DEM is interpolated, so LDEC counts are measurement support—not a mask for discarding interpolated elevation. Diviner PRP V2.0 has been processed for 6,823 Shackleton-window triangles: median annual average temperature at 2 cm depth is 103.786 K and median annual maximum surface temperature is 238.568 K. These are historical model-derived thermal summaries. The ice-depth field contains negative and -999 censored values and is withheld pending QA; no accessible-ice claim is made. Illumination / PSR mapping is not integrated.
+- **FastAPI + PostgreSQL:** self-hostable backend for shared field records and read-only science endpoints. GitHub Pages itself does not run a persistent API.
+- **Cloudflare Workers AI:** optional server-side Mission Director. Provider credentials stay server-side; the browser does not need an AI key for deterministic assessments.
 
-### NASA DSCOVR / EPIC
-The pipeline retrieves an optional full-disc natural-colour Earth image from the public GSFC EPIC endpoint. It is global context only and is not used in site-scale metrics. No api.nasa.gov key is required for this endpoint.
+Live basemaps, NASA imagery overlays and fresh remote-data requests require connectivity. When external map assets fail, the application retains its labelled schematic locator and local science assets.
 
-## Institutional and planetary evidence
-- **EvK2CNR:** Existing Pakistan Glacier Inventory: 13,032 glaciers, combined area 13,546.93 km². We acknowledge and link this prior work; the project does not claim to have discovered or remapped those glaciers. EvK2CNR has also published preliminary Pakistan glacial-lake inventory work.
-- **SUPARCO / UN-SPIDER:** Official remote-sensing and disaster-monitoring capabilities, recommended practices, DisasterWatch, NatCat and Space4Climate are documented as institutional context. The repository does **not** claim ingestion from SUPARCO SGSS / Space4Climate / DisasterWatch: a public machine-readable endpoint, product schema, AOI coverage and reuse licence have not been verified.
-- **NDMA:** Official hazard projections, disaster early warnings and the 2026 Vulnerable Glaciers and Glacial Lakes Atlas listing are linked as existing institutional work. No redistributable geospatial layer has yet been ingested.
-- **NASA LRO LOLA + Diviner:** An 80 m south-polar LDEM and matched LDEC count map are processed around Shackleton Rim. Diviner PRP V2.0 temperature fields are processed for 6,823 Shackleton-window triangles (median annual-average temperature at 2 cm: 103.786 K; median annual maximum surface temperature: 238.568 K). These are historical model-derived summaries. The ice-depth field contains negative and censored values requiring QA; no accessible-ice claim is made. Formal illumination / PSR mapping is not integrated.
-- **NASA Global Volcano Hazard Frequency:** Historical coarse grid is linked as context only; it is not current volcano alerting or site-scale geology.
+## Evidence and data integrations
 
-See `docs/AGENCY_DATA_AUDIT.md` for source status, `docs/DATA_SOURCES.md` for provenance, `docs/RESOURCE_INTEGRATION_MATRIX.md` for integration status, and `docs/COMPETITOR_METHOD_NOTES.md` for the public-method benchmark and source-code reuse record.
+| Source | Use in ANALOG-X | Evidence state / important limit |
+|---|---|---|
+| NASA POWER | Monthly/annual climate context for ten curated Earth sites and top retained global candidates | Processed gridded climatology, not local weather-station observations or forecasts |
+| Sentinel-2 L2A | Scene discovery, spectral-context screens and RGB quicklooks | Spectral screens are not mineral/brine classification; RGB previews are browse-only |
+| Copernicus DEM GLO-30 | Higher-detail terrain context for the ten curated Earth regions | Digital surface model; selected-site processing, not a complete global GLO-30 layer |
+| Copernicus DEM GLO-90 | Global land-tile terrain screening | 90 m nominal DSM resampled to local metric grids; current ranking release remains subject to its validation gate |
+| NASA LRO LOLA | 80 m south-polar context and a separate 5 m Shackleton Rim site product | Interpolated terrain validity and direct laser-return support are reported separately |
+| NASA MOLA MEGDR | Nili Patera reference terrain | Selected reference window has limited observed-cell coverage |
+| NASA Diviner PRP V2.0 | Historical thermal summaries for 6,823 Shackleton-window triangles | Ice-depth values are withheld pending QA; no accessible-ice claim |
+| 2023 global land cover | Context for retained global shortlist windows | 2,391 of 2,400 unique retained windows processed in the latest validation artifact; not geology or field truth |
+| GLiM global lithology | Generalized lithology point context for retained candidates | 200 of 200 top-shortlist point queries returned features; not area-weighted geology or mineral identification |
+| NASA Earthdata CMR | MODIS and MERRA-2 collection/granule discovery | Metadata-only; the underlying science arrays have not been downloaded and decoded by this integration |
+| NASA DSCOVR / EPIC | Optional full-disc Earth image | Global visual context only, not a site-scale metric |
 
-## What is differentiated
-Other public 2026 challenge entries already demonstrate analog ranking, mission-to-experiment planning and topographic/lighting comparisons. ANALOG-X does not claim those broad ideas are globally unsolved.
+The authoritative status for each source is maintained in [data/source_registry.json](data/source_registry.json). Source descriptions, access routes, licences and caveats are documented in [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md) and [docs/AGENCY_DATA_AUDIT.md](docs/AGENCY_DATA_AUDIT.md).
 
-Our contribution is a Pakistan-first, open-data evidence workflow with a reusable global seed atlas:
-- NASA POWER climatology for ten Earth coordinates;
-- Sentinel-2 L2A scene discovery, spectral-context screening and RGB quicklooks across ten Earth study/reference windows;
-- Copernicus DEM GLO-30 terrain profiles for all ten Earth study/reference windows in the current processing run, compared at coarse support with Mars MOLA and lunar LOLA;
-- a reproducible 5.55 km regional-window scan of the ten existing Earth grids (7,290 valid Earth windows), with lunar/Martian reference windows and 500-draw weight-sensitivity diagnostics; this is a regional scan, not global coverage;
-- explicit MOLA observed-cell coverage and LOLA return-count / interpolation caveats;
-- a mission-specific candidate decision layer that distinguishes documented task overlap, environmental context and four independent evidence layers;
-- an offline coordinate-proximity Scout over ten curated candidate/reference points (not an exhaustive global cell search or fresh-data API);
-- transparent attribution of existing EvK2CNR, NDMA, SUPARCO/UN-SPIDER and NASA source material;
-- field protocols, equipment planning, next measurements and explicit planetary non-transferability limits.
+## Latest verified evidence snapshot
 
-The ten-site atlas is a curated starting set—not an exhaustive global scan. The two Chagai playa study windows are under-characterized research leads, not newly discovered or validated mineral/evaporite deposits.
+The latest committed validation and lunar-reference products used for this README were generated on **22 November 2026**.
 
-No single universal cross-domain analog score is calculated. The new regional scanner exposes a separate terrain-only screening index, with its scope and limitations stated explicitly.
+- **Regional scan:** 7,290 Earth windows, 729 Shackleton windows and 21 Nili Patera windows.
+- **Global land-inventory baseline:** 26,475 Copernicus GLO-90 land tiles processed, zero reported tile failures and 5,852,396 terrain windows evaluated in the previous completed release. The newer shortlist release remains not ranking-ready until its refreshed artifact passes the ranking-contract gate.
+- **Global shortlist context:** 2,391 / 2,400 retained windows have 2023 land-cover enrichment; NASA POWER climatology covers 200 / 200 unique top-100-per-target candidate coordinates; GLiM returned generalized lithology features for 200 / 200 retained candidate points. The latter two are contextual enrichment layers, not independent analog validation.
+- **Shackleton Rim 5 m LOLA:** the PGDA Site04 elevation, count and slope products are processed on a 3,200 × 3,200 grid (10,240,000 pixels). The interpolated terrain surface is valid across the grid; positive direct-return pixels cover 9.154%. A zero direct-return count does not invalidate an interpolated elevation cell.
+- **Independent analog labels:** awaiting independently sourced and reviewed positive/negative reference labels. No AUC, accuracy or calibrated ranking performance is claimed.
+- **Field validation:** the observation ledger remains empty until physical measurements are collected and reviewed.
 
+The machine-readable snapshot is [data/validation/quantitative_validation.json](data/validation/quantitative_validation.json); the LOLA processing summary is [data/moon/shackleton_rim_lola.json](data/moon/shackleton_rim_lola.json). Counts and evidence states can change when scheduled or manually triggered pipelines publish new outputs.
 
-## Field Evidence Passport / offline differentiator
+## Scientific guardrails
 
-The Field Evidence Passport is the Pakistan-first field-validation feature. Select an Earth candidate, Moon/Mars target and named field experiment; inspect six independent evidence layers; stress-test claims that are not supported; and export a site-specific proposed protocol. It does not create a planetary similarity percentage or certify mineral resources, accessible ice, landing safety or rover trafficability.
+ANALOG-X is a research and field-planning system, not an operational mission-safety tool.
 
-The local field notebook stores user-entered GNSS station observations, methods, notes and optional photos in browser IndexedDB. Records can be exported/imported as JSON, CSV or GeoJSON. The service worker caches the app shell and published science pack after the first connected visit. The ten-seed Coordinate Scout measures proximity to bundled candidate/reference points; it is not an exhaustive global raster search.
+- A curated ten-site atlas is not an exhaustive global search.
+- The Chagai and Hamun-i-Mashkel study windows are approximate screening areas, not surveyed or field-validated playas.
+- Terrain descriptors at approximately 925 m support cannot resolve rover-scale hazards or field-scale obstacles.
+- Earth DSM products include surface objects and are not bare-earth elevation.
+- The selected Nili Patera MOLA window has limited observed-cell coverage; the application exposes this limitation.
+- The 5 m Shackleton LOLA DEM is interpolated. Direct return counts are a separate support indicator. These data alone do not establish illumination, permanent shadow, water-ice abundance, landing suitability or engineering safety.
+- Diviner ice-depth values remain withheld pending QA; formal illumination / PSR mapping is not integrated.
+- Catalogue discovery and browse imagery are not equivalent to downloading, decoding and validating science arrays.
+- Field access, permissions, safety review, ground measurements and independent scientific review remain necessary.
 
-## Offline use and optional backend
+See [docs/LIMITATIONS.md](docs/LIMITATIONS.md) for the expanded limitation register.
 
-Open the live portal once while connected, allow the offline pack to cache, then reopen it from the same browser/device. The deterministic Mission Director, terrain profiles, Field School, Field Evidence Passport, local candidate-proximity Scout and station-record exports do not require a cloud LLM or live NASA API. See [Offline & Backend Setup](docs/OFFLINE_AND_BACKEND.md).
+## Reproducibility, validation and automated workflows
 
-GitHub Pages is static hosting and cannot run a persistent API. The repository includes a self-hostable FastAPI service with PostgreSQL support, Dockerfile and Compose configuration for shared field-record storage. It is an optional deployment path, not a publicly provisioned live backend in this release. The offline browser notebook remains usable without it.
+ANALOG-X keeps methods, source states, generated products and validation outputs in the repository:
 
-## Run the data pipelines
-NASA POWER:
-    python -m pip install --upgrade requests
-    python scripts/fetch_nasa_power.py
+- [data/source_registry.json](data/source_registry.json) — canonical source and evidence states.
+- [data/validation/](data/validation/) — quantitative checks, independent-label status and NASADEM cross-check outputs.
+- [data/provenance/reproducibility_manifest.json](data/provenance/reproducibility_manifest.json) — generated SHA-256 file inventory and build context.
+- [tests/](tests/) — scientific contracts, parsers, data validation and regression tests.
+- [scripts/](scripts/) and [science/](science/) — reproducible source ingestion and analysis.
+- [.github/workflows/](.github/workflows/) — scheduled, push-triggered and manual processing pipelines.
 
-Scene discovery and Sentinel-2 previews:
-    python -m pip install --upgrade requests rasterio pillow numpy
-    python scripts/fetch_public_evidence.py
-    python scripts/build_scene_quicklooks.py
+Generated-data publishing is centralised through [scripts/commit_generated_data.sh](scripts/commit_generated_data.sh). It stages only declared output paths, skips no-op updates, retries non-conflicting rebases and stops rather than automatically resolving scientific-data conflicts. Data-refresh concurrency is scoped by workflow so unrelated jobs do not cancel one another.
 
-Terrain comparison and regional window scan:
-    python -m pip install --upgrade requests rasterio pillow numpy scipy
-    python scripts/build_terrain_comparison.py
-    python science/build_regional_window_scan.py
+Useful entry points:
+- [Algorithm and decision engine](docs/ALGORITHM.md)
+- [Methodology](docs/METHODOLOGY.md)
+- [Global discovery and validation](docs/GLOBAL_DISCOVERY_AND_VALIDATION.md)
+- [Regional window scan](docs/REGIONAL_WINDOW_SCAN.md)
+- [Independent label validation protocol](docs/INDEPENDENT_LABEL_VALIDATION_PROTOCOL.md)
+- [Offline and backend setup](docs/OFFLINE_AND_BACKEND.md)
+- [Agent API setup](docs/AGENTIC_AI_SETUP.md)
+- [NASA Space Apps submission brief](docs/CHALLENGE_SUBMISSION_BRIEF.md)
+- [Competitive capability benchmark](docs/COMPETITIVE_CAPABILITY_RESPONSE.md)
 
-Optional NASA EPIC global image:
-    python scripts/fetch_nasa_epic.py
+## Run locally
 
-Automated workflows:
-- .github/workflows/fetch-nasa-power.yml
-- .github/workflows/fetch-public-evidence.yml
-- .github/workflows/build-terrain-comparison.yml
+The main console is a static site. Python is sufficient to serve it locally:
 
-The data workflows share a concurrency lock and rebase before pushing to avoid interrupted commits. Weekly source refresh is configured where appropriate.
+```bash
+git clone https://github.com/usmanmughal96/analog-x.git
+cd analog-x
+python -m http.server 8000
+```
 
-## Credentials
-The current NASA POWER, NASA GIBS, Microsoft Planetary Computer STAC/SAS and direct NASA EPIC workflows do not need an api.nasa.gov key. A NASA API key pasted into a chat should be considered exposed and rotated before future use. Never commit a key or put it in browser JavaScript. See docs/DATA_ACCESS_AND_SECURITY.md.
+Open http://localhost:8000 in your browser. Live maps and remote imagery require internet access; the local science pack and offline tools are designed to remain available after the app has been cached once.
 
-## Limitations
-- Nili Patera MOLA observation coverage is 50.53% in the selected 30 km window and only 87 complete 3×3 neighborhoods remain for terrain derivatives.
-- 925 m terrain descriptors are too coarse for rover-scale hazards or field-scale obstacles.
-- USGS maps Koh-i-Sultan as agglomerate, tuff and andesitic lava; no basaltic equivalence with Syrtis Major is claimed. No site-scale mineral map or field samples are integrated.
-- No official EvK2CNR glacier shapefile is redistributed in this repository.
-- NDMA, SUPARCO DisasterWatch and Space4Climate are portal/reference status until data endpoints, access terms and product licences are verified.
-- Diviner PRP V2.0 has been streamed and processed for a 29.6 × 29.6 km analyst-defined Shackleton comparison window (6,823 triangles). The annual-average temperature-at-2-cm and annual-maximum surface-temperature summaries are available; the ice-depth field includes negative values and -999 censored values and is withheld from scientific interpretation pending QA. These values do not demonstrate exposed or accessible lunar ice. LOLA elevation is interpolated; its LDEC return-count support is reported separately. The Shackleton profile is terrain context, not a landing-safety or base-suitability assessment.
-- NASA Earthdata CMR discovery is not measurement ingestion; MODIS LST and MERRA-2 aerosol granules remain to be downloaded, QA-screened and decoded. NASA POWER is gridded climate context, not local instrumentation.
-- Chagai's historic playa coordinates and Hamun-i-Mashkel's point are not surveyed AOIs; verify current geomorphology, hydrology, land tenure and access before field use.
-- Hamun-i-Mashkel's spectral screen contains 109,692 valid pixels in a 1,108 × 99-cell 20 m grid; this is a narrow Sentinel-2 sample, not a basin-wide survey.
-- The playa terrain profiles describe 30 km windows at ~925 m support; they do not establish salt-crust thickness, bearing strength, brine, mineralogy or rover traversability.
-- Field access, permits, site-level geology and scientist review remain necessary.
+For the optional API, Docker-based FastAPI and PostgreSQL instructions are in [docs/OFFLINE_AND_BACKEND.md](docs/OFFLINE_AND_BACKEND.md). To deploy the optional Cloudflare Agent API, follow [docs/AGENTIC_AI_SETUP.md](docs/AGENTIC_AI_SETUP.md). Current public data integrations do not require an api.nasa.gov key. Never commit populated environment files or secrets.
 
-## Licence
-Original project code and text are MIT-licensed. NASA, Copernicus, Microsoft, USGS, EvK2CNR and other third-party products retain their original terms and attribution.
+## Repository map
 
+| Path | Purpose |
+|---|---|
+| `index.html`, `*.html` | Main console and interactive research views |
+| `assets/` | Frontend styles, scripts and icons |
+| `science/` | Transferability and regional analysis modules |
+| `scripts/` | Data ingestion, processing, validation and publication helpers |
+| `data/` | Source records, derived science products, validation and provenance |
+| `backend/` | Optional FastAPI / PostgreSQL service |
+| `agent-worker/` | Optional Cloudflare Workers AI service |
+| `tests/` | Regression and scientific contract tests |
+| `docs/` | Methods, source audits, deployment guides and research notes |
+| `.github/workflows/` | Automated data pipelines and deployment workflows |
 
-## New: Analog Transferability & Failure Analysis (ATFA)
+## Licence and attribution
 
-Open the interactive [ATFA science module](https://usmanmughal96.github.io/analog-x/transferability.html). It shifts the unit of analogy from whole-site resemblance to **specific field experiments and physical processes**: what can be rehearsed on Earth, where the analogy breaks, and what measurement is needed next.
+Original ANALOG-X code and project text are MIT-licensed. NASA, Copernicus, Microsoft Planetary Computer, USGS, GLiM, EvK2CNR and other third-party datasets retain their own licences, attribution requirements and reuse conditions. See [LICENSE](LICENSE) and the relevant source records before redistributing derived data.
 
-The module includes ten curated Earth study/reference sites, experiment-level transferability dossiers, explicit evidence-state auditing, lunar Shackleton / Mars Nili Patera reference context, a Leaflet map with OpenStreetMap and optional NASA GIBS imagery, Plotly evidence charts and a 3D site/pathway landscape. The 3D vertical axis is experiment-pathway count, not elevation or a similarity score.
-
-### New reproducible pipelines
-
-- `science/build_transferability.py` builds the ATFA site dossiers from the existing NASA POWER, Sentinel-2, Copernicus DEM, MOLA, LOLA and candidate catalogue outputs.
-- `science/build_regional_window_scan.py` derives matched-support 5.55 km regional windows, terrain-only Moon/Mars proximity indices and local rank-sensitivity outputs from the ten existing Earth DEM areas.
-- `scripts/fetch_pds_search.py` queries the public NASA PDS Search API for Nili Patera, MOLA, HiRISE, Shackleton, LOLA and Diviner product metadata.
-- `scripts/fetch_modis_browse.py` queries NASA CMR for MOD11A2 V061 8-day LST granules over ten Earth sites and downloads available public browse JPEGs.
-
-The weekly/manual GitHub Actions workflow validates the science pack and dashboard JavaScript, then commits generated metadata and browse assets. Browse JPEGs are tile-level visual context—not AOI-clipped or calibrated LST measurements. MODIS science HDF access and QA decoding remain separate. PDS metadata is discovery, not binary ingestion. See `docs/ANALOG_TRANSFERABILITY_AND_FAILURE_ANALYSIS.md`.
-
-### Regional terrain-window discovery
-
-Open the [Regional Discovery Scan](https://usmanmughal96.github.io/analog-x/discovery.html) to explore the newly generated sub-window shortlist. The current run derives **7,290 valid Earth windows** (729 in each of ten pre-selected 30 km areas), **729 Shackleton windows** and **21 valid Nili Patera windows**. Each window is approximately 5.55 km across and retains approximately 925 m terrain support. The shortlist also carries the matching ATFA site dossier: priority experiment, named rehearsal pathways, analogy breaks, next measurements and individual evidence-layer states. It displays a separate ~30 m Copernicus DSM roughness summary for each parent Earth region as higher-detail Earth context; that summary is not sub-window-specific, is not compared to planetary data and does not affect the terrain index.
-
-The displayed 0–100 terrain index is calculated from equal-weight IQR-normalized differences in median slope, P90 slope and P90 3×3 local relief. Every shortlist entry also exposes ATFA experiment context from the corresponding site dossier; these qualitative research pathways are not mixed into the numerical terrain calculation. A 500-draw deterministic weight-sensitivity analysis reports how often a window stays in the top decile of its own parent area. This is a regional screening and robustness aid—not a whole-Earth search, probability, confidence interval, geological analogue score or landing/mobility assessment. The matched Earth/Moon/Mars comparison remains at ~925 m support; an additional ~30 m Earth-only parent-area terrain diagnostic helps expose detail lost during aggregation but cannot resolve rover-scale hazards. The 30 m summary is not specific to each sub-window. Overlapping windows are spatially dependent; displayed coordinates are approximate map locators derived from nominal grid spacing, not surveyed coordinates. See `docs/REGIONAL_WINDOW_SCAN.md` for the method and interpretation.
-
-## Interactive views and backend
-
-The ATFA module includes a monthly NASA VIIRS true-colour time scrub/animation and a 3D site/pathway scatter view (z = authored experiment-pathway count, not elevation). The FastAPI service now exposes read-only ATFA, PDS metadata and MODIS provenance routes alongside the existing paginated field-notebook CRUD. `backend/smoke_test.py` exercises the science reads and temporary field-record create/list/delete flow in CI. The public GitHub Pages app remains fully usable without deploying the optional API.
-
-The 3D terrain-twin view renders source-derived ~925 m elevation grids from Copernicus DSM for the global Earth sites for all ten Earth sites, Mars MOLA and lunar LOLA, with each grid expressed relative to its own median elevation. It does not imply cross-body vertical registration or rover/landing safety.
-
-## NASA Space Apps submission material
-
-See [`docs/CHALLENGE_SUBMISSION_BRIEF.md`](docs/CHALLENGE_SUBMISSION_BRIEF.md) for the scientific narrative, current evidence, limitations and next validation steps.
-
-## Latest verified science snapshot (18 Nov 2026)
-
-- 10 Earth study/reference sites; 10 NASA POWER profiles.
-- 10/10 Copernicus DEM GLO-30 parent areas, each with a ~925 m common-support grid and a separate ~30 m Earth-only roughness summary (where valid coverage passes QA), plus Mars MOLA (33×34) and lunar LOLA (32×32) common-support grids.
-- 20 public NASA MOD11A2 browse JPEGs downloaded and indexed across the ten Earth sites. These are visual browse assets, not calibrated LST arrays.
-- 41 experiment pathways across nine tracks, including biosignature/contamination-control method rehearsal.
-- 500 unique PDS observational metadata records across six capped target/instrument queries; MOLA, LOLA and Diviner instrument queries returned records. The HiRISE target-filtered API query returned no relevant rows; its PDS RDR dataset profile is linked in the dashboard.
-- Regional terrain-window scan: 7,290 valid Earth sub-windows, 729 Shackleton windows and 21 Nili Patera windows; up to 30 spatially separated shortlist windows per target. The scan is confined to the ten existing parent regions.
-- FastAPI read endpoints and field-notebook create/list/delete behavior passed CI smoke tests. The public static site loads the science pack without requiring the optional API.
-
-## Scientific readiness and gap-closure work
-
-The five-track work is now split into verifiable completed processing and real-world tasks that remain open. The global Copernicus GLO-90 scan has processed all 26,475 tiles in the published land-tile inventory with zero tile failures and evaluated 5,852,396 terrain windows. It is a complete scan of that provider inventory, not ocean coverage or a complete multi-sensor model of every Earth environment. The 1,200-window Moon and Mars shortlists are bounded outputs; the global scan does not export every evaluated window. See [docs/GLOBAL_DISCOVERY_AND_VALIDATION.md](docs/GLOBAL_DISCOVERY_AND_VALIDATION.md) and the [Global Discovery Engine](https://usmanmughal96.github.io/analog-x/global-discovery.html). The field station protocol and [Pakistan field campaign plan](data/field_validation/campaign_plan.json) define what must be measured, but the field observation ledger remains empty until real observations are collected and independently reviewed.
-
-## Global Discovery & multi-source validation
-
-A separate [Global Discovery Engine](https://usmanmughal96.github.io/analog-x/global-discovery.html) now provides a reproducible worldwide GLO-90 land-tile scan pipeline. It reads the public Copernicus DEM GLO-90 one-degree tile inventory, splits the work into 24 longitude shards, calculates local-metric ~925 m terrain grids and screens 5.55 km windows against Shackleton Rim and Nili Patera reference profiles. The global scan is only labelled complete when all inventory tiles are assigned and processed with no tile failures. GLO-90 is a global 90 m DSM; the existing ten-site GLO-30 work remains a separate finer-resolution layer.
-
-The global shortlist is also enriched with NASA POWER climatology at the top 100 retained windows per target, deduplicated by candidate ID. Temperature, humidity, wind, corrected precipitation and all-sky solar context are recorded by month and annual mean for the returned coordinates. This is gridded point climatology, not local station data or a global gridded climate reprocessing. Values and request URLs are stored in `data/global_discovery/global_power_enrichment.json`.
-
-The global shortlist is further enriched with 2023 annual global land cover from Planetary Computer `io-lulc-annual-v02` (10 m native, Sentinel-2-derived, CC BY 4.0). Candidate windows receive 30 m modal-sampled class fractions and valid-pixel coverage, with STAC item provenance. This is environmental context for retained candidates only, not a second full global search or mineral/geology classification.
-
-The global pipeline calculates two terrain metric families: the primary median-slope/P90-slope/P90-relief index and a secondary P95-slope/elevation-IQR/detrended-roughness diagnostic. The two families showed strong rank disagreement in the previous 1,200-window release (Moon Spearman -0.6650; Mars -0.7122; very low top-rank overlap). To avoid hiding that instability, the updated workflow ranks by the primary core index only, displays the secondary rank separately and does not calculate an averaged consensus. A separate NASADEM/SRTM-derived cross-check processed 7 of 10 selected Earth sites and reported descriptor rank concordance around 0.9643 for the seven-site overlap; this is a small second-source diagnostic, not field truth or calibrated ranking accuracy.
-
-The Pakistan field validation workflow includes an [offline-first Field Validation Kit](https://usmanmughal96.github.io/analog-x/field-validation.html), a structured station protocol and [site-specific campaign plan](data/field_validation/campaign_plan.json). It proposes permission- and safety-gated station types for Chagai playas, Hamun-i-Mashkel, Koh-i-Sultan and Hispar Glacier. The evidence ledger remains empty and not_started: no physical field observations are claimed. The kit captures coordinates/accuracy, instruments/calibration, photos, measurements, samples, uncertainty, permissions and safety; data stay in the user's browser until exported and committed through a controlled review.
-
-Data states are centralized in [data/source_registry.json](data/source_registry.json): processed, browse-only, metadata-only, reference-only, planned, partially processed and withheld-pending-QA are explicitly distinguished. The [SHA-256 reproducibility manifest](data/provenance/reproducibility_manifest.json) is regenerated by the pipeline and inventories repository files, source-register context, package versions and byte hashes. The global workflow is in [.github/workflows/global-discovery.yml](.github/workflows/global-discovery.yml).
-
-
-### Global geology context and competitor benchmark
-
-A GLiM global lithology context lookup script and automatic enrichment step have been added for the retained top-100 candidates per target. Its output has not yet been generated, so the source registry remains planned until the workflow commits a real result. The intended lookup is at each approximate window centre, with lithology codes and source query provenance; it will remain excluded from ranking. It is not an area-weighted geological map, field verification or mineral identification. The ArcGIS derivative's redistribution terms require confirmation.
-
-See [docs/COMPETITIVE_CAPABILITY_RESPONSE.md](docs/COMPETITIVE_CAPABILITY_RESPONSE.md) for a dated, source-linked benchmark against Earth's Moon Twins, TwinWorlds and Earth Analog Explorer. Their headline counts are reported as their own published claims and are not directly comparable because the projects use different window sizes, support scales, target sets and source mixes.
+**Project status:** an independent research prototype developed for NASA Space Apps Challenge 2026. ANALOG-X is not an official NASA, ESA, SUPARCO or other agency product, and its outputs are not operational guidance or certification.
