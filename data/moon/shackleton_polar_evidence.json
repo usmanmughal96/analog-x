@@ -1,0 +1,267 @@
+{
+  "schema_version": "1.0",
+  "generated_at_utc": "2026-11-22T18:49:26+00:00",
+  "site": {
+    "name": "Shackleton Rim / Lunar South Pole",
+    "center_latitude_planetocentric_deg": -89.7668,
+    "center_longitude_east_deg": 188.13,
+    "study_window_km": 29.6
+  },
+  "diviner_polar_resource_product": {
+    "status": "processed",
+    "provider": "NASA LRO Diviner Polar Resource Product (PRP) V2.0",
+    "dataset_id": "LRO-L-DLRE-5-PRP-V2.0",
+    "doi": "10.17189/1520650",
+    "product_doi": "10.17189/wj0s-w188",
+    "product_file": "DLRE_PRP_SOUTH.TAB",
+    "source_url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_prp/DLRE_PRP_SOUTH.TAB",
+    "label_url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_prp/DLRE_PRP_SOUTH.xml",
+    "model_observation_period": "First year of LRO mapping observations (2010\u20132011)",
+    "release_date": "2018-03-15",
+    "processing_level": "NASA Level 4 / CODMAC Level 5, model-derived",
+    "aoi": {
+      "name": "Shackleton Rim / ANALOG-X local lunar study window",
+      "center_latitude_planetocentric_deg": -89.7668,
+      "center_longitude_east_deg": 188.13,
+      "shape": "29.6 km \u00d7 29.6 km local tangent-plane square",
+      "selected_triangle_count": 6823,
+      "selected_extent_east_km": [
+        -14.760912609265993,
+        14.760956094523905
+      ],
+      "selected_extent_north_km": [
+        -14.786165451665456,
+        14.75919500999111
+      ]
+    },
+    "table_integrity": {
+      "content_length_bytes": 604800210,
+      "expected_content_length_bytes": 604800210,
+      "expected_data_rows": 2880000,
+      "data_rows_seen": 2880000,
+      "invalid_rows": 0,
+      "record_length_bytes_including_CRLF": 210,
+      "data_start_byte": 210,
+      "coordinate_fields": "Planetocentric latitude; east longitude; degrees"
+    },
+    "annual_average_temperature_2cm_below_surface": {
+      "unit": "K",
+      "kelvin": {
+        "count": 6823,
+        "min": 43.098,
+        "p10": 54.089200000000005,
+        "median": 103.786,
+        "mean": 100.03333958669208,
+        "p90": 146.40019999999998,
+        "max": 186.478
+      },
+      "celsius": {
+        "count": 6823,
+        "min": -230.05199999999996,
+        "p10": -219.06079999999997,
+        "median": -169.36399999999998,
+        "mean": -173.1166604133079,
+        "p90": -126.7498,
+        "max": -86.67199999999997
+      },
+      "interpretation": "Modelled annual average at 2 cm depth, not a real-time or current surface forecast."
+    },
+    "annual_maximum_surface_temperature": {
+      "unit": "K",
+      "kelvin": {
+        "count": 6823,
+        "min": 63.803,
+        "p10": 89.43700000000001,
+        "median": 238.568,
+        "mean": 212.02476256778544,
+        "p90": 294.334,
+        "max": 347.804
+      },
+      "celsius": {
+        "count": 6823,
+        "min": -209.34699999999998,
+        "p10": -183.71299999999997,
+        "median": -34.581999999999965,
+        "mean": -61.12523743221453,
+        "p90": 21.184000000000026,
+        "max": 74.654
+      },
+      "interpretation": "Modelled annual maximum at the surface."
+    },
+    "water_ice_permafrost_stability_depth": {
+      "unit": "m",
+      "valid_depth_distribution": {
+        "count": 2812,
+        "min": 0.0,
+        "p10": 4e-05,
+        "median": 0.13019,
+        "mean": 0.23808937411095307,
+        "p90": 0.6647390000000001,
+        "max": 1.61245
+      },
+      "zero_depth_surface_stable_count": 238,
+      "positive_depth_to_stability_count": 2574,
+      "beyond_2_8738m_censored_count": 2514,
+      "selected_triangle_count": 6823,
+      "invalid_or_unreadable_count": 1497,
+      "meaning": "Model-calculated depth at which water ice would sublimate at 1 kg m\u22122 per billion years. A value of 0 m means the model indicates surface stability. The product reports -999 when the calculated depth exceeds 2.8738 m. This is not a direct detection, concentration, thickness, accessibility or reserve estimate."
+    },
+    "field_metadata": {
+      "temp_avg": {
+        "unit": "Kelvin",
+        "start_byte": 178,
+        "bytes": 8,
+        "depth": "2 cm below surface"
+      },
+      "temp_max": {
+        "unit": "Kelvin",
+        "start_byte": 188,
+        "bytes": 8,
+        "depth": "surface"
+      },
+      "ice_depth": {
+        "unit": "meter",
+        "start_byte": 198,
+        "bytes": 11,
+        "invalid_constant": -999,
+        "invalid_constant_semantics": "calculated depth exceeds 2.8738 m"
+      }
+    },
+    "limitations": [
+      "PRP values are model-derived from the first year of mapping observations, not a current operational weather or resource survey.",
+      "The mesh uses Kaguya-derived triangular elevation elements, not the same spatial grid or vertical model as the project's LOLA DEM.",
+      "The result does not establish ice concentration, mass, purity, mineability, accessibility, or resource reserves.",
+      "Temperature/ice-depth statistics are thermal-resource context, not an official landing-site or habitat-safety assessment."
+    ]
+  },
+  "lroc_wac_illumination": {
+    "time_weighted": {
+      "status": "processed",
+      "product": "time_weighted",
+      "provider": "NASA LRO Camera (LROC) WAC",
+      "resolution_m_per_pixel": 100,
+      "source_url": "https://pds.lroc.im-ldi.com/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/EXTRAS/BROWSE/WAC_POLE/WAC_POLE_ILL_TWI_SOUTH/WAC_POLE_ILL_TWI_SOUTH_100M.TIF",
+      "product_reference": "https://data.lroc.im-ldi.com/lroc/view_rdr_product/WAC_POLE_ILL_TWI_SOUTH_100M",
+      "valid_pixel_count": 42622,
+      "illumination_percent": {
+        "min": 1.0,
+        "p10": 1.0,
+        "median": 1.0,
+        "mean": 24.855379850781286,
+        "p90": 86.0,
+        "max": 100.0,
+        "pixels_below_1_percent_area_fraction": 0.0,
+        "pixels_at_or_below_5_percent_area_fraction": 60.61892919149735,
+        "pixels_at_or_above_50_percent_area_fraction": 26.32912580357562,
+        "pixels_at_or_above_70_percent_area_fraction": 19.10515696119375
+      },
+      "aoi": {
+        "center_latitude_deg": -89.7668,
+        "center_longitude_east_deg": 188.13,
+        "shape": "29.6 km \u00d7 29.6 km projected window"
+      },
+      "scale_interpretation": "Native product byte values interpreted as percentage (0\u2013100); fill values above 100 excluded.",
+      "limitations": [
+        "WAC product is based on one lunar year of observations from 15 Feb 2010 to 5 Feb 2011, with supplementary observations/interpolation.",
+        "It is a historical observational illumination-frequency product, not a current or future mission ephemeris simulation.",
+        "Near-zero illumination values inside permanently shadowed terrain can be non-zero due to scattered-light and image-noise artefacts.",
+        "The low-illumination fraction is a screening proxy, not a formal PSR polygon or regulatory landing-site determination."
+      ],
+      "raster": {
+        "crs": "PROJCS[\"POLAR_STEREOGRAPHIC MOON\",GEOGCS[\"GCS_MOON\",DATUM[\"D_MOON\",SPHEROID[\"MOON_polarRadius\",1737400,0]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Polar_Stereographic\"],PARAMETER[\"latitude_of_origin\",-90],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1],AXIS[\"Easting\",NORTH],AXIS[\"Northing\",NORTH]]",
+        "native_bounds": [
+          -60700.0,
+          -60700.0,
+          60700.0,
+          60700.0
+        ],
+        "native_resolution": [
+          100.0,
+          100.0
+        ],
+        "window_shape_rows_cols": [
+          296,
+          296
+        ],
+        "window_center_projected_m": [
+          -1000.0366057189258,
+          -7000.345565270377
+        ],
+        "nodata": null
+      }
+    },
+    "percentage_based": {
+      "status": "processed",
+      "product": "percentage_based",
+      "provider": "NASA LRO Camera (LROC) WAC",
+      "resolution_m_per_pixel": 100,
+      "source_url": "https://pds.lroc.im-ldi.com/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/EXTRAS/BROWSE/WAC_POLE/WAC_POLE_ILL_PCT_SOUTH/WAC_POLE_ILL_PCT_SOUTH_100M.TIF",
+      "product_reference": "https://data.lroc.im-ldi.com/lroc/view_rdr_product/WAC_POLE_ILL_PCT_SOUTH_100M",
+      "valid_pixel_count": 44009,
+      "illumination_percent": {
+        "min": 1.0,
+        "p10": 1.0,
+        "median": 1.0,
+        "mean": 25.96730214274353,
+        "p90": 84.0,
+        "max": 100.0,
+        "pixels_below_1_percent_area_fraction": 0.0,
+        "pixels_at_or_below_5_percent_area_fraction": 58.64936717489604,
+        "pixels_at_or_above_50_percent_area_fraction": 28.176054897861803,
+        "pixels_at_or_above_70_percent_area_fraction": 19.955009202663092
+      },
+      "aoi": {
+        "center_latitude_deg": -89.7668,
+        "center_longitude_east_deg": 188.13,
+        "shape": "29.6 km \u00d7 29.6 km projected window"
+      },
+      "scale_interpretation": "Native product byte values interpreted as percentage (0\u2013100); fill values above 100 excluded.",
+      "limitations": [
+        "WAC product is based on one lunar year of observations from 15 Feb 2010 to 5 Feb 2011, with supplementary observations/interpolation.",
+        "It is a historical observational illumination-frequency product, not a current or future mission ephemeris simulation.",
+        "Near-zero illumination values inside permanently shadowed terrain can be non-zero due to scattered-light and image-noise artefacts.",
+        "The low-illumination fraction is a screening proxy, not a formal PSR polygon or regulatory landing-site determination."
+      ],
+      "raster": {
+        "crs": "PROJCS[\"POLAR_STEREOGRAPHIC MOON\",GEOGCS[\"GCS_MOON\",DATUM[\"D_MOON\",SPHEROID[\"MOON_polarRadius\",1737400,0]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Polar_Stereographic\"],PARAMETER[\"latitude_of_origin\",-90],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1],AXIS[\"Easting\",NORTH],AXIS[\"Northing\",NORTH]]",
+        "native_bounds": [
+          -60700.0,
+          -60700.0,
+          60700.0,
+          60700.0
+        ],
+        "native_resolution": [
+          100.0,
+          100.0
+        ],
+        "window_shape_rows_cols": [
+          296,
+          296
+        ],
+        "window_center_projected_m": [
+          -1000.0366057189258,
+          -7000.345565270377
+        ],
+        "nodata": null
+      }
+    }
+  },
+  "low_illumination_proxy_definition": {
+    "threshold": "<=5% observed illumination frequency",
+    "warning": "This is not a formal PSR polygon. Official PSR maps and current ephemeris modelling must be consulted for mission engineering."
+  },
+  "integrated_products": [
+    "LOLA 80 m south-polar elevation / return-count profile (already in project)",
+    "Diviner PRP V2.0 annual average and maximum temperature / modelled water-ice stability depth",
+    "LROC WAC 100 m time-weighted south-pole illumination percentage",
+    "LROC WAC 100 m unweighted south-pole illumination percentage for sensitivity comparison"
+  ],
+  "scientific_boundary": [
+    "These are historical data products with different epochs and resolutions.",
+    "Diviner PRP is a thermal-model product based on the first year of mapping observations.",
+    "WAC illumination percentages are based on 2010\u20132011 imaging; they are not a 2026\u20132030 ephemeris forecast.",
+    "The local terrain support window is 29.6 km square; it does not validate a specific lander footprint.",
+    "Ice stability depth does not equal a direct measurement of ice abundance, concentration, thickness or extractability.",
+    "LOLA DEM interpolation and measurement count support remain separate quality dimensions."
+  ]
+}
