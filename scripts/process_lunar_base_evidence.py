@@ -83,6 +83,15 @@ def utc_now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
 
+def masked_array_to_float(values: np.ndarray | np.ma.MaskedArray) -> np.ndarray:
+    """Convert raster windows to float before filling masked cells with NaN.
+
+    NumPy cannot fill an integer masked array with NaN. LROC WAC products are
+    byte rasters, so casting after ``filled`` raises before the cast occurs.
+    """
+    return np.asarray(np.ma.asarray(values).astype(np.float64).filled(np.nan), dtype=np.float64)
+
+
 def parse_float(raw: bytes) -> float | None:
     try:
         value = float(raw.decode("ascii").strip())
@@ -325,7 +334,7 @@ def parse_illumination_label(text: str) -> dict:
 
 
 def summarize_illumination(name: str, url: str, window_values: np.ma.MaskedArray, tags: dict, label_url: str) -> dict:
-    values = np.asarray(window_values.filled(np.nan), dtype=float)
+    values = masked_array_to_float(window_values)
     mask = np.ma.getmaskarray(window_values) | ~np.isfinite(values)
     null_value = tags.get("nodata")
     if null_value is None:
@@ -424,7 +433,7 @@ def process_wac_product(name: str, url: str) -> tuple[dict, np.ndarray]:
             "window_center_projected_m": [float(cx), float(cy)],
             "nodata": ds.nodata,
         }
-        preview = data.filled(np.nan).astype(float)
+        preview = masked_array_to_float(data)
         return summary, preview
 
 
