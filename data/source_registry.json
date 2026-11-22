@@ -50,7 +50,7 @@
         "Global terrain shortlist is coarser than local GLO-30 studies.",
         "DSM is not bare-earth and does not measure geology or operational suitability."
       ],
-      "coverage_pct_processed_tiles": 100.0
+      "coverage_pct_processed_tiles": 100
     },
     {
       "id": "nasa_power",
@@ -181,12 +181,15 @@
       "resolution": "6,823 Shackleton-window triangles processed",
       "coverage": "Selected Shackleton Rim window",
       "artifacts": [
-        "data/moon/diviner_prp_diagnostic/report.json"
+        "data/moon/shackleton_diviner_prp.json",
+        "data/moon/shackleton_polar_evidence.json"
       ],
       "url": "https://pds-geosciences.wustl.edu/missions/lro/",
       "limitations": [
-        "Ice-depth fields remain withheld pending QA; no accessible-ice claim.",
-        "Historical model-derived summaries are not field measurements."
+        "Diviner PRP V2.0 is a historical model-derived thermal product, not an in-situ ice measurement.",
+        "The -999 sentinel is a censored model depth greater than 2.8738 m; it is not zero or a valid numeric depth.",
+        "Negative non-sentinel and above-threshold depths are excluded from valid-depth statistics and separately counted by QA.",
+        "A surface-stability classification does not establish ice abundance, concentration, purity, thickness, accessibility, extractability or reserves."
       ]
     },
     {
@@ -196,7 +199,7 @@
       "state": "processed",
       "data_type": "Independent-source elevation comparison",
       "resolution": "1 arc-second (~30 m at equator); resampled to ~925 m for matched regional descriptors",
-      "coverage": "Near-global land coverage: 60\u00b0N to 56\u00b0S; selected study sites outside this extent are not cross-checked.",
+      "coverage": "Near-global land coverage: 60°N to 56°S; selected study sites outside this extent are not cross-checked.",
       "artifacts": [
         "data/validation/nasadem_crosscheck.json"
       ],
@@ -204,7 +207,7 @@
       "doi_or_identifier": "10.5067/MEASURES/NASADEM/NASADEM_HGT.001",
       "limitations": [
         "NASADEM is primarily SRTM-derived with auxiliary ASTER GDEM and ICESat GLAS control/void-filling inputs; it is not a ground survey.",
-        "Coverage is 60\u00b0N to 56\u00b0S, so some high-latitude study areas are outside coverage.",
+        "Coverage is 60°N to 56°S, so some high-latitude study areas are outside coverage.",
         "NASADEM and Copernicus GLO-30 have different acquisition sensors, processing and DSM/DEM semantics; compare descriptors only.",
         "This is independent raster-source checking, not in-situ field validation, geological validation or planetary analog validation."
       ],
@@ -293,7 +296,7 @@
         "T2M is 2m air temperature, not surface/rock temperature; precipitation is not evidence of water/ice resources.",
         "Wind and solar values describe terrestrial atmosphere/surface context and do not reproduce Moon/Mars environment physics."
       ],
-      "coverage_pct_processed_candidates": 100.0,
+      "coverage_pct_processed_candidates": 100,
       "candidate_coordinates_processed": 200
     },
     {
@@ -319,7 +322,7 @@
       ],
       "candidate_points_attempted": 200,
       "candidate_points_with_features": 200,
-      "query_success_coverage_percent": 100.0
+      "query_success_coverage_percent": 100
     }
   ]
 }
