@@ -9,6 +9,7 @@ from __future__ import annotations
 import csv
 import json
 import math
+import re
 import statistics
 import sys
 import time
@@ -21,6 +22,7 @@ import xml.etree.ElementTree as ET
 
 BASE = "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/"
 LABEL_URL = BASE + "data_derived_prp/dlre_prp_south.xml"
+PDS3_LABEL_URL = "https://pds-geosciences.wustl.edu/lro/lro-l-dlre-4-rdr-v1/lrodlr_1001/data/prp/DLRE_PRP_SOUTH.LBL"
 TAB_CANDIDATES = [
     BASE + "data_derived_prp/dlre_prp_south.tab",
     BASE + "data_derived_prp/DLRE_PRP_SOUTH.TAB",
@@ -36,6 +38,45 @@ INVALID_ICE_DEPTH = -999.0
 EXPECTED_RECORDS = 2_880_000
 
 
+def parse_pds3_table_layout(label_text: str) -> dict:
+    """Read the fixed-width table layout from the authoritative PDS3 product label."""
+    def integer(scope: str, key: str) -> int:
+        match = re.search(rf"(?im)^\s*{re.escape(key)}\s*=\s*(\d+)", scope)
+        if not match:
+            raise RuntimeError(f"PDS3 Diviner label is missing {key}")
+        return int(match.group(1))
+
+    header_match = re.search(
+        r"(?is)OBJECT\s*=\s*HEADER(.*?)END_OBJECT\s*=\s*HEADER", label_text
+    )
+    table_match = re.search(
+        r"(?is)OBJECT\s*=\s*TABLE(.*?)END_OBJECT\s*=\s*TABLE", label_text
+    )
+    if not header_match or not table_match:
+        raise RuntimeError("PDS3 Diviner label must define HEADER and TABLE objects")
+
+    record_bytes = integer(label_text, "RECORD_BYTES")
+    file_records = integer(label_text, "FILE_RECORDS")
+    header_bytes = integer(header_match.group(1), "BYTES")
+    row_bytes = integer(table_match.group(1), "ROW_BYTES")
+    rows = integer(table_match.group(1), "ROWS")
+    columns = integer(table_match.group(1), "COLUMNS")
+
+    if rows != file_records:
+        raise RuntimeError(f"PDS3 table row count disagrees with FILE_RECORDS: {rows} != {file_records}")
+    if row_bytes != record_bytes:
+        raise RuntimeError(f"PDS3 ROW_BYTES ({row_bytes}) disagrees with RECORD_BYTES ({record_bytes})")
+    if header_bytes <= 0 or row_bytes <= 0 or columns <= 0:
+        raise RuntimeError("PDS3 Diviner table layout contains non-positive dimensions")
+    return {
+        "records": rows,
+        "record_length_bytes": row_bytes,
+        "header_offset_bytes": header_bytes,
+        "columns": columns,
+        "declared_file_bytes": header_bytes + rows * row_bytes,
+    }
+
+
 def fetch_product_label(session: requests.Session) -> tuple[dict, str]:
     response = session.get(LABEL_URL, timeout=(20, 120))
     response.raise_for_status()
@@ -45,9 +86,23 @@ def fetch_product_label(session: requests.Session) -> tuple[dict, str]:
     table = root.find(".//pds:Table_Character", ns)
     if table is None:
         raise RuntimeError("Diviner PDS4 label has no Table_Character section")
-    records = int(table.findtext("pds:records", default="0", namespaces=ns))
-    record_length = int(table.findtext(".//pds:record_length", default="0", namespaces=ns))
+    pds4_records = int(table.findtext("pds:records", default="0", namespaces=ns))
+    pds4_record_length = int(table.findtext(".//pds:record_length", default="0", namespaces=ns))
     file_name = root.findtext(".//pds:File/pds:file_name", default="", namespaces=ns)
+
+    # The PDS4 label omits this legacy ASCII table's fixed record length.
+    # Use the linked PDS3 label for exact byte layout and retain PDS4 field metadata.
+    layout_response = session.get(PDS3_LABEL_URL, timeout=(20, 120))
+    layout_response.raise_for_status()
+    layout = parse_pds3_table_layout(layout_response.text)
+    records = layout["records"]
+    record_length = layout["record_length_bytes"]
+    if pds4_records not in (0, records):
+        raise RuntimeError(f"PDS4/PDS3 record counts disagree: {pds4_records} != {records}")
+    if pds4_record_length not in (0, record_length):
+        raise RuntimeError(f"PDS4/PDS3 record lengths disagree: {pds4_record_length} != {record_length}")
+    if records != EXPECTED_RECORDS or record_length != 210 or layout["columns"] != 15:
+        raise RuntimeError(f"Unexpected Diviner source table structure: {layout}")
 
     fields = {}
     for field in root.findall(".//pds:Field_Character", ns):
@@ -74,9 +129,6 @@ def fetch_product_label(session: requests.Session) -> tuple[dict, str]:
         raise RuntimeError("Unexpected Diviner ice_depth units; refusing to process")
     if fields["ice_depth"]["invalid_constant"] != INVALID_ICE_DEPTH:
         raise RuntimeError("Unexpected Diviner ice_depth invalid constant; refusing to process")
-    if records != EXPECTED_RECORDS or record_length != 210:
-        raise RuntimeError(f"Unexpected source table structure: {records=} {record_length=}")
-
     return {
         "pds4_product_title": root.findtext(".//pds:title", default="LRO Diviner South Polar Resource Product", namespaces=ns),
         "logical_identifier": root.findtext(".//pds:logical_identifier", default=None, namespaces=ns),
@@ -84,7 +136,10 @@ def fetch_product_label(session: requests.Session) -> tuple[dict, str]:
         "file_name": file_name,
         "records": records,
         "record_length_bytes": record_length,
-        "header_offset_bytes": int(table.findtext("pds:offset", default="0", namespaces=ns)),
+        "header_offset_bytes": layout["header_offset_bytes"],
+        "declared_file_bytes": layout["declared_file_bytes"],
+        "pds3_layout_columns": layout["columns"],
+        "source_layout_label_url": layout_response.url,
         "fields": fields,
         "source_label_url": LABEL_URL,
         "dataset_doi": "10.17189/1520650",
@@ -169,6 +224,11 @@ def select_source_table(session: requests.Session) -> tuple[str, int | None]:
 
 def process_table(session: requests.Session, url: str, expected_bytes: int | None, label: dict) -> dict:
     started = time.monotonic()
+    declared_bytes = label["header_offset_bytes"] + label["records"] * label["record_length_bytes"]
+    if label.get("declared_file_bytes", declared_bytes) != declared_bytes:
+        raise RuntimeError("PDS3 Diviner label contains inconsistent declared byte count")
+    if expected_bytes is not None and expected_bytes != declared_bytes:
+        raise RuntimeError(f"Diviner table size disagrees with PDS3 label: {expected_bytes} != {declared_bytes}")
     response = session.get(url, stream=True, timeout=(30, 180))
     response.raise_for_status()
     response.raw.decode_content = True
