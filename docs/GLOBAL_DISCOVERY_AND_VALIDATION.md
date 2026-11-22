@@ -1,6 +1,6 @@
 # Global Discovery, Quantitative Validation & Field Evidence
 
-**Last evidence review:** 22 November 2026 · release status: core-only ranking code corrected; published shortlist refresh still pending until the 24-shard workflow completes  
+**Last evidence review:** 23 November 2026 · release status: full inventory scan is complete; a separate no-rescan ranking-contract verifier is being added  
 **Project:** ANALOG-X · NASA Space Apps Challenge 2026
 
 This document distinguishes completed processing, robustness diagnostics, generalized map context, browse/metadata-only inputs, field plans and evidence that does not yet exist.
@@ -41,7 +41,7 @@ The earlier release averaged a core feature-family index and a second diagnostic
 | Shackleton / Moon | -0.6650 | 0 / 25 | 0 / 100 |
 | Nili Patera / Mars | -0.7122 | 0 / 25 | 1 / 100 |
 
-Those results show that feature selection materially changes candidate order. They are **not** evidence of model accuracy. The merge pipeline orders the primary shortlist by the declared core feature family only (median slope, P90 slope, P90 local relief); the secondary family (P95 slope, elevation IQR, detrended roughness) is retained as a separate diagnostic. No consensus or averaged index is produced. The 19 November diagnostic JSON is not evidence that the saved shortlist was regenerated under the new merge rule. The saved global dataset must carry schema 1.1.0 and a verified core-only ranking contract before the UI treats the ranks as current. A merge-time integrity gate now checks all 24 shards, assignment accounting, per-shard processed/failed accounting, reference-profile consistency, candidate uniqueness, finite scores, WGS84 coordinates and core-only ordering.
+Those results show that feature selection materially changes candidate order. They are **not** evidence of model accuracy. The merge pipeline orders the primary shortlist by the declared core feature family only (median slope, P90 slope, P90 local relief); the secondary family (P95 slope, elevation IQR, detrended roughness) is retained as a separate diagnostic. No consensus or averaged index is produced. The current shortlist has schema 1.1.0 and passes target-level ordering/rank diagnostics, but the generated artifact lacked the explicit ranking_contract object. A lightweight verifier checks the already-complete inventory, core-only ordering, finite scores/coordinates, candidate IDs and rank permutations, then writes the contract without rescanning the 26,475 tiles. This is a release-integrity assertion, not scientific validation. A merge-time integrity gate now checks all 24 shards, assignment accounting, per-shard processed/failed accounting, reference-profile consistency, candidate uniqueness, finite scores, WGS84 coordinates and core-only ordering.
 
 A score is an exploratory terrain-distance transform on IQR-normalized features, not a probability, calibrated accuracy, geological-equivalence claim, safe-access estimate or landing-site decision.
 
@@ -79,9 +79,21 @@ The canonical release values are read from the committed generated artifacts and
 - NASADEM cross-check: 7 / 10 selected sites, processed; a small independent raster-source consistency check only.
 - Ground-truth ledger: 0 observations, 0 independently reviewed.
 
-The validation builder now emits a separate ranking-release status. That status verifies schema, declared core-only contract, primary order, sequential ranks, secondary-rank permutation and unique IDs. It does not convert a ranking-ready file into an accuracy-validated analog model. The global workflow must regenerate the dataset before this gate can pass.
+The validation builder emits a separate ranking-release status. A new lightweight workflow verifies and attaches the missing contract to the existing complete scan without rerunning worldwide DEM processing. The gate checks schema, inventory accounting, core-only primary order, sequential ranks, secondary-rank permutation, unique IDs, finite score/coordinate values and WGS84 bounds. It does not convert a ranking-ready file into an accuracy-validated analog model.
 
-## 3. Pakistan field validation — campaign is planned; no ground truth claimed
+## 3. Lunar south-pole evidence — integrated, with operational limits
+
+The Shackleton evidence stack is more complete than the earlier gap summary implied:
+
+- **LOLA high-resolution terrain:** NASA GSFC PGDA product 78 is processed at 5 m native pixel scale for Site04. The artifact reports elevation, slope, 15 m 3×3 local relief, terrain coverage and positive laser-return support. This is high-resolution terrain context, not a certified rover traverse or hazard map.
+- **LOLA 80 m polar grid:** a separate south-polar product is processed and preserves interpolated DEM validity separately from direct-return count support.
+- **LROC WAC illumination:** two 100 m products are integrated (time-weighted and percentage-based). In the 29.6 km Shackleton comparison window, 60.62% of valid time-weighted pixels and 58.65% of valid percentage-based pixels are at or below the project's 5% low-illumination screening threshold. These are historical 2010–2011 observation-frequency layers, not a formal PSR boundary or a mission-date lighting forecast.
+- **Diviner PRP V2.0:** the full 2,880,000-row south-polar table is processed; 6,823 Shackleton-window triangles are selected. The QA-aware polar profile distinguishes valid, censored and unreadable values. The legacy Diviner table output is being corrected to exclude negative non-sentinel values and count censored -999 records separately. Censored values are not zero and do not prove accessible ice.
+- **Rover-scale boundary:** the 5 m terrain product materially improves the former ~925 m-only view, but slope/relief summaries alone do not assess wheel sinkage, soil bearing strength, boulder fields, hazard detectability, route continuity, illumination at traverse time, communication geometry or vehicle-specific limits. No traverse safety certification is claimed.
+
+The 5% WAC illumination threshold is an ANALOG-X screening convention. It must not be relabelled as an authoritative PSR polygon. A mission-grade analysis still needs a versioned illumination/terrain product aligned to a specific landing ellipse and mission epoch, uncertainty-aware hazard mapping, and independent engineering review.
+
+## 4. Pakistan field validation — campaign is planned; no ground truth claimed
 
 The repository's field observation ledger currently has zero observations and remains not_started. No new in-situ Pakistan field measurements have been supplied, verified or independently reviewed. This is a real-world dependency and cannot be completed by writing code or synthesizing plausible measurements.
 
@@ -98,7 +110,7 @@ Before any field visit: obtain land access and protected-area/environmental perm
 
 The Field Validation Kit stores data in the browser's local storage and exports JSON/CSV; it does not upload to GitHub or any server. The exported records must be reviewed and added to the repository ledger through a controlled commit. A field observation validates only the sampled property at the sampled location. It does not certify planetary equivalence, ice access, resource abundance, landing safety or rover traversability.
 
-## 4. Data depth and evidence states
+## 5. Data depth and evidence states
 
 The versioned data/source_registry.json is the canonical register. Its states mean:
 
@@ -121,7 +133,7 @@ Concrete distinctions:
 - NASA POWER climatology, DEM-derived terrain metrics, LOLA/MOLA terrain products and Diviner PRP summaries have processed outputs, each with their own resolution, product semantics and known limitations.
 - A link, STAC item or catalogue record does not upgrade a source to processed.
 
-## 5. Scientific reproducibility
+## 6. Scientific reproducibility
 
 The build workflow runs scripts/build_reproducibility_manifest.py and writes data/provenance/reproducibility_manifest.json. It inventories and SHA-256 hashes committed repository science inputs, generated outputs, scripts, tests, workflows and documentation; records source-register context, repository commit before the manifest commit, UTC build timestamp, Python version and selected runtime package versions.
 
@@ -129,7 +141,7 @@ The manifest makes repository artifacts traceable at byte level. It does not pro
 
 The quantitative report includes the manifest hash and record count where available. The manifest cannot hash its own final committed bytes because its commit ID refers to the commit preceding the manifest write.
 
-## 6. Competitor capability translation
+## 7. Competitor capability translation
 
 ANALOG-X has now translated competitor strengths into concrete, separately evidenced capabilities:
 - broad candidate discovery → global GLO-90 land-tile scan and bounded downloadable Moon/Mars shortlists;
