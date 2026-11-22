@@ -297,9 +297,12 @@ def main() -> None:
         "hashed_repository_file_count": manifest.get("file_count") if manifest else 0,
         "source_registry_records": len(manifest.get("source_registry_records", [])) if manifest else 0,
         "manifest_generated_at_utc": manifest.get("generated_at_utc") if manifest else None,
+        "quantitative_report_excluded_from_manifest": True,
+        "manifest_reference_semantics": "manifest_sha256 and hashed_repository_file_count refer to the manifest loaded when this report was generated; the report itself is excluded from the manifest to avoid a circular dependency.",
         "limitations": [
             "SHA-256 establishes byte-level identity, not scientific validity or source authenticity.",
             "The manifest records the repository commit before its own final commit; it cannot hash its final committed bytes.",
+            "The quantitative report is deliberately excluded from the manifest; the manifest does not attest the exact bytes of this report.",
             "Historical external retrieval metadata may be incomplete and must be traced through source registry and product-specific records.",
         ],
     }
