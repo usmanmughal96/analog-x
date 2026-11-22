@@ -58,20 +58,13 @@ jobs:
         run: python scripts/build_reproducibility_manifest.py
 
       - name: Commit land-cover enrichment and provenance
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/global_discovery/global_discovery.json data/global_discovery/global_landcover_enrichment.json data/global_discovery/global_power_enrichment.json data/global_discovery/global_lithology_enrichment.json data/source_registry.json data/validation/quantitative_validation.json data/provenance/reproducibility_manifest.json
-          if git diff --cached --quiet; then
-            echo "No enrichment changes to publish."
-            exit 0
-          fi
-          git commit -m "Enrich global analog candidates with 2023 land cover"
-          for attempt in 1 2 3 4 5; do
-            git fetch origin main
-            git rebase -X theirs origin/main
-            if git push origin HEAD:main; then exit 0; fi
-            sleep $((attempt * 3))
-          done
-          echo "Could not publish land-cover enrichment after five attempts."
-          exit 1
+        run: >-
+          bash scripts/commit_generated_data.sh
+          "Enrich global analog candidates with 2023 land cover"
+          data/global_discovery/global_discovery.json
+          data/global_discovery/global_landcover_enrichment.json
+          data/global_discovery/global_power_enrichment.json
+          data/global_discovery/global_lithology_enrichment.json
+          data/source_registry.json
+          data/validation/quantitative_validation.json
+          data/provenance/reproducibility_manifest.json
