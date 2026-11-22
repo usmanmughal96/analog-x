@@ -1,6 +1,6 @@
 # Global Discovery, Quantitative Validation & Field Evidence
 
-**Last evidence review:** 19 November 2026  
+**Last evidence review:** 22 November 2026 · release status: core-only ranking code corrected; published shortlist refresh still pending until the 24-shard workflow completes  
 **Project:** ANALOG-X · NASA Space Apps Challenge 2026
 
 This document distinguishes completed processing, robustness diagnostics, generalized map context, browse/metadata-only inputs, field plans and evidence that does not yet exist.
@@ -41,7 +41,7 @@ The earlier release averaged a core feature-family index and a second diagnostic
 | Shackleton / Moon | -0.6650 | 0 / 25 | 0 / 100 |
 | Nili Patera / Mars | -0.7122 | 0 / 25 | 1 / 100 |
 
-Those results show that feature selection materially changes candidate order. They are **not** evidence of model accuracy. The release pipeline has therefore been changed: the primary shortlist is ordered by the declared core feature family only (median slope, P90 slope, P90 local relief); the secondary family (P95 slope, elevation IQR, detrended roughness) is displayed separately as a diagnostic. No consensus or averaged index is produced. The next global workflow run will regenerate the shortlist using that corrected rule and calculate the secondary rank within the retained primary shortlist.
+Those results show that feature selection materially changes candidate order. They are **not** evidence of model accuracy. The merge pipeline orders the primary shortlist by the declared core feature family only (median slope, P90 slope, P90 local relief); the secondary family (P95 slope, elevation IQR, detrended roughness) is retained as a separate diagnostic. No consensus or averaged index is produced. The 19 November diagnostic JSON is not evidence that the saved shortlist was regenerated under the new merge rule. The saved global dataset must carry schema 1.1.0 and a verified core-only ranking contract before the UI treats the ranks as current. A merge-time integrity gate now checks all 24 shards, assignment accounting, per-shard processed/failed accounting, reference-profile consistency, candidate uniqueness, finite scores, WGS84 coordinates and core-only ordering.
 
 A score is an exploratory terrain-distance transform on IQR-normalized features, not a probability, calibrated accuracy, geological-equivalence claim, safe-access estimate or landing-site decision.
 
@@ -65,10 +65,21 @@ The secondary family is generated from the same GLO-90 elevation source and is n
 
 ### More environmental context
 
-- **Global land cover:** 2023 Impact Observatory / Esri / Microsoft Planetary Computer io-lulc-annual-v02, a Sentinel-2-derived 10 m annual land-cover classification. Current recorded enrichment: 2,380 of 2,400 unique retained candidate windows (99.167%). Sampling uses a 30 m modal grid within the retained 5.55 km windows. This is not geology, mineralogy, soil chemistry or field truth; coverage is limited to the retained shortlist.
+- **Global land cover:** 2023 Impact Observatory / Esri / Microsoft Planetary Computer io-lulc-annual-v02, a Sentinel-2-derived 10 m annual land-cover classification. Current committed source-registry and quantitative-validation snapshot: 2,391 of 2,400 unique retained candidate windows (99.625%). The source registry is the canonical current count; older narrative copies showing 2,380 (99.167%) are stale. Sampling uses a 30 m modal grid within the retained 5.55 km windows. This is not geology, mineralogy, soil chemistry or field truth; coverage is limited to the retained shortlist.
 - **NASA POWER:** point climatology was processed for 200 of 200 unique retained candidate coordinates (top 100 per target, deduplicated). It includes 2 m air temperature, relative humidity, 10 m wind, corrected precipitation and all-sky shortwave radiation. It is gridded climatology, not a full global climate raster, local weather station or current forecast.
-- **GLiM global geology context:** the point-query enrichment script and automatic workflow step are committed for the retained top-100-per-target subset, but the output has not yet been generated in the current release; the source registry therefore remains planned until an actual output is committed. When run, it will record generalized lithology polygons at approximate candidate-window centres, as contextual evidence only and excluded from terrain ranking. The served ArcGIS derivative's reuse terms must be confirmed before redistribution; the PANGAEA GLiM data record carries CC BY 3.0. No feature returned remains unknown. This is not an area-weighted lithology survey, field geology, mineral identification or regolith measurement.
+- **GLiM global geology context:** the point-query enrichment has a committed output for the retained top-100-per-target subset: 200 of 200 centre-point queries succeeded and returned generalized lithology features. The source registry records this as processed contextual data, not as area-weighted geology, field evidence or ranking input. Confirm the served ArcGIS derivative's reuse terms before redistribution. When run, it will record generalized lithology polygons at approximate candidate-window centres, as contextual evidence only and excluded from terrain ranking. The served ArcGIS derivative's reuse terms must be confirmed before redistribution; the PANGAEA GLiM data record carries CC BY 3.0. No feature returned remains unknown. This is not an area-weighted lithology survey, field geology, mineral identification or regolith measurement.
 - **Existing regional layers:** selected Pakistan/global reference regions retain finer Copernicus GLO-30 context, Sentinel-2 L2A spectral-derived screens, and curated study dossiers. These remain a separate resolution tier; they are not silently mixed with the GLO-90 global scan.
+
+### Release-state reconciliation
+
+The canonical release values are read from the committed generated artifacts and source registry, not copied manually between narrative files. The current snapshot records:
+- Land cover: 2,391 / 2,400 retained windows (99.625%), partially processed.
+- NASA POWER: 200 / 200 retained top-100-per-target candidate coordinates, processed.
+- GLiM: 200 / 200 centre-point requests returned contextual features, processed; not area-weighted and not used in ranking.
+- NASADEM cross-check: 7 / 10 selected sites, processed; a small independent raster-source consistency check only.
+- Ground-truth ledger: 0 observations, 0 independently reviewed.
+
+The validation builder now emits a separate ranking-release status. That status verifies schema, declared core-only contract, primary order, sequential ranks, secondary-rank permutation and unique IDs. It does not convert a ranking-ready file into an accuracy-validated analog model. The global workflow must regenerate the dataset before this gate can pass.
 
 ## 3. Pakistan field validation — campaign is planned; no ground truth claimed
 
