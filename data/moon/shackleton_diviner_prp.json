@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-11-14T18:18:39+00:00",
+  "generated_at_utc": "2026-11-22T20:05:29+00:00",
   "provider": "NASA Lunar Reconnaissance Orbiter / Diviner Lunar Radiometer Experiment",
   "product": {
     "pds4_product_title": "LRO Diviner South Polar Resource Product",
@@ -10,6 +10,9 @@
     "records": 2880000,
     "record_length_bytes": 210,
     "header_offset_bytes": 210,
+    "declared_file_bytes": 604800210,
+    "pds3_layout_columns": 15,
+    "source_layout_label_url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_prp/DLRE_PRP_SOUTH.LBL",
     "fields": {
       "tri1_x": {
         "field_number": 1,
@@ -248,7 +251,7 @@
       "invalid_constant": -999.0,
       "interpretation": "A value of 0 means the thermal model indicates water ice would be stable against sublimation at the surface under the product's stated criterion (1 kg m-2 per billion years). It is not a direct ice detection, abundance, thickness, accessibility or resource-reserve measurement. Values reported as -999 are censored because the calculated depth exceeds 2.8738 m."
     },
-    "processing_seconds": 12.4
+    "processing_seconds": 15.9
   },
   "limitations": [
     "These are model-derived values from the Diviner PRP V2.0 product, not in-situ ice measurements.",
