@@ -11,9 +11,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: analogx-global-environment-enrichment
+  group: analogx-science-data-publish
   cancel-in-progress: false
-
 jobs:
   enrich:
     if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
