@@ -35,6 +35,7 @@ CENTER_LON_EAST_DEG = 188.13
 AOI_SIDE_KM = 29.6
 MOON_RADIUS_KM = 1737.4
 INVALID_ICE_DEPTH = -999.0
+ICE_DEPTH_THRESHOLD_M = 2.8738
 EXPECTED_RECORDS = 2_880_000
 
 
@@ -181,6 +182,23 @@ def parse_number(row: dict, key: str) -> float | None:
         return None
     return value if math.isfinite(value) else None
 
+def classify_ice_depth(value: float | None) -> str:
+    """Classify the PDS ice-stability depth without treating sentinels as data.
+
+    -999 m is the documented censored value for a model depth >2.8738 m.
+    Negative values other than that sentinel are invalid, not physical depths.
+    Values above the documented reporting limit are quarantined as unexpected.
+    """
+    if value is None or not math.isfinite(value):
+        return "unreadable"
+    if math.isclose(value, INVALID_ICE_DEPTH, rel_tol=0.0, abs_tol=1e-6):
+        return "censored_beyond_2_8738m"
+    if value < 0:
+        return "invalid_negative"
+    if value > ICE_DEPTH_THRESHOLD_M:
+        return "unexpected_above_threshold"
+    return "valid"
+
 
 def percentile(values: list[float], p: float) -> float | None:
     if not values:
@@ -241,7 +259,9 @@ def process_table(session: requests.Session, url: str, expected_bytes: int | Non
     temp_max: list[float] = []
     ice_depth: list[float] = []
     surface_stable = 0
+    censored_ice = 0
     invalid_ice = 0
+    unexpected_ice = 0
     candidate_rows = 0
     selected_rows = 0
     all_rows = 0
@@ -284,12 +304,17 @@ def process_table(session: requests.Session, url: str, expected_bytes: int | Non
             temp_avg.append(avg)
         if maximum is not None and maximum > 0:
             temp_max.append(maximum)
-        if depth is None or depth == INVALID_ICE_DEPTH:
-            invalid_ice += 1
-        else:
+        depth_class = classify_ice_depth(depth)
+        if depth_class == "valid":
             ice_depth.append(depth)
-            if abs(depth) < 1e-9:
+            if math.isclose(depth, 0.0, rel_tol=0.0, abs_tol=1e-9):
                 surface_stable += 1
+        elif depth_class == "censored_beyond_2_8738m":
+            censored_ice += 1
+        elif depth_class == "unexpected_above_threshold":
+            unexpected_ice += 1
+        else:
+            invalid_ice += 1
 
         if all_rows % 500_000 == 0:
             print(
@@ -335,18 +360,34 @@ def process_table(session: requests.Session, url: str, expected_bytes: int | Non
                 ice_depth, "m", label["fields"]["ice_depth"]["description"]
             ),
             "valid_count": valid_ice,
-            "invalid_censored_count": invalid_ice,
-            "invalid_censored_fraction_of_aoi": invalid_ice / selected_rows if selected_rows else None,
+            "censored_beyond_2_8738m_count": censored_ice,
+            "censored_beyond_2_8738m_fraction_of_aoi": censored_ice / selected_rows if selected_rows else None,
+            "invalid_negative_or_unreadable_count": invalid_ice,
+            "unexpected_above_threshold_count": unexpected_ice,
+            "record_accounting": {
+                "selected_aoi_triangles": selected_rows,
+                "valid_depths": valid_ice,
+                "censored_depths": censored_ice,
+                "invalid_negative_or_unreadable": invalid_ice,
+                "unexpected_above_threshold": unexpected_ice,
+                "accounts_for_all_selected_triangles": (
+                    valid_ice + censored_ice + invalid_ice + unexpected_ice == selected_rows
+                ),
+            },
+            "invalid_censored_count": censored_ice,
+            "invalid_censored_fraction_of_aoi": censored_ice / selected_rows if selected_rows else None,
             "surface_stable_count": surface_stable,
             "surface_stable_fraction_of_valid": surface_stable / valid_ice if valid_ice else None,
             "surface_stable_fraction_of_all_aoi_triangles": surface_stable / selected_rows if selected_rows else None,
             "invalid_constant": INVALID_ICE_DEPTH,
+            "valid_depth_range_m": [0.0, ICE_DEPTH_THRESHOLD_M],
             "interpretation": (
                 "A value of 0 means the thermal model indicates water ice would be stable "
                 "against sublimation at the surface under the product's stated criterion "
                 "(1 kg m-2 per billion years). It is not a direct ice detection, abundance, "
                 "thickness, accessibility or resource-reserve measurement. Values reported "
-                "as -999 are censored because the calculated depth exceeds 2.8738 m."
+                "as -999 are censored because the calculated depth exceeds 2.8738 m; "
+                "other negative or above-limit values are excluded from valid-depth statistics."
             ),
         },
         "processing_seconds": round(time.monotonic() - started, 1),
