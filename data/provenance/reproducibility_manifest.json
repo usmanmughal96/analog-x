@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-22T18:50:40+00:00",
-  "repository_commit_before_manifest_commit": "a7684a313a41c69d6d37a874e7110bc6e5d49b72",
+  "generated_at_utc": "2026-11-22T18:51:23+00:00",
+  "repository_commit_before_manifest_commit": "f8f796dda3014ce8d2cbe12795dfb9b13dd351fb",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -942,7 +942,7 @@
     {
       "path": "data/validation/quantitative_validation.json",
       "size_bytes": 11777,
-      "sha256": "1e4d7f8be62251e70c01ad2d66509d8019c817ab5c535aa9978df76420ed7357",
+      "sha256": "f53c7f58ec910e46d31015418253c6c1c4595f8e632594187e8d0c6ccd5e10f9",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -1373,8 +1373,8 @@
     },
     {
       "path": ".github/workflows/deploy-agent-worker.yml",
-      "size_bytes": 503,
-      "sha256": "f658a495fc79e9b960c1bdd8748f4f1aa14cdc8d85f90257fed5532d6489657a",
+      "size_bytes": 1705,
+      "sha256": "20887b1836bda74c7f713a7b251c810cc27f3e39cf5a37427ea9ff76b5d07a97",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1470,7 +1470,7 @@
     {
       "path": "tests/test_lunar_base_evidence.py",
       "size_bytes": 2448,
-      "sha256": "472df0ed151a67b391328f7f2c4823ef6c769763ed272b694d23a4c72c97e143",
+      "sha256": "40a528ff6b60baf03face210ead8138e7de620aa34f0a061e302d23c3cdf7447",
       "evidence_class_hint": "method_or_documentation"
     },
     {
