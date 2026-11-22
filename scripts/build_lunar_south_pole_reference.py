@@ -154,7 +154,7 @@ def validate_lola_product_alignment(datasets):
 
 def valid_uncertainty_mask(values,nodata=None):
  values=np.asarray(values)
- mask=np.isfinite(values)
+ mask=np.isfinite(values)&(values>=0)
  if nodata is not None:
   mask &= values!=nodata
  return mask
