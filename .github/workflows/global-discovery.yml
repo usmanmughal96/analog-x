@@ -48,6 +48,7 @@ jobs:
           python -m unittest tests.test_global_discovery
           python -m unittest tests.test_analog_label_validation
           python -m unittest tests.test_validation_release
+          python -m unittest tests.test_reproducibility_manifest
           python scripts/validate_analog_labels.py
           python scripts/build_quantitative_validation.py
           python scripts/validate_field_observations.py
