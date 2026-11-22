@@ -10,6 +10,7 @@ classes, the report remains awaiting_labels rather than emitting an AUC.
 from __future__ import annotations
 
 import json
+import math
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -34,7 +35,7 @@ def group_is_held_out(group: str) -> bool:
     return int(hashlib.sha256(group.encode("utf-8")).hexdigest()[:8], 16) % 5 == 0
 
 
-def validate_rows(rows: list[dict[str, Any]]) -> None:
+def validate_rows(rows: list[dict[str, Any]], candidate_index: dict[tuple[str, str], float] | None = None) -> None:
     seen: set[tuple[str, str]] = set()
     for index, row in enumerate(rows):
         prefix = f"labels[{index}]"
@@ -47,16 +48,29 @@ def validate_rows(rows: list[dict[str, Any]]) -> None:
             if not isinstance(row.get(key), str) or not row[key].strip():
                 raise ValueError(f"{prefix}: {key} is required")
         score = row.get("core_terrain_index")
-        if isinstance(score, bool) or not isinstance(score, (int, float)) or not 0 <= score <= 100:
-            raise ValueError(f"{prefix}: core_terrain_index must be numeric in [0, 100]")
+        if isinstance(score, bool) or not isinstance(score, (int, float)) or not math.isfinite(float(score)) or not 0 <= score <= 100:
+            raise ValueError(f"{prefix}: core_terrain_index must be finite numeric data in [0, 100]")
+        date = row.get("review_date_utc", "")
+        try:
+            datetime.fromisoformat(date.replace("Z", "+00:00"))
+        except ValueError as exc:
+            raise ValueError(f"{prefix}: review_date_utc must be ISO-8601") from exc
+        if row.get("review_scope") is not None and (not isinstance(row["review_scope"], str) or not row["review_scope"].strip()):
+            raise ValueError(f"{prefix}: review_scope must be a non-empty string when supplied")
+        if candidate_index is not None:
+            key = (target, row["candidate_id"])
+            if key not in candidate_index:
+                raise ValueError(f"{prefix}: candidate_id is not present in the current released shortlist")
+            if not math.isclose(float(score), candidate_index[key], rel_tol=0.0, abs_tol=1e-6):
+                raise ValueError(f"{prefix}: core_terrain_index does not match the current released candidate score")
         identity = (target, row["candidate_id"])
         if identity in seen:
             raise ValueError(f"{prefix}: duplicate target/candidate_id")
         seen.add(identity)
 
 
-def build_report(rows: list[dict[str, Any]]) -> dict[str, Any]:
-    validate_rows(rows)
+def build_report(rows: list[dict[str, Any]], candidate_index: dict[tuple[str, str], float] | None = None) -> dict[str, Any]:
+    validate_rows(rows, candidate_index)
     targets: dict[str, Any] = {}
     for target in ("moon", "mars"):
         subset = [row for row in rows if row["target"] == target]
@@ -68,11 +82,28 @@ def build_report(rows: list[dict[str, Any]]) -> dict[str, Any]:
         negatives = sum(row["label"] == "negative" for row in test)
         status = "awaiting_spatially_blocked_labels"
         auc_value = None
+        auc_ci = None
         if len(groups) >= 5 and positives and negatives:
             auc_value = round(auc(
                 [1 if row["label"] == "positive" else 0 for row in test],
                 [float(row["core_terrain_index"]) for row in test]
             ), 4)
+            # Cluster bootstrap resamples spatial groups, never individual windows.
+            import random
+            rng = random.Random(20261123)
+            by_group = {group: [row for row in test if row["spatial_group"] == group] for group in test_groups}
+            group_names = sorted(by_group)
+            boot = []
+            for _ in range(2000):
+                sampled = [rng.choice(group_names) for _ in group_names]
+                sample_rows = [row for group in sampled for row in by_group[group]]
+                y = [1 if row["label"] == "positive" else 0 for row in sample_rows]
+                scores = [float(row["core_terrain_index"]) for row in sample_rows]
+                if 1 in y and 0 in y:
+                    boot.append(auc(y, scores))
+            if len(boot) >= 200:
+                boot.sort()
+                auc_ci = [round(boot[int(0.025 * (len(boot)-1))], 4), round(boot[int(0.975 * (len(boot)-1))], 4)]
             status = "spatial_group_holdout_diagnostic"
         targets[target] = {
             "status": status,
@@ -84,6 +115,8 @@ def build_report(rows: list[dict[str, Any]]) -> dict[str, Any]:
             "n_test_negative": negatives,
             "held_out_groups": sorted(test_groups),
             "roc_auc": auc_value,
+            "roc_auc_group_bootstrap_95pct_ci": auc_ci,
+            "bootstrap_resamples": 2000,
             "interpretation": "Exploratory spatial-group holdout on reviewer-labelled candidates. It is not a universal accuracy estimate; assess label quality, group design and uncertainty before drawing conclusions."
         }
     overall = "spatial_group_holdout_diagnostic" if any(
@@ -97,7 +130,7 @@ def build_report(rows: list[dict[str, Any]]) -> dict[str, Any]:
             "score": "core_terrain_index",
             "holdout": "deterministic 20% holdout by spatial_group; all records from one group remain in one split",
             "unit_of_independence": "spatial_group, not individual candidate window",
-            "uncertainty": "No confidence interval is reported in this first diagnostic. A predeclared group bootstrap and external expert review are required before any accuracy claim."
+            "uncertainty": "Deterministic 2,000-resample spatial-group bootstrap interval where at least 200 valid resamples are available; still exploratory and not an accuracy claim."
         },
         "targets": targets,
         "limitations": [
@@ -120,7 +153,16 @@ def main() -> None:
         }
     else:
         payload = json.loads(INPUT.read_text(encoding="utf-8"))
-        report = build_report(payload.get("labels", []))
+        global_path = ROOT / "data/global_discovery/global_discovery.json"
+        candidate_index = None
+        if global_path.exists():
+            global_data = json.loads(global_path.read_text(encoding="utf-8"))
+            candidate_index = {
+                (target, row["id"]): float(row["core_terrain_index"])
+                for target in ("moon", "mars")
+                for row in global_data.get("targets", {}).get(target, {}).get("candidate_windows", [])
+            }
+        report = build_report(payload.get("labels", []), candidate_index)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(f"Label validation: {report['status']}")
