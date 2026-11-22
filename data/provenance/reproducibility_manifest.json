@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-22T21:29:53+00:00",
-  "repository_commit_before_manifest_commit": "8773697f0c35cd4016e0360eb2603e6626dad231",
+  "generated_at_utc": "2026-11-22T21:52:55+00:00",
+  "repository_commit_before_manifest_commit": "9f299ed1b1b578ea7f7fe477472ac6b53078d771",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -429,25 +429,25 @@
     {
       "path": "data/global_discovery/global_discovery.json",
       "size_bytes": 11285179,
-      "sha256": "e324a78a03f4cb00c1427b2daecc5765295e2df23ca6ca8d12cf617e6d7dcd2e",
+      "sha256": "f5c66b8efa44dd7e6619164f3a4342b794bdf64644c26f3386a8c31d8b930c09",
       "evidence_class_hint": "global_discovery_output"
     },
     {
       "path": "data/global_discovery/global_landcover_enrichment.json",
       "size_bytes": 4211269,
-      "sha256": "71770cac135c7e0cf689feb15ce1c7c89d4201e73bb0540af5df5fdd32e0fe3d",
+      "sha256": "86ff7032c99590788ddee79c1ac3fb0b738b3556974722a4ea3891e402434bee",
       "evidence_class_hint": "global_discovery_output"
     },
     {
       "path": "data/global_discovery/global_lithology_enrichment.json",
       "size_bytes": 214215,
-      "sha256": "59d3607e9d83f2b713f7a25ee9aa32489d0729b5808c215a5e3a567b36c59b06",
+      "sha256": "71b33cd40f341514f3c9d1a911c0faff935763ffd9aa3cab0a1aa01002221660",
       "evidence_class_hint": "global_discovery_output"
     },
     {
       "path": "data/global_discovery/global_power_enrichment.json",
       "size_bytes": 1484488,
-      "sha256": "7244c6b935077990a04ba6750dfb4ed1ac67b1c253e1fe648e1464d4abe6a318",
+      "sha256": "db9fb358ecd6811b170263aea289210fc6d3e4b383db6702f780bf9fa40c547e",
       "evidence_class_hint": "global_discovery_output"
     },
     {
@@ -1009,12 +1009,6 @@
       "evidence_class_hint": "processed_or_derived"
     },
     {
-      "path": "data/validation/quantitative_validation.json",
-      "size_bytes": 13897,
-      "sha256": "719d00a7b03826780389ab1f45886d9aa5c74b1f7f1d10daecf42ac9163d545b",
-      "evidence_class_hint": "processed_or_derived"
-    },
-    {
       "path": "science/README.md",
       "size_bytes": 479,
       "sha256": "ac7b9e639af5356c02cb5fe90bc8dfdcec16db8b39a2fe883ab7cb2dea640a27",
@@ -1082,14 +1076,14 @@
     },
     {
       "path": "scripts/build_quantitative_validation.py",
-      "size_bytes": 16847,
-      "sha256": "6f316d1ffc82809c2ea90ba374ffea654dd7c208390bc247f1040ddc9b7f4908",
+      "size_bytes": 17284,
+      "sha256": "6306c9dcfcba5c487b9dc7f0508a4861de4ff791f8761bf293e2a1390eb99c74",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": "scripts/build_reproducibility_manifest.py",
-      "size_bytes": 5287,
-      "sha256": "f4e3546a9dab04887619f55e8eb0251284e4e6de79ec7423adbefa8f23d7fb83",
+      "size_bytes": 5755,
+      "sha256": "97adc60d8f71c2e059949d59a6fe54611a3d0ba936706a4e04bd6d55274a3a49",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1460,8 +1454,8 @@
     },
     {
       "path": ".github/workflows/build-provenance-manifest.yml",
-      "size_bytes": 2670,
-      "sha256": "05fad0f99a0f54e987d37dd1e787dcbf09f53fdf4fd9036aee229490d2ce7022",
+      "size_bytes": 2692,
+      "sha256": "a28dd10b33cf950befd4f873c54f2d92862ac34dbf5dc1acb2c888481fbc71ed",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1520,20 +1514,20 @@
     },
     {
       "path": ".github/workflows/global-discovery.yml",
-      "size_bytes": 5752,
-      "sha256": "97d8b198578bf73eb298b75fce097ae83d34223236789227e5ead3c6e1318d11",
+      "size_bytes": 5887,
+      "sha256": "7a3d7229294b5908783abcec039833f72c364f4c44fe4e2fb64be4aa6dc0f29e",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": ".github/workflows/global-environment-enrichment.yml",
-      "size_bytes": 2716,
-      "sha256": "5d2b5f550833d3f86a8e15b3de9a40683f568082cfb29fdf71693ecdcd443a8e",
+      "size_bytes": 2785,
+      "sha256": "2bf910d05166f28207a7dcdcb67635a583bab7cf8bcc936820aadc9e8b974df2",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": ".github/workflows/global-ranking-release.yml",
-      "size_bytes": 3031,
-      "sha256": "06968f9f85747299ca4de1b6ab4054a4f399921888dce01d3c7935d1d73f2275",
+      "size_bytes": 3615,
+      "sha256": "0b8401a91c6517e219301f2b96b8b7054df29de952a9642188b9755d1619766f",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1600,6 +1594,12 @@
       "path": "tests/test_regional_window_scan.py",
       "size_bytes": 2422,
       "sha256": "fc8508b1cd0aa38625eb28e421c006ae7d03ae2558b8e1d7172c8f31244bd639",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "tests/test_reproducibility_manifest.py",
+      "size_bytes": 993,
+      "sha256": "ebe68bf012dceb495fe4f9cbde5f8db335e2f19430efdb62dfc93698bf015b1f",
       "evidence_class_hint": "method_or_documentation"
     },
     {
