@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-22T20:17:43+00:00",
+  "generated_at_utc": "2026-11-22T21:08:58+00:00",
   "provider": "NASA GSFC Planetary Geosciences Data Archive (PGDA), LRO LOLA",
   "product": "High-Resolution LOLA Topography for Lunar South Pole Sites (PGDA product 78)",
   "site": {
@@ -48,6 +48,32 @@
       ],
       "nodata": null,
       "dtype": "float32"
+    },
+    "elevation_uncertainty": {
+      "filename": "Site04_final_adj_5mpp_toterr.tif",
+      "url": "https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/Site04/Site04_final_adj_5mpp_toterr.tif",
+      "crs": "PROJCS[\"unnamed\",GEOGCS[\"unnamed ellipse\",DATUM[\"unknown\",SPHEROID[\"unnamed\",1737400,0]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Polar_Stereographic\"],PARAMETER[\"latitude_of_origin\",-90],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1],AXIS[\"Easting\",NORTH],AXIS[\"Northing\",NORTH]]",
+      "width_px": 3200,
+      "height_px": 3200,
+      "pixel_size_crs_units": [
+        5.0,
+        -5.0
+      ],
+      "nodata": null,
+      "dtype": "float32"
+    },
+    "slope_uncertainty": {
+      "filename": "Site04_final_adj_5mpp_slperr.tif",
+      "url": "https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/Site04/Site04_final_adj_5mpp_slperr.tif",
+      "crs": "PROJCS[\"unnamed\",GEOGCS[\"unnamed ellipse\",DATUM[\"unknown\",SPHEROID[\"unnamed\",1737400,0]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Polar_Stereographic\"],PARAMETER[\"latitude_of_origin\",-90],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1],AXIS[\"Easting\",NORTH],AXIS[\"Northing\",NORTH]]",
+      "width_px": 3200,
+      "height_px": 3200,
+      "pixel_size_crs_units": [
+        5.0,
+        -5.0
+      ],
+      "nodata": null,
+      "dtype": "float32"
     }
   },
   "native_pixel_scale_m": 5,
@@ -60,7 +86,9 @@
     "positive_lola_return_pixels": 937381,
     "positive_return_coverage_percent": 9.154,
     "mean_lola_returns_per_valid_count_pixel": 0.09608525390625,
-    "median_lola_returns_per_valid_count_pixel": 0.0
+    "median_lola_returns_per_valid_count_pixel": 0.0,
+    "valid_elevation_rms_uncertainty_pixels": 10240000,
+    "valid_slope_rms_uncertainty_pixels": 10240000
   },
   "terrain_metrics": {
     "elevation_m_moon_me_de421": {
@@ -81,6 +109,24 @@
       "min": 0.0,
       "max": 69.64722442626953
     },
+    "elevation_rms_uncertainty_m": {
+      "count": 10240000,
+      "p10": 0.19656045734882355,
+      "median": 0.35968247056007385,
+      "p90": 0.6853621661663055,
+      "p95": 0.8257322192192067,
+      "min": 0.06385684758424759,
+      "max": 7.635095596313477
+    },
+    "slope_rms_uncertainty_deg": {
+      "count": 10240000,
+      "p10": 1.10479816198349,
+      "median": 1.496445119380951,
+      "p90": 2.7838049888610836,
+      "p95": 3.5156527042388905,
+      "min": 0.5000152587890625,
+      "max": 28.143030166625977
+    },
     "3x3_local_relief_m_15m_footprint": {
       "count": 10227204,
       "p10": 1.61181640625,
@@ -97,9 +143,10 @@
     }
   },
   "preview_path": "shackleton_rim_lola_5m_hillshade.png",
-  "interpretation": "High-resolution south-polar terrain context for a named Shackleton Rim candidate site. LDEM interpolated elevations remain valid where LDEC records zero direct returns; positive-return coverage is reported separately as measurement support. These descriptors alone do not establish illumination, PSR status, water-ice abundance, landing suitability, rover traversability or engineering safety.",
+  "interpretation": "High-resolution south-polar terrain context for a named Shackleton Rim candidate site. LDEM interpolated elevations remain valid where LDEC records zero direct returns; positive-return coverage is reported separately as measurement support. The total elevation and slope RMS-error rasters are source uncertainty products; their distributions are not probabilities of failure or stand-alone safety bounds. These descriptors alone do not establish illumination, PSR status, water-ice abundance, landing suitability, rover traversability or engineering safety.",
   "citations": [
     "Barker et al. (2023), A New View of the Lunar South Pole from LOLA, Planetary Science Journal 4, 183, DOI 10.3847/PSJ/acf3e1.",
-    "Barker et al. (2021), Improved LOLA Elevation Maps for South Pole Landing Sites: Error Estimates and Their Impact on Illumination Conditions, Planetary and Space Science 203, 105119."
+    "Barker et al. (2021), Improved LOLA Elevation Maps for South Pole Landing Sites: Error Estimates and Their Impact on Illumination Conditions, Planetary and Space Science 203, 105119, DOI 10.1016/j.pss.2020.105119.",
+    "NASA GSFC PGDA product 78: https://pgda.gsfc.nasa.gov/products/78"
   ]
 }
