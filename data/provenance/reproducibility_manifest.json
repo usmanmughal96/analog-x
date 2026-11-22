@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-22T18:47:06+00:00",
-  "repository_commit_before_manifest_commit": "741a7ce8af0c2f5b2ff2d347cb6d73c55ae4c89f",
+  "generated_at_utc": "2026-11-22T18:49:30+00:00",
+  "repository_commit_before_manifest_commit": "9ebf79f56933b4e4d9f407030476b3273965b3c4",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -930,7 +930,7 @@
     {
       "path": "data/validation/quantitative_validation.json",
       "size_bytes": 11777,
-      "sha256": "4b220c5f89f017b78e4011ae081501d3b3b614462d47ad49a3845fcdbe4ae2e9",
+      "sha256": "ebcf113afb43365edf62b4eb07422fd9258fde454b037be9323b583dc62c1cdc",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -1103,8 +1103,8 @@
     },
     {
       "path": "scripts/process_lunar_base_evidence.py",
-      "size_bytes": 21846,
-      "sha256": "6b2417db9e65841a895b3f592e117aac93482615ead9174c2554b386b8dd74cc",
+      "size_bytes": 22919,
+      "sha256": "e75c76d942f590b204bb09d7106a82b2b21a82f3c9d7ecd4e931f7f825ae4c59",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1367,8 +1367,8 @@
     },
     {
       "path": ".github/workflows/diagnose-diviner-prp.yml",
-      "size_bytes": 1642,
-      "sha256": "147d6af2f7b5b921ecf80586eafe615bcc28741a556f7a1682a2f123e8f94e95",
+      "size_bytes": 1806,
+      "sha256": "2ea948cbcd9d2cdb71c1e262ed661a088ae87dd85b93dbb5f997414ab4a1d9ae",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1457,8 +1457,8 @@
     },
     {
       "path": "tests/test_lunar_base_evidence.py",
-      "size_bytes": 1250,
-      "sha256": "9845e1fb14eb38b21c2156da21ff8258c92f2d5086c5ea346435e98c9c6f93d1",
+      "size_bytes": 2324,
+      "sha256": "a50305be4d55c020fb62ec08cd56c50b16a16d250448e24730f3b977e23d6718",
       "evidence_class_hint": "method_or_documentation"
     },
     {
