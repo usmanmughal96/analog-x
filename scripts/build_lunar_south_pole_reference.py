@@ -229,9 +229,9 @@ def main():
       "Barker et al. (2021), Improved LOLA Elevation Maps for South Pole Landing Sites: Error Estimates and Their Impact on Illumination Conditions, Planetary and Space Science 203, 105119."
     ]
    }
-  # Render overview from source COGs while handles are still available.
+  # Render the browse overview from validated local copies of the source COGs.
   # A 900x900 average-resampled image is small enough for the public web app.
-  dem_path,slope_path,count_path=(urls["elevation"],urls["slope"],urls["counts"])
+  dem_path,slope_path,count_path=(local_paths["elevation"],local_paths["slope"],local_paths["counts"])
   for d in ds.values():
    d.close()
   ds.clear()
