@@ -1,7 +1,34 @@
 {
-  "schema_version": "2.0.0",
-  "generated_at_utc": "2026-11-19T14:04:26+00:00",
+  "schema_version": "2.1.0",
+  "generated_at_utc": "2026-11-22T18:27:20+00:00",
   "status": "diagnostic_only",
+  "ranking_release": {
+    "status": "stale_or_invalid",
+    "ranking_ready": false,
+    "dataset_schema_version": "1.1.0",
+    "required_schema_version": "1.1.0",
+    "ranking_contract_present": false,
+    "complete_failure_free_inventory": true,
+    "targets": {
+      "moon": {
+        "candidate_count": 1200,
+        "primary_core_order_valid": true,
+        "primary_ranks_sequential": true,
+        "secondary_diagnostic_ranks_permutation": true,
+        "candidate_ids_unique": true,
+        "ranking_valid": true
+      },
+      "mars": {
+        "candidate_count": 1200,
+        "primary_core_order_valid": true,
+        "primary_ranks_sequential": true,
+        "secondary_diagnostic_ranks_permutation": true,
+        "candidate_ids_unique": true,
+        "ranking_valid": true
+      }
+    },
+    "note": "Ranking readiness verifies data schema, ordering and rank integrity only. It does not establish independent scientific accuracy or planetary analog validity."
+  },
   "global_scan": {
     "status": "complete",
     "global_land_tile_inventory_total": 26475,
@@ -58,6 +85,10 @@
     }
   },
   "interpretation": "Global terrain screening is complete only for the enumerated Copernicus GLO-90 land-tile inventory. The stored list is a bounded shortlist, not all evaluated windows. Primary rank uses the core terrain family only; the alternative family is diagnostic. Neither score is a probability, calibrated accuracy or analog verdict.",
+  "independent_analog_label_validation": {
+    "status": "awaiting_reference_labels",
+    "note": "No independently sourced, reviewed positive/negative analog label file is present. No AUC or accuracy is inferred."
+  },
   "global_land_cover_enrichment": {
     "state": "partially_processed",
     "shortlist_candidate_windows_unique": 2400,
@@ -165,10 +196,10 @@
   },
   "reproducibility": {
     "manifest_state": "present",
-    "manifest_sha256": "837697aae8584d6aacff20de9c9193c96bcaf599f17d97ed28509a56d5e37a4e",
-    "hashed_repository_file_count": 200,
+    "manifest_sha256": "124e94305778aa13424b8b9d1f85e477428632c071fbefa67b535a52a3d6c9f9",
+    "hashed_repository_file_count": 201,
     "source_registry_records": 17,
-    "manifest_generated_at_utc": "2026-11-19T13:37:58+00:00",
+    "manifest_generated_at_utc": "2026-11-19T14:04:26+00:00",
     "limitations": [
       "SHA-256 establishes byte-level identity, not scientific validity or source authenticity.",
       "The manifest records the repository commit before its own final commit; it cannot hash its final committed bytes.",
@@ -187,6 +218,8 @@
     "rule": "browse_only, metadata_only and reference_only records are not represented as fully processed quantitative science inputs."
   },
   "release_gate": {
+    "ranking_release": "ready only when schema 1.1.0 core-only ordering and rank-integrity checks pass",
+    "independent_analog_validation": "awaiting independently sourced, reviewed labels and spatially blocked held-out evaluation",
     "global_scan": "complete only when every enumerated land tile is processed and tile_failures=0",
     "quantitative_validation": "diagnostic-only until independent labels, spatially blocked tests and defensible held-out validation are available",
     "field_validation": "requires georeferenced observations, instrument/calibration provenance, permissions and independent review",

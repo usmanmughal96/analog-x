@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-19T14:04:26+00:00",
-  "repository_commit_before_manifest_commit": "c8089449024df226cf6bfb70b4b6aabc0bdd807e",
+  "generated_at_utc": "2026-11-22T18:27:20+00:00",
+  "repository_commit_before_manifest_commit": "b9ce75b178758f1f0ae0fea8a87029f3947ac89c",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -37,7 +37,7 @@
       "manifest.webmanifest"
     ]
   },
-  "file_count": 201,
+  "file_count": 208,
   "source_registry_sha256": "f5975e2a681ea76dc8b8c540bc3725179579b2bd94baf212ba3fefa63fa04b0d",
   "source_registry_records": [
     {
@@ -329,8 +329,8 @@
     },
     {
       "path": "global-discovery.html",
-      "size_bytes": 24508,
-      "sha256": "860a1a560b2b43e979c993dac23d1079512ab2c5cc200bbdeb56e85010c35645",
+      "size_bytes": 25945,
+      "sha256": "ad4ef3ed4159abc8c43184e6b8159c40da90c5ecaf8caacaf2711fb3b83616c8",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -341,8 +341,8 @@
     },
     {
       "path": "transferability.html",
-      "size_bytes": 27368,
-      "sha256": "b84f575e8236789eb9b1ea1fc141fb89244e8990402c9e005455a6c2b1c29485",
+      "size_bytes": 28702,
+      "sha256": "a1aba0f75af47c41ffc5f98df9d961121d9d56e479cb28dedee12af08af52c6a",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -748,6 +748,12 @@
       "evidence_class_hint": "metadata_only"
     },
     {
+      "path": "data/planetary/target_registry.json",
+      "size_bytes": 3868,
+      "sha256": "e9980679ec114c38d855c5ae680aa62cba97497ef8a1776602519ff30cc03490",
+      "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
+    },
+    {
       "path": "data/power/README.md",
       "size_bytes": 482,
       "sha256": "d96671ace965593ef73120ed16f4b63cfef26181138a8e7bbbf211f6ef0902d6",
@@ -910,6 +916,12 @@
       "evidence_class_hint": "processed_or_derived"
     },
     {
+      "path": "data/validation/independent_analog_labels.json",
+      "size_bytes": 778,
+      "sha256": "9a60a2480fc64b93e874c4b523c10f651d3835d280a6c7b445f01dd39b15f1c7",
+      "evidence_class_hint": "processed_or_derived"
+    },
+    {
       "path": "data/validation/nasadem_crosscheck.json",
       "size_bytes": 14743,
       "sha256": "cccb9836902b238a8018a4a5df0a16d9e3621096e3f914c9f75c78aed0d42a23",
@@ -917,8 +929,8 @@
     },
     {
       "path": "data/validation/quantitative_validation.json",
-      "size_bytes": 10342,
-      "sha256": "d54d667e5875a930da3fcde6d7908ff2f6470e8d3c65477db7e832c0b0f39e66",
+      "size_bytes": 11777,
+      "sha256": "c0ba7ec606f6d3532e6dae330e21413ac3598d1746d7846f9258fc2062feb2b6",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -983,8 +995,8 @@
     },
     {
       "path": "scripts/build_quantitative_validation.py",
-      "size_bytes": 12457,
-      "sha256": "b87baa949184886f60d9e95043ce626b1ba24233b895dbfc6fd6200f945cd4d1",
+      "size_bytes": 16847,
+      "sha256": "6f316d1ffc82809c2ea90ba374ffea654dd7c208390bc247f1040ddc9b7f4908",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1079,8 +1091,8 @@
     },
     {
       "path": "scripts/merge_global_discovery.py",
-      "size_bytes": 8448,
-      "sha256": "fcb295e87b78e7e48271d8911a4bcce516ecd07aba0e023cd1ad1132949741c5",
+      "size_bytes": 14143,
+      "sha256": "5c25c57bbb060493483245ca28d558c87066a8c23e2ed132cb3f0bd7a33fb2fa",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1111,6 +1123,12 @@
       "path": "scripts/sites.json",
       "size_bytes": 1545,
       "sha256": "c42bf986de64732f471b63fd65c4d4659eaa0ccf720a91f9f46b93f444e90219",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "scripts/validate_analog_labels.py",
+      "size_bytes": 6457,
+      "sha256": "6f8b1ab2bb70bdca74228922daebb04cd2474d383f86483876056292bb41a0d3",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1193,8 +1211,8 @@
     },
     {
       "path": "docs/COMPETITIVE_CAPABILITY_RESPONSE.md",
-      "size_bytes": 9519,
-      "sha256": "ab110ad023a1c60e3c8558f21f82ab8422c538a0f062819a5214962b31a3ad15",
+      "size_bytes": 11302,
+      "sha256": "ef9d67bd1f18f7bcfea313921ad7ec2b93b3fc1da3ad7b09f3976aa5a328410c",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1223,8 +1241,14 @@
     },
     {
       "path": "docs/GLOBAL_DISCOVERY_AND_VALIDATION.md",
-      "size_bytes": 13677,
-      "sha256": "f1d954b349e60d960ea164f0ddcff83eb5fb3c231a29471f87535e16b117d028",
+      "size_bytes": 15391,
+      "sha256": "38e6652a4be49ab3d8232aea6a4a5bd99838b6ac899ad304223bdca8a51f8897",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/INDEPENDENT_LABEL_VALIDATION_PROTOCOL.md",
+      "size_bytes": 2783,
+      "sha256": "72771ecfa47ac04f6767ce7cd7459df9fa41c275b62d48f7da191e751cf265e3",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1249,6 +1273,12 @@
       "path": "docs/OFFLINE_AND_BACKEND.md",
       "size_bytes": 6145,
       "sha256": "12e577d0d4df6b040925ee6ff7b14dafed335d9d01fafd8ad0c2a40c584b0586",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/PLANETARY_TARGET_EXPANSION.md",
+      "size_bytes": 2073,
+      "sha256": "5414b24ce9c8770ce43a76c979e56770e787c3e7ac8ee358f0d620f9eaeaa7c1",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1373,8 +1403,8 @@
     },
     {
       "path": ".github/workflows/global-discovery.yml",
-      "size_bytes": 4231,
-      "sha256": "e4616803bbd0c64c170f65ae1b962a7362eddfd1e04a6a2dd82e0b9a79534717",
+      "size_bytes": 5869,
+      "sha256": "e09959853c043d1fe015755a113a91aeba6bc558f7a9a6b14964563607ceb33e",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1396,9 +1426,15 @@
       "evidence_class_hint": "method_or_documentation"
     },
     {
+      "path": "tests/test_analog_label_validation.py",
+      "size_bytes": 1491,
+      "sha256": "65999948ca7c18a0724e310b065e62a6762801a508b69ae8c11323dbde872dab",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
       "path": "tests/test_global_discovery.py",
-      "size_bytes": 3233,
-      "sha256": "e0124d12af687ab69ed582ba64ab960e7df5839cc0db10fd69f6b943a54c8fbd",
+      "size_bytes": 5944,
+      "sha256": "1424e23335e8797b73b201c988fc0512e2c39ed0ef6fee09bf7755a2b5601cf0",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1423,6 +1459,12 @@
       "path": "tests/test_regional_window_scan.py",
       "size_bytes": 2422,
       "sha256": "fc8508b1cd0aa38625eb28e421c006ae7d03ae2558b8e1d7172c8f31244bd639",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "tests/test_validation_release.py",
+      "size_bytes": 2081,
+      "sha256": "4bd4748c213e649b4496e7b595a0caf93bdadddf4fc7ce11a0f0254e77a82220",
       "evidence_class_hint": "method_or_documentation"
     },
     {
