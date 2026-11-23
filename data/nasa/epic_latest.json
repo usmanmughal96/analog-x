@@ -1,27 +1,27 @@
 {
   "provider": "NASA DSCOVR / EPIC",
   "product": "Natural-colour full-disk Earth image",
-  "image_id": "epic_1b_20261120220342",
-  "date": "2026-11-20 21:58:53",
+  "image_id": "epic_1b_20261121184618",
+  "date": "2026-11-21 18:41:30",
   "caption": "This image was taken by NASA's EPIC camera onboard the NOAA DSCOVR spacecraft",
   "centroid_coordinates": {
-    "lat": -16.633301,
-    "lon": -162.443848
+    "lat": -17.102051,
+    "lon": -112.990723
   },
   "dscovr_j2000_position": {
-    "x": -909994.626694,
-    "y": -1004773.868479,
-    "z": -402770.713736
+    "x": -887236.78125,
+    "y": -1016047.00392,
+    "z": -413443.49805
   },
   "sun_j2000_position": {
-    "x": -77837180.749884,
-    "y": -115284788.133294,
-    "z": -49972736.783032
+    "x": -75904556.000016,
+    "y": -116336223.999991,
+    "z": -50428467.999996
   },
   "image_path": "./epic_latest.png",
-  "image_url": "https://epic.gsfc.nasa.gov/archive/natural/2026/11/20/png/epic_1b_20261120220342.png",
+  "image_url": "https://epic.gsfc.nasa.gov/archive/natural/2026/11/21/png/epic_1b_20261121184618.png",
   "api_documentation": "https://epic.gsfc.nasa.gov/about/api",
-  "fetched_at_utc": "2026-11-22T20:05:21+00:00",
+  "fetched_at_utc": "2026-11-23T15:18:24+00:00",
   "authentication_mode": "Public EPIC endpoint; no NASA API key required",
   "note": "Global full-disk context imagery only; not used for site-scale analog metrics or surface interpretation."
 }
