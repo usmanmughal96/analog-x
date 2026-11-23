@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "provider": "NASA POWER Climatology API",
   "community": "RE",
-  "generated_at_utc": "2026-11-22T20:05:11+00:00",
+  "generated_at_utc": "2026-11-23T12:34:56+00:00",
   "record_count": 10,
   "candidate_count": 10,
   "records": {
@@ -16,7 +16,7 @@
         "longitude": 62.8,
         "environment": "Volcanic field"
       },
-      "fetched_at_utc": "2026-11-22T20:05:08+00:00",
+      "fetched_at_utc": "2026-11-23T12:34:52+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",
@@ -39,7 +39,7 @@
         "longitude": 40.3,
         "environment": "Hydrothermal / evaporite"
       },
-      "fetched_at_utc": "2026-11-22T20:05:08+00:00",
+      "fetched_at_utc": "2026-11-23T12:34:52+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",
@@ -62,7 +62,7 @@
         "longitude": -68.2,
         "environment": "Hyperarid desert"
       },
-      "fetched_at_utc": "2026-11-22T20:05:08+00:00",
+      "fetched_at_utc": "2026-11-23T12:34:53+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",
@@ -85,7 +85,7 @@
         "longitude": 161.8,
         "environment": "Cold polar desert"
       },
-      "fetched_at_utc": "2026-11-22T20:05:09+00:00",
+      "fetched_at_utc": "2026-11-23T12:34:53+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",
@@ -108,7 +108,7 @@
         "longitude": -89.68,
         "environment": "Impact crater / polar desert"
       },
-      "fetched_at_utc": "2026-11-22T20:05:09+00:00",
+      "fetched_at_utc": "2026-11-23T12:34:54+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",
@@ -131,7 +131,7 @@
         "longitude": -22.27,
         "environment": "Basaltic volcanic terrain"
       },
-      "fetched_at_utc": "2026-11-22T20:05:10+00:00",
+      "fetched_at_utc": "2026-11-23T12:34:54+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",
@@ -154,7 +154,7 @@
         "longitude": -116.82,
         "environment": "Arid basin / alluvial fans"
       },
-      "fetched_at_utc": "2026-11-22T20:05:10+00:00",
+      "fetched_at_utc": "2026-11-23T12:34:55+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",
@@ -177,7 +177,7 @@
         "longitude": 75.23341,
         "environment": "Cold-region cryosphere"
       },
-      "fetched_at_utc": "2026-11-22T20:05:10+00:00",
+      "fetched_at_utc": "2026-11-23T12:34:55+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",
@@ -200,7 +200,7 @@
         "longitude": 62.633333,
         "environment": "Arid salt playa / evaporite and brine-process candidate"
       },
-      "fetched_at_utc": "2026-11-22T20:05:11+00:00",
+      "fetched_at_utc": "2026-11-23T12:34:56+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",
@@ -223,7 +223,7 @@
         "longitude": 62.91667,
         "environment": "Closed-basin playa / intermittent saline lake"
       },
-      "fetched_at_utc": "2026-11-22T20:05:11+00:00",
+      "fetched_at_utc": "2026-11-23T12:34:56+00:00",
       "valid_parameters": [
         "T2M",
         "T2M_MAX",

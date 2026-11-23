@@ -23,7 +23,7 @@
     ],
     "request_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CRH2M%2CWS10M%2CPRECTOTCORR%2CALLSKY_SFC_SW_DWN&community=RE&longitude=62.91667&latitude=28.25&format=JSON",
     "request_mode": "one multi-parameter request",
-    "fetched_at_utc": "2026-11-22T20:05:11+00:00",
+    "fetched_at_utc": "2026-11-23T12:34:56+00:00",
     "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/climatology/",
     "community_documentation": "https://power.larc.nasa.gov/docs/methodology/communities/",
     "parameter_errors": {}
@@ -342,8 +342,8 @@
       }
     },
     "times": {
-      "data": 0.272,
-      "process": 0.02
+      "data": 0.248,
+      "process": 0.03
     }
   },
   "quality": {
