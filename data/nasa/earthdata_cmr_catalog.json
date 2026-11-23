@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-22T20:11:33+00:00",
+  "generated_at_utc": "2026-11-23T16:10:40+00:00",
   "provider": "NASA Earthdata / Common Metadata Repository (CMR)",
   "api": "https://cmr.earthdata.nasa.gov/search",
   "access": "Public collection/granule metadata search; granule data access can require Earthdata Login depending on provider and endpoint.",
