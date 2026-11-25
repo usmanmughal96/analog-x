@@ -9,7 +9,9 @@
     "selection_seed": "SHA256(ANALOG-X-review-v1 | target | rank-bin | candidate-id)",
     "spatial_group": "Predeclared 10-degree geographic grid cell; an expert may coalesce adjacent cells into a single geologic block before evaluation, but must not split neighbouring geology across train/test.",
     "cases_per_target": 48,
-    "rank_and_score_withheld": true
+    "rank_and_score_withheld": true,
+    "public_location_precision_degrees": 0.1,
+    "location_policy": "Public case coordinates are rounded to the nearest 0.1 degree. Exact candidate coordinates are retained only in the private case key. Opaque case codes are keyed with an owner-private salt and cannot be dictionary-matched against public candidate IDs."
   },
   "review_instructions": [
     "Do not request or use ANALOG-X scores or ranks before recording a review.",
@@ -21,15 +23,16 @@
   ],
   "cases": [
     {
-      "review_case_id": "AX-M-01F4B4F1F8F6",
+      "review_case_id": "AX-M-00BFCD70F35C20E0",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 12.52714,
-        "longitude_wgs84_deg": 107.6854
+        "latitude_wgs84_deg": 46.8,
+        "longitude_wgs84_deg": 119,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -46,15 +49,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-033F7B4AB7BF",
+      "review_case_id": "AX-M-0655D4D36EF25233",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 46.97869,
-        "longitude_wgs84_deg": -68.59865
+        "latitude_wgs84_deg": 34.4,
+        "longitude_wgs84_deg": -3,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -71,15 +75,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-08A69CABCD7C",
+      "review_case_id": "AX-M-086A9328F47BE220",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": -19.22219,
-        "longitude_wgs84_deg": -47.29179
+        "latitude_wgs84_deg": 49.5,
+        "longitude_wgs84_deg": 15.3,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -96,15 +101,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-123ABE34CB89",
+      "review_case_id": "AX-M-0FDB81AA577B75ED",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 52.18172,
-        "longitude_wgs84_deg": -115.32844
+        "latitude_wgs84_deg": 69.4,
+        "longitude_wgs84_deg": 101.2,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -121,15 +127,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-13D9280CD7F1",
+      "review_case_id": "AX-M-1222F0C60D2BE439",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 69.38977,
-        "longitude_wgs84_deg": 101.15529
+        "latitude_wgs84_deg": -9.8,
+        "longitude_wgs84_deg": 17.8,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -146,15 +153,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-15E80AAD1527",
+      "review_case_id": "AX-M-18650864ED134D48",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 57.18035,
-        "longitude_wgs84_deg": 104.50008
+        "latitude_wgs84_deg": 53.6,
+        "longitude_wgs84_deg": 57,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -171,15 +179,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-2077EE1B0361",
+      "review_case_id": "AX-M-19B371672A2B1975",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": -70.02425,
-        "longitude_wgs84_deg": 36.9434
+        "latitude_wgs84_deg": -16.3,
+        "longitude_wgs84_deg": 29.6,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -196,15 +205,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-29F812163BB1",
+      "review_case_id": "AX-M-21C5D9DB87C17823",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 28.08085,
-        "longitude_wgs84_deg": -106.40851
+        "latitude_wgs84_deg": 38,
+        "longitude_wgs84_deg": 67.5,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -221,15 +231,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-324308CB4696",
+      "review_case_id": "AX-M-22F545F26107D2F7",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 37.98748,
-        "longitude_wgs84_deg": -1.96857
+        "latitude_wgs84_deg": -27.9,
+        "longitude_wgs84_deg": 30.7,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -246,15 +257,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-33AFF618ACD5",
+      "review_case_id": "AX-M-294686D3A944CD91",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": -41.70585,
-        "longitude_wgs84_deg": -66.10868
+        "latitude_wgs84_deg": 34.1,
+        "longitude_wgs84_deg": 2.9,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -271,15 +283,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-391DA782698F",
+      "review_case_id": "AX-M-29B05997CBCD4D13",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 6.27282,
-        "longitude_wgs84_deg": 38.47611
+        "latitude_wgs84_deg": 52.2,
+        "longitude_wgs84_deg": -115.3,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -296,15 +309,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-3D3C7242BDEC",
+      "review_case_id": "AX-M-2E0C04DF203924EA",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 52.52924,
-        "longitude_wgs84_deg": -63.48019
+        "latitude_wgs84_deg": 41.2,
+        "longitude_wgs84_deg": 110.6,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -321,15 +335,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-3D994A4D7B29",
+      "review_case_id": "AX-M-2E810AF844AA9CC2",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": -10.8766,
-        "longitude_wgs84_deg": 16.43115
+        "latitude_wgs84_deg": 57.2,
+        "longitude_wgs84_deg": 104.5,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -346,15 +361,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-3E5FABA4C1E5",
+      "review_case_id": "AX-M-3502A3E46D46C390",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 63.97644,
-        "longitude_wgs84_deg": 91.10067
+        "latitude_wgs84_deg": 59.7,
+        "longitude_wgs84_deg": 123,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -371,15 +387,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-4061213711BB",
+      "review_case_id": "AX-M-355FC833A9270E45",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 18.726,
-        "longitude_wgs84_deg": 8.44327
+        "latitude_wgs84_deg": -41.7,
+        "longitude_wgs84_deg": -66.1,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -396,15 +413,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-420C7E75068C",
+      "review_case_id": "AX-M-35ABD3F7921567DD",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 14.12448,
-        "longitude_wgs84_deg": 25.2816
+        "latitude_wgs84_deg": 66.3,
+        "longitude_wgs84_deg": 163.8,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -421,15 +439,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-4B70FD51E0B7",
+      "review_case_id": "AX-M-38EECBA19444D7A2",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 41.22866,
-        "longitude_wgs84_deg": 110.5594
+        "latitude_wgs84_deg": 64,
+        "longitude_wgs84_deg": 91.1,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -446,15 +465,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-4FE71CE36C7C",
+      "review_case_id": "AX-M-3ADAB7AE4111BC24",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 33.82843,
-        "longitude_wgs84_deg": 57.32988
+        "latitude_wgs84_deg": -10.9,
+        "longitude_wgs84_deg": 16.4,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -471,15 +491,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-5A9B5DC0061B",
+      "review_case_id": "AX-M-48CAE3DA894B2951",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 53.58013,
-        "longitude_wgs84_deg": 56.95039
+        "latitude_wgs84_deg": 42.2,
+        "longitude_wgs84_deg": -72.3,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -496,15 +517,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-6686CEE21A9A",
+      "review_case_id": "AX-M-5041E67C29D3E988",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 38.77919,
-        "longitude_wgs84_deg": 98.91569
+        "latitude_wgs84_deg": 38,
+        "longitude_wgs84_deg": -2,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -521,15 +543,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-6C6B0B99341A",
+      "review_case_id": "AX-M-63A19756A94D2010",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 38.0327,
-        "longitude_wgs84_deg": 67.53661
+        "latitude_wgs84_deg": 60.2,
+        "longitude_wgs84_deg": -143.8,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -546,15 +569,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-70BE1699BBF1",
+      "review_case_id": "AX-M-6C2F421E51829934",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": -16.3189,
-        "longitude_wgs84_deg": 29.64194
+        "latitude_wgs84_deg": 38.8,
+        "longitude_wgs84_deg": 98.9,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -571,15 +595,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-7514C5780E83",
+      "review_case_id": "AX-M-6D26CD1F7205EDA1",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 42.18333,
-        "longitude_wgs84_deg": -72.32033
+        "latitude_wgs84_deg": 18.7,
+        "longitude_wgs84_deg": 8.4,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -596,15 +621,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-88BD54C24C80",
+      "review_case_id": "AX-M-70034D658B482470",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": -38.67168,
-        "longitude_wgs84_deg": 176.08642
+        "latitude_wgs84_deg": 45.5,
+        "longitude_wgs84_deg": 133.6,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -621,15 +647,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-893DB68763FD",
+      "review_case_id": "AX-M-7B7BF424CFC9DC5A",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 16.52533,
-        "longitude_wgs84_deg": 44.54342
+        "latitude_wgs84_deg": 6.3,
+        "longitude_wgs84_deg": 38.5,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -646,15 +673,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-95907331CA92",
+      "review_case_id": "AX-M-8C1C52E9E13DA5C5",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 21.23174,
-        "longitude_wgs84_deg": 18.503
+        "latitude_wgs84_deg": -70,
+        "longitude_wgs84_deg": 36.9,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -671,15 +699,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-985957F92F34",
+      "review_case_id": "AX-M-8C808CF931BC3345",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 59.72968,
-        "longitude_wgs84_deg": 123.04935
+        "latitude_wgs84_deg": -9.1,
+        "longitude_wgs84_deg": 35.6,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -696,15 +725,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-9E24DA0FD0AA",
+      "review_case_id": "AX-M-92517ACB085CD348",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 46.79658,
-        "longitude_wgs84_deg": 119.02881
+        "latitude_wgs84_deg": 16.5,
+        "longitude_wgs84_deg": 44.5,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -721,15 +751,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-A10D5E236063",
+      "review_case_id": "AX-M-9DC18EF67F1E582B",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 37.8935,
-        "longitude_wgs84_deg": 41.15489
+        "latitude_wgs84_deg": 28.1,
+        "longitude_wgs84_deg": -106.4,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -746,15 +777,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-AF6E6DA28280",
+      "review_case_id": "AX-M-A6326AB1FAD6F2A9",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 40.34171,
-        "longitude_wgs84_deg": -78.72556
+        "latitude_wgs84_deg": 14.1,
+        "longitude_wgs84_deg": 25.3,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -771,15 +803,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-B1694F1C3553",
+      "review_case_id": "AX-M-A8D265A90E77BC93",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 49.47985,
-        "longitude_wgs84_deg": 15.26816
+        "latitude_wgs84_deg": 37.9,
+        "longitude_wgs84_deg": 41.2,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -796,15 +829,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-B33534157FD5",
+      "review_case_id": "AX-M-AFDE83BC68C6D870",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": -34.72382,
-        "longitude_wgs84_deg": 148.20881
+        "latitude_wgs84_deg": 31.4,
+        "longitude_wgs84_deg": -8.3,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -821,15 +855,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-B42320390FB4",
+      "review_case_id": "AX-M-B0B051018EB68EBF",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 66.28586,
-        "longitude_wgs84_deg": 163.78139
+        "latitude_wgs84_deg": 71.3,
+        "longitude_wgs84_deg": -50.6,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -846,15 +881,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-BE433CEFC87B",
+      "review_case_id": "AX-M-B1CF3AF311A8E73F",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 26.37784,
-        "longitude_wgs84_deg": 106.68992
+        "latitude_wgs84_deg": 12.5,
+        "longitude_wgs84_deg": 107.7,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -871,15 +907,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-C0BB50E98EAB",
+      "review_case_id": "AX-M-B379829F2F2C0485",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 45.48424,
-        "longitude_wgs84_deg": 133.58659
+        "latitude_wgs84_deg": 21.2,
+        "longitude_wgs84_deg": 18.5,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -896,15 +933,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-C3A23892BE0B",
+      "review_case_id": "AX-M-BCCAB9675F93FBA2",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 50.44211,
-        "longitude_wgs84_deg": 6.71479
+        "latitude_wgs84_deg": -34.7,
+        "longitude_wgs84_deg": 148.2,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -921,15 +959,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-C8B91320F379",
+      "review_case_id": "AX-M-C4CF94D04EC0B7EC",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 60.1823,
-        "longitude_wgs84_deg": -143.76633
+        "latitude_wgs84_deg": 47,
+        "longitude_wgs84_deg": -68.6,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -946,15 +985,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-CE99FF0022D8",
+      "review_case_id": "AX-M-C6497A354D6E5F8C",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 31.42634,
-        "longitude_wgs84_deg": -8.32844
+        "latitude_wgs84_deg": 15.7,
+        "longitude_wgs84_deg": 39.2,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -971,15 +1011,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-CFFCEC62E24F",
+      "review_case_id": "AX-M-CB194B3011F53810",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": -9.12181,
-        "longitude_wgs84_deg": 35.57531
+        "latitude_wgs84_deg": 50.8,
+        "longitude_wgs84_deg": 12.6,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -996,15 +1037,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-D4B849B38929",
+      "review_case_id": "AX-M-CDE8D9DF80C97796",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": -21.17469,
-        "longitude_wgs84_deg": -43.87201
+        "latitude_wgs84_deg": 26.4,
+        "longitude_wgs84_deg": 106.7,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1021,15 +1063,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-D915C4950B60",
+      "review_case_id": "AX-M-CFA2457AF303A158",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": -27.87247,
-        "longitude_wgs84_deg": 30.73697
+        "latitude_wgs84_deg": 33.8,
+        "longitude_wgs84_deg": 57.3,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1046,15 +1089,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-E00738325F06",
+      "review_case_id": "AX-M-CFF50F6F493B9169",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 50.8395,
-        "longitude_wgs84_deg": 12.61659
+        "latitude_wgs84_deg": 52.5,
+        "longitude_wgs84_deg": -63.5,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1071,15 +1115,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-E22C5884C34A",
+      "review_case_id": "AX-M-DF9F75B3940B718C",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": -9.77213,
-        "longitude_wgs84_deg": 17.78236
+        "latitude_wgs84_deg": -21.2,
+        "longitude_wgs84_deg": -43.9,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1096,15 +1141,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-E29181C64BC5",
+      "review_case_id": "AX-M-E3CEBDD238775991",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 71.33042,
-        "longitude_wgs84_deg": -50.61164
+        "latitude_wgs84_deg": 40.3,
+        "longitude_wgs84_deg": -78.7,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1121,15 +1167,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-E77E5AB5905E",
+      "review_case_id": "AX-M-E6DD117B94231C86",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 15.72629,
-        "longitude_wgs84_deg": 39.18131
+        "latitude_wgs84_deg": -38.7,
+        "longitude_wgs84_deg": 176.1,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1146,15 +1193,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-F0154A6E5958",
+      "review_case_id": "AX-M-E9E2407016107888",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 66.13499,
-        "longitude_wgs84_deg": 149.60806
+        "latitude_wgs84_deg": 66.1,
+        "longitude_wgs84_deg": 149.6,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1171,15 +1219,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-F4F0737C52C4",
+      "review_case_id": "AX-M-EEE4D6CDA2044E25",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 34.3785,
-        "longitude_wgs84_deg": -2.96982
+        "latitude_wgs84_deg": -19.2,
+        "longitude_wgs84_deg": -47.3,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1196,15 +1245,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-F5A2C0A57A17",
+      "review_case_id": "AX-M-F74B87E0F28945FE",
       "target": "mars",
       "reference_profile": "Nili Patera",
       "location": {
-        "latitude_wgs84_deg": 34.12822,
-        "longitude_wgs84_deg": 2.93141
+        "latitude_wgs84_deg": 50.4,
+        "longitude_wgs84_deg": 6.7,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1221,15 +1271,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-00096BA9FC53",
+      "review_case_id": "AX-M-023D76281755162B",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 54.48676,
-        "longitude_wgs84_deg": -127.79837
+        "latitude_wgs84_deg": 46.6,
+        "longitude_wgs84_deg": 93.5,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1246,15 +1297,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-036872386F47",
+      "review_case_id": "AX-M-04966ADDEB3B6172",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 17.17353,
-        "longitude_wgs84_deg": -95.97671
+        "latitude_wgs84_deg": 43.1,
+        "longitude_wgs84_deg": 77.6,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1271,15 +1323,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-10D5589D3EF0",
+      "review_case_id": "AX-M-075D65F1E635A67A",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 31.6873,
-        "longitude_wgs84_deg": 108.59266
+        "latitude_wgs84_deg": 73.8,
+        "longitude_wgs84_deg": -26.2,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1296,15 +1349,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-1E71D6A09B79",
+      "review_case_id": "AX-M-0C4305101CFE263D",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 39.44624,
-        "longitude_wgs84_deg": 72.9805
+        "latitude_wgs84_deg": 23.2,
+        "longitude_wgs84_deg": 57.8,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1321,15 +1375,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-2909BC543C72",
+      "review_case_id": "AX-M-11C1AC3C5C690D4E",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 27.83349,
-        "longitude_wgs84_deg": 97.74561
+        "latitude_wgs84_deg": -71.6,
+        "longitude_wgs84_deg": 170.4,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1346,15 +1401,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-297A6DE49942",
+      "review_case_id": "AX-M-1239DCCB0A21E285",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 33.82694,
-        "longitude_wgs84_deg": 75.68973
+        "latitude_wgs84_deg": 29.4,
+        "longitude_wgs84_deg": 92.9,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1371,15 +1427,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-2B4217C41F7A",
+      "review_case_id": "AX-M-1AF2E040BECEE269",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 19.32396,
-        "longitude_wgs84_deg": 42.02052
+        "latitude_wgs84_deg": 27.8,
+        "longitude_wgs84_deg": 97.7,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1396,15 +1453,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-2F9AA4253A0F",
+      "review_case_id": "AX-M-25B332D90BAEADBF",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 46.62881,
-        "longitude_wgs84_deg": 93.47126
+        "latitude_wgs84_deg": 30.8,
+        "longitude_wgs84_deg": 78.9,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1421,15 +1479,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-31E0C6031B9D",
+      "review_case_id": "AX-M-29E22D8FD25D2B53",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": -34.07171,
-        "longitude_wgs84_deg": -69.91062
+        "latitude_wgs84_deg": 29.7,
+        "longitude_wgs84_deg": 110.4,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1446,15 +1505,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-3CBF10FB9E56",
+      "review_case_id": "AX-M-3BB09E82B1688733",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": -41.10504,
-        "longitude_wgs84_deg": -72.06913
+        "latitude_wgs84_deg": -11.8,
+        "longitude_wgs84_deg": -76.7,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1471,15 +1531,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-45D012EC36BA",
+      "review_case_id": "AX-M-478BC0275725F7A6",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 29.72706,
-        "longitude_wgs84_deg": 110.42326
+        "latitude_wgs84_deg": -34.1,
+        "longitude_wgs84_deg": -69.9,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1496,15 +1557,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-4D14785E08FD",
+      "review_case_id": "AX-M-4ACE21422B420616",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": -5.27572,
-        "longitude_wgs84_deg": 141.72625
+        "latitude_wgs84_deg": -43.4,
+        "longitude_wgs84_deg": -72,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1521,15 +1583,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-595C2334942A",
+      "review_case_id": "AX-M-568467107E372459",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": -10.42206,
-        "longitude_wgs84_deg": -76.9773
+        "latitude_wgs84_deg": 33.8,
+        "longitude_wgs84_deg": 75.7,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1546,15 +1609,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-59C1A2E7B6CD",
+      "review_case_id": "AX-M-5DB249A75547680F",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 46.32804,
-        "longitude_wgs84_deg": 9.68498
+        "latitude_wgs84_deg": -24.9,
+        "longitude_wgs84_deg": -65.8,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1571,15 +1635,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-5D64C32CBA43",
+      "review_case_id": "AX-M-643D21DC5FAFCC9A",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 50.88451,
-        "longitude_wgs84_deg": -115.64742
+        "latitude_wgs84_deg": 17.2,
+        "longitude_wgs84_deg": -96,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1596,15 +1661,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-68DEF68C2004",
+      "review_case_id": "AX-M-677269A879586D98",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": -15.37247,
-        "longitude_wgs84_deg": -73.35677
+        "latitude_wgs84_deg": 40.1,
+        "longitude_wgs84_deg": 72.4,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1621,15 +1687,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-6D6BE984F3E1",
+      "review_case_id": "AX-M-6C37C4B208DF7B1A",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 41.94302,
-        "longitude_wgs84_deg": 78.79301
+        "latitude_wgs84_deg": 39.4,
+        "longitude_wgs84_deg": 73,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1646,15 +1713,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-6FD97459801E",
+      "review_case_id": "AX-M-6D9D44E3D34909DE",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": -43.35368,
-        "longitude_wgs84_deg": -72.02838
+        "latitude_wgs84_deg": -10.4,
+        "longitude_wgs84_deg": -77,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1671,15 +1739,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-74AE86074454",
+      "review_case_id": "AX-M-73327FF8523F4E78",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": -85.29561,
-        "longitude_wgs84_deg": -167.12499
+        "latitude_wgs84_deg": -42.6,
+        "longitude_wgs84_deg": -72.2,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1696,15 +1765,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-74ECDEB4B12D",
+      "review_case_id": "AX-M-7AE277D5DD14C023",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": -42.55726,
-        "longitude_wgs84_deg": -72.16917
+        "latitude_wgs84_deg": -8.3,
+        "longitude_wgs84_deg": -76.9,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1721,15 +1791,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-7A66C3CB39B5",
+      "review_case_id": "AX-M-817F0EFD73B9F121",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 30.84213,
-        "longitude_wgs84_deg": 78.87329
+        "latitude_wgs84_deg": -85.3,
+        "longitude_wgs84_deg": -167.1,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1746,15 +1817,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-7CA19E5980E6",
+      "review_case_id": "AX-M-81ACDB811E8D0456",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 52.23083,
-        "longitude_wgs84_deg": -126.18131
+        "latitude_wgs84_deg": 36.3,
+        "longitude_wgs84_deg": 82.5,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1771,15 +1843,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-7CB98878292A",
+      "review_case_id": "AX-M-91F3B69174C92F12",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": -8.27292,
-        "longitude_wgs84_deg": -76.87543
+        "latitude_wgs84_deg": 3.7,
+        "longitude_wgs84_deg": -76.1,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1796,15 +1869,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-800D035CF55C",
+      "review_case_id": "AX-M-9C17B1F326C8A6BA",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 41.09203,
-        "longitude_wgs84_deg": 41.26955
+        "latitude_wgs84_deg": 27.9,
+        "longitude_wgs84_deg": 91.6,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1821,15 +1895,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-894760298B0B",
+      "review_case_id": "AX-M-9CD14CE569BFDA63",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 3.72563,
-        "longitude_wgs84_deg": -76.07717
+        "latitude_wgs84_deg": 54.5,
+        "longitude_wgs84_deg": -127.8,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1846,15 +1921,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-8CB683487ECA",
+      "review_case_id": "AX-M-A0BFACC1BF70DD37",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": -47.56207,
-        "longitude_wgs84_deg": -72.38957
+        "latitude_wgs84_deg": -15.4,
+        "longitude_wgs84_deg": -73.4,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1871,15 +1947,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-9BF2076BBBC7",
+      "review_case_id": "AX-M-A207B99C890E3E41",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": -71.57119,
-        "longitude_wgs84_deg": 170.36343
+        "latitude_wgs84_deg": -78.1,
+        "longitude_wgs84_deg": 162.6,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1896,15 +1973,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-A1DF383BA66A",
+      "review_case_id": "AX-M-A262FC60030406CE",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": -78.0714,
-        "longitude_wgs84_deg": 162.58425
+        "latitude_wgs84_deg": 46.3,
+        "longitude_wgs84_deg": 9.7,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1921,15 +1999,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-A4F38681F745",
+      "review_case_id": "AX-M-A5A713C03D0DECD0",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 40.93852,
-        "longitude_wgs84_deg": 77.42665
+        "latitude_wgs84_deg": 31.6,
+        "longitude_wgs84_deg": -6.3,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1946,15 +2025,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-A7F220E3E0B5",
+      "review_case_id": "AX-M-A5C2F098A339E1DE",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 73.77695,
-        "longitude_wgs84_deg": -26.19909
+        "latitude_wgs84_deg": 70.8,
+        "longitude_wgs84_deg": -26.8,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1971,15 +2051,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-A89A5F0B3280",
+      "review_case_id": "AX-M-AE7449B3F7B76CC0",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": -13.67539,
-        "longitude_wgs84_deg": -70.4156
+        "latitude_wgs84_deg": 28.4,
+        "longitude_wgs84_deg": 85.6,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -1996,15 +2077,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-B050A158594C",
+      "review_case_id": "AX-M-BF2444DD31452166",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": -11.82488,
-        "longitude_wgs84_deg": -76.67476
+        "latitude_wgs84_deg": 41.9,
+        "longitude_wgs84_deg": 78.8,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -2021,15 +2103,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-B1193D509BE8",
+      "review_case_id": "AX-M-C2EB8FC22A4DA83A",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 29.42776,
-        "longitude_wgs84_deg": 92.93992
+        "latitude_wgs84_deg": -47.6,
+        "longitude_wgs84_deg": -72.4,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -2046,15 +2129,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-B2C01481F81C",
+      "review_case_id": "AX-M-C8C48FF73AF3082A",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": -9.42498,
-        "longitude_wgs84_deg": -76.47181
+        "latitude_wgs84_deg": -5.3,
+        "longitude_wgs84_deg": 141.7,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -2071,15 +2155,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-B319EDB083DB",
+      "review_case_id": "AX-M-CB94B4735ECBB03D",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 40.08384,
-        "longitude_wgs84_deg": 72.35429
+        "latitude_wgs84_deg": 52.2,
+        "longitude_wgs84_deg": -126.2,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -2096,15 +2181,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-B35EC3272F02",
+      "review_case_id": "AX-M-CCDF9F04321E9130",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": -24.86449,
-        "longitude_wgs84_deg": -65.77352
+        "latitude_wgs84_deg": 28.1,
+        "longitude_wgs84_deg": 98.7,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -2121,15 +2207,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-B50ABE23BA25",
+      "review_case_id": "AX-M-D18EC5CFEBCE002C",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 31.63089,
-        "longitude_wgs84_deg": -6.27667
+        "latitude_wgs84_deg": 19.3,
+        "longitude_wgs84_deg": 42,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -2146,15 +2233,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-BC642C54FC31",
+      "review_case_id": "AX-M-D9C050A9F770E49C",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 70.82838,
-        "longitude_wgs84_deg": -26.77286
+        "latitude_wgs84_deg": 27,
+        "longitude_wgs84_deg": 98.3,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -2171,15 +2259,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-BE8AE7CF0B1C",
+      "review_case_id": "AX-M-DA1E6B5809BF1138",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 27.0246,
-        "longitude_wgs84_deg": 98.25155
+        "latitude_wgs84_deg": 42.4,
+        "longitude_wgs84_deg": 83,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -2196,15 +2285,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-C6FB92702D36",
+      "review_case_id": "AX-M-DC157970FE827B50",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 28.0766,
-        "longitude_wgs84_deg": 98.70535
+        "latitude_wgs84_deg": 42.8,
+        "longitude_wgs84_deg": 42.7,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -2221,15 +2311,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-C75EDE562DBF",
+      "review_case_id": "AX-M-DC4D8045B9A9B626",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 23.17384,
-        "longitude_wgs84_deg": 57.84048
+        "latitude_wgs84_deg": -41.1,
+        "longitude_wgs84_deg": -72.1,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -2246,15 +2337,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-CF23EABEC33D",
+      "review_case_id": "AX-M-DC6110A636C336BF",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 28.27489,
-        "longitude_wgs84_deg": 100.92673
+        "latitude_wgs84_deg": 31.7,
+        "longitude_wgs84_deg": 108.6,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -2271,15 +2363,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-CF9E07DAEEB9",
+      "review_case_id": "AX-M-DD1E77F212CD26E9",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 42.79217,
-        "longitude_wgs84_deg": 42.74235
+        "latitude_wgs84_deg": 41.1,
+        "longitude_wgs84_deg": 41.3,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -2296,15 +2389,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-D4096EFEFC5D",
+      "review_case_id": "AX-M-E09ED8BDBA797B38",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 36.33178,
-        "longitude_wgs84_deg": 82.51699
+        "latitude_wgs84_deg": -13.7,
+        "longitude_wgs84_deg": -70.4,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -2321,15 +2415,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-E51C98527BD9",
+      "review_case_id": "AX-M-E432F6944C6BD05C",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 28.43202,
-        "longitude_wgs84_deg": 85.64353
+        "latitude_wgs84_deg": 28.3,
+        "longitude_wgs84_deg": 100.9,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -2346,15 +2441,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-E59166585EEE",
+      "review_case_id": "AX-M-E5479A6B9F09A47A",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 42.39688,
-        "longitude_wgs84_deg": 83.01445
+        "latitude_wgs84_deg": -9.4,
+        "longitude_wgs84_deg": -76.5,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -2371,15 +2467,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-E75A87F47AA6",
+      "review_case_id": "AX-M-F507C345CBAE10B2",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 27.9326,
-        "longitude_wgs84_deg": 91.63166
+        "latitude_wgs84_deg": 40.9,
+        "longitude_wgs84_deg": 77.4,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
@@ -2396,15 +2493,16 @@
       }
     },
     {
-      "review_case_id": "AX-M-F5689DA4582D",
+      "review_case_id": "AX-M-F628BB49C01F17D6",
       "target": "moon",
       "reference_profile": "Shackleton Rim",
       "location": {
-        "latitude_wgs84_deg": 43.08495,
-        "longitude_wgs84_deg": 77.61769
+        "latitude_wgs84_deg": 50.9,
+        "longitude_wgs84_deg": -115.6,
+        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre."
       },
       "analysis_window_km": 5.55,
-      "analysis_support_m": 925.0,
+      "analysis_support_m": 925,
       "source_product": "Copernicus DEM GLO-90 (COP-DEM_GLO-90-DGED)",
       "independent_review": {
         "label": null,
