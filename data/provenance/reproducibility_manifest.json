@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-25T17:43:38+00:00",
-  "repository_commit_before_manifest_commit": "31c2187c76d2cc36e23764367fff5f870dc4f5b5",
+  "generated_at_utc": "2026-11-25T18:14:26+00:00",
+  "repository_commit_before_manifest_commit": "85bcbbeb3b7fd9c75bd6fca0306731ba48ff1f6f",
   "working_tree_before_manifest_write": "clean",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -350,8 +350,8 @@
     },
     {
       "path": "index.html",
-      "size_bytes": 153308,
-      "sha256": "9b788cbe4888bfdccb63ebdfe11e5180992a56decdfade02548ddb43891433d6",
+      "size_bytes": 165508,
+      "sha256": "1df67a81d56be1c51cca6cca0dc0dc3254f16ed38e3f65df38005862ddc874b0",
       "evidence_class_hint": "method_or_documentation"
     },
     {
