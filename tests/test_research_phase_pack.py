@@ -63,6 +63,13 @@ class ResearchPhasePackTests(unittest.TestCase):
         self.assertEqual(case["location"]["longitude_wgs84_deg"], round(private["longitude_wgs84_deg"], 1))
         self.assertIn("precision_note", case["location"])
         self.assertIn("blind_case_id_salt", key)
+        legacy = __import__("hashlib").sha256(
+            f"ANALOG-X|blind-review-v1|{case['target']}|{private['candidate_id']}".encode()
+        ).hexdigest()[:12].upper()
+        expected_digest = __import__("hashlib").sha256(
+            f"unit-test-private-salt|AX-{case['target'][:1].upper()}-{legacy}".encode()
+        ).hexdigest()[:16].upper()
+        self.assertEqual(case["review_case_id"], f"AX-{case['target'][:1].upper()}-{expected_digest}")
 
     def test_import_requires_complete_independent_review(self):
         _, packet, key = pack.build_outputs(sample_data())
