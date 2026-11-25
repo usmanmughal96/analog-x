@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mission Readiness & Evidence Gates | ANALOG-X</title>
+<meta name="description" content="Evidence-gated review of field validation, terrain screening, independent analog review and lunar/Mars operational readiness in ANALOG-X.">
+<style>
+:root{color-scheme:dark;--bg:#07111b;--panel:#0d1d2a;--line:#284455;--text:#e8f1f5;--muted:#9db1bd;--cyan:#75d8ec;--mint:#8bd8b7;--gold:#e4c27e;--red:#e49a91}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#0c2433 0,#07111b 360px);color:var(--text);font:14px/1.55 Inter,system-ui,sans-serif}a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1220px;margin:auto;padding:24px}.top{display:flex;justify-content:space-between;align-items:center;gap:14px;border-bottom:1px solid var(--line);padding:5px 0 18px}.brand{font-weight:900;letter-spacing:.14em}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.16em}.links{display:flex;gap:8px;flex-wrap:wrap}.links a,.action{border:1px solid var(--line);padding:8px 11px;border-radius:8px;color:#ccecf3;font-size:11px}.hero{padding:30px 0 22px}.eyebrow{color:var(--mint);font-size:10px;font-weight:850;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(31px,5vw,52px);line-height:1.02;letter-spacing:-.045em;max-width:850px;margin:11px 0}.hero p{max-width:850px;color:#b6c7d0}.notice{border:1px solid #735e34;background:#282317;color:#e5d5ad;padding:13px 15px;border-radius:10px;font-size:12px;margin:12px 0 20px}.notice strong{color:#f2d28c}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0 22px}.stat,.panel{background:linear-gradient(145deg,#0e2230,#0a1824);border:1px solid var(--line);border-radius:12px}.stat{padding:14px}.stat b{display:block;font-size:27px;line-height:1.2;letter-spacing:-.04em}.stat span{display:block;color:var(--muted);font-size:10px;margin-top:5px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.panel{padding:17px;min-width:0}.panel.wide{grid-column:1/-1}.panel h2{font-size:16px;margin:0 0 4px}.sub{color:var(--muted);font-size:11px;margin:0 0 14px}.tag{display:inline-flex;border:1px solid var(--line);border-radius:30px;padding:3px 8px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#c5d9e1}.tag.good{color:var(--mint);border-color:#376a58}.tag.warn{color:var(--gold);border-color:#79633b}.tag.block{color:var(--red);border-color:#754b49}.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.kpi{padding:11px;background:#0a1924;border:1px solid #1f3949;border-radius:9px}.kpi b{font-size:19px;display:block}.kpi small{font-size:9px;color:var(--muted)}.select{width:100%;background:#091b28;border:1px solid #345364;color:var(--text);padding:10px;border-radius:8px;font:inherit}.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:12px}.metric{background:#091a26;border:1px solid #1f3b4c;border-radius:9px;padding:10px}.metric span{font-size:9px;color:var(--muted);display:block}.metric b{font-size:19px;display:block;margin-top:3px}.readout{border-left:3px solid var(--gold);background:#211f19;padding:10px 12px;color:#d7c69f;border-radius:0 8px 8px 0;font-size:11px;margin-top:12px}.gates{display:grid;gap:8px}.gate{display:flex;align-items:flex-start;gap:10px;padding:10px;background:#091923;border:1px solid #1f3948;border-radius:9px}.gate .n{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;background:#26313a;color:var(--gold);font-size:10px;font-weight:900;flex:none}.gate b{font-size:11px;display:block}.gate small{color:var(--muted);font-size:10px}.track{border-top:1px solid #25404f;padding:12px 0}.track:first-of-type{border-top:0}.track b{font-size:12px}.track p{margin:4px 0;color:var(--muted);font-size:10px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.action.primary{background:#10445a;border-color:#2f829e}.foot{color:#7893a0;font-size:10px;padding:22px 0 8px}.loading{color:var(--muted);font-size:11px}.error{color:var(--red);font-size:11px}
+@media(max-width:850px){.stats{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.panel.wide{grid-column:auto}.metric-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.wrap{padding:14px}.top{align-items:flex-start;flex-direction:column}.kpis{grid-template-columns:1fr 1fr}.metric-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand">ANALOG-X <small>MISSION READINESS / EVIDENCE GATES</small></div><nav class="links"><a href="./index.html">Evidence console</a><a href="./global-discovery.html">Global discovery</a><a href="./transferability.html">ATFA</a><a href="./field-validation.html">Field kit</a><a href="./independent-review.html">Review desk</a></nav></header>
+<section class="hero"><div class="eyebrow">From promising research to defensible evidence</div><h1>Know what is ready.<br><span style="color:var(--cyan)">Know what is not.</span></h1><p>This workbench connects ANALOG-X's global scan, ATFA pathways, Pakistan field plan, lunar terrain evidence and independent-review process. It is deliberately an evidence-gate dashboard—not a landing-site selector, rover-safety certificate or claim that fieldwork has happened.</p></section>
+<div class="notice"><strong>Safety and scientific boundary:</strong> no Earth site or lunar/Mars terrain profile is declared safe here. A regional DEM, a shortlist rank or a browser checklist cannot establish rover trafficability or mission suitability. Field deployment still requires permissions, local risk assessment and competent human approval.</div>
+<section class="stats">
+ <div class="stat"><b id="statWindows">—</b><span>Global GLO-90 terrain windows evaluated</span></div>
+ <div class="stat"><b id="statTiles">—</b><span>Enumerated GLO-90 land tiles processed</span></div>
+ <div class="stat"><b id="statReviews">—</b><span>Blind cases prepared / labels returned</span></div>
+ <div class="stat"><b id="statField">—</b><span>Physical Pakistan observations in ledger</span></div>
+</section>
+<div class="grid">
+<section class="panel"><h2>01 · Global discovery release</h2><p class="sub">Completeness of the enumerated terrain inventory is not evidence of analog accuracy.</p><div id="globalStatus" class="loading">Loading committed validation report…</div><div class="kpis" id="globalKpis"></div><div class="readout">“Ranking ready” means schema, deterministic ordering and rank-integrity checks pass. It does not mean the top-ranked windows have been independently confirmed as useful planetary analogs.</div></section>
+<section class="panel"><h2>02 · Independent review gate</h2><p class="sub">Anonymized terrain-morphology cases are prepared for qualified external assessment.</p><div id="reviewStatus" class="loading">Loading review packet…</div><div class="kpis" id="reviewKpis"></div><div class="actions"><a class="action primary" href="./independent-review.html">Open reviewer desk ↗</a><a class="action" href="./data/validation/independent_analog_review_packet.json">Download blind packet</a><a class="action" href="./docs/INDEPENDENT_LABEL_VALIDATION_PROTOCOL.md">Review protocol</a></div><div class="readout">The repository currently contains no returned expert labels. Do not report an AUC, accuracy or independent endorsement until valid responses are imported and evaluated.</div></section>
+<section class="panel wide"><h2>03 · Terrain evidence explorer</h2><p class="sub">Inspect the existing Earth and planetary terrain evidence at its actual spatial support. Numbers are descriptors, not safety thresholds.</p><label for="terrainSelect" class="sub">Select a study profile</label><select class="select" id="terrainSelect">
+<option value="chagai_small_playas">Chagai small salt playas · Pakistan</option><option value="hamun_i_mashkel">Hamun-i-Mashkel · Pakistan</option><option value="koh_i_sultan">Koh-i-Sultan · Pakistan</option><option value="hispar_glacier">Hispar Glacier · Pakistan</option><option value="shackleton5m">Shackleton Rim / Site04 · Moon · 5 m product</option><option value="nili_patera">Nili Patera · Mars · MOLA</option>
+</select><div id="terrainMetrics" class="metric-grid"><div class="loading">Loading terrain products…</div></div><div id="terrainContext" class="readout">Terrain interpretation will appear here.</div><div class="actions"><a class="action" href="./data/terrain/terrain_comparison.json">Earth / Mars terrain metrics</a><a class="action" href="./data/moon/shackleton_polar_evidence.json">Shackleton 5 m source summary</a><a class="action" href="./docs/LUNAR_SOUTH_POLE_OPERATIONS_EVIDENCE_PLAN.md">Lunar operations evidence plan</a></div></section>
+<section class="panel"><h2>04 · Pakistan field experiment gate</h2><p class="sub">The campaign is planned, not deployed. This panel makes the prerequisites visible.</p><div id="fieldStatus" class="loading">Loading campaign and observation ledger…</div><div class="gates" id="fieldGates"></div><div class="actions"><a class="action primary" href="./field-validation.html">Open field capture kit ↗</a><a class="action" href="./docs/PAKISTAN_FIELD_CAMPAIGN_EXECUTION_PLAN.md">Campaign execution plan</a></div><div class="readout">Hispar remains a specialist glacier operation. Koh-i-Sultan requires qualified geological leadership. No field visit should proceed until local access, security, weather and site-specific safety approvals are current.</div></section>
+<section class="panel"><h2>05 · Rover / mission-suitability gate</h2><p class="sub">The repository can screen regional terrain and document missing evidence. It cannot certify safe traverse, landing or base suitability.</p><div class="gates">
+<div class="gate"><span class="n">01</span><div><b>High-resolution, co-registered hazard terrain</b><small>Earth GLO-30 is aggregated to ~925 m for the current comparison. The lunar Site04 5 m product is useful topographic context, but it does not cover every operational hazard.</small></div></div>
+<div class="gate"><span class="n">02</span><div><b>Vehicle-specific engineering envelope</b><small>No rover mass, wheel geometry, clearance, traction, braking, power or validated slope/step limits are specified in this release.</small></div></div>
+<div class="gate"><span class="n">03</span><div><b>Surface material and geotechnical properties</b><small>No measured bearing strength, cohesion, sinkage, wheel slip, grain-size distribution or regolith mechanical model for the selected route.</small></div></div>
+<div class="gate"><span class="n">04</span><div><b>Instrumented route trials and independent engineering review</b><small>No rover/UGV traverse results, blind prediction comparison, failure log or engineering sign-off is present.</small></div></div>
+<div class="gate"><span class="n">05</span><div><b>Mission-environment constraints</b><small>Illumination / PSR geometry, thermal cycling, radiation, dust charging, communications and mission-date SPICE analysis are not integrated as an operational clearance package.</small></div></div>
+</div><div class="readout">Current state: <strong>regional terrain screening only — operational suitability not established.</strong> Do not translate slope cutoffs into a “safe” label.</div></section>
+<section class="panel wide"><h2>06 · ATFA experiment-transferability network</h2><p class="sub">The method is organized around a named experiment or process, with transfer boundaries and next measurements.</p><div id="atfaStatus" class="loading">Loading ATFA science pack…</div><div class="kpis" id="atfaKpis"></div><div id="atfaTracks"></div><div class="actions"><a class="action primary" href="./transferability.html">Open ATFA science module ↗</a><a class="action" href="./docs/ANALOG_TRANSFERABILITY_AND_FAILURE_ANALYSIS.md">Method note</a></div></section>
+</div>
+<footer class="foot">ANALOG-X · Independent participant-built research prototype · Evidence snapshot loaded from committed repository records. Browser actions do not change the GitHub evidence ledger. NASA / ESA / SUPARCO endorsement is not implied.</footer>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const fmt=n=>Number.isFinite(Number(n))?Number(n).toLocaleString("en-US",{maximumFractionDigits:2}):"—";
+const pct=n=>Number.isFinite(Number(n))?fmt(n)+"%":"—";
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+async function json(path){const r=await fetch(path,{cache:"no-store"});if(!r.ok)throw new Error(path+": HTTP "+r.status);return r.json();}
+function metric(label,value){return '<div class="metric"><span>'+esc(label)+'</span><b>'+esc(value)+'</b></div>';}
+function gate(n,title,detail){return '<div class="gate"><span class="n">'+n+'</span><div><b>'+esc(title)+'</b><small>'+esc(detail)+'</small></div></div>';}
+let terrainData={},validationData={},fieldData={},campaignData={},reviewData={},atfaData={},lunarData={};
+function renderTerrain(){
+ const id=$("terrainSelect").value;let m={},scale="",name="",context="";
+ if(id==="shackleton5m"){
+   const g=lunarData.grid_coverage||{},t=lunarData.terrain_metrics||{};
+   name="Shackleton Rim / Site04, NASA PGDA LOLA product 78";
+   m={"Native pixel scale":"5 m","Slope P90":fmt(t.slope_deg_source_lola_product?.p90)+"°","Slope >20°":pct(t.slope_fraction?.over_20_deg_percent),"P90 local relief":fmt(t["3x3_local_relief_m_15m_footprint"]?.p90)+" m","Interpolated terrain coverage":pct(g.terrain_coverage_percent),"Positive LOLA return support":pct(g.positive_return_coverage_percent),"Window pixels":fmt(t.elevation_m_moon_me_de421?.count)};
+   scale="5 m source product; 3×3 relief footprint ~15 m.";
+   context="This is the most spatially detailed terrain evidence currently integrated for the lunar candidate. Important caveat: 100% interpolated elevation coverage is not the same as direct laser-return coverage; positive-return support is 9.154%. Slope/relief distributions are not probabilities of failure or safety bounds. The product does not establish illumination, PSR status, volatile accessibility, rover traction or landing safety.";
+ }else{
+   const p=terrainData.earth_sites?.[id];
+   if(id==="nili_patera"){
+     const p=terrainData.planetary_target;
+     name=p?.name||"Nili Patera / Mars";const x=p?.terrain_metrics||{};
+     m={"Analysis pixel scale":"~925 m","Slope P90":fmt(x.slope_deg?.p90)+"°","Slope >20°":pct(x.slope_fraction?.over_20_deg_percent),"P90 local relief":fmt(x["3x3_local_relief_m"]?.p90)+" m","Observed-cell coverage":pct(x.coverage?.valid_percent),"Complete 3×3 neighborhoods":fmt(x.complete_3x3_neighbourhood_count),"Valid cells":fmt(x.valid_cell_count)+" / "+fmt(x.coverage?.total_cells)};
+     scale="~925 m MOLA cells; selected ~30 km window.";
+     context="Mars MOLA coverage is limited: only 50.53% of the selected window has observed cells and only 87 complete 3×3 neighborhoods support terrain derivatives. Treat these metrics as provisional regional context; do not infer rover-scale hazards or safety.";
+   }else if(p){
+     name=({chagai_small_playas:"Chagai small salt playas / Nok Kundi",hamun_i_mashkel:"Hamun-i-Mashkel / Kharan Basin",koh_i_sultan:"Koh-i-Sultan / Chagai",hispar_glacier:"Hispar Glacier / Karakoram"})[id]||id;
+     const x=p.terrain_metrics||{};
+     m={"Analysis pixel scale":"~925 m","Slope median":fmt(x.slope_deg?.median)+"°","Slope P90":fmt(x.slope_deg?.p90)+"°","Slope P95":fmt(x.slope_deg?.p95)+"°","Slope >20°":pct(x.slope_fraction?.over_20_deg_percent),"Valid-cell coverage":pct(x.coverage?.valid_percent),"Window size":"~29.6 × 29.6 km"};
+     scale="Copernicus GLO-30 DSM, aggregated to ~925 m cells for the current comparison.";
+     context="These are regional descriptors over a broad window, not route-level or wheel-scale terrain. A 30 m source DEM averaged to ~925 m cannot reveal many obstacles, boulders, loose material, bearing strength, sinkage or route-specific hazards. The selected window is not a surveyed field boundary.";
+   }
+ }
+ $("terrainMetrics").innerHTML=Object.entries(m).map(([k,v])=>metric(k,v)).join("");
+ $("terrainContext").textContent=name+". "+scale+" "+context;
+}
+function render(){
+ const v=validationData,scan=v.global_scan||{},review=reviewData.cases||[],labels=v.independent_analog_label_validation?.targets||{},obs=fieldData.observations||[];
+ $("statWindows").textContent=fmt(scan.candidate_windows_evaluated);
+ $("statTiles").textContent=fmt(scan.tiles_processed)+" / "+fmt(scan.global_land_tile_inventory_total);
+ const returned=review.filter(c=>["positive","negative"].includes(c.independent_review?.label)).length;
+ $("statReviews").textContent=review.length+" / "+returned;
+ $("statField").textContent=fmt(obs.length);
+ $("globalStatus").innerHTML='<span class="tag good">Inventory processing complete</span> <span class="tag warn">Accuracy unvalidated</span>';
+ $("globalKpis").innerHTML=[[fmt(scan.tiles_processed),"tiles processed"],[fmt(scan.candidate_windows_evaluated),"terrain windows"],[fmt(v.targets?.moon?.candidate_pool_size),"Moon shortlist"],[fmt(v.targets?.mars?.candidate_pool_size),"Mars shortlist"],[String(v.ranking_release?.status||"unknown"),"ranking release"],[String(v.status||"unknown"),"validation status"]].map(x=>'<div class="kpi"><b>'+esc(x[0])+'</b><small>'+esc(x[1])+'</small></div>').join("");
+ $("reviewStatus").innerHTML='<span class="tag warn">'+esc(reviewData.status||"packet status unavailable")+'</span> <span class="tag block">'+returned+' binary labels returned</span>';
+ $("reviewKpis").innerHTML='<div class="kpi"><b>'+review.length+'</b><small>blind cases total</small></div><div class="kpi"><b>'+review.filter(c=>c.target==="moon").length+'</b><small>Moon cases</small></div><div class="kpi"><b>'+review.filter(c=>c.target==="mars").length+'</b><small>Mars cases</small></div><div class="kpi"><b>'+returned+'</b><small>binary labels</small></div><div class="kpi"><b>'+fmt(labels.moon?.n_total||0)+'</b><small>Moon validation labels</small></div><div class="kpi"><b>'+fmt(labels.mars?.n_total||0)+'</b><small>Mars validation labels</small></div>';
+ $("fieldStatus").innerHTML='<span class="tag warn">'+esc(campaignData.status||"campaign status unavailable")+'</span> <span class="tag '+(obs.length?"warn":"block")+'">'+obs.length+' physical observations</span>';
+ const requirements=campaignData.governance?.no_fieldwork_without||[];
+ const titles=["Land-access permission","Protected-area / environmental review","Local security and travel clearance","Site-specific risk and weather assessment","Named field lead, emergency contacts and communications","Instrument identification and calibration / field checks"];
+ $("fieldGates").innerHTML=titles.map((x,i)=>gate(String(i+1).padStart(2,"0"),x,requirements[i]||"Required before field deployment")).join("");
+ const tests=(atfaData.sites||[]).flatMap(s=>(s.tests||[]).map(t=>({...t,site:s.name})));
+ const counts={moderate:0,limited:0,high:0,unrated:0};tests.forEach(t=>counts[t.transferability]===undefined?counts.unrated++:counts[t.transferability]++);
+ $("atfaStatus").innerHTML='<span class="tag good">'+(atfaData.site_count||0)+' curated Earth environments</span> <span class="tag good">'+tests.length+' site / experiment pathways</span> <span class="tag warn">Qualitative rule-based classes</span>';
+ $("atfaKpis").innerHTML=[["10","Earth environments"],[fmt(Object.keys(atfaData.experiment_tracks||{}).length),"experiment tracks"],[fmt(tests.length),"site pathways"],[fmt(counts.moderate),"moderate"],[fmt(counts.limited),"limited"],[fmt(counts.high),"high / reserved"]].map(x=>'<div class="kpi"><b>'+esc(x[0])+'</b><small>'+esc(x[1])+'</small></div>').join("");
+ $("atfaTracks").innerHTML=Object.entries(atfaData.experiment_tracks||{}).map(([id,t])=>'<div class="track"><b>'+esc(t.label)+'</b><p><strong>Can rehearse:</strong> '+esc(t.what_transfers)+'</p><p><strong>Boundary:</strong> '+esc(t.breaks)+'</p><p><strong>Next measurement:</strong> '+esc(t.next_measurement)+'</p></div>').join("");
+}
+async function init(){
+ try{
+  [terrainData,validationData,fieldData,campaignData,reviewData,atfaData,lunarData]=await Promise.all([
+   json("./data/terrain/terrain_comparison.json"),json("./data/validation/quantitative_validation.json"),
+   json("./data/field_validation/observations.json"),json("./data/field_validation/campaign_plan.json"),
+   json("./data/validation/independent_analog_review_packet.json"),json("./data/transferability/transferability.json"),
+   json("./data/moon/shackleton_polar_evidence.json")
+  ]);
+  render();renderTerrain();
+ }catch(e){$("globalStatus").innerHTML='<span class="error">Could not load a committed evidence file: '+esc(e.message)+'. Connect once or open the repository source.</span>';console.error(e);}
+}
+$("terrainSelect").addEventListener("change",renderTerrain);
+init();
+</script>
+</body></html>
