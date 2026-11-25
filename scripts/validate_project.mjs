@@ -132,7 +132,7 @@ assert(readinessHtml.includes("50.53%") && readinessHtml.includes("9.154%"), "Mi
 assert(reviewHtml.includes("independent_of_analogx_score") && reviewHtml.includes("Export review JSON"), "Blind reviewer desk is missing provenance/export safeguards");
 assert(!reviewHtml.includes("core_terrain_index") && !reviewHtml.includes("candidate_id"), "Reviewer interface must not expose candidate scores or IDs");
 for (const source of [readinessHtml, reviewHtml]) {
-  const match = source.match(/<script>([\\s\\S]*?)<\\/script>/);
+  const match = source.match(/<script>([\s\S]*?)<\/script>/);
   assert(match, "New evidence module is missing its inline application script");
   new Function(match[1]);
 }
