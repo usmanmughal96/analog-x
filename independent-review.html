@@ -108,6 +108,7 @@ function saveCurrent(){
  if(!d.reviewerName||!d.reviewerAffiliation||!d.reviewerQualification||!d.reviewDate){$("caseStatus").textContent="Complete reviewer name, affiliation, qualification and UTC date first.";return false;}
  if(!d.independent){$("caseStatus").textContent="Confirm independence from ANALOG-X scores before saving.";return false;}
  if(!["inconclusive","insufficient_evidence"].includes(label)&&!refs.length){$("caseStatus").textContent="Positive / negative assessments require at least one independent evidence reference.";return false;}
+ if(!["inconclusive","insufficient_evidence"].includes(label)&&!$("confidence").value){$("caseStatus").textContent="Select a confidence value for a positive / negative assessment.";return false;}
  if(!$("rationale").value.trim()){$("caseStatus").textContent="Add a rationale, including the task and evidence limitations.";return false;}
  const date=d.reviewDate.length===10?d.reviewDate+"T12:00:00Z":d.reviewDate;
  c.independent_review={
