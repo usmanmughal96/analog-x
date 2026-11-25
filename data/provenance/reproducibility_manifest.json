@@ -1,9 +1,9 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-22T21:52:55+00:00",
-  "repository_commit_before_manifest_commit": "9f299ed1b1b578ea7f7fe477472ac6b53078d771",
-  "working_tree_before_manifest_write": "dirty",
+  "generated_at_utc": "2026-11-25T17:43:38+00:00",
+  "repository_commit_before_manifest_commit": "31c2187c76d2cc36e23764367fff5f870dc4f5b5",
+  "working_tree_before_manifest_write": "clean",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
   "runtime_packages": {
@@ -37,7 +37,7 @@
       "manifest.webmanifest"
     ]
   },
-  "file_count": 226,
+  "file_count": 227,
   "source_registry_sha256": "1d64260aed0d851317782d86fccc1f7d32574b11d6a4a3959e4c04d56d2ef429",
   "source_registry_records": [
     {
@@ -344,14 +344,14 @@
   "records": [
     {
       "path": "README.md",
-      "size_bytes": 17810,
-      "sha256": "5acbc9aeae31e78214fbbe9cabb9005c57ddfd6358d58eec8d55d9c30bfdb0e4",
+      "size_bytes": 19398,
+      "sha256": "6a0c2d97521f9f4bf5cd3df5871a7ec5d7bc79463a8518c530e484ce5cdb1f9e",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": "index.html",
-      "size_bytes": 142564,
-      "sha256": "bafb15d22ce2be2b3b09850d5d44f0d92c4c1b3f43ad5a7af5653abc9210a04c",
+      "size_bytes": 153308,
+      "sha256": "9b788cbe4888bfdccb63ebdfe11e5180992a56decdfade02548ddb43891433d6",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -543,19 +543,19 @@
     {
       "path": "data/nasa/earthdata_cmr_catalog.json",
       "size_bytes": 108800,
-      "sha256": "612b05a9d1c10a963131f536e662c4202d635c09bdaaeab5355581178c7d87c4",
+      "sha256": "5a5bf53b2259526e74938febc1e77d5312dd328ee3aad158031034962c80387d",
       "evidence_class_hint": "metadata_only"
     },
     {
       "path": "data/nasa/epic_latest.json",
-      "size_bytes": 1004,
-      "sha256": "6cce88c4519fd8d46478ee380a00e6c21cbc7d0d3c3945c85b64e6f2e4564c98",
+      "size_bytes": 1001,
+      "sha256": "d06054655ad05aca00996df3d6bd0067f7add1eca80e4ab092c373b4c201369a",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/nasa/epic_latest.png",
-      "size_bytes": 3387213,
-      "sha256": "ce95c5342562efd8745b28235d8f2a5d30d90165253826f9386ccd3efea0a1ae",
+      "size_bytes": 3526902,
+      "sha256": "c19d7595f0c84ffe69f4b6bb75c35f8b1626e13a7073ef3f7e59fa81263ea5d2",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -681,7 +681,7 @@
     {
       "path": "data/nasa/modis_browse_index.json",
       "size_bytes": 43836,
-      "sha256": "17283e727090686b092855a31e796043503204dd8d5b47433e973e09e433a4cc",
+      "sha256": "4dffd42d4d92f6dd26b9a29df70a596e84750d6f5d01af74283ed21ed15cb615",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -777,7 +777,7 @@
     {
       "path": "data/pakistan/public_scene_catalog.json",
       "size_bytes": 883260,
-      "sha256": "d2c5949e4cc6e9187fa65a92d108d0a7fcf50ec2378a59f970dc2bd20562c04f",
+      "sha256": "85fea3d7f8c408d903396a6abfe9e35c03665369f9eb157179408cff6bd4a9b4",
       "evidence_class_hint": "metadata_only"
     },
     {
@@ -801,7 +801,7 @@
     {
       "path": "data/pakistan/quicklooks/index.json",
       "size_bytes": 5107,
-      "sha256": "afd4376ea043146b551bb9ff3c0802cc038068ce7ec8e78f166073d71eaed15f",
+      "sha256": "27dae1e7cba781eacd179723fd6659d93eaeabd8eb65075a38adca125761d908",
       "evidence_class_hint": "browse_only"
     },
     {
@@ -813,7 +813,7 @@
     {
       "path": "data/planetary/pds_search.json",
       "size_bytes": 829011,
-      "sha256": "87b9e710c4b93042eeb97f7692655fb1278d560d9a5af1814e2aae672176b4a3",
+      "sha256": "1c759d2a0d96f83161c1373930e50944ad19e0ca8409f271a1f076b057572d76",
       "evidence_class_hint": "metadata_only"
     },
     {
@@ -831,67 +831,67 @@
     {
       "path": "data/power/atacama.json",
       "size_bytes": 8172,
-      "sha256": "783a0359d855cae22ac4b92b0ca67a45feb267340dfd5dfa2cc867a2a183bb59",
+      "sha256": "ce80b3e125fb7745fb7743ee886efc930e702885b3053b1c4b205708830f517e",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/chagai_small_playas.json",
       "size_bytes": 8280,
-      "sha256": "14bad7200ef9364b4aad96b3274c60968d171fab908920cbe2f4c7af66801803",
+      "sha256": "95cdb45d9ec369a7f61e755035e7a27b902cba9a06fcf24e113cc0f722c6e3ec",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/dallol.json",
-      "size_bytes": 8250,
-      "sha256": "367a83e6bd223d03904da45b10c8fcd8fe4077e95e849efaa2b792bbcb5cef22",
+      "size_bytes": 8251,
+      "sha256": "54876661e94d74e28d612831d7930aa30379f67349dd736dc19b53329a525b89",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/death.json",
       "size_bytes": 8220,
-      "sha256": "33267a9d7d71e5502faa8d31c7cdab61f493b1867f6bdddd392734f74b8040fd",
+      "sha256": "fdfaebbb5a57a015f6ec2e7672c22c273ca9d06e2fce78fe6ad240d4269f2c61",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/hamun_i_mashkel.json",
       "size_bytes": 8270,
-      "sha256": "79bd0b3d020de731dc558bebb70998f011a946cea20b788dc0170d155c7d12da",
+      "sha256": "3c01a4a05aa324c412bbcc2d7740072bceb8fbf7cd14f6e4a9a5e76d9e73c355",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/haughton.json",
       "size_bytes": 8257,
-      "sha256": "46eecefc4c47beae1a9096163f81e1db3cc628764b2e7ff29aee0395960b9011",
+      "sha256": "0e5aa90890a2af73acec0b9fd6a77097121db009870c9d329bfa91c6c24b7ecd",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/hispar_glacier.json",
       "size_bytes": 8207,
-      "sha256": "b058005c41cf8f454a450696a03432c9097e234da842e2ec5df970b6629f7745",
+      "sha256": "f67059c4427e6ca37e6d5041f90a2d6b5b2b13f4564c28c4528dd66c5878bae4",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/iceland.json",
-      "size_bytes": 8151,
-      "sha256": "1c2f6dad63c27a7957ccc5ed3ddd9c6f35fcbadfdeb097b2c32b202475b7e9b5",
+      "size_bytes": 8152,
+      "sha256": "ad1e70573e7f1915911480a9272a4f661e50265f5792ec92c310b5551b93f9c3",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/index.json",
       "size_bytes": 6292,
-      "sha256": "124763b5900a703731c7518e054c3c65fa8926abe27d2bf91adf7a8a222d742d",
+      "sha256": "8cd5f45ee9cc025fd5b916785c355bef623022b3d8503b5f8e121a779826ae2b",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/koh.json",
       "size_bytes": 8172,
-      "sha256": "b5e1cd1d3099440fe5cc81e8ebf748ef543eb8dd3eb6feaae60d07e12af21f5a",
+      "sha256": "369fbedae9fb63f9c5225d6f6cea461e5cfbb5deddb03600c5aabf6ebd70763d",
       "evidence_class_hint": "processed_or_derived"
     },
     {
       "path": "data/power/mcmurdo.json",
       "size_bytes": 8294,
-      "sha256": "a4a20e052eb6b8e5719e772f168fe349d58aebc711f04d57890c211dc742581d",
+      "sha256": "8459f0cbf2eb9882dc437bf461238cb745e780852f2057992ab1a95bf0d26022",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -981,7 +981,7 @@
     {
       "path": "data/transferability/transferability.json",
       "size_bytes": 388993,
-      "sha256": "b51a504f1899502408aa8ce61eae4eca5e31f2187b9451b71986dd81e7d2a4e6",
+      "sha256": "123bf200d1c0fba502dfe6e7ec3face279282fcad3c923857fd1585d2add7483",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -1348,6 +1348,12 @@
       "path": "docs/INDEPENDENT_LABEL_VALIDATION_PROTOCOL.md",
       "size_bytes": 4899,
       "sha256": "77db482418d063311c5b5ce9a86ef7debd7894f731a3f0c12330f12e064fc83f",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/INDEPENDENT_OPERATIONAL_EVIDENCE_PHASE.md",
+      "size_bytes": 14753,
+      "sha256": "ae30111788870a4c74ad21b63288d15b1417341b2c225b95a2c8b17ebd44754e",
       "evidence_class_hint": "method_or_documentation"
     },
     {
