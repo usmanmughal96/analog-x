@@ -69,7 +69,7 @@ function renderTerrain(){
    }else if(p){
      name=({chagai_small_playas:"Chagai small salt playas / Nok Kundi",hamun_i_mashkel:"Hamun-i-Mashkel / Kharan Basin",koh_i_sultan:"Koh-i-Sultan / Chagai",hispar_glacier:"Hispar Glacier / Karakoram"})[id]||id;
      const x=p.terrain_metrics||{};
-     m={"Analysis pixel scale":"~925 m","Slope median":fmt(x.slope_deg?.median)+"°","Slope P90":fmt(x.slope_deg?.p90)+"°","Slope P95":fmt(x.slope_deg?.p95)+"°","Slope >20°":pct(x.slope_fraction?.over_20_deg_percent),"Valid-cell coverage":pct(x.coverage?.valid_percent),"Window size":"~29.6 × 29.6 km"};
+     m={"Analysis pixel scale":"~925 m","Slope median":fmt(x.slope_deg?.median)+"°","Slope P90":fmt(x.slope_deg?.p90)+"°","Slope P95":fmt(x.slope_deg?.p95)+"°","P90 local relief":fmt(x["3x3_local_relief_m"]?.p90)+" m","Slope >20°":pct(x.slope_fraction?.over_20_deg_percent),"Valid-cell coverage":pct(x.coverage?.valid_percent),"Window size":"~29.6 × 29.6 km"};
      scale="Copernicus GLO-30 DSM, aggregated to ~925 m cells for the current comparison.";
      context="These are regional descriptors over a broad window, not route-level or wheel-scale terrain. A 30 m source DEM averaged to ~925 m cannot reveal many obstacles, boulders, loose material, bearing strength, sinkage or route-specific hazards. The selected window is not a surveyed field boundary.";
    }
