@@ -35,8 +35,13 @@ def spatial_group(row: dict[str, Any]) -> str:
 
 
 def case_id(target: str, candidate_id: str, blind_salt: str) -> str:
-    # Keyed IDs prevent dictionary matching against the public candidate list.
-    digest = hashlib.sha256(f"{blind_salt}|{target}|{candidate_id}".encode()).hexdigest()
+    # Preserve a private, deterministic mapping without exposing a candidate-ID
+    # hash that can be dictionary-matched against the public shortlist.
+    legacy_digest = hashlib.sha256(
+        f"ANALOG-X|blind-review-v1|{target}|{candidate_id}".encode()
+    ).hexdigest()
+    legacy_code = f"AX-{target[:1].upper()}-{legacy_digest[:12].upper()}"
+    digest = hashlib.sha256(f"{blind_salt}|{legacy_code}".encode()).hexdigest()
     return f"AX-{target[:1].upper()}-{digest[:16].upper()}"
 
 
