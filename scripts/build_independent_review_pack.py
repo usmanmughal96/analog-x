@@ -6,7 +6,7 @@ metrics. A separate case-key file restores those fields after review; never
 commit or share that key with reviewers.
 """
 from __future__ import annotations
-import argparse, hashlib, json
+import argparse, hashlib, json, secrets
 from pathlib import Path
 from typing import Any
 
@@ -34,9 +34,10 @@ def spatial_group(row: dict[str, Any]) -> str:
     return f"g10_{lat_cell:02d}_{lon_cell:02d}"
 
 
-def case_id(target: str, candidate_id: str) -> str:
-    digest = hashlib.sha256(f"ANALOG-X|blind-review-v1|{target}|{candidate_id}".encode()).hexdigest()
-    return f"AX-{target[:1].upper()}-{digest[:12].upper()}"
+def case_id(target: str, candidate_id: str, blind_salt: str) -> str:
+    # Keyed IDs prevent dictionary matching against the public candidate list.
+    digest = hashlib.sha256(f"{blind_salt}|{target}|{candidate_id}".encode()).hexdigest()
+    return f"AX-{target[:1].upper()}-{digest[:16].upper()}"
 
 
 def _rank_rows(target: str, target_data: dict[str, Any]) -> list[dict[str, Any]]:
@@ -89,7 +90,8 @@ def _sample_bin(target: str, rows: list[dict[str, Any]], start: int, end: int) -
     return chosen
 
 
-def build_outputs(global_data: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+def build_outputs(global_data: dict[str, Any], blind_salt: str | None = None) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+    blind_salt = blind_salt or secrets.token_hex(32)
     if global_data.get("schema_version") != "1.1.0":
         raise ValueError("A schema 1.1.0 released global shortlist is required")
     contract = global_data.get("ranking_contract", {})
@@ -131,15 +133,16 @@ def build_outputs(global_data: dict[str, Any]) -> tuple[dict[str, Any], dict[str
             selected = _sample_bin(target, rows, start, end)
             strata_counts.append({"stratum": name, "rank_range": [start, end], "n": len(selected)})
             for row in selected:
-                cid = case_id(target, row["id"])
+                cid = case_id(target, row["id"], blind_salt)
                 group = spatial_group(row)
                 packet_cases.append({
                     "review_case_id": cid,
                     "target": target,
                     "reference_profile": "Shackleton Rim" if target == "moon" else "Nili Patera",
                     "location": {
-                        "latitude_wgs84_deg": row["latitude"],
-                        "longitude_wgs84_deg": row["longitude"],
+                        "latitude_wgs84_deg": round(float(row["latitude"]), 1),
+                        "longitude_wgs84_deg": round(float(row["longitude"]), 1),
+                        "precision_note": "Approximate area locator rounded to the nearest 0.1 degree; not the exact candidate-window centre.",
                     },
                     "analysis_window_km": row.get("window_footprint_km", 5.55),
                     "analysis_support_m": row.get("analysis_support_m", 925),
@@ -161,6 +164,8 @@ def build_outputs(global_data: dict[str, Any]) -> tuple[dict[str, Any], dict[str
                 private_cases[cid] = {
                     "target": target,
                     "candidate_id": row["id"],
+                    "latitude_wgs84_deg": row["latitude"],
+                    "longitude_wgs84_deg": row["longitude"],
                     "shortlist_rank": row["shortlist_rank"],
                     "tile_id": row["tile_id"],
                     "spatial_group": group,
@@ -196,6 +201,8 @@ def build_outputs(global_data: dict[str, Any]) -> tuple[dict[str, Any], dict[str
         "purpose": "Blind, spatially stratified review of terrain-morphology transferability for the current global candidate shortlist.",
         "sampling": {
             "design": "Six predeclared shortlist-rank strata per target; eight candidates per stratum; spatial diversity preferred within each stratum.",
+            "public_location_precision_degrees": 0.1,
+            "location_policy": "Public case coordinates are rounded to the nearest 0.1 degree. Exact candidate coordinates are retained only in the private case key.",
             "selection_seed": "SHA256(ANALOG-X-review-v1 | target | rank-bin | candidate-id)",
             "spatial_group": "Predeclared 10-degree geographic grid cell; an expert may coalesce adjacent cells into a single geologic block before evaluation, but must not split neighbouring geology across train/test.",
             "cases_per_target": SAMPLE_PER_BIN * len(SAMPLE_BINS),
@@ -222,6 +229,7 @@ def build_outputs(global_data: dict[str, Any]) -> tuple[dict[str, Any], dict[str
     private_key = {
         "schema_version": "1.0.0",
         "review_version": REVIEW_VERSION,
+        "blind_case_id_salt": blind_salt,
         "warning": "PRIVATE: contains candidate IDs, shortlist ranks and model scores. Do not commit or share with reviewers.",
         "cases": private_cases,
     }
@@ -234,14 +242,31 @@ def main() -> None:
     parser.add_argument("--ranked-output", type=Path, default=RANKED_OUT)
     parser.add_argument("--packet-output", type=Path, default=PACKET_OUT)
     parser.add_argument("--key-output", type=Path, help="Private, untracked case-key file. Never commit this file.")
+    parser.add_argument("--skip-review-packet", action="store_true", help="Refresh the public ranking snapshot without regenerating the owner-private blind review packet.")
     args = parser.parse_args()
     data = json.loads(args.global_path.read_text(encoding="utf-8"))
-    ranked, packet, key = build_outputs(data)
+    if args.skip_review_packet:
+        ranked, _, _ = build_outputs(data, blind_salt="ranking-snapshot-only")
+        packet = None
+        key = None
+    else:
+        if not args.key_output:
+            parser.error("--key-output is required unless --skip-review-packet is used")
+        blind_salt = None
+        if args.key_output.exists():
+            try:
+                previous_key = json.loads(args.key_output.read_text(encoding="utf-8"))
+                blind_salt = previous_key.get("blind_case_id_salt")
+            except (OSError, json.JSONDecodeError):
+                blind_salt = None
+        ranked, packet, key = build_outputs(data, blind_salt=blind_salt or secrets.token_hex(32))
     args.ranked_output.parent.mkdir(parents=True, exist_ok=True)
     args.packet_output.parent.mkdir(parents=True, exist_ok=True)
     args.ranked_output.write_text(json.dumps(ranked, indent=2, allow_nan=False) + "\n", encoding="utf-8")
-    args.packet_output.write_text(json.dumps(packet, indent=2, allow_nan=False) + "\n", encoding="utf-8")
-    if args.key_output:
+    packet_written = packet is not None
+    if packet_written:
+        args.packet_output.write_text(json.dumps(packet, indent=2, allow_nan=False) + "\n", encoding="utf-8")
+    if args.key_output and key is not None:
         args.key_output.parent.mkdir(parents=True, exist_ok=True)
         args.key_output.write_text(json.dumps(key, indent=2, allow_nan=False) + "\n", encoding="utf-8")
         try:
@@ -250,9 +275,9 @@ def main() -> None:
             pass
     print(json.dumps({
         "ranking_snapshot": str(args.ranked_output.relative_to(ROOT)) if args.ranked_output.is_relative_to(ROOT) else str(args.ranked_output),
-        "review_packet": str(args.packet_output.relative_to(ROOT)) if args.packet_output.is_relative_to(ROOT) else str(args.packet_output),
-        "cases": {target: sum(1 for row in packet["cases"] if row["target"] == target) for target in TARGETS},
-        "private_key_written": bool(args.key_output),
+        "review_packet": str(args.packet_output.relative_to(ROOT)) if packet_written else "unchanged (private review packet is owner-managed)",
+        "cases": {target: sum(1 for row in packet["cases"] if row["target"] == target) for target in TARGETS} if packet_written else "unchanged",
+        "private_key_written": bool(args.key_output and key is not None),
     }, indent=2))
 
 
