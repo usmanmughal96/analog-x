@@ -18,6 +18,7 @@
 | [Seven-slide demo](https://usmanmughal96.github.io/analog-x/demo.html) | Short project walkthrough |
 | [ATFA Science Module](https://usmanmughal96.github.io/analog-x/transferability.html) | Experiment-level transferability and analogy-failure analysis |
 | [Regional Discovery Scan](https://usmanmughal96.github.io/analog-x/discovery.html) | Local terrain-window comparison within the ten curated Earth regions |
+| [Pakistan evidence network](https://usmanmughal96.github.io/analog-x/#pakistanEvidenceNetwork) | Four processed Pakistan study windows with Sentinel-2 and regional terrain evidence |
 | [Global Discovery Engine](https://usmanmughal96.github.io/analog-x/global-discovery.html) | Worldwide Copernicus GLO-90 land-inventory screening |
 | [Top-ranked global candidates](data/global_discovery/top_ranked_candidates.json) | Separate top-25 Moon and Mars ranks with coordinates, scores and terrain metrics |
 | [Independent-review packet](data/validation/independent_analog_review_packet.json) | Blind, spatially stratified expert-review sample (no scores/ranks exposed) |
@@ -45,6 +46,7 @@ The system deliberately separates measured data, browse imagery, catalogue metad
 The atlas combines ten curated environments:
 
 - **Pakistan field leads:** Chagai small salt playas near Nok Kundi, Hamun-i-Mashkel / Kharan Basin, Koh-i-Sultan and Hispar Glacier.
+- The [homepage Pakistan evidence network](https://usmanmughal96.github.io/analog-x/#pakistanEvidenceNetwork) surfaces four distinct processed windows. Sentinel-2 spectral profiles use 20 m analysis grids; Copernicus GLO-30 terrain descriptors use approximately 925 m support over 30 km windows. Scene cloud metadata and analysis-grid masks are reported separately.
 - **Global reference environments:** Dallol, Atacama, McMurdo Dry Valleys, Haughton impact structure, Iceland and Death Valley.
 
 The Pakistan locations are under-characterized research leads, not confirmed new analog discoveries or validated mineral/brine deposits. Coordinates and study windows are screening references; they are not surveyed field boundaries.
@@ -90,6 +92,8 @@ The Field Evidence Passport helps define a site-specific field experiment, inspe
 
 The offline-first Field Validation Kit supports station plans and user-entered GNSS observations, methods, instruments, uncertainty, notes and optional photos. Records remain in the browser until a user exports them. The committed observation ledger is currently empty: **no physical field observations or independent field validation are claimed.**
 
+The next research milestone is specified in [Independent Operational Evidence Phase](docs/INDEPENDENT_OPERATIONAL_EVIDENCE_PHASE.md). It separates blinded candidate review, Pakistan field-to-orbit experiments, terrain/mobility trials and lunar south-pole operations evidence. The 96-case blind review packet is ready for external review but has no returned labels; no accuracy or field-validation claim is made.
+
 ### 6. Offline-first operation and optional services
 
 The public GitHub Pages application is a static web app. After its first connected visit and cache setup, the core science pack, deterministic Mission Director, Field School, Field Evidence Passport and local field notebook can operate offline on the same browser/device.
@@ -121,14 +125,16 @@ The authoritative status for each source is maintained in [data/source_registry.
 
 ## Latest verified evidence snapshot
 
-The latest committed validation and lunar-reference products used for this README were generated on **22 November 2026**.
+The latest global quantitative-validation report was generated on **22 November 2026**; Pakistan Earth-observation and ATFA transferability products were refreshed on **23 November 2026**.
 
 - **Regional scan:** 7,290 Earth windows, 729 Shackleton windows and 21 Nili Patera windows.
-- **Global land-inventory baseline:** 26,475 Copernicus GLO-90 land tiles processed, zero reported tile failures and 5,852,396 terrain windows evaluated in the previous completed release. The newer shortlist release remains not ranking-ready until its refreshed artifact passes the ranking-contract gate.
-- **Global shortlist context:** 2,391 / 2,400 retained windows have 2023 land-cover enrichment; NASA POWER climatology covers 200 / 200 unique top-100-per-target candidate coordinates; GLiM returned generalized lithology features for 200 / 200 retained candidate points. The latter two are contextual enrichment layers, not independent analog validation.
-- **Shackleton Rim 5 m LOLA:** the PGDA Site04 elevation, count and slope products are processed on a 3,200 × 3,200 grid (10,240,000 pixels). The interpolated terrain surface is valid across the grid; positive direct-return pixels cover 9.154%. A zero direct-return count does not invalidate an interpolated elevation cell.
-- **Independent analog labels:** awaiting independently sourced and reviewed positive/negative reference labels. No AUC, accuracy or calibrated ranking performance is claimed.
-- **Field validation:** the observation ledger remains empty until physical measurements are collected and reviewed.
+- **Global land-inventory scan:** 26,475 / 26,475 enumerated Copernicus GLO-90 land tiles processed, zero reported tile failures and 5,852,396 terrain windows evaluated. This is complete land-tile inventory coverage, not ocean coverage or proof of ranking accuracy.
+- **Ranking release:** the validation artifact records both target-specific 1,200-candidate lists as schema/order/rank-integrity ready. This is data-contract readiness, not independent scientific accuracy or analog validation.
+- **Global shortlist context:** 2,391 / 2,400 retained windows have 2023 land-cover enrichment; NASA POWER climatology covers 200 / 200 unique top-100-per-target candidate coordinates; GLiM returned generalized lithology features for 200 / 200 retained candidate points. These are contextual enrichment layers, not independent analog validation.
+- **Pakistan evidence network:** four windows have processed 20 m Sentinel-2 spectral-context profiles and approximately 925 m Copernicus terrain descriptors. The homepage links the scene profiles, index screens and terrain comparison output. This is desk evidence, not field truth.
+- **Shackleton Rim 5 m LOLA:** the PGDA Site04 elevation, count, slope and uncertainty products are processed on a 3,200 × 3,200 grid (10,240,000 pixels). The interpolated terrain surface is valid across the grid; positive direct-return pixels cover 9.154%. RMS-error layers are not safety probabilities.
+- **Independent analog labels:** the 96-case blind review packet is ready for external review but has no returned labels. No AUC, accuracy or calibrated ranking performance is claimed.
+- **Field validation:** the observation ledger remains empty until physical measurements are collected and independently reviewed.
 
 The machine-readable snapshot is [data/validation/quantitative_validation.json](data/validation/quantitative_validation.json); the LOLA processing summary is [data/moon/shackleton_rim_lola.json](data/moon/shackleton_rim_lola.json). Counts and evidence states can change when scheduled or manually triggered pipelines publish new outputs.
 
@@ -167,6 +173,7 @@ Useful entry points:
 - [Global discovery and validation](docs/GLOBAL_DISCOVERY_AND_VALIDATION.md)
 - [Regional window scan](docs/REGIONAL_WINDOW_SCAN.md)
 - [Independent label validation protocol](docs/INDEPENDENT_LABEL_VALIDATION_PROTOCOL.md)
+- [Independent operational evidence phase](docs/INDEPENDENT_OPERATIONAL_EVIDENCE_PHASE.md)
 - [Offline and backend setup](docs/OFFLINE_AND_BACKEND.md)
 - [Agent API setup](docs/AGENTIC_AI_SETUP.md)
 - [NASA Space Apps submission brief](docs/CHALLENGE_SUBMISSION_BRIEF.md)
