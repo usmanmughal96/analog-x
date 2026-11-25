@@ -96,6 +96,7 @@
 @media(max-width:1150px){.pakistanSiteGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.pakistanSiteGrid{grid-template-columns:1fr}.pakistanSiteImage{height:150px}.pakistanNetIntro{padding-left:11px;padding-right:11px}}
 
+.sitechoose{max-width:190px;flex-wrap:wrap;justify-content:flex-end}.sitechoose button{padding:5px 6px;font-size:7px}.terrainGrid{grid-template-columns:repeat(3,minmax(0,1fr))}.labTable td small{display:block;color:#7d9aaa;font-size:8px;margin-top:3px;white-space:nowrap}@media(max-width:850px){.terrainGrid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.terrainGrid{grid-template-columns:1fr}.sitechoose{max-width:160px}}.legenddot.playa{background:#55b8ec;box-shadow:0 0 7px #55b8ec}.legenddot.volcanic{background:#1de0b3;box-shadow:0 0 7px #1de0b3}.legenddot.cryosphere{background:#e0bd7b;box-shadow:0 0 7px #e0bd7b}
 </style>
 <link rel='stylesheet' href='./assets/analogx-labs.css?v=20261115-offline'>
 <link rel='stylesheet' href='./assets/analogx-scout.css?v=20261114-portalfix'>
@@ -257,10 +258,10 @@
   <div class="toolbar"><div class="crumb">PROJECT / <b>ANALOG-X</b> / <b>MISSION CONTROL</b></div><div class="actions"><button class="selectbtn active" id="btnPakistan">Pakistan sector</button><button class="ghostbtn" id="btnGlobal">Global context</button><button class="ghostbtn" id="btnReport">Field-test card ↗</button></div></div>
   <section class="grid-main">
    <article class="card mapcard">
-    <div class="cardhead"><div class="mapheader"><div class="regionpin">⌖</div><div><div class="cardtitle">EARTH ANALOG REGION</div><div class="cardhint">Chagai volcanic field · Karakoram cryosphere · WGS84</div></div></div><div style="display:flex;gap:6px;align-items:center"><span class="statuspill blue" id="siteCount">02 STUDY AREAS</span><span class="statuspill" id="mapEngineStatus">CONNECTING MAP</span></div></div>
+    <div class="cardhead"><div class="mapheader"><div class="regionpin">⌖</div><div><div class="cardtitle">PAKISTAN STUDY LOCATIONS</div><div class="cardhint">Two playa/basin windows · volcanic field · Karakoram cryosphere · WGS84</div></div></div><div style="display:flex;gap:6px;align-items:center"><span class="statuspill blue" id="siteCount">04 STUDY WINDOWS</span><span class="statuspill" id="mapEngineStatus">CONNECTING MAP</span></div></div>
     <div class="mapbody"><div id="map"></div>
      <div class="mapoverlay"><div class="overlaylabel">SELECTED STUDY AREA</div><div class="overlaytitle" id="mapSiteTitle">KOH-I-SULTAN / CHAGAI</div><div class="overlaydesc" id="mapSiteDesc">Volcanic field · Balochistan, Pakistan</div><div class="overlaycoords"><span id="mapLat">29.100° N</span><span id="mapLon">62.800° E</span></div></div>
-     <div class="maplegend"><span class="legenditem"><i class="legenddot"></i> Volcanic case</span><span class="legenditem"><i class="legenddot gold"></i> Cryosphere case</span><span class="legenditem"><i class="legendline"></i> Comparison axis</span></div>
+     <div class="maplegend"><span class="legenditem"><i class="legenddot playa"></i> Playa / basin</span><span class="legenditem"><i class="legenddot volcanic"></i> Volcanic field</span><span class="legenditem"><i class="legenddot cryosphere"></i> Cryosphere</span></div>
      <div class="maptools"><button id="zoomIn">+</button><button id="zoomOut">−</button><button id="fitSites">⌖</button></div>
     </div>
    </article>
@@ -268,7 +269,7 @@
     <article class="card detailcard" id="sites">
      <div class="tabrow"><div class="tab active" data-tab="climate">CLIMATE</div><div class="tab" data-tab="imagery">EARTH OBS</div><div class="tab" data-tab="context">MISSION CONTEXT</div></div>
      <div class="detailbody">
-      <div class="selectedsite"><div><h2 id="siteName">Koh-i-Sultan / Chagai</h2><p id="siteSub">Pakistan · Volcanic field · candidate, not validated analog</p></div><div class="sitechoose"><button class="active" data-site="koh">KOH</button><button data-site="hispar_glacier">HISPAR</button></div></div>
+      <div class="selectedsite"><div><h2 id="siteName">Koh-i-Sultan / Chagai</h2><p id="siteSub">Pakistan · Volcanic field · candidate, not validated analog</p></div><div class="sitechoose"><button data-site="chagai_small_playas">CHAGAI</button><button data-site="hamun_i_mashkel">HAMUN</button><button class="active" data-site="koh">KOH</button><button data-site="hispar_glacier">HISPAR</button></div></div>
       <div class="sitepanel active" id="tab-climate">
        <div class="metricgrid">
         <div class="metric"><div class="metriclabel">2 m air temperature</div><div class="metricvalue" id="mTemp">—<span class="metricunit">°C</span></div><div class="metricnote">NASA POWER climatology</div></div>
@@ -300,8 +301,8 @@
      <div class="cardhead"><div class="cardtitle">DATA SYSTEMS / SOURCE HEALTH</div><span class="statuspill blue" id="systemHealth">CHECKING</span></div>
      <div class="detailbody" style="padding-top:10px">
       <div class="sourcegrid">
-       <div class="sourcebox"><div class="sourceboxhead"><b>NASA POWER</b><span class="source-state">VERIFIED</span></div><p>8/8 site climatology snapshots · all 7 parameters present.</p></div>
-       <div class="sourcebox"><div class="sourceboxhead"><b>PLANETARY COMPUTER</b><span class="source-state blue">DISCOVERED</span></div><p>Sentinel-2 L2A metadata for Koh-i-Sultan and Hispar.</p></div>
+       <div class="sourcebox"><div class="sourceboxhead"><b>NASA POWER</b><span class="source-state">VERIFIED</span></div><p>10/10 site climatology snapshots · all 7 requested parameters present in the bundled records.</p></div>
+       <div class="sourcebox"><div class="sourceboxhead"><b>PLANETARY COMPUTER</b><span class="source-state blue">DISCOVERED</span></div><p>Scene discovery for 10 curated windows; four Pakistan windows have processed spectral profiles and RGB quicklooks.</p></div>
        <div class="sourcebox"><div class="sourceboxhead"><b>NASA GIBS</b><span class="source-state blue">PUBLIC</span></div><p>Open WMTS/WMS imagery layers for global context.</p></div>
        <div class="sourcebox"><div class="sourceboxhead"><b>EVK2CNR</b><span class="source-state gold">BASELINE</span></div><p>Pakistan glacier inventory exists; no polygon file redistributed by this build.</p></div>
        <div class="sourcebox"><div class="sourceboxhead"><b>SUPARCO / SPACE4CLIMATE</b><span class="source-state gold">PORTAL</span></div><p>Official monitoring domains reviewed; no public bulk API verified.</p></div>
@@ -314,10 +315,12 @@
 
   <section class="lowergrid" id="imagery">
    <article class="card imagerycard">
-    <div class="cardhead"><div><div class="cardtitle">EARTH IMAGERY / RECENT OBSERVATIONS</div><div class="cardhint">Actual satellite assets and source dates · not simulated telemetry</div></div><span class="statuspill blue" id="imageryStatus">SCENE CATALOG</span></div>
+    <div class="cardhead"><div><div class="cardtitle">EARTH IMAGERY / FOUR PAKISTAN WINDOWS</div><div class="cardhint">Processed local quicklooks · scene acquisition metadata · not simulated telemetry</div></div><span class="statuspill blue" id="imageryStatus">SCENE CATALOG</span></div>
     <div class="imagerycontent">
-     <div class="imagepanel"><div class="imagepanelhead"><b>KOH-I-SULTAN · SENTINEL-2 L2A</b><span id="kohSceneMeta">SCENE PREVIEW</span></div><div class="imagebox" id="kohImageBox"><div class="placeholder">Sentinel-2 true-colour preview<br>awaiting COG processing</div></div><div class="imagefooter"><span id="kohImageFoot">Chagai volcanic field · Pakistan</span><a id="kohItemLink" href="https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a" target="_blank">SCENE ↗</a></div></div>
-     <div class="imagepanel"><div class="imagepanelhead"><b>HISPAR · SENTINEL-2 L2A</b><span id="hisparSceneMeta">SCENE PREVIEW</span></div><div class="imagebox" id="hisparImageBox"><div class="placeholder">Sentinel-2 true-colour preview<br>awaiting COG processing</div></div><div class="imagefooter"><span id="hisparImageFoot">Karakoram glacier region · Pakistan</span><a id="hisparItemLink" href="https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a" target="_blank">SCENE ↗</a></div></div>
+     <div class="imagepanel"><div class="imagepanelhead"><b>CHAGAI PLAYAS · SENTINEL-2 L2A</b><span id="chagaiSceneMeta">SCENE PREVIEW</span></div><div class="imagebox" id="chagaiImageBox"><div class="placeholder">Loading local satellite quicklook</div></div><div class="imagefooter"><span id="chagaiImageFoot">Nok Kundi · Balochistan, Pakistan</span><a id="chagaiItemLink" href="https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a" target="_blank">SCENE ↗</a></div></div>
+     <div class="imagepanel"><div class="imagepanelhead"><b>HAMUN-I-MASHKEL · SENTINEL-2 L2A</b><span id="hamunSceneMeta">SCENE PREVIEW</span></div><div class="imagebox" id="hamunImageBox"><div class="placeholder">Loading local satellite quicklook</div></div><div class="imagefooter"><span id="hamunImageFoot">Kharan Basin · Balochistan, Pakistan</span><a id="hamunItemLink" href="https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a" target="_blank">SCENE ↗</a></div></div>
+     <div class="imagepanel"><div class="imagepanelhead"><b>KOH-I-SULTAN · SENTINEL-2 L2A</b><span id="kohSceneMeta">SCENE PREVIEW</span></div><div class="imagebox" id="kohImageBox"><div class="placeholder">Loading local satellite quicklook</div></div><div class="imagefooter"><span id="kohImageFoot">Chagai volcanic field · Pakistan</span><a id="kohItemLink" href="https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a" target="_blank">SCENE ↗</a></div></div>
+     <div class="imagepanel"><div class="imagepanelhead"><b>HISPAR GLACIER · SENTINEL-2 L2A</b><span id="hisparSceneMeta">SCENE PREVIEW</span></div><div class="imagebox" id="hisparImageBox"><div class="placeholder">Loading local satellite quicklook</div></div><div class="imagefooter"><span id="hisparImageFoot">Karakoram glacier region · Pakistan</span><a id="hisparItemLink" href="https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a" target="_blank">SCENE ↗</a></div></div>
     </div>
    </article>
    <div class="opsstack">
@@ -334,9 +337,9 @@
       <div class="timelinehead"><b>DATA ACQUISITION WORKFLOW</b><span id="snapshotDate">SNAPSHOT DATE —</span></div>
       <div class="steps">
        <div class="step"><div class="stepdot">✓</div><b>Climate</b><small>NASA POWER<br>10/10 candidate coordinates</small></div>
-       <div class="step"><div class="stepdot">✓</div><b>Scene Search</b><small>Sentinel-2<br>metadata</small></div>
-       <div class="step warn" id="quickStep"><div class="stepdot">!</div><b>Quicklooks</b><small>COG preview<br>status</small></div>
-       <div class="step"><div class="stepdot">✓</div><b>Terrain</b><small>CopDEM / MOLA<br>coarse profile</small></div>
+       <div class="step"><div class="stepdot">✓</div><b>Scene Search</b><small>Sentinel-2<br>10 site searches</small></div>
+       <div class="step warn" id="quickStep"><div class="stepdot">!</div><b>Quicklooks</b><small>Pakistan<br>4/4 quicklooks</small></div>
+       <div class="step"><div class="stepdot">✓</div><b>Terrain</b><small>10 Earth +<br>Moon / Mars</small></div>
       </div>
      </div>
      <div class="evidence-list">
@@ -350,11 +353,13 @@
   </section>
 
   <section class="card terrainpanel" id="terrain">
-   <div class="cardhead"><div><div class="cardtitle">TERRAIN PROFILES / EARTH · MARS · MOON</div><div class="cardhint">Earth/Mars coarse profiles at ~925 m · independent lunar south-pole LOLA profile at native 80 m</div></div><span class="statuspill blue" id="terrainStatus">TERRAIN PROFILE</span></div>
+   <div class="cardhead"><div><div class="cardtitle">TERRAIN PROFILES / EARTH · MARS · MOON</div><div class="cardhint">Four Pakistan Earth windows + Nili Patera / Mars at ~925 m · Shackleton / Moon aggregated from native 80 m LOLA</div></div><span class="statuspill blue" id="terrainStatus">TERRAIN PROFILE</span></div>
    <div class="terrainGrid">
     <article class="terrainCard"><div class="terrainCardHead"><b>NILI PATERA · MARS</b><span class="statuspill gold" id="marsTerrainCoverage">LIMITED COVERAGE</span></div><div class="terrainPreview"><img src="./data/terrain/nili_patera_mola_hillshade.png" alt="MOLA 64 pixels per degree terrain preview around Nili Patera"></div><div class="terrainCardBody"><div class="terrainMetrics"><div class="terrainMetric"><span>Median slope</span><b id="marsSlopeMedian">—</b></div><div class="terrainMetric"><span>P90 slope</span><b id="marsSlopeP90">—</b></div><div class="terrainMetric"><span>P90 local relief</span><b id="marsReliefP90">—</b></div><div class="terrainMetric"><span>Observed cells</span><b id="marsCoverage">—</b></div></div><div class="terrainNote">MGS MOLA MEGDR 64 ppd · 30 km window · only cells with observation counts are included in the terrain derivatives.</div></div></article>
     <article class="terrainCard"><div class="terrainCardHead"><b>KOH-I-SULTAN · PAKISTAN</b><span class="statuspill" id="kohTerrainCoverage">PROCESSED</span></div><div class="terrainPreview"><img src="./data/terrain/koh_i_sultan_copdem_hillshade.png" alt="Copernicus DEM terrain preview around Koh-i-Sultan"></div><div class="terrainCardBody"><div class="terrainMetrics"><div class="terrainMetric"><span>Median slope</span><b id="kohSlopeMedian">—</b></div><div class="terrainMetric"><span>P90 slope</span><b id="kohSlopeP90">—</b></div><div class="terrainMetric"><span>P90 local relief</span><b id="kohReliefP90">—</b></div><div class="terrainMetric"><span>Valid cells</span><b id="kohCoverage">—</b></div></div><div class="terrainNote">Copernicus DEM GLO-30 DSM · 30 km window · averaged to approximately 925 m before slope/relief analysis.</div></div></article>
     <article class="terrainCard"><div class="terrainCardHead"><b>HISPAR GLACIER · PAKISTAN</b><span class="statuspill" id="hisparTerrainCoverage">PROCESSED</span></div><div class="terrainPreview"><img src="./data/terrain/hispar_glacier_copdem_hillshade.png" alt="Copernicus DEM terrain preview around Hispar Glacier"></div><div class="terrainCardBody"><div class="terrainMetrics"><div class="terrainMetric"><span>Median slope</span><b id="hisparSlopeMedian">—</b></div><div class="terrainMetric"><span>P90 slope</span><b id="hisparSlopeP90">—</b></div><div class="terrainMetric"><span>P90 local relief</span><b id="hisparReliefP90">—</b></div><div class="terrainMetric"><span>Valid cells</span><b id="hisparCoverage">—</b></div></div><div class="terrainNote">Copernicus DEM GLO-30 DSM · 30 km window · averaged to approximately 925 m before slope/relief analysis.</div></div></article>
+    <article class="terrainCard"><div class="terrainCardHead"><b>CHAGAI SMALL PLAYAS · PAKISTAN</b><span class="statuspill" id="chagaiTerrainCoverage">PROCESSED</span></div><div class="terrainPreview"><img src="./data/terrain/chagai_small_playas_copdem_hillshade.png" alt="Copernicus DEM terrain preview around Chagai salt playas"></div><div class="terrainCardBody"><div class="terrainMetrics"><div class="terrainMetric"><span>Median slope</span><b id="chagaiSlopeMedian">—</b></div><div class="terrainMetric"><span>P90 slope</span><b id="chagaiSlopeP90">—</b></div><div class="terrainMetric"><span>P90 local relief</span><b id="chagaiReliefP90">—</b></div><div class="terrainMetric"><span>Valid cells</span><b id="chagaiCoverage">—</b></div></div><div class="terrainNote">Copernicus DEM GLO-30 DSM · 30 km window · ~925 m analysis support. Regional morphology only; not playa-crust strength.</div></div></article>
+    <article class="terrainCard"><div class="terrainCardHead"><b>HAMUN-I-MASHKEL · PAKISTAN</b><span class="statuspill" id="hamunTerrainCoverage">PROCESSED</span></div><div class="terrainPreview"><img src="./data/terrain/hamun_i_mashkel_copdem_hillshade.png" alt="Copernicus DEM terrain preview around Hamun-i-Mashkel"></div><div class="terrainCardBody"><div class="terrainMetrics"><div class="terrainMetric"><span>Median slope</span><b id="hamunSlopeMedian">—</b></div><div class="terrainMetric"><span>P90 slope</span><b id="hamunSlopeP90">—</b></div><div class="terrainMetric"><span>P90 local relief</span><b id="hamunReliefP90">—</b></div><div class="terrainMetric"><span>Valid cells</span><b id="hamunCoverage">—</b></div></div><div class="terrainNote">Copernicus DEM GLO-30 DSM · 30 km window · ~925 m analysis support. A flat regional profile does not establish seasonal flooding or bearing strength.</div></div></article>
     <article class="terrainCard"><div class="terrainCardHead"><b>SHACKLETON RIM · MOON</b><span class="statuspill" id="lunarTerrainCoverage">LOLA PENDING</span></div><div class="terrainPreview"><img src="./data/moon/shackleton_lola_80m_elevation_preview.png" alt="NASA LOLA 80 metre lunar south-pole elevation preview around Shackleton Rim"></div><div class="terrainCardBody"><div class="terrainMetrics"><div class="terrainMetric"><span>Median slope</span><b id="lunarSlopeMedian">—</b></div><div class="terrainMetric"><span>P90 slope</span><b id="lunarSlopeP90">—</b></div><div class="terrainMetric"><span>P90 local relief</span><b id="lunarReliefP90">—</b></div><div class="terrainMetric"><span>LOLA return support</span><b id="lunarReturnSupport">—</b></div></div><div class="terrainNote">NASA LRO LOLA PDS GDR · native 80 m polar grid · 24 × 24 km Shackleton Rim window. LDEM is interpolated; LDEC counts are shown separately.</div></div></article>
    </div>
    <div class="terrainWarning" id="terrainCaveat">Coverage and interpretation notes load from the validated terrain output. Terrain profiles are descriptors only—not geological equivalence, rover mobility, landing safety or a Mars similarity percentage. Earth DSM and Mars areoid elevation datums are not compared.</div>
@@ -438,15 +443,15 @@
   </section>
 
   <section class="card labPanel" id="missionLab">
-   <div class="cardhead"><div><div class="cardtitle">MISSION REHEARSAL LAB / EVIDENCE-LED TERRAIN MATCHING</div><div class="cardhint">Compare measured terrain descriptors at approximately common 925 m support · no blended similarity score</div></div><span class="statuspill blue" id="labStatus">LOADING EVIDENCE</span></div>
-   <div class="labIntro">Choose a planetary reference and the field experiment you want to rehearse. ANALOG-X compares the available Earth and planetary terrain profiles, shows which site is closer on each measured dimension, and turns the evidence into a field protocol.</div>
+   <div class="cardhead"><div><div class="cardtitle">MISSION REHEARSAL LAB / FOUR-SITE TERRAIN COMPARISON</div><div class="cardhint">Compare four Pakistan profiles against a selected planetary reference · dimension by dimension · no blended score</div></div><span class="statuspill blue" id="labStatus">LOADING EVIDENCE</span></div>
+   <div class="labIntro">Choose a planetary reference and task. The table compares Chagai, Hamun-i-Mashkel, Koh-i-Sultan and Hispar on median slope, P90 slope and regional relief. The closest value on one descriptor is not evidence of geological equivalence, trafficability or mission safety.</div>
    <div class="labControls">
     <div class="labControl"><label for="labTarget">Planetary reference site</label><select id="labTarget"><option value="moon">Moon · Shackleton Rim / south pole</option><option value="mars">Mars · Nili Patera / Syrtis Major</option></select></div>
-    <div class="labControl"><label for="labObjective">Field experiment</label><select id="labObjective"><option value="terrain">Terrain morphology & traverse documentation</option><option value="cryosphere">Cryosphere / ice-debris mapping rehearsal</option></select></div>
+    <div class="labControl"><label for="labObjective">Field experiment</label><select id="labObjective"><option value="terrain">Terrain morphology & traverse documentation</option><option value="cryosphere">Cryosphere / ice-debris mapping rehearsal</option><option value="evaporite">Salt-crust / evaporite mapping rehearsal</option><option value="basin">Intermittent-basin wet/dry observation</option><option value="volcanic">Volcanic outcrop / alteration mapping rehearsal</option></select></div>
     <button class="labButton" id="labExport">DOWNLOAD FIELD PROTOCOL JSON ↓</button>
    </div>
    <div class="labSummary" id="labSummary">Loading the Earth, Mars and Moon terrain profiles…</div>
-   <div class="labTableWrap"><table class="labTable"><thead><tr><th>Measured descriptor</th><th>Planetary reference</th><th>Koh-i-Sultan</th><th>Δ from target</th><th>Hispar Glacier</th><th>Δ from target</th><th>Closer on this metric</th></tr></thead><tbody id="labMetricRows"><tr><td colspan="7">Waiting for validated terrain files…</td></tr></tbody></table></div>
+   <div class="labTableWrap"><table class="labTable"><thead><tr><th>Measured descriptor</th><th>Planetary reference</th><th>Chagai playas</th><th>Hamun-i-Mashkel</th><th>Koh-i-Sultan</th><th>Hispar Glacier</th><th>Closest on this metric</th></tr></thead><tbody id="labMetricRows"><tr><td colspan="7">Waiting for validated terrain files…</td></tr></tbody></table></div>
    <div class="labDecision">
     <div class="labBox"><h4 id="labRecommendationTitle">FIELD REHEARSAL RECOMMENDATION</h4><p id="labRecommendation">Select an objective to see which Earth site offers the most relevant documented rehearsal conditions.</p><ul id="labProtocol"></ul></div>
     <div class="labBox"><h4>INTERPRETATION & LIMITATIONS</h4><p id="labLimits">Terrain descriptors are regional context only. They do not establish landing safety, rover mobility, geological equivalence, or resource availability.</p><p id="labQuality"></p></div>
@@ -513,13 +518,15 @@
 <section class="card coveragepanel" id="challengeCoverage">
    <div class="cardhead"><div><div class="cardtitle">NASA CHALLENGE / OBJECTIVE COVERAGE</div><div class="cardhint">A transparent evidence ledger: integrated data, useful comparisons and open science</div></div><span class="statuspill gold" id="challengeCoverageStatus">EVIDENCE-FIRST PROTOTYPE</span></div>
    <div class="coverageGrid">
-    <div class="coverageItem"><b>EARTH / MULTI-SOURCE OBSERVATIONS</b><p>NASA POWER climatology for 10 coordinates; Sentinel-2 L2A scene discovery, spectral-context screens and RGB previews for four Pakistan windows; Copernicus DEM GLO-30 terrain profiles for all four. MODIS/MERRA-2 are still catalogue discovery, not processed measurements.</p><span class="statuspill">10 CLIMATE / 4 EO WINDOWS / 4 TERRAIN</span></div>
+    <div class="coverageItem"><b>EARTH / MULTI-SOURCE OBSERVATIONS</b><p>NASA POWER climatology for 10 curated coordinates; Sentinel-2 L2A scene discovery across 10 environments and processed spectral-context profiles / RGB quicklooks for four Pakistan windows; Copernicus DEM GLO-30 terrain profiles for all four. MODIS/MERRA-2 remain catalogue metadata discovery, not decoded science measurements.</p><span class="statuspill">10 CLIMATE / 4 EO WINDOWS / 4 TERRAIN</span></div>
     <div class="coverageItem"><b>GLOBAL CANDIDATE DISCOVERY</b><p>Ten provenance-linked Earth seeds, including two under-characterized Balochistan playa leads. The atlas looks beyond the well-known sites but remains a curated seed set—not an exhaustive global search or a new-to-science discovery claim.</p><span class="statuspill">10 SEEDS / 2 RESEARCH LEADS</span></div>
     <div class="coverageItem"><b>MARS / NILI PATERA</b><p>MOLA 64 ppd terrain descriptors compared with the Earth windows at ~925 m support. The 30 km MOLA sample has 50.53% observed-cell coverage (567/1,122) and 87 complete 3×3 neighborhoods; keep that caveat beside every comparison.</p><span class="statuspill gold">INTEGRATED / LIMITED COVERAGE</span></div>
-    <div class="coverageItem"><b>PERMANENT LUNAR BASE / SHACKLETON</b><p>LOLA 80 m elevation, return support and matched ~925 m terrain are integrated. Diviner PRP V2.0 has been processed for 6,823 Shackleton-window triangles: median annual average temperature at 2 cm is 103.786 K, and median annual maximum surface temperature is 238.568 K. These are historical model-derived thermal summaries, not forecasts. Ice-depth output is withheld pending QA of negative values; no accessible lunar ice claim is made. Illumination / PSR mapping is not integrated.</p><span class="statuspill gold" id="lunarResourceStatus">LOLA + DIVINER THERMAL / ICE QA PENDING</span><div class="lunarResourceSummary" id="lunarResourceSummary">Diviner thermal summaries loaded · ice-depth interpretation pending QA · illumination / PSR mapping absent.</div></div>
+    <div class="coverageItem"><b>LUNAR SOUTH-POLE OPERATIONS / SHACKLETON</b><p>NASA LOLA provides an 80 m south-polar terrain profile and a separate 5 m Site04 elevation/count/slope product with elevation and slope RMS-error layers. Diviner PRP V2.0 historical model summaries cover 6,823 Shackleton-window triangles: median annual average temperature at 2 cm is 103.786 K, and median annual maximum surface temperature is 238.568 K. These are historical model-derived summaries, not forecasts or in-situ measurements. Ice-depth interpretation remains QA-limited; verified PSR polygons and mission-date illumination are not yet integrated.</p><span class="statuspill gold" id="lunarResourceStatus">LOLA + DIVINER THERMAL / DEPTH QA OPEN</span><div class="lunarResourceSummary" id="lunarResourceSummary">Historical Diviner thermal summaries loaded · depth QA remains open · PSR geometry / mission-date SPICE illumination not integrated.</div></div>
     <div class="coverageItem"><b>GEOLOGY / SURFACE MATERIALS</b><p>USGS regional mapping identifies Koh-i-Sultan agglomerate, tuff and andesitic lava. Chagai's historic salt-playa report, modern Sentinel-2 screening and terrain context support a process-rehearsal hypothesis. Site-scale mineral identification, laboratory chemistry, brine confirmation and field samples remain open.</p><span class="statuspill gold">REGIONAL GEOLOGY / FIELD VALIDATION OPEN</span></div>
-    <div class="coverageItem"><b>ENVIRONMENT / RESOURCES / OPERATIONS</b><p>Earth gridded climate and solar/wind/precipitation context plus lunar thermal/illumination screening help frame mission tasks. Local dust flux, radiation, current ephemeris, subsurface structure, resource concentration, extractability and rover-scale surface strength are not established.</p><span class="statuspill gold">MULTI-DIMENSIONAL / PARTIAL</span></div>
-    <div class="coverageItem"><b>DECISION / AGENTIC / PUBLIC LEARNING</b><p>Offline specialist agents, strict/exploratory evidence triage, a live-data coordinate scout (Worker required), an optional open-weight Mission Director (Cloudflare deployment required) and the four-stage Field School connect evidence with an explainable next action.</p><span class="statuspill">OFFLINE AGENTS / OPTIONAL CLOUD AI</span></div>
+    <div class="coverageItem"><b>ENVIRONMENT / RESOURCES / OPERATIONS</b><p>Earth gridded climate and solar/wind/precipitation context plus historical lunar Diviner thermal and LROC WAC illumination context help frame mission tasks. Local dust flux, radiation, mission-date SPICE illumination, verified PSR geometry, subsurface structure, resource concentration, extractability and rover-scale surface strength are not established.</p><span class="statuspill gold">MULTI-DIMENSIONAL / PARTIAL</span></div>
+    <div class="coverageItem"><b>GLOBAL TERRAIN RANKING / RELEASE STATUS</b><p>The completed Copernicus GLO-90 land inventory contains 26,475/26,475 enumerated land tiles and 5,852,396 evaluated terrain windows. Separate Moon and Mars shortlists each retain 1,200 candidates. Ranking files pass schema and rank-integrity checks only; independent scientific accuracy is not established.</p><span class="statuspill">RANKING FILE READY / VALIDATION OPEN</span></div>
+    <div class="coverageItem"><b>INDEPENDENT REVIEW / FIELD TRUTH</b><p>A blinded 96-case review packet is prepared (48 Moon, 48 Mars), but no external labels have been returned. The physical Pakistan observation ledger is empty. No independent analog accuracy, completed field campaign or rover trial is claimed.</p><span class="statuspill gold">96 CASES AWAIT REVIEW / 0 FIELD OBSERVATIONS</span></div>
+    <div class="coverageItem"><b>DECISION / AGENTIC / PUBLIC LEARNING</b><p>Four deterministic offline evidence specialists, strict/exploratory claim triage, the ten-seed offline coordinate scout and the four-stage Field School connect evidence with explainable next actions. The optional cloud Mission Director requires the separate Cloudflare deployment.</p><span class="statuspill">OFFLINE SCIENCE / OPTIONAL CLOUD AI</span></div>
    </div>
    <div class="terrainWarning" style="margin-top:0">This is a research and field-rehearsal decision aid—not an official landing-site selection or safety system. ~925 m terrain profiles are regional context, not rover-scale hazard analysis. WAC low-illumination pixels are not formal PSR boundaries; Diviner ice-stability depth is model-derived, not a direct ice-abundance measurement. Earth cannot reproduce lunar vacuum/reduced gravity or Mars' thin atmosphere and radiation environment. Ground truth, access, permits and specialist review remain necessary.</div>
   </section>
@@ -528,11 +535,11 @@
    <div class="cardhead"><div><div class="cardtitle">DATA PROVIDERS / VERIFIED CAPABILITY REGISTER</div><div class="cardhint">Integrated products, catalogue discovery, reviewed portals and reference-only sources</div></div><span class="statuspill gray">PROVENANCE REGISTER</span></div>
    <div class="sourceitems">
     <div class="sourceitem"><div class="sourcetype">NASA / INTEGRATED</div><b>POWER Climatology</b><p>Ten site records with temperature, RH, wind, precipitation and solar resource. Reproducible snapshots are bundled locally for offline use.</p><a href="https://power.larc.nasa.gov/docs/services/api/temporal/climatology/" target="_blank">API docs ↗</a></div>
-    <div class="sourceitem"><div class="sourcetype">NASA / CATALOGUE INTEGRATED</div><b>Earthdata Search / CMR</b><p id="cmrSummary">MODIS LST, land-cover and MERRA-2 aerosol collections are being discovered for the Pakistan study windows.</p><a href="https://search.earthdata.nasa.gov/" target="_blank">Earthdata Search ↗</a> · <a href="https://cmr.earthdata.nasa.gov/search/site/docs/search/api.html" target="_blank">CMR API ↗</a></div>
+    <div class="sourceitem"><div class="sourcetype">NASA / CATALOGUE INTEGRATED</div><b>Earthdata Search / CMR</b><p id="cmrSummary">Four NASA collections have catalogue records. Site-specific MOD11A2 granule queries in this snapshot cover Koh-i-Sultan and Hispar only; the returned records are metadata, not downloaded/decoded measurements.</p><a href="https://search.earthdata.nasa.gov/" target="_blank">Earthdata Search ↗</a> · <a href="https://cmr.earthdata.nasa.gov/search/site/docs/search/api.html" target="_blank">CMR API ↗</a></div>
     <div class="sourceitem"><div class="sourcetype">NASA / MAP TILES</div><b>Worldview / GIBS</b><p>Open VIIRS true-colour GIBS tiles are used as the map context layer. This is browse imagery, not a science-data download.</p><a href="https://worldview.earthdata.nasa.gov/" target="_blank">Worldview ↗</a> · <a href="https://nasa-gibs.github.io/gibs-api-docs/" target="_blank">GIBS API ↗</a></div>
     <div class="sourceitem"><div class="sourcetype">MICROSOFT / INTEGRATED</div><b>Planetary Computer</b><p>Sentinel-2 L2A scenes, true-colour COG previews and Copernicus DEM GLO-30 DSM terrain tiles.</p><a href="https://planetarycomputer.microsoft.com/docs/concepts/sas/" target="_blank">Access docs ↗</a></div>
     <div class="sourceitem"><div class="sourcetype">NASA / MARS INTEGRATED</div><b>MOLA MEGDR</b><p>64 pixels/degree topography and count-mask profile around Nili Patera. MOLA coverage is limited to 50.53% in this window.</p><a href="https://pds-geosciences.wustl.edu/missions/mgs/megdr.html" target="_blank">PDS MOLA ↗</a></div>
-    <div class="sourceitem"><div class="sourcetype">NASA / LUNAR LOLA INTEGRATED</div><b>LRO LOLA / Diviner</b><p>80 m south-pole elevation and matching observation-count grid processed for Shackleton Rim; coarse ~925 m terrain descriptors are also available. Diviner annual temperature and water-ice-permafrost products remain reference-only.</p><a href="https://pds-geosciences.wustl.edu/missions/lro/diviner.htm" target="_blank">Diviner archive ↗</a> · <a href="https://imbrium.mit.edu/DATA/LOLA_GDR/POLAR/JP2/" target="_blank">LOLA 80 m archive ↗</a></div>
+    <div class="sourceitem"><div class="sourcetype">NASA / LUNAR TERRAIN + THERMAL INTEGRATED</div><b>LRO LOLA / Diviner</b><p>Shackleton evidence includes native 80 m regional LOLA, a separate 5 m Site04 elevation/count/slope product with elevation and slope RMS-error layers, and historical Diviner PRP V2.0 thermal summaries. Verified PSR polygons and mission-date SPICE illumination are not yet integrated.</p><a href="https://pds-geosciences.wustl.edu/missions/lro/diviner.htm" target="_blank">Diviner archive ↗</a> · <a href="https://imbrium.mit.edu/DATA/LOLA_GDR/POLAR/JP2/" target="_blank">LOLA 80 m archive ↗</a></div>
     <div class="sourceitem"><div class="sourcetype">CANADA / ACCESS REVIEWED</div><b>RADARSAT-1 / RCM</b><p>CSA's EODMS is the access route. Public products are geographically/product limited; public-user registration is required.</p><a href="https://www.asc-csa.gc.ca/eng/satellites/radarsat/access-to-data/about.asp" target="_blank">Access policy ↗</a></div>
     <div class="sourceitem"><div class="sourcetype">ESA / INDIRECTLY INTEGRATED</div><b>Copernicus Data Space</b><p>Direct STAC, OData, openEO and Sentinel Hub APIs are available. Current Sentinel data are accessed via Microsoft Planetary Computer, not this endpoint.</p><a href="https://dataspace.copernicus.eu/analyse/apis" target="_blank">API catalogue ↗</a></div>
     <div class="sourceitem"><div class="sourcetype">ESA / REFERENCE ONLY</div><b>Open Science Catalogue</b><p>STAC-based research-project, product, workflow and experiment discovery. No catalogue product is ingested in this release.</p><a href="https://opensciencedata.esa.int/" target="_blank">ESA catalogue ↗</a></div>
@@ -560,8 +567,10 @@
 "use strict";
 const ROOT=".";
 const SITE={
- koh:{id:"koh",key:"koh_i_sultan",name:"Koh-i-Sultan / Chagai",short:"KOH-I-SULTAN",country:"Pakistan",lat:29.1,lon:62.8,kind:"Volcanic field",desc:"Volcanic field · Balochistan, Pakistan",theme:"Volcanic-hydrothermal reconnaissance, alteration mapping and outcrop/sample-context documentation",geology:"USGS OFR 75-550 maps the Koh-i-Sultan Volcanic Group as agglomerate, tuff and andesitic lava. This supports a volcanic-process field-rehearsal candidate; it is not a basaltic composition match.",geologySource:"https://pubs.usgs.gov/publication/ofr75550",geologySourceLabel:"USGS Chagai geology ↗",limit:"The mapped rocks are andesitic, not a direct match for basalt-dominant Martian terrains. The useful analogy is volcanic/hydrothermal field process and alteration reconnaissance—not identical mineralogy, atmosphere, gravity or surface conditions. Site-scale spectral/mineral mapping and field samples are still missing.",power:"./data/power/koh.json",photo:"./data/pakistan/quicklooks/koh_i_sultan.png"},
- hispar_glacier:{id:"hispar_glacier",key:"hispar_glacier",name:"Hispar Glacier / Karakoram",short:"HISPAR GLACIER",country:"Pakistan",lat:36.10572,lon:75.23341,kind:"Cold-region cryosphere",desc:"Karakoram glacier region · Gilgit-Baltistan, Pakistan",theme:"Ice/debris boundary mapping, glacier observation and cryosphere field validation",geology:"EvK2CNR's Pakistan Glacier Inventory is an existing regional baseline. This release has Sentinel-2 imagery and coarse terrain context, but no site-specific bedrock/mineral map or glacier-vector ingestion.",geologySource:"https://www.evk2cnr.org/en/projects/glacier-and-students",geologySourceLabel:"EvK2CNR glacier baseline ↗",limit:"Useful for rehearsing cryosphere image interpretation and field validation. It is not a lunar permanently shadowed region: gravity, vacuum, radiation, illumination cycles and ice history differ.",power:null,photo:"./data/pakistan/quicklooks/hispar_glacier.png"}
+ chagai_small_playas:{id:"chagai_small_playas",key:"chagai_small_playas",name:"Chagai small playas / Nok Kundi",short:"CHAGAI PLAYAS",country:"Pakistan",lat:28.583333,lon:62.633333,kind:"Salt playa / evaporite process",desc:"Small salt-playa study window · Balochistan, Pakistan",theme:"Salt-crust facies mapping, sediment logging and orbital-to-ground spectral validation",geology:"The processed Sentinel-2 L2A profile provides bare-surface and SWIR screening context for two small playa areas. It does not identify salt minerals, brine or subsurface stratigraphy; field observations and laboratory chemistry are absent.",geologySource:"./data/pakistan/imagery/chagai_small_playas_spectral_profile.json",geologySourceLabel:"Sentinel-2 spectral profile ↗",limit:"The useful rehearsal is the mapping and validation workflow. Reflectance does not identify evaporite minerals or subsurface brine; Earth's liquid-water cycle and atmospheric conditions differ from Mars. No field chemistry, sample or depth profile is available.",power:"./data/power/chagai_small_playas.json",photo:"./data/pakistan/quicklooks/chagai_small_playas.png"},
+ hamun_i_mashkel:{id:"hamun_i_mashkel",key:"hamun_i_mashkel",name:"Hamun-i-Mashkel / Kharan Basin",short:"HAMUN-I-MASHKEL",country:"Pakistan",lat:28.25,lon:62.91667,kind:"Closed-basin playa",desc:"Closed-basin / intermittent-playa study window · Balochistan, Pakistan",theme:"Closed-basin mapping, wetting/drying observation design and sediment-facies logging",geology:"The current Sentinel-2 profile is a single-date spectral-context screen over a narrow study strip. It does not establish basin-wide hydrology, intermittent inundation history, mineralogy or present-day brine.",geologySource:"./data/pakistan/imagery/hamun_i_mashkel_spectral_profile.json",geologySourceLabel:"Sentinel-2 spectral profile ↗",limit:"A single acquisition cannot establish seasonal wetting/drying, the full basin boundary, brine or sediment mineralogy. Repeat-date observations and permitted field stations are still required.",power:"./data/power/hamun_i_mashkel.json",photo:"./data/pakistan/quicklooks/hamun_i_mashkel.png"},
+ koh:{id:"koh",key:"koh_i_sultan",name:"Koh-i-Sultan / Chagai",short:"KOH-I-SULTAN",country:"Pakistan",lat:29.1,lon:62.8,kind:"Volcanic field",desc:"Volcanic field · Balochistan, Pakistan",theme:"Volcanic outcrop mapping, alteration reconnaissance and geological field spectroscopy",geology:"USGS OFR 75-550 maps the Koh-i-Sultan Volcanic Group as agglomerate, tuff and andesitic lava. This supports a volcanic-process field-rehearsal candidate; it is not a basaltic composition match.",geologySource:"https://pubs.usgs.gov/publication/ofr75550",geologySourceLabel:"USGS Chagai geology ↗",limit:"The mapped rocks are andesitic, not a direct match for basalt-dominant Martian terrains. The useful analogy is volcanic/hydrothermal field process and alteration reconnaissance—not identical mineralogy, atmosphere, gravity or surface conditions. Site-scale spectral/mineral mapping and field samples are still missing.",power:"./data/power/koh.json",photo:"./data/pakistan/quicklooks/koh_i_sultan.png"},
+ hispar_glacier:{id:"hispar_glacier",key:"hispar_glacier",name:"Hispar Glacier / Karakoram",short:"HISPAR GLACIER",country:"Pakistan",lat:36.10572,lon:75.23341,kind:"Cold-region cryosphere",desc:"Karakoram glacier region · Gilgit-Baltistan, Pakistan",theme:"Ice/debris boundary interpretation, cold-region sensor practice and field-method validation",geology:"The available imagery provides cryosphere and debris-context screening. EvK2CNR's Pakistan Glacier Inventory is existing regional baseline work; this project does not claim a new glacier inventory or site-specific bedrock map.",geologySource:"https://www.evk2cnr.org/en/projects/glacier-and-students",geologySourceLabel:"EvK2CNR glacier baseline ↗",limit:"Useful for rehearsing cryosphere image interpretation and cold-region methods. It is not a lunar permanently shadowed region: gravity, vacuum, radiation, illumination cycles, regolith and ice history differ. Glacier access is specialist-only.",power:"./data/power/hispar_glacier.json",photo:"./data/pakistan/quicklooks/hispar_glacier.png"}
 };
 let current="koh",map=null,markers={},baseLayer=null,gibsLayer=null,power={},catalog=null,quicklooks=null,epic=null,terrainData=null,cmrData=null,lunarData=null;
 const $=id=>document.getElementById(id);
@@ -601,8 +610,8 @@ function offlineProjectSvg(elementId,points,opts={}){
  const el=$(elementId);if(el){el.innerHTML=html;el.style.background="#071927";el.querySelectorAll("[data-site-id]").forEach(node=>{const activate=()=>opts.onSelect&&opts.onSelect(node.dataset.siteId);node.addEventListener("click",activate);node.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();activate();}});});}
 }
 function renderMainOfflineMap(){
- const points=[{...SITE.koh,id:"koh",short:"KOH-I-SULTAN",lead:false},{...SITE.hispar_glacier,id:"hispar_glacier",short:"HISPAR GLACIER",lead:false}];
- offlineProjectSvg("map",points,{center:map?map.center:[32.6,68.7],zoom:map?map.zoom:5,halfLon:map?map.halfLon:26,halfLat:map?map.halfLat:20,connect:true,label:"PAKISTAN STUDY LOCATORS · NOT A SURVEY BOUNDARY",onSelect:selectSite});
+ const points=Object.entries(SITE).map(([id,site])=>({...site,id,latitude:site.lat,longitude:site.lon,lead:id==="chagai_small_playas"||id==="hamun_i_mashkel"}));
+ offlineProjectSvg("map",points,{center:map?map.center:[32.6,68.7],zoom:map?map.zoom:5,halfLon:map?map.halfLon:26,halfLat:map?map.halfLat:20,connect:false,label:"FOUR PAKISTAN STUDY WINDOWS · NOT SURVEY BOUNDARIES",onSelect:selectSite});
  const svg=$("map")?.querySelector("svg");if(svg){svg.style.width="100%";svg.style.height="100%";svg.style.display="block";}
 }
 function initMap(){
@@ -626,7 +635,7 @@ function initMap(){
       zoomOut(){return this.setView(this.center,Math.max(1,this.zoom-1));},
       invalidateSize(){renderMainOfflineMap();return this;}
      };
-     markers.koh={openPopup(){}};markers.hispar_glacier={openPopup(){}};
+     Object.keys(SITE).forEach(id=>{markers[id]={openPopup(){}};});
      $("mapEngineStatus").textContent="OFFLINE LOCATOR · TILE FEED UNAVAILABLE";
      $("mapEngineStatus").className="statuspill gold";
      renderMainOfflineMap();
@@ -639,7 +648,7 @@ function initMap(){
    L.control.layers({"OpenStreetMap · free":streets},{["NASA VIIRS true colour · "+gibsDate]:nasaVIIRS},{collapsed:true,position:"topright"}).addTo(leaflet);
    const makeIcon=(color)=>L.divIcon({className:"",html:'<span style="display:block;width:14px;height:14px;border-radius:50%;background:'+color+';border:2px solid #e9faff;box-shadow:0 0 0 6px '+color+'33,0 0 14px '+color+'99"></span>',iconSize:[14,14],iconAnchor:[7,7]});
    Object.entries(SITE).forEach(([id,site])=>{
-    const color=id==="koh"?"#1de0b3":"#e0bd7b";
+    const color=id==="chagai_small_playas"?"#55b8ec":id==="hamun_i_mashkel"?"#a98be8":id==="koh"?"#1de0b3":"#e0bd7b";
     const marker=L.marker([site.lat,site.lon],{icon:makeIcon(color),title:site.name,alt:site.name}).addTo(leaflet);
     marker.bindPopup('<b>'+esc(site.name)+'</b><br>'+esc(site.desc)+'<br><small>'+site.lat.toFixed(5)+', '+site.lon.toFixed(5)+' · WGS84</small>');
     marker.on("click",()=>selectSite(id));
@@ -660,13 +669,13 @@ function initMap(){
   zoomOut(){return this.setView(this.center,Math.max(1,this.zoom-1));},
   invalidateSize(){renderMainOfflineMap();return this;}
  };
- markers.koh={openPopup(){}};markers.hispar_glacier={openPopup(){}};
+ Object.keys(SITE).forEach(id=>{markers[id]={openPopup(){}};});
  $("mapEngineStatus").textContent="OFFLINE LOCATOR";
  $("mapEngineStatus").className="statuspill gold";
  renderMainOfflineMap();
 }
 function addMarker(id,site,color){markers[id]={openPopup(){selectSite(id);}};}
-function fitSites(){if(map){if(window.L&&map instanceof L.Map)map.fitBounds([[SITE.koh.lat,SITE.koh.lon],[SITE.hispar_glacier.lat,SITE.hispar_glacier.lon]],{padding:[45,45],maxZoom:7});else map.setView([32.6,68.7],5);}}
+function fitSites(){if(map){if(window.L&&map instanceof L.Map)map.fitBounds(Object.values(SITE).map(site=>[site.lat,site.lon]),{padding:[45,45],maxZoom:7});else map.setView([32.6,68.7],5);}}
 function selectSite(id){
  current=id;const s=SITE[id];
  document.querySelectorAll("[data-site]").forEach(b=>b.classList.toggle("active",b.dataset.site===id));
@@ -675,7 +684,7 @@ function selectSite(id){
  $("mapLat").textContent=Math.abs(s.lat).toFixed(3)+(s.lat>=0?"° N":"° S");
  $("mapLon").textContent=Math.abs(s.lon).toFixed(3)+(s.lon>=0?"° E":"° W");
  $("missionTheme").textContent=s.theme;$("geologyEvidence").textContent=s.geology;$("geologySource").textContent=s.geologySourceLabel;$("geologySource").href=s.geologySource;$("missionLimit").textContent=s.limit;
- if(map){map.flyTo([s.lat,s.lon],id==="koh"?8:7,{duration:.75});markers[id].openPopup();}
+ if(map){map.flyTo([s.lat,s.lon],id==="hispar_glacier"?7:8,{duration:.75});markers[id]?.openPopup();}
  renderSiteData(id);
 }
 async function renderSiteData(id){
@@ -760,27 +769,30 @@ function renderSceneStats(id){
 }
 function renderQuicklooks(){
  const results=quicklooks?.results||{};
- const configs=[["koh_i_sultan","kohImageBox","kohSceneMeta","kohImageFoot","kohItemLink","Koh-i-Sultan"],["hispar_glacier","hisparImageBox","hisparSceneMeta","hisparImageFoot","hisparItemLink","Hispar Glacier"]];
+ const configs=[
+  ["chagai_small_playas","chagaiImageBox","chagaiSceneMeta","chagaiImageFoot","chagaiItemLink","Chagai small playas"],
+  ["hamun_i_mashkel","hamunImageBox","hamunSceneMeta","hamunImageFoot","hamunItemLink","Hamun-i-Mashkel"],
+  ["koh_i_sultan","kohImageBox","kohSceneMeta","kohImageFoot","kohItemLink","Koh-i-Sultan"],
+  ["hispar_glacier","hisparImageBox","hisparSceneMeta","hisparImageFoot","hisparItemLink","Hispar Glacier"]
+ ];
  let ready=0;
  configs.forEach(([key,box,meta,foot,link,label])=>{
-  const r=results[key];
-  const has=r&&r.preview_path;
+  const r=results[key],has=r&&r.preview_path;
   if(has){
    ready++;
-   $(box).innerHTML='<img src="./data/pakistan/quicklooks/'+key+'.png" alt="'+esc(label)+' Sentinel-2 quicklook">';
-   $(meta).textContent=(r.capture_datetime||"").slice(0,10)+" · "+fmt(r.cloud_cover_percent,2)+"% cloud";
+   $(box).innerHTML='<img src="./data/pakistan/quicklooks/'+key+'.png" alt="'+esc(label)+' Sentinel-2 true-colour quicklook">';
+   $(meta).textContent=(r.capture_datetime||"").slice(0,10)+" · "+fmt(r.cloud_cover_percent,2)+"% scene cloud";
    $(foot).textContent=(r.mgrs_tile||"MGRS tile")+" · "+(r.platform||"Sentinel-2");
    $(link).href=r.source_item||"https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a";
   }else{
-   $(box).innerHTML='<div class="placeholder">Preview not yet generated<br>STAC metadata is available</div>';
-   $(meta).textContent="METADATA DISCOVERED";
-   $(foot).textContent=label+" · image preview pending";
+   $(box).innerHTML='<div class="placeholder">Preview unavailable<br>STAC metadata may still exist</div>';
+   $(meta).textContent="NO LOCAL QUICKLOOK";$(foot).textContent=label+" · preview unavailable";
   }
  });
- statusPill($("imageryStatus"),ready+"/2 PREVIEWS",ready===2?"":"gold");
+ statusPill($("imageryStatus"),ready+"/4 PAKISTAN PREVIEWS",ready===4?"":"gold");
  const step=$("quickStep");
- if(ready===2){step.classList.remove("warn");step.querySelector(".stepdot").textContent="✓";step.querySelector("small").innerHTML="COG previews<br>2/2 ready";}
- else{step.classList.add("warn");step.querySelector(".stepdot").textContent="!";step.querySelector("small").innerHTML="COG previews<br>"+ready+"/2 ready";}
+ if(ready===4){step.classList.remove("warn");step.querySelector(".stepdot").textContent="✓";step.querySelector("small").innerHTML="Quicklooks<br>4/4 ready";}
+ else{step.classList.add("warn");step.querySelector(".stepdot").textContent="!";step.querySelector("small").innerHTML="Quicklooks<br>"+ready+"/4 ready";}
 }
 function renderEpic(){
  if(epic&&epic.image_path){
@@ -805,13 +817,11 @@ function renderCmr(){
  const hispar=cmrData.site_granules?.hispar_glacier?.returned_count||0;
  const aerosol=cmrData.site_aerosol_granules||{};
  const uniqueAerosol=new Set(Object.values(aerosol).flatMap(x=>(x.items||[]).map(g=>g.id))).size;
- summary.textContent=found+"/"+Object.keys(collections).length+" NASA collections found. MOD11A2 8-day land-surface-temperature catalogue: "+koh+" granule records over Koh-i-Sultan and "+hispar+" over Hispar. MERRA-2 aerosol catalogue: "+uniqueAerosol+" distinct global October 2026 granule(s); it is not clipped to either Pakistan site. These are discovery records, not retrieved temperature/aerosol measurements. Protected LP DAAC/GES DISC assets need Earthdata Login and authorization.";
+ summary.textContent=found+"/"+Object.keys(collections).length+" NASA collections found. The current MOD11A2 8-day land-surface-temperature query returned "+koh+" catalogue granules over Koh-i-Sultan and "+hispar+" over Hispar; this CMR snapshot does not contain equivalent site-granule queries for the two playa windows. MERRA-2 returned "+uniqueAerosol+" distinct global aerosol catalogue granule(s), not site-clipped measurements. These are metadata records, not downloaded or decoded science arrays. Protected LP DAAC/GES DISC assets need Earthdata Login and authorization.";
 }
 function renderTerrain(){
  if(!terrainData){statusPill($("terrainStatus"),"TERRAIN PENDING","gold");return;}
- const mars=terrainData.planetary_target;
- const marsStats=mars&&mars.terrain_metrics;
- const earth=terrainData.earth_sites||{};
+ const mars=terrainData.planetary_target,marsStats=mars&&mars.terrain_metrics,earth=terrainData.earth_sites||{};
  if(marsStats){
   $("marsSlopeMedian").textContent=fmt(marsStats.slope_deg.median,1)+"°";
   $("marsSlopeP90").textContent=fmt(marsStats.slope_deg.p90,1)+"°";
@@ -819,32 +829,24 @@ function renderTerrain(){
   $("marsCoverage").textContent=marsStats.coverage.valid_percent.toFixed(1)+"%";
   const cov=marsStats.coverage.valid_percent;
   statusPill($("marsTerrainCoverage"),cov<70?"LIMITED COVERAGE":"OBSERVED DATA",cov<70?"gold":"");
- }else{
-  statusPill($("marsTerrainCoverage"),"NO RESULT","red");
- }
- const rows=[
-  ["koh_i_sultan","koh","Koh-i-Sultan"],
-  ["hispar_glacier","hispar","Hispar Glacier"]
- ];
- rows.forEach(([key,prefix,label])=>{
+ }else statusPill($("marsTerrainCoverage"),"NO RESULT","red");
+ const rows=[["chagai_small_playas","chagai"],["hamun_i_mashkel","hamun"],["koh_i_sultan","koh"],["hispar_glacier","hispar"]];
+ let earthReady=0;
+ rows.forEach(([key,prefix])=>{
   const rec=earth[key],stats=rec&&rec.terrain_metrics;
   if(rec&&rec.status==="processed"&&stats){
-   $(prefix+"SlopeMedian").textContent=fmt(stats.slope_deg.median,1)+"°";
-   $(prefix+"SlopeP90").textContent=fmt(stats.slope_deg.p90,1)+"°";
-   $(prefix+"ReliefP90").textContent=fmt(stats["3x3_local_relief_m"].p90,0)+" m";
+   earthReady++;
+   $(prefix+"SlopeMedian").textContent=fmt(stats.slope_deg.median,2)+"°";
+   $(prefix+"SlopeP90").textContent=fmt(stats.slope_deg.p90,2)+"°";
+   $(prefix+"ReliefP90").textContent=fmt(stats["3x3_local_relief_m"].p90,1)+" m";
    $(prefix+"Coverage").textContent=stats.coverage.valid_percent.toFixed(0)+"%";
-   statusPill($(prefix+"TerrainCoverage"),"100% VALID","");
-  }else{
-   statusPill($(prefix+"TerrainCoverage"),"NOT PROCESSED","red");
-  }
+   statusPill($(prefix+"TerrainCoverage"),stats.coverage.valid_percent>=99.9?"100% GRID VALID":stats.coverage.valid_percent.toFixed(1)+"% VALID",stats.coverage.valid_percent>=99.9?"":"gold");
+  }else statusPill($(prefix+"TerrainCoverage"),"NOT PROCESSED","red");
  });
- const marsCov=marsStats?.coverage?.valid_percent;
- const marsCells=marsStats?.complete_3x3_neighbourhood_count;
- $("terrainCaveat").textContent=
-  "Earth/Mars profiles use approximately 925 m support in 30 km windows; the Shackleton Rim lunar profile uses a separate native 80 m grid over 24 × 24 km. Nili Patera MOLA observation coverage is "+
-  (Number.isFinite(marsCov)?marsCov.toFixed(1)+"% ("+marsStats.valid_cell_count+" observed cells; "+marsCells+" complete 3×3 neighbourhoods)":"not available")+
-  ". Earth sites use a 30 m Copernicus digital surface model averaged to the coarse Mars support. Lunar LOLA is not resolution-matched to those Earth/Mars profiles. The lunar elevation surface is interpolated and its count map reports laser-return support; neither alone establishes illumination, permanently shadowed status, water ice, rover mobility or landing safety. Absolute elevations are not compared across planetary datums.";
- statusPill($("terrainStatus"),marsStats&&earth.koh_i_sultan?.status==="processed"&&earth.hispar_glacier?.status==="processed"&&lunarData?.matched_coarse_support_approx_925m?"4 PROFILES PROCESSED":"PARTIAL TERRAIN",marsStats?"":"gold");
+ const marsCov=marsStats?.coverage?.valid_percent,marsCells=marsStats?.complete_3x3_neighbourhood_count;
+ const lunar=!!lunarData?.matched_coarse_support_approx_925m?.slope_deg;
+ $("terrainCaveat").textContent="Four Pakistan Earth profiles use Copernicus GLO-30 digital surface models on approximately 925 m support over 30 km windows. Nili Patera MOLA observed-cell coverage is "+(Number.isFinite(marsCov)?marsCov.toFixed(1)+"% ("+marsStats.valid_cell_count+" of "+marsStats.coverage.total_cells+" cells; "+marsCells+" complete 3×3 neighbourhoods)":"not available")+". Shackleton Rim LOLA is a separate polar product: native 80 m evidence is aggregated for a coarse comparison; the separate 5 m Site04 product includes uncertainty rasters. These datasets differ in source, scale and vertical reference. Regional slope/relief do not resolve rover-scale hazards, geological equivalence, illumination, PSR status, water-ice accessibility, landing safety or vehicle mobility.";
+ statusPill($("terrainStatus"),earthReady===4&&marsStats&&lunar?"4 EARTH + MOON + MARS":"PARTIAL PROFILE SET",earthReady===4&&marsStats&&lunar?"":"gold");
 }
 function renderLunar(){
  if(!lunarData){
@@ -868,10 +870,10 @@ function renderLunar(){
  }
 }
 
-function labEarthMetrics(key){
+function labEarthMetrics(key,siteId=key){
  const rec=terrainData?.earth_sites?.[key],m=rec?.terrain_metrics;
  if(!m||rec.status!=="processed")return null;
- return {name:rec.site?.name||key,medianSlope:m.slope_deg?.median,p90Slope:m.slope_deg?.p90,p90Relief:m["3x3_local_relief_m"]?.p90,coverage:m.coverage?.valid_percent,source:rec.source||null};
+ return {id:siteId,name:rec.site?.name||key,medianSlope:m.slope_deg?.median,p90Slope:m.slope_deg?.p90,p90Relief:m["3x3_local_relief_m"]?.p90,coverage:m.coverage?.valid_percent,source:rec.source||null};
 }
 function labTargetMetrics(id){
  if(id==="moon"){
@@ -889,7 +891,7 @@ function updateLabObjectiveOptions(){
  const previous=select.value;
  const opts=target==="moon"
   ?[["terrain","Terrain morphology & traverse documentation"],["cryosphere","Cryosphere / ice-debris mapping rehearsal"]]
-  :[["terrain","Terrain morphology & traverse documentation"],["volcanic","Volcanic outcrop / alteration mapping rehearsal"]];
+  :[["terrain","Terrain morphology & traverse documentation"],["evaporite","Salt-crust / evaporite mapping rehearsal"],["basin","Intermittent-basin wet/dry observation"],["volcanic","Volcanic outcrop / alteration mapping rehearsal"]];
  select.innerHTML=opts.map(([v,label])=>"<option value='"+v+"'>"+label+"</option>").join("");
  select.value=opts.some(x=>x[0]===previous)?previous:"terrain";
 }
@@ -901,40 +903,63 @@ function labDiff(value,target,unit,d=1){
 }
 function labBuildModel(){
  const targetId=$("labTarget")?.value||"moon",objective=$("labObjective")?.value||"terrain";
- const target=labTargetMetrics(targetId),koh=labEarthMetrics("koh_i_sultan"),hispar=labEarthMetrics("hispar_glacier");
- if(!target||!koh||!hispar)return null;
+ const target=labTargetMetrics(targetId);
+ const earth=[
+  labEarthMetrics("chagai_small_playas","chagai_small_playas"),
+  labEarthMetrics("hamun_i_mashkel","hamun_i_mashkel"),
+  labEarthMetrics("koh_i_sultan","koh"),
+  labEarthMetrics("hispar_glacier","hispar_glacier")
+ ].filter(Boolean);
+ if(!target||earth.length!==4)return null;
  const defs=[{key:"medianSlope",label:"Median slope",unit:"°",d:2},{key:"p90Slope",label:"P90 slope",unit:"°",d:2},{key:"p90Relief",label:"P90 3×3 local relief",unit:" m",d:0}];
  const metrics=defs.map(def=>{
-  const a=Math.abs(koh[def.key]-target[def.key]),b=Math.abs(hispar[def.key]-target[def.key]);
-  return {...def,target:target[def.key],koh:koh[def.key],hispar:hispar[def.key],kohDelta:a,hisparDelta:b,closer:a===b?"Tie":a<b?"Koh-i-Sultan":"Hispar Glacier"};
+  const comparisons=earth.map(site=>({id:site.id,name:site.name,value:site[def.key],delta:Math.abs(site[def.key]-target[def.key])}));
+  const minDelta=Math.min(...comparisons.map(x=>x.delta));
+  const closest=comparisons.filter(x=>Math.abs(x.delta-minDelta)<1e-9).map(x=>x.id);
+  return {...def,target:target[def.key],comparisons,closest};
  });
- const wins={koh:metrics.filter(x=>x.closer==="Koh-i-Sultan").length,hispar:metrics.filter(x=>x.closer==="Hispar Glacier").length};
- let selectedKey="koh_i_sultan",selectionReason="";
+ const wins=Object.fromEntries(earth.map(site=>[site.id,metrics.filter(m=>m.closest.length===1&&m.closest[0]===site.id).length]));
+ let selectedKey=null,selectionReason="";
  if(objective==="terrain"){
-  selectedKey=wins.koh===wins.hispar?null:wins.koh>wins.hispar?"koh_i_sultan":"hispar_glacier";
-  selectionReason=selectedKey?(selectedKey==="koh_i_sultan"?"Koh-i-Sultan":"Hispar Glacier")+" is closer on "+Math.max(wins.koh,wins.hispar)+" of the 3 measured terrain descriptors.":"The descriptors are split; there is no single terrain-profile leader.";
+  const maxWins=Math.max(...Object.values(wins)),leaders=Object.keys(wins).filter(key=>wins[key]===maxWins);
+  selectedKey=maxWins===0||leaders.length!==1?null:leaders[0];
+  selectionReason=selectedKey?SITE[selectedKey].name+" is closest on "+maxWins+" of the 3 regional terrain descriptors. This is a dimension-level numerical comparison, not an analog verdict.":"The four-site comparison has no unique terrain-descriptor leader. Use task-specific evidence and field requirements rather than forcing a winner.";
+ }else if(objective==="evaporite"){
+  selectedKey="chagai_small_playas";selectionReason="Chagai small playas are selected for salt-crust/facies mapping and field-to-orbit spectral validation. No evaporite mineral or brine identity is established.";
+ }else if(objective==="basin"){
+  selectedKey="hamun_i_mashkel";selectionReason="Hamun-i-Mashkel is selected for closed-basin and wetting/drying observation design. One scene does not establish a seasonal water history or basin-wide hydrology.";
  }else if(objective==="volcanic"){
-  selectedKey="koh_i_sultan";
-  selectionReason="Koh-i-Sultan is selected for the documented volcanic-field context and outcrop-mapping workflow, not because its rock composition is proven equivalent to Mars.";
+  selectedKey="koh";selectionReason="Koh-i-Sultan is selected for volcanic outcrop and alteration-mapping workflow rehearsal, not as a basaltic composition match to Mars.";
  }else if(objective==="cryosphere"){
-  selectedKey="hispar_glacier";
-  selectionReason="Hispar Glacier is selected for cryosphere image interpretation and ice/debris field-validation practice, not as a lunar water-ice or permanently shadowed-region equivalent.";
+  selectedKey="hispar_glacier";selectionReason="Hispar Glacier is selected for ice/debris interpretation and cold-region sensor methods, not as a lunar PSR or accessible-ice equivalent.";
  }
- return {targetId,objective,target,koh,hispar,metrics,wins,selectedKey,selectionReason};
+ return {targetId,objective,target,earth,metrics,wins,selectedKey,selectionReason};
 }
 function labProtocolFor(model){
  if(!model)return [];
+ if(model.objective==="evaporite")return [
+  "Pre-register playa-margin and salt-crust facies classes, then map boundaries with scale-controlled, georeferenced photographs.",
+  "Collect calibrated field spectra at mapped classes and preserve instrument settings, reference panels, coordinates and uncertainty.",
+  "Where permitted, collect representative samples for XRD/XRF/FTIR and maintain chain of custody; do not identify minerals from Sentinel-2 ratios.",
+  "Compare field spectra and measured facies with the selected orbital workflow while recording Earth's liquid-water, atmosphere and biological-process differences."
+ ];
+ if(model.objective==="basin")return [
+  "Build a multi-date observation sequence before defining basin margins or wet/dry classes.",
+  "Map sediment facies and visible inundation boundaries separately; record acquisition dates, masks and seasonal gaps.",
+  "At permitted stations, record sediment properties and conductivity with calibrated instruments and repeated measurements.",
+  "Do not infer present-day brine, subsurface water or seasonal hydrology from one scene or gridded climate context."
+ ];
  if(model.objective==="volcanic")return [
   "Map volcanic units, outcrop boundaries and alteration-context observations using georeferenced field photographs.",
   "Record each observation with coordinates, scale, instrument, confidence and sample/context provenance.",
   "Cross-check remote-sensing interpretations against field observations; use spectroscopy or laboratory assays before making mineral claims.",
-  "Compare the resulting field workflow with planetary volcanic-terrain science questions while explicitly recording compositional differences."
+  "Keep mapped andesitic/tuff/agglomerate context distinct from basaltic Mars terrains."
  ];
  if(model.objective==="cryosphere")return [
   "Use the Sentinel-2 scene as a pre-field reference to delineate ice, debris and visible surface boundaries.",
   "Select accessible validation points and record GNSS position, surface class, debris cover and observation confidence.",
   "Capture scale-controlled image pairs and log surface and air temperature separately where instruments permit.",
-  "Record seasonal / illumination context; do not infer lunar permanently shadowed-region conditions or accessible water from glacier imagery."
+  "Record seasonal / illumination context; do not infer lunar PSR conditions or accessible water from glacier imagery."
  ];
  return model.targetId==="moon"?[
   "Use the matched-scale terrain profile to identify regional slope and relief zones; do not use 925 m products to select rover-scale paths.",
@@ -943,12 +968,11 @@ function labProtocolFor(model){
   "Log route segments, instrument performance, uncertainty and terrain classes separately for comparison with the lunar reference."
  ]:[
   "Use the coarse terrain profile to frame a regional reconnaissance plan around the Nili Patera comparison window.",
-  "Map volcanic landforms and outcrop contacts with georeferenced observations; do not infer Mars mineralogy from the Earth DEM.",
+  "Map landforms and contacts with georeferenced observations; do not infer Mars mineralogy from an Earth DEM.",
   "Collect field-scale elevation / slope measurements to bridge the gap between 925 m regional descriptors and rover-scale terrain.",
   "Record where the Earth site differs from the Mars reference, including geology, atmosphere, gravity, radiation and dust behaviour."
  ];
 }
-
 function labDriestMonths(siteId){
  const record=power[siteId],rows=record?.monthly||[];
  return rows.filter(x=>typeof x.precip==="number"&&Number.isFinite(x.precip))
@@ -956,6 +980,18 @@ function labDriestMonths(siteId){
   .map(x=>({month:x.month,precip_mm_day:x.precip,temp_c:x.temp,wind_ms:x.wind,solar_kwh_m2_day:x.solar}));
 }
 function labEquipmentFor(model){
+ if(model.objective==="evaporite")return [
+  "GNSS receiver, geotagged tablet, offline imagery and scale-controlled photo kit",
+  "Calibrated field spectrometer with reference panel and repeat measurements",
+  "Sediment/facies logging kit, sample labels and chain-of-custody supplies where sampling is permitted",
+  "XRD/XRF/FTIR laboratory pathway for samples; PPE and site-specific permissions/safety plan"
+ ];
+ if(model.objective==="basin")return [
+  "Multi-date Sentinel-2/Landsat scene stack and georeferenced field maps",
+  "GNSS receiver, camera with scale reference and sediment-facies log",
+  "Calibrated conductivity/TDS meter with standards, repeats and uncertainty record",
+  "Sample containers and chain-of-custody kit where collection is permitted"
+ ];
  if(model.objective==="volcanic")return [
   "GNSS receiver / geotagged field tablet and offline topographic maps",
   "Camera with scale bars, field notebook, compass and digital clinometer",
@@ -976,82 +1012,71 @@ function labEquipmentFor(model){
  ];
 }
 function labCampaignSummary(){
- const koh=labDriestMonths("koh"),hispar=labDriestMonths("hispar_glacier");
- const fmtRows=(rows)=>rows.length?rows.map(x=>x.month+" ("+x.precip_mm_day.toFixed(2)+" mm/day; "+(Number.isFinite(x.temp_c)?x.temp_c.toFixed(1)+" °C":"—")+"; "+(Number.isFinite(x.wind_ms)?x.wind_ms.toFixed(1)+" m/s":"—")+" wind)").join(" · "):"No valid monthly precipitation values";
- return "Koh-i-Sultan: "+fmtRows(koh)+". Hispar Glacier: "+fmtRows(hispar)+". Select the months for further local access, forecast, permit and safety review; low precipitation alone does not establish field suitability.";
+ const siteIds=["chagai_small_playas","hamun_i_mashkel","koh","hispar_glacier"];
+ const fmtRows=rows=>rows.length?rows.map(x=>x.month+" ("+x.precip_mm_day.toFixed(2)+" mm/day; "+(Number.isFinite(x.temp_c)?x.temp_c.toFixed(1)+" °C":"—")+"; "+(Number.isFinite(x.wind_ms)?x.wind_ms.toFixed(1)+" m/s":"—")+" wind)").join(" · "):"No valid monthly precipitation values";
+ return siteIds.map(id=>SITE[id].name+": "+fmtRows(labDriestMonths(id))).join(". ")+". NASA POWER monthly climatology is a planning signal, not a forecast, access assessment or field-safety window.";
 }
-
 function renderMissionLab(){
- const status=$("labStatus");
- if(!status)return;
+ const status=$("labStatus");if(!status)return;
  const model=labBuildModel();
  if(!model){
   statusPill(status,"WAITING FOR TERRAIN DATA","gold");
-  $("labSummary").textContent="One or more Earth / planetary terrain profiles did not load. The comparator will remain unavailable rather than filling gaps with estimates.";
+  $("labSummary").textContent="One or more of the four Pakistan Earth profiles or the selected planetary reference did not load. Missing values remain blank rather than being estimated.";
   $("labMetricRows").innerHTML="<tr><td colspan='7'>Validated terrain data unavailable.</td></tr>";
   return;
  }
- statusPill(status,"COMPARISON READY","");
- const rows=model.metrics.map(m=>{
-  const chosen=m.closer==="Tie"?"<span class='labWinner'>TIE</span>":"<span class='labWinner'>"+esc(m.closer)+"</span>";
-  return "<tr><td>"+esc(m.label)+"</td><td>"+labFmt(m.target,m.unit,m.d)+"</td><td>"+labFmt(m.koh,m.unit,m.d)+"</td><td class='labDelta'>"+labDiff(m.koh,m.target,m.unit,m.d)+"</td><td>"+labFmt(m.hispar,m.unit,m.d)+"</td><td class='labDelta'>"+labDiff(m.hispar,m.target,m.unit,m.d)+"</td><td>"+chosen+"</td></tr>";
+ statusPill(status,"FOUR-SITE COMPARISON READY","");
+ $("labMetricRows").innerHTML=model.metrics.map(m=>{
+  const cells=m.comparisons.map(site=>"<td>"+labFmt(site.value,m.unit,m.d)+"<small>"+labDiff(site.value,m.target,m.unit,m.d)+"</small></td>").join("");
+  const closest=m.closest.map(id=>SITE[id]?.name||id).join(" / ");
+  const result=m.closest.length>1?"Tie: "+closest:closest;
+  return "<tr><td>"+esc(m.label)+"</td><td>"+labFmt(m.target,m.unit,m.d)+"</td>"+cells+"<td><span class='labWinner'>"+esc(result)+"</span></td></tr>";
  }).join("");
- $("labMetricRows").innerHTML=rows;
- let heading="No single site leads across the selected terrain descriptors.";
- if(model.wins.koh>model.wins.hispar)heading="Koh-i-Sultan is closer on "+model.wins.koh+" of 3 terrain descriptors.";
- if(model.wins.hispar>model.wins.koh)heading="Hispar Glacier is closer on "+model.wins.hispar+" of 3 terrain descriptors.";
- const median=model.metrics[0],p90=model.metrics[1],relief=model.metrics[2];
- $("labSummary").innerHTML="<b>"+esc(model.target.name)+"</b> — "+esc(heading)+" The comparison is dimension-by-dimension: "+esc(model.koh.name)+" median-slope Δ "+labFmt(median.kohDelta,"°",2)+", P90-slope Δ "+labFmt(p90.kohDelta,"°",2)+", relief Δ "+labFmt(relief.kohDelta," m",0)+"; "+esc(model.hispar.name)+" median-slope Δ "+labFmt(median.hisparDelta,"°",2)+", P90-slope Δ "+labFmt(p90.hisparDelta,"°",2)+", relief Δ "+labFmt(relief.hisparDelta," m",0)+". These are descriptor differences—not a probability or planetary similarity percentage.";
- const labels={terrain:"Terrain morphology & traverse documentation",volcanic:"Volcanic outcrop / alteration mapping rehearsal",cryosphere:"Cryosphere / ice-debris mapping rehearsal"};
- $("labRecommendationTitle").textContent=model.selectedKey==="koh_i_sultan"?"PRIMARY FIELD REHEARSAL / KOH-I-SULTAN":model.selectedKey==="hispar_glacier"?"PRIMARY FIELD REHEARSAL / HISPAR GLACIER":"FIELD REHEARSAL / NO SINGLE LEADER";
- $("labRecommendation").textContent=(model.selectedKey?(model.selectedKey==="koh_i_sultan"?"Koh-i-Sultan / Chagai":"Hispar Glacier / Karakoram"):"Both Earth profiles remain candidates")+": "+model.selectionReason+" Objective: "+labels[model.objective]+".";
+ const sorted=Object.entries(model.wins).sort((a,b)=>b[1]-a[1]),max=sorted[0]?.[1]||0,leaders=sorted.filter(x=>x[1]===max).map(x=>SITE[x[0]]?.name||x[0]);
+ const heading=model.objective==="terrain"?(max>0&&leaders.length===1?leaders[0]+" is closest on "+max+" of 3 descriptors.":"No unique terrain-descriptor leader across the four sites."):"Task-specific site selection; numeric terrain differences are supporting context only.";
+ const deltas=model.earth.map(site=>site.name+": median-slope Δ "+labFmt(Math.abs(site.medianSlope-model.target.medianSlope),"°",2)+", P90-slope Δ "+labFmt(Math.abs(site.p90Slope-model.target.p90Slope),"°",2)+", P90 relief Δ "+labFmt(Math.abs(site.p90Relief-model.target.p90Relief)," m",0)).join("; ");
+ $("labSummary").innerHTML="<b>"+esc(model.target.name)+"</b> — "+esc(heading)+" "+esc(deltas)+". These are absolute differences in regional descriptors, not a probability or planetary similarity score.";
+ const labels={terrain:"Terrain morphology & traverse documentation",evaporite:"Salt-crust / evaporite mapping rehearsal",basin:"Intermittent-basin wet/dry observation",volcanic:"Volcanic outcrop / alteration mapping rehearsal",cryosphere:"Cryosphere / ice-debris mapping rehearsal"};
+ const recommended=model.selectedKey?SITE[model.selectedKey]:null;
+ $("labRecommendationTitle").textContent=recommended?"TASK-SPECIFIC REHEARSAL / "+recommended.short:"TERRAIN SCREEN / NO UNIQUE LEADER";
+ $("labRecommendation").textContent=(recommended?recommended.name:"No unique terrain leader")+": "+model.selectionReason+" Objective: "+labels[model.objective]+".";
  $("labProtocol").innerHTML=labProtocolFor(model).map(x=>"<li>"+esc(x)+"</li>").join("");
  $("labSeason").textContent=labCampaignSummary();
  $("labEquipment").innerHTML=labEquipmentFor(model).map(x=>"<li>"+esc(x)+"</li>").join("");
- const targetLimits=model.targetId==="mars"
-  ?"MOLA observation coverage in the Nili Patera window is "+labFmt(model.target.coverage,"% ",2)+" ("+model.target.completeNeighborhoods+" complete 3×3 neighbourhoods). Treat this as limited-coverage regional context."
-  :"The lunar LOLA elevation surface is interpolated. Positive-return support is "+labFmt(model.target.returnSupport,"% ",2)+"; this reports laser-return support, not illumination or ice confirmation.";
- const taskLimit=model.objective==="volcanic"
-  ?"USGS maps Koh-i-Sultan as agglomerate, tuff and andesitic lava. It is a volcanic-process rehearsal site, not a basaltic composition match."
-  :model.objective==="cryosphere"
-  ?"A terrestrial glacier does not reproduce lunar vacuum, gravity, radiation, illumination cycles, permanently shadowed regions or the origin/stability of lunar volatiles."
-  :"The two sites use different planetary DEM products. Similar coarse slope/relief values do not establish matching geology, surface materials, trafficability or rover safety.";
- $("labLimits").textContent=targetLimits+" "+taskLimit+" Earth Copernicus GLO-30 is a digital surface model; it is not a bare-earth terrain model.";
+ const targetLimits=model.targetId==="mars"?"MOLA observation coverage in the Nili Patera window is "+labFmt(model.target.coverage,"% ",2)+" ("+model.target.completeNeighborhoods+" complete 3×3 neighbourhoods). Treat this as limited-coverage regional context.":"The Shackleton LOLA elevation surface is interpolated. Positive-return support is "+labFmt(model.target.returnSupport,"% ",2)+"; this reports laser-return support, not illumination or ice confirmation.";
+ const taskLimits={evaporite:"Chagai's playa signatures have not been verified by field mineralogy or chemistry; no brine or Mars equivalence is claimed.",basin:"Hamun's single processed spectral profile cannot establish wet/dry cycles, seasonal hydrology or basin-wide inundation.",volcanic:"USGS maps Koh-i-Sultan as agglomerate, tuff and andesitic lava; it is a volcanic-process rehearsal, not a basaltic composition match.",cryosphere:"Hispar Glacier does not reproduce lunar vacuum, gravity, radiation, illumination cycles, PSRs or the origin/stability of lunar volatiles.",terrain:"Similar coarse slope/relief values do not establish matching geology, surface materials, trafficability or rover safety."};
+ $("labLimits").textContent=targetLimits+" "+taskLimits[model.objective]+" All Earth Copernicus GLO-30 profiles are digital surface models; no rover-scale hazards are resolved.";
  $("labQuality").textContent="Scale / window: approximately 925 m cells over approximately 30 km windows. P90 local relief spans a 3×3-cell footprint (~2.775 km). No elevation values are compared across planetary vertical datums.";
  window.currentMissionLabModel=model;
 }
 function downloadMissionLabCard(){
- const m=window.currentMissionLabModel||labBuildModel();
- if(!m)return;
+ const m=window.currentMissionLabModel||labBuildModel();if(!m)return;
+ const earthCandidates=Object.fromEntries(m.earth.map(site=>[site.id,{name:site.name,metrics:{median_slope_deg:site.medianSlope,p90_slope_deg:site.p90Slope,p90_3x3_local_relief_m:site.p90Relief,valid_cells_percent:site.coverage}}]));
  const card={
-  schema_version:"1.0",project:"ANALOG-X",generated_at_utc:new Date().toISOString(),
-  title:"Mission-specific Earth field rehearsal protocol",
+  schema_version:"1.1",project:"ANALOG-X",generated_at_utc:new Date().toISOString(),title:"Four-site mission-specific Earth field rehearsal protocol",
   planetary_reference:{name:m.target.name,body:m.targetId==="moon"?"Moon":"Mars",terrain_metrics:{median_slope_deg:m.target.medianSlope,p90_slope_deg:m.target.p90Slope,p90_3x3_local_relief_m:m.target.p90Relief},data_source:m.target.source,coverage_percent:m.target.coverage,return_support_percent:m.target.returnSupport??null,complete_3x3_neighbourhoods:m.target.completeNeighborhoods??null},
-  experiment:m.objective,
-  earth_candidates:{
-   koh_i_sultan:{name:m.koh.name,metrics:{median_slope_deg:m.koh.medianSlope,p90_slope_deg:m.koh.p90Slope,p90_3x3_local_relief_m:m.koh.p90Relief,valid_cells_percent:m.koh.coverage}},
-   hispar_glacier:{name:m.hispar.name,metrics:{median_slope_deg:m.hispar.medianSlope,p90_slope_deg:m.hispar.p90Slope,p90_3x3_local_relief_m:m.hispar.p90Relief,valid_cells_percent:m.hispar.coverage}}
-  },
-  dimension_differences:m.metrics.map(x=>({descriptor:x.label,reference_value:x.target,koh_i_sultan_value:x.koh,koh_absolute_difference:x.kohDelta,hispar_glacier_value:x.hispar,hispar_absolute_difference:x.hisparDelta,closer_on_this_dimension:x.closer})),
-  terrain_descriptor_wins:m.wins,primary_rehearsal_candidate:m.selectedKey,selection_reason:m.selectionReason,
-  field_protocol:labProtocolFor(m),
-  field_campaign_climatology:{koh_i_sultan_driest_months:labDriestMonths("koh"),hispar_glacier_driest_months:labDriestMonths("hispar_glacier"),interpretation:"Lowest NASA POWER monthly climatological precipitation values only; not a forecast or site-access guarantee."},
-  equipment_checklist:labEquipmentFor(m),
-  interpretation_limits:[$("labLimits").textContent,$("labQuality").textContent,"A closer numeric descriptor is not a planetary similarity probability or site safety certification."],
-  provenance:{terrain_comparison:"./data/terrain/terrain_comparison.json",lunar_lola:"./data/moon/shackleton_lola_80m.json",data_sources:"./docs/DATA_SOURCES.md",method:"Absolute differences in three regional descriptors; no composite similarity score."}
+  experiment:m.objective,earth_candidates:earthCandidates,
+  dimension_differences:m.metrics.map(metric=>({descriptor:metric.label,reference_value:metric.target,sites:metric.comparisons.map(site=>({site_id:site.id,site_name:site.name,value:site.value,absolute_difference:site.delta})),closest_site_ids:metric.closest})),
+  descriptor_nearest_counts:m.wins,task_specific_rehearsal_candidate:m.selectedKey,selection_reason:m.selectionReason,
+  field_protocol:labProtocolFor(m),field_campaign_climatology:Object.fromEntries(m.earth.map(site=>[site.id,labDriestMonths(site.id)])),
+  equipment_checklist:labEquipmentFor(m),interpretation_limits:[$("labLimits").textContent,$("labQuality").textContent,"A closer numeric descriptor is not a planetary similarity probability or site safety certification."],
+  provenance:{terrain_comparison:"./data/terrain/terrain_comparison.json",lunar_lola:"./data/moon/shackleton_lola_80m.json",data_sources:"./docs/DATA_SOURCES.md",method:"Absolute differences in three regional descriptors across four Pakistan study windows; no composite similarity score."}
  };
  const blob=new Blob([JSON.stringify(card,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");
- a.href=url;a.download="ANALOG-X_Mission_Rehearsal_Protocol.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1200);
+ a.href=url;a.download="ANALOG-X_Four_Site_Mission_Rehearsal_Protocol.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1200);
 }
-
 function renderPipeline(){
- const count=Object.keys(power).length;
- const sceneCount=catalog?Object.keys(catalog.planetary_computer?.sites||{}).length:0;
- const terrainComplete=!!(terrainData?.planetary_target?.terrain_metrics&&terrainData?.earth_sites?.koh_i_sultan?.status==="processed"&&terrainData?.earth_sites?.hispar_glacier?.status==="processed");
+ const powerCount=Object.keys(power).length,sceneCount=catalog?Object.keys(catalog.planetary_computer?.sites||{}).length:0;
+ const earthRows=Object.values(terrainData?.earth_sites||{});
+ const earthComplete=earthRows.length===10&&earthRows.every(row=>row.status==="processed");
+ const marsComplete=!!terrainData?.planetary_target?.terrain_metrics;
  const lunarComplete=!!(lunarData?.matched_coarse_support_approx_925m?.slope_deg&&lunarData?.matched_coarse_support_approx_925m?.ldec_positive_return_support);
- statusPill($("systemHealth"),count===8&&sceneCount===2&&terrainComplete&&lunarComplete?"CORE EVIDENCE LOADED":"PARTIAL CORE DATA",count===8&&sceneCount===2&&terrainComplete&&lunarComplete?"":"gold");
- $("snapshotDate").textContent="NASA SNAPSHOT · "+(power.koh?.source?.fetched_at_utc||"—").slice(0,10);
- $("siteCount").textContent="02 STUDY AREAS";
+ const pakistanKeys=["chagai_small_playas","hamun_i_mashkel","koh_i_sultan","hispar_glacier"];
+ const quickReady=pakistanKeys.every(key=>quicklooks?.results?.[key]?.preview_path);
+ const coreReady=powerCount===10&&sceneCount===10&&earthComplete&&marsComplete&&lunarComplete&&quickReady;
+ statusPill($("systemHealth"),coreReady?"CORE EVIDENCE PACK LOADED":"PARTIAL CORE DATA",coreReady?"":"gold");
+ $("snapshotDate").textContent="NASA POWER · "+(power.koh?.source?.fetched_at_utc||"—").slice(0,10);
+ $("siteCount").textContent="04 STUDY WINDOWS";
 }
 function setTab(name){
  document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x.dataset.tab===name));
@@ -1062,17 +1087,17 @@ function showModal(kind){
  let title="",body="";
  if(kind==="method"){
   title="ANALOG-X / Evidence-readiness methodology";
-  body="<p><b>Purpose.</b> Compare Earth field sites with selected lunar/Martian terrain references, then identify which field methods can be rehearsed and where the analogy breaks down.</p><ul><li><b>NASA POWER:</b> eight site climatology snapshots, seven variables per site; gridded climate context, not local station observations.</li><li><b>Sentinel-2:</b> STAC scene discovery plus true-colour previews for Koh-i-Sultan and Hispar; no mineral classification is inferred.</li><li><b>Terrain:</b> Copernicus DEM GLO-30 DSM for two Pakistan sites, MOLA around Nili Patera (50.53% observed-cell coverage), and LOLA around Shackleton Rim (native 80 m plus a ~925 m aggregate).</li><li><b>Mission Rehearsal Lab:</b> compares median slope, P90 slope and P90 local relief dimension-by-dimension; no composite analog probability or safety score is produced.</li><li><b>Diviner:</b> PDS PRP V2.0 collection and south-polar table access have been diagnosed; local site-level thermal/resource statistics are not yet integrated.</li><li><b>Institutional context:</b> EvK2CNR glacier inventory is an existing baseline; SUPARCO/NDMA portals are references until public data access and licences are verified.</li></ul><p>ANALOG-X makes task-specific field-rehearsal recommendations, not claims of complete planetary equivalence.</p><a href='./docs/PROBLEM_AND_DIFFERENTIATION.md' target='_blank'>Read full problem statement ↗</a>";
+  body="<p><b>Purpose.</b> Test which Earth environments can support a named lunar or Martian field rehearsal, which parts of the procedure transfer, and where the comparison breaks down.</p><ul><li><b>NASA POWER:</b> ten bundled site climatology snapshots with seven requested parameters; gridded context, not local station observations or forecasts.</li><li><b>Sentinel-2:</b> scene discovery across ten curated windows; four Pakistan windows have processed 20 m spectral-context profiles and local RGB quicklooks. Browse RGB and spectral indices do not identify minerals or brines.</li><li><b>Terrain:</b> Copernicus DEM GLO-30 DSM profiles for four Pakistan study windows at about 925 m support; MOLA around Nili Patera (50.53% observed-cell coverage); and Shackleton LOLA at native 80 m with a separate 5 m Site04 product and uncertainty rasters.</li><li><b>Mission Rehearsal Lab:</b> compares median slope, P90 slope and P90 regional relief across all four Pakistan windows, dimension by dimension. It does not calculate a blended analog probability or rover-safety score.</li><li><b>Diviner:</b> historical PRP V2.0 thermal summaries are integrated. Ice-depth interpretation is QA-limited; the product does not establish accessible ice.</li><li><b>Independent evidence:</b> 96 blinded Moon/Mars candidate cases are ready for external review, but no labels have been returned. The physical field-observation ledger is empty.</li><li><b>Open lunar tasks:</b> verified PSR geometry, pinned SPICE mission-date illumination and vehicle-specific mobility evidence remain outstanding.</li></ul><p>ANALOG-X supports task-specific field experiments, not complete planetary equivalence, NASA certification or operational safety decisions.</p><a href='./docs/INDEPENDENT_OPERATIONAL_EVIDENCE_PHASE.md' target='_blank'>Read the next research phase ↗</a>";
  }else if(kind==="submission"){
   title="NASA Space Apps / project submission";
-  body="<p><b>Project:</b> ANALOG-X — Pakistan Analog Evidence Operations Atlas.</p><p><b>Core contribution:</b> a source-traceable, multi-source evidence workflow that characterizes candidate sites and exposes missing evidence before an Earth location is called a useful planetary analog.</p><p><b>Demo:</b> this live application. <a href='./demo.html' target='_blank'>Open project presentation ↗</a></p><p><b>Current verified assets:</b> NASA POWER snapshots for eight coordinates; Sentinel-2 L2A scenes and clipped previews for Koh-i-Sultan and Hispar; NASA EPIC global imagery; Copernicus DEM GLO-30, Mars MOLA and lunar LOLA terrain profiles; dimension-level Mission Rehearsal Lab. Diviner PRP site-level processing and illumination/PSR mapping remain outstanding.</p><p><b>Important honesty boundary:</b> the Mars window has limited observation coverage (about 50.5%) and only 87 complete 3×3 neighbourhoods. Lunar LOLA terrain is integrated; Diviner PRP V2.0 site-level thermal/resource statistics remain pending. SUPARCO/NDMA portal layers are not claimed as integrated; geological equivalence is not claimed.</p><a href='./docs/NASA_SUBMISSION_TEXT.md' target='_blank'>Open submission copy ↗</a>";
+  body="<p><b>Project:</b> ANALOG-X — Pakistan Analog Evidence Operations.</p><p><b>Core contribution:</b> a source-traceable candidate-discovery and experiment-planning workflow that exposes evidence gaps and task-specific analogy failures before a site is called useful for planetary rehearsal.</p><p><b>Demo:</b> this live application. <a href='./demo.html' target='_blank'>Open project presentation ↗</a></p><p><b>Current evidence pack:</b> ten NASA POWER site snapshots; four processed Pakistan Sentinel-2 spectral profiles and four local quicklooks; four Pakistan Copernicus GLO-30 terrain profiles; MOLA Nili Patera terrain (50.53% observed-cell coverage); Shackleton LOLA 80 m context and separate 5 m Site04 elevation/count/slope uncertainty products; historical Diviner PRP V2.0 thermal summaries; and a four-site Mission Rehearsal Lab.</p><p><b>Independent-validation boundary:</b> the 96-case blind-review packet has no returned labels and the Pakistan field observation ledger is empty. No AUC, calibrated accuracy, field validation, rover trial, accessible-ice claim or site-safety certification is claimed. Verified lunar PSR geometry and mission-date SPICE illumination remain outstanding.</p><a href='./docs/INDEPENDENT_OPERATIONAL_EVIDENCE_PHASE.md' target='_blank'>Open next research phase ↗</a> · <a href='./docs/NASA_SUBMISSION_TEXT.md' target='_blank'>Open submission copy ↗</a>";
  }else if(kind==="report"){
   title="Field validation card";
   const s=SITE[current],p=power[current],m=p?.metrics||{};
   const terrainKey=current==="koh"?"koh_i_sultan":"hispar_glacier";
   const terrainSite=terrainData?.earth_sites?.[terrainKey];
   const terrainMars=terrainData?.planetary_target;
-  const plan={project:"ANALOG-X",candidate:s.name,coordinates:{lat:s.lat,lon:s.lon},candidate_type:s.kind,mission_rehearsal:s.theme,climate_snapshot_utc:p?.source?.fetched_at_utc||null,NASA_POWER_metrics:m,terrain_profile:terrainSite?.terrain_metrics||null,terrain_source:terrainSite?.source||null,planetary_reference:terrainMars?.terrain_metrics?{name:terrainMars.name,metrics:terrainMars.terrain_metrics,valid_cell_coverage_percent:terrainMars.terrain_metrics.coverage.valid_percent,complete_3x3_neighbourhood_count:terrainMars.terrain_metrics.complete_3x3_neighbourhood_count}:null,lunar_reference:lunarData?{site:lunarData.site,native_grid_resolution_m:lunarData.grid.native_pixel_size_m,window_extent_m:lunarData.grid.window_extent_m,native_terrain_metrics:lunarData.terrain_metrics,matched_coarse_support_approx_925m:lunarData.matched_coarse_support_approx_925m,method_note:lunarData.method_note}:null,terrain_caveat:terrainData?.comparison?.interpretation||"Terrain profile has not been processed.",lunar_caveat:lunarData?.limitations||["LOLA lunar terrain not loaded."],protocol:s.id==="koh"?["Map volcanic outcrop context and contacts.","Record scale-controlled images and coordinates.","Cross-check remote-sensing interpretation against field observations.","Log lithology/sample provenance and confidence; do not infer basaltic equivalence."]:["Map ice/debris boundaries from satellite imagery.","Ground-check selected boundary points and debris cover.","Record surface/air temperature separately if equipment is available.","Do not infer lunar permanently shadowed-region conditions from an Earth glacier."],not_transferable:s.limit,validation_required:["Validate DEM profile against higher-resolution site data and terrain classes","Primary-source geological mapping and field validation","Review MOLA low-observation coverage and add lunar LOLA/Diviner products","Do not infer rover mobility, landing safety or mineralogical equivalence from the terrain descriptors"]};
+  const plan={project:"ANALOG-X",candidate:s.name,coordinates:{lat:s.lat,lon:s.lon},candidate_type:s.kind,mission_rehearsal:s.theme,climate_snapshot_utc:p?.source?.fetched_at_utc||null,NASA_POWER_metrics:m,terrain_profile:terrainSite?.terrain_metrics||null,terrain_source:terrainSite?.source||null,planetary_reference:terrainMars?.terrain_metrics?{name:terrainMars.name,metrics:terrainMars.terrain_metrics,valid_cell_coverage_percent:terrainMars.terrain_metrics.coverage.valid_percent,complete_3x3_neighbourhood_count:terrainMars.terrain_metrics.complete_3x3_neighbourhood_count}:null,lunar_reference:lunarData?{site:lunarData.site,native_grid_resolution_m:lunarData.grid.native_pixel_size_m,window_extent_m:lunarData.grid.window_extent_m,native_terrain_metrics:lunarData.terrain_metrics,matched_coarse_support_approx_925m:lunarData.matched_coarse_support_approx_925m,method_note:lunarData.method_note}:null,terrain_caveat:terrainData?.comparison?.interpretation||"Terrain profile has not been processed.",lunar_caveat:lunarData?.limitations||["LOLA lunar terrain not loaded."],protocol:s.id==="koh"?["Map volcanic outcrop context and contacts.","Record scale-controlled images and coordinates.","Cross-check remote-sensing interpretation against field observations.","Log lithology/sample provenance and confidence; do not infer basaltic equivalence."]:s.id==="hispar_glacier"?["Map ice/debris boundaries from satellite imagery.","Ground-check selected boundary points only from professionally assessed safe locations.","Record surface/air temperature separately if equipment is available.","Do not infer lunar permanently shadowed-region conditions from an Earth glacier."]:s.id==="hamun_i_mashkel"?["Build a multi-date sequence before mapping wet/dry facies.","Map sediment and visible inundation boundaries separately.","Record calibrated conductivity/TDS readings at permitted stations.","Do not infer basin-wide hydrology or brine from one scene."]:["Map playa-margin and salt-crust facies with scale-controlled images.","Collect calibrated field spectra with reference-panel records.","Where permitted, sample mapped facies for XRD/XRF/FTIR.","Do not infer evaporite mineralogy or subsurface brine from satellite ratios."],not_transferable:s.limit,validation_required:["Validate DEM profile against higher-resolution site data and terrain classes","Primary-source geological mapping and field validation","Review MOLA low-observation coverage and add lunar LOLA/Diviner products","Do not infer rover mobility, landing safety or mineralogical equivalence from the terrain descriptors"]};
   body="<p><b>"+esc(s.name)+"</b></p><p>Mission rehearsal: "+esc(s.theme)+"</p><p>Download an auditable JSON field-validation card with the current NASA POWER metrics and a cautious field protocol.</p><button class='selectbtn' id='downloadCard'>DOWNLOAD FIELD CARD JSON ↓</button>";
   window.currentCard=plan;
  }
@@ -1108,6 +1133,8 @@ async function loadAll(){
   loadJson("./data/power/iceland.json"),
   loadJson("./data/power/death.json"),
   loadJson("./data/power/hispar_glacier.json"),
+  loadJson("./data/power/chagai_small_playas.json"),
+  loadJson("./data/power/hamun_i_mashkel.json"),
   loadJson("./data/pakistan/public_scene_catalog.json"),
   loadJson("./data/pakistan/quicklooks/index.json"),
   loadJson("./data/nasa/epic_latest.json"),
@@ -1115,16 +1142,15 @@ async function loadAll(){
   loadJson("./data/nasa/earthdata_cmr_catalog.json"),
   loadJson("./data/moon/shackleton_lola_80m.json")
  ]);
- const paths=["koh","dallol","atacama","mcmurdo","haughton","iceland","death","hispar_glacier"];
+ const paths=["koh","dallol","atacama","mcmurdo","haughton","iceland","death","hispar_glacier","chagai_small_playas","hamun_i_mashkel"];
  paths.forEach((key,i)=>{if(tasks[i].status==="fulfilled")power[key]=tasks[i].value;});
- if(tasks[0].status==="fulfilled")power.koh=tasks[0].value;
- if(tasks[8].status==="fulfilled")catalog=tasks[8].value;
- if(tasks[9].status==="fulfilled")quicklooks=tasks[9].value;
- if(tasks[10].status==="fulfilled")epic=tasks[10].value;
- if(tasks[11].status==="fulfilled")terrainData=tasks[11].value;
- if(tasks[12].status==="fulfilled")cmrData=tasks[12].value;
- if(tasks[13].status==="fulfilled")lunarData=tasks[13].value;
- renderPipeline();renderQuicklooks();renderEpic();renderTerrain();renderLunar();renderCmr();renderSiteData(current);renderMissionLab();
+ if(tasks[10].status==="fulfilled")catalog=tasks[10].value;
+ if(tasks[11].status==="fulfilled")quicklooks=tasks[11].value;
+ if(tasks[12].status==="fulfilled")epic=tasks[12].value;
+ if(tasks[13].status==="fulfilled")terrainData=tasks[13].value;
+ if(tasks[14].status==="fulfilled")cmrData=tasks[14].value;
+ if(tasks[15].status==="fulfilled")lunarData=tasks[15].value;
+ renderPipeline();renderQuicklooks();renderEpic();renderTerrain();renderLunar();renderCmr();renderSiteData(current);updateLabObjectiveOptions();renderMissionLab();
 }
 
 /* Portal entry + original procedural ambient space soundtrack.
