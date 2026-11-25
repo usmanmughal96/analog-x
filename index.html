@@ -794,7 +794,7 @@ function renderQuicklooks(){
  if(ready===4){step.classList.remove("warn");step.querySelector(".stepdot").textContent="✓";step.querySelector("small").innerHTML="Quicklooks<br>4/4 ready";}
  else{step.classList.add("warn");step.querySelector(".stepdot").textContent="!";step.querySelector("small").innerHTML="Quicklooks<br>"+ready+"/4 ready";}
 }
-
+function renderEpic(){
  if(epic&&epic.image_path){
   $("epicBox").innerHTML='<img src="./data/nasa/epic_latest.png" alt="Latest NASA DSCOVR EPIC natural-colour Earth image" style="width:100%;height:100%;object-fit:contain">';
   $("epicDate").textContent=(epic.date||"").slice(0,16)+" UTC";
@@ -848,7 +848,7 @@ function renderTerrain(){
  $("terrainCaveat").textContent="Four Pakistan Earth profiles use Copernicus GLO-30 digital surface models on approximately 925 m support over 30 km windows. Nili Patera MOLA observed-cell coverage is "+(Number.isFinite(marsCov)?marsCov.toFixed(1)+"% ("+marsStats.valid_cell_count+" of "+marsStats.coverage.total_cells+" cells; "+marsCells+" complete 3×3 neighbourhoods)":"not available")+". Shackleton Rim LOLA is a separate polar product: native 80 m evidence is aggregated for a coarse comparison; the separate 5 m Site04 product includes uncertainty rasters. These datasets differ in source, scale and vertical reference. Regional slope/relief do not resolve rover-scale hazards, geological equivalence, illumination, PSR status, water-ice accessibility, landing safety or vehicle mobility.";
  statusPill($("terrainStatus"),earthReady===4&&marsStats&&lunar?"4 EARTH + MOON + MARS":"PARTIAL PROFILE SET",earthReady===4&&marsStats&&lunar?"":"gold");
 }
-
+function renderLunar(){
  if(!lunarData){
   statusPill($("lunarTerrainCoverage"),"LOLA PENDING","gold");
   return;
