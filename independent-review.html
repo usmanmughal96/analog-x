@@ -104,7 +104,11 @@ function loadCase(){
 }
 function saveCurrent(){
  const c=packet.cases[current],d=identity(),label=selectedLabel(),refs=$("evidence").value.split(/\n|;/).map(x=>x.trim()).filter(Boolean);
- if(!label){$("caseStatus").textContent="Choose an assessment before saving.";return false;}
+ if(!label){
+  const hasPartial=refs.length||$("rationale").value.trim()||$("limitations").value.trim();
+  if(hasPartial){$("caseStatus").textContent="Choose a response or clear the unsaved notes before moving to another case.";return false;}
+  saveIdentityOnly();$("caseStatus").textContent="No assessment saved for this case; you can return to it later.";return true;
+ }
  if(!d.reviewerName||!d.reviewerAffiliation||!d.reviewerQualification||!d.reviewDate){$("caseStatus").textContent="Complete reviewer name, affiliation, qualification and UTC date first.";return false;}
  if(!d.independent){$("caseStatus").textContent="Confirm independence from ANALOG-X scores before saving.";return false;}
  if(!["inconclusive","insufficient_evidence"].includes(label)&&!refs.length){$("caseStatus").textContent="Positive / negative assessments require at least one independent evidence reference.";return false;}
