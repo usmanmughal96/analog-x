@@ -89,7 +89,7 @@ function loadCase(){
   "Reference: "+(c.reference_profile||"Not stated"),
   "Window: "+(c.analysis_window_km||"—")+" km",
   "Terrain support: "+(c.analysis_support_m||"—")+" m",
-  "Centre: "+(c.location?.latitude_wgs84_deg??"—")+", "+(c.location?.longitude_wgs84_deg??"—")
+  "Approx. area (~0.1°): "+(c.location?.latitude_wgs84_deg??"—")+", "+(c.location?.longitude_wgs84_deg??"—")
  ].map(x=>'<span class="meta">'+esc(x)+'</span>').join("");
  $("caseState").textContent=review.label?review.label.replaceAll("_"," "):"Not assessed";
  const label=review.label||"";
