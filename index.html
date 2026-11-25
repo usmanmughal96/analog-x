@@ -96,7 +96,8 @@
 @media(max-width:1150px){.pakistanSiteGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.pakistanSiteGrid{grid-template-columns:1fr}.pakistanSiteImage{height:150px}.pakistanNetIntro{padding-left:11px;padding-right:11px}}
 
-.sitechoose{max-width:190px;flex-wrap:wrap;justify-content:flex-end}.sitechoose button{padding:5px 6px;font-size:7px}.terrainGrid{grid-template-columns:repeat(3,minmax(0,1fr))}.labTable td small{display:block;color:#7d9aaa;font-size:8px;margin-top:3px;white-space:nowrap}@media(max-width:850px){.terrainGrid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.terrainGrid{grid-template-columns:1fr}.sitechoose{max-width:160px}}</style>
+.sitechoose{max-width:190px;flex-wrap:wrap;justify-content:flex-end}.sitechoose button{padding:5px 6px;font-size:7px}.terrainGrid{grid-template-columns:repeat(3,minmax(0,1fr))}.labTable td small{display:block;color:#7d9aaa;font-size:8px;margin-top:3px;white-space:nowrap}@media(max-width:850px){.terrainGrid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.terrainGrid{grid-template-columns:1fr}.sitechoose{max-width:160px}}.legenddot.playa{background:#55b8ec;box-shadow:0 0 7px #55b8ec}.legenddot.volcanic{background:#1de0b3;box-shadow:0 0 7px #1de0b3}.legenddot.cryosphere{background:#e0bd7b;box-shadow:0 0 7px #e0bd7b}
+</style>
 <link rel='stylesheet' href='./assets/analogx-labs.css?v=20261115-offline'>
 <link rel='stylesheet' href='./assets/analogx-scout.css?v=20261114-portalfix'>
 <link rel='stylesheet' href='./assets/analogx-field-passport.css?v=20261115-v2'>
@@ -1066,17 +1067,18 @@ function downloadMissionLabCard(){
 }
 function renderPipeline(){
  const powerCount=Object.keys(power).length,sceneCount=catalog?Object.keys(catalog.planetary_computer?.sites||{}).length:0;
+ const earthRows=Object.values(terrainData?.earth_sites||{});
+ const earthComplete=earthRows.length===10&&earthRows.every(row=>row.status==="processed");
+ const marsComplete=!!terrainData?.planetary_target?.terrain_metrics;
+ const lunarComplete=!!(lunarData?.matched_coarse_support_approx_925m?.slope_deg&&lunarData?.matched_coarse_support_approx_925m?.ldec_positive_return_support);
  const pakistanKeys=["chagai_small_playas","hamun_i_mashkel","koh_i_sultan","hispar_glacier"];
- const earthReady=pakistanKeys.every(key=>terrainData?.earth_sites?.[key]?.status==="processed");
- const marsReady=!!terrainData?.planetary_target?.terrain_metrics;
- const lunarReady=!!(lunarData?.matched_coarse_support_approx_925m?.slope_deg&&lunarData?.matched_coarse_support_approx_925m?.ldec_positive_return_support);
  const quickReady=pakistanKeys.every(key=>quicklooks?.results?.[key]?.preview_path);
- const coreReady=powerCount===10&&sceneCount===10&&earthReady&&marsReady&&lunarReady&&quickReady;
+ const coreReady=powerCount===10&&sceneCount===10&&earthComplete&&marsComplete&&lunarComplete&&quickReady;
  statusPill($("systemHealth"),coreReady?"CORE EVIDENCE PACK LOADED":"PARTIAL CORE DATA",coreReady?"":"gold");
  $("snapshotDate").textContent="NASA POWER · "+(power.koh?.source?.fetched_at_utc||"—").slice(0,10);
  $("siteCount").textContent="04 STUDY WINDOWS";
 }
-
+function setTab(name){
  document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x.dataset.tab===name));
  document.querySelectorAll(".sitepanel").forEach(x=>x.classList.remove("active"));
  $("tab-"+name).classList.add("active");
@@ -1148,7 +1150,7 @@ async function loadAll(){
  if(tasks[13].status==="fulfilled")terrainData=tasks[13].value;
  if(tasks[14].status==="fulfilled")cmrData=tasks[14].value;
  if(tasks[15].status==="fulfilled")lunarData=tasks[15].value;
- renderPipeline();renderQuicklooks();renderEpic();renderTerrain();renderLunar();renderCmr();renderSiteData(current);renderMissionLab();
+ renderPipeline();renderQuicklooks();renderEpic();renderTerrain();renderLunar();renderCmr();renderSiteData(current);updateLabObjectiveOptions();renderMissionLab();
 }
 
 /* Portal entry + original procedural ambient space soundtrack.
