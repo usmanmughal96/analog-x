@@ -6,7 +6,7 @@ ANALOG-X is seeking independent, evidence-based assessments of a limited terrain
 
 Reviewers should have relevant experience in planetary geology, geomorphology, remote sensing, field geology, terrain analysis or planetary surface operations. Please disclose your qualifications, affiliation, potential conflicts and any prior involvement with ANALOG-X.
 
-The first review packet contains 96 blinded cases: 48 Moon-related and 48 Mars-related terrain-morphology cases. Candidate identifiers, ANALOG-X ranks, terrain scores and shortlist position are withheld in the reviewer interface.
+The first review packet contains 96 blinded cases: 48 Moon-related and 48 Mars-related terrain-morphology cases. Candidate identifiers, ANALOG-X ranks, terrain scores and shortlist position are withheld in the reviewer interface. Public case codes are keyed with an owner-private salt, and area coordinates are rounded to the nearest 0.1 degree to reduce reverse matching against the public shortlist. The location is approximate, not the exact 5.55 km window centre.
 
 ## What the reviewer is being asked
 
@@ -30,7 +30,7 @@ Do not force a positive or negative label merely to complete the form.
 1. Open [independent-review.html](../independent-review.html).
 2. Enter your name, affiliation, relevant qualification and review date.
 3. Confirm that you are assessing the cases independently of ANALOG-X scores and ranks.
-4. Review the stated reference target, window centre and spatial support. Use independent sources, not an ANALOG-X rank or score.
+4. Review the stated reference target, approximate area locator and spatial support. Use independent sources, not an ANALOG-X rank or score. The area locator is deliberately coarse; when the available evidence cannot isolate the stated candidate area well enough, use “insufficient evidence” rather than guessing.
 5. Select a response, cite evidence references and explain the task-specific rationale and limitations.
 6. Save each case. The page stores the draft only in the current browser's local storage; it does not transmit the response.
 7. Export the response JSON and return it through an agreed, approved private channel.
