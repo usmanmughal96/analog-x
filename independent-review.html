@@ -14,7 +14,7 @@
 <body><div class="wrap">
 <header class="top"><div class="brand">ANALOG-X <small>INDEPENDENT REVIEW / BLINDED CASE DESK</small></div><nav class="links"><a href="./mission-readiness.html">Readiness workbench</a><a href="./global-discovery.html">Global discovery</a><a href="./docs/INDEPENDENT_LABEL_VALIDATION_PROTOCOL.md">Review protocol</a></nav></header>
 <section class="hero"><div class="eyebrow">External review workspace · terrain morphology only</div><h1>Assess the evidence.<br><span style="color:var(--cyan)">Not the ranking.</span></h1><p>This local-first interface helps an independent reviewer assess the 96 anonymized ANALOG-X cases. It intentionally does not show candidate IDs, ANALOG-X scores, ranks or shortlist positions. Completed assessments are exported as JSON; nothing is submitted to ANALOG-X automatically.</p></section>
-<div class="notice"><b>Blind-review safeguard:</b> do not request or infer ANALOG-X ranks or scores. Assess only the predeclared terrain-morphology question using independent sources. This review does not validate mineralogy, volatiles, biological potential, landing safety, rover trafficability or overall planetary equivalence.</div>
+<div class="notice"><b>Reviewer qualification:</b> qualifications and affiliations entered here are self-reported. The project owner must verify reviewer identity, relevant expertise and conflicts outside this page before treating any response as expert-reviewed. This interface does not certify reviewers. <b>Blind-review safeguard:</b> do not request or infer ANALOG-X ranks or scores. Assess only the predeclared terrain-morphology question using independent sources. This review does not validate mineralogy, volatiles, biological potential, landing safety, rover trafficability or overall planetary equivalence.</div>
 <div class="layout">
 <aside class="panel">
 <h2>Reviewer details</h2>
@@ -77,7 +77,7 @@ function renderList(){
   const done=!!c.independent_review?.label;
   return '<button type="button" class="case-button '+(c.index===current?"active ":"")+(done?"done":"")+'" data-index="'+c.index+'"><span><b>'+esc(c.target.toUpperCase())+' · Case '+String(c.index+1).padStart(2,"0")+'</b><small>'+esc(c.reference_profile||"Reference target")+' · '+esc(c.location?.latitude_wgs84_deg)+', '+esc(c.location?.longitude_wgs84_deg)+'</small></span></button>';
  }).join("");
- $("caseList").querySelectorAll("[data-index]").forEach(b=>b.addEventListener("click",()=>{saveIdentityOnly();current=Number(b.dataset.index);loadCase();}));
+ $("caseList").querySelectorAll("[data-index]").forEach(b=>b.addEventListener("click",()=>{if(!saveCurrent())return;current=Number(b.dataset.index);loadCase();}));
  updateProgress();
 }
 function saveIdentityOnly(){const d=identity();const old=JSON.parse(localStorage.getItem(DRAFT_KEY)||"{}");Object.assign(old,d);old.packet=packet;localStorage.setItem(DRAFT_KEY,JSON.stringify(old));}
