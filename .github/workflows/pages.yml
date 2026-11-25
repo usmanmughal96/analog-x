@@ -57,7 +57,7 @@ jobs:
               def handle_data(self, data):
                   if self.active:
                       self.current.append(data)
-          for filename in ("global-discovery.html", "discovery.html", "field-validation.html"):
+          for filename in ("global-discovery.html", "discovery.html", "field-validation.html", "mission-readiness.html", "independent-review.html"):
               parser=InlineScripts()
               parser.feed(Path(filename).read_text(encoding="utf-8"))
               assert parser.blocks, f"No inline JS found in {filename}"
@@ -66,6 +66,8 @@ jobs:
           node --check /tmp/global-discovery.html.js
           node --check /tmp/discovery.html.js
           node --check /tmp/field-validation.html.js
+          node --check /tmp/mission-readiness.html.js
+          node --check /tmp/independent-review.html.js
 
   deploy:
     needs: validate
