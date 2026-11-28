@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-25T18:28:25+00:00",
-  "repository_commit_before_manifest_commit": "25ab9cfbe69b45b7a0a1b87f8f4c9e2f968603cc",
+  "generated_at_utc": "2026-11-28T14:11:17+00:00",
+  "repository_commit_before_manifest_commit": "26fd2bce64aa53fc649fb5eb13356fa83776312b",
   "working_tree_before_manifest_write": "clean",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -37,7 +37,7 @@
       "manifest.webmanifest"
     ]
   },
-  "file_count": 227,
+  "file_count": 229,
   "source_registry_sha256": "1d64260aed0d851317782d86fccc1f7d32574b11d6a4a3959e4c04d56d2ef429",
   "source_registry_records": [
     {
@@ -344,20 +344,20 @@
   "records": [
     {
       "path": "README.md",
-      "size_bytes": 13763,
-      "sha256": "5f54140fdd6baac93fc872b0c10ac9ed63365d5331473eed257e97587e475464",
+      "size_bytes": 15836,
+      "sha256": "4754702cdb23df988f56a17cd37391da04cbafe72631762455cf58a9e9679df7",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": "index.html",
-      "size_bytes": 165508,
-      "sha256": "1df67a81d56be1c51cca6cca0dc0dc3254f16ed38e3f65df38005862ddc874b0",
+      "size_bytes": 165846,
+      "sha256": "897c175598459f0f1e3ed10496b9f60aa217cbe1472933ad1bebdb844e152522",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": "demo.html",
-      "size_bytes": 41247,
-      "sha256": "05e1ee71fa7998a6e596d57e066417ebbbd37693ac258c3c0072d2aba55f1577",
+      "size_bytes": 41493,
+      "sha256": "81782d9e50d412fbd0c9f05e231481dd3a7611bdc544945abe6aae7a07a3ac10",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -368,26 +368,26 @@
     },
     {
       "path": "global-discovery.html",
-      "size_bytes": 25945,
-      "sha256": "ad4ef3ed4159abc8c43184e6b8159c40da90c5ecaf8caacaf2711fb3b83616c8",
+      "size_bytes": 26083,
+      "sha256": "5d9a5ec3b45c3ae9e11e0e6e4b8634437e2a97444e6663c510e6b8429c08dd7e",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": "field-validation.html",
-      "size_bytes": 21653,
-      "sha256": "fcdfff36af00f6f4b897b06e20cbd845bca019fe278eb7a2d15f25ee88399a19",
+      "size_bytes": 21723,
+      "sha256": "b0f4b3c4fd921e2083a8c364331452000823dfdb69dc4b3f74ce3599ee278dd6",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": "transferability.html",
-      "size_bytes": 28702,
-      "sha256": "a1aba0f75af47c41ffc5f98df9d961121d9d56e479cb28dedee12af08af52c6a",
+      "size_bytes": 28776,
+      "sha256": "b3a2a55b20afb7bbe4fa4911fdc2ee9a1aa600d19b1b35280c5b50a8a38c9cc7",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": "service-worker.js",
-      "size_bytes": 4606,
-      "sha256": "cc56ba8fc0bdd36e4c00854f6161b2d697949b4571202e9509574aacc4621ff9",
+      "size_bytes": 4919,
+      "sha256": "6a67e0fee50d3a32d82100858aa505174712fb49fdbd7c916b8ae32297df9e73",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -998,8 +998,8 @@
     },
     {
       "path": "data/validation/independent_analog_review_packet.json",
-      "size_bytes": 79232,
-      "sha256": "462f5c0c68438b45cfcc3591adacc4f0ab84f3a3f8739eb5db30095685036abf",
+      "size_bytes": 91257,
+      "sha256": "c327490d8c32c120992d36fc63e8afc4397904f95243142cff9ad20150a40f58",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -1058,8 +1058,8 @@
     },
     {
       "path": "scripts/build_independent_review_pack.py",
-      "size_bytes": 13408,
-      "sha256": "f6c9bd1cc67397f751cebd825bfae6724ce9eb3c21944eb72f58924ecd76f123",
+      "size_bytes": 15394,
+      "sha256": "8456b05e94013e9c2d450ef9848e858e765df6f21dff429aa32dd801d6c0ac2b",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1244,8 +1244,8 @@
     },
     {
       "path": "scripts/validate_project.mjs",
-      "size_bytes": 10436,
-      "sha256": "cfe469feb254e0e8d74eee25247b9ef9780cae4274d63d79842ae5fbdacb66af",
+      "size_bytes": 13137,
+      "sha256": "c0f4acdbbc2f174597b932b208682e44d2076482770723dc39e657b4841a1314",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1346,14 +1346,20 @@
     },
     {
       "path": "docs/INDEPENDENT_LABEL_VALIDATION_PROTOCOL.md",
-      "size_bytes": 4899,
-      "sha256": "77db482418d063311c5b5ce9a86ef7debd7894f731a3f0c12330f12e064fc83f",
+      "size_bytes": 5529,
+      "sha256": "d89007cea4b96aad492fc8fabde6ee23e490d58ebd25dc056593f09378c46d7e",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": "docs/INDEPENDENT_OPERATIONAL_EVIDENCE_PHASE.md",
       "size_bytes": 14753,
       "sha256": "ae30111788870a4c74ad21b63288d15b1417341b2c225b95a2c8b17ebd44754e",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/INDEPENDENT_REVIEWER_GUIDE.md",
+      "size_bytes": 6957,
+      "sha256": "fd38cb8a9bc1e21881fb672838ecf6e0d51de140c311e422a53158c0de0daa4b",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1384,6 +1390,12 @@
       "path": "docs/OFFLINE_AND_BACKEND.md",
       "size_bytes": 6145,
       "sha256": "12e577d0d4df6b040925ee6ff7b14dafed335d9d01fafd8ad0c2a40c584b0586",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "docs/OPERATIONAL_READINESS_AND_VALIDATION.md",
+      "size_bytes": 13441,
+      "sha256": "130735c270cf725786a606f9152e9533bca733251ab5534b4fe09b07c1dbb20a",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1532,14 +1544,14 @@
     },
     {
       "path": ".github/workflows/global-ranking-release.yml",
-      "size_bytes": 3615,
-      "sha256": "0b8401a91c6517e219301f2b96b8b7054df29de952a9642188b9755d1619766f",
+      "size_bytes": 3581,
+      "sha256": "e228f55d1dc203ea360a5b55af119cecfd774c335468c5f8376cb52e76143683",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": ".github/workflows/pages.yml",
-      "size_bytes": 3018,
-      "sha256": "57cf6b4cbbc8fae64d64614e5e29d63a1168f6360f298c83a803f5050520d90b",
+      "size_bytes": 3403,
+      "sha256": "410c1b7aa686cf2ac81ff2a817cba28768d0fe19e66663caed99c29e031da053",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1610,8 +1622,8 @@
     },
     {
       "path": "tests/test_research_phase_pack.py",
-      "size_bytes": 4147,
-      "sha256": "0cba773190714667cf155b84bee385c40dbceab3da235f9397c2321ab1c6d9e6",
+      "size_bytes": 5296,
+      "sha256": "1a6eae4923b1e189832205f065aababc1610d1ecc74ca3b450e6060e828fcce3",
       "evidence_class_hint": "method_or_documentation"
     },
     {
