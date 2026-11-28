@@ -158,7 +158,7 @@ async function init(){
 $("saveButton").addEventListener("click",saveCurrent);
 $("previousButton").addEventListener("click",()=>{if(saveCurrent()&&current>0){current--;loadCase();}});
 $("nextButton").addEventListener("click",()=>{if(saveCurrent()&&current<packet.cases.length-1){current++;loadCase();}});
-$("exportButton").addEventListener("click",()=>{saveIdentityOnly();exportPacket();});
+$("exportButton").addEventListener("click",()=>{if(saveCurrent())exportPacket();});
 $("targetFilter").addEventListener("change",renderList);
 ["reviewerName","reviewerAffiliation","reviewerQualification","reviewDate","independent"].forEach(id=>$(id).addEventListener("change",saveIdentityOnly));
 $("importButton").addEventListener("click",()=>$("importFile").click());
