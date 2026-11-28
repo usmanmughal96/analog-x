@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - "scripts/verify_global_ranking_release.py"
+      - ".github/workflows/global-ranking-release.yml"
       - "scripts/build_independent_review_pack.py"
       - "scripts/import_independent_review_labels.py"
       - "scripts/build_reproducibility_manifest.py"
