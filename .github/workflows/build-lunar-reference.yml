@@ -6,7 +6,6 @@ on:
     paths:
       - "scripts/build_lunar_south_pole_reference.py"
       - "tests/test_lunar_reference_source.py"
-      - ".github/workflows/build-lunar-reference.yml"
   pull_request:
     paths:
       - "scripts/build_lunar_south_pole_reference.py"
