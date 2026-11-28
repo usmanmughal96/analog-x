@@ -35,6 +35,7 @@ ANALOG-X is a Pakistan-first research platform connecting candidate Earth enviro
 | [Evidence Operations Console](https://usmanmughal96.github.io/analog-x/) | Interactive Pakistan map, climate, satellite previews, terrain, Agent Bay and evidence status |
 | [Seven-slide demo](https://usmanmughal96.github.io/analog-x/demo.html) | Project story, scientific evidence and validation boundaries |
 | [ATFA Science Module](https://usmanmughal96.github.io/analog-x/transferability.html) | Experiment-level transferability and analogy-failure analysis |
+| [Planetary archive discovery](data/planetary/archive_discovery.json) | Spatially bounded PDS Geosciences ODE and USGS HiRISE metadata for MOLA, LOLA, Diviner and Nili Patera |
 | [Regional Discovery Scan](https://usmanmughal96.github.io/analog-x/discovery.html) | Local terrain-window comparison across ten curated Earth regions |
 | [Global Discovery Engine](https://usmanmughal96.github.io/analog-x/global-discovery.html) | Copernicus GLO-90 land-inventory screening and target-specific shortlists |
 | [Pakistan evidence network](https://usmanmughal96.github.io/analog-x/#pakistanEvidenceNetwork) | Four processed Pakistan satellite and terrain study windows |
@@ -123,7 +124,7 @@ The Shackleton pack includes NASA LOLA 80 m terrain context and a separate NASA 
 
 Historical Diviner PRP V2.0 summaries cover 6,823 Shackleton-window triangles: median annual-average temperature at 2 cm is 103.786 K and median annual-maximum surface temperature is 238.568 K. These are model-derived summaries from the first year of LRO mapping observations (2010–2011), not forecasts or in-situ measurements. Separate 100 m LROC WAC illumination-frequency products (15 February 2010–5 February 2011) report mean illumination frequency of 24.86% in the time-weighted layer and 25.97% in the percentage-based layer. At or below 5% illumination frequency, the corresponding area fractions are 60.62% and 58.65%. This threshold is only a low-illumination screening proxy, not a formal PSR polygon. Diviner ice-stability-depth values remain QA-limited and do not establish ice abundance or accessibility. Formal PSR Atlas geometry and mission-date NAIF SPICE illumination are not integrated.
 
-Machine-readable status: [quantitative validation](data/validation/quantitative_validation.json) · [global rankings](data/global_discovery/top_ranked_candidates.json) · [source registry](data/source_registry.json) · [Shackleton LOLA report](data/moon/shackleton_rim_lola.json).
+Machine-readable status: [quantitative validation](data/validation/quantitative_validation.json) · [global rankings](data/global_discovery/top_ranked_candidates.json) · [source registry](data/source_registry.json) · [Shackleton LOLA report](data/moon/shackleton_rim_lola.json). · [planetary archive discovery](data/planetary/archive_discovery.json)
 
 ## Evidence sources and limitations
 
@@ -138,6 +139,9 @@ Machine-readable status: [quantitative validation](data/validation/quantitative_
 | NASA Diviner PRP V2.0 | Historical model-derived thermal and ice-stability-depth context | Not in-situ; depth QA, accessible-ice interpretation and resource claims remain open |
 | NASA LROC WAC | Historical 100 m south-pole illumination-frequency products | 2010–2011 observation period; not a mission-date forecast or formal PSR delineation |
 | NASA Earthdata CMR | MODIS and MERRA-2 catalogue discovery | Metadata-only; science arrays have not been decoded by this integration |
+| NASA PDS Search API | Federated Moon/Mars product catalogue queries | API returned HTTP 500 during the latest build; this is a service error, not evidence that archives lack products |
+| PDS Geosciences ODE | Archive-specific MOLA, LOLA, Diviner and spatially bounded Nili Patera HiRISE DTM discovery | Metadata-only; product type is read from the live IIPT catalogue; binary files are not downloaded by discovery |
+| USGS Astrogeology STAC | HiRISE RDR image-observation metadata around Nili Patera | Image observations are not stereo DTMs; no imagery assets are downloaded by discovery |
 | GLiM / 2023 land cover | Retained-candidate context | Generalized layers, not field-validated geology |
 
 ANALOG-X is a research and field-planning prototype, not an operational mission-safety tool. Ten curated regions are not an exhaustive global search; ~925 m terrain does not resolve rover-scale hazards; the selected MOLA window is coverage-limited; no mineral assays, independent labels, field observations, rover trials or safety certifications are claimed.
