@@ -34,6 +34,39 @@ NILI = {
     "bbox_note": "The existing approximately 30 km MOLA comparison window; discovery AOI only, not a surveyed route.",
 }
 
+# ODE's Mars product-location filter can be center-based. The known HiRISE
+# Nili dunes DTM is centred at 67.33 E, outside the original MOLA comparison
+# window's eastern edge (67.256 E). This secondary discovery box includes that
+# published center but does not redefine the original MOLA comparison AOI.
+NILI_HIRISE_DTM_DISCOVERY_BBOX = [
+    NILI["bbox_wsen"][0], NILI["bbox_wsen"][1], 67.42, NILI["bbox_wsen"][3]
+]
+
+KNOWN_NILI_HIRISE_DTM = {
+    "id": "DTEEC_017762_1890_018039_1890_A01",
+    "title": "Topography of Moving Dunes in Nili Patera",
+    "provider": "University of Arizona HiRISE Operations Center / NASA-JPL-Caltech",
+    "source_page_url": "https://www.uahirise.org/dtm/dtm.php?ID=ESP_017762_1890",
+    "data_file_url": (
+        "https://www.uahirise.org/PDS/DTM/ESP/ORB_017700_017799/"
+        "ESP_017762_1890_ESP_018039_1890/"
+        "DTEEC_017762_1890_018039_1890_A01.IMG"
+    ),
+    "reported_file_size_mb": 430,
+    "center_latitude_deg": 8.781,
+    "center_longitude_east_deg": 67.33,
+    "map_scale_m_per_pixel": 1.01,
+    "stereo_pair": ["ESP_017762_1890", "ESP_018039_1890"],
+    "core_mola_aoi_center_inside": False,
+    "core_mola_aoi_footprint_intersection": "not_yet_verified_from_product_label",
+    "status": "known_catalogued_reference",
+    "metadata_boundary": (
+        "The published center is outside the original MOLA comparison box. "
+        "The enlarged ODE discovery box is only a catalogue search window; "
+        "it does not prove that the DTM footprint overlaps the original AOI."
+    ),
+}
+
 # Exact archive dataset identifiers already used by ANALOG-X and/or official
 # archive records. If ODE does not advertise a matching IIPT set, no guessed
 # product-type request is sent.
@@ -46,8 +79,9 @@ ODE_TARGETS = [
         "instrument_tokens": ("hirise",),
         "dataset_id": "MRO-M-HIRISE-5-DTM-V1.0",
         "product_type_filter": "DTM",
-        "purpose": "Find stereo-derived HiRISE DTMs intersecting the Nili Patera comparison window.",
+        "purpose": "Find stereo-derived HiRISE DTMs around Nili Patera, including the published dune-DTM center just east of the original MOLA comparison box.",
         "spatially_bounded": True,
+        "spatial_bbox": NILI_HIRISE_DTM_DISCOVERY_BBOX,
     },
     {
         "id": "mars_mola_megdr_nili",
@@ -258,7 +292,7 @@ def query_ode_dataset(spec: dict[str, Any]) -> dict[str, Any]:
         "product_count": None,
         "products_returned": 0,
         "products": [],
-        "spatial_filter": NILI["bbox_wsen"] if spec["spatially_bounded"] else None,
+        "spatial_filter": spec.get("spatial_bbox", NILI["bbox_wsen"]) if spec["spatially_bounded"] else None,
     }
     try:
         iipt_payload, iipt_url = _ode_get({
@@ -299,7 +333,7 @@ def query_ode_dataset(spec: dict[str, Any]) -> dict[str, Any]:
                 "order": "obd",
             }
             if spec["spatially_bounded"]:
-                west, south, east, north = NILI["bbox_wsen"]
+                west, south, east, north = spec.get("spatial_bbox", NILI["bbox_wsen"])
                 params.update({
                     "westernlon": west,
                     "easternlon": east,
@@ -404,6 +438,8 @@ def main() -> None:
         "purpose": "Fallback archive discovery for planetary products when the federated PDS Search API is unavailable.",
         "coverage": "Targeted metadata discovery for Nili Patera HiRISE DTM, regional MOLA MEGDR, lunar LOLA GDR, Diviner PRP and Nili-area HiRISE RDR observations.",
         "nili_patera_aoi": NILI,
+        "known_nili_hirise_dtm_reference": KNOWN_NILI_HIRISE_DTM,
+        "nili_hirise_dtm_discovery_bbox_wsen": NILI_HIRISE_DTM_DISCOVERY_BBOX,
         "ode": {
             "provider": "PDS Geosciences Node Orbital Data Explorer (ODE)",
             "api": ODE_API,
@@ -412,7 +448,7 @@ def main() -> None:
             "limitations": [
                 "ODE product records are metadata; they are not processed science rasters.",
                 "Product types are taken from the live ODE IIPT list; a missing IIPT set is recorded, not guessed.",
-                "The HiRISE DTM query is spatially bounded to the existing Nili Patera MOLA comparison AOI.",
+                "The primary MOLA comparison AOI remains unchanged. The separate HiRISE DTM discovery box is expanded eastward to include the published DTM center at 67.33 E; actual footprint intersection with the primary AOI must still be verified from the product label.",
                 "ODE query counts may refer to the full matching product set even when the metadata sample is limited to 20 records.",
             ],
         },
