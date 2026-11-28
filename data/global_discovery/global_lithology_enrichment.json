@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at_utc": "2026-11-22T21:52:55+00:00",
+  "generated_at_utc": "2026-11-28T15:56:51+00:00",
   "state": "processed",
   "scope": {
     "top_candidates_per_target": 100,
@@ -76,28 +76,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A102.42003%2C%22y%22%3A29.28299%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N26_00_E097_00_DEM_r60_c24": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 26.47722,
-        "longitude": 97.24231,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 454289,
-          "lithology_level_2_code": "ssmx",
-          "lithology_description": "Siliciclastic sedimentary rocks - Mixed grain size",
-          "lithology_level_1_code": "ss",
-          "original_feature_id": 60
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A97.24231%2C%22y%22%3A26.47722%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_N30_00_E078_00_DEM_r18_c90": {
       "state": "processed",
       "coordinate": {
@@ -120,11 +98,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A78.87329%2C%22y%22%3A30.84213%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N50_00_W116_00_DEM_r12_c24": {
+    "Copernicus_DSM_COG_30_N26_00_E097_00_DEM_r60_c24": {
       "state": "processed",
       "coordinate": {
-        "latitude": 50.88451,
-        "longitude": -115.64742,
+        "latitude": 26.47722,
+        "longitude": 97.24231,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -132,15 +110,15 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 284291,
-          "lithology_level_2_code": "scsh",
-          "lithology_description": "Carbonate sedimentary rocks - Fine grained",
-          "lithology_level_1_code": "sc",
-          "original_feature_id": 44
+          "feature_id": 454289,
+          "lithology_level_2_code": "ssmx",
+          "lithology_description": "Siliciclastic sedimentary rocks - Mixed grain size",
+          "lithology_level_1_code": "ss",
+          "original_feature_id": 60
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-115.64742%2C%22y%22%3A50.88451%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A97.24231%2C%22y%22%3A26.47722%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N28_00_E100_00_DEM_r84_c96": {
       "state": "processed",
@@ -163,28 +141,6 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A100.92673%2C%22y%22%3A28.27489%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_N27_00_E101_00_DEM_r24_c78": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 27.7798,
-        "longitude": 101.75607,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 339987,
-          "lithology_level_2_code": "smmx",
-          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
-          "lithology_level_1_code": "sm",
-          "original_feature_id": 52
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A101.75607%2C%22y%22%3A27.7798%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N41_00_E078_00_DEM_r6_c72": {
       "state": "processed",
@@ -230,6 +186,72 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-66.86998%2C%22y%22%3A-16.97653%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
+    "Copernicus_DSM_COG_30_N27_00_E101_00_DEM_r24_c78": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 27.7798,
+        "longitude": 101.75607,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 339987,
+          "lithology_level_2_code": "smmx",
+          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
+          "lithology_level_1_code": "sm",
+          "original_feature_id": 52
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A101.75607%2C%22y%22%3A27.7798%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N50_00_W116_00_DEM_r12_c24": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 50.88451,
+        "longitude": -115.64742,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 284291,
+          "lithology_level_2_code": "scsh",
+          "lithology_description": "Carbonate sedimentary rocks - Fine grained",
+          "lithology_level_1_code": "sc",
+          "original_feature_id": 44
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-115.64742%2C%22y%22%3A50.88451%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N06_00_W074_00_DEM_r102_c18": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 6.12436,
+        "longitude": -73.82621,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 318882,
+          "lithology_level_2_code": "smmx",
+          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
+          "lithology_level_1_code": "sm",
+          "original_feature_id": 52
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-73.82621%2C%22y%22%3A6.12436%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
     "Copernicus_DSM_COG_30_N46_00_E010_00_DEM_r12_c36": {
       "state": "processed",
       "coordinate": {
@@ -274,28 +296,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-73.38047%2C%22y%22%3A-46.9669%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N06_00_W074_00_DEM_r102_c18": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 6.12436,
-        "longitude": -73.82621,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 318882,
-          "lithology_level_2_code": "smmx",
-          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
-          "lithology_level_1_code": "sm",
-          "original_feature_id": 52
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-73.82621%2C%22y%22%3A6.12436%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_N28_00_E091_00_DEM_r108_c60": {
       "state": "processed",
       "coordinate": {
@@ -318,28 +318,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A91.59149%2C%22y%22%3A28.08085%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N21_00_E104_00_DEM_r78_c24": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 21.32438,
-        "longitude": 104.23863,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 156195,
-          "lithology_level_2_code": "pb__",
-          "lithology_description": "Basic plutonic rocks",
-          "lithology_level_1_code": "pb",
-          "original_feature_id": 21
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A104.23863%2C%22y%22%3A21.32438%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_N32_00_E077_00_DEM_r96_c0": {
       "state": "processed",
       "coordinate": {
@@ -361,6 +339,28 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A77.0116%2C%22y%22%3A32.19398%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N21_00_E104_00_DEM_r78_c24": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 21.32438,
+        "longitude": 104.23863,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 156195,
+          "lithology_level_2_code": "pb__",
+          "lithology_description": "Basic plutonic rocks",
+          "lithology_level_1_code": "pb",
+          "original_feature_id": 21
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A104.23863%2C%22y%22%3A21.32438%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N19_00_W098_00_DEM_r114_c78": {
       "state": "processed",
@@ -405,28 +405,6 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-76.9773%2C%22y%22%3A-10.42206%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_N25_00_E095_00_DEM_r30_c24": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 25.7382,
-        "longitude": 95.2445,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 22982,
-          "lithology_level_2_code": "mt__",
-          "lithology_description": "Metamorphics",
-          "lithology_level_1_code": "mt",
-          "original_feature_id": 7
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A95.2445%2C%22y%22%3A25.7382%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N27_00_E103_00_DEM_r0_c24": {
       "state": "processed",
@@ -494,11 +472,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-65.61488%2C%22y%22%3A-67.56402%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N42_00_E074_00_DEM_r54_c78": {
+    "Copernicus_DSM_COG_30_N25_00_E095_00_DEM_r30_c24": {
       "state": "processed",
       "coordinate": {
-        "latitude": 42.52952,
-        "longitude": 74.90389,
+        "latitude": 25.7382,
+        "longitude": 95.2445,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -506,15 +484,15 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 125569,
-          "lithology_level_2_code": "pa__",
-          "lithology_description": "Acid plutonic rocks",
-          "lithology_level_1_code": "pa",
-          "original_feature_id": 16
+          "feature_id": 22982,
+          "lithology_level_2_code": "mt__",
+          "lithology_description": "Metamorphics",
+          "lithology_level_1_code": "mt",
+          "original_feature_id": 7
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A74.90389%2C%22y%22%3A42.52952%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A95.2445%2C%22y%22%3A25.7382%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N35_00_E071_00_DEM_r96_c18": {
       "state": "processed",
@@ -560,28 +538,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A141.72625%2C%22y%22%3A-5.27572%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N28_00_E098_00_DEM_r108_c72": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 28.0766,
-        "longitude": 98.70535,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 340539,
-          "lithology_level_2_code": "smmx",
-          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
-          "lithology_level_1_code": "sm",
-          "original_feature_id": 52
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A98.70535%2C%22y%22%3A28.0766%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_N64_00_W130_00_DEM_r108_c42": {
       "state": "processed",
       "coordinate": {
@@ -603,6 +559,50 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-129.14939%2C%22y%22%3A64.08193%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N42_00_E074_00_DEM_r54_c78": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 42.52952,
+        "longitude": 74.90389,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 125569,
+          "lithology_level_2_code": "pa__",
+          "lithology_description": "Acid plutonic rocks",
+          "lithology_level_1_code": "pa",
+          "original_feature_id": 16
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A74.90389%2C%22y%22%3A42.52952%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N28_00_E098_00_DEM_r108_c72": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 28.0766,
+        "longitude": 98.70535,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 340539,
+          "lithology_level_2_code": "smmx",
+          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
+          "lithology_level_1_code": "sm",
+          "original_feature_id": 52
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A98.70535%2C%22y%22%3A28.0766%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N28_00_E103_00_DEM_r60_c78": {
       "state": "processed",
@@ -648,6 +648,28 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A91.97614%2C%22y%22%3A27.2843%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
+    "Copernicus_DSM_COG_30_N27_00_E098_00_DEM_r114_c24": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 27.0246,
+        "longitude": 98.25155,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 23088,
+          "lithology_level_2_code": "mt__",
+          "lithology_description": "Metamorphics",
+          "lithology_level_1_code": "mt",
+          "original_feature_id": 7
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A98.25155%2C%22y%22%3A27.0246%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
     "Copernicus_DSM_COG_30_N37_00_E076_00_DEM_r30_c30": {
       "state": "processed",
       "coordinate": {
@@ -692,6 +714,28 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A108.52446%2C%22y%22%3A54.43805%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
+    "Copernicus_DSM_COG_30_S06_00_E142_00_DEM_r48_c30": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": -5.42619,
+        "longitude": 142.2745,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 256663,
+          "lithology_level_2_code": "scpy",
+          "lithology_description": "Carbonate sedimentary rocks - Pyroclastics mentioned",
+          "lithology_level_1_code": "sc",
+          "original_feature_id": 43
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A142.2745%2C%22y%22%3A-5.42619%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
     "Copernicus_DSM_COG_30_N60_00_W045_00_DEM_r96_c30": {
       "state": "processed",
       "coordinate": {
@@ -714,11 +758,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-44.44974%2C%22y%22%3A60.18036%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N27_00_E098_00_DEM_r114_c24": {
+    "Copernicus_DSM_COG_30_N35_00_E077_00_DEM_r108_c60": {
       "state": "processed",
       "coordinate": {
-        "latitude": 27.0246,
-        "longitude": 98.25155,
+        "latitude": 35.08352,
+        "longitude": 77.61646,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -726,37 +770,15 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 23088,
-          "lithology_level_2_code": "mt__",
-          "lithology_description": "Metamorphics",
-          "lithology_level_1_code": "mt",
-          "original_feature_id": 7
+          "feature_id": 117588,
+          "lithology_level_2_code": "pa__",
+          "lithology_description": "Acid plutonic rocks",
+          "lithology_level_1_code": "pa",
+          "original_feature_id": 16
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A98.25155%2C%22y%22%3A27.0246%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_S06_00_E142_00_DEM_r48_c30": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": -5.42619,
-        "longitude": 142.2745,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 256663,
-          "lithology_level_2_code": "scpy",
-          "lithology_description": "Carbonate sedimentary rocks - Pyroclastics mentioned",
-          "lithology_level_1_code": "sc",
-          "original_feature_id": 43
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A142.2745%2C%22y%22%3A-5.42619%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A77.61646%2C%22y%22%3A35.08352%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N68_00_E018_00_DEM_r12_c42": {
       "state": "processed",
@@ -802,28 +824,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A143.37215%2C%22y%22%3A-5.07401%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N35_00_E077_00_DEM_r108_c60": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 35.08352,
-        "longitude": 77.61646,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 117588,
-          "lithology_level_2_code": "pa__",
-          "lithology_description": "Acid plutonic rocks",
-          "lithology_level_1_code": "pa",
-          "original_feature_id": 16
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A77.61646%2C%22y%22%3A35.08352%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_N54_00_W128_00_DEM_r60_c12": {
       "state": "processed",
       "coordinate": {
@@ -868,28 +868,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-73.51758%2C%22y%22%3A10.97788%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N31_00_E101_00_DEM_r12_c78": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 31.8797,
-        "longitude": 101.78928,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 456123,
-          "lithology_level_2_code": "ssmx",
-          "lithology_description": "Siliciclastic sedimentary rocks - Mixed grain size",
-          "lithology_level_1_code": "ss",
-          "original_feature_id": 60
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A101.78928%2C%22y%22%3A31.8797%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_N70_00_W027_00_DEM_r72_c0": {
       "state": "processed",
       "coordinate": {
@@ -911,6 +889,28 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-26.92595%2C%22y%22%3A70.38062%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N31_00_E101_00_DEM_r12_c78": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 31.8797,
+        "longitude": 101.78928,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 456123,
+          "lithology_level_2_code": "ssmx",
+          "lithology_description": "Siliciclastic sedimentary rocks - Mixed grain size",
+          "lithology_level_1_code": "ss",
+          "original_feature_id": 60
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A101.78928%2C%22y%22%3A31.8797%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N56_00_W124_00_DEM_r114_c24": {
       "state": "processed",
@@ -956,28 +956,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-72.06913%2C%22y%22%3A-41.10504%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N61_00_W143_00_DEM_r72_c30": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 61.38396,
-        "longitude": -142.45306,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 821478,
-          "lithology_level_2_code": "vb__",
-          "lithology_description": "Basic volcanic rocks",
-          "lithology_level_1_code": "vb",
-          "original_feature_id": 78
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-142.45306%2C%22y%22%3A61.38396%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_N33_00_E076_00_DEM_r24_c12": {
       "state": "processed",
       "coordinate": {
@@ -1000,6 +978,28 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A76.14736%2C%22y%22%3A33.78568%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
+    "Copernicus_DSM_COG_30_N61_00_W143_00_DEM_r72_c30": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 61.38396,
+        "longitude": -142.45306,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 821478,
+          "lithology_level_2_code": "vb__",
+          "lithology_description": "Basic volcanic rocks",
+          "lithology_level_1_code": "vb",
+          "original_feature_id": 78
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-142.45306%2C%22y%22%3A61.38396%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
     "Copernicus_DSM_COG_30_N32_00_E103_00_DEM_r66_c84": {
       "state": "processed",
       "coordinate": {
@@ -1021,28 +1021,6 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A103.84636%2C%22y%22%3A32.43499%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_N30_00_E081_00_DEM_r84_c42": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 30.27697,
-        "longitude": 81.43279,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 584646,
-          "lithology_level_2_code": "suad",
-          "lithology_description": "Unconsolidated sediments - Alluvial deposits",
-          "lithology_level_1_code": "su",
-          "original_feature_id": 64
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A81.43279%2C%22y%22%3A30.27697%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_S42_00_W072_00_DEM_r102_c30": {
       "state": "processed",
@@ -1087,6 +1065,28 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A12.299%2C%22y%22%3A47.58292%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N30_00_E081_00_DEM_r84_c42": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 30.27697,
+        "longitude": 81.43279,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 584646,
+          "lithology_level_2_code": "suad",
+          "lithology_description": "Unconsolidated sediments - Alluvial deposits",
+          "lithology_level_1_code": "su",
+          "original_feature_id": 64
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A81.43279%2C%22y%22%3A30.27697%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N31_00_E108_00_DEM_r36_c60": {
       "state": "processed",
@@ -1176,50 +1176,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A94.70448%2C%22y%22%3A28.52828%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N00_00_E127_00_DEM_r24_c36": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 0.77432,
-        "longitude": 127.32388,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 836335,
-          "lithology_level_2_code": "vi__",
-          "lithology_description": "Intermediate volcanic rocks",
-          "lithology_level_1_code": "vi",
-          "original_feature_id": 85
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A127.32388%2C%22y%22%3A0.77432%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_N41_00_E070_00_DEM_r6_c30": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 41.93431,
-        "longitude": 70.36717,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 346386,
-          "lithology_level_2_code": "smmx",
-          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
-          "lithology_level_1_code": "sm",
-          "original_feature_id": 52
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A70.36717%2C%22y%22%3A41.93431%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_S29_00_W067_00_DEM_r12_c96": {
       "state": "processed",
       "coordinate": {
@@ -1263,6 +1219,50 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-28.21084%2C%22y%22%3A70.18555%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N00_00_E127_00_DEM_r24_c36": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 0.77432,
+        "longitude": 127.32388,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 836335,
+          "lithology_level_2_code": "vi__",
+          "lithology_description": "Intermediate volcanic rocks",
+          "lithology_level_1_code": "vi",
+          "original_feature_id": 85
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A127.32388%2C%22y%22%3A0.77432%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N41_00_E070_00_DEM_r6_c30": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 41.93431,
+        "longitude": 70.36717,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 346386,
+          "lithology_level_2_code": "smmx",
+          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
+          "lithology_level_1_code": "sm",
+          "original_feature_id": 52
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A70.36717%2C%22y%22%3A41.93431%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N35_00_E077_00_DEM_r96_c0": {
       "state": "processed",
@@ -1308,50 +1308,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A13.66237%2C%22y%22%3A-71.37117%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_S44_00_E170_00_DEM_r60_c30": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": -43.52301,
-        "longitude": 170.36912,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 306102,
-          "lithology_level_2_code": "smmx",
-          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
-          "lithology_level_1_code": "sm",
-          "original_feature_id": 52
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A170.36912%2C%22y%22%3A-43.52301%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_N42_00_E083_00_DEM_r72_c0": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 42.39688,
-        "longitude": 83.01445,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 346361,
-          "lithology_level_2_code": "smmx",
-          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
-          "lithology_level_1_code": "sm",
-          "original_feature_id": 52
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A83.01445%2C%22y%22%3A42.39688%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_N30_00_E057_00_DEM_r108_c42": {
       "state": "processed",
       "coordinate": {
@@ -1373,6 +1329,28 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A57.43191%2C%22y%22%3A30.07664%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_S44_00_E170_00_DEM_r60_c30": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": -43.52301,
+        "longitude": 170.36912,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 306102,
+          "lithology_level_2_code": "smmx",
+          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
+          "lithology_level_1_code": "sm",
+          "original_feature_id": 52
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A170.36912%2C%22y%22%3A-43.52301%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N56_00_W132_00_DEM_r102_c30": {
       "state": "processed",
@@ -1396,6 +1374,28 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-131.51932%2C%22y%22%3A56.13769%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
+    "Copernicus_DSM_COG_30_N42_00_E083_00_DEM_r72_c0": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 42.39688,
+        "longitude": 83.01445,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 346361,
+          "lithology_level_2_code": "smmx",
+          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
+          "lithology_level_1_code": "sm",
+          "original_feature_id": 52
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A83.01445%2C%22y%22%3A42.39688%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
     "Copernicus_DSM_COG_30_N36_00_E071_00_DEM_r96_c84": {
       "state": "processed",
       "coordinate": {
@@ -1417,50 +1417,6 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A71.87356%2C%22y%22%3A36.17788%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_N50_00_W127_00_DEM_r18_c60": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 50.82975,
-        "longitude": -126.17967,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 135182,
-          "lithology_level_2_code": "pa__",
-          "lithology_description": "Acid plutonic rocks",
-          "lithology_level_1_code": "pa",
-          "original_feature_id": 16
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-126.17967%2C%22y%22%3A50.82975%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_S05_00_E137_00_DEM_r30_c24": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": -4.27537,
-        "longitude": 137.22288,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 318280,
-          "lithology_level_2_code": "smmx",
-          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
-          "lithology_level_1_code": "sm",
-          "original_feature_id": 52
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A137.22288%2C%22y%22%3A-4.27537%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N34_00_E074_00_DEM_r72_c90": {
       "state": "processed",
@@ -1484,6 +1440,50 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A74.93121%2C%22y%22%3A34.37848%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
+    "Copernicus_DSM_COG_30_S05_00_E137_00_DEM_r30_c24": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": -4.27537,
+        "longitude": 137.22288,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 318280,
+          "lithology_level_2_code": "smmx",
+          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
+          "lithology_level_1_code": "sm",
+          "original_feature_id": 52
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A137.22288%2C%22y%22%3A-4.27537%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N50_00_W127_00_DEM_r18_c60": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 50.82975,
+        "longitude": -126.17967,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 135182,
+          "lithology_level_2_code": "pa__",
+          "lithology_description": "Acid plutonic rocks",
+          "lithology_level_1_code": "pa",
+          "original_feature_id": 16
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-126.17967%2C%22y%22%3A50.82975%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
     "Copernicus_DSM_COG_30_S34_00_W071_00_DEM_r12_c72": {
       "state": "processed",
       "coordinate": {
@@ -1506,11 +1506,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-70.25923%2C%22y%22%3A-33.1228%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N32_00_E049_00_DEM_r66_c42": {
+    "Copernicus_DSM_COG_30_N32_00_E077_00_DEM_r48_c36": {
       "state": "processed",
       "coordinate": {
-        "latitude": 32.43053,
-        "longitude": 49.43322,
+        "latitude": 32.58807,
+        "longitude": 77.37508,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -1518,15 +1518,15 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 257367,
-          "lithology_level_2_code": "scpy",
-          "lithology_description": "Carbonate sedimentary rocks - Pyroclastics mentioned",
-          "lithology_level_1_code": "sc",
-          "original_feature_id": 43
+          "feature_id": 369249,
+          "lithology_level_2_code": "smsh",
+          "lithology_description": "Mixed sedimentary rocks - Fine grained",
+          "lithology_level_1_code": "sm",
+          "original_feature_id": 55
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A49.43322%2C%22y%22%3A32.43053%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A77.37508%2C%22y%22%3A32.58807%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N27_00_E092_00_DEM_r96_c84": {
       "state": "processed",
@@ -1572,6 +1572,28 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A74.47716%2C%22y%22%3A39.47807%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
+    "Copernicus_DSM_COG_30_N32_00_E049_00_DEM_r66_c42": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 32.43053,
+        "longitude": 49.43322,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 257367,
+          "lithology_level_2_code": "scpy",
+          "lithology_description": "Carbonate sedimentary rocks - Pyroclastics mentioned",
+          "lithology_level_1_code": "sc",
+          "original_feature_id": 43
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A49.43322%2C%22y%22%3A32.43053%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
     "Copernicus_DSM_COG_30_N38_00_E075_00_DEM_r48_c66": {
       "state": "processed",
       "coordinate": {
@@ -1593,6 +1615,28 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A75.73273%2C%22y%22%3A38.57687%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N50_00_W122_00_DEM_r114_c18": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 50.03708,
+        "longitude": -121.74888,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 135182,
+          "lithology_level_2_code": "pa__",
+          "lithology_description": "Acid plutonic rocks",
+          "lithology_level_1_code": "pa",
+          "original_feature_id": 16
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-121.74888%2C%22y%22%3A50.03708%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_S44_00_W073_00_DEM_r66_c66": {
       "state": "processed",
@@ -1638,72 +1682,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A72.65591%2C%22y%22%3A38.23993%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N32_00_E077_00_DEM_r48_c36": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 32.58807,
-        "longitude": 77.37508,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 369249,
-          "lithology_level_2_code": "smsh",
-          "lithology_description": "Mixed sedimentary rocks - Fine grained",
-          "lithology_level_1_code": "sm",
-          "original_feature_id": 55
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A77.37508%2C%22y%22%3A32.58807%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_N50_00_W122_00_DEM_r114_c18": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 50.03708,
-        "longitude": -121.74888,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 135182,
-          "lithology_level_2_code": "pa__",
-          "lithology_description": "Acid plutonic rocks",
-          "lithology_level_1_code": "pa",
-          "original_feature_id": 16
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-121.74888%2C%22y%22%3A50.03708%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_N36_00_E045_00_DEM_r66_c6": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 36.4288,
-        "longitude": 45.09287,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 3675,
-          "lithology_level_2_code": "ev__",
-          "lithology_description": "Evaporites",
-          "lithology_level_1_code": "ev",
-          "original_feature_id": 1
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A45.09287%2C%22y%22%3A36.4288%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_N08_00_W071_00_DEM_r0_c36": {
       "state": "processed",
       "coordinate": {
@@ -1748,28 +1726,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A73.88013%2C%22y%22%3A36.8865%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N49_00_W117_00_DEM_r42_c60": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 49.62711,
-        "longitude": -116.19308,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 447078,
-          "lithology_level_2_code": "ssmx",
-          "lithology_description": "Siliciclastic sedimentary rocks - Mixed grain size",
-          "lithology_level_1_code": "ss",
-          "original_feature_id": 60
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-116.19308%2C%22y%22%3A49.62711%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_N55_00_W128_00_DEM_r24_c30": {
       "state": "processed",
       "coordinate": {
@@ -1791,6 +1747,50 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-127.51882%2C%22y%22%3A55.78289%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N36_00_E045_00_DEM_r66_c6": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 36.4288,
+        "longitude": 45.09287,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 3675,
+          "lithology_level_2_code": "ev__",
+          "lithology_description": "Evaporites",
+          "lithology_level_1_code": "ev",
+          "original_feature_id": 1
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A45.09287%2C%22y%22%3A36.4288%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N49_00_W117_00_DEM_r42_c60": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 49.62711,
+        "longitude": -116.19308,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 447078,
+          "lithology_level_2_code": "ssmx",
+          "lithology_description": "Siliciclastic sedimentary rocks - Mixed grain size",
+          "lithology_level_1_code": "ss",
+          "original_feature_id": 60
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-116.19308%2C%22y%22%3A49.62711%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_S52_00_W074_00_DEM_r90_c36": {
       "state": "processed",
@@ -1836,28 +1836,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A169.10021%2C%22y%22%3A-44.1135%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N61_00_W128_00_DEM_r0_c12": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 61.98379,
-        "longitude": -127.73574,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 359236,
-          "lithology_level_2_code": "smpy",
-          "lithology_description": "Mixed sedimentary rocks - Pyroclastics mentioned",
-          "lithology_level_1_code": "sm",
-          "original_feature_id": 54
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-127.73574%2C%22y%22%3A61.98379%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_S12_00_W077_00_DEM_r96_c36": {
       "state": "processed",
       "coordinate": {
@@ -1880,11 +1858,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-76.67476%2C%22y%22%3A-11.82488%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N52_00_W118_00_DEM_r102_c24": {
+    "Copernicus_DSM_COG_30_N61_00_W128_00_DEM_r0_c12": {
       "state": "processed",
       "coordinate": {
-        "latitude": 52.12932,
-        "longitude": -117.63803,
+        "latitude": 61.98379,
+        "longitude": -127.73574,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -1892,15 +1870,15 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 284481,
-          "lithology_level_2_code": "scsh",
-          "lithology_description": "Carbonate sedimentary rocks - Fine grained",
-          "lithology_level_1_code": "sc",
-          "original_feature_id": 44
+          "feature_id": 359236,
+          "lithology_level_2_code": "smpy",
+          "lithology_description": "Mixed sedimentary rocks - Pyroclastics mentioned",
+          "lithology_level_1_code": "sm",
+          "original_feature_id": 54
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-117.63803%2C%22y%22%3A52.12932%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-127.73574%2C%22y%22%3A61.98379%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_S25_00_W066_00_DEM_r102_c24": {
       "state": "processed",
@@ -1923,6 +1901,28 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-65.77352%2C%22y%22%3A-24.86449%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N28_00_E093_00_DEM_r72_c12": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 28.37744,
+        "longitude": 93.14161,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 340474,
+          "lithology_level_2_code": "smmx",
+          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
+          "lithology_level_1_code": "sm",
+          "original_feature_id": 52
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A93.14161%2C%22y%22%3A28.37744%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N54_00_W164_00_DEM_r24_c0": {
       "state": "processed",
@@ -1968,11 +1968,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A76.51476%2C%22y%22%3A34.88192%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N28_00_E093_00_DEM_r72_c12": {
+    "Copernicus_DSM_COG_30_N52_00_W118_00_DEM_r102_c24": {
       "state": "processed",
       "coordinate": {
-        "latitude": 28.37744,
-        "longitude": 93.14161,
+        "latitude": 52.12932,
+        "longitude": -117.63803,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -1980,37 +1980,15 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 340474,
-          "lithology_level_2_code": "smmx",
-          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
-          "lithology_level_1_code": "sm",
-          "original_feature_id": 52
+          "feature_id": 284481,
+          "lithology_level_2_code": "scsh",
+          "lithology_description": "Carbonate sedimentary rocks - Fine grained",
+          "lithology_level_1_code": "sc",
+          "original_feature_id": 44
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A93.14161%2C%22y%22%3A28.37744%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_N40_00_E073_00_DEM_r96_c12": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 40.17771,
-        "longitude": 73.15775,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "moon"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 345254,
-          "lithology_level_2_code": "smmx",
-          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
-          "lithology_level_1_code": "sm",
-          "original_feature_id": 52
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A73.15775%2C%22y%22%3A40.17771%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-117.63803%2C%22y%22%3A52.12932%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N33_00_E076_00_DEM_r30_c30": {
       "state": "processed",
@@ -2033,6 +2011,28 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A76.32639%2C%22y%22%3A33.73383%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N40_00_E073_00_DEM_r96_c12": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 40.17771,
+        "longitude": 73.15775,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "moon"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 345254,
+          "lithology_level_2_code": "smmx",
+          "lithology_description": "Mixed sedimentary rocks - Mixed grain size",
+          "lithology_level_1_code": "sm",
+          "original_feature_id": 52
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A73.15775%2C%22y%22%3A40.17771%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N37_00_E070_00_DEM_r18_c84": {
       "state": "processed",
@@ -2232,11 +2232,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A9.68498%2C%22y%22%3A46.32804%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N63_00_E091_00_DEM_r0_c6": {
+    "Copernicus_DSM_COG_30_N37_00_E041_00_DEM_r12_c12": {
       "state": "processed",
       "coordinate": {
-        "latitude": 63.97644,
-        "longitude": 91.10067,
+        "latitude": 37.8935,
+        "longitude": 41.15489,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -2244,15 +2244,15 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 259580,
-          "lithology_level_2_code": "scpy",
-          "lithology_description": "Carbonate sedimentary rocks - Pyroclastics mentioned",
-          "lithology_level_1_code": "sc",
-          "original_feature_id": 43
+          "feature_id": 390087,
+          "lithology_level_2_code": "smss",
+          "lithology_description": "Mixed sedimentary rocks - Coarse grained",
+          "lithology_level_1_code": "sm",
+          "original_feature_id": 56
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A91.10067%2C%22y%22%3A63.97644%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A41.15489%2C%22y%22%3A37.8935%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N26_00_E006_00_DEM_r90_c84": {
       "state": "processed",
@@ -2298,28 +2298,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A30.73697%2C%22y%22%3A-27.87247%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N37_00_E041_00_DEM_r12_c12": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 37.8935,
-        "longitude": 41.15489,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 390087,
-          "lithology_level_2_code": "smss",
-          "lithology_description": "Mixed sedimentary rocks - Coarse grained",
-          "lithology_level_1_code": "sm",
-          "original_feature_id": 56
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A41.15489%2C%22y%22%3A37.8935%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_N63_00_W043_00_DEM_r54_c12": {
       "state": "processed",
       "coordinate": {
@@ -2342,11 +2320,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-42.75307%2C%22y%22%3A63.54022%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N42_00_W120_00_DEM_r24_c84": {
+    "Copernicus_DSM_COG_30_N63_00_E091_00_DEM_r0_c6": {
       "state": "processed",
       "coordinate": {
-        "latitude": 42.796,
-        "longitude": -119.0542,
+        "latitude": 63.97644,
+        "longitude": 91.10067,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -2354,59 +2332,15 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 773991,
-          "lithology_level_2_code": "va__",
-          "lithology_description": "Acid volcanic rocks",
-          "lithology_level_1_code": "va",
-          "original_feature_id": 74
+          "feature_id": 259580,
+          "lithology_level_2_code": "scpy",
+          "lithology_description": "Carbonate sedimentary rocks - Pyroclastics mentioned",
+          "lithology_level_1_code": "sc",
+          "original_feature_id": 43
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-119.0542%2C%22y%22%3A42.796%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_S17_00_W044_00_DEM_r66_c84": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": -16.57195,
-        "longitude": -43.24808,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 99559,
-          "lithology_level_2_code": "pa__",
-          "lithology_description": "Acid plutonic rocks",
-          "lithology_level_1_code": "pa",
-          "original_feature_id": 16
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-43.24808%2C%22y%22%3A-16.57195%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_S19_00_W050_00_DEM_r18_c42": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": -18.17314,
-        "longitude": -49.6113,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 792438,
-          "lithology_level_2_code": "vb__",
-          "lithology_description": "Basic volcanic rocks",
-          "lithology_level_1_code": "vb",
-          "original_feature_id": 78
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-49.6113%2C%22y%22%3A-18.17314%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A91.10067%2C%22y%22%3A63.97644%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N06_00_E014_00_DEM_r90_c66": {
       "state": "processed",
@@ -2452,11 +2386,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-85.0884%2C%22y%22%3A48.0278%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N46_00_E105_00_DEM_r0_c18": {
+    "Copernicus_DSM_COG_30_S17_00_W044_00_DEM_r66_c84": {
       "state": "processed",
       "coordinate": {
-        "latitude": 46.97911,
-        "longitude": 105.25541,
+        "latitude": -16.57195,
+        "longitude": -43.24808,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -2464,15 +2398,37 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 461865,
-          "lithology_level_2_code": "ssmx",
-          "lithology_description": "Siliciclastic sedimentary rocks - Mixed grain size",
-          "lithology_level_1_code": "ss",
-          "original_feature_id": 60
+          "feature_id": 99559,
+          "lithology_level_2_code": "pa__",
+          "lithology_description": "Acid plutonic rocks",
+          "lithology_level_1_code": "pa",
+          "original_feature_id": 16
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A105.25541%2C%22y%22%3A46.97911%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-43.24808%2C%22y%22%3A-16.57195%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_S19_00_W050_00_DEM_r18_c42": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": -18.17314,
+        "longitude": -49.6113,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 792438,
+          "lithology_level_2_code": "vb__",
+          "lithology_description": "Basic volcanic rocks",
+          "lithology_level_1_code": "vb",
+          "original_feature_id": 78
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-49.6113%2C%22y%22%3A-18.17314%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_S10_00_E017_00_DEM_r90_c90": {
       "state": "processed",
@@ -2496,11 +2452,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A17.78236%2C%22y%22%3A-9.77213%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_S29_00_W051_00_DEM_r6_c60": {
+    "Copernicus_DSM_COG_30_N46_00_E105_00_DEM_r0_c18": {
       "state": "processed",
       "coordinate": {
-        "latitude": -28.07387,
-        "longitude": -50.40691,
+        "latitude": 46.97911,
+        "longitude": 105.25541,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -2508,43 +2464,21 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 791619,
-          "lithology_level_2_code": "vb__",
-          "lithology_description": "Basic volcanic rocks",
-          "lithology_level_1_code": "vb",
-          "original_feature_id": 78
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-50.40691%2C%22y%22%3A-28.07387%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_N54_00_W118_00_DEM_r36_c30": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 54.6787,
-        "longitude": -117.54318,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 473424,
-          "lithology_level_2_code": "sspy",
-          "lithology_description": "Siliciclastic sedimentary rocks - Pyroclastics mentioned",
+          "feature_id": 461865,
+          "lithology_level_2_code": "ssmx",
+          "lithology_description": "Siliciclastic sedimentary rocks - Mixed grain size",
           "lithology_level_1_code": "ss",
-          "original_feature_id": 61
+          "original_feature_id": 60
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-117.54318%2C%22y%22%3A54.6787%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A105.25541%2C%22y%22%3A46.97911%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N52_00_W073_00_DEM_r6_c54": {
+    "Copernicus_DSM_COG_30_N42_00_W120_00_DEM_r24_c84": {
       "state": "processed",
       "coordinate": {
-        "latitude": 52.93046,
-        "longitude": -72.21863,
+        "latitude": 42.796,
+        "longitude": -119.0542,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -2552,15 +2486,15 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 35683,
-          "lithology_level_2_code": "mt__",
-          "lithology_description": "Metamorphics",
-          "lithology_level_1_code": "mt",
-          "original_feature_id": 7
+          "feature_id": 773991,
+          "lithology_level_2_code": "va__",
+          "lithology_description": "Acid volcanic rocks",
+          "lithology_level_1_code": "va",
+          "original_feature_id": 74
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-72.21863%2C%22y%22%3A52.93046%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-119.0542%2C%22y%22%3A42.796%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_S82_00_E156_00_DEM_r60_c30": {
       "state": "processed",
@@ -2584,11 +2518,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A156.52617%2C%22y%22%3A-81.45032%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_S27_00_E016_00_DEM_r48_c0": {
+    "Copernicus_DSM_COG_30_N54_00_W118_00_DEM_r36_c30": {
       "state": "processed",
       "coordinate": {
-        "latitude": -26.42577,
-        "longitude": 16.02282,
+        "latitude": 54.6787,
+        "longitude": -117.54318,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -2596,15 +2530,37 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 711631,
-          "lithology_level_2_code": "supu",
-          "lithology_description": "Unconsolidated sediments - (Pure) carbonate",
-          "lithology_level_1_code": "su",
-          "original_feature_id": 70
+          "feature_id": 473424,
+          "lithology_level_2_code": "sspy",
+          "lithology_description": "Siliciclastic sedimentary rocks - Pyroclastics mentioned",
+          "lithology_level_1_code": "ss",
+          "original_feature_id": 61
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A16.02282%2C%22y%22%3A-26.42577%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-117.54318%2C%22y%22%3A54.6787%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_S29_00_W051_00_DEM_r6_c60": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": -28.07387,
+        "longitude": -50.40691,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 791619,
+          "lithology_level_2_code": "vb__",
+          "lithology_description": "Basic volcanic rocks",
+          "lithology_level_1_code": "vb",
+          "original_feature_id": 78
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-50.40691%2C%22y%22%3A-28.07387%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N64_00_E091_00_DEM_r18_c36": {
       "state": "processed",
@@ -2627,6 +2583,28 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A91.69883%2C%22y%22%3A64.83339%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N52_00_W073_00_DEM_r6_c54": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 52.93046,
+        "longitude": -72.21863,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 35683,
+          "lithology_level_2_code": "mt__",
+          "lithology_description": "Metamorphics",
+          "lithology_level_1_code": "mt",
+          "original_feature_id": 7
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-72.21863%2C%22y%22%3A52.93046%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N57_00_E104_00_DEM_r96_c30": {
       "state": "processed",
@@ -2694,6 +2672,28 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A86.45055%2C%22y%22%3A34.0269%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
+    "Copernicus_DSM_COG_30_S27_00_E016_00_DEM_r48_c0": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": -26.42577,
+        "longitude": 16.02282,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 711631,
+          "lithology_level_2_code": "supu",
+          "lithology_description": "Unconsolidated sediments - (Pure) carbonate",
+          "lithology_level_1_code": "su",
+          "original_feature_id": 70
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A16.02282%2C%22y%22%3A-26.42577%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
     "Copernicus_DSM_COG_30_N67_00_E113_00_DEM_r48_c36": {
       "state": "processed",
       "coordinate": {
@@ -2715,28 +2715,6 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A113.81254%2C%22y%22%3A67.57981%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_S17_00_E029_00_DEM_r36_c72": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": -16.3189,
-        "longitude": 29.64194,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 16323,
-          "lithology_level_2_code": "mt__",
-          "lithology_description": "Metamorphics",
-          "lithology_level_1_code": "mt",
-          "original_feature_id": 7
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A29.64194%2C%22y%22%3A-16.3189%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_S01_00_W060_00_DEM_r42_c72": {
       "state": "processed",
@@ -2760,28 +2738,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-59.37729%2C%22y%22%3A-0.37627%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N66_00_E163_00_DEM_r84_c36": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 66.28586,
-        "longitude": 163.78139,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 822678,
-          "lithology_level_2_code": "vb__",
-          "lithology_description": "Basic volcanic rocks",
-          "lithology_level_1_code": "vb",
-          "original_feature_id": 78
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A163.78139%2C%22y%22%3A66.28586%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_S23_00_W052_00_DEM_r96_c66": {
       "state": "processed",
       "coordinate": {
@@ -2803,6 +2759,50 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-51.38397%2C%22y%22%3A-22.82684%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_S17_00_E029_00_DEM_r36_c72": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": -16.3189,
+        "longitude": 29.64194,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 16323,
+          "lithology_level_2_code": "mt__",
+          "lithology_description": "Metamorphics",
+          "lithology_level_1_code": "mt",
+          "original_feature_id": 7
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A29.64194%2C%22y%22%3A-16.3189%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N66_00_E163_00_DEM_r84_c36": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 66.28586,
+        "longitude": 163.78139,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 822678,
+          "lithology_level_2_code": "vb__",
+          "lithology_description": "Basic volcanic rocks",
+          "lithology_level_1_code": "vb",
+          "original_feature_id": 78
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A163.78139%2C%22y%22%3A66.28586%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N71_00_W051_00_DEM_r78_c12": {
       "state": "processed",
@@ -2870,28 +2870,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-92.33759%2C%22y%22%3A44.42788%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_S04_00_W047_00_DEM_r102_c48": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": -3.87767,
-        "longitude": -46.57712,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 612742,
-          "lithology_level_2_code": "sula",
-          "lithology_description": "Unconsolidated sediments - Laterites",
-          "lithology_level_1_code": "su",
-          "original_feature_id": 66
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-46.57712%2C%22y%22%3A-3.87767%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_N42_00_W006_00_DEM_r48_c60": {
       "state": "processed",
       "coordinate": {
@@ -2914,11 +2892,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-5.31801%2C%22y%22%3A42.59105%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N42_00_W114_00_DEM_r90_c6": {
+    "Copernicus_DSM_COG_30_S04_00_W047_00_DEM_r102_c48": {
       "state": "processed",
       "coordinate": {
-        "latitude": 42.2277,
-        "longitude": -113.9099,
+        "latitude": -3.87767,
+        "longitude": -46.57712,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -2926,15 +2904,15 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 582789,
-          "lithology_level_2_code": "suad",
-          "lithology_description": "Unconsolidated sediments - Alluvial deposits",
+          "feature_id": 612742,
+          "lithology_level_2_code": "sula",
+          "lithology_description": "Unconsolidated sediments - Laterites",
           "lithology_level_1_code": "su",
-          "original_feature_id": 64
+          "original_feature_id": 66
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-113.9099%2C%22y%22%3A42.2277%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-46.57712%2C%22y%22%3A-3.87767%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N51_00_W005_00_DEM_r12_c66": {
       "state": "processed",
@@ -3046,50 +3024,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-43.87201%2C%22y%22%3A-21.17469%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N50_00_E012_00_DEM_r18_c48": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 50.8395,
-        "longitude": 12.61659,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 35092,
-          "lithology_level_2_code": "mt__",
-          "lithology_description": "Metamorphics",
-          "lithology_level_1_code": "mt",
-          "original_feature_id": 7
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A12.61659%2C%22y%22%3A50.8395%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_N22_00_E053_00_DEM_r114_c90": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 22.02646,
-        "longitude": 53.81906,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 593921,
-          "lithology_level_2_code": "suds",
-          "lithology_description": "Unconsolidated sediments - Dune sands",
-          "lithology_level_1_code": "su",
-          "original_feature_id": 65
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A53.81906%2C%22y%22%3A22.02646%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_S10_00_E035_00_DEM_r12_c66": {
       "state": "processed",
       "coordinate": {
@@ -3111,6 +3045,28 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A35.57531%2C%22y%22%3A-9.12181%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N50_00_E012_00_DEM_r18_c48": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 50.8395,
+        "longitude": 12.61659,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 35092,
+          "lithology_level_2_code": "mt__",
+          "lithology_description": "Metamorphics",
+          "lithology_level_1_code": "mt",
+          "original_feature_id": 7
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A12.61659%2C%22y%22%3A50.8395%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N47_00_W075_00_DEM_r30_c60": {
       "state": "processed",
@@ -3178,6 +3134,28 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A21.91576%2C%22y%22%3A17.67438%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
+    "Copernicus_DSM_COG_30_N22_00_E053_00_DEM_r114_c90": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 22.02646,
+        "longitude": 53.81906,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 593921,
+          "lithology_level_2_code": "suds",
+          "lithology_description": "Unconsolidated sediments - Dune sands",
+          "lithology_level_1_code": "su",
+          "original_feature_id": 65
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A53.81906%2C%22y%22%3A22.02646%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
     "Copernicus_DSM_COG_30_S48_00_W072_00_DEM_r48_c54": {
       "state": "processed",
       "coordinate": {
@@ -3200,28 +3178,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-71.32465%2C%22y%22%3A-47.41839%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N68_00_E115_00_DEM_r90_c30": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 68.23521,
-        "longitude": 115.71736,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 287393,
-          "lithology_level_2_code": "scsh",
-          "lithology_description": "Carbonate sedimentary rocks - Fine grained",
-          "lithology_level_1_code": "sc",
-          "original_feature_id": 44
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A115.71736%2C%22y%22%3A68.23521%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_N22_00_E018_00_DEM_r78_c90": {
       "state": "processed",
       "coordinate": {
@@ -3243,6 +3199,28 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A18.82762%2C%22y%22%3A22.33701%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N68_00_E115_00_DEM_r90_c30": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 68.23521,
+        "longitude": 115.71736,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 287393,
+          "lithology_level_2_code": "scsh",
+          "lithology_description": "Carbonate sedimentary rocks - Fine grained",
+          "lithology_level_1_code": "sc",
+          "original_feature_id": 44
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A115.71736%2C%22y%22%3A68.23521%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N38_00_E098_00_DEM_r24_c84": {
       "state": "processed",
@@ -3310,6 +3288,28 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-51.97872%2C%22y%22%3A-25.77357%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
+    "Copernicus_DSM_COG_30_N42_00_W114_00_DEM_r90_c6": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 42.2277,
+        "longitude": -113.9099,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 582789,
+          "lithology_level_2_code": "suad",
+          "lithology_description": "Unconsolidated sediments - Alluvial deposits",
+          "lithology_level_1_code": "su",
+          "original_feature_id": 64
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-113.9099%2C%22y%22%3A42.2277%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
     "Copernicus_DSM_COG_30_S29_00_W052_00_DEM_r60_c36": {
       "state": "processed",
       "coordinate": {
@@ -3376,28 +3376,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A46.12995%2C%22y%22%3A-17.82695%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N64_00_W078_00_DEM_r66_c36": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 64.43945,
-        "longitude": -77.29815,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 822257,
-          "lithology_level_2_code": "vb__",
-          "lithology_description": "Basic volcanic rocks",
-          "lithology_level_1_code": "vb",
-          "original_feature_id": 78
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-77.29815%2C%22y%22%3A64.43945%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_N13_00_E120_00_DEM_r6_c108": {
       "state": "processed",
       "coordinate": {
@@ -3419,6 +3397,28 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A120.93799%2C%22y%22%3A13.93457%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N64_00_W078_00_DEM_r66_c36": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 64.43945,
+        "longitude": -77.29815,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 822257,
+          "lithology_level_2_code": "vb__",
+          "lithology_description": "Basic volcanic rocks",
+          "lithology_level_1_code": "vb",
+          "original_feature_id": 78
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-77.29815%2C%22y%22%3A64.43945%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_S11_00_E028_00_DEM_r78_c12": {
       "state": "processed",
@@ -3442,28 +3442,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A28.12578%2C%22y%22%3A-10.67713%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_S20_00_W044_00_DEM_r66_c18": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": -19.57564,
-        "longitude": -43.81747,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 364195,
-          "lithology_level_2_code": "smsh",
-          "lithology_description": "Mixed sedimentary rocks - Fine grained",
-          "lithology_level_1_code": "sm",
-          "original_feature_id": 55
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-43.81747%2C%22y%22%3A-19.57564%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_S08_00_E035_00_DEM_r60_c84": {
       "state": "processed",
       "coordinate": {
@@ -3485,6 +3463,28 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A35.72658%2C%22y%22%3A-7.52292%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_S20_00_W044_00_DEM_r66_c18": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": -19.57564,
+        "longitude": -43.81747,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 364195,
+          "lithology_level_2_code": "smsh",
+          "lithology_description": "Mixed sedimentary rocks - Fine grained",
+          "lithology_level_1_code": "sm",
+          "original_feature_id": 55
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-43.81747%2C%22y%22%3A-19.57564%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N27_00_E011_00_DEM_r114_c90": {
       "state": "processed",
@@ -3552,11 +3552,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-113.39445%2C%22y%22%3A34.88839%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_S15_00_W040_00_DEM_r36_c90": {
+    "Copernicus_DSM_COG_30_N52_00_E057_00_DEM_r102_c42": {
       "state": "processed",
       "coordinate": {
-        "latitude": -14.3261,
-        "longitude": -39.20374,
+        "latitude": 52.12947,
+        "longitude": 57.60809,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -3564,15 +3564,15 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 51341,
-          "lithology_level_2_code": "mtam",
-          "lithology_description": "Metamorphics - Mafic metamorphics mentioned",
-          "lithology_level_1_code": "mt",
-          "original_feature_id": 8
+          "feature_id": 358795,
+          "lithology_level_2_code": "smpy",
+          "lithology_description": "Mixed sedimentary rocks - Pyroclastics mentioned",
+          "lithology_level_1_code": "sm",
+          "original_feature_id": 54
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-39.20374%2C%22y%22%3A-14.3261%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A57.60809%2C%22y%22%3A52.12947%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_S19_00_W047_00_DEM_r54_c42": {
       "state": "processed",
@@ -3596,11 +3596,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-46.61131%2C%22y%22%3A-18.47228%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N52_00_E057_00_DEM_r102_c42": {
+    "Copernicus_DSM_COG_30_S15_00_W040_00_DEM_r36_c90": {
       "state": "processed",
       "coordinate": {
-        "latitude": 52.12947,
-        "longitude": 57.60809,
+        "latitude": -14.3261,
+        "longitude": -39.20374,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -3608,37 +3608,15 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 358795,
-          "lithology_level_2_code": "smpy",
-          "lithology_description": "Mixed sedimentary rocks - Pyroclastics mentioned",
-          "lithology_level_1_code": "sm",
-          "original_feature_id": 54
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A57.60809%2C%22y%22%3A52.12947%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_S09_00_E028_00_DEM_r48_c12": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": -8.42632,
-        "longitude": 28.1245,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 20384,
-          "lithology_level_2_code": "mt__",
-          "lithology_description": "Metamorphics",
+          "feature_id": 51341,
+          "lithology_level_2_code": "mtam",
+          "lithology_description": "Metamorphics - Mafic metamorphics mentioned",
           "lithology_level_1_code": "mt",
-          "original_feature_id": 7
+          "original_feature_id": 8
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A28.1245%2C%22y%22%3A-8.42632%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-39.20374%2C%22y%22%3A-14.3261%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_S14_00_E019_00_DEM_r84_c90": {
       "state": "processed",
@@ -3661,28 +3639,6 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A19.78938%2C%22y%22%3A-13.72665%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_N23_00_W104_00_DEM_r102_c78": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 23.1263,
-        "longitude": -103.27495,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 192540,
-          "lithology_level_2_code": "py__",
-          "lithology_description": "Pyroclastics",
-          "lithology_level_1_code": "py",
-          "original_feature_id": 30
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-103.27495%2C%22y%22%3A23.1263%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N38_00_W113_00_DEM_r54_c6": {
       "state": "processed",
@@ -3728,6 +3684,28 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-121.16142%2C%22y%22%3A43.1282%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
+    "Copernicus_DSM_COG_30_S09_00_E028_00_DEM_r48_c12": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": -8.42632,
+        "longitude": 28.1245,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 20384,
+          "lithology_level_2_code": "mt__",
+          "lithology_description": "Metamorphics",
+          "lithology_level_1_code": "mt",
+          "original_feature_id": 7
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A28.1245%2C%22y%22%3A-8.42632%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
     "Copernicus_DSM_COG_30_N52_00_E113_00_DEM_r12_c24": {
       "state": "processed",
       "coordinate": {
@@ -3749,6 +3727,28 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A113.36619%2C%22y%22%3A52.88955%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N48_00_W054_00_DEM_r24_c6": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 48.77702,
+        "longitude": -53.93273,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 446637,
+          "lithology_level_2_code": "ssmx",
+          "lithology_description": "Siliciclastic sedimentary rocks - Mixed grain size",
+          "lithology_level_1_code": "ss",
+          "original_feature_id": 60
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-53.93273%2C%22y%22%3A48.77702%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N58_00_E092_00_DEM_r24_c24": {
       "state": "processed",
@@ -3794,11 +3794,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A116.81096%2C%22y%22%3A27.07657%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N48_00_W054_00_DEM_r24_c6": {
+    "Copernicus_DSM_COG_30_N03_00_W078_00_DEM_r114_c90": {
       "state": "processed",
       "coordinate": {
-        "latitude": 48.77702,
-        "longitude": -53.93273,
+        "latitude": 3.0241,
+        "longitude": -77.22672,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -3806,7 +3806,7 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 446637,
+          "feature_id": 418603,
           "lithology_level_2_code": "ssmx",
           "lithology_description": "Siliciclastic sedimentary rocks - Mixed grain size",
           "lithology_level_1_code": "ss",
@@ -3814,7 +3814,7 @@
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-53.93273%2C%22y%22%3A48.77702%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-77.22672%2C%22y%22%3A3.0241%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N59_00_E057_00_DEM_r12_c42": {
       "state": "processed",
@@ -3837,28 +3837,6 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A57.74352%2C%22y%22%3A59.8771%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_N03_00_W078_00_DEM_r114_c90": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 3.0241,
-        "longitude": -77.22672,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 418603,
-          "lithology_level_2_code": "ssmx",
-          "lithology_description": "Siliciclastic sedimentary rocks - Mixed grain size",
-          "lithology_level_1_code": "ss",
-          "original_feature_id": 60
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-77.22672%2C%22y%22%3A3.0241%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_S20_00_W045_00_DEM_r102_c12": {
       "state": "processed",
@@ -3904,72 +3882,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A67.42731%2C%22y%22%3A-69.81715%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N24_00_E079_00_DEM_r66_c72": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 24.43124,
-        "longitude": 79.67744,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 454093,
-          "lithology_level_2_code": "ssmx",
-          "lithology_description": "Siliciclastic sedimentary rocks - Mixed grain size",
-          "lithology_level_1_code": "ss",
-          "original_feature_id": 60
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A79.67744%2C%22y%22%3A24.43124%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_N40_00_W079_00_DEM_r78_c24": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 40.34171,
-        "longitude": -78.72556,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 495898,
-          "lithology_level_2_code": "sssh",
-          "lithology_description": "Siliciclastic sedimentary rocks - Fine grained",
-          "lithology_level_1_code": "ss",
-          "original_feature_id": 62
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-78.72556%2C%22y%22%3A40.34171%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_N70_00_E108_00_DEM_r108_c12": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 70.08395,
-        "longitude": 108.35317,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 169896,
-          "lithology_level_2_code": "pb__",
-          "lithology_description": "Basic plutonic rocks",
-          "lithology_level_1_code": "pb",
-          "original_feature_id": 21
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A108.35317%2C%22y%22%3A70.08395%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_N23_00_E039_00_DEM_r96_c102": {
       "state": "processed",
       "coordinate": {
@@ -3992,11 +3904,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A39.94892%2C%22y%22%3A23.17323%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N22_00_E054_00_DEM_r96_c6": {
+    "Copernicus_DSM_COG_30_N24_00_E079_00_DEM_r66_c72": {
       "state": "processed",
       "coordinate": {
-        "latitude": 22.17492,
-        "longitude": 54.07697,
+        "latitude": 24.43124,
+        "longitude": 79.67744,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -4004,15 +3916,15 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 593921,
-          "lithology_level_2_code": "suds",
-          "lithology_description": "Unconsolidated sediments - Dune sands",
-          "lithology_level_1_code": "su",
-          "original_feature_id": 65
+          "feature_id": 454093,
+          "lithology_level_2_code": "ssmx",
+          "lithology_description": "Siliciclastic sedimentary rocks - Mixed grain size",
+          "lithology_level_1_code": "ss",
+          "original_feature_id": 60
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A54.07697%2C%22y%22%3A22.17492%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A79.67744%2C%22y%22%3A24.43124%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_S76_00_W069_00_DEM_r66_c18": {
       "state": "processed",
@@ -4036,11 +3948,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-68.30162%2C%22y%22%3A-75.571%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N61_00_E125_00_DEM_r48_c42": {
+    "Copernicus_DSM_COG_30_N23_00_W104_00_DEM_r102_c78": {
       "state": "processed",
       "coordinate": {
-        "latitude": 61.58131,
-        "longitude": 125.75731,
+        "latitude": 23.1263,
+        "longitude": -103.27495,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -4048,15 +3960,81 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 286840,
-          "lithology_level_2_code": "scsh",
-          "lithology_description": "Carbonate sedimentary rocks - Fine grained",
-          "lithology_level_1_code": "sc",
-          "original_feature_id": 44
+          "feature_id": 192540,
+          "lithology_level_2_code": "py__",
+          "lithology_description": "Pyroclastics",
+          "lithology_level_1_code": "py",
+          "original_feature_id": 30
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A125.75731%2C%22y%22%3A61.58131%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-103.27495%2C%22y%22%3A23.1263%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N40_00_W079_00_DEM_r78_c24": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 40.34171,
+        "longitude": -78.72556,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 495898,
+          "lithology_level_2_code": "sssh",
+          "lithology_description": "Siliciclastic sedimentary rocks - Fine grained",
+          "lithology_level_1_code": "ss",
+          "original_feature_id": 62
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-78.72556%2C%22y%22%3A40.34171%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N22_00_E054_00_DEM_r96_c6": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 22.17492,
+        "longitude": 54.07697,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 593921,
+          "lithology_level_2_code": "suds",
+          "lithology_description": "Unconsolidated sediments - Dune sands",
+          "lithology_level_1_code": "su",
+          "original_feature_id": 65
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A54.07697%2C%22y%22%3A22.17492%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N70_00_E108_00_DEM_r108_c12": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 70.08395,
+        "longitude": 108.35317,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 169896,
+          "lithology_level_2_code": "pb__",
+          "lithology_description": "Basic plutonic rocks",
+          "lithology_level_1_code": "pb",
+          "original_feature_id": 21
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A108.35317%2C%22y%22%3A70.08395%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_S28_00_W052_00_DEM_r42_c66": {
       "state": "processed",
@@ -4079,6 +4057,50 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-51.35793%2C%22y%22%3A-27.37535%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N61_00_E125_00_DEM_r48_c42": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 61.58131,
+        "longitude": 125.75731,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 286840,
+          "lithology_level_2_code": "scsh",
+          "lithology_description": "Carbonate sedimentary rocks - Fine grained",
+          "lithology_level_1_code": "sc",
+          "original_feature_id": 44
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A125.75731%2C%22y%22%3A61.58131%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_S76_00_W110_00_DEM_r36_c24": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": -75.31828,
+        "longitude": -109.16245,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 5177,
+          "lithology_level_2_code": "ig__",
+          "lithology_description": "Ice and Glaciers",
+          "lithology_level_1_code": "ig",
+          "original_feature_id": 6
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-109.16245%2C%22y%22%3A-75.31828%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N45_00_E035_00_DEM_r114_c12": {
       "state": "processed",
@@ -4123,28 +4145,6 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A8.96216%2C%22y%22%3A25.97839%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_S76_00_W110_00_DEM_r36_c24": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": -75.31828,
-        "longitude": -109.16245,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 5177,
-          "lithology_level_2_code": "ig__",
-          "lithology_description": "Ice and Glaciers",
-          "lithology_level_1_code": "ig",
-          "original_feature_id": 6
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-109.16245%2C%22y%22%3A-75.31828%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N30_00_E054_00_DEM_r48_c48": {
       "state": "processed",
@@ -4278,28 +4278,6 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A104.1773%2C%22y%22%3A46.12733%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N10_00_E042_00_DEM_r72_c54": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 10.37747,
-        "longitude": 42.47759,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 795142,
-          "lithology_level_2_code": "vb__",
-          "lithology_description": "Basic volcanic rocks",
-          "lithology_level_1_code": "vb",
-          "original_feature_id": 78
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A42.47759%2C%22y%22%3A10.37747%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
     "Copernicus_DSM_COG_30_N23_00_E019_00_DEM_r90_c66": {
       "state": "processed",
       "coordinate": {
@@ -4321,28 +4299,6 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A19.62026%2C%22y%22%3A23.22995%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
-    },
-    "Copernicus_DSM_COG_30_N31_00_W009_00_DEM_r66_c66": {
-      "state": "processed",
-      "coordinate": {
-        "latitude": 31.42634,
-        "longitude": -8.32844,
-        "status": "approximate GLO-90 window centre; not survey-grade"
-      },
-      "target_membership": [
-        "mars"
-      ],
-      "lithology_features": [
-        {
-          "feature_id": 423310,
-          "lithology_level_2_code": "ssmx",
-          "lithology_description": "Siliciclastic sedimentary rocks - Mixed grain size",
-          "lithology_level_1_code": "ss",
-          "original_feature_id": 60
-        }
-      ],
-      "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-8.32844%2C%22y%22%3A31.42634%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_S12_00_E017_00_DEM_r18_c36": {
       "state": "processed",
@@ -4366,11 +4322,11 @@
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A17.32433%2C%22y%22%3A-11.17324%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
-    "Copernicus_DSM_COG_30_N47_00_W109_00_DEM_r18_c30": {
+    "Copernicus_DSM_COG_30_N31_00_W009_00_DEM_r66_c66": {
       "state": "processed",
       "coordinate": {
-        "latitude": 47.83929,
-        "longitude": -108.59822,
+        "latitude": 31.42634,
+        "longitude": -8.32844,
         "status": "approximate GLO-90 window centre; not survey-grade"
       },
       "target_membership": [
@@ -4378,15 +4334,37 @@
       ],
       "lithology_features": [
         {
-          "feature_id": 502698,
-          "lithology_level_2_code": "sssh",
-          "lithology_description": "Siliciclastic sedimentary rocks - Fine grained",
+          "feature_id": 423310,
+          "lithology_level_2_code": "ssmx",
+          "lithology_description": "Siliciclastic sedimentary rocks - Mixed grain size",
           "lithology_level_1_code": "ss",
-          "original_feature_id": 62
+          "original_feature_id": 60
         }
       ],
       "feature_count": 1,
-      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-108.59822%2C%22y%22%3A47.83929%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-8.32844%2C%22y%22%3A31.42634%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N10_00_E042_00_DEM_r72_c54": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 10.37747,
+        "longitude": 42.47759,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 795142,
+          "lithology_level_2_code": "vb__",
+          "lithology_description": "Basic volcanic rocks",
+          "lithology_level_1_code": "vb",
+          "original_feature_id": 78
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A42.47759%2C%22y%22%3A10.37747%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_N46_00_W089_00_DEM_r36_c42": {
       "state": "processed",
@@ -4409,6 +4387,28 @@
       ],
       "feature_count": 1,
       "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-88.48076%2C%22y%22%3A46.68325%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
+    },
+    "Copernicus_DSM_COG_30_N47_00_W109_00_DEM_r18_c30": {
+      "state": "processed",
+      "coordinate": {
+        "latitude": 47.83929,
+        "longitude": -108.59822,
+        "status": "approximate GLO-90 window centre; not survey-grade"
+      },
+      "target_membership": [
+        "mars"
+      ],
+      "lithology_features": [
+        {
+          "feature_id": 502698,
+          "lithology_level_2_code": "sssh",
+          "lithology_description": "Siliciclastic sedimentary rocks - Fine grained",
+          "lithology_level_1_code": "ss",
+          "original_feature_id": 62
+        }
+      ],
+      "feature_count": 1,
+      "source_query_url": "https://services3.arcgis.com/txu3Aw836B0Ze9Ef/ArcGIS/rest/services/GLiM_Lithology_Simplified/FeatureServer/1/query?f=json&where=1%3D1&geometry=%7B%22x%22%3A-108.59822%2C%22y%22%3A47.83929%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLithoL2%2CLithology%2CLitho16%2CORIG_FID&returnGeometry=false&outSR=4326"
     },
     "Copernicus_DSM_COG_30_S37_00_E148_00_DEM_r54_c90": {
       "state": "processed",

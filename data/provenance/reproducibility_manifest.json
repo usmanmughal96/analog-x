@@ -1,16 +1,16 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-28T15:38:59+00:00",
-  "repository_commit_before_manifest_commit": "162eb9cbd4cd0b8284e8367a9c5b533de11a461a",
+  "generated_at_utc": "2026-11-28T15:56:51+00:00",
+  "repository_commit_before_manifest_commit": "e298cb2caf950c3ce44d0deb58ce803413e6d4d3",
   "working_tree_before_manifest_write": "dirty",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
   "runtime_packages": {
     "numpy": "2.4.6",
-    "rasterio": null,
-    "scipy": null,
-    "requests": null,
+    "rasterio": "1.4.4",
+    "scipy": "1.17.1",
+    "requests": "2.34.2",
     "Pillow": null
   },
   "inventory_scope": {
@@ -38,7 +38,7 @@
     ]
   },
   "file_count": 235,
-  "source_registry_sha256": "b830bd2984c662534fd477ea05555cb429ae4208cf5ad4cce1830725d256a4d4",
+  "source_registry_sha256": "aef387b9c65d0c2dce556d05731a3254467d56122775751ed6954649b42d7d84",
   "source_registry_records": [
     {
       "id": "copernicus_glo30_regional",
@@ -500,25 +500,25 @@
     {
       "path": "data/global_discovery/global_discovery.json",
       "size_bytes": 11285179,
-      "sha256": "f5c66b8efa44dd7e6619164f3a4342b794bdf64644c26f3386a8c31d8b930c09",
+      "sha256": "5bc9f55c442305eead2498ff573ba18bb260546643d204fa4ce03c0e1822f4d4",
       "evidence_class_hint": "global_discovery_output"
     },
     {
       "path": "data/global_discovery/global_landcover_enrichment.json",
       "size_bytes": 4211269,
-      "sha256": "86ff7032c99590788ddee79c1ac3fb0b738b3556974722a4ea3891e402434bee",
+      "sha256": "4c5448a144d12fb4a093f328f2bdf1879a08c1ae96e1737443c49d0c9929774f",
       "evidence_class_hint": "global_discovery_output"
     },
     {
       "path": "data/global_discovery/global_lithology_enrichment.json",
       "size_bytes": 214215,
-      "sha256": "71b33cd40f341514f3c9d1a911c0faff935763ffd9aa3cab0a1aa01002221660",
+      "sha256": "197047150dfeabc6530ea90f2d06965174647ca0ea908b2223ababc70ab42f3b",
       "evidence_class_hint": "global_discovery_output"
     },
     {
       "path": "data/global_discovery/global_power_enrichment.json",
       "size_bytes": 1484488,
-      "sha256": "db9fb358ecd6811b170263aea289210fc6d3e4b383db6702f780bf9fa40c547e",
+      "sha256": "165d2757bdb78315506e96f935742f8eb10290d0119502e38796148fbcfd0fd4",
       "evidence_class_hint": "global_discovery_output"
     },
     {
@@ -973,8 +973,8 @@
     },
     {
       "path": "data/source_registry.json",
-      "size_bytes": 24715,
-      "sha256": "b830bd2984c662534fd477ea05555cb429ae4208cf5ad4cce1830725d256a4d4",
+      "size_bytes": 24769,
+      "sha256": "aef387b9c65d0c2dce556d05731a3254467d56122775751ed6954649b42d7d84",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
