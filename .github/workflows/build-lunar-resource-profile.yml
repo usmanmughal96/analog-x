@@ -7,7 +7,6 @@ on:
       - "scripts/process_diviner_prp.py"
       - "tests/test_diviner_prp.py"
       - "data/moon/shackleton_lola_80m.json"
-      - ".github/workflows/build-lunar-resource-profile.yml"
   workflow_dispatch:
 
 permissions:
