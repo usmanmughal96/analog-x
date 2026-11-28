@@ -375,13 +375,15 @@
       "artifacts": [
         "data/planetary/pds_search.json"
       ],
-      "url": "https://pds.nasa.gov/api/search/1/products",
+      "url": "https://pds.mcp.nasa.gov/api/search/1/products",
       "limitations": [
         "PDS registry coverage is incomplete; zero results do not prove an archive lacks a dataset.",
         "Catalogue records are metadata, not decoded science arrays, calibration evidence or validated measurements.",
         "A listed data-file reference is not proof of direct binary access, successful download, spatial completeness or analysis readiness.",
-        "Product labels, units, coordinate systems, versions, calibration and licences must be inspected before processing."
-      ]
+        "Product labels, units, coordinate systems, versions, calibration and licences must be inspected before processing.",
+        "The production Search API returned HTTP 500 for all six target/instrument queries on 2026-11-28; query_error is retained as service failure, not interpreted as an empty archive."
+      ],
+      "documentation_url": "https://nasa-pds.github.io/pds-api/guides/search.html"
     }
   ]
 }

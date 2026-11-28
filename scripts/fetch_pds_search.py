@@ -17,7 +17,8 @@ from urllib3.util.retry import Retry
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "planetary" / "pds_search.json"
-API = "https://pds.nasa.gov/api/search/1/products"
+API = "https://pds.mcp.nasa.gov/api/search/1/products"
+QUERY_LIMIT = 25
 OBSERVATIONAL_CLASS = "Product_Observational"
 
 MARS = "urn:nasa:pds:context:target:planet.mars"
@@ -86,10 +87,10 @@ SESSION.headers.update(
     }
 )
 RETRY = Retry(
-    total=3,
-    connect=3,
-    read=3,
-    backoff_factor=1,
+    total=2,
+    connect=2,
+    read=2,
+    backoff_factor=0.75,
     status_forcelist=(429, 500, 502, 503, 504),
     allowed_methods=frozenset(["GET"]),
     respect_retry_after_header=True,
@@ -200,15 +201,24 @@ def extract_products(payload: Any) -> list[dict[str, Any]]:
     return [item for item in products if isinstance(item, dict)]
 
 
+def build_request_url(query: dict[str, Any]) -> str:
+    """Build the exact GET URL for audit logs without sending the request."""
+    params = {"limit": QUERY_LIMIT, "q": query["q"]}
+    prepared = requests.Request("GET", API, params=params).prepare()
+    return prepared.url
+
+
 def main() -> None:
     OUT.parent.mkdir(parents=True, exist_ok=True)
     results = []
 
     for query in QUERIES:
-        params = {"limit": 100, "q": query["q"]}
-        response_url = None
+        params = {"limit": QUERY_LIMIT, "q": query["q"]}
+        # Record the exact request before dispatch so RetryError/connection
+        # failures still leave an inspectable query URL in the evidence ledger.
+        response_url = build_request_url(query)
         try:
-            response = SESSION.get(API, params=params, timeout=(20, 90))
+            response = SESSION.get(API, params=params, timeout=(12, 45))
             response_url = response.url
             response.raise_for_status()
             payload = response.json()
@@ -279,8 +289,10 @@ def main() -> None:
         ),
         "queries": results,
         "query_count": len(results),
-        "query_limit_per_search": 100,
+        "query_limit_per_search": QUERY_LIMIT,
         "results_returned": sum(item["returned_count"] for item in results),
+        "query_error_count": sum(item["status"] == "query_error" for item in results),
+        "empty_query_count": sum(item["status"] == "no_relevant_products_returned" for item in results),
         "unique_product_count": len(
             {
                 product.get("id")

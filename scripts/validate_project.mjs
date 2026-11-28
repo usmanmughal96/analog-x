@@ -91,6 +91,13 @@ assert(read("docs/COMPETITIVE_CAPABILITY_RESPONSE.md").includes("TwinWorlds"), "
 
 const pdsSearchScript = read("scripts/fetch_pds_search.py");
 assert(pdsSearchScript.includes("/api/search/1/products"), "PDS discovery must use the documented all-products endpoint");
+assert(pdsSearchScript.includes("https://pds.mcp.nasa.gov/api/search/1/products"), "PDS discovery must use the direct PDS MCP host to avoid alias redirects");
+assert(pdsSearchScript.includes("QUERY_LIMIT = 25") && pdsSearchScript.includes("query_error_count"), "PDS discovery must keep request size bounded and distinguish service errors");
+assert(pdsSearchScript.includes("def build_request_url") && pdsSearchScript.includes("response_url = build_request_url(query)"), "PDS query URL must be retained even when the request fails");
+const pdsRegistryEntry = JSON.parse(read("data/source_registry.json")).sources.find((source) => source.id === "nasa_pds_search");
+assert.equal(pdsRegistryEntry?.url, "https://pds.mcp.nasa.gov/api/search/1/products", "PDS source registry must identify the actual direct API host");
+const transferabilityHtml = read("transferability.html");
+assert(transferabilityHtml.includes("Service response:") && transferabilityHtml.includes("service errors"), "ATFA provenance panel must surface PDS service failures rather than hiding them");
 assert(!pdsSearchScript.includes("/classes/observational"), "PDS discovery must not use the invalid singular observational class endpoint");
 assert(pdsSearchScript.includes("product_class eq") && pdsSearchScript.includes("ref_lid_target eq") && pdsSearchScript.includes("ref_lid_instrument eq"), "PDS queries must retain target, instrument and product-class constraints");
 assert(pdsSearchScript.includes("def extract_products") && pdsSearchScript.includes('payload.get("data")'), "PDS discovery must parse the documented flat data response");

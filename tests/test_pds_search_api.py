@@ -5,7 +5,9 @@ from scripts.fetch_pds_search import (
     MARS,
     MOLA,
     OBSERVATIONAL_CLASS,
+    QUERY_LIMIT,
     QUERIES,
+    build_request_url,
     compact_product,
     extract_products,
     is_observational_product,
@@ -13,8 +15,15 @@ from scripts.fetch_pds_search import (
 
 
 class PdsSearchApiTests(unittest.TestCase):
-    def test_uses_products_endpoint(self):
-        self.assertTrue(API.endswith("/products"))
+    def test_uses_direct_pds_mcp_products_endpoint(self):
+        self.assertEqual(API, "https://pds.mcp.nasa.gov/api/search/1/products")
+        self.assertEqual(QUERY_LIMIT, 25)
+
+    def test_request_url_is_preserved_for_each_query(self):
+        url = build_request_url(QUERIES[0])
+        self.assertIn("pds.mcp.nasa.gov/api/search/1/products", url)
+        self.assertIn("limit=25", url)
+        self.assertIn("product_class", url)
 
     def test_queries_are_scoped_to_observational_products(self):
         self.assertEqual(len(QUERIES), 6)
