@@ -105,4 +105,4 @@ jobs:
           assert d["planetary_targets"]["mars"]["terrain"]
           PY
       - name: Commit refreshed public science pack
-        run: bash scripts/commit_generated_data.sh "Build planetary analog transferability science pack" data/transferability/transferability.json data/planetary/pds_search.json data/planetary/archive_discovery.json data/moon/lola_psr_site_overlap.json data/nasa/modis_browse_index.json data/nasa/modis_browse/
+        run: bash scripts/commit_generated_data.sh "Build planetary analog transferability science pack" data/transferability/transferability.json data/planetary/pds_search.json data/planetary/archive_discovery.json data/moon/lola_psr_site_overlap.json data/source_registry.json data/nasa/modis_browse_index.json data/nasa/modis_browse/
