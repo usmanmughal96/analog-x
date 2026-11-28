@@ -61,15 +61,15 @@ let basePacket=null,packet=null,current=0;
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function today(){return new Date().toISOString().slice(0,10);}
 function toUtcIso(value){
- if(!value||!/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(?::\\d{2})?$/.test(value))return "";
+ if(!value||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2})?$/.test(value))return "";
  const normalized=value.length===16?value+":00":value;
  const parsed=new Date(normalized+"Z");
  if(Number.isNaN(parsed.getTime())||parsed.toISOString().slice(0,19)!==normalized)return "";
  return parsed.toISOString();
 }
-function validUtcIso(value){return typeof value==="string"&&/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$/.test(value)&&Number.isFinite(Date.parse(value));}
+function validUtcIso(value){return typeof value==="string"&&/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(value)&&Number.isFinite(Date.parse(value));}
 function selectedLabel(){const x=document.querySelector('input[name="label"]:checked');return x?x.value:"";}
-function loadIdentity(){const d=JSON.parse(localStorage.getItem(DRAFT_KEY)||"{}");$("reviewerName").value=d.reviewerName||"";$("reviewerAffiliation").value=d.reviewerAffiliation||"";$("reviewerQualification").value=d.reviewerQualification||"";$("reviewDate").value=typeof d.reviewDate==="string"&&/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(?::\\d{2})?$/.test(d.reviewDate)?d.reviewDate:"";$("independent").checked=!!d.independent;}
+function loadIdentity(){const d=JSON.parse(localStorage.getItem(DRAFT_KEY)||"{}");$("reviewerName").value=d.reviewerName||"";$("reviewerAffiliation").value=d.reviewerAffiliation||"";$("reviewerQualification").value=d.reviewerQualification||"";$("reviewDate").value=typeof d.reviewDate==="string"&&/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2})?$/.test(d.reviewDate)?d.reviewDate:"";$("independent").checked=!!d.independent;}
 function identity(){return {reviewerName:$("reviewerName").value.trim(),reviewerAffiliation:$("reviewerAffiliation").value.trim(),reviewerQualification:$("reviewerQualification").value.trim(),reviewDate:$("reviewDate").value,independent:$("independent").checked};}
 function persist(){const d=identity();d.packet=packet;localStorage.setItem(DRAFT_KEY,JSON.stringify(d));}
 function updateProgress(){
