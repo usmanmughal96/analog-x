@@ -112,6 +112,7 @@ assert(archiveDiscoveryScript.includes('"product_type_filter": "GDRDEM"') && arc
 assert(archiveDiscoveryScript.includes("mro_hirise_uncontrolled_observations") && archiveDiscoveryScript.includes("not a stereo DTM"), "USGS HiRISE RDR metadata must remain distinct from DTM evidence");
 assert(archiveDiscoveryScript.includes("DTEEC_017762_1890_018039_1890_A01") && archiveDiscoveryScript.includes("NILI_HIRISE_DTM_DISCOVERY_BBOX"), "Known Nili Patera HiRISE DTM reference and expanded discovery window are missing");
 assert(archiveDiscoveryScript.includes("core_mola_aoi_footprint_intersection") && archiveDiscoveryScript.includes("not_yet_verified_from_product_label"), "The DTM/core-AOI footprint intersection must remain unverified until label inspection");
+assert(archiveDiscoveryScript.includes("DTEEC_017762_1890_018039_1890_A01") && archiveDiscoveryScript.includes("map_scale_m_per_pixel") && archiveDiscoveryScript.includes("67.33"), "Known Nili Patera DTM product metadata is incomplete");
 assert(read("tests/test_planetary_archive_discovery.py").includes("test_nili_hirise_dtm_discovery_window_includes_published_center_without_changing_core_aoi"), "Nili DTM spatial-window regression test is missing");
 const archiveDashboard = read("transferability.html");
 assert(archiveDashboard.includes("data/planetary/archive_discovery.json") && archiveDashboard.includes("planetaryArchiveResults"), "ATFA dashboard must expose planetary archive discovery");
@@ -158,6 +159,8 @@ assert.equal(registryStates.get("nasa_pds_search"), "metadata_only", "PDS produc
 assert(sourceRegistry.sources.find((source) => source.id === "nasa_pds_search")?.artifacts?.includes("data/planetary/pds_search.json"), "PDS search artifact must be registered in the evidence inventory");
 assert.equal(registryStates.get("pds_geosciences_ode"), "metadata_only", "ODE metadata must not be represented as processed science");
 assert.equal(registryStates.get("usgs_astrogeology_hirise_stac"), "metadata_only", "USGS HiRISE STAC records must remain metadata-only");
+assert.equal(registryStates.get("uahirise_nili_patera_dtm"), "metadata_only", "Nili Patera HiRISE DTM must remain metadata-only until its label and source raster are inspected");
+assert(sourceRegistry.sources.find((source) => source.id === "uahirise_nili_patera_dtm")?.artifacts?.includes("data/planetary/archive_discovery.json"), "Nili Patera HiRISE DTM reference must be registered");
 assert(sourceRegistry.sources.find((source) => source.id === "pds_geosciences_ode")?.artifacts?.includes("data/planetary/archive_discovery.json"), "ODE archive discovery artifact must be registered");
 assert.equal(registryStates.get("suparco_space4climate"), "reference_only", "SUPARCO institutional links must remain reference-only");
 assert(["planned", "partially_processed", "processed"].includes(registryStates.get("copernicus_glo90_global")), "GLO-90 state must reflect actual global run progress");
