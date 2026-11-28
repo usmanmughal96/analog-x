@@ -443,6 +443,27 @@
         "The embedded label was inspected using a 256 KiB HTTP Range read; the approximately 430 MB source .IMG raster has not been downloaded, decoded or processed.",
         "The label's bounding-box test does not establish rover safety, route suitability or scientific equivalence."
       ]
+    },
+    {
+      "id": "nasa_pgda_lola_psr_vectors",
+      "name": "NASA GSFC PGDA LOLA south-polar PSR vector product",
+      "provider": "NASA GSFC Planetary Geodesy Data Archive / LOLA",
+      "state": "planned",
+      "data_type": "LOLA-derived permanently shadowed-region polygon vectors and Shackleton AOI intersection summary",
+      "resolution": "LPSR_80S_20MPP_ADJ_1km2; 20 m source grid spacing; polygons filtered to area >1 km²",
+      "coverage": "80°S to 90°S; Shackleton 29.6 km study window",
+      "artifacts": [
+        "data/moon/lola_psr_site_overlap.json"
+      ],
+      "url": "https://pgda.gsfc.nasa.gov/products/90",
+      "data_doi": "https://doi.org/10.60903/gsfcpgda-lola-spole",
+      "limitations": [
+        "Scheduled build will download and hash the four PGDA shapefile sidecars and check the PRJ projection before analysis.",
+        "The product contains mapped PSR polygons larger than 1 km²; smaller PSRs are not represented.",
+        "PSR geometry is a LOLA-derived permanent-shadow product, not a water-ice detection or resource-abundance measurement.",
+        "20 m source grid spacing is not a guarantee of 20 m boundary accuracy.",
+        "AOI intersection does not establish mission-date illumination, ice accessibility, rover trafficability, landing safety or mission suitability."
+      ]
     }
   ]
 }
