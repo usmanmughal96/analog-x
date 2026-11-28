@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -121,8 +122,13 @@ def convert_responses(
             raise ValueError(f"{cid}: private key candidate_id is missing")
         if not isinstance(spatial_group, str) or not spatial_group:
             raise ValueError(f"{cid}: private key spatial_group is missing")
-        if isinstance(score, bool) or not isinstance(score, (int, float)):
-            raise ValueError(f"{cid}: private key core_terrain_index must be numeric")
+        if (
+            isinstance(score, bool)
+            or not isinstance(score, (int, float))
+            or not math.isfinite(float(score))
+            or not 0 <= float(score) <= 100
+        ):
+            raise ValueError(f"{cid}: private key core_terrain_index must be finite numeric data in [0, 100]")
 
         identity = (target, candidate_id)
         if identity in existing_ids:
@@ -132,6 +138,7 @@ def convert_responses(
             "target": target,
             "candidate_id": candidate_id,
             "label": label,
+            "criterion_version": criterion,
             "spatial_group": spatial_group,
             "evidence_ref": "; ".join(ref.strip() for ref in evidence_refs),
             "reviewer": f"{reviewer_name} ({reviewer_qualification}; {reviewer_affiliation})",
