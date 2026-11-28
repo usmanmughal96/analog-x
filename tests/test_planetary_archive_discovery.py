@@ -16,6 +16,9 @@ from scripts.fetch_planetary_archive_discovery import (
     parse_pds_label_text,
     _core_aoi_intersection,
     inspect_known_hirise_dtm_label,
+    inspect_hirise_dtm_product_label,
+    inspect_hirise_dtm_products,
+    build_hirise_dtm_img_url,
     build_known_dtm_reference,
 )
 import xml.etree.ElementTree as ET
@@ -165,6 +168,146 @@ END
         }
         self.assertFalse(_core_aoi_intersection(bounds))
         self.assertGreater(bounds["west_lon"], NILI["bbox_wsen"][2])
+
+    def test_builds_official_img_url_from_ode_relative_path(self):
+        product = {
+            "pdsid": "DTEEC_043779_1890_043423_1890_A01",
+            "ihid": "MRO",
+            "iid": "HiRISE",
+            "pt": "DTM",
+            "Data_Set_Id": "MRO-M-HIRISE-5-DTM-V1.0",
+            "RelativePathToVol": (
+                "dtm\\esp\\orb_043700_043799\\"
+                "esp_043779_1890_esp_043423_1890\\"
+            ),
+        }
+        self.assertEqual(
+            build_hirise_dtm_img_url(product),
+            "https://www.uahirise.org/PDS/DTM/ESP/ORB_043700_043799/"
+            "ESP_043779_1890_ESP_043423_1890/"
+            "DTEEC_043779_1890_043423_1890_A01.IMG",
+        )
+
+    def test_rejects_unsafe_or_non_hirise_ode_product_paths(self):
+        product = {
+            "pdsid": "DTEEC_043779_1890_043423_1890_A01",
+            "ihid": "MRO",
+            "iid": "HiRISE",
+            "pt": "DTM",
+            "Data_Set_Id": "MRO-M-HIRISE-5-DTM-V1.0",
+            "RelativePathToVol": "dtm\\esp\\..\\outside\\",
+        }
+        with self.assertRaisesRegex(ValueError, "unsafe path components"):
+            build_hirise_dtm_img_url(product)
+        product["RelativePathToVol"] = "dtm\\esp\\orb_043700_043799\\folder\\"
+        product["Data_Set_Id"] = "MRO-M-HIRISE-3-DTM-V1.1"
+        with self.assertRaisesRegex(ValueError, "not in the MRO HiRISE DTM data set"):
+            build_hirise_dtm_img_url(product)
+
+    def test_generic_dtm_label_read_uses_product_specific_url_and_id(self):
+        label = b"""PDS_VERSION_ID = PDS3
+PRODUCT_ID = "DTEEC_043779_1890_043423_1890_A01"
+DATA_SET_ID = "MRO-M-HIRISE-5-DTM-V1.0"
+MAP_PROJECTION_TYPE = EQUIRECTANGULAR
+MAP_SCALE = 1.01 <M/PIXEL>
+MINIMUM_LATITUDE = 8.70
+MAXIMUM_LATITUDE = 8.86
+WESTERNMOST_LONGITUDE = 67.20
+EASTERNMOST_LONGITUDE = 67.30
+END
+"""
+        response = FakeRangeResponse(label)
+        product = {
+            "pdsid": "DTEEC_043779_1890_043423_1890_A01",
+            "ode_id": 28520359,
+            "ihid": "MRO",
+            "iid": "HiRISE",
+            "pt": "DTM",
+            "Data_Set_Id": "MRO-M-HIRISE-5-DTM-V1.0",
+            "RelativePathToVol": (
+                "dtm\\esp\\orb_043700_043799\\"
+                "esp_043779_1890_esp_043423_1890\\"
+            ),
+        }
+        with patch(
+            "scripts.fetch_planetary_archive_discovery.SESSION.get",
+            return_value=response,
+        ) as get:
+            result = inspect_hirise_dtm_product_label(product)
+        self.assertEqual(result["pdsid"], product["pdsid"])
+        self.assertEqual(result["ode_id"], 28520359)
+        self.assertEqual(result["status"], "label_verified_bounds_intersect_core_aoi")
+        self.assertTrue(result["core_mola_aoi_footprint_intersection"])
+        self.assertIn("DTEEC_043779_1890_043423_1890_A01.IMG", result["source_url"])
+        self.assertEqual(get.call_args.args[0], result["source_url"])
+        self.assertTrue(response.closed)
+
+    def test_inspects_every_unique_ode_dtm_product_and_preserves_unknown_states(self):
+        products = []
+        labels = []
+        for index in range(4):
+            pdsid = f"DTEEC_04377{index}_1890_04342{index}_1890_A01"
+            products.append({
+                "pdsid": pdsid,
+                "ode_id": 28000000 + index,
+                "ihid": "MRO",
+                "iid": "HiRISE",
+                "pt": "DTM",
+                "Data_Set_Id": "MRO-M-HIRISE-5-DTM-V1.0",
+                "RelativePathToVol": (
+                    f"dtm\\esp\\orb_043700_043799\\{pdsid.lower()}\\"
+                ),
+            })
+            if index == 0:
+                labels.append(b"""PDS_VERSION_ID = PDS3
+PRODUCT_ID = "FIRST"
+MINIMUM_LATITUDE = 8.70
+MAXIMUM_LATITUDE = 8.80
+WESTERNMOST_LONGITUDE = 67.20
+EASTERNMOST_LONGITUDE = 67.30
+END
+""")
+            elif index == 1:
+                labels.append(b"""PDS_VERSION_ID = PDS3
+PRODUCT_ID = "SECOND"
+MINIMUM_LATITUDE = 8.70
+MAXIMUM_LATITUDE = 8.80
+WESTERNMOST_LONGITUDE = 67.30
+EASTERNMOST_LONGITUDE = 67.40
+END
+""")
+            elif index == 2:
+                labels.append(b"""PDS_VERSION_ID = PDS3
+PRODUCT_ID = "THIRD"
+MINIMUM_LATITUDE = 8.70
+MAXIMUM_LATITUDE = 8.80
+END
+""")
+            else:
+                labels.append(b"PDS_VERSION_ID = PDS3\\nPRODUCT_ID = \"FOURTH\"\\n")
+
+        responses = [FakeRangeResponse(label) for label in labels]
+        with patch(
+            "scripts.fetch_planetary_archive_discovery.SESSION.get",
+            side_effect=responses,
+        ) as get:
+            results = inspect_hirise_dtm_products(
+                products + [products[0]],
+                pause_seconds=0,
+            )
+        self.assertEqual(len(results), 4)
+        self.assertEqual([row["pdsid"] for row in results], [row["pdsid"] for row in products])
+        self.assertEqual(
+            [row["status"] for row in results],
+            [
+                "label_verified_bounds_intersect_core_aoi",
+                "label_verified_bounds_outside_core_aoi",
+                "label_read_but_geographic_bounds_incomplete",
+                "label_not_complete_within_range_cap",
+            ],
+        )
+        self.assertEqual(get.call_count, 4)
+        self.assertTrue(all(response.closed for response in responses))
 
     def test_bounded_label_read_verifies_core_aoi_footprint_when_bounds_present(self):
         label = b"""PDS_VERSION_ID = PDS3
