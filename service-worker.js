@@ -1,5 +1,5 @@
 "use strict";
-const CACHE_VERSION="analogx-offline-v9";
+const CACHE_VERSION="analogx-offline-v10";
 const APP_CACHE=CACHE_VERSION+"-app";
 const DATA_CACHE=CACHE_VERSION+"-data";
 const APP_FILES=[
@@ -12,7 +12,7 @@ const APP_FILES=[
 ];
 const DATA_FILES=[
  "./data/agents/candidate_catalog.json","./data/transferability/transferability.json","./data/field_validation/campaign_plan.json","./data/analog_benchmark/regional_window_scan.json","./data/source_registry.json","./science/field_validation_protocol.json","./data/field_validation/observations.json","./data/validation/quantitative_validation.json","./data/validation/independent_analog_review_packet.json","./data/validation/independent_analog_label_validation.json",
- "./data/planetary/pds_search.json","./data/nasa/modis_browse_index.json","./data/power/index.json",
+ "./data/planetary/pds_search.json","./data/planetary/archive_discovery.json","./data/nasa/modis_browse_index.json","./data/power/index.json",
  "./data/power/koh.json","./data/power/dallol.json","./data/power/atacama.json",
  "./data/power/mcmurdo.json","./data/power/haughton.json","./data/power/iceland.json",
  "./data/power/death.json","./data/power/hispar_glacier.json",
