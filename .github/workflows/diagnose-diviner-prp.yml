@@ -7,7 +7,6 @@ on:
       - "scripts/diagnose_diviner_prp_access.py"
       - "scripts/process_lunar_base_evidence.py"
       - "tests/test_lunar_base_evidence.py"
-      - ".github/workflows/diagnose-diviner-prp.yml"
   workflow_dispatch:
 
 permissions:
