@@ -88,12 +88,12 @@ The [Independent Reviewer Desk](https://usmanmughal96.github.io/analog-x/indepen
 ### Three open validation gates
 
 - **Physical field evidence:** the Pakistan campaign is planned; the committed field-observation ledger remains empty. No field experiment is claimed.
-- **Rover / mission suitability:** current Earth comparison cells are about 925 m; a separate Shackleton Site04 5 m LOLA product improves lunar terrain context but does not establish illumination, PSR status, traction, landing suitability or safety. No rover/UGV trial or vehicle-specific engineering review is claimed.
+- **Rover / mission suitability:** current Earth comparison cells are about 925 m; Shackleton Site04 has a separate 5 m LOLA terrain product plus historical 100 m LROC WAC illumination-frequency and Diviner PRP thermal-model context. These do not provide mission-date illumination, formal PSR geometry, traction evidence, landing suitability or safety. No rover/UGV trial or vehicle-specific engineering review is claimed.
 - **Independent expert confirmation:** 96 blinded cases are prepared, but no binary labels have been returned. No independent AUC, accuracy or reviewer endorsement is claimed.
 
 See [Operational Readiness & Validation Gates](docs/OPERATIONAL_READINESS_AND_VALIDATION.md) and the [Independent Reviewer Guide](docs/INDEPENDENT_REVIEWER_GUIDE.md) for protocols, evidence requirements and next actions.
 
-## Evidence snapshot — 25 November 2026
+## Evidence snapshot — 28 November 2026
 
 <sub>Counts describe the committed research release. They are processing and evidence counts—not competition placements or independent scientific accuracy.</sub>
 
@@ -121,7 +121,7 @@ The latest quantitative-validation report records the ranking release as **ready
 
 The Shackleton pack includes NASA LOLA 80 m terrain context and a separate NASA PGDA Site04 **5 m** elevation, count, slope and RMS-error product set on a 3,200 × 3,200 grid (10.24 million pixels). Interpolated terrain coverage is 100%; positive direct-return support is 9.154%. Those are different measures.
 
-Historical Diviner PRP V2.0 thermal summaries cover 6,823 Shackleton-window triangles. Median annual average temperature at 2 cm is 103.786 K; median annual maximum surface temperature is 238.568 K. These are historical model-derived summaries, not forecasts or in-situ measurements. Ice-depth interpretation remains QA-limited. Verified PSR geometry and mission-date SPICE illumination are not integrated.
+Historical Diviner PRP V2.0 summaries cover 6,823 Shackleton-window triangles: median annual-average temperature at 2 cm is 103.786 K and median annual-maximum surface temperature is 238.568 K. These are model-derived summaries from the first year of LRO mapping observations (2010–2011), not forecasts or in-situ measurements. Separate 100 m LROC WAC illumination-frequency products (15 February 2010–5 February 2011) report mean illumination frequency of 24.86% in the time-weighted layer and 25.97% in the percentage-based layer. At or below 5% illumination frequency, the corresponding area fractions are 60.62% and 58.65%. This threshold is only a low-illumination screening proxy, not a formal PSR polygon. Diviner ice-stability-depth values remain QA-limited and do not establish ice abundance or accessibility. Formal PSR Atlas geometry and mission-date NAIF SPICE illumination are not integrated.
 
 Machine-readable status: [quantitative validation](data/validation/quantitative_validation.json) · [global rankings](data/global_discovery/top_ranked_candidates.json) · [source registry](data/source_registry.json) · [Shackleton LOLA report](data/moon/shackleton_rim_lola.json).
 
@@ -135,7 +135,8 @@ Machine-readable status: [quantitative validation](data/validation/quantitative_
 | Copernicus DEM GLO-90 | Global land-inventory terrain screening | Screening index, not independent analog validation |
 | NASA MOLA MEGDR | Nili Patera Mars reference | Selected window has 50.53% observed-cell coverage |
 | NASA LRO LOLA | Shackleton Rim 80 m and separate 5 m Site04 products | Interpolated elevation and direct-return support are separate measures |
-| NASA Diviner PRP V2.0 | Historical lunar thermal context | Ice-depth QA, accessible-ice interpretation and mission-date illumination remain open |
+| NASA Diviner PRP V2.0 | Historical model-derived thermal and ice-stability-depth context | Not in-situ; depth QA, accessible-ice interpretation and resource claims remain open |
+| NASA LROC WAC | Historical 100 m south-pole illumination-frequency products | 2010–2011 observation period; not a mission-date forecast or formal PSR delineation |
 | NASA Earthdata CMR | MODIS and MERRA-2 catalogue discovery | Metadata-only; science arrays have not been decoded by this integration |
 | GLiM / 2023 land cover | Retained-candidate context | Generalized layers, not field-validated geology |
 
