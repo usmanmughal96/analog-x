@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-28T14:58:52+00:00",
-  "repository_commit_before_manifest_commit": "cbf98165a67e87f3cb90407b90230f95030a16bb",
+  "generated_at_utc": "2026-11-28T15:11:11+00:00",
+  "repository_commit_before_manifest_commit": "51f0159cedb998ce0dcb480000eb996fbf94a76b",
   "working_tree_before_manifest_write": "clean",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -38,7 +38,7 @@
     ]
   },
   "file_count": 234,
-  "source_registry_sha256": "ea0be6fda8eba25006afb12ca7df40101e525adb793ada3b278d1250b7d063d5",
+  "source_registry_sha256": "d41103eaceb5346492f4121dc6efb02a1862dd1db91b673d0402f0bce52dce0e",
   "source_registry_records": [
     {
       "id": "copernicus_glo30_regional",
@@ -391,13 +391,32 @@
         "The separate USGS HiRISE DTM archive advertises approximately 1\u20132 m post spacing, but availability at Nili Patera must be established by the ODE DTM query and inspected product labels.",
         "No STAC asset is downloaded or processed by this discovery step."
       ]
+    },
+    {
+      "id": "uahirise_nili_patera_dtm",
+      "state": "metadata_only",
+      "provider": "University of Arizona HiRISE Operations Center / NASA-JPL-Caltech",
+      "name": "University of Arizona HiRISE DTM \u2014 Nili Patera moving dunes",
+      "url": "https://www.uahirise.org/dtm/dtm.php?ID=ESP_017762_1890",
+      "doi_or_identifier": null,
+      "artifacts": [
+        "data/planetary/archive_discovery.json"
+      ],
+      "limitations": [
+        "The original MOLA comparison AOI ends at 67.2561430698\u00b0E; the DTM's published center at 67.33\u00b0E is east of that boundary.",
+        "The wider archive discovery box is not a new MOLA comparison AOI and does not prove that the DTM footprint intersects the original window.",
+        "ANALOG-X requests at most the first 256 KB of the DTM IMG to inspect its embedded PDS label. If the server ignores Range or the label is incomplete, footprint remains unresolved.",
+        "Only complete label latitude/longitude bounds are used to calculate a bbox intersection; center coordinates alone are not treated as footprint evidence.",
+        "The approximately 430 MB source .IMG raster has not been downloaded, decoded or processed by ANALOG-X.",
+        "This DTM supports terrain research only; it does not establish rover safety or route suitability."
+      ]
     }
   ],
   "records": [
     {
       "path": "README.md",
-      "size_bytes": 17559,
-      "sha256": "3428c1737c201ad5cdd2cd6e88a26b97cc847983a5f57bb8df770111fcb279d1",
+      "size_bytes": 18296,
+      "sha256": "f3094ed2fa9f23d27de61cbd6b7c73b14c5d1e2c0f5522d908d655907a09586b",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -432,14 +451,14 @@
     },
     {
       "path": "transferability.html",
-      "size_bytes": 31333,
-      "sha256": "e29d647b71de620d183d5ed2a20e6c4ab8ceb8a1ed5c1946ff4a09c9fe6997c0",
+      "size_bytes": 33669,
+      "sha256": "6fb5859c69d9b9bf86aae0bff7460951483fc6a92ae2281d2920482a624ec85c",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": "service-worker.js",
       "size_bytes": 4962,
-      "sha256": "8a584d71cc10d28da4d164b2acc937b0e00f6c3ae528a4d09193eaf6cbac397c",
+      "sha256": "f1be8a179e4125770288be69b85feed69c70223b3282aac29cd6439b488012b9",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -954,8 +973,8 @@
     },
     {
       "path": "data/source_registry.json",
-      "size_bytes": 22796,
-      "sha256": "ea0be6fda8eba25006afb12ca7df40101e525adb793ada3b278d1250b7d063d5",
+      "size_bytes": 24460,
+      "sha256": "d41103eaceb5346492f4121dc6efb02a1862dd1db91b673d0402f0bce52dce0e",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -1230,8 +1249,8 @@
     },
     {
       "path": "scripts/fetch_planetary_archive_discovery.py",
-      "size_bytes": 18059,
-      "sha256": "469733b1380aa2f1426b53016b2baf02ab79aac670c7c72f6504445f01495e25",
+      "size_bytes": 25924,
+      "sha256": "6ee55e611d20331cc1bb6d2ca1c947f14baae4e0b439fb45200e0f5cf0d82243",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1308,8 +1327,8 @@
     },
     {
       "path": "scripts/validate_project.mjs",
-      "size_bytes": 23274,
-      "sha256": "d5dc5038877154627e31e041c0a0edfd8c9a7a2f5942711ccac5b591f2c0a581",
+      "size_bytes": 25824,
+      "sha256": "5ccbb10e54519ffc5c9b0912dfcc3d0e36ad3b8f4ec29c82d68ed93636bd38d0",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1392,8 +1411,8 @@
     },
     {
       "path": "docs/DATA_SOURCES.md",
-      "size_bytes": 20444,
-      "sha256": "695d562e2cdcdb6b648e47be9519fc885fe62a2ea0ece4b95c0058b4d8d4a35b",
+      "size_bytes": 20982,
+      "sha256": "f50ef0bd4ea02e4a1dfbfdc6a043d1415536da7805da1fd78bcdf5e868d2ccde",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1458,8 +1477,8 @@
     },
     {
       "path": "docs/OPERATIONAL_READINESS_AND_VALIDATION.md",
-      "size_bytes": 15347,
-      "sha256": "66f331ced41ffaa6c27e1f6ca80a5b2974131b5ecd6b7f5195cd287d6b5baf42",
+      "size_bytes": 16069,
+      "sha256": "cd0cde55d0d0aba2b2161db2c11b3c080bd6378c05e095cd7fe3a2746e31527e",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1686,8 +1705,8 @@
     },
     {
       "path": "tests/test_planetary_archive_discovery.py",
-      "size_bytes": 5073,
-      "sha256": "766349779e9e1703b73abc57f612db3a32b0615edb149f2c016342e56a830a72",
+      "size_bytes": 10079,
+      "sha256": "47862d941dddeca1fd9954ee421be75d8bf18c2bc81a6550c5da09af0f697dac",
       "evidence_class_hint": "method_or_documentation"
     },
     {

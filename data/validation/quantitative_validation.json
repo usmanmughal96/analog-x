@@ -1,6 +1,6 @@
 {
   "schema_version": "2.1.0",
-  "generated_at_utc": "2026-11-28T14:58:52+00:00",
+  "generated_at_utc": "2026-11-28T15:11:12+00:00",
   "status": "diagnostic_only",
   "ranking_release": {
     "status": "ready",
@@ -239,10 +239,10 @@
   },
   "reproducibility": {
     "manifest_state": "present",
-    "manifest_sha256": "8692be4ed68b2c08fcc703c7e91993a2439ad8a541d0d4b26c417e27cd44ed3f",
+    "manifest_sha256": "45e112a85001bedd9d512db60f6314b11d59fac62676a9a72e4fc03570fa4f6a",
     "hashed_repository_file_count": 234,
-    "source_registry_records": 22,
-    "manifest_generated_at_utc": "2026-11-28T14:58:52+00:00",
+    "source_registry_records": 23,
+    "manifest_generated_at_utc": "2026-11-28T15:11:11+00:00",
     "quantitative_report_excluded_from_manifest": true,
     "manifest_reference_semantics": "manifest_sha256 and hashed_repository_file_count refer to the manifest loaded when this report was generated; the report itself is excluded from the manifest to avoid a circular dependency.",
     "limitations": [
@@ -253,10 +253,10 @@
     ]
   },
   "evidence_registry": {
-    "source_records": 22,
+    "source_records": 23,
     "state_counts": {
       "browse_only": 2,
-      "metadata_only": 4,
+      "metadata_only": 5,
       "partially_processed": 1,
       "planned": 1,
       "processed": 10,
