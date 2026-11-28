@@ -201,6 +201,13 @@ def extract_products(payload: Any) -> list[dict[str, Any]]:
     return [item for item in products if isinstance(item, dict)]
 
 
+def build_request_url(query: dict[str, Any]) -> str:
+    """Build the exact GET URL for audit logs without sending the request."""
+    params = {"limit": QUERY_LIMIT, "q": query["q"]}
+    prepared = requests.Request("GET", API, params=params).prepare()
+    return prepared.url
+
+
 def main() -> None:
     OUT.parent.mkdir(parents=True, exist_ok=True)
     results = []
