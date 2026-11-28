@@ -37,7 +37,7 @@ def valid_utc_datetime(value: Any) -> bool:
 def _required_text(review: dict[str, Any], name: str, case_id: str) -> str:
     value = review.get(name)
     if not isinstance(value, str) or not value.strip():
-        raise ValueError(f"{case_id}: {name} must be a non-empty string")
+        raise ValueError(f"{case_id}: missing review fields: {name}")
     return value.strip()
 
 
