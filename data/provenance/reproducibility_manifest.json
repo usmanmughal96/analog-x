@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-28T14:25:07+00:00",
-  "repository_commit_before_manifest_commit": "392ec2630769c78b21ad3ed3c3ec1ec9e3df6451",
+  "generated_at_utc": "2026-11-28T14:30:43+00:00",
+  "repository_commit_before_manifest_commit": "fc78ba5a56d6f1b0375b54fda649d60ea077d511",
   "working_tree_before_manifest_write": "clean",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -37,7 +37,7 @@
       "manifest.webmanifest"
     ]
   },
-  "file_count": 229,
+  "file_count": 230,
   "source_registry_sha256": "1d64260aed0d851317782d86fccc1f7d32574b11d6a4a3959e4c04d56d2ef429",
   "source_registry_records": [
     {
@@ -344,8 +344,8 @@
   "records": [
     {
       "path": "README.md",
-      "size_bytes": 16641,
-      "sha256": "cee7c099f94f1b5fff3bd9fdacdc1fa4416faaa091224d511de1c0b0b70e4442",
+      "size_bytes": 16717,
+      "sha256": "eb04dbde8afa0f5e5217dffbfff060a7dfb9b22780039a26b070ad1456848754",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -374,8 +374,8 @@
     },
     {
       "path": "field-validation.html",
-      "size_bytes": 21723,
-      "sha256": "b0f4b3c4fd921e2083a8c364331452000823dfdb69dc4b3f74ce3599ee278dd6",
+      "size_bytes": 22603,
+      "sha256": "df6d2de336c108adf8269b5d7b83c9cc0f532c3a766af69bc07339a48dcdd996",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -387,7 +387,7 @@
     {
       "path": "service-worker.js",
       "size_bytes": 4919,
-      "sha256": "350150f7b4db97a00b0f95b6864681859cb9ca08c2ddcb498f21c5191f3fcd6b",
+      "sha256": "e1cfb631f2e91d2eb05a06730237fcb281810df5db338ef1c6e2dc482040ef4c",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -416,8 +416,8 @@
     },
     {
       "path": "data/field_validation/campaign_plan.json",
-      "size_bytes": 11553,
-      "sha256": "0583f092cd29b15f5bc36e60824f230189572e13f3188aeb8b053398f524c659",
+      "size_bytes": 11647,
+      "sha256": "568bea7fb29913ad766554c5c05977cba148ccb631b692d790ece9cf8a5a33b5",
       "evidence_class_hint": "field_evidence_ledger"
     },
     {
@@ -1040,8 +1040,8 @@
     },
     {
       "path": "science/field_validation_protocol.json",
-      "size_bytes": 2546,
-      "sha256": "43422b6309ded32f032ec4a96432d1e2eeb7d8d452b0ed35fb12d72125dff4ca",
+      "size_bytes": 3271,
+      "sha256": "6d71ed35699b8eb304aeb49b9ce51eb05d5e321ed9e1867d8ed60458a008db75",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1232,8 +1232,8 @@
     },
     {
       "path": "scripts/validate_field_observations.py",
-      "size_bytes": 2625,
-      "sha256": "eb3eb20ddb47b704c3ec1d84f65ad97f99e5074a1851e823ee1febc7797be48a",
+      "size_bytes": 3355,
+      "sha256": "27fa589c010679ce79f5d04267b9ce2ef9d9ce5807c3d9d296fa1b40ca68a2c7",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1244,8 +1244,8 @@
     },
     {
       "path": "scripts/validate_project.mjs",
-      "size_bytes": 16667,
-      "sha256": "6b2ba45d1b7d8aa234411d1b1f8f2f0879c7b5c9bb292ec001913659a01a2351",
+      "size_bytes": 17759,
+      "sha256": "5ce7c350e63fb0743068b7960fb4e565901b0ade2acfaccb54a5e105d2c2e124",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1394,8 +1394,8 @@
     },
     {
       "path": "docs/OPERATIONAL_READINESS_AND_VALIDATION.md",
-      "size_bytes": 14967,
-      "sha256": "f23d4efa2fb8daffd64f64ad80c923d51af1cd182b8167829b66c918485fa2ae",
+      "size_bytes": 15347,
+      "sha256": "66f331ced41ffaa6c27e1f6ca80a5b2974131b5ecd6b7f5195cd287d6b5baf42",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1550,8 +1550,8 @@
     },
     {
       "path": ".github/workflows/pages.yml",
-      "size_bytes": 4058,
-      "sha256": "a10124e730dfbd7fd5aa5cc17d01d2d610a9fc5519c429f6873ba8ce390e287f",
+      "size_bytes": 4127,
+      "sha256": "7507cf3f6ba5e55e5739a6ded5474c3440cdcb61debdd92149a2b39dfb9d480c",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1570,6 +1570,12 @@
       "path": "tests/test_diviner_prp.py",
       "size_bytes": 2483,
       "sha256": "a9fc69269fbb1278f92e324648d9da37c8e06688b7ce21d8abf6f44891a08f9f",
+      "evidence_class_hint": "method_or_documentation"
+    },
+    {
+      "path": "tests/test_field_observation_timestamps.py",
+      "size_bytes": 789,
+      "sha256": "f672dbc558fca387f0b93c96d07327e6f0a222b0cd1c611ec9b5d57e1e2af3eb",
       "evidence_class_hint": "method_or_documentation"
     },
     {
