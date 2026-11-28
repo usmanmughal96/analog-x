@@ -43,7 +43,8 @@
       "safety_observations": "",
       "independent_reviewer": "",
       "review_status": "not_reviewed",
-      "limitations": []
+      "limitations": [],
+      "date_utc_format": "ISO 8601 UTC timestamp ending in Z, e.g. YYYY-MM-DDTHH:MM:SS.sssZ; date-only values are insufficient for field observations."
     }
   ],
   "measurements": {
@@ -73,6 +74,7 @@
     "Every sample and photograph must have a unique ID and station link.",
     "Record non-observations and inaccessible locations; do not silently omit them.",
     "Independent review is required before marking a candidate independently_reviewed.",
-    "A field observation validates only the observed property and location, not planetary equivalence, resource abundance, landing safety or rover traversability."
+    "A field observation validates only the observed property and location, not planetary equivalence, resource abundance, landing safety or rover traversability.",
+    "Field-observation date_utc must retain an explicit ISO 8601 UTC timestamp ending in Z; never infer a missing observation time from the export date or device local time."
   ]
 }
