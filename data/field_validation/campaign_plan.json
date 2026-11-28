@@ -14,7 +14,7 @@
       "instrument identification and calibration/field-check records"
     ],
     "data_integrity": [
-      "Record UTC timestamps and WGS84 coordinates with method and accuracy",
+      "Record station and instrument-batch times as ISO 8601 UTC timestamps ending in Z; record WGS84 coordinates with method and accuracy.",
       "Use unique station, photograph and sample identifiers",
       "Separate direct observation from interpretation",
       "Record non-observations and inaccessible areas",
@@ -200,6 +200,7 @@
       "station_id",
       "candidate_id",
       "date_utc",
+      "measurement_time_utc",
       "observer_ids",
       "latitude_wgs84",
       "longitude_wgs84",

@@ -77,7 +77,7 @@ The local Agent Bay reviews terrain morphology, climate and campaign context, su
 
 ### Field operations, not just a map
 
-The Field Evidence Passport and offline-first Field Validation Kit support station planning, GNSS observations, instruments, units, uncertainty, notes, optional photos and exportable records. The observation ledger remains empty until physical measurements are collected and reviewed.
+The Field Evidence Passport and offline-first Field Validation Kit support station planning, GNSS observations, explicit UTC station and instrument-batch timestamps, instrument/calibration provenance, units, uncertainty, notes, optional photos and exportable records. The observation ledger remains empty until physical measurements are collected and reviewed.
 
 ## From discovery to independent validation
 

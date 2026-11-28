@@ -91,7 +91,7 @@ The plan is not a travel authorization. Access, security, weather and site safet
 
 ### Minimum observation record
 
-Record immutable station, observer, date/time UTC, WGS84 coordinate and accuracy, coordinate method, original photo IDs and bearings, observed properties, instrument make/model/serial, calibration or field-check record, measurement method, units, repeats, uncertainty, sample ID and custody where authorized, permissions, access constraints, safety observations and non-observations. Separate direct observation from interpretation. Preserve original instrument exports and photos.
+Record immutable station and observer identifiers; `date_utc` and `measurement_time_utc` as ISO 8601 UTC timestamps ending in `Z` (`YYYY-MM-DDTHH:MM:SS.sssZ`); WGS84 coordinate and accuracy; coordinate method; original photo IDs and bearings; observed properties; instrument make/model/serial; calibration or field-check record; measurement method, units, repeats and uncertainty; sample ID and custody where authorized; permissions; access constraints; safety observations; and non-observations. The form uses the station capture time as the initial instrument-reading batch time; record separate timestamps for later repeats in their method records. Date-only values are insufficient. Never infer a missing measurement time from the device clock or export time. Separate direct observation from interpretation. Preserve original instrument exports and photos.
 
 A field observation validates only the property and station actually observed. It does not establish planetary equivalence or rover safety.
 
