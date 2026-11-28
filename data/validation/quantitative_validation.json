@@ -1,6 +1,6 @@
 {
   "schema_version": "2.1.0",
-  "generated_at_utc": "2026-11-28T15:38:25+00:00",
+  "generated_at_utc": "2026-11-28T15:39:00+00:00",
   "status": "diagnostic_only",
   "ranking_release": {
     "status": "ready",
@@ -87,13 +87,15 @@
   "interpretation": "Global terrain screening is complete only for the enumerated Copernicus GLO-90 land-tile inventory. The stored list is a bounded shortlist, not all evaluated windows. Primary rank uses the core terrain family only; the alternative family is diagnostic. Neither score is a probability, calibrated accuracy or analog verdict.",
   "independent_analog_label_validation": {
     "schema_version": "1.0.0",
-    "generated_at_utc": "2026-11-28T14:20:38+00:00",
+    "generated_at_utc": "2026-11-28T15:38:59+00:00",
     "status": "awaiting_spatially_blocked_labels",
     "method": {
       "score": "core_terrain_index",
-      "holdout": "deterministic 20% holdout by spatial_group; all records from one group remain in one split",
+      "holdout": "deterministic 20% holdout by spatial_group; all records from one group remain together; AUC requires at least five held-out groups and at least two held-out groups containing each class",
       "unit_of_independence": "spatial_group, not individual candidate window",
-      "uncertainty": "Deterministic 2,000-resample spatial-group bootstrap interval where at least 200 valid resamples are available; still exploratory and not an accuracy claim."
+      "minimum_held_out_spatial_groups": 5,
+      "minimum_held_out_groups_per_class": 2,
+      "uncertainty": "Deterministic 2,000-resample spatial-group bootstrap interval where at least 200 valid group resamples are available; still exploratory and not an accuracy claim."
     },
     "targets": {
       "moon": {
@@ -102,13 +104,26 @@
         "n_spatial_groups": 0,
         "n_train": 0,
         "n_test": 0,
+        "n_test_spatial_groups": 0,
         "n_test_positive": 0,
         "n_test_negative": 0,
+        "n_test_positive_spatial_groups": 0,
+        "n_test_negative_spatial_groups": 0,
+        "minimum_test_spatial_groups": 5,
+        "minimum_test_groups_per_class": 2,
+        "evaluation_gate_passed": false,
+        "evaluation_gate_reasons": [
+          "requires at least 5 held-out spatial groups",
+          "held-out split must contain both positive and negative labels",
+          "positive labels must occur in at least 2 held-out spatial groups",
+          "negative labels must occur in at least 2 held-out spatial groups"
+        ],
         "held_out_groups": [],
         "roc_auc": null,
         "roc_auc_group_bootstrap_95pct_ci": null,
         "bootstrap_resamples": 2000,
-        "interpretation": "Exploratory spatial-group holdout on reviewer-labelled candidates. It is not a universal accuracy estimate; assess label quality, group design and uncertainty before drawing conclusions."
+        "valid_group_bootstrap_resamples": 0,
+        "interpretation": "Exploratory spatial-group holdout on reviewer-labelled candidates. AUC is withheld unless the held-out split contains at least five independent spatial groups and at least two groups supporting each class. This is not a universal accuracy estimate; assess label quality, group design and uncertainty before drawing conclusions."
       },
       "mars": {
         "status": "awaiting_spatially_blocked_labels",
@@ -116,18 +131,31 @@
         "n_spatial_groups": 0,
         "n_train": 0,
         "n_test": 0,
+        "n_test_spatial_groups": 0,
         "n_test_positive": 0,
         "n_test_negative": 0,
+        "n_test_positive_spatial_groups": 0,
+        "n_test_negative_spatial_groups": 0,
+        "minimum_test_spatial_groups": 5,
+        "minimum_test_groups_per_class": 2,
+        "evaluation_gate_passed": false,
+        "evaluation_gate_reasons": [
+          "requires at least 5 held-out spatial groups",
+          "held-out split must contain both positive and negative labels",
+          "positive labels must occur in at least 2 held-out spatial groups",
+          "negative labels must occur in at least 2 held-out spatial groups"
+        ],
         "held_out_groups": [],
         "roc_auc": null,
         "roc_auc_group_bootstrap_95pct_ci": null,
         "bootstrap_resamples": 2000,
-        "interpretation": "Exploratory spatial-group holdout on reviewer-labelled candidates. It is not a universal accuracy estimate; assess label quality, group design and uncertainty before drawing conclusions."
+        "valid_group_bootstrap_resamples": 0,
+        "interpretation": "Exploratory spatial-group holdout on reviewer-labelled candidates. AUC is withheld unless the held-out split contains at least five independent spatial groups and at least two groups supporting each class. This is not a universal accuracy estimate; assess label quality, group design and uncertainty before drawing conclusions."
       }
     },
     "limitations": [
       "Labels must be independently sourced and reviewed; the script does not create or infer labels.",
-      "A held-out split must contain both positive and negative labels; otherwise AUC is withheld.",
+      "AUC is withheld unless the held-out split has both classes, at least five held-out spatial groups and at least two spatial groups supporting each class.",
       "Spatial groups must be defined before looking at scores and should separate neighbouring or geologically related candidates.",
       "This evaluates terrain-screening scores against supplied labels only; it does not prove planetary process equivalence or field truth."
     ]
@@ -239,10 +267,10 @@
   },
   "reproducibility": {
     "manifest_state": "present",
-    "manifest_sha256": "f9076409a38ab9b752c4a7cb2481c5143052b2e9000232ca27783ba8acf275a1",
+    "manifest_sha256": "26290a3da186453cf348dc02a78969e8d30dbdcd91c2530d5bcc8dc7fbab9542",
     "hashed_repository_file_count": 235,
     "source_registry_records": 23,
-    "manifest_generated_at_utc": "2026-11-28T15:38:24+00:00",
+    "manifest_generated_at_utc": "2026-11-28T15:38:59+00:00",
     "quantitative_report_excluded_from_manifest": true,
     "manifest_reference_semantics": "manifest_sha256 and hashed_repository_file_count refer to the manifest loaded when this report was generated; the report itself is excluded from the manifest to avoid a circular dependency.",
     "limitations": [
