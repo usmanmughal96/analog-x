@@ -9,6 +9,8 @@ on:
       - "data/terrain/**"
       - "data/moon/**"
       - "scripts/fetch_pds_search.py"
+      - "scripts/fetch_planetary_archive_discovery.py"
+      - "tests/test_planetary_archive_discovery.py"
       - "scripts/fetch_modis_browse.py"
       - "tests/test_pds_search_api.py"
       - "backend/**"
@@ -40,6 +42,10 @@ jobs:
         run: python scripts/fetch_pds_search.py
       - name: Test PDS Search API response parsing
         run: python -m unittest tests.test_pds_search_api
+      - name: Discover spatially bounded ODE and USGS planetary archive metadata
+        run: python scripts/fetch_planetary_archive_discovery.py
+      - name: Test ODE and USGS archive response adapters
+        run: python -m unittest tests.test_planetary_archive_discovery
       - name: Discover MODIS land-surface-temperature browse tiles
         run: python scripts/fetch_modis_browse.py
       - name: Validate dashboard JavaScript syntax
@@ -77,7 +83,7 @@ jobs:
           PY
           node --check /tmp/atfa-dashboard.js
       - name: Validate backend Python syntax
-        run: python -m py_compile backend/app.py backend/smoke_test.py science/build_transferability.py scripts/fetch_pds_search.py scripts/fetch_modis_browse.py scripts/build_terrain_comparison.py scripts/build_lunar_south_pole_lola_80m.py
+        run: python -m py_compile backend/app.py backend/smoke_test.py science/build_transferability.py scripts/fetch_pds_search.py scripts/fetch_planetary_archive_discovery.py scripts/fetch_modis_browse.py scripts/build_terrain_comparison.py scripts/build_lunar_south_pole_lola_80m.py
       - name: Smoke-test FastAPI science and field-record endpoints
         run: python backend/smoke_test.py
       - name: Validate JSON science pack
@@ -85,7 +91,7 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          for p in [Path("data/transferability/transferability.json"), Path("data/planetary/pds_search.json"), Path("data/nasa/modis_browse_index.json")]:
+          for p in [Path("data/transferability/transferability.json"), Path("data/planetary/pds_search.json"), Path("data/planetary/archive_discovery.json"), Path("data/nasa/modis_browse_index.json")]:
               d=json.loads(p.read_text())
               print(p, "valid", len(p.read_bytes()), "bytes")
           d=json.loads(Path("data/transferability/transferability.json").read_text())
@@ -95,4 +101,4 @@ jobs:
           assert d["planetary_targets"]["mars"]["terrain"]
           PY
       - name: Commit refreshed public science pack
-        run: bash scripts/commit_generated_data.sh "Build planetary analog transferability science pack" data/transferability/transferability.json data/planetary/pds_search.json data/nasa/modis_browse_index.json data/nasa/modis_browse/
+        run: bash scripts/commit_generated_data.sh "Build planetary analog transferability science pack" data/transferability/transferability.json data/planetary/pds_search.json data/planetary/archive_discovery.json data/nasa/modis_browse_index.json data/nasa/modis_browse/
