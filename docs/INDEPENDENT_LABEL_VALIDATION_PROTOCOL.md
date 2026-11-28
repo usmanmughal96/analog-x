@@ -13,7 +13,11 @@ Each row in `data/validation/independent_analog_labels.json` must contain:
 - `label`: `positive` or `negative`.
 - `spatial_group`: a predeclared region/geologic block used to prevent neighbouring windows leaking across train/test.
 - `evidence_ref`: DOI, official dataset/product ID, published map reference or controlled expert-review record.
-- `reviewer` and `review_date_utc`.
+- `reviewer` and `review_date_utc` (an explicit ISO 8601 UTC date-time ending in `Z` or `+00:00`).
+- `criterion_version`: exactly `terrain_morphology_transfer_v1` for this release.
+- `review_scope`: criterion version and task-specific rationale.
+- `reviewer_confidence_1_to_5`: integer 1–5, not a boolean.
+- `reviewer_independence_attested`: explicit boolean `true`.
 - `core_terrain_index`: copied from the exact candidate release being evaluated.
 
 ## Labeling rules
