@@ -89,6 +89,13 @@ assert(read(".github/workflows/global-environment-enrichment.yml").includes("enr
 assert(read(".github/workflows/global-environment-enrichment.yml").includes("workflow_run"), "Global land-cover enrichment must be chained to the global scan release");
 assert(read("docs/COMPETITIVE_CAPABILITY_RESPONSE.md").includes("TwinWorlds"), "Competitor capability mapping missing");
 
+const pdsSearchScript = read("scripts/fetch_pds_search.py");
+assert(pdsSearchScript.includes("/api/search/1/products"), "PDS discovery must use the documented all-products endpoint");
+assert(!pdsSearchScript.includes("/classes/observational"), "PDS discovery must not use the invalid singular observational class endpoint");
+assert(pdsSearchScript.includes("product_class eq") && pdsSearchScript.includes("ref_lid_target eq") && pdsSearchScript.includes("ref_lid_instrument eq"), "PDS queries must retain target, instrument and product-class constraints");
+assert(pdsSearchScript.includes("def extract_products") && pdsSearchScript.includes('payload.get("data")'), "PDS discovery must parse the documented flat data response");
+assert(read("tests/test_pds_search_api.py").includes("test_accepts_flat_observational_product"), "PDS flat-response regression tests are missing");
+
 assert(html.includes('href="./field-validation.html"'), "Main portal is missing Field Validation Kit CTA");
 assert(read("field-validation.html").includes("actual observations collected"), "Field capture must explicitly distinguish field observations from desk research");
 assert(read("service-worker.js").includes('"./field-validation.html"'), "Offline application cache must include Field Validation Kit");
