@@ -136,13 +136,13 @@ Machine-readable status: [quantitative validation](data/validation/quantitative_
 | Copernicus DEM GLO-30 | Terrain context for ten curated Earth regions | Digital surface model; selected windows, not global GLO-30 coverage |
 | Copernicus DEM GLO-90 | Global land-inventory terrain screening | Screening index, not independent analog validation |
 | NASA MOLA MEGDR | Nili Patera Mars reference | Selected window has 50.53% observed-cell coverage |
-| University of Arizona HiRISE DTM | Nili Patera moving-dune stereo DTM reference | Catalogued at 1.01 m/pixel; 430 MB source is not yet downloaded or processed, and exact overlap with the MOLA comparison AOI remains unverified |
+| University of Arizona HiRISE DTM | Nili Patera moving-dune stereo DTM reference | Catalogued at 1.01 m/pixel; a capped PDS-label prefix check is attempted, but the 430 MB raster is not downloaded or processed and overlap is reported only when full bbox fields are available |
 | NASA LRO LOLA | Shackleton Rim 80 m and separate 5 m Site04 products | Interpolated elevation and direct-return support are separate measures |
 | NASA Diviner PRP V2.0 | Historical model-derived thermal and ice-stability-depth context | Not in-situ; depth QA, accessible-ice interpretation and resource claims remain open |
 | NASA LROC WAC | Historical 100 m south-pole illumination-frequency products | 2010–2011 observation period; not a mission-date forecast or formal PSR delineation |
 | NASA Earthdata CMR | MODIS and MERRA-2 catalogue discovery | Metadata-only; science arrays have not been decoded by this integration |
 | NASA PDS Search API | Federated Moon/Mars product catalogue queries | API returned HTTP 500 during the latest build; this is a service error, not evidence that archives lack products |
-| PDS Geosciences ODE | Archive-specific MOLA, LOLA, Diviner and spatially bounded Nili Patera HiRISE DTM discovery | Metadata-only; product type is read from the live IIPT catalogue; binary files are not downloaded by discovery |
+| PDS Geosciences ODE | Archive-specific MOLA, LOLA, Diviner and Nili Patera HiRISE DTM discovery | Metadata-only; uses live IIPT types and a separate east-expanded DTM search box; original MOLA comparison AOI is unchanged |
 | USGS Astrogeology STAC | HiRISE RDR image-observation metadata around Nili Patera | Image observations are not stereo DTMs; no imagery assets are downloaded by discovery |
 | GLiM / 2023 land cover | Retained-candidate context | Generalized layers, not field-validated geology |
 
