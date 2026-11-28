@@ -8,6 +8,7 @@
 - Absolute elevation is not compared between the Copernicus Earth DSM and Mars areoid/topography vertical references.
 - A roughly 925 m grid and approximately 2.8 km 3×3 local-relief footprint are too coarse for rover-scale hazards, wheel traction or field-scale obstacle assessment.
 - The 30 km windows sample only the selected local areas, not the full Syrtis Major region or the whole Pakistan geological province.
+- A separate University of Arizona HiRISE stereo DTM for moving dunes at Nili Patera is catalogued at 1.01 m/pixel. A capped read of its embedded PDS label confirms that its geographic bounding box does not intersect the existing MOLA comparison AOI: the DTM begins east of the AOI's eastern boundary. It is an adjacent high-resolution reference, not a replacement or co-located extension of the current MOLA profile. The approximately 430 MB raster has not been downloaded or processed.
 
 ## Earth observation
 - Sentinel-2 true-colour previews support visual reconnaissance only. RGB imagery does not establish lithology, mineralogy, geochemistry, or in-situ sample properties.
@@ -27,8 +28,9 @@
 - No Earth site reproduces lunar vacuum, reduced gravity, radiation or permanently shadowed-region conditions.
 - Earth cannot reproduce the thin CO₂ Martian atmosphere, Martian dust electrostatics or reduced gravity.
 - An Earth glacier is not a lunar permanently shadowed region and is not a substitute for Diviner/LOLA analysis.
-- Lunar LOLA 80 m GDR terrain is integrated for a 29.6 km Shackleton Rim window; the LDEM is interpolated and LDEC counts are separate observational support. It is not an illumination/PSR or water-ice analysis.
-- Diviner polar annual-temperature and water-ice-permafrost products remain unprocessed.
+- Lunar LOLA 80 m GDR terrain is integrated for a 29.6 km Shackleton Rim window; the LDEM is interpolated and LDEC counts are separate observational support. LOLA alone does not provide illumination, PSR geometry or water-ice resource measurements.
+- Separate 100 m LROC WAC historical illumination-frequency layers and Diviner PRP V2.0 model-derived thermal / ice-stability-depth summaries are processed for the Shackleton window. WAC data represent 2010–2011 observations, not mission-date forecasts; the ≤5% illumination threshold is a screening proxy, not a formal PSR boundary.
+- Diviner PRP V2.0 covers 6,823 Shackleton-window triangles. Median annual-average temperature at 2 cm is 103.786 K and median annual-maximum surface temperature is 238.568 K. Ice-stability-depth QA remains limited: 2,812 valid values, 2,514 values censored beyond 2.8738 m and 1,497 invalid or unreadable records. These model-derived values do not establish ice abundance, concentration, thickness, purity, accessibility or reserves.
 - The Shackleton coarse profile at 925 m has median/P90 slope 13.40°/30.94° and P90 local relief 1,391 m; the selected window is rugged and does not demonstrate a suitable base area.
 
 ## Institutional data

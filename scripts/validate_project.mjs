@@ -118,6 +118,15 @@ assert(archiveDiscoveryScript.includes("def parse_pds_label_text") && archiveDis
 assert(read("tests/test_planetary_archive_discovery.py").includes("test_bounded_label_read_stops_at_cap_without_claiming_footprint"), "Bounded PDS label-read safety regression test is missing");
 assert(archiveDiscoveryScript.includes("DTEEC_017762_1890_018039_1890_A01") && archiveDiscoveryScript.includes("map_scale_m_per_pixel") && archiveDiscoveryScript.includes("67.33"), "Known Nili Patera DTM product metadata is incomplete");
 assert(read("tests/test_planetary_archive_discovery.py").includes("test_nili_hirise_dtm_discovery_window_includes_published_center_without_changing_core_aoi"), "Nili DTM spatial-window regression test is missing");
+assert(read("tests/test_planetary_archive_discovery.py").includes("test_verified_nili_dtm_label_bounds_do_not_intersect_original_mola_aoi"), "Verified HiRISE DTM / MOLA AOI non-overlap regression test is missing");
+assert(archiveDiscoveryScript.includes("def build_known_dtm_reference"), "Archive discovery must promote a verified label footprint result to the top-level DTM record");
+assert(read("tests/test_planetary_archive_discovery.py").includes("test_known_dtm_reference_promotes_verified_non_overlap_to_top_level"), "Top-level DTM footprint status regression test is missing");
+assert(read("tests/test_planetary_archive_discovery.py").includes("test_known_dtm_reference_preserves_unknown_when_label_bounds_are_incomplete"), "Unknown DTM footprint state must remain explicit when label bounds are incomplete");
+assert(read("docs/LIMITATIONS.md").includes("Diviner PRP V2.0 model-derived thermal / ice-stability-depth summaries are processed"), "Limitations must acknowledge processed historical Diviner summaries");
+assert(!read("docs/LIMITATIONS.md").includes("Diviner polar annual-temperature and water-ice-permafrost products remain unprocessed"), "Stale Diviner limitation must be removed");
+assert(read("README.md").includes("does **not** intersect the current MOLA comparison AOI"), "README must disclose the verified HiRISE DTM / MOLA non-overlap");
+assert(read("transferability.html").includes("PDS label has been inspected and confirms that the DTM bounding box does not intersect"), "Archive desk must display the verified HiRISE DTM footprint boundary");
+assert(read("transferability.html").includes("only a capped prefix containing the PDS label is read"), "Archive desk must distinguish label-prefix access from full raster download");
 const archiveDashboard = read("transferability.html");
 assert(archiveDashboard.includes("data/planetary/archive_discovery.json") && archiveDashboard.includes("planetaryArchiveResults"), "ATFA dashboard must expose planetary archive discovery");
 assert(archiveDashboard.includes("not stereo DTMs"), "ATFA dashboard must distinguish RDR imagery from terrain DTMs");
@@ -195,7 +204,7 @@ assert(readinessHtml.includes("not a formal PSR polygon"), "Dashboard must disti
 assert(!readinessHtml.includes("The product does not establish illumination"), "Dashboard must not hide the separately processed historical illumination evidence");
 assert(operationalDoc.includes("**LROC WAC, 100 m:** historical") && operationalDoc.includes("103.786 K"), "Operational readiness documentation must describe the historical lunar evidence and limits");
 assert(read("README.md").includes("Evidence snapshot — 28 November 2026") && read("README.md").includes("NASA LROC WAC"), "README must use the current evidence date and disclose historical WAC evidence");
-assert(read("service-worker.js").includes('CACHE_VERSION="analogx-offline-v11"'), "Offline cache must be refreshed after Nili DTM discovery integration");
+assert(read("service-worker.js").includes('CACHE_VERSION="analogx-offline-v12"'), "Offline cache must be refreshed after verified DTM footprint reconciliation");
 assert(read("service-worker.js").includes('"./data/planetary/archive_discovery.json"'), "Offline cache must include planetary archive discovery evidence");
 assert(reviewHtml.includes("independent_of_analogx_score") && reviewHtml.includes("Export review JSON"), "Blind reviewer desk is missing provenance/export safeguards");
 assert(!reviewHtml.includes("core_terrain_index") && !reviewHtml.includes("candidate_id"), "Reviewer interface must not expose candidate scores or IDs");

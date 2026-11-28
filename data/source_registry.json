@@ -392,15 +392,17 @@
       "state": "metadata_only",
       "data_type": "Planetary archive product metadata, valid instrument/product-type sets and spatially filtered catalog records",
       "resolution": "Product-specific; metadata discovery only",
-      "coverage": "Targeted MGS MOLA MEGDR, MRO HiRISE DTM, LRO LOLA GDR and LRO Diviner PRP searches; HiRISE DTM query bounded to Nili Patera",
+      "coverage": "Targeted MGS MOLA MEGDR, MRO HiRISE DTM, LRO LOLA GDR and LRO Diviner PRP searches. The known HiRISE dune DTM is searched in a separate east-expanded box and its verified footprint does not intersect the original MOLA comparison AOI.",
       "artifacts": [
         "data/planetary/archive_discovery.json"
       ],
       "url": "https://oderest.rsl.wustl.edu/live2/",
       "limitations": [
         "ODE catalogue results are metadata, not decoded scientific measurements.",
-        "The HiRISE DTM search is spatially bounded to the existing Nili Patera MOLA comparison AOI; a returned record does not prove binary download or processing.",
-        "Instrument/product-type combinations are read from the live ODE IIPT endpoint rather than guessed.",
+        "The known 1.01 m/pixel HiRISE DTM is returned in a separate adjacent Nili Patera discovery window; its embedded PDS label confirms that its bounding box does not intersect the original MOLA comparison AOI.",
+        "The HiRISE DTM's approximately 430 MB binary has not been downloaded, decoded or processed.",
+        "The Diviner ODE query returned no matching products in this run; this does not negate the separately processed Diviner PRP table summary already held by ANALOG-X.",
+        "Instrument/product-type combinations are read from the live ODE IIPT list rather than guessed.",
         "ODE counts may describe all matching products while the stored metadata sample is limited to 20 records per query."
       ]
     },
@@ -430,18 +432,16 @@
       "state": "metadata_only",
       "data_type": "Stereo-derived areoid-elevation DTM with associated orthorectified HiRISE images",
       "resolution": "Published map scale 1.01 m/pixel for the Nili Patera DTM record",
-      "coverage": "Nili Patera dune field; published DTM center 8.781°N, 67.33°E. Footprint intersection with ANALOG-X's original MOLA comparison AOI has not yet been verified.",
+      "coverage": "Nili Patera moving-dune field; PDS label bounds 8.650757405385–8.9115110029789°N and 67.26487883–67.38538575°E. The footprint does not intersect ANALOG-X's original MOLA comparison AOI, which ends at 67.2561430698°E.",
       "artifacts": [
         "data/planetary/archive_discovery.json"
       ],
       "url": "https://www.uahirise.org/dtm/dtm.php?ID=ESP_017762_1890",
       "limitations": [
-        "The original MOLA comparison AOI ends at 67.2561430698°E; the DTM's published center at 67.33°E is east of that boundary.",
-        "The wider archive discovery box is not a new MOLA comparison AOI and does not prove that the DTM footprint intersects the original window.",
-        "ANALOG-X requests at most the first 256 KB of the DTM IMG to inspect its embedded PDS label. If the server ignores Range or the label is incomplete, footprint remains unresolved.",
-        "Only complete label latitude/longitude bounds are used to calculate a bbox intersection; center coordinates alone are not treated as footprint evidence.",
-        "The approximately 430 MB source .IMG raster has not been downloaded, decoded or processed by ANALOG-X.",
-        "This DTM supports terrain research only; it does not establish rover safety or route suitability."
+        "The original MOLA comparison AOI ends at 67.2561430698°E; the DTM's PDS-label western bound is 67.26487883°E, so the two bounding boxes do not intersect.",
+        "The wider archive discovery box includes the DTM so it can be catalogued as a separate adjacent dune-field reference; it is not a new MOLA comparison AOI.",
+        "The embedded label was inspected using a 256 KiB HTTP Range read; the approximately 430 MB source .IMG raster has not been downloaded, decoded or processed.",
+        "The label's bounding-box test does not establish rover safety, route suitability or scientific equivalence."
       ]
     }
   ]

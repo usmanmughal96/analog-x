@@ -90,7 +90,7 @@ The [Independent Reviewer Desk](https://usmanmughal96.github.io/analog-x/indepen
 ### Three open validation gates
 
 - **Physical field evidence:** the Pakistan campaign is planned; the committed field-observation ledger remains empty. No field experiment is claimed.
-- **Rover / mission suitability:** current Earth comparison cells are about 925 m; Shackleton Site04 has a separate 5 m LOLA terrain product plus historical 100 m LROC WAC illumination-frequency and Diviner PRP thermal-model context. Nili Patera also has a catalogued HiRISE dune-field DTM reference at 1.01 m/pixel, but its footprint overlap with the current MOLA comparison AOI is not yet verified and the source is not processed in ANALOG-X. These datasets do not provide mission-date illumination, formal PSR geometry, traction evidence, landing suitability or safety. No rover/UGV trial or vehicle-specific engineering review is claimed.
+- **Rover / mission suitability:** current Earth comparison cells are about 925 m; Shackleton Site04 has a separate 5 m LOLA terrain product plus historical 100 m LROC WAC illumination-frequency and Diviner PRP thermal-model context. Nili Patera also has a catalogued HiRISE dune-field DTM reference at 1.01 m/pixel. A bounded read of its PDS label confirms that its footprint does **not** intersect the current MOLA comparison AOI; it is a separate adjacent reference, and its approximately 430 MB raster has not been downloaded or processed. These datasets do not provide mission-date illumination, formal PSR geometry, traction evidence, landing suitability or safety. No rover/UGV trial or vehicle-specific engineering review is claimed.
 - **Independent expert confirmation:** 96 blinded cases are prepared, but no binary labels have been returned. No independent AUC, accuracy or reviewer endorsement is claimed.
 
 See [Operational Readiness & Validation Gates](docs/OPERATIONAL_READINESS_AND_VALIDATION.md) and the [Independent Reviewer Guide](docs/INDEPENDENT_REVIEWER_GUIDE.md) for protocols, evidence requirements and next actions.
@@ -109,6 +109,7 @@ See [Operational Readiness & Validation Gates](docs/OPERATIONAL_READINESS_AND_VA
 | Global GLO-90 inventory | **26,475 / 26,475 land tiles** | Complete enumerated land inventory; zero reported tile failures; 5,852,396 windows evaluated |
 | Moon shortlist | **1,200 candidates** | Target-specific core terrain shortlist passes schema, ordering and rank-integrity checks |
 | Mars shortlist | **1,200 candidates** | Separate target-specific core terrain shortlist passes schema, ordering and rank-integrity checks |
+| Planetary archive discovery | **4 HiRISE DTM · 12 MOLA · 20 LOLA records** | ODE metadata only; the known 1.01 m/pixel dune DTM does not intersect the core MOLA AOI; its 430 MB raster is not processed. The ODE Diviner query returned no records; the separate Diviner PRP thermal summary remains processed |
 | 2023 land-cover context | **2,391 / 2,400 windows** | Shortlist enrichment; not geology or field truth |
 | NASA POWER global context | **200 / 200 points** | Top-100-per-target coordinate context; not field measurements |
 | GLiM lithology context | **200 / 200 points** | Generalized point-query context; not area-weighted geology or mineral identification |
@@ -136,7 +137,7 @@ Machine-readable status: [quantitative validation](data/validation/quantitative_
 | Copernicus DEM GLO-30 | Terrain context for ten curated Earth regions | Digital surface model; selected windows, not global GLO-30 coverage |
 | Copernicus DEM GLO-90 | Global land-inventory terrain screening | Screening index, not independent analog validation |
 | NASA MOLA MEGDR | Nili Patera Mars reference | Selected window has 50.53% observed-cell coverage |
-| University of Arizona HiRISE DTM | Nili Patera moving-dune stereo DTM reference | Catalogued at 1.01 m/pixel; a capped PDS-label prefix check is attempted, but the 430 MB raster is not downloaded or processed and overlap is reported only when full bbox fields are available |
+| University of Arizona HiRISE DTM | Nili Patera moving-dune stereo DTM reference | Catalogued at 1.01 m/pixel; a 256 KiB PDS-label read confirms that its bounding box does not intersect the original MOLA AOI. The 430 MB raster is not downloaded or processed |
 | NASA LRO LOLA | Shackleton Rim 80 m and separate 5 m Site04 products | Interpolated elevation and direct-return support are separate measures |
 | NASA Diviner PRP V2.0 | Historical model-derived thermal and ice-stability-depth context | Not in-situ; depth QA, accessible-ice interpretation and resource claims remain open |
 | NASA LROC WAC | Historical 100 m south-pole illumination-frequency products | 2010–2011 observation period; not a mission-date forecast or formal PSR delineation |
