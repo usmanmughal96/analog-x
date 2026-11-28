@@ -101,6 +101,12 @@ assert(archiveDiscoveryScript.includes("https://oderest.rsl.wustl.edu/live2/"), 
 assert(archiveDiscoveryScript.includes('"query": "iipt"') && archiveDiscoveryScript.includes('"query": "product"'), "ODE discovery must dynamically inspect valid instrument/product-type sets before product queries");
 assert(archiveDiscoveryScript.includes("MRO-M-HIRISE-5-DTM-V1.0") && archiveDiscoveryScript.includes("NILI[\"bbox_wsen\"]"), "HiRISE DTM lookup must be scoped to the known Nili Patera study window");
 assert(archiveDiscoveryScript.includes("mro_hirise_uncontrolled_observations") && archiveDiscoveryScript.includes("not a stereo DTM"), "USGS HiRISE RDR metadata must remain distinct from DTM evidence");
+const transferabilityHtml = read("transferability.html");
+assert(transferabilityHtml.includes("data/planetary/archive_discovery.json") && transferabilityHtml.includes("planetaryArchiveResults"), "ATFA dashboard must expose planetary archive discovery");
+assert(transferabilityHtml.includes("not stereo DTMs"), "ATFA dashboard must distinguish RDR imagery from terrain DTMs");
+assert(read("tests/test_planetary_archive_discovery.py").includes("test_extracts_ode_product_records_and_count"), "ODE metadata parsing regression tests are missing");
+assert(read("docs/DATA_SOURCES.md").includes("PDS Geosciences Node ODE REST API"), "ODE discovery must be documented in the data sources guide");
+assert(read("README.md").includes("planetary archive discovery"), "README must link the planetary archive discovery artifact");
 assert(read("tests/test_planetary_archive_discovery.py").includes("test_matching_requires_exact_host_instrument_and_dataset"), "ODE IIPT selection regression tests are missing");
 
 assert(html.includes('href="./field-validation.html"'), "Main portal is missing Field Validation Kit CTA");
@@ -167,7 +173,8 @@ assert(readinessHtml.includes("not a formal PSR polygon"), "Dashboard must disti
 assert(!readinessHtml.includes("The product does not establish illumination"), "Dashboard must not hide the separately processed historical illumination evidence");
 assert(operationalDoc.includes("**LROC WAC, 100 m:** historical") && operationalDoc.includes("103.786 K"), "Operational readiness documentation must describe the historical lunar evidence and limits");
 assert(read("README.md").includes("Evidence snapshot — 28 November 2026") && read("README.md").includes("NASA LROC WAC"), "README must use the current evidence date and disclose historical WAC evidence");
-assert(read("service-worker.js").includes('CACHE_VERSION="analogx-offline-v9"'), "Offline cache version must be refreshed after field timestamp changes and lunar evidence updates");
+assert(read("service-worker.js").includes('CACHE_VERSION="analogx-offline-v10"'), "Offline cache must be refreshed after planetary archive discovery integration");
+assert(read("service-worker.js").includes('"./data/planetary/archive_discovery.json"'), "Offline cache must include planetary archive discovery evidence");
 assert(reviewHtml.includes("independent_of_analogx_score") && reviewHtml.includes("Export review JSON"), "Blind reviewer desk is missing provenance/export safeguards");
 assert(!reviewHtml.includes("core_terrain_index") && !reviewHtml.includes("candidate_id"), "Reviewer interface must not expose candidate scores or IDs");
 for (const source of [readinessHtml, reviewHtml]) {
