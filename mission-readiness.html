@@ -28,7 +28,7 @@
 <section class="panel wide"><h2>03 · Terrain evidence explorer</h2><p class="sub">Inspect the existing Earth and planetary terrain evidence at its actual spatial support. Numbers are descriptors, not safety thresholds.</p><label for="terrainSelect" class="sub">Select a study profile</label><select class="select" id="terrainSelect">
 <option value="chagai_small_playas">Chagai small salt playas · Pakistan</option><option value="hamun_i_mashkel">Hamun-i-Mashkel · Pakistan</option><option value="koh_i_sultan">Koh-i-Sultan · Pakistan</option><option value="hispar_glacier">Hispar Glacier · Pakistan</option><option value="shackleton5m">Shackleton Rim / Site04 · Moon · 5 m product</option><option value="nili_patera">Nili Patera · Mars · MOLA</option>
 </select><div id="terrainMetrics" class="metric-grid"><div class="loading">Loading terrain products…</div></div><div id="terrainContext" class="readout">Terrain interpretation will appear here.</div><div class="actions"><a class="action" href="./data/terrain/terrain_comparison.json">Earth / Mars terrain metrics</a><a class="action" href="./data/moon/shackleton_polar_evidence.json">Shackleton 5 m source summary</a><a class="action" href="./docs/LUNAR_SOUTH_POLE_OPERATIONS_EVIDENCE_PLAN.md">Lunar operations evidence plan</a></div></section>
-<section class="panel wide"><h2>04 · Lunar polar environmental evidence</h2><p class="sub">Historical LROC WAC illumination-frequency and Diviner PRP thermal-model products for the Shackleton study window. These are research context, not mission-date forecasts or operational clearance.</p><div id="lunarPolarStatus" class="loading">Loading lunar polar evidence…</div><div id="lunarPolarMetrics" class="metric-grid"></div><div id="lunarPolarCaveats" class="readout">Historical products and their limits will appear here.</div><div class="actions"><a class="action" href="./data/moon/shackleton_polar_evidence.json">Open lunar polar evidence record</a><a class="action" href="./data/moon/diviner_prp_diagnostic/report.json">Diviner processing and QA report</a><a class="action" href="./docs/LUNAR_SOUTH_POLE_OPERATIONS_EVIDENCE_PLAN.md">Lunar operations evidence plan</a></div></section>
+<section class="panel wide"><h2>04 · Lunar polar environmental evidence</h2><p class="sub">Historical LROC WAC illumination-frequency and Diviner PRP thermal-model products for the Shackleton study window. These are research context, not mission-date forecasts or operational clearance.</p><div id="lunarPolarStatus" class="loading">Loading lunar polar evidence…</div><div id="lunarPolarMetrics" class="metric-grid"></div><div id="lunarPolarCaveats" class="readout">Historical products and their limits will appear here.</div><div class="actions"><a class="action" href="./data/moon/shackleton_polar_evidence.json">Open lunar polar evidence record</a><a class="action" href="./data/moon/diviner_prp_diagnostic/report.json">Diviner processing and QA report</a><a class="action" href="./data/moon/lola_psr_site_overlap.json">PGDA LOLA PSR vector / AOI result</a><a class="action" href="./docs/LUNAR_SOUTH_POLE_OPERATIONS_EVIDENCE_PLAN.md">Lunar operations evidence plan</a></div></section>
 <section class="panel"><h2>05 · Pakistan field experiment gate</h2><p class="sub">The campaign is planned, not deployed. This panel makes the prerequisites visible.</p><div id="fieldStatus" class="loading">Loading campaign and observation ledger…</div><div class="gates" id="fieldGates"></div><h3 style="font-size:11px;margin:15px 0 6px">Proposed station designs · not scheduled field visits</h3><div id="fieldPlans" class="siteplans"></div><div class="actions"><a class="action primary" href="./field-validation.html">Open field capture kit ↗</a><a class="action" href="./docs/PAKISTAN_FIELD_CAMPAIGN_EXECUTION_PLAN.md">Campaign execution plan</a></div><div class="readout">Hispar remains a specialist glacier operation. Koh-i-Sultan requires qualified geological leadership. No field visit should proceed until local access, security, weather and site-specific safety approvals are current.</div></section>
 <section class="panel"><h2>06 · Rover / mission-suitability gate</h2><p class="sub">The repository can screen regional terrain and document missing evidence. It cannot certify safe traverse, landing or base suitability.</p><div class="gates">
 <div class="gate"><span class="n">01</span><div><b>High-resolution, co-registered hazard terrain</b><small>Earth GLO-30 is aggregated to ~925 m for the current comparison. The lunar Site04 5 m product is useful topographic context, but it does not cover every operational hazard.</small></div></div>
@@ -50,7 +50,7 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&
 async function json(path){const r=await fetch(path,{cache:"no-store"});if(!r.ok)throw new Error(path+": HTTP "+r.status);return r.json();}
 function metric(label,value){return '<div class="metric"><span>'+esc(label)+'</span><b>'+esc(value)+'</b></div>';}
 function gate(n,title,detail){return '<div class="gate"><span class="n">'+n+'</span><div><b>'+esc(title)+'</b><small>'+esc(detail)+'</small></div></div>';}
-let terrainData={},validationData={},fieldData={},campaignData={},reviewData={},atfaData={},lunarData={};
+let terrainData={},validationData={},fieldData={},campaignData={},reviewData={},atfaData={},lunarData={},lolaPsrData={};
 function renderTerrain(){
  const id=$("terrainSelect").value;let m={},scale="",name="",context="";
  if(id==="shackleton5m"){
@@ -89,6 +89,14 @@ function renderLunarPolar(){
  const percentage=illumination.percentage_based||{};
  const tw=weighted.illumination_percent||{};
  const pb=percentage.illumination_percent||{};
+ const analysis=lolaPsrData.analysis||{};
+ const nearest=(analysis.nearest_psrs_within_radius||[])[0]||null;
+ const psrStatus=lolaPsrData.status||"awaiting_source_processing";
+ const psrCount=analysis.intersecting_polygon_count_within_source;
+ const nearestLabel=nearest
+  ?fmt(nearest.distance_from_aoi_boundary_km)+" km from AOI edge"
+  :(analysis.feature_count_in_source?"No mapped polygon within 50 km":"—");
+ const psrCountLabel=psrStatus==="awaiting_source_processing"?"Pending build":fmt(psrCount);
  const metrics=[
   ["Diviner annual-average median · 2 cm",Number.isFinite(Number(avg.median))?Number(avg.median).toFixed(3)+" K":"—"],
   ["Diviner annual-maximum surface median",Number.isFinite(Number(maximum.median))?Number(maximum.median).toFixed(3)+" K":"—"],
@@ -97,11 +105,26 @@ function renderLunarPolar(){
   ["WAC pixels at or below 5% · time-weighted",pct(tw.pixels_at_or_below_5_percent_area_fraction)],
   ["WAC pixels at or below 5% · percentage-based",pct(pb.pixels_at_or_below_5_percent_area_fraction)],
   ["Diviner valid ice-stability-depth values",fmt(depth.count)+" / "+fmt(ice.selected_triangle_count)],
-  ["Diviner values censored beyond 2.8738 m",fmt(ice.beyond_2_8738m_censored_count)]
+  ["Diviner values censored beyond 2.8738 m",fmt(ice.beyond_2_8738m_censored_count)],
+  ["PGDA LOLA mapped PSR polygons intersecting AOI",psrCountLabel],
+  ["Nearest mapped PSR boundary to AOI",nearestLabel]
  ];
- $("lunarPolarStatus").innerHTML='<span class="tag good">Historical products processed</span> <span class="tag warn">Not mission-date operational analysis</span> <span class="tag warn">'+fmt(diviner.aoi?.selected_triangle_count)+' Diviner AOI triangles</span>';
+ const psrBadge=psrStatus==="mapped_psr_intersects_study_window"
+  ?'<span class="tag good">Mapped PSR overlap found</span>'
+  :psrStatus==="no_source_psr_intersects_study_window"
+   ?'<span class="tag warn">No &gt;1 km² mapped PSR overlap</span>'
+   :'<span class="tag warn">PGDA PSR vector build pending</span>';
+ $("lunarPolarStatus").innerHTML='<span class="tag good">Historical products processed</span> '+psrBadge+' <span class="tag warn">Not mission-date operational analysis</span> <span class="tag warn">'+fmt(diviner.aoi?.selected_triangle_count)+' Diviner AOI triangles</span>';
  $("lunarPolarMetrics").innerHTML=metrics.map(([label,value])=>metric(label,value)).join("");
- $("lunarPolarCaveats").textContent="Diviner PRP V2.0 is a model-derived product based on the first year of LRO mapping observations (2010–2011); the temperatures and ice-stability depths are not real-time measurements or an ice-abundance/accessibility estimate. LROC WAC 100 m illumination-frequency products summarize observations from 15 February 2010 to 5 February 2011. The ≤5% illumination threshold is only a low-illumination screening proxy, not a formal PSR polygon. The PSR Atlas geometry and mission-date NAIF SPICE illumination simulation are not yet integrated. These products do not establish a safe landing, rover route, accessible ice resource or permanent-base suitability.";
+ let psrCaveat="PGDA LPSR_80S_20MPP_ADJ_1km2 is a LOLA-derived vector subset of mapped PSRs larger than 1 km² from 80°S to the pole. ";
+ if(psrStatus==="mapped_psr_intersects_study_window"){
+  psrCaveat+="The computed polygon intersection identifies "+fmt(psrCount)+" mapped PSR polygon(s) intersecting this 29.6 km study window, with a clipped mapped overlap of "+fmt(analysis.overlap_area_total_km2)+" km². ";
+ }else if(psrStatus==="no_source_psr_intersects_study_window"){
+  psrCaveat+="No polygon in this >1 km² subset intersects the 29.6 km study window; smaller PSRs are not represented, so this is not evidence that no shadowed terrain exists. ";
+ }else{
+  psrCaveat+="The vector product has not yet completed its first build; no PSR overlap or distance is claimed. ";
+ }
+ $("lunarPolarCaveats").textContent=psrCaveat+"The mapped boundary is not an ice detection or resource estimate. Diviner PRP V2.0 is a model-derived product based on the first year of LRO mapping observations (2010–2011); temperatures and ice-stability depths are not real-time measurements or evidence of ice abundance/accessibility. LROC WAC 100 m illumination-frequency products summarize observations from 15 February 2010 to 5 February 2011. The ≤5% WAC threshold remains only a historical low-illumination proxy, not a mission-date forecast or a formal PSR boundary. These sources do not establish a safe landing, rover route, accessible ice resource or permanent-base suitability.";
 }
 function render(){
  const v=validationData,scan=v.global_scan||{},review=reviewData.cases||[],labels=v.independent_analog_label_validation?.targets||{},obs=fieldData.observations||[];
@@ -128,11 +151,11 @@ function render(){
 }
 async function init(){
  try{
-  [terrainData,validationData,fieldData,campaignData,reviewData,atfaData,lunarData]=await Promise.all([
+  [terrainData,validationData,fieldData,campaignData,reviewData,atfaData,lunarData,lolaPsrData]=await Promise.all([
    json("./data/terrain/terrain_comparison.json"),json("./data/validation/quantitative_validation.json"),
    json("./data/field_validation/observations.json"),json("./data/field_validation/campaign_plan.json"),
    json("./data/validation/independent_analog_review_packet.json"),json("./data/transferability/transferability.json"),
-   json("./data/moon/shackleton_polar_evidence.json")
+   json("./data/moon/shackleton_polar_evidence.json"),json("./data/moon/lola_psr_site_overlap.json")
   ]);
   render();renderTerrain();renderLunarPolar();
  }catch(e){$("globalStatus").innerHTML='<span class="error">Could not load a committed evidence file: '+esc(e.message)+'. Connect once or open the repository source.</span>';console.error(e);}
