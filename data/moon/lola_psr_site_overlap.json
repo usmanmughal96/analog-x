@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "status": "awaiting_source_processing",
+  "generated_at_utc": null,
+  "site": {
+    "name": "Shackleton Rim / Lunar South Pole",
+    "latitude_planetocentric_deg": -89.7668,
+    "longitude_east_deg": 188.13,
+    "study_window_km": 29.6
+  },
+  "source": {
+    "provider": "NASA GSFC Planetary Geodesy Data Archive / LOLA",
+    "product": "LPSR_80S_20MPP_ADJ_1km2",
+    "url": "https://pgda.gsfc.nasa.gov/products/90",
+    "data_doi": "https://doi.org/10.60903/gsfcpgda-lola-spole",
+    "paper_doi": "https://doi.org/10.3847/PSJ/acf3e1",
+    "catalogue_area_threshold_km2": 1,
+    "coverage": "80°S–90°S"
+  },
+  "analysis": null,
+  "note": "This placeholder makes the status explicit before the first reproducible vector build. It contains no claimed PSR intersection or distance."
+}
