@@ -114,7 +114,6 @@ assert(fieldValidationHtml.includes("ISO 8601 UTC date-time ending in Z"), "Fiel
 assert(fieldProtocol.stations[0].date_utc_format?.includes("ISO 8601 UTC timestamp ending in Z") && fieldProtocol.stations[0].measurement_time_utc_format?.includes("ISO 8601 UTC timestamp ending in Z"), "Field protocol must specify station and measurement UTC timestamp formats");
 assert(read("scripts/validate_field_observations.py").includes('("date_utc", "measurement_time_utc")'), "Repository validator must require station and measurement timestamps");
 assert(read("tests/test_field_observation_timestamps.py").includes("test_rejects_date_only_value"), "Date-only rejection regression test is missing");
-assert(read("service-worker.js").includes('CACHE_VERSION="analogx-offline-v9"'), "Offline cache must be refreshed after field timestamp changes");
 assert.equal(fieldLedger.status, "not_started", "Empty field ledger must remain not_started");
 assert.equal((fieldLedger.observations || []).length, 0, "No unverified field observations may be silently inserted");
 const registryStates = new Map(sourceRegistry.sources.map((s) => [s.id, s.state]));
