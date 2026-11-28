@@ -24,7 +24,7 @@ The workbench at [mission-readiness.html](../mission-readiness.html) reads commi
 | Pakistan Earth observation | Four Sentinel-2 spectral-context profiles, browse-only RGB previews, four processed GLO-30 DSM regional profiles and NASA POWER context | Field spectra, sample mineralogy, local instrument measurements, repeat-season ground observations |
 | Independent analog review | A 96-case blinded packet (48 Moon, 48 Mars) with score/rank withheld | Qualified reviewers, evidence-backed labels, reviewer agreement and sufficient spatially blocked labels |
 | Pakistan field validation | Campaign plan, station designs, offline capture kit and empty observation ledger | Permissions, local security and weather review, field team, calibrated instruments, actual observations and independent checking |
-| Lunar terrain context | Shackleton Rim / Site04 5 m LOLA product summary: 3,200 × 3,200 cells, 10.24 million terrain pixels; interpolated terrain coverage 100%; positive-return support 9.154% | Verified illumination and PSR geometry, mission-date SPICE analysis, thermal/resource interpretation, vehicle-specific route and hazard analysis |
+| Lunar terrain and environment | Shackleton Site04 5 m LOLA terrain summary (100% interpolated coverage; 9.154% positive-return support), 100 m LROC WAC historical illumination-frequency products, and Diviner PRP V2.0 thermal / modelled ice-stability summaries over 6,823 AOI triangles | Formal PSR atlas polygons for this AOI, mission-date NAIF SPICE illumination, local-horizon forecasts, thermal/resource uncertainty analysis, communications/power/radiation constraints, and vehicle-specific route hazards |
 | Mars terrain context | Nili Patera MOLA regional profile at about 925 m support; 567/1,122 observed cells (50.53%) and 87 complete 3×3 neighborhoods | Better-supported complementary Mars terrain products, finer-scale hazard evidence and independent validation |
 | Rover / mission suitability | Regional terrain descriptors and a documented list of missing engineering evidence | High-resolution co-registered hazard maps, vehicle specifications, surface mechanics, instrumented trials and qualified engineering sign-off |
 
@@ -117,9 +117,17 @@ These metrics show why spatial support and source-quality indicators must be vis
 
 Do not convert generic slope thresholds, Earth UGV performance or visual similarity into lunar/Martian safety claims. A terrestrial trial tests a procedure under terrestrial gravity, atmosphere, soil and vehicle dynamics; the transfer boundary must remain explicit.
 
-### Lunar south-pole operational evidence still needed
+### Lunar south-pole evidence available and still needed
 
-The current 5 m Site04 product is a useful elevation/slope data layer, not a complete south-pole operations model. A mission-relevant assessment still requires validated illumination over the mission date and time, PSR geometry, local horizon modelling, thermal uncertainty and instrument context, volatile evidence with QA, communications and power visibility, radiation exposure, lander/rover constraints, and route-specific hazard mapping. No accessible-ice, safe-landing or permanent-base claim is made by ANALOG-X.
+ANALOG-X now includes more than terrain context for the Shackleton study window:
+
+- **LOLA Site04, 5 m:** 3,200 × 3,200 terrain pixels. Interpolated elevation coverage is 100%, while positive direct-return support is 9.154%; these are distinct quality measures.
+- **LROC WAC, 100 m:** historical time-weighted and percentage-based illumination-frequency products. In the time-weighted layer, mean illumination frequency is 24.86% and 60.62% of valid pixels are at or below 5%; the percentage-based sensitivity layer reports a 25.97% mean and 58.65% at or below 5%.
+- **Diviner PRP V2.0:** model-derived annual average temperature at 2 cm (median 103.786 K) and annual maximum surface temperature (median 238.568 K), summarised over 6,823 Shackleton-window triangles. Ice-stability-depth values are QA-limited: 2,812 valid depth values, 2,514 values censored beyond 2.8738 m, and 1,497 invalid or unreadable records.
+
+The WAC layers describe historical observations from 15 February 2010 to 5 February 2011; they are not a mission-date illumination forecast. The ≤5% WAC threshold is a low-illumination screening proxy, not a formal permanently shadowed region (PSR) boundary. Diviner PRP is a historical model-derived product based on the first year of LRO mapping observations (2010–2011), not an in-situ ice measurement. A modelled stability depth does not establish ice concentration, thickness, purity, accessibility or reserves.
+
+Still required are verified PSR Atlas polygons intersecting the AOI, pinned mission-date NAIF SPICE kernels and illumination simulation, local-horizon modelling with terrain uncertainty, QA of thermal/volatile interpretation, communications and power visibility, radiation exposure, vehicle/lander constraints and route-specific hazard mapping. No accessible-ice, safe-landing, rover-safety or permanent-base claim is made by ANALOG-X.
 
 ## Gate D — operational rehearsal utility
 

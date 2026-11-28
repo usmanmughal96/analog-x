@@ -10,6 +10,7 @@ const power = JSON.parse(read("data/power/index.json"));
 const terrain = JSON.parse(read("data/terrain/terrain_comparison.json"));
 const lunar = JSON.parse(read("data/moon/shackleton_lola_80m.json"));
 const diviner = JSON.parse(read("data/moon/diviner_prp_diagnostic/report.json"));
+const lunarPolar = JSON.parse(read("data/moon/shackleton_polar_evidence.json"));
 
 const ids = [...html.matchAll(/\bid=["']([^"']+)["']/g)].map((m) => m[1]);
 const duplicates = ids.filter((id, i) => ids.indexOf(id) !== i);
@@ -129,6 +130,19 @@ const validationReport = JSON.parse(read("data/validation/quantitative_validatio
 const blindPacket = JSON.parse(read("data/validation/independent_analog_review_packet.json"));
 assert(readinessHtml.includes("operational suitability not established"), "Mission readiness page must state the current rover-suitability boundary");
 assert(readinessHtml.includes("50.53%") && readinessHtml.includes("9.154%"), "Mission readiness page must preserve MOLA and LOLA coverage caveats");
+const divinerPolar = lunarPolar.diviner_polar_resource_product || {};
+const wacPolar = lunarPolar.lroc_wac_illumination || {};
+assert.equal(divinerPolar.status, "processed", "Historical Diviner polar resource summary must remain processed");
+assert.equal(divinerPolar.aoi?.selected_triangle_count, 6823, "Unexpected Diviner Shackleton AOI triangle count");
+assert.equal(wacPolar.time_weighted?.resolution_m_per_pixel, 100, "Expected 100 m time-weighted WAC illumination product");
+assert.equal(wacPolar.percentage_based?.resolution_m_per_pixel, 100, "Expected 100 m percentage-based WAC illumination product");
+assert(wacPolar.time_weighted?.illumination_percent?.pixels_at_or_below_5_percent_area_fraction > 60, "WAC low-illumination proxy summary missing");
+assert(readinessHtml.includes("renderLunarPolar") && readinessHtml.includes("lunarPolarMetrics"), "Mission readiness dashboard must display the processed lunar environment evidence");
+assert(readinessHtml.includes("not a formal PSR polygon"), "Dashboard must distinguish low-illumination screening from formal PSR geometry");
+assert(!readinessHtml.includes("The product does not establish illumination"), "Dashboard must not hide the separately processed historical illumination evidence");
+assert(operationalDoc.includes("**LROC WAC, 100 m:** historical") && operationalDoc.includes("103.786 K"), "Operational readiness documentation must describe the historical lunar evidence and limits");
+assert(read("README.md").includes("Evidence snapshot — 28 November 2026") && read("README.md").includes("NASA LROC WAC"), "README must use the current evidence date and disclose historical WAC evidence");
+assert(read("service-worker.js").includes('CACHE_VERSION="analogx-offline-v8"'), "Offline cache version must be bumped with the lunar dashboard update");
 assert(reviewHtml.includes("independent_of_analogx_score") && reviewHtml.includes("Export review JSON"), "Blind reviewer desk is missing provenance/export safeguards");
 assert(!reviewHtml.includes("core_terrain_index") && !reviewHtml.includes("candidate_id"), "Reviewer interface must not expose candidate scores or IDs");
 for (const source of [readinessHtml, reviewHtml]) {
