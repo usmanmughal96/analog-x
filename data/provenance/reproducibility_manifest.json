@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-28T14:55:14+00:00",
-  "repository_commit_before_manifest_commit": "e43751de20d5657bd29912e9d9b098c1809f0c24",
+  "generated_at_utc": "2026-11-28T14:58:52+00:00",
+  "repository_commit_before_manifest_commit": "cbf98165a67e87f3cb90407b90230f95030a16bb",
   "working_tree_before_manifest_write": "clean",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -733,7 +733,7 @@
     {
       "path": "data/nasa/modis_browse_index.json",
       "size_bytes": 43836,
-      "sha256": "70c7b0c5381126dae1fd8ddaee4c687d3d022ff1a0132d105a89e3eb063c9e4d",
+      "sha256": "f2d30b667dabb2292a233fd0290f035843f70f6e8da39b173a5db79492188785",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -864,14 +864,14 @@
     },
     {
       "path": "data/planetary/archive_discovery.json",
-      "size_bytes": 116522,
-      "sha256": "635ae222b6464bda069c2e78fdd3396c27d6059337103740b69831c79f92279d",
+      "size_bytes": 123013,
+      "sha256": "b6345a6362ce7cf6c30fd5e28bc22bfc6ae67437a0440598e4d4a1ca7ec4cbdc",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/planetary/pds_search.json",
       "size_bytes": 8140,
-      "sha256": "8b53a5885cea38ae9003b05a0f813f716dd26f26c1d3359e3c8e39c113ed6143",
+      "sha256": "8381ba38ba6bb48e217a8324c6c07b361ef9bc907e1d93eb98b973d81a51a4ef",
       "evidence_class_hint": "metadata_only"
     },
     {
@@ -1039,7 +1039,7 @@
     {
       "path": "data/transferability/transferability.json",
       "size_bytes": 388993,
-      "sha256": "cda7bb103ec02843dcf80f7847e4d120b9b5982cf34cac7b3a117f32f4bd552e",
+      "sha256": "5770eb27b700c12fa4e812e517e8f4088e1bf4cfb08113bc9dd59852c2b3c511",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -1230,8 +1230,8 @@
     },
     {
       "path": "scripts/fetch_planetary_archive_discovery.py",
-      "size_bytes": 17567,
-      "sha256": "bb10206d07b0c3946fb467b73b91fc609a0f7b8168552579ae8c6cd685bbfb4c",
+      "size_bytes": 18059,
+      "sha256": "469733b1380aa2f1426b53016b2baf02ab79aac670c7c72f6504445f01495e25",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1308,8 +1308,8 @@
     },
     {
       "path": "scripts/validate_project.mjs",
-      "size_bytes": 22508,
-      "sha256": "7bef683142f3c8048c3d52b4fd790a4d2fb8af36d157e2faca94d5fe181953ea",
+      "size_bytes": 23274,
+      "sha256": "d5dc5038877154627e31e041c0a0edfd8c9a7a2f5942711ccac5b591f2c0a581",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1686,8 +1686,8 @@
     },
     {
       "path": "tests/test_planetary_archive_discovery.py",
-      "size_bytes": 4575,
-      "sha256": "4dc4186aedac2393a6179575931b2803611d6cd129f1393d338f2216a48a0b0c",
+      "size_bytes": 5073,
+      "sha256": "766349779e9e1703b73abc57f612db3a32b0615edb149f2c016342e56a830a72",
       "evidence_class_hint": "method_or_documentation"
     },
     {
