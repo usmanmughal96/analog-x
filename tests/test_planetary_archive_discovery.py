@@ -25,9 +25,13 @@ class PlanetaryArchiveDiscoveryTests(unittest.TestCase):
     def test_archive_searches_are_exact_known_datasets(self):
         by_id = {row["id"]: row for row in ODE_TARGETS}
         self.assertEqual(by_id["mars_hirise_dtm_nili"]["dataset_id"], "MRO-M-HIRISE-5-DTM-V1.0")
-        self.assertEqual(by_id["mars_mola_megdr_nili"]["dataset_id"], "MGS-M-MOLA-5-MEGDR-L3-V1.0")
-        self.assertEqual(by_id["moon_lola_reference"]["dataset_id"], "LRO-L-LOLA-5-GDR-V1.0")
-        self.assertEqual(by_id["moon_diviner_prp"]["dataset_id"], "LRO-L-DLRE-5-PRP-V2.0")
+        self.assertEqual(by_id["mars_hirise_dtm_nili"]["product_type_filter"], "DTM")
+        self.assertEqual(by_id["mars_mola_megdr_nili"]["dataset_id"], "mgs_mola_topography_derived-data_meg064")
+        self.assertEqual(by_id["mars_mola_megdr_nili"]["product_type_filter"], "MEGDR")
+        self.assertEqual(by_id["moon_lola_reference"]["dataset_id"], "lro_lola_rdr-data_gridded")
+        self.assertEqual(by_id["moon_lola_reference"]["product_type_filter"], "GDRDEM")
+        self.assertEqual(by_id["moon_diviner_prp"]["dataset_id"], "lro_diviner_derived_prp")
+        self.assertEqual(by_id["moon_diviner_prp"]["product_type_filter"], "PRP")
 
     def test_extracts_dynamic_iipt_sets_from_json_response(self):
         payload = {
@@ -61,15 +65,17 @@ class PlanetaryArchiveDiscoveryTests(unittest.TestCase):
             "ihid": "mro",
             "instrument_tokens": ("hirise",),
             "dataset_id": "MRO-M-HIRISE-5-DTM-V1.0",
+            "product_type_filter": "DTM",
         }
         rows = [
             {"IHID": "mro", "IID": "HiRISE", "IName": "High Resolution Imaging Science Experiment", "PT": "RDRV11", "DataSetId": "MRO-M-HIRISE-5-DTM-V1.0"},
-            {"IHID": "mro", "IID": "HiRISE", "PT": "RDRV11", "DataSetId": "MRO-M-HIRISE-3-RDR-V1.1"},
+            {"IHID": "mro", "IID": "HiRISE", "PT": "DTM", "DataSetId": "MRO-M-HIRISE-5-DTM-V1.0"},
+            {"IHID": "mro", "IID": "HiRISE", "PT": "DTM", "DataSetId": "MRO-M-HIRISE-3-DTM-V1.1"},
             {"IHID": "mgs", "IID": "MOLA", "PT": "MEGDR", "DataSetId": "MRO-M-HIRISE-5-DTM-V1.0"},
         ]
         matches = _find_matching_iipt_sets(rows, spec)
         self.assertEqual(len(matches), 1)
-        self.assertEqual(matches[0]["PT"], "RDRV11")
+        self.assertEqual(matches[0]["PT"], "DTM")
 
     def test_extracts_ode_product_records_and_count(self):
         payload = {

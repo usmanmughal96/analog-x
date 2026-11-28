@@ -107,12 +107,15 @@ const archiveDiscoveryScript = read("scripts/fetch_planetary_archive_discovery.p
 assert(archiveDiscoveryScript.includes("https://oderest.rsl.wustl.edu/live2/"), "ODE REST fallback endpoint is missing");
 assert(archiveDiscoveryScript.includes('"query": "iipt"') && archiveDiscoveryScript.includes('"query": "product"'), "ODE discovery must dynamically inspect valid instrument/product-type sets before product queries");
 assert(archiveDiscoveryScript.includes("MRO-M-HIRISE-5-DTM-V1.0") && archiveDiscoveryScript.includes("NILI[\"bbox_wsen\"]"), "HiRISE DTM lookup must be scoped to the known Nili Patera study window");
+assert(archiveDiscoveryScript.includes("mgs_mola_topography_derived-data_meg064") && archiveDiscoveryScript.includes("lro_lola_rdr-data_gridded") && archiveDiscoveryScript.includes("lro_diviner_derived_prp"), "ODE queries must use the live archive's current PDS4 bundle identifiers");
+assert(archiveDiscoveryScript.includes('"product_type_filter": "GDRDEM"') && archiveDiscoveryScript.includes('"product_type_filter": "PRP"') && archiveDiscoveryScript.includes('requested_type = text_value(spec.get("product_type_filter"))'), "ODE queries must constrain the exact requested elevation or polar-resource product type");
 assert(archiveDiscoveryScript.includes("mro_hirise_uncontrolled_observations") && archiveDiscoveryScript.includes("not a stereo DTM"), "USGS HiRISE RDR metadata must remain distinct from DTM evidence");
 const archiveDashboard = read("transferability.html");
 assert(archiveDashboard.includes("data/planetary/archive_discovery.json") && archiveDashboard.includes("planetaryArchiveResults"), "ATFA dashboard must expose planetary archive discovery");
 assert(archiveDashboard.includes("not stereo DTMs"), "ATFA dashboard must distinguish RDR imagery from terrain DTMs");
 assert(read("tests/test_planetary_archive_discovery.py").includes("test_extracts_ode_product_records_and_count"), "ODE metadata parsing regression tests are missing");
 assert(read("tests/test_planetary_archive_discovery.py").includes("test_matching_requires_exact_host_instrument_and_dataset"), "ODE IIPT selection regression tests are missing");
+assert(read("tests/test_planetary_archive_discovery.py").includes("product_type_filter"), "ODE product-type filtering regression test is missing");
 assert(read("docs/DATA_SOURCES.md").includes("PDS Geosciences Node ODE REST API"), "ODE discovery must be documented in the data sources guide");
 assert(read("README.md").includes("planetary archive discovery"), "README must link the planetary archive discovery artifact");
 

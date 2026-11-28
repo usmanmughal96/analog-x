@@ -45,6 +45,7 @@ ODE_TARGETS = [
         "ihid": "mro",
         "instrument_tokens": ("hirise",),
         "dataset_id": "MRO-M-HIRISE-5-DTM-V1.0",
+        "product_type_filter": "DTM",
         "purpose": "Find stereo-derived HiRISE DTMs intersecting the Nili Patera comparison window.",
         "spatially_bounded": True,
     },
@@ -54,7 +55,8 @@ ODE_TARGETS = [
         "target": "mars",
         "ihid": "mgs",
         "instrument_tokens": ("mola",),
-        "dataset_id": "MGS-M-MOLA-5-MEGDR-L3-V1.0",
+        "dataset_id": "mgs_mola_topography_derived-data_meg064",
+        "product_type_filter": "MEGDR",
         "purpose": "Discover the MOLA MEGDR topography archive products corresponding to the regional Mars reference.",
         "spatially_bounded": False,
     },
@@ -64,7 +66,8 @@ ODE_TARGETS = [
         "target": "moon",
         "ihid": "lro",
         "instrument_tokens": ("lola",),
-        "dataset_id": "LRO-L-LOLA-5-GDR-V1.0",
+        "dataset_id": "lro_lola_rdr-data_gridded",
+        "product_type_filter": "GDRDEM",
         "purpose": "Discover LRO LOLA gridded reference products and archive metadata.",
         "spatially_bounded": False,
     },
@@ -74,7 +77,8 @@ ODE_TARGETS = [
         "target": "moon",
         "ihid": "lro",
         "instrument_tokens": ("diviner", "dlre"),
-        "dataset_id": "LRO-L-DLRE-5-PRP-V2.0",
+        "dataset_id": "lro_diviner_derived_prp",
+        "product_type_filter": "PRP",
         "purpose": "Discover LRO Diviner Polar Resource Product metadata already used in the Shackleton thermal summary.",
         "spatially_bounded": False,
     },
@@ -227,8 +231,13 @@ def _find_matching_iipt_sets(rows: list[dict[str, Any]], spec: dict[str, Any]) -
         if target_dataset not in dataset_id:
             continue
         # Product type is obtained from the live archive's valid IIPT list,
-        # never guessed from a display name.
-        if not text_value(clean.get("PT")):
+        # never guessed from a display name. A strict requested type prevents
+        # selecting another product family from a shared PDS4 data-set bundle.
+        product_type = text_value(clean.get("PT"))
+        if not product_type:
+            continue
+        requested_type = text_value(spec.get("product_type_filter"))
+        if requested_type and product_type.lower() != requested_type.lower():
             continue
         matches.append(clean)
     return matches
