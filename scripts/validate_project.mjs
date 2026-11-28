@@ -130,7 +130,7 @@ assert(read("docs/LIMITATIONS.md").includes("Diviner PRP V2.0 model-derived ther
 assert(!read("docs/LIMITATIONS.md").includes("Diviner polar annual-temperature and water-ice-permafrost products remain unprocessed"), "Stale Diviner limitation must be removed");
 assert(read("README.md").includes("does **not** intersect the current MOLA comparison AOI"), "README must disclose the verified HiRISE DTM / MOLA non-overlap");
 assert(read("transferability.html").includes("PDS-label bounds do not intersect the original MOLA AOI") && read("transferability.html").includes("PDS-label bounds intersect the original MOLA AOI"), "Archive desk must display per-product HiRISE DTM footprint boundaries");
-assert(read("transferability.html").includes("only a capped prefix containing the PDS label is read"), "Archive desk must distinguish label-prefix access from full raster download");
+assert(read("transferability.html").includes("Each returned DTM is checked using a capped prefix containing its embedded PDS label") && read("transferability.html").includes("full DTM rasters are not downloaded or processed"), "Archive desk must distinguish per-product label-prefix access from full raster download");
 const archiveDashboard = read("transferability.html");
 assert(archiveDashboard.includes("data/planetary/archive_discovery.json") && archiveDashboard.includes("planetaryArchiveResults"), "ATFA dashboard must expose planetary archive discovery");
 assert(archiveDashboard.includes("not stereo DTMs"), "ATFA dashboard must distinguish RDR imagery from terrain DTMs");
