@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at_utc": "2026-11-28T15:11:50+00:00",
+  "generated_at_utc": "2026-11-28T15:28:42+00:00",
   "purpose": "Fallback archive discovery for planetary products when the federated PDS Search API is unavailable.",
   "coverage": "Targeted metadata discovery for Nili Patera HiRISE DTM, regional MOLA MEGDR, lunar LOLA GDR, Diviner PRP and Nili-area HiRISE RDR observations.",
   "nili_patera_aoi": {
@@ -30,9 +30,9 @@
       "ESP_018039_1890"
     ],
     "core_mola_aoi_center_inside": false,
-    "core_mola_aoi_footprint_intersection": "not_yet_verified_from_product_label",
+    "core_mola_aoi_footprint_intersection": false,
     "status": "known_catalogued_reference",
-    "metadata_boundary": "The published center is outside the original MOLA comparison box. The enlarged ODE discovery box is only a catalogue search window; it does not prove that the DTM footprint overlaps the original AOI.",
+    "metadata_boundary": "The complete PDS-label geographic bounding box does not intersect the original MOLA comparison AOI. Treat this DTM as an adjacent high-resolution dune-field reference, not as co-located MOLA terrain.",
     "pds_label_inspection": {
       "status": "label_verified_bounds_outside_core_aoi",
       "source_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_017700_017799/ESP_017762_1890_ESP_018039_1890/DTEEC_017762_1890_018039_1890_A01.IMG",
