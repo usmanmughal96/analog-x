@@ -96,6 +96,13 @@ assert(pdsSearchScript.includes("product_class eq") && pdsSearchScript.includes(
 assert(pdsSearchScript.includes("def extract_products") && pdsSearchScript.includes('payload.get("data")'), "PDS discovery must parse the documented flat data response");
 assert(read("tests/test_pds_search_api.py").includes("test_accepts_flat_observational_product"), "PDS flat-response regression tests are missing");
 
+const archiveDiscoveryScript = read("scripts/fetch_planetary_archive_discovery.py");
+assert(archiveDiscoveryScript.includes("https://oderest.rsl.wustl.edu/live2/"), "ODE REST fallback endpoint is missing");
+assert(archiveDiscoveryScript.includes('"query": "iipt"') && archiveDiscoveryScript.includes('"query": "product"'), "ODE discovery must dynamically inspect valid instrument/product-type sets before product queries");
+assert(archiveDiscoveryScript.includes("MRO-M-HIRISE-5-DTM-V1.0") && archiveDiscoveryScript.includes("NILI[\"bbox_wsen\"]"), "HiRISE DTM lookup must be scoped to the known Nili Patera study window");
+assert(archiveDiscoveryScript.includes("mro_hirise_uncontrolled_observations") && archiveDiscoveryScript.includes("not a stereo DTM"), "USGS HiRISE RDR metadata must remain distinct from DTM evidence");
+assert(read("tests/test_planetary_archive_discovery.py").includes("test_matching_requires_exact_host_instrument_and_dataset"), "ODE IIPT selection regression tests are missing");
+
 assert(html.includes('href="./field-validation.html"'), "Main portal is missing Field Validation Kit CTA");
 assert(read("field-validation.html").includes("actual observations collected"), "Field capture must explicitly distinguish field observations from desk research");
 assert(read("service-worker.js").includes('"./field-validation.html"'), "Offline application cache must include Field Validation Kit");
@@ -127,6 +134,9 @@ const registryStates = new Map(sourceRegistry.sources.map((s) => [s.id, s.state]
 assert.equal(registryStates.get("sentinel2_rgb"), "browse_only", "RGB Sentinel-2 quicklooks must remain browse-only");
 assert.equal(registryStates.get("nasa_cmr_modis_merra"), "metadata_only", "CMR entries must remain metadata-only until science arrays are processed");
 assert.equal(registryStates.get("nasa_pds_search"), "metadata_only", "PDS product discovery must remain metadata-only until products are independently inspected and processed");
+assert.equal(registryStates.get("pds_geosciences_ode"), "metadata_only", "ODE metadata must not be represented as processed science");
+assert.equal(registryStates.get("usgs_astrogeology_hirise_stac"), "metadata_only", "USGS HiRISE STAC records must remain metadata-only");
+assert(sourceRegistry.sources.find((source) => source.id === "pds_geosciences_ode")?.artifacts?.includes("data/planetary/archive_discovery.json"), "ODE archive discovery artifact must be registered");
 assert(sourceRegistry.sources.find((source) => source.id === "nasa_pds_search")?.artifacts?.includes("data/planetary/pds_search.json"), "PDS search artifact must be registered in the evidence inventory");
 assert.equal(registryStates.get("suparco_space4climate"), "reference_only", "SUPARCO institutional links must remain reference-only");
 assert(["planned", "partially_processed", "processed"].includes(registryStates.get("copernicus_glo90_global")), "GLO-90 state must reflect actual global run progress");
