@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Independent Reviewer Desk | ANALOG-X</title>
+<meta name="description" content="Offline-first blinded reviewer workspace for the ANALOG-X terrain-morphology transferability cases.">
+<style>
+:root{color-scheme:dark;--bg:#07121c;--panel:#0e2030;--line:#2b485a;--text:#e8f2f6;--muted:#9fb3bf;--cyan:#74d6e9;--mint:#8bd9b7;--gold:#e5c27f;--red:#e29a91}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#112b3b 0,#07121c 360px);color:var(--text);font:14px/1.5 Inter,system-ui,sans-serif}a{color:var(--cyan);text-decoration:none}.wrap{max-width:1180px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding:4px 0 17px}.brand{font-weight:900;letter-spacing:.14em}.brand small{display:block;font-size:9px;color:var(--muted);letter-spacing:.15em}.links{display:flex;gap:8px;flex-wrap:wrap}.links a,.btn{padding:8px 11px;border:1px solid var(--line);border-radius:8px;font-size:11px;color:#cde9ef;background:#0b1d2a}.hero{padding:28px 0 17px}.eyebrow{font-size:10px;font-weight:850;color:var(--mint);letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.05;letter-spacing:-.04em;margin:9px 0}.hero p{max-width:850px;color:#b8c9d2}.notice{background:#292218;border:1px solid #705c34;color:#ead6a8;border-radius:10px;padding:12px 14px;font-size:11px;margin:12px 0 18px}.notice b{color:#f3d18a}.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:12px;align-items:start}.panel{background:linear-gradient(145deg,#0e2231,#0a1925);border:1px solid var(--line);border-radius:12px;padding:15px;min-width:0}.panel h2{font-size:14px;margin:0 0 12px}.field{display:grid;gap:5px;margin:11px 0}.field label{font-size:9px;font-weight:850;letter-spacing:.1em;text-transform:uppercase;color:#9fb8c4}.field input,.field select,.field textarea{width:100%;padding:10px 11px;border:1px solid #365366;border-radius:8px;background:#081a27;color:var(--text);font:inherit}.field textarea{min-height:74px;resize:vertical}.hint{font-size:9px;color:var(--muted)}.case-list{display:grid;gap:6px;max-height:530px;overflow:auto;margin-top:10px}.case-button{display:flex;justify-content:space-between;align-items:center;text-align:left;gap:8px;background:#0a1a25;border:1px solid #254253;border-radius:8px;padding:9px;color:#d9e6eb;font:inherit;cursor:pointer}.case-button.active{border-color:var(--cyan);background:#103245}.case-button small{display:block;color:var(--muted);font-size:9px}.case-button.done:after{content:"SAVED";color:var(--mint);font-size:8px;font-weight:900;letter-spacing:.1em}.progress{height:7px;background:#1a2d3a;border-radius:20px;overflow:hidden;margin:8px 0}.progress span{display:block;height:100%;background:#55c7ab;width:0}.case-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.case-head h2{font-size:20px;margin:0}.tag{font-size:9px;text-transform:uppercase;letter-spacing:.08em;border:1px solid var(--line);border-radius:20px;padding:4px 8px;color:#cbe1e8;white-space:nowrap}.tag.warn{border-color:#7b6338;color:var(--gold)}.case-meta{display:flex;gap:7px;flex-wrap:wrap;margin:9px 0 14px}.meta{font-size:10px;color:var(--muted);padding:6px 8px;background:#0a1924;border:1px solid #203b4a;border-radius:7px}.criterion{border-left:3px solid var(--cyan);background:#102635;padding:11px 13px;border-radius:0 8px 8px 0;font-size:11px;margin:14px 0}.labels{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.choice{border:1px solid #345264;border-radius:8px;padding:9px;background:#0a1c29;display:flex;align-items:center;gap:7px;font-size:10px;cursor:pointer}.choice input{accent-color:#62c7df}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.btn{cursor:pointer}.btn.primary{background:#0e4a5e;border-color:#3a91a6}.btn.danger{border-color:#704a46;color:#edb1a9}.btn:disabled{opacity:.45;cursor:not-allowed}.status{font-size:10px;color:var(--muted);margin-top:9px;min-height:15px}.checkline{display:flex;align-items:flex-start;gap:8px;color:#c4d4db;font-size:10px;margin:10px 0}.checkline input{margin-top:2px;accent-color:#73d6e9}.foot{color:#7f98a5;font-size:10px;padding:19px 0}.hidden{display:none!important}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.case-list{max-height:260px}.labels{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.wrap{padding:13px}.top{flex-direction:column;align-items:flex-start}.row{grid-template-columns:1fr}.labels{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body><div class="wrap">
+<header class="top"><div class="brand">ANALOG-X <small>INDEPENDENT REVIEW / BLINDED CASE DESK</small></div><nav class="links"><a href="./mission-readiness.html">Readiness workbench</a><a href="./global-discovery.html">Global discovery</a><a href="./docs/INDEPENDENT_LABEL_VALIDATION_PROTOCOL.md">Review protocol</a></nav></header>
+<section class="hero"><div class="eyebrow">External review workspace · terrain morphology only</div><h1>Assess the evidence.<br><span style="color:var(--cyan)">Not the ranking.</span></h1><p>This local-first interface helps an independent reviewer assess the 96 anonymized ANALOG-X cases. It intentionally does not show candidate IDs, ANALOG-X scores, ranks or shortlist positions. Completed assessments are exported as JSON; nothing is submitted to ANALOG-X automatically.</p></section>
+<div class="notice"><b>Reviewer qualification:</b> qualifications and affiliations entered here are self-reported. The project owner must verify reviewer identity, relevant expertise and conflicts outside this page before treating any response as expert-reviewed. This interface does not certify reviewers. <b>Blind-review safeguard:</b> do not request or infer ANALOG-X ranks or scores. Assess only the predeclared terrain-morphology question using independent sources. This review does not validate mineralogy, volatiles, biological potential, landing safety, rover trafficability or overall planetary equivalence.</div>
+<div class="layout">
+<aside class="panel">
+<h2>Reviewer details</h2>
+<div class="field"><label for="reviewerName">Name *</label><input id="reviewerName" autocomplete="name" placeholder="Your name"></div>
+<div class="field"><label for="reviewerAffiliation">Affiliation *</label><input id="reviewerAffiliation" placeholder="Institution / independent affiliation"></div>
+<div class="field"><label for="reviewerQualification">Relevant qualification *</label><input id="reviewerQualification" placeholder="Planetary geology, geomorphology, etc."></div>
+<div class="field"><label for="reviewDate">Review date (UTC) *</label><input id="reviewDate" type="date"></div>
+<label class="checkline"><input id="independent" type="checkbox"><span>I confirm that I am assessing these cases independently of ANALOG-X ranks and scores, and did not use them to form these judgments.</span></label>
+<div class="progress"><span id="progressBar"></span></div><div class="hint" id="progressText">0 of 96 cases saved</div>
+<div class="field"><label for="targetFilter">Filter cases</label><select id="targetFilter"><option value="all">All targets</option><option value="moon">Moon</option><option value="mars">Mars</option></select></div>
+<div id="caseList" class="case-list"><div class="hint">Loading blind case packet…</div></div>
+<div class="actions"><button class="btn primary" id="exportButton" type="button">Export review JSON</button><button class="btn" id="importButton" type="button">Import saved JSON</button><input type="file" id="importFile" accept="application/json,.json" class="hidden"></div>
+<div class="actions"><button class="btn danger" id="clearButton" type="button">Clear local draft</button></div>
+<div class="status" id="globalStatus">Preparing reviewer packet…</div>
+</aside>
+<main class="panel">
+<div class="case-head"><div><div class="hint">CURRENT BLIND CASE</div><h2 id="caseTitle">Loading…</h2></div><span class="tag warn" id="caseState">Not assessed</span></div>
+<div class="case-meta" id="caseMeta"></div>
+<div class="criterion"><b>Predeclared criterion — terrain_morphology_transfer_v1</b><br>For the stated planetary reference, does independent evidence support a terrain-morphology match relevant to the stated target process at this candidate window? Consider only terrain morphology at the supplied scale and cite external maps, papers, datasets or qualified expertise. Do not infer material composition or mission safety.</div>
+<div class="field"><label>Assessment</label><div class="labels">
+<label class="choice"><input type="radio" name="label" value="positive"> Positive</label>
+<label class="choice"><input type="radio" name="label" value="negative"> Negative</label>
+<label class="choice"><input type="radio" name="label" value="inconclusive"> Inconclusive</label>
+<label class="choice"><input type="radio" name="label" value="insufficient_evidence"> Insufficient evidence</label>
+</div></div>
+<div class="field"><label for="evidence">Independent evidence references *</label><textarea id="evidence" placeholder="One DOI, official dataset/product ID, published map, or stable URL per line. Required for positive / negative labels."></textarea><div class="hint">For a positive or negative label, cite at least one source independent of ANALOG-X. Explain what each source actually establishes in your rationale.</div></div>
+<div class="row">
+<div class="field"><label for="confidence">Confidence (1–5) *</label><select id="confidence"><option value="">Select confidence</option><option value="1">1 · Very low</option><option value="2">2 · Low</option><option value="3">3 · Moderate</option><option value="4">4 · High</option><option value="5">5 · Very high</option></select></div>
+<div class="field"><label for="limitations">Limitations / caveats</label><input id="limitations" placeholder="Data coverage, scale, uncertainty…"></div>
+</div>
+<div class="field"><label for="rationale">Rationale and task-specific interpretation *</label><textarea id="rationale" placeholder="State why the evidence supports / rejects the criterion, what is uncertain, and what process/task the evidence relates to."></textarea></div>
+<div class="actions"><button class="btn" id="previousButton" type="button">← Previous</button><button class="btn primary" id="saveButton" type="button">Save this assessment</button><button class="btn" id="nextButton" type="button">Next →</button></div>
+<div class="status" id="caseStatus">Responses remain in this browser until you export them.</div>
+</main>
+</div>
+<footer class="foot">ANALOG-X · Review case data are public and anonymized. Reviewer identity and saved responses remain in this browser's local storage until cleared or exported. Use an approved private channel to return the exported file. The private case-key file must never be shared with reviewers or committed to the public repository.</footer>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const DRAFT_KEY="analogx-independent-review-draft-v1";
+const REVIEW_VERSION="terrain_morphology_transfer_v1";
+let basePacket=null,packet=null,current=0;
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function today(){return new Date().toISOString().slice(0,10);}
+function selectedLabel(){const x=document.querySelector('input[name="label"]:checked');return x?x.value:"";}
+function loadIdentity(){const d=JSON.parse(localStorage.getItem(DRAFT_KEY)||"{}");$("reviewerName").value=d.reviewerName||"";$("reviewerAffiliation").value=d.reviewerAffiliation||"";$("reviewerQualification").value=d.reviewerQualification||"";$("reviewDate").value=d.reviewDate||today();$("independent").checked=!!d.independent;}
+function identity(){return {reviewerName:$("reviewerName").value.trim(),reviewerAffiliation:$("reviewerAffiliation").value.trim(),reviewerQualification:$("reviewerQualification").value.trim(),reviewDate:$("reviewDate").value,independent:$("independent").checked};}
+function persist(){const d=identity();d.packet=packet;localStorage.setItem(DRAFT_KEY,JSON.stringify(d));}
+function updateProgress(){
+ const cases=packet?.cases||[],saved=cases.filter(c=>c.independent_review&&c.independent_review.label).length;
+ $("progressBar").style.width=(cases.length?saved/cases.length*100:0)+"%";
+ $("progressText").textContent=saved+" of "+cases.length+" cases have an assessment saved";
+ $("globalStatus").textContent="Local draft only · "+saved+" labels entered";
+}
+function renderList(){
+ const filter=$("targetFilter").value;
+ const visible=(packet?.cases||[]).map((c,i)=>({...c,index:i})).filter(c=>filter==="all"||c.target===filter);
+ $("caseList").innerHTML=visible.map(c=>{
+  const done=!!c.independent_review?.label;
+  return '<button type="button" class="case-button '+(c.index===current?"active ":"")+(done?"done":"")+'" data-index="'+c.index+'"><span><b>'+esc(c.target.toUpperCase())+' · Case '+String(c.index+1).padStart(2,"0")+'</b><small>'+esc(c.reference_profile||"Reference target")+' · '+esc(c.location?.latitude_wgs84_deg)+', '+esc(c.location?.longitude_wgs84_deg)+'</small></span></button>';
+ }).join("");
+ $("caseList").querySelectorAll("[data-index]").forEach(b=>b.addEventListener("click",()=>{if(!saveCurrent())return;current=Number(b.dataset.index);loadCase();}));
+ updateProgress();
+}
+function saveIdentityOnly(){const d=identity();const old=JSON.parse(localStorage.getItem(DRAFT_KEY)||"{}");Object.assign(old,d);old.packet=packet;localStorage.setItem(DRAFT_KEY,JSON.stringify(old));}
+function loadCase(){
+ const c=packet.cases[current];if(!c)return;
+ const review=c.independent_review||{};
+ $("caseTitle").textContent=(c.target||"").toUpperCase()+" · Case "+String(current+1).padStart(2,"0");
+ $("caseMeta").innerHTML=[
+  "Reference: "+(c.reference_profile||"Not stated"),
+  "Window: "+(c.analysis_window_km||"—")+" km",
+  "Terrain support: "+(c.analysis_support_m||"—")+" m",
+  "Approx. area (~0.1°): "+(c.location?.latitude_wgs84_deg??"—")+", "+(c.location?.longitude_wgs84_deg??"—")
+ ].map(x=>'<span class="meta">'+esc(x)+'</span>').join("");
+ $("caseState").textContent=review.label?review.label.replaceAll("_"," "):"Not assessed";
+ const label=review.label||"";
+ document.querySelectorAll('input[name="label"]').forEach(x=>x.checked=x.value===label);
+ $("evidence").value=(review.evidence_refs||[]).join("\n");
+ $("confidence").value=review.confidence_1_to_5?String(review.confidence_1_to_5):"";
+ $("limitations").value=(review.limitations||[]).join("; ");
+ $("rationale").value=review.rationale||"";
+ $("previousButton").disabled=current===0;$("nextButton").disabled=current===packet.cases.length-1;
+ $("caseStatus").textContent=review.label?"Saved locally; re-save after changes.":"Responses remain in this browser until you export them.";
+ renderList();
+}
+function saveCurrent(){
+ const c=packet.cases[current],d=identity(),label=selectedLabel(),refs=$("evidence").value.split(/\n|;/).map(x=>x.trim()).filter(Boolean);
+ if(!label){
+  const hasPartial=refs.length||$("rationale").value.trim()||$("limitations").value.trim();
+  if(hasPartial){$("caseStatus").textContent="Choose a response or clear the unsaved notes before moving to another case.";return false;}
+  saveIdentityOnly();$("caseStatus").textContent="No assessment saved for this case; you can return to it later.";return true;
+ }
+ if(!d.reviewerName||!d.reviewerAffiliation||!d.reviewerQualification||!d.reviewDate){$("caseStatus").textContent="Complete reviewer name, affiliation, qualification and UTC date first.";return false;}
+ if(!d.independent){$("caseStatus").textContent="Confirm independence from ANALOG-X scores before saving.";return false;}
+ if(!["inconclusive","insufficient_evidence"].includes(label)&&!refs.length){$("caseStatus").textContent="Positive / negative assessments require at least one independent evidence reference.";return false;}
+ if(!["inconclusive","insufficient_evidence"].includes(label)&&!$("confidence").value){$("caseStatus").textContent="Select a confidence value for a positive / negative assessment.";return false;}
+ if(!$("rationale").value.trim()){$("caseStatus").textContent="Add a rationale, including the task and evidence limitations.";return false;}
+ const date=d.reviewDate.length===10?d.reviewDate+"T12:00:00Z":d.reviewDate;
+ c.independent_review={
+  label:label,criterion_version:REVIEW_VERSION,evidence_refs:refs,
+  reviewer_name:d.reviewerName,reviewer_affiliation:d.reviewerAffiliation,
+  reviewer_qualification:d.reviewerQualification,review_date_utc:date,
+  confidence_1_to_5:Number($("confidence").value)||null,
+  independent_of_analogx_score:true,rationale:$("rationale").value.trim(),
+  limitations:$("limitations").value.split(";").map(x=>x.trim()).filter(Boolean)
+ };
+ persist();$("caseStatus").textContent="Assessment saved locally for this case. It has not been submitted or independently verified by ANALOG-X.";
+ $("caseState").textContent=label.replaceAll("_"," ");renderList();return true;
+}
+function exportPacket(){
+ if(!packet){return;}
+ const invalid=packet.cases.filter(c=>{
+  const r=c.independent_review||{};
+  if(!["positive","negative"].includes(r.label))return false;
+  return !r.reviewer_name||!r.reviewer_affiliation||!r.reviewer_qualification||!r.review_date_utc||!r.evidence_refs?.length||!r.rationale||r.independent_of_analogx_score!==true||!Number.isInteger(r.confidence_1_to_5)||r.confidence_1_to_5<1||r.confidence_1_to_5>5;
+ });
+ if(invalid.length){$("globalStatus").textContent="Cannot export: "+invalid.length+" positive/negative case(s) are missing required reviewer provenance or evidence.";return;}
+ const blob=new Blob([JSON.stringify(packet,null,2)+"\n"],{type:"application/json"});
+ const url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;a.download="analogx-independent-review-response-"+today()+".json";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+ $("globalStatus").textContent="Export created. Return the JSON through an approved private channel; do not share any private case key.";
+}
+async function init(){
+ try{
+  const response=await fetch("./data/validation/independent_analog_review_packet.json",{cache:"no-store"});
+  if(!response.ok)throw new Error("Review packet could not be loaded (HTTP "+response.status+")");
+  basePacket=await response.json();
+  if(basePacket.review_version!==REVIEW_VERSION||!Array.isArray(basePacket.cases))throw new Error("Review packet schema/version mismatch");
+  packet=JSON.parse(JSON.stringify(basePacket));
+  loadIdentity();
+  const saved=JSON.parse(localStorage.getItem(DRAFT_KEY)||"{}");
+  if(saved.packet?.review_version===REVIEW_VERSION&&Array.isArray(saved.packet.cases)){
+   const map=new Map(saved.packet.cases.map(c=>[c.review_case_id,c]));
+   packet.cases=packet.cases.map(c=>map.has(c.review_case_id)?map.get(c.review_case_id):c);
+  }
+  current=0;loadCase();$("globalStatus").textContent="Blind packet loaded · "+packet.cases.length+" cases · local-only responses";
+ }catch(e){$("caseTitle").textContent="Unable to load review packet";$("caseStatus").textContent=e.message;$("globalStatus").textContent=e.message;console.error(e);}
+}
+$("saveButton").addEventListener("click",saveCurrent);
+$("previousButton").addEventListener("click",()=>{if(saveCurrent()&&current>0){current--;loadCase();}});
+$("nextButton").addEventListener("click",()=>{if(saveCurrent()&&current<packet.cases.length-1){current++;loadCase();}});
+$("exportButton").addEventListener("click",()=>{saveIdentityOnly();exportPacket();});
+$("targetFilter").addEventListener("change",renderList);
+["reviewerName","reviewerAffiliation","reviewerQualification","reviewDate","independent"].forEach(id=>$(id).addEventListener("change",saveIdentityOnly));
+$("importButton").addEventListener("click",()=>$("importFile").click());
+$("importFile").addEventListener("change",async e=>{
+ const file=e.target.files?.[0];if(!file)return;
+ try{const incoming=JSON.parse(await file.text());if(incoming.review_version!==REVIEW_VERSION||!Array.isArray(incoming.cases))throw new Error("The selected file is not a matching ANALOG-X reviewer packet.");
+ const known=new Set(packet.cases.map(c=>c.review_case_id));if(incoming.cases.some(c=>!known.has(c.review_case_id)))throw new Error("Packet contains unknown case IDs.");
+ packet.cases=packet.cases.map(c=>incoming.cases.find(x=>x.review_case_id===c.review_case_id)||c);persist();loadCase();$("globalStatus").textContent="Saved review JSON merged into the local packet."; 
+ }catch(err){$("globalStatus").textContent="Import failed: "+err.message;}e.target.value="";
+});
+$("clearButton").addEventListener("click",()=>{if(!confirm("Clear all reviewer details and saved case responses from this browser? This cannot be undone."))return;localStorage.removeItem(DRAFT_KEY);packet=JSON.parse(JSON.stringify(basePacket));current=0;loadIdentity();loadCase();$("globalStatus").textContent="Local review draft cleared.";});
+init();
+</script>
+</body></html>

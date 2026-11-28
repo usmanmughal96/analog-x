@@ -120,6 +120,36 @@ assert(read("scripts/build_reproducibility_manifest.py").includes("sha256"), "SH
 assert(read("scripts/validate_evidence_inventory.py").includes("processed state needs artifact path"), "Evidence state integrity validator missing");
 assert(read("docs/COMPETITIVE_CAPABILITY_RESPONSE.md").includes("not independent-data validation"), "Competitive methods note must state independent validation limits");
 
+
+const readinessHtml = read("mission-readiness.html");
+const reviewHtml = read("independent-review.html");
+const operationalDoc = read("docs/OPERATIONAL_READINESS_AND_VALIDATION.md");
+const reviewerGuide = read("docs/INDEPENDENT_REVIEWER_GUIDE.md");
+const validationReport = JSON.parse(read("data/validation/quantitative_validation.json"));
+const blindPacket = JSON.parse(read("data/validation/independent_analog_review_packet.json"));
+assert(readinessHtml.includes("operational suitability not established"), "Mission readiness page must state the current rover-suitability boundary");
+assert(readinessHtml.includes("50.53%") && readinessHtml.includes("9.154%"), "Mission readiness page must preserve MOLA and LOLA coverage caveats");
+assert(reviewHtml.includes("independent_of_analogx_score") && reviewHtml.includes("Export review JSON"), "Blind reviewer desk is missing provenance/export safeguards");
+assert(!reviewHtml.includes("core_terrain_index") && !reviewHtml.includes("candidate_id"), "Reviewer interface must not expose candidate scores or IDs");
+for (const source of [readinessHtml, reviewHtml]) {
+  const match = source.match(/<script>([\s\S]*?)<\/script>/);
+  assert(match, "New evidence module is missing its inline application script");
+  new Function(match[1]);
+}
+assert(blindPacket.cases.length === 96, "Blind review packet must retain 96 cases");
+assert(blindPacket.cases.every((row) => !row.independent_review?.label), "No reviewer labels may be fabricated");
+assert.equal((validationReport.independent_analog_label_validation?.targets?.moon?.n_total || 0), 0, "Moon expert labels must remain absent until returned");
+assert.equal((validationReport.independent_analog_label_validation?.targets?.mars?.n_total || 0), 0, "Mars expert labels must remain absent until returned");
+assert.equal(fieldLedger.status, "not_started", "Field observations must remain not_started until real records are supplied");
+assert.equal((fieldLedger.observations || []).length, 0, "No physical field observations may be fabricated");
+assert(operationalDoc.includes("Do not convert generic slope thresholds"), "Operational evidence policy must prohibit unsupported safety claims");
+assert(reviewerGuide.includes("This is an invitation template"), "Reviewer guide must not imply experts were contacted");
+assert(idxIncludesReadiness(read("index.html")), "Main portal must expose the mission readiness workbench");
+assert(read("service-worker.js").includes("./independent-review.html") && read("service-worker.js").includes("./mission-readiness.html"), "Offline cache must include new validation modules");
+function idxIncludesReadiness(source) {
+  return source.includes("./mission-readiness.html");
+}
+
 console.log("ANALOG-X validation passed:");
 console.log(`- ${sites.length} candidate records and ${power.record_count} NASA POWER snapshots`);
 console.log("- Four Pakistan terrain profiles plus Mars MOLA and lunar LOLA inputs");

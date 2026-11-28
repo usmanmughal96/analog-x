@@ -50,10 +50,26 @@ class ResearchPhasePackTests(unittest.TestCase):
         self.assertNotIn("core_terrain_index", case)
         self.assertNotIn("secondary_diagnostic_index", case)
 
-    def test_rank_bin_sampling_is_deterministic(self):
-        _, packet1, _ = pack.build_outputs(sample_data())
-        _, packet2, _ = pack.build_outputs(sample_data())
+    def test_rank_bin_sampling_is_deterministic_with_same_private_salt(self):
+        _, packet1, _ = pack.build_outputs(sample_data(), blind_salt="unit-test-private-salt")
+        _, packet2, _ = pack.build_outputs(sample_data(), blind_salt="unit-test-private-salt")
         self.assertEqual([x["review_case_id"] for x in packet1["cases"]], [x["review_case_id"] for x in packet2["cases"]])
+
+    def test_reviewer_coordinates_are_coarsened_and_exact_coordinates_are_private(self):
+        _, packet, key = pack.build_outputs(sample_data(), blind_salt="unit-test-private-salt")
+        case = packet["cases"][0]
+        private = key["cases"][case["review_case_id"]]
+        self.assertEqual(case["location"]["latitude_wgs84_deg"], round(private["latitude_wgs84_deg"], 1))
+        self.assertEqual(case["location"]["longitude_wgs84_deg"], round(private["longitude_wgs84_deg"], 1))
+        self.assertIn("precision_note", case["location"])
+        self.assertIn("blind_case_id_salt", key)
+        legacy = __import__("hashlib").sha256(
+            f"ANALOG-X|blind-review-v1|{case['target']}|{private['candidate_id']}".encode()
+        ).hexdigest()[:12].upper()
+        expected_digest = __import__("hashlib").sha256(
+            f"unit-test-private-salt|AX-{case['target'][:1].upper()}-{legacy}".encode()
+        ).hexdigest()[:16].upper()
+        self.assertEqual(case["review_case_id"], f"AX-{case['target'][:1].upper()}-{expected_digest}")
 
     def test_import_requires_complete_independent_review(self):
         _, packet, key = pack.build_outputs(sample_data())

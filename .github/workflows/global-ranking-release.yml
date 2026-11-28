@@ -62,7 +62,7 @@ jobs:
       - name: Verify existing 24-shard scan and core-only shortlist
         run: |
           python scripts/verify_global_ranking_release.py
-          python scripts/build_independent_review_pack.py --key-output /tmp/analogx-private-review-case-key.json
+          python scripts/build_independent_review_pack.py --skip-review-packet
           python scripts/validate_analog_labels.py
       - name: Validate evidence ledgers
         run: |

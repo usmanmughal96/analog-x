@@ -27,7 +27,7 @@ Each row in `data/validation/independent_analog_labels.json` must contain:
 
 ## Blind reviewer packet and sampling design
 
-The repository now generates `data/validation/independent_analog_review_packet.json` from the released schema 1.1.0 shortlist. It samples eight candidates in each of six predeclared rank strata per target (48 Moon + 48 Mars), preferring distinct 10-degree geographic cells within each stratum. The packet exposes case code, target, approximate centre coordinate, window size and required review fields, but does not expose candidate ID, score, rank or terrain metrics.
+The repository now generates `data/validation/independent_analog_review_packet.json` from the released schema 1.1.0 shortlist. It samples eight candidates in each of six predeclared rank strata per target (48 Moon + 48 Mars), preferring distinct 10-degree geographic cells within each stratum. The packet exposes a keyed opaque case code, target, a rounded approximate area locator (0.1-degree precision), window size and required review fields. The exact candidate centre is held only in the private case key. Case codes use a private salt and cannot be dictionary-matched against public candidate IDs. Candidate IDs, scores, ranks and terrain metrics are not exposed.
 
 The matching private case key contains candidate IDs, ranks, scores and geographic-group IDs. Generate it locally and keep it outside the repository:
 
@@ -35,7 +35,7 @@ The matching private case key contains candidate IDs, ranks, scores and geograph
 python scripts/build_independent_review_pack.py --key-output "$HOME/analogx-private/independent-review-case-key.json"
 ```
 
-Never send the key to reviewers or commit it. Reviewers should complete the `independent_review` block in the packet and return the packet only. Import binary labels locally:
+Never send the key to reviewers or commit it. The key file contains the private salt and exact candidate mapping; protect it like credentials and keep a secure owner backup. The automated ranking-release workflow intentionally does not regenerate the review packet because an ephemeral CI runner cannot safely retain the owner's private case key. Regenerate the packet locally when the candidate release changes, using the same existing key-output file to preserve the salt. Reviewers should complete the `independent_review` block in the packet and return the packet only. Import binary labels locally:
 
 ```bash
 python scripts/import_independent_review_labels.py --key "$HOME/analogx-private/independent-review-case-key.json" --dry-run

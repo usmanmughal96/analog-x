@@ -2,17 +2,19 @@ name: Deploy static site to GitHub Pages
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
-  pages: write
-  id-token: write
 concurrency:
-  group: pages-release
+  group: pages-${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   validate:
     name: Validate app, agent and scientific data contracts
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -57,7 +59,7 @@ jobs:
               def handle_data(self, data):
                   if self.active:
                       self.current.append(data)
-          for filename in ("global-discovery.html", "discovery.html", "field-validation.html"):
+          for filename in ("global-discovery.html", "discovery.html", "field-validation.html", "mission-readiness.html", "independent-review.html"):
               parser=InlineScripts()
               parser.feed(Path(filename).read_text(encoding="utf-8"))
               assert parser.blocks, f"No inline JS found in {filename}"
@@ -66,9 +68,16 @@ jobs:
           node --check /tmp/global-discovery.html.js
           node --check /tmp/discovery.html.js
           node --check /tmp/field-validation.html.js
+          node --check /tmp/mission-readiness.html.js
+          node --check /tmp/independent-review.html.js
 
   deploy:
+    if: github.event_name != 'pull_request'
     needs: validate
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

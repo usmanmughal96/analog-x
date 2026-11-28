@@ -39,6 +39,8 @@ ANALOG-X is a Pakistan-first research platform connecting candidate Earth enviro
 | [Global Discovery Engine](https://usmanmughal96.github.io/analog-x/global-discovery.html) | Copernicus GLO-90 land-inventory screening and target-specific shortlists |
 | [Pakistan evidence network](https://usmanmughal96.github.io/analog-x/#pakistanEvidenceNetwork) | Four processed Pakistan satellite and terrain study windows |
 | [Field Validation Kit](https://usmanmughal96.github.io/analog-x/field-validation.html) | Offline-first stations, protocols and observation capture |
+| [Mission Readiness & Evidence Gates](https://usmanmughal96.github.io/analog-x/mission-readiness.html) | Global-scan status, terrain evidence, field prerequisites and rover-suitability gaps |
+| [Independent Reviewer Desk](https://usmanmughal96.github.io/analog-x/independent-review.html) | Local-first blinded review interface for the 96-case terrain-morphology packet |
 | [Independent-review packet](data/validation/independent_analog_review_packet.json) | 96 blinded Moon/Mars cases prepared for external review |
 | [Source registry](data/source_registry.json) | Canonical data-source and evidence states |
 
@@ -76,6 +78,20 @@ The local Agent Bay reviews terrain morphology, climate and campaign context, su
 ### Field operations, not just a map
 
 The Field Evidence Passport and offline-first Field Validation Kit support station planning, GNSS observations, instruments, units, uncertainty, notes, optional photos and exportable records. The observation ledger remains empty until physical measurements are collected and reviewed.
+
+## From discovery to independent validation
+
+The [Mission Readiness & Evidence Gates workbench](https://usmanmughal96.github.io/analog-x/mission-readiness.html) connects the global scan, ATFA, Pakistan field campaign, lunar terrain and independent-review status without converting any of them into a safety or accuracy claim.
+
+The [Independent Reviewer Desk](https://usmanmughal96.github.io/analog-x/independent-review.html) provides a local-first interface for the 96 anonymized terrain-morphology cases (48 Moon, 48 Mars). It hides candidate IDs, ranks and scores, records reviewer qualifications and evidence references, and exports a response JSON. It does not submit responses automatically. The private case key is kept by the project owner and must never be sent to reviewers or committed.
+
+### Three open validation gates
+
+- **Physical field evidence:** the Pakistan campaign is planned; the committed field-observation ledger remains empty. No field experiment is claimed.
+- **Rover / mission suitability:** current Earth comparison cells are about 925 m; a separate Shackleton Site04 5 m LOLA product improves lunar terrain context but does not establish illumination, PSR status, traction, landing suitability or safety. No rover/UGV trial or vehicle-specific engineering review is claimed.
+- **Independent expert confirmation:** 96 blinded cases are prepared, but no binary labels have been returned. No independent AUC, accuracy or reviewer endorsement is claimed.
+
+See [Operational Readiness & Validation Gates](docs/OPERATIONAL_READINESS_AND_VALIDATION.md) and the [Independent Reviewer Guide](docs/INDEPENDENT_REVIEWER_GUIDE.md) for protocols, evidence requirements and next actions.
 
 ## Evidence snapshot — 25 November 2026
 

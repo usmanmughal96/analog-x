@@ -1,9 +1,9 @@
 "use strict";
-const CACHE_VERSION="analogx-offline-v6";
+const CACHE_VERSION="analogx-offline-v7";
 const APP_CACHE=CACHE_VERSION+"-app";
 const DATA_CACHE=CACHE_VERSION+"-data";
 const APP_FILES=[
- "./","./index.html","./demo.html","./transferability.html","./discovery.html","./global-discovery.html","./field-validation.html","./manifest.webmanifest",
+ "./","./index.html","./demo.html","./transferability.html","./discovery.html","./global-discovery.html","./field-validation.html","./mission-readiness.html","./independent-review.html","./manifest.webmanifest",
  "./assets/analogx-labs.js?v=20261115-offline",
  "./assets/analogx-labs.css?v=20261115-offline",
  "./assets/analogx-scout.css?v=20261114-portalfix",
@@ -11,14 +11,14 @@ const APP_FILES=[
  "./assets/analogx-field-passport.css?v=20261115-offline"
 ];
 const DATA_FILES=[
- "./data/agents/candidate_catalog.json","./data/transferability/transferability.json","./data/analog_benchmark/regional_window_scan.json","./data/source_registry.json","./science/field_validation_protocol.json","./data/field_validation/observations.json",
+ "./data/agents/candidate_catalog.json","./data/transferability/transferability.json","./data/field_validation/campaign_plan.json","./data/analog_benchmark/regional_window_scan.json","./data/source_registry.json","./science/field_validation_protocol.json","./data/field_validation/observations.json","./data/validation/quantitative_validation.json","./data/validation/independent_analog_review_packet.json","./data/validation/independent_analog_label_validation.json",
  "./data/planetary/pds_search.json","./data/nasa/modis_browse_index.json","./data/power/index.json",
  "./data/power/koh.json","./data/power/dallol.json","./data/power/atacama.json",
  "./data/power/mcmurdo.json","./data/power/haughton.json","./data/power/iceland.json",
  "./data/power/death.json","./data/power/hispar_glacier.json",
  "./data/power/chagai_small_playas.json","./data/power/hamun_i_mashkel.json",
  "./data/pakistan/imagery/index.json","./data/pakistan/quicklooks/index.json",
- "./data/terrain/terrain_comparison.json","./data/moon/shackleton_lola_80m.json",
+ "./data/terrain/terrain_comparison.json","./data/moon/shackleton_lola_80m.json","./data/moon/shackleton_polar_evidence.json",
  "./data/moon/shackleton_diviner_prp.json","./data/nasa/earthdata_cmr_catalog.json",
  "./data/pakistan/quicklooks/chagai_small_playas.png",
  "./data/pakistan/quicklooks/hamun_i_mashkel.png",
