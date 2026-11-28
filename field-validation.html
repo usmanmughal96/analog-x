@@ -30,7 +30,7 @@ footer{padding:20px 0;color:#7893a2;font-size:9px}
 <section class="panel">
 <h2>01 · Station and location</h2>
 <div class="field"><label for="candidate">Candidate / reference area</label><select id="candidate"><option value="chagai_small_playas">Chagai small salt playas near Nok Kundi</option><option value="hamun_i_mashkel">Hamun-i-Mashkel / Kharan Basin</option><option value="koh_i_sultan">Koh-i-Sultan / Chagai</option><option value="hispar_glacier">Hispar Glacier / Karakoram</option></select></div>
-<div class="row"><div class="field"><label for="station">Station ID *</label><input id="station" placeholder="e.g. CHG-2026-001" required></div><div class="field"><label for="date">Observation timestamp (UTC) *</label><input id="date" type="datetime-local" step="1" required><div class="hint">Enter the clock time in UTC (24-hour clock). This browser control has no timezone; do not enter your local time unless it is UTC.</div></div></div>
+<div class="row"><div class="field"><label for="station">Station ID *</label><input id="station" placeholder="e.g. CHG-2026-001" required></div><div class="field"><label for="date">Observation timestamp (UTC) *</label><input id="date" type="datetime-local" step="1" required><div class="hint">Enter the clock time in UTC (24-hour clock). This is the station observation and instrument-reading batch time; record separate timestamps for later repeats in the method notes. This control has no timezone, so do not enter local time unless it is UTC.</div></div></div>
 <div class="field"><label for="observers">Observer IDs / names *</label><input id="observers" placeholder="Separate multiple observers with commas" required></div>
 <div class="row"><div class="field"><label for="lat">Latitude WGS84 *</label><input id="lat" type="number" step="any" min="-90" max="90" required></div><div class="field"><label for="lon">Longitude WGS84 *</label><input id="lon" type="number" step="any" min="-180" max="180" required></div></div>
 <div class="row"><div class="field"><label for="accuracy">Coordinate accuracy (m) *</label><input id="accuracy" type="number" min="0" step="any" required></div><div class="field"><label for="coordMethod">Coordinate method *</label><select id="coordMethod"><option>GNSS receiver</option><option>Survey-grade GNSS</option><option>Phone GPS</option><option>Total station / survey</option><option>Other (describe in uncertainty notes)</option></select></div></div>
@@ -112,6 +112,7 @@ function collect(review){
   candidate_id:val("candidate"),
   candidate_name:candidates[val("candidate")],
   date_utc:toUtcIso(val("date")),
+  measurement_time_utc:toUtcIso(val("date")),
   observer_ids:list("observers"),
   latitude_wgs84:number("lat"),
   longitude_wgs84:number("lon"),
@@ -150,7 +151,7 @@ function collect(review){
 }
 function validateCommon(r){
  if(!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(r.date_utc)||!Number.isFinite(Date.parse(r.date_utc)))return "Observation timestamp must be a valid ISO 8601 UTC date-time ending in Z.";
- const required=["station_id","candidate_id","date_utc","observer_ids","latitude_wgs84","longitude_wgs84","coordinate_accuracy_m","coordinate_method","surface_description","photo_ids","instrument_ids","calibration_status","uncertainty_notes","permission_status","safety_observations"];
+ const required=["station_id","candidate_id","date_utc","measurement_time_utc","observer_ids","latitude_wgs84","longitude_wgs84","coordinate_accuracy_m","coordinate_method","surface_description","photo_ids","instrument_ids","calibration_status","uncertainty_notes","permission_status","safety_observations"];
  for(const key of required)if(r[key]===null||r[key]===""||(Array.isArray(r[key])&&!r[key].length))return "Required field missing: "+key;
  if(r.latitude_wgs84 < -90 || r.latitude_wgs84 > 90)return "Latitude must be between -90 and 90.";
  if(r.longitude_wgs84 < -180 || r.longitude_wgs84 > 180)return "Longitude must be between -180 and 180.";
