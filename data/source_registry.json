@@ -382,6 +382,44 @@
         "A listed data-file reference is not proof of direct binary access, successful download, spatial completeness or analysis readiness.",
         "Product labels, units, coordinate systems, versions, calibration and licences must be inspected before processing."
       ]
+    },
+    {
+      "id": "pds_geosciences_ode",
+      "name": "PDS Geosciences Node Orbital Data Explorer (ODE) REST API",
+      "provider": "NASA Planetary Data System Geosciences Node / Washington University in St. Louis",
+      "state": "metadata_only",
+      "data_type": "Planetary archive product metadata, valid instrument/product-type sets and spatially filtered catalog records",
+      "resolution": "Product-specific; metadata discovery only",
+      "coverage": "Targeted MGS MOLA MEGDR, MRO HiRISE DTM, LRO LOLA GDR and LRO Diviner PRP searches; HiRISE DTM query bounded to Nili Patera",
+      "artifacts": [
+        "data/planetary/archive_discovery.json"
+      ],
+      "url": "https://oderest.rsl.wustl.edu/live2/",
+      "limitations": [
+        "ODE catalogue results are metadata, not decoded scientific measurements.",
+        "The HiRISE DTM search is spatially bounded to the existing Nili Patera MOLA comparison AOI; a returned record does not prove binary download or processing.",
+        "Instrument/product-type combinations are read from the live ODE IIPT endpoint rather than guessed.",
+        "ODE counts may describe all matching products while the stored metadata sample is limited to 20 records per query."
+      ]
+    },
+    {
+      "id": "usgs_astrogeology_hirise_stac",
+      "name": "USGS Astrogeology HiRISE STAC archive",
+      "provider": "U.S. Geological Survey Astrogeology Science Center",
+      "state": "metadata_only",
+      "data_type": "Mars Reconnaissance Orbiter HiRISE RDR observation metadata and asset references",
+      "resolution": "HiRISE imagery nominally about 0.25 m/pixel; returned asset-specific ground sample distance must be inspected",
+      "coverage": "Nili Patera / Syrtis Major approximately 30 km comparison AOI",
+      "artifacts": [
+        "data/planetary/archive_discovery.json"
+      ],
+      "url": "https://stac.astrogeology.usgs.gov/api/",
+      "limitations": [
+        "The implemented collection query is for uncontrolled HiRISE RDR observations, not stereo-derived HiRISE DTMs.",
+        "Imagery metadata and browse assets are not terrain elevation data and must not be used as a substitute for a DTM.",
+        "The separate USGS HiRISE DTM archive advertises approximately 1–2 m post spacing, but availability at Nili Patera must be established by the ODE DTM query and inspected product labels.",
+        "No STAC asset is downloaded or processed by this discovery step."
+      ]
     }
   ]
 }
