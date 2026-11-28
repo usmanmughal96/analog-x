@@ -108,6 +108,12 @@ assert(globalBuilder.includes("--shard") && globalMerger.includes("EXPECTED_SHAR
 assert(read(".github/workflows/global-discovery.yml").includes("matrix:"), "Global discovery workflow matrix missing");
 assert(read("docs/COMPETITIVE_CAPABILITY_RESPONSE.md").includes("Earth Analog Explorer"), "Capability benchmark note missing");
 assert(fieldProtocol.stations && fieldProtocol.validation_states.includes("independently_reviewed"), "Field observation protocol incomplete");
+const fieldValidationHtml = read("field-validation.html");
+assert(fieldValidationHtml.includes('type="datetime-local"') && fieldValidationHtml.includes('date_utc:toUtcIso(val("date"))'), "Field kit must capture and serialize an explicit UTC timestamp");
+assert(fieldValidationHtml.includes("ISO 8601 UTC date-time ending in Z"), "Field kit must validate UTC timestamp format");
+assert(fieldProtocol.stations[0].date_utc_format?.includes("ISO 8601 UTC timestamp ending in Z"), "Field protocol must specify the UTC timestamp format");
+assert(read("tests/test_field_observation_timestamps.py").includes("test_rejects_date_only_value"), "Date-only rejection regression test is missing");
+assert(read("service-worker.js").includes('CACHE_VERSION="analogx-offline-v9"'), "Offline cache must be refreshed after field timestamp changes");
 assert.equal(fieldLedger.status, "not_started", "Empty field ledger must remain not_started");
 assert.equal((fieldLedger.observations || []).length, 0, "No unverified field observations may be silently inserted");
 const registryStates = new Map(sourceRegistry.sources.map((s) => [s.id, s.state]));
