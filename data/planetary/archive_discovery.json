@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at_utc": "2026-11-28T14:58:17+00:00",
+  "generated_at_utc": "2026-11-28T15:11:50+00:00",
   "purpose": "Fallback archive discovery for planetary products when the federated PDS Search API is unavailable.",
   "coverage": "Targeted metadata discovery for Nili Patera HiRISE DTM, regional MOLA MEGDR, lunar LOLA GDR, Diviner PRP and Nili-area HiRISE RDR observations.",
   "nili_patera_aoi": {
@@ -15,6 +15,77 @@
     ],
     "bbox_note": "The existing approximately 30 km MOLA comparison window; discovery AOI only, not a surveyed route."
   },
+  "known_nili_hirise_dtm_reference": {
+    "id": "DTEEC_017762_1890_018039_1890_A01",
+    "title": "Topography of Moving Dunes in Nili Patera",
+    "provider": "University of Arizona HiRISE Operations Center / NASA-JPL-Caltech",
+    "source_page_url": "https://www.uahirise.org/dtm/dtm.php?ID=ESP_017762_1890",
+    "data_file_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_017700_017799/ESP_017762_1890_ESP_018039_1890/DTEEC_017762_1890_018039_1890_A01.IMG",
+    "reported_file_size_mb": 430,
+    "center_latitude_deg": 8.781,
+    "center_longitude_east_deg": 67.33,
+    "map_scale_m_per_pixel": 1.01,
+    "stereo_pair": [
+      "ESP_017762_1890",
+      "ESP_018039_1890"
+    ],
+    "core_mola_aoi_center_inside": false,
+    "core_mola_aoi_footprint_intersection": "not_yet_verified_from_product_label",
+    "status": "known_catalogued_reference",
+    "metadata_boundary": "The published center is outside the original MOLA comparison box. The enlarged ODE discovery box is only a catalogue search window; it does not prove that the DTM footprint overlaps the original AOI.",
+    "pds_label_inspection": {
+      "status": "label_verified_bounds_outside_core_aoi",
+      "source_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_017700_017799/ESP_017762_1890_ESP_018039_1890/DTEEC_017762_1890_018039_1890_A01.IMG",
+      "http_status": 206,
+      "content_range": "bytes 0-262143/430063620",
+      "bytes_read": 262144,
+      "max_bytes": 262144,
+      "label_terminated": true,
+      "fields": {
+        "PDS_VERSION_ID": "PDS3",
+        "PRODUCT_ID": "DTEEC_017762_1890_018039_1890_A01",
+        "DATA_SET_ID": "MRO-M-HIRISE-5-DTM-V1.0",
+        "MAP_PROJECTION_TYPE": "EQUIRECTANGULAR",
+        "MAP_SCALE": 1.0114047695587,
+        "MAP_RESOLUTION": 58603.66263124,
+        "CENTER_LATITUDE": 5,
+        "CENTER_LONGITUDE": 67.33,
+        "MINIMUM_LATITUDE": 8.650757405385,
+        "MAXIMUM_LATITUDE": 8.9115110029789,
+        "WESTERNMOST_LONGITUDE": 67.26487883,
+        "EASTERNMOST_LONGITUDE": 67.38538575,
+        "LINE_SAMPLES": 7035,
+        "LINES": 15282,
+        "SAMPLE_TYPE": "PC_REAL",
+        "SAMPLE_BITS": 32,
+        "OFFSET": 0,
+        "SCALING_FACTOR": 1,
+        "MISSING_CONSTANT": "16#FF7FFFFB#",
+        "POSITIVE_LONGITUDE_DIRECTION": "EAST",
+        "A_AXIS_RADIUS": 3396.04,
+        "C_AXIS_RADIUS": 3396.04
+      },
+      "bounds": {
+        "min_lat": 8.650757405385,
+        "max_lat": 8.9115110029789,
+        "west_lon": 67.26487883,
+        "east_lon": 67.38538575
+      },
+      "core_mola_aoi_footprint_intersection": false,
+      "limitations": [
+        "Only a bounded byte-range prefix is requested; the approximately 430 MB DTM raster is not downloaded.",
+        "Footprint intersection is computed only when the embedded label provides all four geographic bounds.",
+        "A geographic bbox intersection is not a rover-safety or route-suitability assessment."
+      ],
+      "final_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_017700_017799/ESP_017762_1890_ESP_018039_1890/DTEEC_017762_1890_018039_1890_A01.IMG"
+    }
+  },
+  "nili_hirise_dtm_discovery_bbox_wsen": [
+    66.7438569302,
+    8.6469409271,
+    67.42,
+    9.1530590729
+  ],
   "ode": {
     "provider": "PDS Geosciences Node Orbital Data Explorer (ODE)",
     "api": "https://oderest.rsl.wustl.edu/live2/",
@@ -26,10 +97,10 @@
         "target": "mars",
         "instrument_host_id": "mro",
         "dataset_id": "MRO-M-HIRISE-5-DTM-V1.0",
-        "purpose": "Find stereo-derived HiRISE DTMs intersecting the Nili Patera comparison window.",
-        "status": "no_products_in_aoi",
+        "purpose": "Find stereo-derived HiRISE DTMs around Nili Patera, including the published dune-DTM center just east of the original MOLA comparison box.",
+        "status": "products_returned",
         "iipt_query_url": "https://oderest.rsl.wustl.edu/live2/?query=iipt&odemetadb=mars&output=JSON",
-        "query_url": "https://oderest.rsl.wustl.edu/live2/?query=product&target=mars&ihid=MRO&iid=HIRISE&pt=DTM&dsid=MRO-M-HIRISE-5-DTM-V1.0&results=opm&output=JSON&limit=20&order=obd&westernlon=66.7438569302&easternlon=67.2561430698&minlat=8.6469409271&maxlat=9.1530590729&loc=b",
+        "query_url": "https://oderest.rsl.wustl.edu/live2/?query=product&target=mars&ihid=MRO&iid=HIRISE&pt=DTM&dsid=MRO-M-HIRISE-5-DTM-V1.0&results=opm&output=JSON&limit=20&order=obd&westernlon=66.7438569302&easternlon=67.42&minlat=8.6469409271&maxlat=9.1530590729&loc=b",
         "iipt_sets": [
           {
             "ODEMetaDB": "Mars",
@@ -43,13 +114,66 @@
             "ValidFootprints": "T"
           }
         ],
-        "product_count": 0,
-        "products_returned": 0,
-        "products": [],
+        "product_count": 4,
+        "products_returned": 4,
+        "products": [
+          {
+            "ode_id": "26731117",
+            "pdsid": "DTEED_013582_1895_020940_1895_A01",
+            "ihid": "MRO",
+            "iid": "HIRISE",
+            "pt": "DTM",
+            "Data_Set_Id": "MRO-M-HIRISE-5-DTM-V1.0",
+            "PDSVolume_id": "MROHR_0001",
+            "RelativePathToVol": "dtm\\esp\\orb_013500_013599\\esp_013582_1895_esp_020940_1895\\",
+            "LabelFileName": "dteed_013582_1895_020940_1895_a01.img",
+            "Product_creation_time": "0000-00-00T00:00:00.000",
+            "Target_name": "MARS"
+          },
+          {
+            "ode_id": "26731299",
+            "pdsid": "DTEEC_017762_1890_018039_1890_A01",
+            "ihid": "MRO",
+            "iid": "HIRISE",
+            "pt": "DTM",
+            "Data_Set_Id": "MRO-M-HIRISE-5-DTM-V1.0",
+            "PDSVolume_id": "MROHR_0001",
+            "RelativePathToVol": "dtm\\esp\\orb_017700_017799\\esp_017762_1890_esp_018039_1890\\",
+            "LabelFileName": "dteec_017762_1890_018039_1890_a01.img",
+            "Product_creation_time": "0000-00-00T00:00:00.000",
+            "Target_name": "MARS"
+          },
+          {
+            "ode_id": "28520359",
+            "pdsid": "DTEEC_043779_1890_043423_1890_A01",
+            "ihid": "MRO",
+            "iid": "HIRISE",
+            "pt": "DTM",
+            "Data_Set_Id": "MRO-M-HIRISE-5-DTM-V1.0",
+            "PDSVolume_id": "MROHR_0001",
+            "RelativePathToVol": "dtm\\esp\\orb_043700_043799\\esp_043779_1890_esp_043423_1890\\",
+            "LabelFileName": "dteec_043779_1890_043423_1890_a01.img",
+            "Product_creation_time": "0000-00-00T00:00:00.000",
+            "Target_name": "MARS"
+          },
+          {
+            "ode_id": "28520360",
+            "pdsid": "DTEEC_050438_1890_051071_1890_A01",
+            "ihid": "MRO",
+            "iid": "HIRISE",
+            "pt": "DTM",
+            "Data_Set_Id": "MRO-M-HIRISE-5-DTM-V1.0",
+            "PDSVolume_id": "MROHR_0001",
+            "RelativePathToVol": "dtm\\esp\\orb_050400_050499\\esp_050438_1890_esp_051071_1890\\",
+            "LabelFileName": "dteec_050438_1890_051071_1890_a01.img",
+            "Product_creation_time": "0000-00-00T00:00:00.000",
+            "Target_name": "MARS"
+          }
+        ],
         "spatial_filter": [
           66.7438569302,
           8.6469409271,
-          67.2561430698,
+          67.42,
           9.1530590729
         ],
         "metadata_note": "ODE metadata only. Product files have not been downloaded, decoded or validated by this discovery step."
@@ -683,7 +807,7 @@
     "limitations": [
       "ODE product records are metadata; they are not processed science rasters.",
       "Product types are taken from the live ODE IIPT list; a missing IIPT set is recorded, not guessed.",
-      "The HiRISE DTM query is spatially bounded to the existing Nili Patera MOLA comparison AOI.",
+      "The primary MOLA comparison AOI remains unchanged. The separate HiRISE DTM discovery box is expanded eastward to include the published DTM center at 67.33 E; actual footprint intersection with the primary AOI must still be verified from the product label.",
       "ODE query counts may refer to the full matching product set even when the metadata sample is limited to 20 records."
     ]
   },
@@ -3808,6 +3932,8 @@
     "discovery_is_not_processing": true,
     "hires_rdr_is_not_dtm": true,
     "product_binary_downloaded": false,
+    "full_dtm_raster_downloaded": false,
+    "dtm_label_prefix_inspected": true,
     "rover_safety_assessed": false,
     "mission_suitability_certified": false
   }
