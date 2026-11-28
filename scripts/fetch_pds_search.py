@@ -216,8 +216,7 @@ def main() -> None:
         params = {"limit": QUERY_LIMIT, "q": query["q"]}
         # Record the exact request before dispatch so RetryError/connection
         # failures still leave an inspectable query URL in the evidence ledger.
-        prepared = requests.Request("GET", API, params=params).prepare()
-        response_url = prepared.url
+        response_url = build_request_url(query)
         try:
             response = SESSION.get(API, params=params, timeout=(12, 45))
             response_url = response.url
