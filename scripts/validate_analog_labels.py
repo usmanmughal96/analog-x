@@ -64,9 +64,21 @@ def validate_rows(rows: list[dict[str, Any]], candidate_index: dict[tuple[str, s
             raise ValueError(f"{prefix}: target must be moon or mars")
         if row.get("label") not in {"positive", "negative"}:
             raise ValueError(f"{prefix}: label must be positive or negative")
-        for key in ("candidate_id", "spatial_group", "evidence_ref", "reviewer", "review_date_utc"):
+        for key in (
+            "candidate_id", "spatial_group", "evidence_ref", "reviewer",
+            "review_date_utc", "criterion_version", "review_scope",
+        ):
             if not isinstance(row.get(key), str) or not row[key].strip():
                 raise ValueError(f"{prefix}: {key} is required")
+        if row["criterion_version"] != "terrain_morphology_transfer_v1":
+            raise ValueError(f"{prefix}: criterion_version must be terrain_morphology_transfer_v1")
+        if any(not ref.strip() for ref in row["evidence_ref"].split(";")):
+            raise ValueError(f"{prefix}: evidence_ref contains an empty reference")
+        if row.get("reviewer_independence_attested") is not True:
+            raise ValueError(f"{prefix}: reviewer_independence_attested must be true")
+        confidence = row.get("reviewer_confidence_1_to_5")
+        if isinstance(confidence, bool) or not isinstance(confidence, int) or not 1 <= confidence <= 5:
+            raise ValueError(f"{prefix}: reviewer_confidence_1_to_5 must be an integer from 1 to 5")
         score = row.get("core_terrain_index")
         if isinstance(score, bool) or not isinstance(score, (int, float)) or not math.isfinite(float(score)) or not 0 <= score <= 100:
             raise ValueError(f"{prefix}: core_terrain_index must be finite numeric data in [0, 100]")
