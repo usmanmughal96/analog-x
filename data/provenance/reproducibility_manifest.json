@@ -1,9 +1,9 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-28T15:56:51+00:00",
-  "repository_commit_before_manifest_commit": "e298cb2caf950c3ce44d0deb58ce803413e6d4d3",
-  "working_tree_before_manifest_write": "dirty",
+  "generated_at_utc": "2026-11-28T15:57:10+00:00",
+  "repository_commit_before_manifest_commit": "a162e2b0683e90e245143a36cfcc11eaa2d8da16",
+  "working_tree_before_manifest_write": "clean",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
   "runtime_packages": {
@@ -427,8 +427,8 @@
     },
     {
       "path": "demo.html",
-      "size_bytes": 41493,
-      "sha256": "81782d9e50d412fbd0c9f05e231481dd3a7611bdc544945abe6aae7a07a3ac10",
+      "size_bytes": 41776,
+      "sha256": "d0273010d00a6ea13c48dd05200dfc1ceceba445298673fe82f3cc201cdf4626",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -451,14 +451,14 @@
     },
     {
       "path": "transferability.html",
-      "size_bytes": 33772,
-      "sha256": "b924f298606c932b78aa4d9030ec73ab3d184181aaf9563e8d798ce75533c307",
+      "size_bytes": 35914,
+      "sha256": "76c6328d85e95254fc0e208415d142f5cb9674e03d1f97a64c41baab6bd48e0a",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": "service-worker.js",
       "size_bytes": 4962,
-      "sha256": "28b950e6c988c6c95107ad02532c4862b5f8e5e0161f2ca4897169b203c7b00a",
+      "sha256": "689a9c712b4baa998f684550552cbebade0c8890dd59f7603f6a9f4d219e7b78",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1249,8 +1249,8 @@
     },
     {
       "path": "scripts/fetch_planetary_archive_discovery.py",
-      "size_bytes": 27414,
-      "sha256": "f7db3df4b20cc93e0241ca371ab107e3d7ec3e6f8b214e1e70f811bc705d86b6",
+      "size_bytes": 35887,
+      "sha256": "5ab454a7214962b377d00f4deec7400860db69c377dc6337c69a981be3b2cf03",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1327,8 +1327,8 @@
     },
     {
       "path": "scripts/validate_project.mjs",
-      "size_bytes": 29895,
-      "sha256": "2470d68b70f6bc2ef6bd50c63ccd7c4d050678dc5b971f8fb03ae5ea6b78126d",
+      "size_bytes": 31753,
+      "sha256": "4c1944330f895baff912a00ffcb721107e6c922f8248e6a8c261e25ce9b8bf0d",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1711,8 +1711,8 @@
     },
     {
       "path": "tests/test_planetary_archive_discovery.py",
-      "size_bytes": 12376,
-      "sha256": "5a252110e5144421925ea499a89d71bd34a46ac1a48b38be6f791ce78237adaa",
+      "size_bytes": 18342,
+      "sha256": "11640cfbe9302d7e7de8f9b52c13b1a30eb693bbc2e84d08dc4149824b357673",
       "evidence_class_hint": "method_or_documentation"
     },
     {
