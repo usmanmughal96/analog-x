@@ -109,6 +109,7 @@ See [Operational Readiness & Validation Gates](docs/OPERATIONAL_READINESS_AND_VA
 | Global GLO-90 inventory | **26,475 / 26,475 land tiles** | Complete enumerated land inventory; zero reported tile failures; 5,852,396 windows evaluated |
 | Moon shortlist | **1,200 candidates** | Target-specific core terrain shortlist passes schema, ordering and rank-integrity checks |
 | Mars shortlist | **1,200 candidates** | Separate target-specific core terrain shortlist passes schema, ordering and rank-integrity checks |
+| Planetary archive discovery | **4 HiRISE DTM · 12 MOLA · 20 LOLA records** | ODE metadata only; the known 1.01 m/pixel dune DTM does not intersect the core MOLA AOI; its 430 MB raster is not processed. The ODE Diviner query returned no records; the separate Diviner PRP thermal summary remains processed |
 | 2023 land-cover context | **2,391 / 2,400 windows** | Shortlist enrichment; not geology or field truth |
 | NASA POWER global context | **200 / 200 points** | Top-100-per-target coordinate context; not field measurements |
 | GLiM lithology context | **200 / 200 points** | Generalized point-query context; not area-weighted geology or mineral identification |
