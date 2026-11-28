@@ -255,6 +255,44 @@ def analyze_psr_features(
     }
 
 
+def update_source_registry() -> None:
+    """Promote the PGDA vector source only after the derived artifact was written."""
+    registry_path = ROOT / "data" / "source_registry.json"
+    registry = json.loads(registry_path.read_text(encoding="utf-8"))
+    sources = registry.get("sources")
+    if not isinstance(sources, list):
+        raise ValueError("Source registry must contain a sources array")
+
+    source_id = "nasa_pgda_lola_psr_vectors"
+    row = next((item for item in sources if item.get("id") == source_id), None)
+    if row is None:
+        row = {"id": source_id}
+        sources.append(row)
+
+    row.update({
+        "name": "NASA GSFC PGDA LOLA south-polar PSR vector product",
+        "provider": "NASA GSFC Planetary Geodesy Data Archive / LOLA",
+        "state": "processed",
+        "data_type": "LOLA-derived permanently shadowed-region polygon vectors and Shackleton AOI intersection summary",
+        "resolution": "LPSR_80S_20MPP_ADJ_1km2; 20 m source grid spacing; polygons filtered to area >1 km²",
+        "coverage": "80°S to 90°S; mapped PSR polygons larger than 1 km²; exact Shackleton 29.6 km study-window intersection computed in the source south-polar stereographic CRS",
+        "artifacts": ["data/moon/lola_psr_site_overlap.json"],
+        "url": "https://pgda.gsfc.nasa.gov/products/90",
+        "data_doi": "https://doi.org/10.60903/gsfcpgda-lola-spole",
+        "limitations": [
+            "This is a LOLA-topography-derived mapped permanent-shadow product, not a water-ice detection or resource-abundance measurement.",
+            "The published subset includes only mapped polygons larger than 1 km² and covers 80°S to the south pole; smaller PSRs and regions north of 80°S are not represented.",
+            "The 20 m source grid spacing is not a guarantee of 20 m boundary accuracy.",
+            "AOI intersection does not establish current mission-date illumination, ice accessibility, rover trafficability, landing safety or mission suitability.",
+            "Raw shapefile sidecars are downloaded and SHA-256 hashed during the build; only the derived site-specific JSON summary is committed."
+        ]
+    })
+    registry_path.write_text(
+        json.dumps(registry, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+
 def main() -> None:
     with tempfile.TemporaryDirectory(prefix="analogx-lola-psr-") as temporary:
         directory = Path(temporary)
@@ -333,6 +371,7 @@ def main() -> None:
 
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(output, indent=2, allow_nan=False) + "\n", encoding="utf-8")
+    update_source_registry()
     print(json.dumps({
         "output": str(OUTPUT.relative_to(ROOT)),
         "status": output["status"],
