@@ -1,8 +1,8 @@
 {
-  "schema_version": "1.0.0",
-  "generated_at_utc": "2026-11-28T15:28:42+00:00",
+  "schema_version": "1.1.0",
+  "generated_at_utc": "2026-11-28T15:57:42+00:00",
   "purpose": "Fallback archive discovery for planetary products when the federated PDS Search API is unavailable.",
-  "coverage": "Targeted metadata discovery for Nili Patera HiRISE DTM, regional MOLA MEGDR, lunar LOLA GDR, Diviner PRP and Nili-area HiRISE RDR observations.",
+  "coverage": "Targeted metadata discovery for Nili Patera HiRISE DTM products, regional MOLA MEGDR, lunar LOLA GDR, Diviner PRP and Nili-area HiRISE RDR observations. Every returned HiRISE DTM has an independent capped PDS-label footprint inspection.",
   "nili_patera_aoi": {
     "name": "Nili Patera / Syrtis Major",
     "latitude_deg": 8.9,
@@ -29,11 +29,14 @@
       "ESP_017762_1890",
       "ESP_018039_1890"
     ],
+    "relative_path_to_volume": "dtm\\esp\\orb_017700_017799\\esp_017762_1890_esp_018039_1890\\",
     "core_mola_aoi_center_inside": false,
     "core_mola_aoi_footprint_intersection": false,
     "status": "known_catalogued_reference",
     "metadata_boundary": "The complete PDS-label geographic bounding box does not intersect the original MOLA comparison AOI. Treat this DTM as an adjacent high-resolution dune-field reference, not as co-located MOLA terrain.",
     "pds_label_inspection": {
+      "pdsid": "DTEEC_017762_1890_018039_1890_A01",
+      "ode_id": "26731299",
       "status": "label_verified_bounds_outside_core_aoi",
       "source_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_017700_017799/ESP_017762_1890_ESP_018039_1890/DTEEC_017762_1890_018039_1890_A01.IMG",
       "http_status": 206,
@@ -73,12 +76,261 @@
       },
       "core_mola_aoi_footprint_intersection": false,
       "limitations": [
-        "Only a bounded byte-range prefix is requested; the approximately 430 MB DTM raster is not downloaded.",
+        "Only a bounded byte-range prefix is requested; the full DTM raster is not downloaded.",
         "Footprint intersection is computed only when the embedded label provides all four geographic bounds.",
-        "A geographic bbox intersection is not a rover-safety or route-suitability assessment."
+        "A geographic bounding-box intersection is not proof of raster co-registration, pixel-level coverage, rover safety or route suitability."
       ],
       "final_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_017700_017799/ESP_017762_1890_ESP_018039_1890/DTEEC_017762_1890_018039_1890_A01.IMG"
     }
+  },
+  "nili_hirise_dtm_references": [
+    {
+      "pdsid": "DTEED_013582_1895_020940_1895_A01",
+      "ode_id": "26731117",
+      "title": "Mound on Nili Patera floor",
+      "data_file_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_013500_013599/ESP_013582_1895_ESP_020940_1895/DTEED_013582_1895_020940_1895_A01.IMG",
+      "relative_path_to_volume": "dtm\\esp\\orb_013500_013599\\esp_013582_1895_esp_020940_1895\\",
+      "reported_file_size_mb": null,
+      "label_inspection": {
+        "pdsid": "DTEED_013582_1895_020940_1895_A01",
+        "ode_id": "26731117",
+        "status": "label_verified_bounds_outside_core_aoi",
+        "source_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_013500_013599/ESP_013582_1895_ESP_020940_1895/DTEED_013582_1895_020940_1895_A01.IMG",
+        "http_status": 206,
+        "content_range": "bytes 0-262143/110264504",
+        "bytes_read": 262144,
+        "max_bytes": 262144,
+        "label_terminated": true,
+        "fields": {
+          "PDS_VERSION_ID": "PDS3",
+          "PRODUCT_ID": "DTEED_013582_1895_020940_1895_A01",
+          "DATA_SET_ID": "MRO-M-HIRISE-5-DTM-V1.0",
+          "MAP_PROJECTION_TYPE": "EQUIRECTANGULAR",
+          "MAP_SCALE": 2.0227548569338,
+          "MAP_RESOLUTION": 29302.62344726,
+          "CENTER_LATITUDE": 5,
+          "CENTER_LONGITUDE": 67.35,
+          "MINIMUM_LATITUDE": 9.0039439105009,
+          "MAXIMUM_LATITUDE": 9.2814745285646,
+          "WESTERNMOST_LONGITUDE": 67.29196157,
+          "EASTERNMOST_LONGITUDE": 67.40801711,
+          "LINE_SAMPLES": 3389,
+          "LINES": 8133,
+          "SAMPLE_TYPE": "PC_REAL",
+          "SAMPLE_BITS": 32,
+          "OFFSET": 0,
+          "SCALING_FACTOR": 1,
+          "MISSING_CONSTANT": "16#FF7FFFFB#",
+          "POSITIVE_LONGITUDE_DIRECTION": "EAST",
+          "A_AXIS_RADIUS": 3396.0368126024,
+          "C_AXIS_RADIUS": 3396.0368126024
+        },
+        "bounds": {
+          "min_lat": 9.0039439105009,
+          "max_lat": 9.2814745285646,
+          "west_lon": 67.29196157,
+          "east_lon": 67.40801711
+        },
+        "core_mola_aoi_footprint_intersection": false,
+        "limitations": [
+          "Only a bounded byte-range prefix is requested; the full DTM raster is not downloaded.",
+          "Footprint intersection is computed only when the embedded label provides all four geographic bounds.",
+          "A geographic bounding-box intersection is not proof of raster co-registration, pixel-level coverage, rover safety or route suitability."
+        ],
+        "final_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_013500_013599/ESP_013582_1895_ESP_020940_1895/DTEED_013582_1895_020940_1895_A01.IMG"
+      },
+      "core_mola_aoi_footprint_intersection": false,
+      "metadata_boundary": "The complete PDS-label bounding box does not intersect the original MOLA comparison AOI. Keep this DTM as a separate adjacent reference."
+    },
+    {
+      "pdsid": "DTEEC_017762_1890_018039_1890_A01",
+      "ode_id": "26731299",
+      "title": "Topography of Moving Dunes in Nili Patera",
+      "data_file_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_017700_017799/ESP_017762_1890_ESP_018039_1890/DTEEC_017762_1890_018039_1890_A01.IMG",
+      "relative_path_to_volume": "dtm\\esp\\orb_017700_017799\\esp_017762_1890_esp_018039_1890\\",
+      "reported_file_size_mb": 430,
+      "label_inspection": {
+        "pdsid": "DTEEC_017762_1890_018039_1890_A01",
+        "ode_id": "26731299",
+        "status": "label_verified_bounds_outside_core_aoi",
+        "source_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_017700_017799/ESP_017762_1890_ESP_018039_1890/DTEEC_017762_1890_018039_1890_A01.IMG",
+        "http_status": 206,
+        "content_range": "bytes 0-262143/430063620",
+        "bytes_read": 262144,
+        "max_bytes": 262144,
+        "label_terminated": true,
+        "fields": {
+          "PDS_VERSION_ID": "PDS3",
+          "PRODUCT_ID": "DTEEC_017762_1890_018039_1890_A01",
+          "DATA_SET_ID": "MRO-M-HIRISE-5-DTM-V1.0",
+          "MAP_PROJECTION_TYPE": "EQUIRECTANGULAR",
+          "MAP_SCALE": 1.0114047695587,
+          "MAP_RESOLUTION": 58603.66263124,
+          "CENTER_LATITUDE": 5,
+          "CENTER_LONGITUDE": 67.33,
+          "MINIMUM_LATITUDE": 8.650757405385,
+          "MAXIMUM_LATITUDE": 8.9115110029789,
+          "WESTERNMOST_LONGITUDE": 67.26487883,
+          "EASTERNMOST_LONGITUDE": 67.38538575,
+          "LINE_SAMPLES": 7035,
+          "LINES": 15282,
+          "SAMPLE_TYPE": "PC_REAL",
+          "SAMPLE_BITS": 32,
+          "OFFSET": 0,
+          "SCALING_FACTOR": 1,
+          "MISSING_CONSTANT": "16#FF7FFFFB#",
+          "POSITIVE_LONGITUDE_DIRECTION": "EAST",
+          "A_AXIS_RADIUS": 3396.04,
+          "C_AXIS_RADIUS": 3396.04
+        },
+        "bounds": {
+          "min_lat": 8.650757405385,
+          "max_lat": 8.9115110029789,
+          "west_lon": 67.26487883,
+          "east_lon": 67.38538575
+        },
+        "core_mola_aoi_footprint_intersection": false,
+        "limitations": [
+          "Only a bounded byte-range prefix is requested; the full DTM raster is not downloaded.",
+          "Footprint intersection is computed only when the embedded label provides all four geographic bounds.",
+          "A geographic bounding-box intersection is not proof of raster co-registration, pixel-level coverage, rover safety or route suitability."
+        ],
+        "final_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_017700_017799/ESP_017762_1890_ESP_018039_1890/DTEEC_017762_1890_018039_1890_A01.IMG"
+      },
+      "core_mola_aoi_footprint_intersection": false,
+      "metadata_boundary": "The complete PDS-label bounding box does not intersect the original MOLA comparison AOI. Keep this DTM as a separate adjacent reference."
+    },
+    {
+      "pdsid": "DTEEC_043779_1890_043423_1890_A01",
+      "ode_id": "28520359",
+      "title": "Nili Patera stereo DTM",
+      "data_file_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_043700_043799/ESP_043779_1890_ESP_043423_1890/DTEEC_043779_1890_043423_1890_A01.IMG",
+      "relative_path_to_volume": "dtm\\esp\\orb_043700_043799\\esp_043779_1890_esp_043423_1890\\",
+      "reported_file_size_mb": null,
+      "label_inspection": {
+        "pdsid": "DTEEC_043779_1890_043423_1890_A01",
+        "ode_id": "28520359",
+        "status": "label_verified_bounds_outside_core_aoi",
+        "source_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_043700_043799/ESP_043779_1890_ESP_043423_1890/DTEEC_043779_1890_043423_1890_A01.IMG",
+        "http_status": 206,
+        "content_range": "bytes 0-262143/226172512",
+        "bytes_read": 262144,
+        "max_bytes": 262144,
+        "label_terminated": true,
+        "fields": {
+          "PDS_VERSION_ID": "PDS3",
+          "PRODUCT_ID": "DTEEC_043779_1890_043423_1890_A01",
+          "DATA_SET_ID": "MRO-M-HIRISE-5-DTM-V1.0",
+          "MAP_PROJECTION_TYPE": "EQUIRECTANGULAR",
+          "MAP_SCALE": 1.0114047695587,
+          "MAP_RESOLUTION": 58603.66263124,
+          "CENTER_LATITUDE": 5,
+          "CENTER_LONGITUDE": 67.35,
+          "MINIMUM_LATITUDE": 8.6237106527128,
+          "MAXIMUM_LATITUDE": 8.7890633944654,
+          "WESTERNMOST_LONGITUDE": 67.30245827,
+          "EASTERNMOST_LONGITUDE": 67.40237419,
+          "LINE_SAMPLES": 5834,
+          "LINES": 9691,
+          "SAMPLE_TYPE": "PC_REAL",
+          "SAMPLE_BITS": 32,
+          "OFFSET": 0,
+          "SCALING_FACTOR": 1,
+          "MISSING_CONSTANT": "16#FF7FFFFB#",
+          "POSITIVE_LONGITUDE_DIRECTION": "EAST",
+          "A_AXIS_RADIUS": 3396.0368126024,
+          "C_AXIS_RADIUS": 3396.0368126024
+        },
+        "bounds": {
+          "min_lat": 8.6237106527128,
+          "max_lat": 8.7890633944654,
+          "west_lon": 67.30245827,
+          "east_lon": 67.40237419
+        },
+        "core_mola_aoi_footprint_intersection": false,
+        "limitations": [
+          "Only a bounded byte-range prefix is requested; the full DTM raster is not downloaded.",
+          "Footprint intersection is computed only when the embedded label provides all four geographic bounds.",
+          "A geographic bounding-box intersection is not proof of raster co-registration, pixel-level coverage, rover safety or route suitability."
+        ],
+        "final_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_043700_043799/ESP_043779_1890_ESP_043423_1890/DTEEC_043779_1890_043423_1890_A01.IMG"
+      },
+      "core_mola_aoi_footprint_intersection": false,
+      "metadata_boundary": "The complete PDS-label bounding box does not intersect the original MOLA comparison AOI. Keep this DTM as a separate adjacent reference."
+    },
+    {
+      "pdsid": "DTEEC_050438_1890_051071_1890_A01",
+      "ode_id": "28520360",
+      "title": "Nili Patera monitoring DTM",
+      "data_file_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_050400_050499/ESP_050438_1890_ESP_051071_1890/DTEEC_050438_1890_051071_1890_A01.IMG",
+      "relative_path_to_volume": "dtm\\esp\\orb_050400_050499\\esp_050438_1890_esp_051071_1890\\",
+      "reported_file_size_mb": null,
+      "label_inspection": {
+        "pdsid": "DTEEC_050438_1890_051071_1890_A01",
+        "ode_id": "28520360",
+        "status": "label_verified_bounds_outside_core_aoi",
+        "source_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_050400_050499/ESP_050438_1890_ESP_051071_1890/DTEEC_050438_1890_051071_1890_A01.IMG",
+        "http_status": 206,
+        "content_range": "bytes 0-262143/226172512",
+        "bytes_read": 262144,
+        "max_bytes": 262144,
+        "label_terminated": true,
+        "fields": {
+          "PDS_VERSION_ID": "PDS3",
+          "PRODUCT_ID": "DTEEC_050438_1890_051071_1890_A01",
+          "DATA_SET_ID": "MRO-M-HIRISE-5-DTM-V1.0",
+          "MAP_PROJECTION_TYPE": "EQUIRECTANGULAR",
+          "MAP_SCALE": 1.0114047695587,
+          "MAP_RESOLUTION": 58603.66263124,
+          "CENTER_LATITUDE": 5,
+          "CENTER_LONGITUDE": 67.35,
+          "MINIMUM_LATITUDE": 8.6237106527128,
+          "MAXIMUM_LATITUDE": 8.7890633944654,
+          "WESTERNMOST_LONGITUDE": 67.30245827,
+          "EASTERNMOST_LONGITUDE": 67.40237419,
+          "LINE_SAMPLES": 5834,
+          "LINES": 9691,
+          "SAMPLE_TYPE": "PC_REAL",
+          "SAMPLE_BITS": 32,
+          "OFFSET": 0,
+          "SCALING_FACTOR": 1,
+          "MISSING_CONSTANT": "16#FF7FFFFB#",
+          "POSITIVE_LONGITUDE_DIRECTION": "EAST",
+          "A_AXIS_RADIUS": 3396.0368126024,
+          "C_AXIS_RADIUS": 3396.0368126024
+        },
+        "bounds": {
+          "min_lat": 8.6237106527128,
+          "max_lat": 8.7890633944654,
+          "west_lon": 67.30245827,
+          "east_lon": 67.40237419
+        },
+        "core_mola_aoi_footprint_intersection": false,
+        "limitations": [
+          "Only a bounded byte-range prefix is requested; the full DTM raster is not downloaded.",
+          "Footprint intersection is computed only when the embedded label provides all four geographic bounds.",
+          "A geographic bounding-box intersection is not proof of raster co-registration, pixel-level coverage, rover safety or route suitability."
+        ],
+        "final_url": "https://www.uahirise.org/PDS/DTM/ESP/ORB_050400_050499/ESP_050438_1890_ESP_051071_1890/DTEEC_050438_1890_051071_1890_A01.IMG"
+      },
+      "core_mola_aoi_footprint_intersection": false,
+      "metadata_boundary": "The complete PDS-label bounding box does not intersect the original MOLA comparison AOI. Keep this DTM as a separate adjacent reference."
+    }
+  ],
+  "nili_hirise_dtm_footprint_summary": {
+    "ode_dtm_products_returned": 4,
+    "unique_dtm_label_inspection_attempts": 4,
+    "terminated_labels_read": 4,
+    "labels_with_verified_geographic_bounds": 4,
+    "bbox_intersecting_core_mola_aoi": [],
+    "bbox_outside_core_mola_aoi": [
+      "DTEED_013582_1895_020940_1895_A01",
+      "DTEEC_017762_1890_018039_1890_A01",
+      "DTEEC_043779_1890_043423_1890_A01",
+      "DTEEC_050438_1890_051071_1890_A01"
+    ],
+    "bbox_intersection_unknown": [],
+    "interpretation": "PDS-label bounding boxes are a footprint triage step only. Even a bounding-box intersection does not establish pixel-level coverage, horizontal/vertical registration, compatible vertical datum, raster quality or readiness for quantitative terrain analysis."
   },
   "nili_hirise_dtm_discovery_bbox_wsen": [
     66.7438569302,
@@ -807,7 +1059,9 @@
     "limitations": [
       "ODE product records are metadata; they are not processed science rasters.",
       "Product types are taken from the live ODE IIPT list; a missing IIPT set is recorded, not guessed.",
-      "The primary MOLA comparison AOI remains unchanged. The separate HiRISE DTM discovery box is expanded eastward to include the published DTM center at 67.33 E; actual footprint intersection with the primary AOI must still be verified from the product label.",
+      "The primary MOLA comparison AOI remains unchanged. The separate HiRISE DTM discovery box is expanded eastward to include Nili Patera DTM catalogue records whose reported centers may be east of the core AOI.",
+      "Every returned HiRISE DTM is inspected using only a capped prefix of its embedded PDS3 label. The full DTM .IMG rasters are not downloaded.",
+      "A label bbox intersection is necessary for a possible co-located raster but is not sufficient to prove it; pixel coverage and coordinate registration must be checked before processing.",
       "ODE query counts may refer to the full matching product set even when the metadata sample is limited to 20 records."
     ]
   },
@@ -3934,6 +4188,7 @@
     "product_binary_downloaded": false,
     "full_dtm_raster_downloaded": false,
     "dtm_label_prefix_inspected": true,
+    "dtm_labels_attempted": 4,
     "rover_safety_assessed": false,
     "mission_suitability_certified": false
   }

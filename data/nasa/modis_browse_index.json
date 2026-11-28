@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-11-28T15:28:50+00:00",
+  "generated_at_utc": "2026-11-28T15:57:57+00:00",
   "provider": "NASA Earthdata CMR / MODIS Terra MOD11A2 V061",
   "product": "8-day land-surface temperature and emissivity, 1 km sinusoidal grid",
   "purpose": "Recent public browse-tile discovery for the curated Earth study sites.",
