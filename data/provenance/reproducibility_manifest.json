@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-28T14:37:33+00:00",
-  "repository_commit_before_manifest_commit": "4394bba33f92b6d81b25d86dffd3a52544599f67",
+  "generated_at_utc": "2026-11-28T14:50:03+00:00",
+  "repository_commit_before_manifest_commit": "5b87ae7d988de64711ffbc61be1b20b39094bf59",
   "working_tree_before_manifest_write": "clean",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -38,7 +38,7 @@
     ]
   },
   "file_count": 231,
-  "source_registry_sha256": "e5ca1ab4f4372754ad578aaccadcbda9f7ec553a5f7df41b60fadc09b2968705",
+  "source_registry_sha256": "a887170e271fbe7bc4208040c5e4c16511835f127022df03c0950afe74f65511",
   "source_registry_records": [
     {
       "id": "copernicus_glo30_regional",
@@ -345,7 +345,7 @@
       "state": "metadata_only",
       "provider": "NASA Planetary Data System",
       "name": "NASA Planetary Data System Search API",
-      "url": "https://pds.nasa.gov/api/search/1/products",
+      "url": "https://pds.mcp.nasa.gov/api/search/1/products",
       "doi_or_identifier": null,
       "artifacts": [
         "data/planetary/pds_search.json"
@@ -354,7 +354,8 @@
         "PDS registry coverage is incomplete; zero results do not prove an archive lacks a dataset.",
         "Catalogue records are metadata, not decoded science arrays, calibration evidence or validated measurements.",
         "A listed data-file reference is not proof of direct binary access, successful download, spatial completeness or analysis readiness.",
-        "Product labels, units, coordinate systems, versions, calibration and licences must be inspected before processing."
+        "Product labels, units, coordinate systems, versions, calibration and licences must be inspected before processing.",
+        "The production Search API returned HTTP 500 for all six target/instrument queries on 2026-11-28; query_error is retained as service failure, not interpreted as an empty archive."
       ]
     }
   ],
@@ -397,8 +398,8 @@
     },
     {
       "path": "transferability.html",
-      "size_bytes": 28776,
-      "sha256": "b3a2a55b20afb7bbe4fa4911fdc2ee9a1aa600d19b1b35280c5b50a8a38c9cc7",
+      "size_bytes": 29153,
+      "sha256": "2ac5a3902d07f91a1d89cb3c79fd3644e165618249c5ae80af4f0aee72e6723a",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -913,8 +914,8 @@
     },
     {
       "path": "data/source_registry.json",
-      "size_bytes": 20052,
-      "sha256": "e5ca1ab4f4372754ad578aaccadcbda9f7ec553a5f7df41b60fadc09b2968705",
+      "size_bytes": 20329,
+      "sha256": "a887170e271fbe7bc4208040c5e4c16511835f127022df03c0950afe74f65511",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -1183,8 +1184,8 @@
     },
     {
       "path": "scripts/fetch_pds_search.py",
-      "size_bytes": 11393,
-      "sha256": "08db2c83c5c7c0d09741624e7cdcfbbe690ad17a255c07957bf07ce645c2a4f1",
+      "size_bytes": 12080,
+      "sha256": "6b5e541357e65527c9f508d00950c9c7949d4a3a79b9aa6c6929093276662e4e",
       "evidence_class_hint": "metadata_only"
     },
     {
@@ -1261,8 +1262,8 @@
     },
     {
       "path": "scripts/validate_project.mjs",
-      "size_bytes": 19019,
-      "sha256": "46d204cb01f1fa871b2b574ceb99b667c5f523715ed75cfa9d21112af8f67395",
+      "size_bytes": 20083,
+      "sha256": "5ad18f259b03e5043024d6844fc85f8556f9d4ba6c2ce1ad74b77c949f11df6d",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1345,8 +1346,8 @@
     },
     {
       "path": "docs/DATA_SOURCES.md",
-      "size_bytes": 19654,
-      "sha256": "a7b3716bbc7cdb01e07453021cd1dd1e9d6bbaafdf24321fa11c3e9f5c523b99",
+      "size_bytes": 19832,
+      "sha256": "fbaa65b9f0a9b14c3f5ced234766ecdae07ae256d6c94e4b275f10c69b24014c",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1633,8 +1634,8 @@
     },
     {
       "path": "tests/test_pds_search_api.py",
-      "size_bytes": 2351,
-      "sha256": "c0e661dc673089b58edd66da8bbb03aac9889a59af7bc64358ea02913a8c866b",
+      "size_bytes": 2734,
+      "sha256": "c67207d8a81091952eeb9aa77c25b07d0d7e835506df656fafbb70ac4aef8c0c",
       "evidence_class_hint": "metadata_only"
     },
     {
