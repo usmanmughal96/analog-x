@@ -44,7 +44,7 @@ python scripts/validate_analog_labels.py
 python scripts/build_quantitative_validation.py
 ```
 
-The importer requires an independent-of-score attestation, reviewer qualification/affiliation, date, criterion version, evidence reference, confidence and rationale. It ignores inconclusive/insufficient-evidence cases for AUC. Duplicate candidate labels are rejected pending explicit adjudication. The private key must match the exact review packet revision.
+The importer requires the exact `terrain_morphology_transfer_v1` criterion, an independent-of-score attestation, reviewer qualification/affiliation, an explicit ISO 8601 UTC date-time ending in `Z` or `+00:00`, one or more non-empty string evidence references, confidence and rationale. It ignores only inconclusive/insufficient-evidence responses for AUC; unknown label values are rejected. Boolean confidence values, date-only values, timezone-naive values and non-UTC offsets are rejected. Duplicate candidate labels are rejected pending explicit adjudication. The private key must match the exact review packet revision.
 
 The 10-degree grid cell is a predeclared geographic blocking proxy, not a guaranteed geological boundary. A qualified reviewer should merge cells belonging to one geologic province before evaluation when necessary. Do not split neighbouring or genetically related terrain across train/test.
 
@@ -57,7 +57,7 @@ python scripts/validate_analog_labels.py
 python scripts/build_quantitative_validation.py
 ```
 
-The evaluator uses a deterministic 20% spatial-group holdout; all records from a group remain together. It reports ROC-AUC only if the held-out split contains both positive and negative examples and at least five groups exist. A deterministic 2,000-resample group bootstrap now estimates a 95% interval when at least 200 valid resamples can be produced. The output remains exploratory and must be interpreted with class balance, group independence, label scope and reviewer quality; it is not a universal accuracy estimate.
+The evaluator uses a deterministic 20% spatial-group holdout; all records from a group remain together. It reports ROC-AUC only if the held-out split contains at least **five distinct spatial groups**, with positive labels represented in at least **two held-out groups** and negative labels represented in at least **two held-out groups**. Having five groups across the full dataset is not sufficient if only one or two groups land in the held-out partition. A deterministic 2,000-resample group bootstrap estimates a 95% interval only when at least 200 valid group resamples can be produced. The output remains exploratory and must be interpreted with class balance, group independence, label scope and reviewer quality; it is not a universal accuracy estimate.
 
 A ranking-ready global dataset (schema 1.1.0) is a prerequisite for a reproducible score evaluation, but ranking readiness is not model accuracy. If the label file is empty or the held-out classes are incomplete, the report must say that validation is awaiting labels.
 
