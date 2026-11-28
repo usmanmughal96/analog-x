@@ -427,6 +427,141 @@ def query_stac_hirise_rdr() -> dict[str, Any]:
     return base
 
 
+def parse_pds_label_text(text):
+    """Parse scalar fields from a PDS3 label prefix without needing a PDS parser."""
+    fields = {}
+    terminated = False
+    for line in text.splitlines():
+        if line.strip().upper() == "END":
+            terminated = True
+            break
+        if "=" not in line:
+            continue
+        key, raw = line.split("=", 1)
+        key = key.strip().upper()
+        value = raw.strip().strip('"').strip("'")
+        if not key:
+            continue
+        fields[key + "_RAW"] = raw.strip()
+        scalar = value.split()[0] if value else ""
+        try:
+            number = float(scalar)
+            fields[key] = int(number) if number.is_integer() else number
+        except (TypeError, ValueError):
+            fields[key] = value
+    fields["_LABEL_TERMINATED"] = terminated
+    return fields
+
+
+def _pds_number(fields, key):
+    value = fields.get(key)
+    if isinstance(value, (int, float)):
+        return float(value)
+    if isinstance(value, str):
+        try:
+            return float(value.split()[0])
+        except (ValueError, IndexError):
+            return None
+    return None
+
+
+def _core_aoi_intersection(bounds):
+    west, south, east, north = NILI["bbox_wsen"]
+    min_lat = bounds.get("min_lat")
+    max_lat = bounds.get("max_lat")
+    west_lon = bounds.get("west_lon")
+    east_lon = bounds.get("east_lon")
+    if None in (min_lat, max_lat, west_lon, east_lon):
+        return None
+    lat_ok = max_lat >= south and min_lat <= north
+    if west_lon <= east_lon:
+        lon_ok = east_lon >= west and west_lon <= east
+    else:
+        lon_ok = west_lon <= east or east_lon >= west
+    return bool(lat_ok and lon_ok)
+
+
+def inspect_known_hirise_dtm_label(max_bytes=262144):
+    """Read a bounded prefix of the official IMG file; never download the full DTM."""
+    result = {
+        "status": "not_checked",
+        "source_url": KNOWN_NILI_HIRISE_DTM["data_file_url"],
+        "http_status": None,
+        "content_range": None,
+        "bytes_read": 0,
+        "max_bytes": max_bytes,
+        "label_terminated": False,
+        "fields": {},
+        "bounds": {},
+        "core_mola_aoi_footprint_intersection": None,
+        "limitations": [
+            "Only a bounded byte-range prefix is requested; the approximately 430 MB DTM raster is not downloaded.",
+            "Footprint intersection is computed only when the embedded label provides all four geographic bounds.",
+            "A geographic bbox intersection is not a rover-safety or route-suitability assessment.",
+        ],
+    }
+    response = None
+    try:
+        response = SESSION.get(
+            KNOWN_NILI_HIRISE_DTM["data_file_url"],
+            headers={"Range": "bytes=0-" + str(max_bytes - 1), "Accept-Encoding": "identity"},
+            stream=True,
+            timeout=(20, 60),
+            allow_redirects=True,
+        )
+        result["http_status"] = response.status_code
+        result["final_url"] = response.url
+        result["content_range"] = response.headers.get("Content-Range")
+        if response.status_code not in (200, 206):
+            response.raise_for_status()
+        body = bytearray()
+        for chunk in response.iter_content(chunk_size=32768):
+            if not chunk:
+                continue
+            body.extend(chunk[: max_bytes - len(body)])
+            if len(body) >= max_bytes:
+                break
+        result["bytes_read"] = len(body)
+        label = parse_pds_label_text(bytes(body).decode("ascii", errors="replace"))
+        result["label_terminated"] = bool(label.get("_LABEL_TERMINATED"))
+        keep = (
+            "PDS_VERSION_ID", "PRODUCT_ID", "DATA_SET_ID",
+            "PRODUCT_CREATION_TIME", "MAP_PROJECTION_TYPE", "MAP_SCALE",
+            "MAP_RESOLUTION", "CENTER_LATITUDE", "CENTER_LONGITUDE",
+            "MINIMUM_LATITUDE", "MAXIMUM_LATITUDE", "WESTERNMOST_LONGITUDE",
+            "EASTERNMOST_LONGITUDE", "LINE_SAMPLES", "LINES", "SAMPLE_TYPE",
+            "SAMPLE_BITS", "OFFSET", "SCALING_FACTOR", "MISSING_CONSTANT",
+            "POSITIVE_LONGITUDE_DIRECTION", "A_AXIS_RADIUS", "C_AXIS_RADIUS",
+        )
+        result["fields"] = {key: label[key] for key in keep if key in label}
+        if not result["label_terminated"]:
+            result["status"] = "label_not_complete_within_range_cap"
+            return result
+        bounds = {
+            "min_lat": _pds_number(label, "MINIMUM_LATITUDE"),
+            "max_lat": _pds_number(label, "MAXIMUM_LATITUDE"),
+            "west_lon": _pds_number(label, "WESTERNMOST_LONGITUDE"),
+            "east_lon": _pds_number(label, "EASTERNMOST_LONGITUDE"),
+        }
+        result["bounds"] = bounds
+        intersection = _core_aoi_intersection(bounds)
+        result["core_mola_aoi_footprint_intersection"] = intersection
+        if intersection is None:
+            result["status"] = "label_read_but_geographic_bounds_incomplete"
+        elif intersection:
+            result["status"] = "label_verified_bounds_intersect_core_aoi"
+        else:
+            result["status"] = "label_verified_bounds_outside_core_aoi"
+        return result
+    except Exception as exc:
+        result["status"] = "label_request_error"
+        result["error"] = str(exc)[:1000]
+        return result
+    finally:
+        if response is not None:
+            response.close()
+
+
 def main() -> None:
     results = [query_ode_dataset(spec) for spec in ODE_TARGETS]
     # Small pause between archive requests to avoid hammering the public API.
