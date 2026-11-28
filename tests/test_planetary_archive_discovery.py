@@ -12,6 +12,8 @@ from scripts.fetch_planetary_archive_discovery import (
     extract_products,
     unwrap_ode,
     xml_to_value,
+    parse_pds_label_text,
+    _core_aoi_intersection,
 )
 import xml.etree.ElementTree as ET
 
@@ -52,6 +54,41 @@ class PlanetaryArchiveDiscoveryTests(unittest.TestCase):
         self.assertEqual(by_id["moon_lola_reference"]["product_type_filter"], "GDRDEM")
         self.assertEqual(by_id["moon_diviner_prp"]["dataset_id"], "lro_diviner_derived_prp")
         self.assertEqual(by_id["moon_diviner_prp"]["product_type_filter"], "PRP")
+
+    def test_parses_embedded_pds_label_fields_and_geographic_bounds(self):
+        label = """PDS_VERSION_ID = PDS3
+PRODUCT_ID = "DTEEC_017762_1890_018039_1890_A01"
+MAP_PROJECTION_TYPE = EQUIRECTANGULAR
+MAP_SCALE = 1.01 <M/PIXEL>
+CENTER_LATITUDE = 8.781
+CENTER_LONGITUDE = 67.33
+MINIMUM_LATITUDE = 8.70
+MAXIMUM_LATITUDE = 8.86
+WESTERNMOST_LONGITUDE = 67.27
+EASTERNMOST_LONGITUDE = 67.39
+LINE_SAMPLES = 2048
+LINES = 4096
+END
+"""
+        fields = parse_pds_label_text(label)
+        self.assertTrue(fields["_LABEL_TERMINATED"])
+        self.assertEqual(fields["PRODUCT_ID"], "DTEEC_017762_1890_018039_1890_A01")
+        self.assertAlmostEqual(float(fields["MAP_SCALE"]), 1.01)
+        bounds = {
+            "min_lat": float(fields["MINIMUM_LATITUDE"]),
+            "max_lat": float(fields["MAXIMUM_LATITUDE"]),
+            "west_lon": float(fields["WESTERNMOST_LONGITUDE"]),
+            "east_lon": float(fields["EASTERNMOST_LONGITUDE"]),
+        }
+        self.assertTrue(_core_aoi_intersection(bounds))
+
+    def test_dtm_label_bounds_can_confirm_no_overlap_with_core_aoi(self):
+        bounds = {
+            "min_lat": 8.70, "max_lat": 8.86,
+            "west_lon": 67.30, "east_lon": 67.40,
+        }
+        self.assertFalse(_core_aoi_intersection(bounds))
+        self.assertIsNone(_core_aoi_intersection({"min_lat": 8.7, "max_lat": 8.8}))
 
     def test_extracts_dynamic_iipt_sets_from_json_response(self):
         payload = {
