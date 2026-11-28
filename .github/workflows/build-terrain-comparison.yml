@@ -10,7 +10,6 @@ on:
       - "data/transferability/transferability.json"
       - "data/moon/**"
       - "scripts/fetch_public_evidence.py"
-      - ".github/workflows/build-terrain-comparison.yml"
       - "data/pakistan/public_scene_catalog.json"
   workflow_dispatch:
 
@@ -18,9 +17,9 @@ permissions:
   contents: write
 
 concurrency:
-  group: analogx-repository-data-refresh-${{ github.workflow }}
+  group: analogx-repository-data-publish
+  queue: max
   cancel-in-progress: false
-
 jobs:
   terrain:
     runs-on: ubuntu-latest
@@ -29,6 +28,7 @@ jobs:
       - name: Checkout current main
         uses: actions/checkout@v4
         with:
+          ref: main
           persist-credentials: true
 
       - name: Set up Python
