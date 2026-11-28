@@ -36,6 +36,7 @@ ANALOG-X is a Pakistan-first research platform connecting candidate Earth enviro
 | [Seven-slide demo](https://usmanmughal96.github.io/analog-x/demo.html) | Project story, scientific evidence and validation boundaries |
 | [ATFA Science Module](https://usmanmughal96.github.io/analog-x/transferability.html) | Experiment-level transferability and analogy-failure analysis |
 | [Planetary archive discovery](data/planetary/archive_discovery.json) | Spatially bounded PDS Geosciences ODE and USGS HiRISE metadata for MOLA, LOLA, Diviner and Nili Patera |
+| [Nili Patera HiRISE DTM reference](https://www.uahirise.org/dtm/dtm.php?ID=ESP_017762_1890) | Catalogued stereo DTM of the moving-dune field (1.01 m/pixel published map scale); footprint overlap with the current MOLA AOI is not yet verified |
 | [Regional Discovery Scan](https://usmanmughal96.github.io/analog-x/discovery.html) | Local terrain-window comparison across ten curated Earth regions |
 | [Global Discovery Engine](https://usmanmughal96.github.io/analog-x/global-discovery.html) | Copernicus GLO-90 land-inventory screening and target-specific shortlists |
 | [Pakistan evidence network](https://usmanmughal96.github.io/analog-x/#pakistanEvidenceNetwork) | Four processed Pakistan satellite and terrain study windows |
@@ -89,7 +90,7 @@ The [Independent Reviewer Desk](https://usmanmughal96.github.io/analog-x/indepen
 ### Three open validation gates
 
 - **Physical field evidence:** the Pakistan campaign is planned; the committed field-observation ledger remains empty. No field experiment is claimed.
-- **Rover / mission suitability:** current Earth comparison cells are about 925 m; Shackleton Site04 has a separate 5 m LOLA terrain product plus historical 100 m LROC WAC illumination-frequency and Diviner PRP thermal-model context. These do not provide mission-date illumination, formal PSR geometry, traction evidence, landing suitability or safety. No rover/UGV trial or vehicle-specific engineering review is claimed.
+- **Rover / mission suitability:** current Earth comparison cells are about 925 m; Shackleton Site04 has a separate 5 m LOLA terrain product plus historical 100 m LROC WAC illumination-frequency and Diviner PRP thermal-model context. Nili Patera also has a catalogued HiRISE dune-field DTM reference at 1.01 m/pixel, but its footprint overlap with the current MOLA comparison AOI is not yet verified and the source is not processed in ANALOG-X. These datasets do not provide mission-date illumination, formal PSR geometry, traction evidence, landing suitability or safety. No rover/UGV trial or vehicle-specific engineering review is claimed.
 - **Independent expert confirmation:** 96 blinded cases are prepared, but no binary labels have been returned. No independent AUC, accuracy or reviewer endorsement is claimed.
 
 See [Operational Readiness & Validation Gates](docs/OPERATIONAL_READINESS_AND_VALIDATION.md) and the [Independent Reviewer Guide](docs/INDEPENDENT_REVIEWER_GUIDE.md) for protocols, evidence requirements and next actions.
@@ -135,6 +136,7 @@ Machine-readable status: [quantitative validation](data/validation/quantitative_
 | Copernicus DEM GLO-30 | Terrain context for ten curated Earth regions | Digital surface model; selected windows, not global GLO-30 coverage |
 | Copernicus DEM GLO-90 | Global land-inventory terrain screening | Screening index, not independent analog validation |
 | NASA MOLA MEGDR | Nili Patera Mars reference | Selected window has 50.53% observed-cell coverage |
+| University of Arizona HiRISE DTM | Nili Patera moving-dune stereo DTM reference | Catalogued at 1.01 m/pixel; 430 MB source is not yet downloaded or processed, and exact overlap with the MOLA comparison AOI remains unverified |
 | NASA LRO LOLA | Shackleton Rim 80 m and separate 5 m Site04 products | Interpolated elevation and direct-return support are separate measures |
 | NASA Diviner PRP V2.0 | Historical model-derived thermal and ice-stability-depth context | Not in-situ; depth QA, accessible-ice interpretation and resource claims remain open |
 | NASA LROC WAC | Historical 100 m south-pole illumination-frequency products | 2010–2011 observation period; not a mission-date forecast or formal PSR delineation |
