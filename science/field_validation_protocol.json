@@ -44,7 +44,9 @@
       "independent_reviewer": "",
       "review_status": "not_reviewed",
       "limitations": [],
-      "date_utc_format": "ISO 8601 UTC timestamp ending in Z, e.g. YYYY-MM-DDTHH:MM:SS.sssZ; date-only values are insufficient for field observations."
+      "date_utc_format": "ISO 8601 UTC timestamp ending in Z, e.g. YYYY-MM-DDTHH:MM:SS.sssZ; date-only values are insufficient for field observations.",
+      "measurement_time_utc": "",
+      "measurement_time_utc_format": "ISO 8601 UTC timestamp ending in Z; for this station capture it identifies the instrument-reading batch time. Record separate timestamps for repeated measurements in their method records."
     }
   ],
   "measurements": {
@@ -75,6 +77,7 @@
     "Record non-observations and inaccessible locations; do not silently omit them.",
     "Independent review is required before marking a candidate independently_reviewed.",
     "A field observation validates only the observed property and location, not planetary equivalence, resource abundance, landing safety or rover traversability.",
-    "Field-observation date_utc must retain an explicit ISO 8601 UTC timestamp ending in Z; never infer a missing observation time from the export date or device local time."
+    "Field-observation date_utc must retain an explicit ISO 8601 UTC timestamp ending in Z; never infer a missing observation time from the export date or device local time.",
+    "Field-observation records must include both date_utc and measurement_time_utc as explicit ISO 8601 UTC timestamps ending in Z."
   ]
 }
