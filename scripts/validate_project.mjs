@@ -140,7 +140,7 @@ assert(wacPolar.time_weighted?.illumination_percent?.pixels_at_or_below_5_percen
 assert(readinessHtml.includes("renderLunarPolar") && readinessHtml.includes("lunarPolarMetrics"), "Mission readiness dashboard must display the processed lunar environment evidence");
 assert(readinessHtml.includes("not a formal PSR polygon"), "Dashboard must distinguish low-illumination screening from formal PSR geometry");
 assert(!readinessHtml.includes("The product does not establish illumination"), "Dashboard must not hide the separately processed historical illumination evidence");
-assert(operationalDoc.includes("Historical LROC WAC illumination-frequency products") && operationalDoc.includes("103.786 K"), "Operational readiness documentation must describe the historical lunar evidence and limits");
+assert(operationalDoc.includes("**LROC WAC, 100 m:** historical") && operationalDoc.includes("103.786 K"), "Operational readiness documentation must describe the historical lunar evidence and limits");
 assert(read("README.md").includes("Evidence snapshot — 28 November 2026") && read("README.md").includes("NASA LROC WAC"), "README must use the current evidence date and disclose historical WAC evidence");
 assert(read("service-worker.js").includes('CACHE_VERSION="analogx-offline-v8"'), "Offline cache version must be bumped with the lunar dashboard update");
 assert(reviewHtml.includes("independent_of_analogx_score") && reviewHtml.includes("Export review JSON"), "Blind reviewer desk is missing provenance/export safeguards");
