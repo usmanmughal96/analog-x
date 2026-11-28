@@ -115,6 +115,19 @@ END
         self.assertFalse(_core_aoi_intersection(bounds))
         self.assertIsNone(_core_aoi_intersection({"min_lat": 8.7, "max_lat": 8.8}))
 
+    def test_verified_nili_dtm_label_bounds_do_not_intersect_original_mola_aoi(self):
+        # Exact bounds parsed from the committed 256 KiB prefix of the public
+        # HiRISE DTM PDS3 label. Keep this adjacent reference separate from
+        # the original MOLA comparison AOI.
+        bounds = {
+            "min_lat": 8.650757405385,
+            "max_lat": 8.9115110029789,
+            "west_lon": 67.26487883,
+            "east_lon": 67.38538575,
+        }
+        self.assertFalse(_core_aoi_intersection(bounds))
+        self.assertGreater(bounds["west_lon"], NILI["bbox_wsen"][2])
+
     def test_bounded_label_read_verifies_core_aoi_footprint_when_bounds_present(self):
         label = b"""PDS_VERSION_ID = PDS3
 PRODUCT_ID = "DTEEC_017762_1890_018039_1890_A01"
