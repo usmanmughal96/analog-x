@@ -58,6 +58,7 @@ jobs:
           python scripts/validate_field_observations.py
           python -m unittest tests.test_field_observation_timestamps
           python -m unittest tests.test_pds_search_api
+          python -m unittest tests.test_planetary_archive_discovery
           python scripts/validate_evidence_inventory.py
           python - <<'PY'
           from html.parser import HTMLParser
