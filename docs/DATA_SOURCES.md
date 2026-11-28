@@ -79,6 +79,7 @@ Current Nili Patera observation coverage: 567 / 1,122 cells (50.53%); 87 complet
 | Microsoft Planetary Computer | Sentinel-2 L2A STAC items | Anonymous scene discovery working; scene IDs, item IDs, asset links, MGRS tiles and acquisition dates stored | Open scene discovery without a user account |
 | Microsoft Planetary Computer | Copernicus DEM GLO-30 STAC items | Tile metadata discovered and corresponding COG assets processed in terrain workflow | DEM metadata provenance is recorded in JSON |
 | NASA EPIC | Natural-colour DSCOVR full-disc images | Public GSFC endpoint working without api.nasa.gov key | Global visual context only |
+| NASA Planetary Data System Search API | Six metadata queries for Mars/MOLA/HiRISE and Moon/LOLA/Diviner observational products | `data/planetary/pds_search.json` | Metadata only; the registry may be incomplete, and a returned file reference is not proof of binary access, calibration or analysis readiness |
 
 
 ## Candidate discovery and agent evidence layer

@@ -37,7 +37,7 @@ jobs:
 
       - name: Validate GitHub Actions workflow YAML syntax
         run: |
-          python -m pip install --upgrade pyyaml
+          python -m pip install --upgrade pyyaml requests
           python - <<'PY'
           from pathlib import Path
           import yaml
@@ -57,6 +57,7 @@ jobs:
         run: |
           python scripts/validate_field_observations.py
           python -m unittest tests.test_field_observation_timestamps
+          python -m unittest tests.test_pds_search_api
           python scripts/validate_evidence_inventory.py
           python - <<'PY'
           from html.parser import HTMLParser

@@ -89,6 +89,13 @@ assert(read(".github/workflows/global-environment-enrichment.yml").includes("enr
 assert(read(".github/workflows/global-environment-enrichment.yml").includes("workflow_run"), "Global land-cover enrichment must be chained to the global scan release");
 assert(read("docs/COMPETITIVE_CAPABILITY_RESPONSE.md").includes("TwinWorlds"), "Competitor capability mapping missing");
 
+const pdsSearchScript = read("scripts/fetch_pds_search.py");
+assert(pdsSearchScript.includes("/api/search/1/products"), "PDS discovery must use the documented all-products endpoint");
+assert(!pdsSearchScript.includes("/classes/observational"), "PDS discovery must not use the invalid singular observational class endpoint");
+assert(pdsSearchScript.includes("product_class eq") && pdsSearchScript.includes("ref_lid_target eq") && pdsSearchScript.includes("ref_lid_instrument eq"), "PDS queries must retain target, instrument and product-class constraints");
+assert(pdsSearchScript.includes("def extract_products") && pdsSearchScript.includes('payload.get("data")'), "PDS discovery must parse the documented flat data response");
+assert(read("tests/test_pds_search_api.py").includes("test_accepts_flat_observational_product"), "PDS flat-response regression tests are missing");
+
 assert(html.includes('href="./field-validation.html"'), "Main portal is missing Field Validation Kit CTA");
 assert(read("field-validation.html").includes("actual observations collected"), "Field capture must explicitly distinguish field observations from desk research");
 assert(read("service-worker.js").includes('"./field-validation.html"'), "Offline application cache must include Field Validation Kit");
@@ -119,6 +126,8 @@ assert.equal((fieldLedger.observations || []).length, 0, "No unverified field ob
 const registryStates = new Map(sourceRegistry.sources.map((s) => [s.id, s.state]));
 assert.equal(registryStates.get("sentinel2_rgb"), "browse_only", "RGB Sentinel-2 quicklooks must remain browse-only");
 assert.equal(registryStates.get("nasa_cmr_modis_merra"), "metadata_only", "CMR entries must remain metadata-only until science arrays are processed");
+assert.equal(registryStates.get("nasa_pds_search"), "metadata_only", "PDS product discovery must remain metadata-only until products are independently inspected and processed");
+assert(sourceRegistry.sources.find((source) => source.id === "nasa_pds_search")?.artifacts?.includes("data/planetary/pds_search.json"), "PDS search artifact must be registered in the evidence inventory");
 assert.equal(registryStates.get("suparco_space4climate"), "reference_only", "SUPARCO institutional links must remain reference-only");
 assert(["planned", "partially_processed", "processed"].includes(registryStates.get("copernicus_glo90_global")), "GLO-90 state must reflect actual global run progress");
 assert(["planned", "partially_processed", "processed", "unavailable"].includes(registryStates.get("io_lulc_global")), "Global land-cover evidence state must be explicit");
