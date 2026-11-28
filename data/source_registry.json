@@ -422,6 +422,27 @@
         "The separate USGS HiRISE DTM archive advertises approximately 1–2 m post spacing, but availability at Nili Patera must be established by the ODE DTM query and inspected product labels.",
         "No STAC asset is downloaded or processed by this discovery step."
       ]
+    },
+    {
+      "id": "uahirise_nili_patera_dtm",
+      "name": "University of Arizona HiRISE DTM — Nili Patera moving dunes",
+      "provider": "University of Arizona HiRISE Operations Center / NASA-JPL-Caltech",
+      "state": "metadata_only",
+      "data_type": "Stereo-derived areoid-elevation DTM with associated orthorectified HiRISE images",
+      "resolution": "Published map scale 1.01 m/pixel for the Nili Patera DTM record",
+      "coverage": "Nili Patera dune field; published DTM center 8.781°N, 67.33°E. Footprint intersection with ANALOG-X's original MOLA comparison AOI has not yet been verified.",
+      "artifacts": [
+        "data/planetary/archive_discovery.json"
+      ],
+      "url": "https://www.uahirise.org/dtm/dtm.php?ID=ESP_017762_1890",
+      "limitations": [
+        "The original MOLA comparison AOI ends at 67.2561430698°E; the DTM's published center at 67.33°E is east of that boundary.",
+        "The wider archive discovery box is not a new MOLA comparison AOI and does not prove that the DTM footprint intersects the original window.",
+        "ANALOG-X requests at most the first 256 KB of the DTM IMG to inspect its embedded PDS label. If the server ignores Range or the label is incomplete, footprint remains unresolved.",
+        "Only complete label latitude/longitude bounds are used to calculate a bbox intersection; center coordinates alone are not treated as footprint evidence.",
+        "The approximately 430 MB source .IMG raster has not been downloaded, decoded or processed by ANALOG-X.",
+        "This DTM supports terrain research only; it does not establish rover safety or route suitability."
+      ]
     }
   ]
 }

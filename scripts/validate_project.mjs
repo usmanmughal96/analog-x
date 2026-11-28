@@ -110,9 +110,19 @@ assert(archiveDiscoveryScript.includes("MRO-M-HIRISE-5-DTM-V1.0") && archiveDisc
 assert(archiveDiscoveryScript.includes("mgs_mola_topography_derived-data_meg064") && archiveDiscoveryScript.includes("lro_lola_rdr-data_gridded") && archiveDiscoveryScript.includes("lro_diviner_derived_prp"), "ODE queries must use the live archive's current PDS4 bundle identifiers");
 assert(archiveDiscoveryScript.includes('"product_type_filter": "GDRDEM"') && archiveDiscoveryScript.includes('"product_type_filter": "PRP"') && archiveDiscoveryScript.includes('requested_type = text_value(spec.get("product_type_filter"))'), "ODE queries must constrain the exact requested elevation or polar-resource product type");
 assert(archiveDiscoveryScript.includes("mro_hirise_uncontrolled_observations") && archiveDiscoveryScript.includes("not a stereo DTM"), "USGS HiRISE RDR metadata must remain distinct from DTM evidence");
+assert(archiveDiscoveryScript.includes("DTEEC_017762_1890_018039_1890_A01") && archiveDiscoveryScript.includes("NILI_HIRISE_DTM_DISCOVERY_BBOX"), "Known Nili Patera HiRISE DTM reference and expanded discovery window are missing");
+assert(archiveDiscoveryScript.includes("core_mola_aoi_footprint_intersection") && archiveDiscoveryScript.includes("not_yet_verified_from_product_label"), "The DTM/core-AOI footprint intersection must remain unverified until label inspection");
+assert(archiveDiscoveryScript.includes("def inspect_known_hirise_dtm_label") && archiveDiscoveryScript.includes('headers={"Range":'), "Known DTM inspection must use a bounded HTTP Range request");
+assert(archiveDiscoveryScript.includes("max_bytes=262144") && archiveDiscoveryScript.includes("response.close()"), "Known DTM label inspection must cap bytes read and close the stream");
+assert(archiveDiscoveryScript.includes("def parse_pds_label_text") && archiveDiscoveryScript.includes("def _core_aoi_intersection"), "PDS label parsing and footprint intersection checks are missing");
+assert(read("tests/test_planetary_archive_discovery.py").includes("test_bounded_label_read_stops_at_cap_without_claiming_footprint"), "Bounded PDS label-read safety regression test is missing");
+assert(archiveDiscoveryScript.includes("DTEEC_017762_1890_018039_1890_A01") && archiveDiscoveryScript.includes("map_scale_m_per_pixel") && archiveDiscoveryScript.includes("67.33"), "Known Nili Patera DTM product metadata is incomplete");
+assert(read("tests/test_planetary_archive_discovery.py").includes("test_nili_hirise_dtm_discovery_window_includes_published_center_without_changing_core_aoi"), "Nili DTM spatial-window regression test is missing");
 const archiveDashboard = read("transferability.html");
 assert(archiveDashboard.includes("data/planetary/archive_discovery.json") && archiveDashboard.includes("planetaryArchiveResults"), "ATFA dashboard must expose planetary archive discovery");
 assert(archiveDashboard.includes("not stereo DTMs"), "ATFA dashboard must distinguish RDR imagery from terrain DTMs");
+assert(archiveDashboard.includes("known_nili_hirise_dtm_reference") && archiveDashboard.includes("Open official HiRISE DTM record"), "ATFA dashboard must surface the known Nili HiRISE DTM as a distinct metadata reference");
+assert(archiveDashboard.includes("Footprint intersection with the original MOLA AOI is not verified") && archiveDashboard.includes("PDS label inspection:"), "ATFA dashboard must display the PDS label-derived footprint verification state");
 assert(read("tests/test_planetary_archive_discovery.py").includes("test_extracts_ode_product_records_and_count"), "ODE metadata parsing regression tests are missing");
 assert(read("tests/test_planetary_archive_discovery.py").includes("test_matching_requires_exact_host_instrument_and_dataset"), "ODE IIPT selection regression tests are missing");
 assert(read("tests/test_planetary_archive_discovery.py").includes("product_type_filter"), "ODE product-type filtering regression test is missing");
@@ -153,6 +163,8 @@ assert.equal(registryStates.get("nasa_pds_search"), "metadata_only", "PDS produc
 assert(sourceRegistry.sources.find((source) => source.id === "nasa_pds_search")?.artifacts?.includes("data/planetary/pds_search.json"), "PDS search artifact must be registered in the evidence inventory");
 assert.equal(registryStates.get("pds_geosciences_ode"), "metadata_only", "ODE metadata must not be represented as processed science");
 assert.equal(registryStates.get("usgs_astrogeology_hirise_stac"), "metadata_only", "USGS HiRISE STAC records must remain metadata-only");
+assert.equal(registryStates.get("uahirise_nili_patera_dtm"), "metadata_only", "Nili Patera HiRISE DTM must remain metadata-only until its label and source raster are inspected");
+assert(sourceRegistry.sources.find((source) => source.id === "uahirise_nili_patera_dtm")?.artifacts?.includes("data/planetary/archive_discovery.json"), "Nili Patera HiRISE DTM reference must be registered");
 assert(sourceRegistry.sources.find((source) => source.id === "pds_geosciences_ode")?.artifacts?.includes("data/planetary/archive_discovery.json"), "ODE archive discovery artifact must be registered");
 assert.equal(registryStates.get("suparco_space4climate"), "reference_only", "SUPARCO institutional links must remain reference-only");
 assert(["planned", "partially_processed", "processed"].includes(registryStates.get("copernicus_glo90_global")), "GLO-90 state must reflect actual global run progress");
@@ -183,7 +195,7 @@ assert(readinessHtml.includes("not a formal PSR polygon"), "Dashboard must disti
 assert(!readinessHtml.includes("The product does not establish illumination"), "Dashboard must not hide the separately processed historical illumination evidence");
 assert(operationalDoc.includes("**LROC WAC, 100 m:** historical") && operationalDoc.includes("103.786 K"), "Operational readiness documentation must describe the historical lunar evidence and limits");
 assert(read("README.md").includes("Evidence snapshot — 28 November 2026") && read("README.md").includes("NASA LROC WAC"), "README must use the current evidence date and disclose historical WAC evidence");
-assert(read("service-worker.js").includes('CACHE_VERSION="analogx-offline-v10"'), "Offline cache must be refreshed after planetary archive discovery integration");
+assert(read("service-worker.js").includes('CACHE_VERSION="analogx-offline-v11"'), "Offline cache must be refreshed after Nili DTM discovery integration");
 assert(read("service-worker.js").includes('"./data/planetary/archive_discovery.json"'), "Offline cache must include planetary archive discovery evidence");
 assert(reviewHtml.includes("independent_of_analogx_score") && reviewHtml.includes("Export review JSON"), "Blind reviewer desk is missing provenance/export safeguards");
 assert(!reviewHtml.includes("core_terrain_index") && !reviewHtml.includes("candidate_id"), "Reviewer interface must not expose candidate scores or IDs");

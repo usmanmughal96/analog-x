@@ -34,6 +34,39 @@ NILI = {
     "bbox_note": "The existing approximately 30 km MOLA comparison window; discovery AOI only, not a surveyed route.",
 }
 
+# ODE's Mars product-location filter can be center-based. The known HiRISE
+# Nili dunes DTM is centred at 67.33 E, outside the original MOLA comparison
+# window's eastern edge (67.256 E). This secondary discovery box includes that
+# published center but does not redefine the original MOLA comparison AOI.
+NILI_HIRISE_DTM_DISCOVERY_BBOX = [
+    NILI["bbox_wsen"][0], NILI["bbox_wsen"][1], 67.42, NILI["bbox_wsen"][3]
+]
+
+KNOWN_NILI_HIRISE_DTM = {
+    "id": "DTEEC_017762_1890_018039_1890_A01",
+    "title": "Topography of Moving Dunes in Nili Patera",
+    "provider": "University of Arizona HiRISE Operations Center / NASA-JPL-Caltech",
+    "source_page_url": "https://www.uahirise.org/dtm/dtm.php?ID=ESP_017762_1890",
+    "data_file_url": (
+        "https://www.uahirise.org/PDS/DTM/ESP/ORB_017700_017799/"
+        "ESP_017762_1890_ESP_018039_1890/"
+        "DTEEC_017762_1890_018039_1890_A01.IMG"
+    ),
+    "reported_file_size_mb": 430,
+    "center_latitude_deg": 8.781,
+    "center_longitude_east_deg": 67.33,
+    "map_scale_m_per_pixel": 1.01,
+    "stereo_pair": ["ESP_017762_1890", "ESP_018039_1890"],
+    "core_mola_aoi_center_inside": False,
+    "core_mola_aoi_footprint_intersection": "not_yet_verified_from_product_label",
+    "status": "known_catalogued_reference",
+    "metadata_boundary": (
+        "The published center is outside the original MOLA comparison box. "
+        "The enlarged ODE discovery box is only a catalogue search window; "
+        "it does not prove that the DTM footprint overlaps the original AOI."
+    ),
+}
+
 # Exact archive dataset identifiers already used by ANALOG-X and/or official
 # archive records. If ODE does not advertise a matching IIPT set, no guessed
 # product-type request is sent.
@@ -46,8 +79,9 @@ ODE_TARGETS = [
         "instrument_tokens": ("hirise",),
         "dataset_id": "MRO-M-HIRISE-5-DTM-V1.0",
         "product_type_filter": "DTM",
-        "purpose": "Find stereo-derived HiRISE DTMs intersecting the Nili Patera comparison window.",
+        "purpose": "Find stereo-derived HiRISE DTMs around Nili Patera, including the published dune-DTM center just east of the original MOLA comparison box.",
         "spatially_bounded": True,
+        "spatial_bbox": NILI_HIRISE_DTM_DISCOVERY_BBOX,
     },
     {
         "id": "mars_mola_megdr_nili",
@@ -258,7 +292,7 @@ def query_ode_dataset(spec: dict[str, Any]) -> dict[str, Any]:
         "product_count": None,
         "products_returned": 0,
         "products": [],
-        "spatial_filter": NILI["bbox_wsen"] if spec["spatially_bounded"] else None,
+        "spatial_filter": spec.get("spatial_bbox", NILI["bbox_wsen"]) if spec["spatially_bounded"] else None,
     }
     try:
         iipt_payload, iipt_url = _ode_get({
@@ -299,7 +333,7 @@ def query_ode_dataset(spec: dict[str, Any]) -> dict[str, Any]:
                 "order": "obd",
             }
             if spec["spatially_bounded"]:
-                west, south, east, north = NILI["bbox_wsen"]
+                west, south, east, north = spec.get("spatial_bbox", NILI["bbox_wsen"])
                 params.update({
                     "westernlon": west,
                     "easternlon": east,
@@ -393,17 +427,162 @@ def query_stac_hirise_rdr() -> dict[str, Any]:
     return base
 
 
+def parse_pds_label_text(text):
+    """Parse scalar fields from a PDS3 label prefix without needing a PDS parser."""
+    fields = {}
+    terminated = False
+    for line in text.splitlines():
+        if line.strip().upper() == "END":
+            terminated = True
+            break
+        if "=" not in line:
+            continue
+        key, raw = line.split("=", 1)
+        key = key.strip().upper()
+        value = raw.strip().strip('"').strip("'")
+        if not key:
+            continue
+        fields[key + "_RAW"] = raw.strip()
+        scalar = value.split()[0] if value else ""
+        try:
+            number = float(scalar)
+            fields[key] = int(number) if number.is_integer() else number
+        except (TypeError, ValueError):
+            fields[key] = value
+    fields["_LABEL_TERMINATED"] = terminated
+    return fields
+
+
+def _pds_number(fields, key):
+    value = fields.get(key)
+    if isinstance(value, (int, float)):
+        return float(value)
+    if isinstance(value, str):
+        try:
+            return float(value.split()[0])
+        except (ValueError, IndexError):
+            return None
+    return None
+
+
+def _core_aoi_intersection(bounds):
+    west, south, east, north = NILI["bbox_wsen"]
+    min_lat = bounds.get("min_lat")
+    max_lat = bounds.get("max_lat")
+    west_lon = bounds.get("west_lon")
+    east_lon = bounds.get("east_lon")
+    if None in (min_lat, max_lat, west_lon, east_lon):
+        return None
+    lat_ok = max_lat >= south and min_lat <= north
+    if west_lon <= east_lon:
+        lon_ok = east_lon >= west and west_lon <= east
+    else:
+        lon_ok = west_lon <= east or east_lon >= west
+    return bool(lat_ok and lon_ok)
+
+
+def inspect_known_hirise_dtm_label(max_bytes=262144):
+    """Read a bounded prefix of the official IMG file; never download the full DTM."""
+    result = {
+        "status": "not_checked",
+        "source_url": KNOWN_NILI_HIRISE_DTM["data_file_url"],
+        "http_status": None,
+        "content_range": None,
+        "bytes_read": 0,
+        "max_bytes": max_bytes,
+        "label_terminated": False,
+        "fields": {},
+        "bounds": {},
+        "core_mola_aoi_footprint_intersection": None,
+        "limitations": [
+            "Only a bounded byte-range prefix is requested; the approximately 430 MB DTM raster is not downloaded.",
+            "Footprint intersection is computed only when the embedded label provides all four geographic bounds.",
+            "A geographic bbox intersection is not a rover-safety or route-suitability assessment.",
+        ],
+    }
+    response = None
+    try:
+        response = SESSION.get(
+            KNOWN_NILI_HIRISE_DTM["data_file_url"],
+            headers={"Range": "bytes=0-" + str(max_bytes - 1), "Accept-Encoding": "identity"},
+            stream=True,
+            timeout=(20, 60),
+            allow_redirects=True,
+        )
+        result["http_status"] = response.status_code
+        result["final_url"] = response.url
+        result["content_range"] = response.headers.get("Content-Range")
+        if response.status_code not in (200, 206):
+            response.raise_for_status()
+        body = bytearray()
+        for chunk in response.iter_content(chunk_size=32768):
+            if not chunk:
+                continue
+            body.extend(chunk[: max_bytes - len(body)])
+            if len(body) >= max_bytes:
+                break
+        result["bytes_read"] = len(body)
+        label = parse_pds_label_text(bytes(body).decode("ascii", errors="replace"))
+        result["label_terminated"] = bool(label.get("_LABEL_TERMINATED"))
+        keep = (
+            "PDS_VERSION_ID", "PRODUCT_ID", "DATA_SET_ID",
+            "PRODUCT_CREATION_TIME", "MAP_PROJECTION_TYPE", "MAP_SCALE",
+            "MAP_RESOLUTION", "CENTER_LATITUDE", "CENTER_LONGITUDE",
+            "MINIMUM_LATITUDE", "MAXIMUM_LATITUDE", "WESTERNMOST_LONGITUDE",
+            "EASTERNMOST_LONGITUDE", "LINE_SAMPLES", "LINES", "SAMPLE_TYPE",
+            "SAMPLE_BITS", "OFFSET", "SCALING_FACTOR", "MISSING_CONSTANT",
+            "POSITIVE_LONGITUDE_DIRECTION", "A_AXIS_RADIUS", "C_AXIS_RADIUS",
+        )
+        result["fields"] = {key: label[key] for key in keep if key in label}
+        if not result["label_terminated"]:
+            result["status"] = "label_not_complete_within_range_cap"
+            return result
+        bounds = {
+            "min_lat": _pds_number(label, "MINIMUM_LATITUDE"),
+            "max_lat": _pds_number(label, "MAXIMUM_LATITUDE"),
+            "west_lon": _pds_number(label, "WESTERNMOST_LONGITUDE"),
+            "east_lon": _pds_number(label, "EASTERNMOST_LONGITUDE"),
+        }
+        result["bounds"] = bounds
+        intersection = _core_aoi_intersection(bounds)
+        result["core_mola_aoi_footprint_intersection"] = intersection
+        if intersection is None:
+            result["status"] = "label_read_but_geographic_bounds_incomplete"
+        elif intersection:
+            result["status"] = "label_verified_bounds_intersect_core_aoi"
+        else:
+            result["status"] = "label_verified_bounds_outside_core_aoi"
+        return result
+    except Exception as exc:
+        result["status"] = "label_request_error"
+        result["error"] = str(exc)[:1000]
+        return result
+    finally:
+        if response is not None:
+            response.close()
+
+
 def main() -> None:
     results = [query_ode_dataset(spec) for spec in ODE_TARGETS]
     # Small pause between archive requests to avoid hammering the public API.
     time.sleep(0.5)
     stac_result = query_stac_hirise_rdr()
+    # Read only the capped prefix containing the embedded PDS label. This
+    # avoids downloading the large DTM raster merely to establish its bounds.
+    time.sleep(0.5)
+    dtm_label_inspection = inspect_known_hirise_dtm_label()
+    known_dtm_reference = {
+        **KNOWN_NILI_HIRISE_DTM,
+        "pds_label_inspection": dtm_label_inspection,
+    }
     output = {
         "schema_version": "1.0.0",
         "generated_at_utc": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "purpose": "Fallback archive discovery for planetary products when the federated PDS Search API is unavailable.",
         "coverage": "Targeted metadata discovery for Nili Patera HiRISE DTM, regional MOLA MEGDR, lunar LOLA GDR, Diviner PRP and Nili-area HiRISE RDR observations.",
         "nili_patera_aoi": NILI,
+        "known_nili_hirise_dtm_reference": known_dtm_reference,
+        "nili_hirise_dtm_discovery_bbox_wsen": NILI_HIRISE_DTM_DISCOVERY_BBOX,
         "ode": {
             "provider": "PDS Geosciences Node Orbital Data Explorer (ODE)",
             "api": ODE_API,
@@ -412,7 +591,7 @@ def main() -> None:
             "limitations": [
                 "ODE product records are metadata; they are not processed science rasters.",
                 "Product types are taken from the live ODE IIPT list; a missing IIPT set is recorded, not guessed.",
-                "The HiRISE DTM query is spatially bounded to the existing Nili Patera MOLA comparison AOI.",
+                "The primary MOLA comparison AOI remains unchanged. The separate HiRISE DTM discovery box is expanded eastward to include the published DTM center at 67.33 E; actual footprint intersection with the primary AOI must still be verified from the product label.",
                 "ODE query counts may refer to the full matching product set even when the metadata sample is limited to 20 records.",
             ],
         },
@@ -421,6 +600,8 @@ def main() -> None:
             "discovery_is_not_processing": True,
             "hires_rdr_is_not_dtm": True,
             "product_binary_downloaded": False,
+            "full_dtm_raster_downloaded": False,
+            "dtm_label_prefix_inspected": dtm_label_inspection["status"] not in {"not_checked", "label_request_error"},
             "rover_safety_assessed": False,
             "mission_suitability_certified": False,
         },

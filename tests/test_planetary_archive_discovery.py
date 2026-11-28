@@ -1,7 +1,10 @@
 import unittest
+from unittest.mock import patch
 
 from scripts.fetch_planetary_archive_discovery import (
     NILI,
+    NILI_HIRISE_DTM_DISCOVERY_BBOX,
+    KNOWN_NILI_HIRISE_DTM,
     ODE_TARGETS,
     _clean_iipt,
     _clean_product,
@@ -10,8 +13,34 @@ from scripts.fetch_planetary_archive_discovery import (
     extract_products,
     unwrap_ode,
     xml_to_value,
+    parse_pds_label_text,
+    _core_aoi_intersection,
+    inspect_known_hirise_dtm_label,
 )
 import xml.etree.ElementTree as ET
+
+
+
+
+
+class FakeRangeResponse:
+    def __init__(self, body, status_code=206):
+        self.body = body
+        self.status_code = status_code
+        self.url = "https://example.test/hiRISE-dtm.img"
+        self.headers = {"Content-Range": f"bytes 0-{len(body)-1}/430063620"}
+        self.closed = False
+
+    def raise_for_status(self):
+        if self.status_code >= 400:
+            raise RuntimeError("HTTP error")
+
+    def iter_content(self, chunk_size=32768):
+        for offset in range(0, len(self.body), chunk_size):
+            yield self.body[offset:offset + chunk_size]
+
+    def close(self):
+        self.closed = True
 
 
 class PlanetaryArchiveDiscoveryTests(unittest.TestCase):
@@ -21,6 +50,24 @@ class PlanetaryArchiveDiscoveryTests(unittest.TestCase):
         self.assertAlmostEqual(south, 8.6469409271, places=6)
         self.assertAlmostEqual(east, 67.2561430698, places=6)
         self.assertAlmostEqual(north, 9.1530590729, places=6)
+
+    def test_nili_hirise_dtm_discovery_window_includes_published_center_without_changing_core_aoi(self):
+        west, south, east, north = NILI_HIRISE_DTM_DISCOVERY_BBOX
+        self.assertEqual(NILI["bbox_wsen"][2], 67.2561430698)
+        self.assertGreater(east, 67.33)
+        self.assertEqual([west, south, north], [
+            NILI["bbox_wsen"][0], NILI["bbox_wsen"][1], NILI["bbox_wsen"][3]
+        ])
+        self.assertAlmostEqual(KNOWN_NILI_HIRISE_DTM["center_latitude_deg"], 8.781, places=3)
+        self.assertAlmostEqual(KNOWN_NILI_HIRISE_DTM["center_longitude_east_deg"], 67.33, places=2)
+        self.assertEqual(KNOWN_NILI_HIRISE_DTM["id"], "DTEEC_017762_1890_018039_1890_A01")
+        self.assertEqual(KNOWN_NILI_HIRISE_DTM["stereo_pair"], ["ESP_017762_1890", "ESP_018039_1890"])
+        self.assertEqual(KNOWN_NILI_HIRISE_DTM["core_mola_aoi_footprint_intersection"], "not_yet_verified_from_product_label")
+
+    def test_hirise_dtm_query_uses_expanded_bbox_only_for_that_dataset(self):
+        by_id = {row["id"]: row for row in ODE_TARGETS}
+        self.assertEqual(by_id["mars_hirise_dtm_nili"]["spatial_bbox"], NILI_HIRISE_DTM_DISCOVERY_BBOX)
+        self.assertNotIn("spatial_bbox", by_id["mars_mola_megdr_nili"])
 
     def test_archive_searches_are_exact_known_datasets(self):
         by_id = {row["id"]: row for row in ODE_TARGETS}
@@ -32,6 +79,72 @@ class PlanetaryArchiveDiscoveryTests(unittest.TestCase):
         self.assertEqual(by_id["moon_lola_reference"]["product_type_filter"], "GDRDEM")
         self.assertEqual(by_id["moon_diviner_prp"]["dataset_id"], "lro_diviner_derived_prp")
         self.assertEqual(by_id["moon_diviner_prp"]["product_type_filter"], "PRP")
+
+    def test_parses_embedded_pds_label_fields_and_geographic_bounds(self):
+        label = """PDS_VERSION_ID = PDS3
+PRODUCT_ID = "DTEEC_017762_1890_018039_1890_A01"
+MAP_PROJECTION_TYPE = EQUIRECTANGULAR
+MAP_SCALE = 1.01 <M/PIXEL>
+CENTER_LATITUDE = 8.781
+CENTER_LONGITUDE = 67.33
+MINIMUM_LATITUDE = 8.70
+MAXIMUM_LATITUDE = 8.86
+WESTERNMOST_LONGITUDE = 67.20
+EASTERNMOST_LONGITUDE = 67.30
+LINE_SAMPLES = 2048
+LINES = 4096
+END
+"""
+        fields = parse_pds_label_text(label)
+        self.assertTrue(fields["_LABEL_TERMINATED"])
+        self.assertEqual(fields["PRODUCT_ID"], "DTEEC_017762_1890_018039_1890_A01")
+        self.assertAlmostEqual(float(fields["MAP_SCALE"]), 1.01)
+        bounds = {
+            "min_lat": float(fields["MINIMUM_LATITUDE"]),
+            "max_lat": float(fields["MAXIMUM_LATITUDE"]),
+            "west_lon": float(fields["WESTERNMOST_LONGITUDE"]),
+            "east_lon": float(fields["EASTERNMOST_LONGITUDE"]),
+        }
+        self.assertTrue(_core_aoi_intersection(bounds))
+
+    def test_dtm_label_bounds_can_confirm_no_overlap_with_core_aoi(self):
+        bounds = {
+            "min_lat": 8.70, "max_lat": 8.86,
+            "west_lon": 67.30, "east_lon": 67.40,
+        }
+        self.assertFalse(_core_aoi_intersection(bounds))
+        self.assertIsNone(_core_aoi_intersection({"min_lat": 8.7, "max_lat": 8.8}))
+
+    def test_bounded_label_read_verifies_core_aoi_footprint_when_bounds_present(self):
+        label = b"""PDS_VERSION_ID = PDS3
+PRODUCT_ID = "DTEEC_017762_1890_018039_1890_A01"
+MAP_PROJECTION_TYPE = EQUIRECTANGULAR
+MAP_SCALE = 1.01 <M/PIXEL>
+MINIMUM_LATITUDE = 8.70
+MAXIMUM_LATITUDE = 8.86
+WESTERNMOST_LONGITUDE = 67.20
+EASTERNMOST_LONGITUDE = 67.30
+END
+"""
+        response = FakeRangeResponse(label)
+        with patch("scripts.fetch_planetary_archive_discovery.SESSION.get", return_value=response) as get:
+            result = inspect_known_hirise_dtm_label()
+        self.assertEqual(result["status"], "label_verified_bounds_intersect_core_aoi")
+        self.assertTrue(result["core_mola_aoi_footprint_intersection"])
+        self.assertEqual(result["fields"]["PRODUCT_ID"], "DTEEC_017762_1890_018039_1890_A01")
+        self.assertTrue(response.closed)
+        headers = get.call_args.kwargs["headers"]
+        self.assertTrue(headers["Range"].startswith("bytes=0-"))
+
+    def test_bounded_label_read_stops_at_cap_without_claiming_footprint(self):
+        response = FakeRangeResponse(b"A" * 4096)
+        with patch("scripts.fetch_planetary_archive_discovery.SESSION.get", return_value=response) as get:
+            result = inspect_known_hirise_dtm_label(max_bytes=128)
+        self.assertEqual(result["status"], "label_not_complete_within_range_cap")
+        self.assertEqual(result["bytes_read"], 128)
+        self.assertIsNone(result["core_mola_aoi_footprint_intersection"])
+        self.assertEqual(get.call_args.kwargs["headers"]["Range"], "bytes=0-127")
+        self.assertTrue(response.closed)
 
     def test_extracts_dynamic_iipt_sets_from_json_response(self):
         payload = {
