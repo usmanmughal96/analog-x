@@ -21,7 +21,7 @@
 <div class="field"><label for="reviewerName">Name *</label><input id="reviewerName" autocomplete="name" placeholder="Your name"></div>
 <div class="field"><label for="reviewerAffiliation">Affiliation *</label><input id="reviewerAffiliation" placeholder="Institution / independent affiliation"></div>
 <div class="field"><label for="reviewerQualification">Relevant qualification *</label><input id="reviewerQualification" placeholder="Planetary geology, geomorphology, etc."></div>
-<div class="field"><label for="reviewDate">Review date (UTC) *</label><input id="reviewDate" type="date"></div>
+<div class="field"><label for="reviewDate">Review timestamp (UTC) *</label><input id="reviewDate" type="datetime-local" step="1"><div class="hint">Enter the actual review clock time in UTC (24-hour clock). This control has no timezone; do not enter local time unless it is UTC.</div></div>
 <label class="checkline"><input id="independent" type="checkbox"><span>I confirm that I am assessing these cases independently of ANALOG-X ranks and scores, and did not use them to form these judgments.</span></label>
 <div class="progress"><span id="progressBar"></span></div><div class="hint" id="progressText">0 of 96 cases saved</div>
 <div class="field"><label for="targetFilter">Filter cases</label><select id="targetFilter"><option value="all">All targets</option><option value="moon">Moon</option><option value="mars">Mars</option></select></div>
@@ -60,8 +60,16 @@ const REVIEW_VERSION="terrain_morphology_transfer_v1";
 let basePacket=null,packet=null,current=0;
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function today(){return new Date().toISOString().slice(0,10);}
+function toUtcIso(value){
+ if(!value||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2})?$/.test(value))return "";
+ const normalized=value.length===16?value+":00":value;
+ const parsed=new Date(normalized+"Z");
+ if(Number.isNaN(parsed.getTime())||parsed.toISOString().slice(0,19)!==normalized)return "";
+ return parsed.toISOString();
+}
+function validUtcIso(value){return typeof value==="string"&&/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(value)&&Number.isFinite(Date.parse(value));}
 function selectedLabel(){const x=document.querySelector('input[name="label"]:checked');return x?x.value:"";}
-function loadIdentity(){const d=JSON.parse(localStorage.getItem(DRAFT_KEY)||"{}");$("reviewerName").value=d.reviewerName||"";$("reviewerAffiliation").value=d.reviewerAffiliation||"";$("reviewerQualification").value=d.reviewerQualification||"";$("reviewDate").value=d.reviewDate||today();$("independent").checked=!!d.independent;}
+function loadIdentity(){const d=JSON.parse(localStorage.getItem(DRAFT_KEY)||"{}");$("reviewerName").value=d.reviewerName||"";$("reviewerAffiliation").value=d.reviewerAffiliation||"";$("reviewerQualification").value=d.reviewerQualification||"";$("reviewDate").value=typeof d.reviewDate==="string"&&/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2})?$/.test(d.reviewDate)?d.reviewDate:"";$("independent").checked=!!d.independent;}
 function identity(){return {reviewerName:$("reviewerName").value.trim(),reviewerAffiliation:$("reviewerAffiliation").value.trim(),reviewerQualification:$("reviewerQualification").value.trim(),reviewDate:$("reviewDate").value,independent:$("independent").checked};}
 function persist(){const d=identity();d.packet=packet;localStorage.setItem(DRAFT_KEY,JSON.stringify(d));}
 function updateProgress(){
@@ -114,7 +122,8 @@ function saveCurrent(){
  if(!["inconclusive","insufficient_evidence"].includes(label)&&!refs.length){$("caseStatus").textContent="Positive / negative assessments require at least one independent evidence reference.";return false;}
  if(!["inconclusive","insufficient_evidence"].includes(label)&&!$("confidence").value){$("caseStatus").textContent="Select a confidence value for a positive / negative assessment.";return false;}
  if(!$("rationale").value.trim()){$("caseStatus").textContent="Add a rationale, including the task and evidence limitations.";return false;}
- const date=d.reviewDate.length===10?d.reviewDate+"T12:00:00Z":d.reviewDate;
+ const date=toUtcIso(d.reviewDate);
+ if(!date){$("caseStatus").textContent="Enter the actual review timestamp in UTC using the date-time control.";return false;}
  c.independent_review={
   label:label,criterion_version:REVIEW_VERSION,evidence_refs:refs,
   reviewer_name:d.reviewerName,reviewer_affiliation:d.reviewerAffiliation,
@@ -131,7 +140,7 @@ function exportPacket(){
  const invalid=packet.cases.filter(c=>{
   const r=c.independent_review||{};
   if(!["positive","negative"].includes(r.label))return false;
-  return !r.reviewer_name||!r.reviewer_affiliation||!r.reviewer_qualification||!r.review_date_utc||!r.evidence_refs?.length||!r.rationale||r.independent_of_analogx_score!==true||!Number.isInteger(r.confidence_1_to_5)||r.confidence_1_to_5<1||r.confidence_1_to_5>5;
+  return !r.reviewer_name||!r.reviewer_affiliation||!r.reviewer_qualification||r.criterion_version!==REVIEW_VERSION||!validUtcIso(r.review_date_utc)||!Array.isArray(r.evidence_refs)||!r.evidence_refs.length||r.evidence_refs.some(ref=>typeof ref!=="string"||!ref.trim())||!r.rationale||r.independent_of_analogx_score!==true||!Number.isInteger(r.confidence_1_to_5)||r.confidence_1_to_5<1||r.confidence_1_to_5>5;
  });
  if(invalid.length){$("globalStatus").textContent="Cannot export: "+invalid.length+" positive/negative case(s) are missing required reviewer provenance or evidence.";return;}
  const blob=new Blob([JSON.stringify(packet,null,2)+"\n"],{type:"application/json"});
@@ -158,7 +167,7 @@ async function init(){
 $("saveButton").addEventListener("click",saveCurrent);
 $("previousButton").addEventListener("click",()=>{if(saveCurrent()&&current>0){current--;loadCase();}});
 $("nextButton").addEventListener("click",()=>{if(saveCurrent()&&current<packet.cases.length-1){current++;loadCase();}});
-$("exportButton").addEventListener("click",()=>{saveIdentityOnly();exportPacket();});
+$("exportButton").addEventListener("click",()=>{if(saveCurrent())exportPacket();});
 $("targetFilter").addEventListener("change",renderList);
 ["reviewerName","reviewerAffiliation","reviewerQualification","reviewDate","independent"].forEach(id=>$(id).addEventListener("change",saveIdentityOnly));
 $("importButton").addEventListener("click",()=>$("importFile").click());

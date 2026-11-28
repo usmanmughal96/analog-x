@@ -7,6 +7,10 @@ on:
       - ".github/workflows/global-ranking-release.yml"
       - "scripts/build_independent_review_pack.py"
       - "scripts/import_independent_review_labels.py"
+      - "scripts/validate_analog_labels.py"
+      - "tests/test_analog_label_validation.py"
+      - "tests/test_independent_review_importer.py"
+      - "independent-review.html"
       - "scripts/build_reproducibility_manifest.py"
       - "scripts/build_quantitative_validation.py"
       - "tests/test_research_phase_pack.py"
@@ -15,6 +19,10 @@ on:
     paths:
       - "scripts/build_independent_review_pack.py"
       - "scripts/import_independent_review_labels.py"
+      - "scripts/validate_analog_labels.py"
+      - "tests/test_analog_label_validation.py"
+      - "tests/test_independent_review_importer.py"
+      - "independent-review.html"
       - "scripts/build_lunar_south_pole_reference.py"
       - "scripts/build_reproducibility_manifest.py"
       - "scripts/build_quantitative_validation.py"
@@ -46,6 +54,7 @@ jobs:
           python -m unittest tests.test_research_phase_pack
           python -m unittest tests.test_lunar_reference_source
           python -m unittest tests.test_analog_label_validation
+          python -m unittest tests.test_independent_review_importer
           python -m unittest tests.test_validation_release
           python -m unittest tests.test_reproducibility_manifest
 
@@ -72,6 +81,7 @@ jobs:
           python scripts/validate_evidence_inventory.py
           python -m unittest tests.test_validation_release
           python -m unittest tests.test_analog_label_validation
+          python -m unittest tests.test_independent_review_importer
           python -m unittest tests.test_research_phase_pack
       - name: Generate manifest, then quantitative report
         run: |

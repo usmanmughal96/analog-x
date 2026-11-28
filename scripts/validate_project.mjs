@@ -204,9 +204,24 @@ assert(readinessHtml.includes("not a formal PSR polygon"), "Dashboard must disti
 assert(!readinessHtml.includes("The product does not establish illumination"), "Dashboard must not hide the separately processed historical illumination evidence");
 assert(operationalDoc.includes("**LROC WAC, 100 m:** historical") && operationalDoc.includes("103.786 K"), "Operational readiness documentation must describe the historical lunar evidence and limits");
 assert(read("README.md").includes("Evidence snapshot — 28 November 2026") && read("README.md").includes("NASA LROC WAC"), "README must use the current evidence date and disclose historical WAC evidence");
-assert(read("service-worker.js").includes('CACHE_VERSION="analogx-offline-v12"'), "Offline cache must be refreshed after verified DTM footprint reconciliation");
+assert(read("service-worker.js").includes('CACHE_VERSION="analogx-offline-v13"'), "Offline cache must be refreshed after independent-review safeguards");
 assert(read("service-worker.js").includes('"./data/planetary/archive_discovery.json"'), "Offline cache must include planetary archive discovery evidence");
 assert(reviewHtml.includes("independent_of_analogx_score") && reviewHtml.includes("Export review JSON"), "Blind reviewer desk is missing provenance/export safeguards");
+assert(reviewHtml.includes('type="datetime-local"') && reviewHtml.includes("review_date_utc:date"), "Reviewer desk must capture an explicit UTC date-time");
+assert(reviewHtml.includes("function toUtcIso") && reviewHtml.includes("actual review clock time in UTC"), "Reviewer desk must not infer a review time from a date-only value");
+assert(!reviewHtml.includes('d.reviewDate+"T12:00:00Z"'), "Reviewer desk must not invent a noon UTC review timestamp");
+assert(reviewHtml.includes("validUtcIso(r.review_date_utc)"), "Reviewer exports must validate canonical UTC timestamps");
+assert(reviewHtml.includes('if(saveCurrent())exportPacket()'), "Reviewer export must save the active case before generating the response JSON");
+assert(read("scripts/import_independent_review_labels.py").includes("def valid_utc_datetime"), "Reviewer importer must enforce explicit UTC timestamps");
+assert(read("scripts/import_independent_review_labels.py").includes("CRITERION_VERSION = \"terrain_morphology_transfer_v1\""), "Reviewer importer must enforce the predeclared criterion version");
+assert(read("tests/test_independent_review_importer.py").includes("test_rejects_boolean_confidence"), "Independent-review importer security regression tests are missing");
+assert(read("tests/test_independent_review_importer.py").includes("test_rejects_non_numeric_or_nonfinite_private_candidate_scores"), "Private reviewer key score validation tests are missing");
+assert(read("scripts/import_independent_review_labels.py").includes("criterion_version must be"), "Reviewer importer must enforce the criterion version");
+assert(read("scripts/validate_analog_labels.py").includes("MIN_HELD_OUT_GROUPS_PER_CLASS = 2"), "Independent label AUC must require both classes in multiple held-out groups");
+assert(read("tests/test_analog_label_validation.py").includes("test_auc_is_withheld_when_one_class_occurs_in_only_one_held_out_group"), "AUC class-per-group replication regression test is missing");
+assert(read("tests/test_analog_label_validation.py").includes("test_auc_is_withheld_when_only_one_held_out_spatial_group_exists"), "AUC spatial-group minimum regression test is missing");
+assert(read("scripts/validate_analog_labels.py").includes("MIN_HELD_OUT_SPATIAL_GROUPS = 5"), "Independent label AUC must require five held-out spatial groups");
+
 assert(!reviewHtml.includes("core_terrain_index") && !reviewHtml.includes("candidate_id"), "Reviewer interface must not expose candidate scores or IDs");
 for (const source of [readinessHtml, reviewHtml]) {
   const match = source.match(/<script>([\s\S]*?)<\/script>/);

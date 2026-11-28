@@ -28,7 +28,7 @@ Do not force a positive or negative label merely to complete the form.
 ## How to use the reviewer desk
 
 1. Open [independent-review.html](../independent-review.html).
-2. Enter your name, affiliation, relevant qualification and review date.
+2. Enter your name, affiliation, relevant qualification and the actual review timestamp in UTC. The date-time control has no timezone, so enter the UTC clock time rather than your local time.
 3. Confirm that you are assessing the cases independently of ANALOG-X scores and ranks.
 4. Review the stated reference target, approximate area locator and spatial support. Use independent sources, not an ANALOG-X rank or score. The area locator is deliberately coarse; when the available evidence cannot isolate the stated candidate area well enough, use “insufficient evidence” rather than guessing.
 5. Select a response, cite evidence references and explain the task-specific rationale and limitations.
@@ -43,7 +43,7 @@ For positive and negative labels, cite at least one independent reference: a DOI
 
 Each binary label requires:
 - reviewer name, affiliation and relevant qualification;
-- review date in UTC;
+- review timestamp as an ISO 8601 UTC date-time ending in `Z` (for example, `YYYY-MM-DDTHH:MM:SS.sssZ`);
 - a target-specific rationale and criterion version;
 - confidence from 1 to 5;
 - an explicit attestation of independence from ANALOG-X scores;
