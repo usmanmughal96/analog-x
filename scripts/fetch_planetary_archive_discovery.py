@@ -57,6 +57,7 @@ KNOWN_NILI_HIRISE_DTM = {
     "center_longitude_east_deg": 67.33,
     "map_scale_m_per_pixel": 1.01,
     "stereo_pair": ["ESP_017762_1890", "ESP_018039_1890"],
+    "relative_path_to_volume": "dtm\\esp\\orb_017700_017799\\esp_017762_1890_esp_018039_1890\\",
     "core_mola_aoi_center_inside": False,
     "core_mola_aoi_footprint_intersection": "not_yet_verified_from_product_label",
     "status": "known_catalogued_reference",
@@ -512,11 +513,55 @@ def build_known_dtm_reference(label_inspection):
     return record
 
 
-def inspect_known_hirise_dtm_label(max_bytes=262144):
-    """Read a bounded prefix of the official IMG file; never download the full DTM."""
+def build_hirise_dtm_img_url(product):
+    """Build a public HiRISE DTM IMG URL from trusted ODE volume metadata."""
+    pdsid = text_value(get_ci(product, "pdsid")).upper()
+    relative = text_value(get_ci(product, "RelativePathToVol"))
+    dataset_id = text_value(get_ci(product, "Data_Set_Id"))
+    instrument_host = text_value(get_ci(product, "ihid"))
+    instrument_id = text_value(get_ci(product, "iid"))
+    product_type = text_value(get_ci(product, "pt"))
+
+    if dataset_id != "MRO-M-HIRISE-5-DTM-V1.0":
+        raise ValueError("Product is not in the MRO HiRISE DTM data set")
+    if instrument_host.lower() != "mro" or instrument_id.lower() != "hirise":
+        raise ValueError("Product is not an MRO HiRISE observation")
+    if product_type.upper() != "DTM":
+        raise ValueError("Product type is not DTM")
+    if not re.fullmatch(r"DTE[A-Z]_\d{6}_\d{4}_\d{6}_\d{4}_A\d{2}", pdsid):
+        raise ValueError("ODE pdsid is not a recognized HiRISE DTM product identifier")
+
+    normalized = relative.replace("\\", "/").strip("/")
+    parts = normalized.split("/") if normalized else []
+    if len(parts) < 3 or [part.lower() for part in parts[:2]] != ["dtm", "esp"]:
+        raise ValueError("ODE RelativePathToVol is not a HiRISE DTM volume path")
+    directories = parts[2:]
+    if any(
+        not part
+        or part in {".", ".."}
+        or not re.fullmatch(r"[A-Za-z0-9_-]+", part)
+        for part in directories
+    ):
+        raise ValueError("ODE RelativePathToVol contains unsafe path components")
+
+    relative_directory = "/".join(part.upper() for part in directories)
+    return (
+        "https://www.uahirise.org/PDS/DTM/ESP/"
+        + relative_directory
+        + "/"
+        + pdsid
+        + ".IMG"
+    )
+
+
+def inspect_hirise_dtm_product_label(product, max_bytes=262144):
+    """Inspect only a bounded embedded PDS3 label prefix; never fetch the full DTM."""
+    pdsid = text_value(get_ci(product, "pdsid")).upper()
     result = {
+        "pdsid": pdsid or None,
+        "ode_id": get_ci(product, "ode_id"),
         "status": "not_checked",
-        "source_url": KNOWN_NILI_HIRISE_DTM["data_file_url"],
+        "source_url": None,
         "http_status": None,
         "content_range": None,
         "bytes_read": 0,
@@ -526,16 +571,21 @@ def inspect_known_hirise_dtm_label(max_bytes=262144):
         "bounds": {},
         "core_mola_aoi_footprint_intersection": None,
         "limitations": [
-            "Only a bounded byte-range prefix is requested; the approximately 430 MB DTM raster is not downloaded.",
+            "Only a bounded byte-range prefix is requested; the full DTM raster is not downloaded.",
             "Footprint intersection is computed only when the embedded label provides all four geographic bounds.",
-            "A geographic bbox intersection is not a rover-safety or route-suitability assessment.",
+            "A geographic bounding-box intersection is not proof of raster co-registration, pixel-level coverage, rover safety or route suitability.",
         ],
     }
     response = None
     try:
+        source_url = build_hirise_dtm_img_url(product)
+        result["source_url"] = source_url
         response = SESSION.get(
-            KNOWN_NILI_HIRISE_DTM["data_file_url"],
-            headers={"Range": "bytes=0-" + str(max_bytes - 1), "Accept-Encoding": "identity"},
+            source_url,
+            headers={
+                "Range": "bytes=0-" + str(max_bytes - 1),
+                "Accept-Encoding": "identity",
+            },
             stream=True,
             timeout=(20, 60),
             allow_redirects=True,
@@ -545,6 +595,7 @@ def inspect_known_hirise_dtm_label(max_bytes=262144):
         result["content_range"] = response.headers.get("Content-Range")
         if response.status_code not in (200, 206):
             response.raise_for_status()
+
         body = bytearray()
         for chunk in response.iter_content(chunk_size=32768):
             if not chunk:
@@ -568,6 +619,7 @@ def inspect_known_hirise_dtm_label(max_bytes=262144):
         if not result["label_terminated"]:
             result["status"] = "label_not_complete_within_range_cap"
             return result
+
         bounds = {
             "min_lat": _pds_number(label, "MINIMUM_LATITUDE"),
             "max_lat": _pds_number(label, "MAXIMUM_LATITUDE"),
@@ -591,6 +643,41 @@ def inspect_known_hirise_dtm_label(max_bytes=262144):
     finally:
         if response is not None:
             response.close()
+
+
+def inspect_hirise_dtm_products(products, max_bytes=262144, pause_seconds=0.25):
+    """Inspect each unique ODE HiRISE DTM label with a bounded prefix request."""
+    inspections = []
+    seen = set()
+    unique_products = []
+    for product in products:
+        pdsid = text_value(get_ci(product, "pdsid")).upper()
+        if not pdsid or pdsid in seen:
+            continue
+        seen.add(pdsid)
+        unique_products.append(product)
+
+    for index, product in enumerate(unique_products):
+        if index and pause_seconds > 0:
+            time.sleep(pause_seconds)
+        inspections.append(
+            inspect_hirise_dtm_product_label(product, max_bytes=max_bytes)
+        )
+    return inspections
+
+
+def inspect_known_hirise_dtm_label(max_bytes=262144):
+    """Compatibility wrapper for the original Nili dunes DTM reference."""
+    product = {
+        "pdsid": KNOWN_NILI_HIRISE_DTM["id"],
+        "ode_id": None,
+        "ihid": "MRO",
+        "iid": "HiRISE",
+        "pt": "DTM",
+        "Data_Set_Id": "MRO-M-HIRISE-5-DTM-V1.0",
+        "RelativePathToVol": KNOWN_NILI_HIRISE_DTM["relative_path_to_volume"],
+    }
+    return inspect_hirise_dtm_product_label(product, max_bytes=max_bytes)
 
 
 def main() -> None:
