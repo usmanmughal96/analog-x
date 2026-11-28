@@ -700,8 +700,8 @@ def main() -> None:
     }
     known_dtm_inspection = inspection_by_id.get(KNOWN_NILI_HIRISE_DTM["id"])
     if known_dtm_inspection is None:
-        # Preserve the known reference's explicit unknown/error state if ODE
-        # omits it from this search response; do not infer from its center.
+        # Preserve an explicit unknown/error state if ODE omits the known
+        # catalogue record; do not infer its footprint from its center.
         known_dtm_inspection = inspect_known_hirise_dtm_label()
         dtm_label_inspections.append(known_dtm_inspection)
 
@@ -742,6 +742,7 @@ def main() -> None:
             "ode_id": get_ci(product, "ode_id"),
             "title": reference_titles.get(pdsid, pdsid),
             "data_file_url": inspection.get("source_url"),
+            "relative_path_to_volume": get_ci(product, "RelativePathToVol"),
             "reported_file_size_mb": 430 if pdsid == KNOWN_NILI_HIRISE_DTM["id"] else None,
             "label_inspection": inspection,
             "core_mola_aoi_footprint_intersection": intersection if isinstance(intersection, bool) else "unknown",
@@ -760,12 +761,12 @@ def main() -> None:
         row["pdsid"] for row in label_inspection_references
         if row["core_mola_aoi_footprint_intersection"] == "unknown"
     ]
-    label_read_count = sum(
-        row["label_inspection"].get("status") in {
-            "label_verified_bounds_intersect_core_aoi",
-            "label_verified_bounds_outside_core_aoi",
-            "label_read_but_geographic_bounds_incomplete",
-        }
+    labels_terminated = sum(
+        row["label_inspection"].get("label_terminated") is True
+        for row in label_inspection_references
+    )
+    labels_with_verified_bounds = sum(
+        row["core_mola_aoi_footprint_intersection"] in (True, False)
         for row in label_inspection_references
     )
 
@@ -773,14 +774,15 @@ def main() -> None:
         "schema_version": "1.1.0",
         "generated_at_utc": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "purpose": "Fallback archive discovery for planetary products when the federated PDS Search API is unavailable.",
-        "coverage": "Targeted metadata discovery for Nili Patera HiRISE DTM products, regional MOLA MEGDR, lunar LOLA GDR, Diviner PRP and Nili-area HiRISE RDR observations. Each returned HiRISE DTM is checked using a bounded embedded PDS-label read.",
+        "coverage": "Targeted metadata discovery for Nili Patera HiRISE DTM products, regional MOLA MEGDR, lunar LOLA GDR, Diviner PRP and Nili-area HiRISE RDR observations. Every returned HiRISE DTM has an independent capped PDS-label footprint inspection.",
         "nili_patera_aoi": NILI,
         "known_nili_hirise_dtm_reference": known_dtm_reference,
         "nili_hirise_dtm_references": label_inspection_references,
         "nili_hirise_dtm_footprint_summary": {
             "ode_dtm_products_returned": len(hirise_products),
-            "unique_dtm_labels_inspected": len(dtm_label_inspections),
-            "labels_with_complete_geographic_bounds": label_read_count,
+            "unique_dtm_label_inspection_attempts": len(dtm_label_inspections),
+            "terminated_labels_read": labels_terminated,
+            "labels_with_verified_geographic_bounds": labels_with_verified_bounds,
             "bbox_intersecting_core_mola_aoi": intersecting_dtm_ids,
             "bbox_outside_core_mola_aoi": outside_dtm_ids,
             "bbox_intersection_unknown": unknown_dtm_ids,
@@ -800,8 +802,8 @@ def main() -> None:
             "limitations": [
                 "ODE product records are metadata; they are not processed science rasters.",
                 "Product types are taken from the live ODE IIPT list; a missing IIPT set is recorded, not guessed.",
-                "The primary MOLA comparison AOI remains unchanged. The separate HiRISE DTM discovery box is expanded eastward to include Nili Patera DTM catalog records whose reported centers are east of the core AOI.",
-                "Each returned HiRISE DTM is separately inspected using only a capped prefix of its embedded PDS3 label. The full DTM .IMG rasters are not downloaded.",
+                "The primary MOLA comparison AOI remains unchanged. The separate HiRISE DTM discovery box is expanded eastward to include Nili Patera DTM catalogue records whose reported centers may be east of the core AOI.",
+                "Every returned HiRISE DTM is inspected using only a capped prefix of its embedded PDS3 label. The full DTM .IMG rasters are not downloaded.",
                 "A label bbox intersection is necessary for a possible co-located raster but is not sufficient to prove it; pixel coverage and coordinate registration must be checked before processing.",
                 "ODE query counts may refer to the full matching product set even when the metadata sample is limited to 20 records.",
             ],
@@ -812,8 +814,8 @@ def main() -> None:
             "hires_rdr_is_not_dtm": True,
             "product_binary_downloaded": False,
             "full_dtm_raster_downloaded": False,
-            "dtm_label_prefix_inspected": label_read_count > 0,
-            "dtm_labels_inspected": len(dtm_label_inspections),
+            "dtm_label_prefix_inspected": labels_terminated > 0,
+            "dtm_labels_attempted": len(dtm_label_inspections),
             "rover_safety_assessed": False,
             "mission_suitability_certified": False,
         },
@@ -826,10 +828,11 @@ def main() -> None:
         "stac_status": stac_result["status"],
         "ode_products_returned": sum(result["products_returned"] for result in results),
         "stac_items_returned": stac_result["items_returned"],
-        "hirise_dtm_labels_inspected": len(dtm_label_inspections),
-        "dtm_bbox_intersections": intersecting_dtm_ids,
-        "dtm_bbox_outside": outside_dtm_ids,
-        "dtm_bbox_unknown": unknown_dtm_ids,
+        "hirise_dtm_labels_attempted": len(dtm_label_inspections),
+        "hirise_dtm_labels_terminated": labels_terminated,
+        "hirise_dtm_bbox_intersections": intersecting_dtm_ids,
+        "hirise_dtm_bbox_outside": outside_dtm_ids,
+        "hirise_dtm_bbox_unknown": unknown_dtm_ids,
     }, indent=2))
 
 
