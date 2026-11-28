@@ -1,6 +1,6 @@
 {
   "schema_version": "2.1.0",
-  "generated_at_utc": "2026-11-28T14:11:18+00:00",
+  "generated_at_utc": "2026-11-28T14:20:39+00:00",
   "status": "diagnostic_only",
   "ranking_release": {
     "status": "ready",
@@ -87,7 +87,7 @@
   "interpretation": "Global terrain screening is complete only for the enumerated Copernicus GLO-90 land-tile inventory. The stored list is a bounded shortlist, not all evaluated windows. Primary rank uses the core terrain family only; the alternative family is diagnostic. Neither score is a probability, calibrated accuracy or analog verdict.",
   "independent_analog_label_validation": {
     "schema_version": "1.0.0",
-    "generated_at_utc": "2026-11-22T21:07:49+00:00",
+    "generated_at_utc": "2026-11-28T14:20:38+00:00",
     "status": "awaiting_spatially_blocked_labels",
     "method": {
       "score": "core_terrain_index",
@@ -239,10 +239,10 @@
   },
   "reproducibility": {
     "manifest_state": "present",
-    "manifest_sha256": "f21eaa3228147ad279d73a5930d5bafe7a4bc4947819283f1882ef3488bf65f7",
+    "manifest_sha256": "720539c5182b0198f334eab046c5d7f892a5369df842160031f9e21a07d5722d",
     "hashed_repository_file_count": 229,
     "source_registry_records": 19,
-    "manifest_generated_at_utc": "2026-11-28T14:11:17+00:00",
+    "manifest_generated_at_utc": "2026-11-28T14:20:39+00:00",
     "quantitative_report_excluded_from_manifest": true,
     "manifest_reference_semantics": "manifest_sha256 and hashed_repository_file_count refer to the manifest loaded when this report was generated; the report itself is excluded from the manifest to avoid a circular dependency.",
     "limitations": [
