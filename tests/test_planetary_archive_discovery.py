@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 
 from scripts.fetch_planetary_archive_discovery import (
     NILI,
@@ -14,8 +15,32 @@ from scripts.fetch_planetary_archive_discovery import (
     xml_to_value,
     parse_pds_label_text,
     _core_aoi_intersection,
+    inspect_known_hirise_dtm_label,
 )
 import xml.etree.ElementTree as ET
+
+
+
+
+
+class FakeRangeResponse:
+    def __init__(self, body, status_code=206):
+        self.body = body
+        self.status_code = status_code
+        self.url = "https://example.test/hiRISE-dtm.img"
+        self.headers = {"Content-Range": f"bytes 0-{len(body)-1}/430063620"}
+        self.closed = False
+
+    def raise_for_status(self):
+        if self.status_code >= 400:
+            raise RuntimeError("HTTP error")
+
+    def iter_content(self, chunk_size=32768):
+        for offset in range(0, len(self.body), chunk_size):
+            yield self.body[offset:offset + chunk_size]
+
+    def close(self):
+        self.closed = True
 
 
 class PlanetaryArchiveDiscoveryTests(unittest.TestCase):
@@ -89,6 +114,37 @@ END
         }
         self.assertFalse(_core_aoi_intersection(bounds))
         self.assertIsNone(_core_aoi_intersection({"min_lat": 8.7, "max_lat": 8.8}))
+
+    def test_bounded_label_read_verifies_core_aoi_footprint_when_bounds_present(self):
+        label = b"""PDS_VERSION_ID = PDS3
+PRODUCT_ID = "DTEEC_017762_1890_018039_1890_A01"
+MAP_PROJECTION_TYPE = EQUIRECTANGULAR
+MAP_SCALE = 1.01 <M/PIXEL>
+MINIMUM_LATITUDE = 8.70
+MAXIMUM_LATITUDE = 8.86
+WESTERNMOST_LONGITUDE = 67.20
+EASTERNMOST_LONGITUDE = 67.30
+END
+"""
+        response = FakeRangeResponse(label)
+        with patch("scripts.fetch_planetary_archive_discovery.SESSION.get", return_value=response) as get:
+            result = inspect_known_hirise_dtm_label()
+        self.assertEqual(result["status"], "label_verified_bounds_intersect_core_aoi")
+        self.assertTrue(result["core_mola_aoi_footprint_intersection"])
+        self.assertEqual(result["fields"]["PRODUCT_ID"], "DTEEC_017762_1890_018039_1890_A01")
+        self.assertTrue(response.closed)
+        headers = get.call_args.kwargs["headers"]
+        self.assertTrue(headers["Range"].startswith("bytes=0-"))
+
+    def test_bounded_label_read_stops_at_cap_without_claiming_footprint(self):
+        response = FakeRangeResponse(b"A" * 4096)
+        with patch("scripts.fetch_planetary_archive_discovery.SESSION.get", return_value=response) as get:
+            result = inspect_known_hirise_dtm_label(max_bytes=128)
+        self.assertEqual(result["status"], "label_not_complete_within_range_cap")
+        self.assertEqual(result["bytes_read"], 128)
+        self.assertIsNone(result["core_mola_aoi_footprint_intersection"])
+        self.assertEqual(get.call_args.kwargs["headers"]["Range"], "bytes=0-127")
+        self.assertTrue(response.closed)
 
     def test_extracts_dynamic_iipt_sets_from_json_response(self):
         payload = {
