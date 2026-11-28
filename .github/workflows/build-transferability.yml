@@ -35,7 +35,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install data and backend test dependencies
-        run: python -m pip install --upgrade requests httpx -r backend/requirements.txt
+        run: python -m pip install --upgrade requests httpx pyshp pyproj shapely -r backend/requirements.txt
       - name: Build experiment-level transferability dossiers
         run: python science/build_transferability.py
       - name: Discover planetary products in NASA PDS
@@ -46,6 +46,10 @@ jobs:
         run: python scripts/fetch_planetary_archive_discovery.py
       - name: Test ODE and USGS archive response adapters
         run: python -m unittest tests.test_planetary_archive_discovery
+      - name: Build Shackleton PSR polygon intersection evidence from NASA PGDA LOLA
+        run: python scripts/process_lunar_psr_vectors.py
+      - name: Test lunar PSR projection and intersection analysis
+        run: python -m unittest tests.test_lunar_psr_intersection
       - name: Discover MODIS land-surface-temperature browse tiles
         run: python scripts/fetch_modis_browse.py
       - name: Validate dashboard JavaScript syntax
@@ -91,7 +95,7 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          for p in [Path("data/transferability/transferability.json"), Path("data/planetary/pds_search.json"), Path("data/planetary/archive_discovery.json"), Path("data/nasa/modis_browse_index.json")]:
+          for p in [Path("data/transferability/transferability.json"), Path("data/planetary/pds_search.json"), Path("data/planetary/archive_discovery.json"), Path("data/moon/lola_psr_site_overlap.json"), Path("data/nasa/modis_browse_index.json")]:
               d=json.loads(p.read_text())
               print(p, "valid", len(p.read_bytes()), "bytes")
           d=json.loads(Path("data/transferability/transferability.json").read_text())
@@ -101,4 +105,4 @@ jobs:
           assert d["planetary_targets"]["mars"]["terrain"]
           PY
       - name: Commit refreshed public science pack
-        run: bash scripts/commit_generated_data.sh "Build planetary analog transferability science pack" data/transferability/transferability.json data/planetary/pds_search.json data/planetary/archive_discovery.json data/nasa/modis_browse_index.json data/nasa/modis_browse/
+        run: bash scripts/commit_generated_data.sh "Build planetary analog transferability science pack" data/transferability/transferability.json data/planetary/pds_search.json data/planetary/archive_discovery.json data/moon/lola_psr_site_overlap.json data/nasa/modis_browse_index.json data/nasa/modis_browse/
