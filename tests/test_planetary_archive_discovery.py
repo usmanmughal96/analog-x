@@ -188,6 +188,24 @@ END
             "DTEEC_043779_1890_043423_1890_A01.IMG",
         )
 
+        mound = {
+            "pdsid": "DTEED_013582_1895_020940_1895_A01",
+            "ihid": "MRO",
+            "iid": "HiRISE",
+            "pt": "DTM",
+            "Data_Set_Id": "MRO-M-HIRISE-5-DTM-V1.0",
+            "RelativePathToVol": (
+                "dtm\\esp\\orb_013500_013599\\"
+                "esp_013582_1895_esp_020940_1895\\"
+            ),
+        }
+        self.assertEqual(
+            build_hirise_dtm_img_url(mound),
+            "https://www.uahirise.org/PDS/DTM/ESP/ORB_013500_013599/"
+            "ESP_013582_1895_ESP_020940_1895/"
+            "DTEED_013582_1895_020940_1895_A01.IMG",
+        )
+
     def test_rejects_unsafe_or_non_hirise_ode_product_paths(self):
         product = {
             "pdsid": "DTEEC_043779_1890_043423_1890_A01",
