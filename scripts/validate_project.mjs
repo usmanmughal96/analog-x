@@ -119,6 +119,9 @@ assert(read("tests/test_planetary_archive_discovery.py").includes("test_bounded_
 assert(archiveDiscoveryScript.includes("DTEEC_017762_1890_018039_1890_A01") && archiveDiscoveryScript.includes("map_scale_m_per_pixel") && archiveDiscoveryScript.includes("67.33"), "Known Nili Patera DTM product metadata is incomplete");
 assert(read("tests/test_planetary_archive_discovery.py").includes("test_nili_hirise_dtm_discovery_window_includes_published_center_without_changing_core_aoi"), "Nili DTM spatial-window regression test is missing");
 assert(read("tests/test_planetary_archive_discovery.py").includes("test_verified_nili_dtm_label_bounds_do_not_intersect_original_mola_aoi"), "Verified HiRISE DTM / MOLA AOI non-overlap regression test is missing");
+assert(archiveDiscoveryScript.includes("def build_known_dtm_reference"), "Archive discovery must promote a verified label footprint result to the top-level DTM record");
+assert(read("tests/test_planetary_archive_discovery.py").includes("test_known_dtm_reference_promotes_verified_non_overlap_to_top_level"), "Top-level DTM footprint status regression test is missing");
+assert(read("tests/test_planetary_archive_discovery.py").includes("test_known_dtm_reference_preserves_unknown_when_label_bounds_are_incomplete"), "Unknown DTM footprint state must remain explicit when label bounds are incomplete");
 assert(read("docs/LIMITATIONS.md").includes("Diviner PRP V2.0 model-derived thermal / ice-stability-depth summaries are processed"), "Limitations must acknowledge processed historical Diviner summaries");
 assert(!read("docs/LIMITATIONS.md").includes("Diviner polar annual-temperature and water-ice-permafrost products remain unprocessed"), "Stale Diviner limitation must be removed");
 assert(read("README.md").includes("does not intersect the current MOLA comparison AOI"), "README must disclose the verified HiRISE DTM / MOLA non-overlap");
