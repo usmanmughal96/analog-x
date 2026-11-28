@@ -69,12 +69,13 @@ class PlanetaryArchiveDiscoveryTests(unittest.TestCase):
         }
         rows = [
             {"IHID": "mro", "IID": "HiRISE", "IName": "High Resolution Imaging Science Experiment", "PT": "RDRV11", "DataSetId": "MRO-M-HIRISE-5-DTM-V1.0"},
-            {"IHID": "mro", "IID": "HiRISE", "PT": "RDRV11", "DataSetId": "MRO-M-HIRISE-3-RDR-V1.1"},
+            {"IHID": "mro", "IID": "HiRISE", "PT": "DTM", "DataSetId": "MRO-M-HIRISE-5-DTM-V1.0"},
+            {"IHID": "mro", "IID": "HiRISE", "PT": "DTM", "DataSetId": "MRO-M-HIRISE-3-DTM-V1.1"},
             {"IHID": "mgs", "IID": "MOLA", "PT": "MEGDR", "DataSetId": "MRO-M-HIRISE-5-DTM-V1.0"},
         ]
         matches = _find_matching_iipt_sets(rows, spec)
         self.assertEqual(len(matches), 1)
-        self.assertEqual(matches[0]["PT"], "RDRV11")
+        self.assertEqual(matches[0]["PT"], "DTM")
 
     def test_extracts_ode_product_records_and_count(self):
         payload = {
