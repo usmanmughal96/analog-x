@@ -94,7 +94,7 @@ assert(pdsSearchScript.includes("/api/search/1/products"), "PDS discovery must u
 assert(pdsSearchScript.includes("https://pds.mcp.nasa.gov/api/search/1/products"), "PDS discovery must use the direct PDS MCP host to avoid alias redirects");
 assert(pdsSearchScript.includes("QUERY_LIMIT = 25") && pdsSearchScript.includes("query_error_count"), "PDS discovery must keep request size bounded and distinguish service errors");
 assert(pdsSearchScript.includes("def build_request_url") && pdsSearchScript.includes("response_url = build_request_url(query)"), "PDS query URL must be retained even when the request fails");
-const pdsRegistryEntry = sourceRegistry.sources.find((source) => source.id === "nasa_pds_search");
+const pdsRegistryEntry = JSON.parse(read("data/source_registry.json")).sources.find((source) => source.id === "nasa_pds_search");
 assert.equal(pdsRegistryEntry?.url, "https://pds.mcp.nasa.gov/api/search/1/products", "PDS source registry must identify the actual direct API host");
 const transferabilityHtml = read("transferability.html");
 assert(transferabilityHtml.includes("Service response:") && transferabilityHtml.includes("service errors"), "ATFA provenance panel must surface PDS service failures rather than hiding them");
