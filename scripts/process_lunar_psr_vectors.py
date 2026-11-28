@@ -172,6 +172,9 @@ def analyze_psr_features(
     rows = []
     invalid_count = 0
     repaired_count = 0
+    intersecting_count = 0
+    positive_area_overlap_count = 0
+    overlap_area_total_km2 = 0.0
 
     for index, (attributes, geometry) in enumerate(features):
         if geometry is None or geometry.is_empty:
@@ -194,6 +197,11 @@ def analyze_psr_features(
             if clipped is not None and not clipped.is_empty
             else 0.0
         )
+        if intersects:
+            intersecting_count += 1
+            if overlap_area_km2 > 0:
+                positive_area_overlap_count += 1
+                overlap_area_total_km2 += overlap_area_km2
         centroid = geometry.centroid
         centroid_lon, centroid_lat = inverse_transformer.transform(centroid.x, centroid.y)
 
@@ -235,17 +243,9 @@ def analyze_psr_features(
         "feature_count_in_source": len(features),
         "invalid_or_empty_geometry_count": invalid_count,
         "geometry_repair_count": repaired_count,
-        "intersecting_polygon_count_within_source": sum(
-            1 for _, geometry in features
-            if geometry is not None and not geometry.is_empty
-            and geometry.intersects(aoi)
-        ),
-        "positive_area_overlap_count_within_source": sum(
-            1 for row in intersecting if row["overlap_area_km2"] > 0
-        ),
-        "overlap_area_total_km2": round(
-            sum(row["overlap_area_km2"] for row in intersecting), 6
-        ),
+        "intersecting_polygon_count_within_source": intersecting_count,
+        "positive_area_overlap_count_within_source": positive_area_overlap_count,
+        "overlap_area_total_km2": round(overlap_area_total_km2, 6),
         "intersecting_psrs": intersecting,
         "nearest_psrs_within_radius": rows[:20],
         "nearest_boundary_distance_km": (
