@@ -567,13 +567,21 @@ def main() -> None:
     # Small pause between archive requests to avoid hammering the public API.
     time.sleep(0.5)
     stac_result = query_stac_hirise_rdr()
+    # Read only the capped prefix containing the embedded PDS label. This
+    # avoids downloading the large DTM raster merely to establish its bounds.
+    time.sleep(0.5)
+    dtm_label_inspection = inspect_known_hirise_dtm_label()
+    known_dtm_reference = {
+        **KNOWN_NILI_HIRISE_DTM,
+        "pds_label_inspection": dtm_label_inspection,
+    }
     output = {
         "schema_version": "1.0.0",
         "generated_at_utc": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "purpose": "Fallback archive discovery for planetary products when the federated PDS Search API is unavailable.",
         "coverage": "Targeted metadata discovery for Nili Patera HiRISE DTM, regional MOLA MEGDR, lunar LOLA GDR, Diviner PRP and Nili-area HiRISE RDR observations.",
         "nili_patera_aoi": NILI,
-        "known_nili_hirise_dtm_reference": KNOWN_NILI_HIRISE_DTM,
+        "known_nili_hirise_dtm_reference": known_dtm_reference,
         "nili_hirise_dtm_discovery_bbox_wsen": NILI_HIRISE_DTM_DISCOVERY_BBOX,
         "ode": {
             "provider": "PDS Geosciences Node Orbital Data Explorer (ODE)",
@@ -592,6 +600,8 @@ def main() -> None:
             "discovery_is_not_processing": True,
             "hires_rdr_is_not_dtm": True,
             "product_binary_downloaded": False,
+            "full_dtm_raster_downloaded": False,
+            "dtm_label_prefix_inspected": dtm_label_inspection["status"] not in {"not_checked", "label_request_error"},
             "rover_safety_assessed": False,
             "mission_suitability_certified": False,
         },
