@@ -149,7 +149,7 @@ function collect(review){
  };
 }
 function validateCommon(r){
- if(!/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$/.test(r.date_utc)||!Number.isFinite(Date.parse(r.date_utc)))return "Observation timestamp must be a valid ISO 8601 UTC date-time ending in Z.";
+ if(!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(r.date_utc)||!Number.isFinite(Date.parse(r.date_utc)))return "Observation timestamp must be a valid ISO 8601 UTC date-time ending in Z.";
  const required=["station_id","candidate_id","date_utc","observer_ids","latitude_wgs84","longitude_wgs84","coordinate_accuracy_m","coordinate_method","surface_description","photo_ids","instrument_ids","calibration_status","uncertainty_notes","permission_status","safety_observations"];
  for(const key of required)if(r[key]===null||r[key]===""||(Array.isArray(r[key])&&!r[key].length))return "Required field missing: "+key;
  if(r.latitude_wgs84 < -90 || r.latitude_wgs84 > 90)return "Latitude must be between -90 and 90.";
