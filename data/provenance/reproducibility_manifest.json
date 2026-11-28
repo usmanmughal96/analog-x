@@ -1,16 +1,16 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-28T14:20:39+00:00",
-  "repository_commit_before_manifest_commit": "b76d3de534cc57351e39c0e0afc10fab37168e95",
-  "working_tree_before_manifest_write": "dirty",
+  "generated_at_utc": "2026-11-28T14:25:07+00:00",
+  "repository_commit_before_manifest_commit": "392ec2630769c78b21ad3ed3c3ec1ec9e3df6451",
+  "working_tree_before_manifest_write": "clean",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
   "runtime_packages": {
     "numpy": "2.4.6",
-    "rasterio": null,
-    "scipy": null,
-    "requests": null,
+    "rasterio": "1.4.4",
+    "scipy": "1.17.1",
+    "requests": "2.34.2",
     "Pillow": null
   },
   "inventory_scope": {
@@ -344,8 +344,8 @@
   "records": [
     {
       "path": "README.md",
-      "size_bytes": 15836,
-      "sha256": "4754702cdb23df988f56a17cd37391da04cbafe72631762455cf58a9e9679df7",
+      "size_bytes": 16641,
+      "sha256": "cee7c099f94f1b5fff3bd9fdacdc1fa4416faaa091224d511de1c0b0b70e4442",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -387,7 +387,7 @@
     {
       "path": "service-worker.js",
       "size_bytes": 4919,
-      "sha256": "6a67e0fee50d3a32d82100858aa505174712fb49fdbd7c916b8ae32297df9e73",
+      "sha256": "350150f7b4db97a00b0f95b6864681859cb9ca08c2ddcb498f21c5191f3fcd6b",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1244,8 +1244,8 @@
     },
     {
       "path": "scripts/validate_project.mjs",
-      "size_bytes": 14772,
-      "sha256": "464c20d19d796cf520a09dea64ab32f5a90358488b3b70b9655213f0ba9ebf73",
+      "size_bytes": 16667,
+      "sha256": "6b2ba45d1b7d8aa234411d1b1f8f2f0879c7b5c9bb292ec001913659a01a2351",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1394,8 +1394,8 @@
     },
     {
       "path": "docs/OPERATIONAL_READINESS_AND_VALIDATION.md",
-      "size_bytes": 13441,
-      "sha256": "130735c270cf725786a606f9152e9533bca733251ab5534b4fe09b07c1dbb20a",
+      "size_bytes": 14967,
+      "sha256": "f23d4efa2fb8daffd64f64ad80c923d51af1cd182b8167829b66c918485fa2ae",
       "evidence_class_hint": "method_or_documentation"
     },
     {
