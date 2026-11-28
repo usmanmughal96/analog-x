@@ -685,18 +685,112 @@ def main() -> None:
     # Small pause between archive requests to avoid hammering the public API.
     time.sleep(0.5)
     stac_result = query_stac_hirise_rdr()
-    # Read only the capped prefix containing the embedded PDS label. This
-    # avoids downloading the large DTM raster merely to establish its bounds.
-    time.sleep(0.5)
-    dtm_label_inspection = inspect_known_hirise_dtm_label()
-    known_dtm_reference = build_known_dtm_reference(dtm_label_inspection)
+
+    hirise_query = next(
+        (result for result in results if result.get("id") == "mars_hirise_dtm_nili"),
+        {},
+    )
+    hirise_products = hirise_query.get("products", [])
+    dtm_label_inspections = inspect_hirise_dtm_products(hirise_products)
+
+    inspection_by_id = {
+        inspection.get("pdsid"): inspection
+        for inspection in dtm_label_inspections
+        if inspection.get("pdsid")
+    }
+    known_dtm_inspection = inspection_by_id.get(KNOWN_NILI_HIRISE_DTM["id"])
+    if known_dtm_inspection is None:
+        # Preserve the known reference's explicit unknown/error state if ODE
+        # omits it from this search response; do not infer from its center.
+        known_dtm_inspection = inspect_known_hirise_dtm_label()
+        dtm_label_inspections.append(known_dtm_inspection)
+
+    known_dtm_reference = build_known_dtm_reference(known_dtm_inspection)
+    reference_titles = {
+        "DTEED_013582_1895_020940_1895_A01": "Mound on Nili Patera floor",
+        "DTEEC_017762_1890_018039_1890_A01": "Topography of Moving Dunes in Nili Patera",
+        "DTEEC_043779_1890_043423_1890_A01": "Nili Patera stereo DTM",
+        "DTEEC_050438_1890_051071_1890_A01": "Nili Patera monitoring DTM",
+    }
+    label_inspection_references = []
+    for product in hirise_products:
+        pdsid = text_value(get_ci(product, "pdsid")).upper()
+        if not pdsid:
+            continue
+        inspection = inspection_by_id.get(pdsid)
+        if inspection is None:
+            continue
+        intersection = inspection.get("core_mola_aoi_footprint_intersection")
+        if intersection is True:
+            boundary = (
+                "The complete PDS-label bounding box intersects the original MOLA "
+                "comparison AOI. This is only a footprint-screening result; it does "
+                "not establish pixel coverage, raster co-registration or science readiness."
+            )
+        elif intersection is False:
+            boundary = (
+                "The complete PDS-label bounding box does not intersect the original "
+                "MOLA comparison AOI. Keep this DTM as a separate adjacent reference."
+            )
+        else:
+            boundary = (
+                "Footprint relation to the original MOLA comparison AOI is unknown; "
+                "the label did not provide a complete, verified geographic bounding box."
+            )
+        label_inspection_references.append({
+            "pdsid": pdsid,
+            "ode_id": get_ci(product, "ode_id"),
+            "title": reference_titles.get(pdsid, pdsid),
+            "data_file_url": inspection.get("source_url"),
+            "reported_file_size_mb": 430 if pdsid == KNOWN_NILI_HIRISE_DTM["id"] else None,
+            "label_inspection": inspection,
+            "core_mola_aoi_footprint_intersection": intersection if isinstance(intersection, bool) else "unknown",
+            "metadata_boundary": boundary,
+        })
+
+    intersecting_dtm_ids = [
+        row["pdsid"] for row in label_inspection_references
+        if row["core_mola_aoi_footprint_intersection"] is True
+    ]
+    outside_dtm_ids = [
+        row["pdsid"] for row in label_inspection_references
+        if row["core_mola_aoi_footprint_intersection"] is False
+    ]
+    unknown_dtm_ids = [
+        row["pdsid"] for row in label_inspection_references
+        if row["core_mola_aoi_footprint_intersection"] == "unknown"
+    ]
+    label_read_count = sum(
+        row["label_inspection"].get("status") in {
+            "label_verified_bounds_intersect_core_aoi",
+            "label_verified_bounds_outside_core_aoi",
+            "label_read_but_geographic_bounds_incomplete",
+        }
+        for row in label_inspection_references
+    )
+
     output = {
-        "schema_version": "1.0.0",
+        "schema_version": "1.1.0",
         "generated_at_utc": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "purpose": "Fallback archive discovery for planetary products when the federated PDS Search API is unavailable.",
-        "coverage": "Targeted metadata discovery for Nili Patera HiRISE DTM, regional MOLA MEGDR, lunar LOLA GDR, Diviner PRP and Nili-area HiRISE RDR observations.",
+        "coverage": "Targeted metadata discovery for Nili Patera HiRISE DTM products, regional MOLA MEGDR, lunar LOLA GDR, Diviner PRP and Nili-area HiRISE RDR observations. Each returned HiRISE DTM is checked using a bounded embedded PDS-label read.",
         "nili_patera_aoi": NILI,
         "known_nili_hirise_dtm_reference": known_dtm_reference,
+        "nili_hirise_dtm_references": label_inspection_references,
+        "nili_hirise_dtm_footprint_summary": {
+            "ode_dtm_products_returned": len(hirise_products),
+            "unique_dtm_labels_inspected": len(dtm_label_inspections),
+            "labels_with_complete_geographic_bounds": label_read_count,
+            "bbox_intersecting_core_mola_aoi": intersecting_dtm_ids,
+            "bbox_outside_core_mola_aoi": outside_dtm_ids,
+            "bbox_intersection_unknown": unknown_dtm_ids,
+            "interpretation": (
+                "PDS-label bounding boxes are a footprint triage step only. Even a "
+                "bounding-box intersection does not establish pixel-level coverage, "
+                "horizontal/vertical registration, compatible vertical datum, raster "
+                "quality or readiness for quantitative terrain analysis."
+            ),
+        },
         "nili_hirise_dtm_discovery_bbox_wsen": NILI_HIRISE_DTM_DISCOVERY_BBOX,
         "ode": {
             "provider": "PDS Geosciences Node Orbital Data Explorer (ODE)",
@@ -706,7 +800,9 @@ def main() -> None:
             "limitations": [
                 "ODE product records are metadata; they are not processed science rasters.",
                 "Product types are taken from the live ODE IIPT list; a missing IIPT set is recorded, not guessed.",
-                "The primary MOLA comparison AOI remains unchanged. The separate HiRISE DTM discovery box is expanded eastward to include the published DTM center at 67.33 E; actual footprint intersection with the primary AOI must still be verified from the product label.",
+                "The primary MOLA comparison AOI remains unchanged. The separate HiRISE DTM discovery box is expanded eastward to include Nili Patera DTM catalog records whose reported centers are east of the core AOI.",
+                "Each returned HiRISE DTM is separately inspected using only a capped prefix of its embedded PDS3 label. The full DTM .IMG rasters are not downloaded.",
+                "A label bbox intersection is necessary for a possible co-located raster but is not sufficient to prove it; pixel coverage and coordinate registration must be checked before processing.",
                 "ODE query counts may refer to the full matching product set even when the metadata sample is limited to 20 records.",
             ],
         },
@@ -716,7 +812,8 @@ def main() -> None:
             "hires_rdr_is_not_dtm": True,
             "product_binary_downloaded": False,
             "full_dtm_raster_downloaded": False,
-            "dtm_label_prefix_inspected": dtm_label_inspection["status"] not in {"not_checked", "label_request_error"},
+            "dtm_label_prefix_inspected": label_read_count > 0,
+            "dtm_labels_inspected": len(dtm_label_inspections),
             "rover_safety_assessed": False,
             "mission_suitability_certified": False,
         },
@@ -729,7 +826,13 @@ def main() -> None:
         "stac_status": stac_result["status"],
         "ode_products_returned": sum(result["products_returned"] for result in results),
         "stac_items_returned": stac_result["items_returned"],
+        "hirise_dtm_labels_inspected": len(dtm_label_inspections),
+        "dtm_bbox_intersections": intersecting_dtm_ids,
+        "dtm_bbox_outside": outside_dtm_ids,
+        "dtm_bbox_unknown": unknown_dtm_ids,
     }, indent=2))
+
+
 
 
 if __name__ == "__main__":
