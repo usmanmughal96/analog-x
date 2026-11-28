@@ -1,6 +1,5 @@
 import sys
 import unittest
-from copy import deepcopy
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -99,6 +98,25 @@ class IndependentReviewImporterTests(unittest.TestCase):
         packet["cases"][0]["independent_review"]["confidence_1_to_5"] = True
         with self.assertRaisesRegex(ValueError, "integer from 1 to 5"):
             importer.convert_responses(packet, key, {"labels": []})
+
+    def test_rejects_non_numeric_or_nonfinite_private_candidate_scores(self):
+        for score in (True, float("nan"), float("inf"), -0.1, 100.1):
+            packet, key = make_packet()
+            key["cases"]["AX-M-EXAMPLE"]["core_terrain_index"] = score
+            with self.subTest(score=score):
+                with self.assertRaisesRegex(ValueError, "finite numeric data in"):
+                    importer.convert_responses(packet, key, {"labels": []})
+
+    def test_rejects_non_string_review_label(self):
+        packet, key = make_packet()
+        packet["cases"][0]["independent_review"]["label"] = ["positive"]
+        with self.assertRaisesRegex(ValueError, "review label must be a string"):
+            importer.convert_responses(packet, key, {"labels": []})
+
+    def test_rejects_malformed_existing_label_file(self):
+        packet, key = make_packet()
+        with self.assertRaisesRegex(ValueError, "labels array of objects"):
+            importer.convert_responses(packet, key, {"labels": ["not-a-label-row"]})
 
     def test_rejects_non_string_or_blank_evidence_references(self):
         for refs in ([], ["  "], [None], ["valid", 7]):
