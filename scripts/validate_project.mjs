@@ -118,6 +118,11 @@ assert(archiveDiscoveryScript.includes("def parse_pds_label_text") && archiveDis
 assert(read("tests/test_planetary_archive_discovery.py").includes("test_bounded_label_read_stops_at_cap_without_claiming_footprint"), "Bounded PDS label-read safety regression test is missing");
 assert(archiveDiscoveryScript.includes("DTEEC_017762_1890_018039_1890_A01") && archiveDiscoveryScript.includes("map_scale_m_per_pixel") && archiveDiscoveryScript.includes("67.33"), "Known Nili Patera DTM product metadata is incomplete");
 assert(read("tests/test_planetary_archive_discovery.py").includes("test_nili_hirise_dtm_discovery_window_includes_published_center_without_changing_core_aoi"), "Nili DTM spatial-window regression test is missing");
+assert(read("tests/test_planetary_archive_discovery.py").includes("test_verified_nili_dtm_label_bounds_do_not_intersect_original_mola_aoi"), "Verified HiRISE DTM / MOLA AOI non-overlap regression test is missing");
+assert(read("docs/LIMITATIONS.md").includes("Diviner PRP V2.0 model-derived thermal / ice-stability-depth summaries are processed"), "Limitations must acknowledge processed historical Diviner summaries");
+assert(!read("docs/LIMITATIONS.md").includes("Diviner polar annual-temperature and water-ice-permafrost products remain unprocessed"), "Stale Diviner limitation must be removed");
+assert(read("README.md").includes("does not intersect the current MOLA comparison AOI"), "README must disclose the verified HiRISE DTM / MOLA non-overlap");
+assert(read("transferability.html").includes("PDS label has been inspected and confirms that the DTM bounding box does not intersect"), "Archive desk must display the verified HiRISE DTM footprint boundary");
 const archiveDashboard = read("transferability.html");
 assert(archiveDashboard.includes("data/planetary/archive_discovery.json") && archiveDashboard.includes("planetaryArchiveResults"), "ATFA dashboard must expose planetary archive discovery");
 assert(archiveDashboard.includes("not stereo DTMs"), "ATFA dashboard must distinguish RDR imagery from terrain DTMs");
