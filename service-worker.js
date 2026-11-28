@@ -1,5 +1,5 @@
 "use strict";
-const CACHE_VERSION="analogx-offline-v14";
+const CACHE_VERSION="analogx-offline-v15";
 const APP_CACHE=CACHE_VERSION+"-app";
 const DATA_CACHE=CACHE_VERSION+"-data";
 const APP_FILES=[
