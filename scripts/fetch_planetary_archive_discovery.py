@@ -528,7 +528,7 @@ def build_hirise_dtm_img_url(product):
         raise ValueError("Product is not an MRO HiRISE observation")
     if product_type.upper() != "DTM":
         raise ValueError("Product type is not DTM")
-    if not re.fullmatch(r"DTE[A-Z]_\d{6}_\d{4}_\d{6}_\d{4}_A\d{2}", pdsid):
+    if not re.fullmatch(r"DTEE[CD]_\d{6}_\d{4}_\d{6}_\d{4}_A\d{2}", pdsid):
         raise ValueError("ODE pdsid is not a recognized HiRISE DTM product identifier")
 
     normalized = relative.replace("\\", "/").strip("/")
