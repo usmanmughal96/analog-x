@@ -29,10 +29,11 @@ def main():
         ids.add(oid)
         if row.get("review_status") not in VALID: errors.append(f"{tag}: invalid review_status")
         if row.get("review_status") in {"field_observed_unreviewed","independently_reviewed"}:
-            for key in ("candidate_id","date_utc","observer_ids","latitude_wgs84","longitude_wgs84","coordinate_accuracy_m","coordinate_method","surface_description","photo_ids","instrument_ids","calibration_status","uncertainty_notes","permission_status","safety_observations"):
+            for key in ("candidate_id","date_utc","measurement_time_utc","observer_ids","latitude_wgs84","longitude_wgs84","coordinate_accuracy_m","coordinate_method","surface_description","photo_ids","instrument_ids","calibration_status","uncertainty_notes","permission_status","safety_observations"):
                 if row.get(key) in (None,"",[]): errors.append(f"{tag}: field observation missing {key}")
-            if not valid_utc_timestamp(row.get("date_utc")):
-                errors.append(f"{tag}: date_utc must be an ISO 8601 UTC timestamp ending in Z; date-only values are insufficient")
+            for key in ("date_utc", "measurement_time_utc"):
+                if not valid_utc_timestamp(row.get(key)):
+                    errors.append(f"{tag}: {key} must be an ISO 8601 UTC timestamp ending in Z; date-only values are insufficient")
         for key,low,high in (("latitude_wgs84",-90,90),("longitude_wgs84",-180,180),("relative_humidity_pct",0,100),("coordinate_accuracy_m",0,1e9)):
             value=row.get(key)
             if value is not None:
