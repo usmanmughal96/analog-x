@@ -8,7 +8,6 @@ on:
       - "data/power/**"
       - "data/terrain/**"
       - "data/moon/**"
-      - ".github/workflows/build-transferability.yml"
       - "scripts/fetch_pds_search.py"
       - "scripts/fetch_modis_browse.py"
       - "backend/**"
@@ -19,7 +18,8 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: analogx-science-pack
+  group: analogx-repository-data-publish
+  queue: max
   cancel-in-progress: false
 jobs:
   build:

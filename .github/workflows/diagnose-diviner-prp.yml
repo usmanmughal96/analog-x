@@ -7,16 +7,15 @@ on:
       - "scripts/diagnose_diviner_prp_access.py"
       - "scripts/process_lunar_base_evidence.py"
       - "tests/test_lunar_base_evidence.py"
-      - ".github/workflows/diagnose-diviner-prp.yml"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: analogx-repository-data-refresh-${{ github.workflow }}
+  group: analogx-repository-data-publish
+  queue: max
   cancel-in-progress: false
-
 jobs:
   process:
     runs-on: ubuntu-latest
@@ -25,6 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: main
           persist-credentials: true
       - name: Set up Python
         uses: actions/setup-python@v5

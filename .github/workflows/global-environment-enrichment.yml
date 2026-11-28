@@ -11,7 +11,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: analogx-science-data-publish
+  group: analogx-repository-data-publish
+  queue: max
   cancel-in-progress: false
 jobs:
   enrich:
@@ -21,7 +22,8 @@ jobs:
     steps:
       - name: Checkout latest science release
         uses: actions/checkout@v4
-
+        with:
+          ref: main
       - name: Set up Python
         uses: actions/setup-python@v5
         with:

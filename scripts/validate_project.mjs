@@ -150,6 +150,42 @@ function idxIncludesReadiness(source) {
   return source.includes("./mission-readiness.html");
 }
 
+// Generated-data publishers share one queued lock and always rebuild from the latest main.
+// This prevents stale push-event SHAs and parallel publishers from racing on shared evidence files.
+const publisherWorkflowPaths = [
+  ".github/workflows/build-lunar-lola-80m.yml",
+  ".github/workflows/build-lunar-reference.yml",
+  ".github/workflows/build-lunar-resource-profile.yml",
+  ".github/workflows/build-provenance-manifest.yml",
+  ".github/workflows/build-terrain-comparison.yml",
+  ".github/workflows/build-transferability.yml",
+  ".github/workflows/diagnose-diviner-prp.yml",
+  ".github/workflows/diagnose-lola-access.yml",
+  ".github/workflows/diagnose-lola-mit.yml",
+  ".github/workflows/fetch-nasa-cmr.yml",
+  ".github/workflows/fetch-nasa-power.yml",
+  ".github/workflows/fetch-public-evidence.yml",
+  ".github/workflows/global-discovery.yml",
+  ".github/workflows/global-environment-enrichment.yml",
+  ".github/workflows/global-ranking-release.yml",
+  ".github/workflows/process-sentinel-evidence.yml"
+];
+for (const workflowPath of publisherWorkflowPaths) {
+  const workflow = read(workflowPath);
+  assert(
+    workflow.includes("analogx-repository-data-publish"),
+    `Generated-data publisher is missing the shared concurrency group: ${workflowPath}`
+  );
+  assert(
+    workflow.includes("queue: max") && workflow.includes("cancel-in-progress: false"),
+    `Generated-data publisher must queue all runs without cancelling the active publisher: ${workflowPath}`
+  );
+  assert(
+    workflow.includes("ref: main"),
+    `Generated-data publisher must check out the current main branch before building: ${workflowPath}`
+  );
+}
+
 console.log("ANALOG-X validation passed:");
 console.log(`- ${sites.length} candidate records and ${power.record_count} NASA POWER snapshots`);
 console.log("- Four Pakistan terrain profiles plus Mars MOLA and lunar LOLA inputs");

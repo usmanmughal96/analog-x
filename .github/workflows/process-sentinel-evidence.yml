@@ -6,16 +6,15 @@ on:
     paths:
       - "scripts/process_sentinel_evidence.py"
       - "data/pakistan/public_scene_catalog.json"
-      - ".github/workflows/process-sentinel-evidence.yml"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: sentinel-evidence
+  group: analogx-repository-data-publish
+  queue: max
   cancel-in-progress: false
-
 jobs:
   process:
     runs-on: ubuntu-latest
@@ -23,6 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: main
           persist-credentials: true
 
       - name: Set up Python

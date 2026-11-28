@@ -4,7 +4,6 @@ on:
   push:
     branches: [main]
     paths:
-      - ".github/workflows/build-provenance-manifest.yml"
       - "scripts/build_reproducibility_manifest.py"
       - "scripts/build_quantitative_validation.py"
       - "scripts/enrich_global_power.py"
@@ -35,7 +34,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: analogx-science-data-publish
+  group: analogx-repository-data-publish
+  queue: max
   cancel-in-progress: false
 jobs:
   build:
@@ -44,7 +44,8 @@ jobs:
     steps:
       - name: Checkout latest main
         uses: actions/checkout@v4
-
+        with:
+          ref: main
       - name: Set up Python
         uses: actions/setup-python@v5
         with:

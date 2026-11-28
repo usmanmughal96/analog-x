@@ -10,7 +10,6 @@ on:
       - "scripts/build_quantitative_validation.py"
       - "tests/test_research_phase_pack.py"
       - "tests/test_reproducibility_manifest.py"
-      - ".github/workflows/global-ranking-release.yml"
   pull_request:
     paths:
       - "scripts/build_independent_review_pack.py"
@@ -26,7 +25,8 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: analogx-science-data-publish
+  group: ${{ github.event_name == 'pull_request' && format('analogx-pr-{0}-{1}', github.workflow, github.event.pull_request.number) || 'analogx-repository-data-publish' }}
+  queue: max
   cancel-in-progress: false
 jobs:
   scientific-tests:
@@ -54,6 +54,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main
           persist-credentials: true
       - uses: actions/setup-python@v5
         with:

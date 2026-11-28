@@ -35,6 +35,24 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Validate GitHub Actions workflow YAML syntax
+        run: |
+          python -m pip install --upgrade pyyaml
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          workflow_files = sorted(
+              list(Path(".github/workflows").glob("*.yml"))
+              + list(Path(".github/workflows").glob("*.yaml"))
+          )
+          if not workflow_files:
+              raise SystemExit("No workflow YAML files were found")
+          for path in workflow_files:
+              yaml.load(path.read_text(encoding="utf-8"), Loader=yaml.BaseLoader)
+              print(f"Valid YAML: {path}")
+          PY
+
       - name: Validate field evidence, source registry and inline browser scripts
         run: |
           python scripts/validate_field_observations.py
