@@ -80,6 +80,8 @@ Current Nili Patera observation coverage: 567 / 1,122 cells (50.53%); 87 complet
 | Microsoft Planetary Computer | Copernicus DEM GLO-30 STAC items | Tile metadata discovered and corresponding COG assets processed in terrain workflow | DEM metadata provenance is recorded in JSON |
 | NASA EPIC | Natural-colour DSCOVR full-disc images | Public GSFC endpoint working without api.nasa.gov key | Global visual context only |
 | NASA Planetary Data System Search API | Six metadata queries for Mars/MOLA/HiRISE and Moon/LOLA/Diviner observational products through the direct PDS MCP Search host | `data/planetary/pds_search.json` | Metadata only; the registry may be incomplete, and a returned file reference is not proof of binary access, calibration or analysis readiness. The live service returned HTTP 500 for all six targeted queries on 28 November 2026; these remain query errors, not zero-product findings |
+| PDS Geosciences Node ODE REST API | Archive-specific MOLA MEGDR, LOLA GDR, Diviner PRP and Nili Patera HiRISE DTM metadata searches using the live instrument/product-type catalogue | `data/planetary/archive_discovery.json` | Metadata only; HiRISE DTM query is spatially bounded to the existing Nili AOI; product binaries are not downloaded or processed |
+| USGS Astrogeology STAC API | HiRISE RDR image-observation records intersecting the Nili Patera study window | `data/planetary/archive_discovery.json` | These are image observations, not stereo DTM products; asset links are not downloaded by discovery |
 
 
 ## Candidate discovery and agent evidence layer
