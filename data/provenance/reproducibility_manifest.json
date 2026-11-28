@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0",
   "project": "ANALOG-X",
-  "generated_at_utc": "2026-11-28T15:11:11+00:00",
-  "repository_commit_before_manifest_commit": "51f0159cedb998ce0dcb480000eb996fbf94a76b",
+  "generated_at_utc": "2026-11-28T15:28:05+00:00",
+  "repository_commit_before_manifest_commit": "eb4d082cececb2684c8c1e1bcfb742df3ac150a2",
   "working_tree_before_manifest_write": "clean",
   "generator": "scripts/build_reproducibility_manifest.py",
   "python_version": "3.11.18",
@@ -38,7 +38,7 @@
     ]
   },
   "file_count": 234,
-  "source_registry_sha256": "d41103eaceb5346492f4121dc6efb02a1862dd1db91b673d0402f0bce52dce0e",
+  "source_registry_sha256": "b830bd2984c662534fd477ea05555cb429ae4208cf5ad4cce1830725d256a4d4",
   "source_registry_records": [
     {
       "id": "copernicus_glo30_regional",
@@ -370,8 +370,10 @@
       ],
       "limitations": [
         "ODE catalogue results are metadata, not decoded scientific measurements.",
-        "The HiRISE DTM search is spatially bounded to the existing Nili Patera MOLA comparison AOI; a returned record does not prove binary download or processing.",
-        "Instrument/product-type combinations are read from the live ODE IIPT endpoint rather than guessed.",
+        "The known 1.01 m/pixel HiRISE DTM is returned in a separate adjacent Nili Patera discovery window; its embedded PDS label confirms that its bounding box does not intersect the original MOLA comparison AOI.",
+        "The HiRISE DTM's approximately 430 MB binary has not been downloaded, decoded or processed.",
+        "The Diviner ODE query returned no matching products in this run; this does not negate the separately processed Diviner PRP table summary already held by ANALOG-X.",
+        "Instrument/product-type combinations are read from the live ODE IIPT list rather than guessed.",
         "ODE counts may describe all matching products while the stored metadata sample is limited to 20 records per query."
       ]
     },
@@ -403,20 +405,18 @@
         "data/planetary/archive_discovery.json"
       ],
       "limitations": [
-        "The original MOLA comparison AOI ends at 67.2561430698\u00b0E; the DTM's published center at 67.33\u00b0E is east of that boundary.",
-        "The wider archive discovery box is not a new MOLA comparison AOI and does not prove that the DTM footprint intersects the original window.",
-        "ANALOG-X requests at most the first 256 KB of the DTM IMG to inspect its embedded PDS label. If the server ignores Range or the label is incomplete, footprint remains unresolved.",
-        "Only complete label latitude/longitude bounds are used to calculate a bbox intersection; center coordinates alone are not treated as footprint evidence.",
-        "The approximately 430 MB source .IMG raster has not been downloaded, decoded or processed by ANALOG-X.",
-        "This DTM supports terrain research only; it does not establish rover safety or route suitability."
+        "The original MOLA comparison AOI ends at 67.2561430698\u00b0E; the DTM's PDS-label western bound is 67.26487883\u00b0E, so the two bounding boxes do not intersect.",
+        "The wider archive discovery box includes the DTM so it can be catalogued as a separate adjacent dune-field reference; it is not a new MOLA comparison AOI.",
+        "The embedded label was inspected using a 256 KiB HTTP Range read; the approximately 430 MB source .IMG raster has not been downloaded, decoded or processed.",
+        "The label's bounding-box test does not establish rover safety, route suitability or scientific equivalence."
       ]
     }
   ],
   "records": [
     {
       "path": "README.md",
-      "size_bytes": 18296,
-      "sha256": "f3094ed2fa9f23d27de61cbd6b7c73b14c5d1e2c0f5522d908d655907a09586b",
+      "size_bytes": 18688,
+      "sha256": "ab10de049bb17f549dbb62a9e2b1cc75841043637832e9f9c4440512d5c94384",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -451,14 +451,14 @@
     },
     {
       "path": "transferability.html",
-      "size_bytes": 33669,
-      "sha256": "6fb5859c69d9b9bf86aae0bff7460951483fc6a92ae2281d2920482a624ec85c",
+      "size_bytes": 33772,
+      "sha256": "b924f298606c932b78aa4d9030ec73ab3d184181aaf9563e8d798ce75533c307",
       "evidence_class_hint": "method_or_documentation"
     },
     {
       "path": "service-worker.js",
       "size_bytes": 4962,
-      "sha256": "f1be8a179e4125770288be69b85feed69c70223b3282aac29cd6439b488012b9",
+      "sha256": "d7c0a6dd28e02d87865d593fa648a0fccbfe851b59519ba79165c66795675142",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -752,7 +752,7 @@
     {
       "path": "data/nasa/modis_browse_index.json",
       "size_bytes": 43836,
-      "sha256": "f2d30b667dabb2292a233fd0290f035843f70f6e8da39b173a5db79492188785",
+      "sha256": "9219b0a4723c798be6e0bf1312e41efdb97b31e9c4647a3949663f9623a4d6b3",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -883,14 +883,14 @@
     },
     {
       "path": "data/planetary/archive_discovery.json",
-      "size_bytes": 123013,
-      "sha256": "b6345a6362ce7cf6c30fd5e28bc22bfc6ae67437a0440598e4d4a1ca7ec4cbdc",
+      "size_bytes": 128739,
+      "sha256": "1c8fff9f78c7a6ea85d271b416a2b6b3ebfb113729213370f9a5f75593665e10",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
       "path": "data/planetary/pds_search.json",
       "size_bytes": 8140,
-      "sha256": "8381ba38ba6bb48e217a8324c6c07b361ef9bc907e1d93eb98b973d81a51a4ef",
+      "sha256": "3e651d9752b0facdb300e3ea345f33a260a7712538a3e2e6c58756293a493623",
       "evidence_class_hint": "metadata_only"
     },
     {
@@ -973,8 +973,8 @@
     },
     {
       "path": "data/source_registry.json",
-      "size_bytes": 24460,
-      "sha256": "d41103eaceb5346492f4121dc6efb02a1862dd1db91b673d0402f0bce52dce0e",
+      "size_bytes": 24715,
+      "sha256": "b830bd2984c662534fd477ea05555cb429ae4208cf5ad4cce1830725d256a4d4",
       "evidence_class_hint": "data_or_analysis_asset_requires_registry_context"
     },
     {
@@ -1058,7 +1058,7 @@
     {
       "path": "data/transferability/transferability.json",
       "size_bytes": 388993,
-      "sha256": "5770eb27b700c12fa4e812e517e8f4088e1bf4cfb08113bc9dd59852c2b3c511",
+      "sha256": "49648fca5a6e7f09368d8cbb138599381d26ced57945e18b57ecbee936d5d444",
       "evidence_class_hint": "processed_or_derived"
     },
     {
@@ -1249,8 +1249,8 @@
     },
     {
       "path": "scripts/fetch_planetary_archive_discovery.py",
-      "size_bytes": 25924,
-      "sha256": "6ee55e611d20331cc1bb6d2ca1c947f14baae4e0b439fb45200e0f5cf0d82243",
+      "size_bytes": 27414,
+      "sha256": "f7db3df4b20cc93e0241ca371ab107e3d7ec3e6f8b214e1e70f811bc705d86b6",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1327,8 +1327,8 @@
     },
     {
       "path": "scripts/validate_project.mjs",
-      "size_bytes": 25824,
-      "sha256": "5ccbb10e54519ffc5c9b0912dfcc3d0e36ad3b8f4ec29c82d68ed93636bd38d0",
+      "size_bytes": 27586,
+      "sha256": "234173e4ce273d65d507a1cc26614e99eb21447bf1f6a1275c0a96ec32bed5ce",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1411,8 +1411,8 @@
     },
     {
       "path": "docs/DATA_SOURCES.md",
-      "size_bytes": 20982,
-      "sha256": "f50ef0bd4ea02e4a1dfbfdc6a043d1415536da7805da1fd78bcdf5e868d2ccde",
+      "size_bytes": 21158,
+      "sha256": "ef6f346165d67ba98b8128841d0f1800c6d53a9e1c04ce17eaccf2eb1bf36172",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1447,8 +1447,8 @@
     },
     {
       "path": "docs/LIMITATIONS.md",
-      "size_bytes": 3458,
-      "sha256": "05a758f46930c6df0ffba2ed5ffe91a5b6632ae782101e6efbcc211abfdc5ea7",
+      "size_bytes": 4668,
+      "sha256": "8750cd8f609256e59513541aeb6bc0dae845fa7603ffaba3da3f39599df4c9f7",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1477,8 +1477,8 @@
     },
     {
       "path": "docs/OPERATIONAL_READINESS_AND_VALIDATION.md",
-      "size_bytes": 16069,
-      "sha256": "cd0cde55d0d0aba2b2161db2c11b3c080bd6378c05e095cd7fe3a2746e31527e",
+      "size_bytes": 16313,
+      "sha256": "589ac592d8dd00804e8c71c024a6cc722ff07dc79a6dafb1f472222a7e700581",
       "evidence_class_hint": "method_or_documentation"
     },
     {
@@ -1705,8 +1705,8 @@
     },
     {
       "path": "tests/test_planetary_archive_discovery.py",
-      "size_bytes": 10079,
-      "sha256": "47862d941dddeca1fd9954ee421be75d8bf18c2bc81a6550c5da09af0f697dac",
+      "size_bytes": 12376,
+      "sha256": "5a252110e5144421925ea499a89d71bd34a46ac1a48b38be6f791ce78237adaa",
       "evidence_class_hint": "method_or_documentation"
     },
     {
