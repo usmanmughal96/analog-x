@@ -2,6 +2,8 @@ import unittest
 
 from scripts.fetch_planetary_archive_discovery import (
     NILI,
+    NILI_HIRISE_DTM_DISCOVERY_BBOX,
+    KNOWN_NILI_HIRISE_DTM,
     ODE_TARGETS,
     _clean_iipt,
     _clean_product,
@@ -21,6 +23,24 @@ class PlanetaryArchiveDiscoveryTests(unittest.TestCase):
         self.assertAlmostEqual(south, 8.6469409271, places=6)
         self.assertAlmostEqual(east, 67.2561430698, places=6)
         self.assertAlmostEqual(north, 9.1530590729, places=6)
+
+    def test_nili_hirise_dtm_discovery_window_includes_published_center_without_changing_core_aoi(self):
+        west, south, east, north = NILI_HIRISE_DTM_DISCOVERY_BBOX
+        self.assertEqual(NILI["bbox_wsen"][2], 67.2561430698)
+        self.assertGreater(east, 67.33)
+        self.assertEqual([west, south, north], [
+            NILI["bbox_wsen"][0], NILI["bbox_wsen"][1], NILI["bbox_wsen"][3]
+        ])
+        self.assertAlmostEqual(KNOWN_NILI_HIRISE_DTM["center_latitude_deg"], 8.781, places=3)
+        self.assertAlmostEqual(KNOWN_NILI_HIRISE_DTM["center_longitude_east_deg"], 67.33, places=2)
+        self.assertEqual(KNOWN_NILI_HIRISE_DTM["id"], "DTEEC_017762_1890_018039_1890_A01")
+        self.assertEqual(KNOWN_NILI_HIRISE_DTM["stereo_pair"], ["ESP_017762_1890", "ESP_018039_1890"])
+        self.assertEqual(KNOWN_NILI_HIRISE_DTM["core_mola_aoi_footprint_intersection"], "not_yet_verified_from_product_label")
+
+    def test_hirise_dtm_query_uses_expanded_bbox_only_for_that_dataset(self):
+        by_id = {row["id"]: row for row in ODE_TARGETS}
+        self.assertEqual(by_id["mars_hirise_dtm_nili"]["spatial_bbox"], NILI_HIRISE_DTM_DISCOVERY_BBOX)
+        self.assertNotIn("spatial_bbox", by_id["mars_mola_megdr_nili"])
 
     def test_archive_searches_are_exact_known_datasets(self):
         by_id = {row["id"]: row for row in ODE_TARGETS}
