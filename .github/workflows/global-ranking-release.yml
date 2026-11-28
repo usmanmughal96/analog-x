@@ -81,6 +81,7 @@ jobs:
           python scripts/validate_evidence_inventory.py
           python -m unittest tests.test_validation_release
           python -m unittest tests.test_analog_label_validation
+          python -m unittest tests.test_independent_review_importer
           python -m unittest tests.test_research_phase_pack
       - name: Generate manifest, then quantitative report
         run: |
