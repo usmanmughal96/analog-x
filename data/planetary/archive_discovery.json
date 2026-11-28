@@ -1,0 +1,3746 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "2026-11-28T14:54:28+00:00",
+  "purpose": "Fallback archive discovery for planetary products when the federated PDS Search API is unavailable.",
+  "coverage": "Targeted metadata discovery for Nili Patera HiRISE DTM, regional MOLA MEGDR, lunar LOLA GDR, Diviner PRP and Nili-area HiRISE RDR observations.",
+  "nili_patera_aoi": {
+    "name": "Nili Patera / Syrtis Major",
+    "latitude_deg": 8.9,
+    "longitude_east_deg": 67.0,
+    "bbox_wsen": [
+      66.7438569302,
+      8.6469409271,
+      67.2561430698,
+      9.1530590729
+    ],
+    "bbox_note": "The existing approximately 30 km MOLA comparison window; discovery AOI only, not a surveyed route."
+  },
+  "ode": {
+    "provider": "PDS Geosciences Node Orbital Data Explorer (ODE)",
+    "api": "https://oderest.rsl.wustl.edu/live2/",
+    "manual": "https://oderest.rsl.wustl.edu/ODE_REST_V2.1.6.pdf",
+    "queries": [
+      {
+        "id": "mars_hirise_dtm_nili",
+        "provider": "PDS Geosciences Node Orbital Data Explorer (ODE) REST API",
+        "target": "mars",
+        "instrument_host_id": "mro",
+        "dataset_id": "MRO-M-HIRISE-5-DTM-V1.0",
+        "purpose": "Find stereo-derived HiRISE DTMs intersecting the Nili Patera comparison window.",
+        "status": "no_products_in_aoi",
+        "iipt_query_url": "https://oderest.rsl.wustl.edu/live2/?query=iipt&odemetadb=mars&output=JSON",
+        "query_url": "https://oderest.rsl.wustl.edu/live2/?query=product&target=mars&ihid=MRO&iid=HIRISE&pt=DTM&dsid=MRO-M-HIRISE-5-DTM-V1.0&results=opm&output=JSON&limit=20&order=obd&westernlon=66.7438569302&easternlon=67.2561430698&minlat=8.6469409271&maxlat=9.1530590729&loc=b",
+        "iipt_sets": [
+          {
+            "ODEMetaDB": "Mars",
+            "IHID": "MRO",
+            "IID": "HIRISE",
+            "IName": "High-Resolution Imaging Science Experiment",
+            "PT": "DTM",
+            "PTName": "PDS3 Digital Terrain Model",
+            "DataSetId": "MRO-M-HIRISE-5-DTM-V1.0",
+            "NumberProducts": "1370",
+            "ValidFootprints": "T"
+          }
+        ],
+        "product_count": 0,
+        "products_returned": 0,
+        "products": [],
+        "spatial_filter": [
+          66.7438569302,
+          8.6469409271,
+          67.2561430698,
+          9.1530590729
+        ],
+        "metadata_note": "ODE metadata only. Product files have not been downloaded, decoded or validated by this discovery step."
+      },
+      {
+        "id": "mars_mola_megdr_nili",
+        "provider": "PDS Geosciences Node Orbital Data Explorer (ODE) REST API",
+        "target": "mars",
+        "instrument_host_id": "mgs",
+        "dataset_id": "MGS-M-MOLA-5-MEGDR-L3-V1.0",
+        "purpose": "Discover the MOLA MEGDR topography archive products corresponding to the regional Mars reference.",
+        "status": "no_matching_iipt_set",
+        "iipt_query_url": "https://oderest.rsl.wustl.edu/live2/?query=iipt&odemetadb=mars&output=JSON",
+        "query_url": null,
+        "iipt_sets": [],
+        "product_count": null,
+        "products_returned": 0,
+        "products": [],
+        "spatial_filter": null,
+        "iipt_sets_for_instrument": [
+          {
+            "ODEMetaDB": "Mars",
+            "IHID": "MGS",
+            "IID": "MOLA",
+            "IName": "Mars Orbiter Laser Altimeter",
+            "PT": "MEGDR",
+            "PTName": "PDS4 Mission Experiment Gridded Data Record",
+            "DataSetId": "mgs_mola_topography_derived-data_meg004",
+            "NumberProducts": "89",
+            "MinObservationTime": "1997-09-15T19:10:00.000Z",
+            "MaxObservationTime": "2001-06-30T11:10:40.000Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Mars",
+            "IHID": "MGS",
+            "IID": "MOLA",
+            "IName": "Mars Orbiter Laser Altimeter",
+            "PT": "MEGDR",
+            "PTName": "PDS4 Mission Experiment Gridded Data Record",
+            "DataSetId": "mgs_mola_topography_derived-data_meg016",
+            "NumberProducts": "89",
+            "MinObservationTime": "1997-09-15T19:10:00.000Z",
+            "MaxObservationTime": "2001-06-30T11:10:40.000Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Mars",
+            "IHID": "MGS",
+            "IID": "MOLA",
+            "IName": "Mars Orbiter Laser Altimeter",
+            "PT": "MEGDR",
+            "PTName": "PDS4 Mission Experiment Gridded Data Record",
+            "DataSetId": "mgs_mola_topography_derived-data_meg032",
+            "NumberProducts": "89",
+            "MinObservationTime": "1997-09-15T19:10:00.000Z",
+            "MaxObservationTime": "2001-06-30T11:10:40.000Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Mars",
+            "IHID": "MGS",
+            "IID": "MOLA",
+            "IName": "Mars Orbiter Laser Altimeter",
+            "PT": "MEGDR",
+            "PTName": "PDS4 Mission Experiment Gridded Data Record",
+            "DataSetId": "mgs_mola_topography_derived-data_meg064",
+            "NumberProducts": "89",
+            "MinObservationTime": "1997-09-15T19:10:00.000Z",
+            "MaxObservationTime": "2001-06-30T11:10:40.000Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Mars",
+            "IHID": "MGS",
+            "IID": "MOLA",
+            "IName": "Mars Orbiter Laser Altimeter",
+            "PT": "MEGDR",
+            "PTName": "PDS4 Mission Experiment Gridded Data Record",
+            "DataSetId": "mgs_mola_topography_derived-data_meg128",
+            "NumberProducts": "89",
+            "MinObservationTime": "1997-09-15T19:10:00.000Z",
+            "MaxObservationTime": "2001-06-30T11:10:40.000Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Mars",
+            "IHID": "MGS",
+            "IID": "MOLA",
+            "IName": "Mars Orbiter Laser Altimeter",
+            "PT": "MEGDR",
+            "PTName": "PDS4 Mission Experiment Gridded Data Record",
+            "DataSetId": "mgs_mola_topography_derived-data_megdr_polar",
+            "NumberProducts": "89",
+            "MinObservationTime": "1997-09-15T19:10:00.000Z",
+            "MaxObservationTime": "2001-06-30T11:10:40.000Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Mars",
+            "IHID": "MGS",
+            "IID": "MOLA",
+            "IName": "Mars Orbiter Laser Altimeter",
+            "PT": "PEDR",
+            "PTName": "PDS3 Precision Experiment Data  Rec. (See Tools: MOLA PEDR Query Tool)",
+            "DataSetId": "MGS-M-MOLA-3-PEDR-L1A-V1.0",
+            "NumberProducts": "771",
+            "MinObservationTime": "1999-02-28T00:00:00.000",
+            "MaxObservationTime": "2001-06-30T23:59:59.999",
+            "ValidFootprints": "F"
+          },
+          {
+            "ODEMetaDB": "Mars",
+            "IHID": "MGS",
+            "IID": "MOLA",
+            "IName": "Mars Orbiter Laser Altimeter",
+            "PT": "PRDR",
+            "PTName": "PDS3 Precision Radiometry Data Record",
+            "DataSetId": "MGS-M-MOLA-3-PRDR-L1A-V1.0",
+            "NumberProducts": "2546",
+            "MinObservationTime": "1999-02-28T13:47:19.000",
+            "MaxObservationTime": "2006-11-02T23:24:19.000",
+            "ValidFootprints": "F"
+          },
+          {
+            "ODEMetaDB": "Mars",
+            "IHID": "MGS",
+            "IID": "MOLA",
+            "IName": "Mars Orbiter Laser Altimeter",
+            "PT": "SHADR",
+            "PTName": "PDS4 Spherical Harmonic Aggregated Data Record",
+            "DataSetId": "mgs_mola_topography_derived-data_shadr",
+            "NumberProducts": "1",
+            "MinObservationTime": "1997-09-15T19:10:00.000Z",
+            "MaxObservationTime": "1999-12-31T23:59:59.000Z",
+            "ValidFootprints": "F"
+          },
+          {
+            "ODEMetaDB": "Mars",
+            "IHID": "MGS",
+            "IID": "MOLA",
+            "IName": "Mars Orbiter Laser Altimeter",
+            "PT": "TOPONAT",
+            "PTName": "PDS4 Native Topography Swath Pair with MARSIS Observations",
+            "DataSetId": "mex_marsis_optim_topography_data",
+            "NumberProducts": "8811",
+            "MinObservationTime": "1997-09-15T19:10:00.000Z",
+            "MaxObservationTime": "2001-06-30T11:10:40.000Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Mars",
+            "IHID": "MGS",
+            "IID": "MOLA",
+            "IName": "Mars Orbiter Laser Altimeter",
+            "PT": "TOPORES",
+            "PTName": "PDS4 Resampled Topography Swath Pair with MARSIS Observations",
+            "DataSetId": "mex_marsis_optim_topography_data",
+            "NumberProducts": "8811",
+            "MinObservationTime": "1997-09-15T19:10:00.000Z",
+            "MaxObservationTime": "2001-06-30T11:10:40.000Z",
+            "ValidFootprints": "T"
+          }
+        ]
+      },
+      {
+        "id": "moon_lola_reference",
+        "provider": "PDS Geosciences Node Orbital Data Explorer (ODE) REST API",
+        "target": "moon",
+        "instrument_host_id": "lro",
+        "dataset_id": "LRO-L-LOLA-5-GDR-V1.0",
+        "purpose": "Discover LRO LOLA gridded reference products and archive metadata.",
+        "status": "no_matching_iipt_set",
+        "iipt_query_url": "https://oderest.rsl.wustl.edu/live2/?query=iipt&odemetadb=moon&output=JSON",
+        "query_url": null,
+        "iipt_sets": [],
+        "product_count": null,
+        "products_returned": 0,
+        "products": [],
+        "spatial_filter": null,
+        "iipt_sets_for_instrument": [
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "EDR",
+            "PTName": "PDS4 Experiment Data Record",
+            "DataSetId": "lro_lola_edr",
+            "NumberProducts": "75812",
+            "MinObservationTime": "2009-06-18T11:00:24Z",
+            "MaxObservationTime": "2026-06-13T07:54:42Z",
+            "ValidFootprints": "F"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "GDRDAC",
+            "PTName": "PDS4 Gridded Data Record Albedo Counts",
+            "DataSetId": "lro_lola_rdr-data_gridded",
+            "NumberProducts": "7",
+            "MinObservationTime": "2009-09-15T21:52:46Z",
+            "MaxObservationTime": "2010-09-16T19:15:57Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "GDRDAM",
+            "PTName": "PDS4 Gridded Data Record Albedo Map",
+            "DataSetId": "lro_lola_rdr-data_gridded",
+            "NumberProducts": "7",
+            "MinObservationTime": "2009-09-15T21:52:46Z",
+            "MaxObservationTime": "2010-09-16T19:15:57Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "GDRDEC",
+            "PTName": "PDS4 Gridded Data Record of Digital Elevation Counts",
+            "DataSetId": "lro_lola_rdr-data_gridded",
+            "NumberProducts": "206",
+            "MinObservationTime": "2009-07-13T17:33:17.246Z",
+            "MaxObservationTime": "2017-02-02T22:18:35Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "GDRDEM",
+            "PTName": "PDS4 Gridded Data Record Shape Map",
+            "DataSetId": "lro_lola_rdr-data_gridded",
+            "NumberProducts": "270",
+            "MinObservationTime": "2009-07-13T17:33:17.246Z",
+            "MaxObservationTime": "2017-02-02T22:18:35Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "GDRDGM",
+            "PTName": "PDS3 Gridded Data Record Geoid",
+            "DataSetId": "LRO-L-LOLA-4-GDR-V1.0",
+            "NumberProducts": "6",
+            "MinObservationTime": "2009-07-13T17:33:17.246",
+            "MaxObservationTime": "2011-01-31T21:33:47.068",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "GDRDRC",
+            "PTName": "PDS4 Gridded Data Record Roughness Counts",
+            "DataSetId": "lro_lola_rdr-data_gridded",
+            "NumberProducts": "3",
+            "MinObservationTime": "2009-07-13T11:54:00Z",
+            "MaxObservationTime": "2014-05-01T14:59:00Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "GDRDRM",
+            "PTName": "PDS4 Gridded Data Record Roughness Map",
+            "DataSetId": "lro_lola_rdr-data_gridded",
+            "NumberProducts": "21",
+            "MinObservationTime": "2009-07-13T11:54:00Z",
+            "MaxObservationTime": "2014-05-01T14:59:00Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "GDRDSM",
+            "PTName": "PDS4 Gridded Data Record Slope Map",
+            "DataSetId": "lro_lola_rdr-data_gridded",
+            "NumberProducts": "7",
+            "MinObservationTime": "2009-07-13T17:33:17.246Z",
+            "MaxObservationTime": "2011-12-11T13:33:12.807Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "GDRPSR",
+            "PTName": "PDS3 Gridded Data Record Permanently Shadowed Map",
+            "DataSetId": "LRO-L-LOLA-4-GDR-V1.0",
+            "NumberProducts": "28",
+            "MinObservationTime": "2009-07-13T17:33:17.246",
+            "MaxObservationTime": "2013-07-18T14:12:13.000",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "GDRSKY",
+            "PTName": "PDS3 Gridded Data Record Sky Visibility",
+            "DataSetId": "LRO-L-LOLA-4-GDR-V1.0",
+            "NumberProducts": "12",
+            "MinObservationTime": "2009-07-13T17:33:17.246",
+            "MaxObservationTime": "2013-07-18T14:12:13.000",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "GDRVIS",
+            "PTName": "PDS3 Gridded Data Record of the Average Visibility of the Sun",
+            "DataSetId": "LRO-L-LOLA-4-GDR-V1.0",
+            "NumberProducts": "48",
+            "MinObservationTime": "2009-07-13T17:33:17.246",
+            "MaxObservationTime": "2013-07-18T14:12:13.000",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "RADR",
+            "PTName": "PDS4 Radiometric Data Record",
+            "DataSetId": "lro_lola_rdr-data_radr",
+            "NumberProducts": "4162",
+            "MinObservationTime": "2009-09-15T23:45:56.298Z",
+            "MaxObservationTime": "2010-09-16T15:29:15.248Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "RDR4",
+            "PTName": "PDS4 Reduced Data  Record (See Tools: LOLA RDR Query Tool)",
+            "DataSetId": "lro_lola_rdr-data_calibrated",
+            "NumberProducts": "75626",
+            "MinObservationTime": "2009-07-13T01:57:37.884Z",
+            "MaxObservationTime": "2026-06-13T07:54:44.219Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "RMHE",
+            "PTName": "PDS3 Roughness Map Extra - Hurst Exponents",
+            "DataSetId": "LRO-L-LOLA-4-GDR-V1.0",
+            "NumberProducts": "2",
+            "MinObservationTime": "2009-07-13T17:33:17.246",
+            "MaxObservationTime": "2010-09-14T16:22:33.236",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "RMMAS",
+            "PTName": "PDS3 Roughness Map Extra - Median Absolute Slope",
+            "DataSetId": "LRO-L-LOLA-16-GDR-V1.0",
+            "NumberProducts": "6",
+            "MinObservationTime": "2009-07-13T17:33:17.246",
+            "MaxObservationTime": "2010-09-14T16:22:33.236",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "SHA",
+            "PTName": "PDS4 Spherical Harmonic Data Records",
+            "DataSetId": "lro_lola_rdr-data_shadr",
+            "NumberProducts": "7",
+            "ValidFootprints": "F"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "LOLA",
+            "IName": "Lunar Orbiter Laser Altimeter",
+            "PT": "SLDEM",
+            "PTName": "PDS4 Digital Elevation Model Coregistered with SELENE Data",
+            "DataSetId": "lro_lola_rdr-data_gridded",
+            "NumberProducts": "40",
+            "MinObservationTime": "2009-07-13T17:33:17Z",
+            "MaxObservationTime": "2013-07-18T00:10:56Z",
+            "ValidFootprints": "T"
+          }
+        ]
+      },
+      {
+        "id": "moon_diviner_prp",
+        "provider": "PDS Geosciences Node Orbital Data Explorer (ODE) REST API",
+        "target": "moon",
+        "instrument_host_id": "lro",
+        "dataset_id": "LRO-L-DLRE-5-PRP-V2.0",
+        "purpose": "Discover LRO Diviner Polar Resource Product metadata already used in the Shackleton thermal summary.",
+        "status": "no_matching_iipt_set",
+        "iipt_query_url": "https://oderest.rsl.wustl.edu/live2/?query=iipt&odemetadb=moon&output=JSON",
+        "query_url": null,
+        "iipt_sets": [],
+        "product_count": null,
+        "products_returned": 0,
+        "products": [],
+        "spatial_filter": null,
+        "iipt_sets_for_instrument": [
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "DLRE",
+            "IName": "DIVINER Lunar Radiometer Experiment",
+            "PT": "EDR4",
+            "PTName": "PDS4 Experiment Data Record",
+            "DataSetId": "lro_diviner_raw",
+            "NumberProducts": "147964",
+            "MinObservationTime": "2009-07-05T16:50:26.259Z",
+            "MaxObservationTime": "2026-06-16T00:00:00.165Z",
+            "ValidFootprints": "F"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "DLRE",
+            "IName": "DIVINER Lunar Radiometer Experiment",
+            "PT": "EPF",
+            "PTName": "PDS4 Emission Phase Function (EPF) Products",
+            "DataSetId": "lro_diviner_derived2_epf",
+            "NumberProducts": "51",
+            "MinObservationTime": "2015-10-23Z",
+            "MaxObservationTime": "2024-02-26Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "DLRE",
+            "IName": "DIVINER Lunar Radiometer Experiment",
+            "PT": "GCP",
+            "PTName": "PDS4 Global Cumulative Products",
+            "DataSetId": "lro_diviner_derived_gcp",
+            "NumberProducts": "18",
+            "MinObservationTime": "2009-07-05T16:50:26.195Z",
+            "MaxObservationTime": "2015-04-01T00:00:00.000Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "DLRE",
+            "IName": "DIVINER Lunar Radiometer Experiment",
+            "PT": "GDR_L2",
+            "PTName": "PDS4 Gridded Data Record Level 2",
+            "DataSetId": "lro_diviner_derived_gdr_l2",
+            "NumberProducts": "42630",
+            "MinObservationTime": "2009-07-05T00:00:00.000Z",
+            "MaxObservationTime": "2016-10-23T21:00:00.000Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "DLRE",
+            "IName": "DIVINER Lunar Radiometer Experiment",
+            "PT": "GDR_L3",
+            "PTName": "PDS4 Gridded Data Record Level 3",
+            "DataSetId": "lro_diviner_derived_gdr_l3",
+            "NumberProducts": "1827",
+            "MinObservationTime": "2009-07-05T00:00:00.000Z",
+            "MaxObservationTime": "2016-10-23T21:00:00.000Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "DLRE",
+            "IName": "DIVINER Lunar Radiometer Experiment",
+            "PT": "GHRM",
+            "PTName": "PDS4 Global High-Resolution Mosaic",
+            "DataSetId": "lro_diviner_derived_ghrm",
+            "NumberProducts": "15",
+            "MinObservationTime": "2009-07-05T16:50:26.195Z",
+            "MaxObservationTime": "2022-08-01T00:00:00.000Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "DLRE",
+            "IName": "DIVINER Lunar Radiometer Experiment",
+            "PT": "PCP",
+            "PTName": "PDS4 Polar Cumulative Products",
+            "DataSetId": "lro_diviner_derived_pcp",
+            "NumberProducts": "912",
+            "MinObservationTime": "2009-07-05T16:50:26.195Z",
+            "MaxObservationTime": "2020-03-15T00:00:00.000Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "DLRE",
+            "IName": "DIVINER Lunar Radiometer Experiment",
+            "PT": "PRP",
+            "PTName": "PDS4 Polar Resource Products",
+            "DataSetId": "lro_diviner_derived_prp",
+            "NumberProducts": "2",
+            "ValidFootprints": "F"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "DLRE",
+            "IName": "DIVINER Lunar Radiometer Experiment",
+            "PT": "RCP",
+            "PTName": "PDS4 Regional Cumulative Products",
+            "DataSetId": "lro_diviner_derived_rcp",
+            "NumberProducts": "63",
+            "MinObservationTime": "2009-07-05T16:50:26.195Z",
+            "MaxObservationTime": "2021-03-01T00:00:00.000Z",
+            "ValidFootprints": "T"
+          },
+          {
+            "ODEMetaDB": "Moon",
+            "IHID": "LRO",
+            "IID": "DLRE",
+            "IName": "DIVINER Lunar Radiometer Experiment",
+            "PT": "RDR4",
+            "PTName": "PDS4 Reduced Data Record (See Tools: DIVINER RDR Query Tool)",
+            "DataSetId": "lro_diviner_calibrated",
+            "NumberProducts": "887202",
+            "MinObservationTime": "2009-07-05T16:50:26.195Z",
+            "MaxObservationTime": "2026-06-15T23:59:59.973Z",
+            "ValidFootprints": "T"
+          }
+        ]
+      }
+    ],
+    "limitations": [
+      "ODE product records are metadata; they are not processed science rasters.",
+      "Product types are taken from the live ODE IIPT list; a missing IIPT set is recorded, not guessed.",
+      "The HiRISE DTM query is spatially bounded to the existing Nili Patera MOLA comparison AOI.",
+      "ODE query counts may refer to the full matching product set even when the metadata sample is limited to 20 records."
+    ]
+  },
+  "usgs_astrogeology_stac": {
+    "id": "usgs_hirise_rdr_nili",
+    "provider": "USGS Astrogeology Analysis Ready Data STAC API",
+    "collection": "mro_hirise_uncontrolled_observations",
+    "target": "Mars",
+    "purpose": "Find HiRISE image observations intersecting Nili Patera; imagery metadata is not a terrain DTM.",
+    "status": "items_returned",
+    "query_url": "https://stac.astrogeology.usgs.gov/api/search?collections=mro_hirise_uncontrolled_observations&bbox=66.7438569302%2C8.6469409271%2C67.2561430698%2C9.1530590729&limit=20",
+    "matched": 58,
+    "items_returned": 20,
+    "items": [
+      {
+        "id": "ESP_086189_1895_RED",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2024-12-15T04:42:14.986000Z",
+        "start_datetime": "2024-12-15T04:42:14.986000Z",
+        "end_datetime": "2024-12-15T04:42:18.477000Z",
+        "gsd": 0.5004718035485398,
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              [
+                [
+                  66.93238971550433,
+                  9.311052667127996
+                ],
+                [
+                  66.93226306657373,
+                  9.311086440176155
+                ],
+                [
+                  66.92302613790164,
+                  9.309904383490515
+                ],
+                [
+                  66.92296703506736,
+                  9.309938156538676
+                ],
+                [
+                  66.90411323093137,
+                  9.307607816215555
+                ],
+                [
+                  66.90576811029128,
+                  9.295069572085715
+                ],
+                [
+                  66.9091454151074,
+                  9.268532399493067
+                ],
+                [
+                  66.91128156040358,
+                  9.25265062359527
+                ],
+                [
+                  66.91862719837866,
+                  9.1941134878699
+                ],
+                [
+                  66.92067891105444,
+                  9.178333031116589
+                ],
+                [
+                  66.92262086132371,
+                  9.162561017625313
+                ],
+                [
+                  66.92470634704766,
+                  9.146341511245907
+                ],
+                [
+                  66.92734064480423,
+                  9.124828079567234
+                ],
+                [
+                  66.94580605888636,
+                  9.127116203580153
+                ],
+                [
+                  66.94597492412717,
+                  9.127099317056073
+                ],
+                [
+                  66.95516963648905,
+                  9.128281373741713
+                ],
+                [
+                  66.95526251237149,
+                  9.128239157431512
+                ],
+                [
+                  66.96465986302233,
+                  9.129454987165317
+                ],
+                [
+                  66.96239706879554,
+                  9.14813992606049
+                ],
+                [
+                  66.96033691285771,
+                  9.164274999819495
+                ],
+                [
+                  66.95837807606436,
+                  9.180283424647897
+                ],
+                [
+                  66.95632636338857,
+                  9.196156757283651
+                ],
+                [
+                  66.94902294172371,
+                  9.254752995843305
+                ],
+                [
+                  66.94690368295159,
+                  9.27061788521702
+                ],
+                [
+                  66.94215856968495,
+                  9.307894887124924
+                ],
+                [
+                  66.94158442786622,
+                  9.312226280551595
+                ],
+                [
+                  66.93238971550433,
+                  9.311052667127996
+                ]
+              ],
+              [
+                [
+                  66.92946834683839,
+                  9.287048473147435
+                ],
+                [
+                  66.92952744967268,
+                  9.28692182421683
+                ],
+                [
+                  66.92943457379023,
+                  9.286862721382548
+                ],
+                [
+                  66.92946834683839,
+                  9.287048473147435
+                ]
+              ],
+              [
+                [
+                  66.9357332472723,
+                  9.268295988155938
+                ],
+                [
+                  66.93578390684452,
+                  9.268194669011454
+                ],
+                [
+                  66.93568258770004,
+                  9.268135566177172
+                ],
+                [
+                  66.9357332472723,
+                  9.268295988155938
+                ]
+              ],
+              [
+                [
+                  66.94313798808162,
+                  9.24780419118414
+                ],
+                [
+                  66.94313798808162,
+                  9.247711315301698
+                ],
+                [
+                  66.9430704419853,
+                  9.247652212467415
+                ],
+                [
+                  66.94313798808162,
+                  9.24780419118414
+                ]
+              ],
+              [
+                [
+                  66.91527522334866,
+                  9.245836911128752
+                ],
+                [
+                  66.91529210987272,
+                  9.245760921770387
+                ],
+                [
+                  66.91524989356253,
+                  9.24577780829447
+                ],
+                [
+                  66.91527522334866,
+                  9.245836911128752
+                ]
+              ],
+              [
+                [
+                  66.9284635986556,
+                  9.236557766146467
+                ],
+                [
+                  66.9284635986556,
+                  9.236456447001983
+                ],
+                [
+                  66.92841293908336,
+                  9.236431117215862
+                ],
+                [
+                  66.9284635986556,
+                  9.236557766146467
+                ]
+              ],
+              [
+                [
+                  66.92751795330709,
+                  9.235696553418355
+                ],
+                [
+                  66.92745040721076,
+                  9.23554457470163
+                ],
+                [
+                  66.92743352068668,
+                  9.235603677535911
+                ],
+                [
+                  66.92751795330709,
+                  9.235696553418355
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  66.89493540509358,
+                  9.306518635412356
+                ],
+                [
+                  66.86671802335492,
+                  9.303183546906439
+                ],
+                [
+                  66.86663359073451,
+                  9.303132887334197
+                ],
+                [
+                  66.85735444575222,
+                  9.30209436610324
+                ],
+                [
+                  66.85935549885578,
+                  9.287107575981716
+                ],
+                [
+                  66.86275813345802,
+                  9.260570403389066
+                ],
+                [
+                  66.86492805180237,
+                  9.244553535298627
+                ],
+                [
+                  66.8723327926117,
+                  9.185965740001013
+                ],
+                [
+                  66.87440139181157,
+                  9.1701852832477
+                ],
+                [
+                  66.87619980662616,
+                  9.155705088848594
+                ],
+                [
+                  66.87846260085296,
+                  9.13818532011498
+                ],
+                [
+                  66.88078449791404,
+                  9.11931462945492
+                ],
+                [
+                  66.89021562161305,
+                  9.120361593947917
+                ],
+                [
+                  66.89032538401958,
+                  9.1204206967822
+                ],
+                [
+                  66.91823036506275,
+                  9.123730455501994
+                ],
+                [
+                  66.91558762404415,
+                  9.14524388718067
+                ],
+                [
+                  66.91353591136836,
+                  9.161167879388668
+                ],
+                [
+                  66.91156863131296,
+                  9.177125644644825
+                ],
+                [
+                  66.90950003211309,
+                  9.19300742054262
+                ],
+                [
+                  66.90233170264086,
+                  9.25005009888686
+                ],
+                [
+                  66.89999291905572,
+                  9.26751920804823
+                ],
+                [
+                  66.89660717097756,
+                  9.29407326716496
+                ],
+                [
+                  66.89493540509358,
+                  9.306518635412356
+                ]
+              ],
+              [
+                [
+                  66.88596866080678,
+                  9.259886499163803
+                ],
+                [
+                  66.88598554733086,
+                  9.2598020665434
+                ],
+                [
+                  66.88594333102066,
+                  9.25981050980544
+                ],
+                [
+                  66.88596866080678,
+                  9.259886499163803
+                ]
+              ],
+              [
+                [
+                  66.88311483823716,
+                  9.250539808085195
+                ],
+                [
+                  66.8832077141196,
+                  9.250531364823154
+                ],
+                [
+                  66.88319927085756,
+                  9.250489148512953
+                ],
+                [
+                  66.88311483823716,
+                  9.250539808085195
+                ]
+              ],
+              [
+                [
+                  66.88975124220083,
+                  9.24582846786671
+                ],
+                [
+                  66.88975124220083,
+                  9.245744035246307
+                ],
+                [
+                  66.88980190177308,
+                  9.24576936503243
+                ],
+                [
+                  66.88969213936656,
+                  9.245659602625905
+                ],
+                [
+                  66.88975124220083,
+                  9.24582846786671
+                ]
+              ],
+              [
+                [
+                  66.88970902589064,
+                  9.245608943053663
+                ],
+                [
+                  66.88976812872492,
+                  9.24545696433694
+                ],
+                [
+                  66.88971746915269,
+                  9.245482294123057
+                ],
+                [
+                  66.88970902589064,
+                  9.245608943053663
+                ]
+              ],
+              [
+                [
+                  66.8896414797943,
+                  9.244857492732077
+                ],
+                [
+                  66.88968369610451,
+                  9.244739287063513
+                ],
+                [
+                  66.88972591241472,
+                  9.244832162945954
+                ],
+                [
+                  66.88969213936656,
+                  9.244654854443109
+                ],
+                [
+                  66.8896414797943,
+                  9.244857492732077
+                ]
+              ],
+              [
+                [
+                  66.87585363288251,
+                  9.238567262512056
+                ],
+                [
+                  66.87594650876495,
+                  9.238525046201856
+                ],
+                [
+                  66.87587051940658,
+                  9.238516602939814
+                ],
+                [
+                  66.87585363288251,
+                  9.238567262512056
+                ]
+              ],
+              [
+                [
+                  66.88448264668769,
+                  9.23380526272133
+                ],
+                [
+                  66.88449953321178,
+                  9.233737716625008
+                ],
+                [
+                  66.8844404303775,
+                  9.233763046411129
+                ],
+                [
+                  66.88448264668769,
+                  9.23380526272133
+                ]
+              ],
+              [
+                [
+                  66.871556012504,
+                  9.207783129113137
+                ],
+                [
+                  66.87159822881421,
+                  9.207715583016816
+                ],
+                [
+                  66.87153068271788,
+                  9.207740912802937
+                ],
+                [
+                  66.871556012504,
+                  9.207783129113137
+                ]
+              ],
+              [
+                [
+                  66.89271482717697,
+                  9.197760977071308
+                ],
+                [
+                  66.89276548674921,
+                  9.197668101188865
+                ],
+                [
+                  66.89273171370107,
+                  9.197710317499066
+                ],
+                [
+                  66.89269794065291,
+                  9.197676544450905
+                ],
+                [
+                  66.89271482717697,
+                  9.197760977071308
+                ]
+              ]
+            ]
+          ]
+        },
+        "assets": {
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_086189_1895_RED/ESP_086189_1895_RED.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_086189_1895_RED Thumbnail"
+          },
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_086189_1895_RED/ESP_086189_1895_RED.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_086189_1895_RED"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_086189_1895_RED/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_086189_1895_RED/ESP_086189_1895_RED.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_086189_1895_COLOR",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2024-12-15T04:42:14.882000Z",
+        "start_datetime": "2024-12-15T04:42:14.882000Z",
+        "end_datetime": "2024-12-15T04:42:18.525000Z",
+        "gsd": 0.5000812878656684,
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              [
+                [
+                  66.88548442301719,
+                  9.30538483165815
+                ],
+                [
+                  66.88537474625774,
+                  9.30536795831054
+                ],
+                [
+                  66.88537474625774,
+                  9.305334211615323
+                ],
+                [
+                  66.88561940979807,
+                  9.303579383463983
+                ],
+                [
+                  66.88628590702862,
+                  9.298289588988549
+                ],
+                [
+                  66.88651369722135,
+                  9.296593817553841
+                ],
+                [
+                  66.88653057056895,
+                  9.296593817553841
+                ],
+                [
+                  66.88702833432342,
+                  9.29287324440605
+                ],
+                [
+                  66.88766952153257,
+                  9.287769056754314
+                ],
+                [
+                  66.88955933646477,
+                  9.273156737724888
+                ],
+                [
+                  66.89041987719284,
+                  9.266297721921815
+                ],
+                [
+                  66.8910863744234,
+                  9.261438197810412
+                ],
+                [
+                  66.891103247771,
+                  9.261438197810412
+                ],
+                [
+                  66.89115386781383,
+                  9.261075420836818
+                ],
+                [
+                  66.89182036504438,
+                  9.255718132970946
+                ],
+                [
+                  66.89255435566537,
+                  9.250470521864536
+                ],
+                [
+                  66.89453697400944,
+                  9.234634885133454
+                ],
+                [
+                  66.89524565460901,
+                  9.229167920508125
+                ],
+                [
+                  66.89565905162544,
+                  9.225793250986317
+                ],
+                [
+                  66.89567592497305,
+                  9.225793250986317
+                ],
+                [
+                  66.89592058851339,
+                  9.22376001259943
+                ],
+                [
+                  66.89659552241774,
+                  9.218698008316716
+                ],
+                [
+                  66.89792851687885,
+                  9.207899065846933
+                ],
+                [
+                  66.89794539022647,
+                  9.207764079066061
+                ],
+                [
+                  66.89796226357407,
+                  9.207764079066061
+                ],
+                [
+                  66.89862032413082,
+                  9.202398354526386
+                ],
+                [
+                  66.89936275142563,
+                  9.196560176253659
+                ],
+                [
+                  66.89992800857053,
+                  9.191920005661173
+                ],
+                [
+                  66.9006535625177,
+                  9.186604901164326
+                ],
+                [
+                  66.90130318640067,
+                  9.181281359993676
+                ],
+                [
+                  66.90198655697883,
+                  9.176126552299113
+                ],
+                [
+                  66.90251806742852,
+                  9.17174791859457
+                ],
+                [
+                  66.90253494077612,
+                  9.17174791859457
+                ],
+                [
+                  66.90267836423081,
+                  9.170516164219109
+                ],
+                [
+                  66.90336173480897,
+                  9.16514200300563
+                ],
+                [
+                  66.90399448534431,
+                  9.159928138594438
+                ],
+                [
+                  66.90469472927008,
+                  9.154672090814223
+                ],
+                [
+                  66.90481284270335,
+                  9.153634379936266
+                ],
+                [
+                  66.90482971605094,
+                  9.153634379936266
+                ],
+                [
+                  66.90535278982684,
+                  9.149314802948354
+                ],
+                [
+                  66.90600241370977,
+                  9.144354038751297
+                ],
+                [
+                  66.90669422096175,
+                  9.138718340649877
+                ],
+                [
+                  66.90709918130437,
+                  9.135217121021002
+                ],
+                [
+                  66.90711605465198,
+                  9.135217121021002
+                ],
+                [
+                  66.90712449132577,
+                  9.135149627630566
+                ],
+                [
+                  66.90732697149708,
+                  9.133361052784005
+                ],
+                [
+                  66.90799346872764,
+                  9.127927834853896
+                ],
+                [
+                  66.908668402632,
+                  9.12264647705227
+                ],
+                [
+                  66.90867683930581,
+                  9.122587420335636
+                ],
+                [
+                  66.90871902267483,
+                  9.122587420335636
+                ],
+                [
+                  66.91820184403112,
+                  9.123734807973051
+                ],
+                [
+                  66.91747629008393,
+                  9.129362069400665
+                ],
+                [
+                  66.91684353954858,
+                  9.134533750442836
+                ],
+                [
+                  66.91626140905608,
+                  9.13954513468272
+                ],
+                [
+                  66.91624453570846,
+                  9.13954513468272
+                ],
+                [
+                  66.91623609903466,
+                  9.139612628073156
+                ],
+                [
+                  66.9155527284565,
+                  9.145282072869792
+                ],
+                [
+                  66.91486092120452,
+                  9.15058030401903
+                ],
+                [
+                  66.91421129732159,
+                  9.155946028558704
+                ],
+                [
+                  66.91397507045505,
+                  9.157743040079069
+                ],
+                [
+                  66.91395819710743,
+                  9.157743040079069
+                ],
+                [
+                  66.91394976043362,
+                  9.1578020967957
+                ],
+                [
+                  66.91352792674341,
+                  9.16101646951522
+                ],
+                [
+                  66.91168873185403,
+                  9.17593250880161
+                ],
+                [
+                  66.91167185850641,
+                  9.17593250880161
+                ],
+                [
+                  66.91153687172556,
+                  9.177105206460437
+                ],
+                [
+                  66.91083662779977,
+                  9.182395000935871
+                ],
+                [
+                  66.91017013056921,
+                  9.187853528887395
+                ],
+                [
+                  66.90946988664344,
+                  9.193050519950981
+                ],
+                [
+                  66.909402393253,
+                  9.193666397138708
+                ],
+                [
+                  66.90938551990538,
+                  9.193666397138708
+                ],
+                [
+                  66.90892993951995,
+                  9.19742071698172
+                ],
+                [
+                  66.90812001883472,
+                  9.203807279051741
+                ],
+                [
+                  66.90711605465198,
+                  9.211990852642126
+                ],
+                [
+                  66.90709918130437,
+                  9.211990852642126
+                ],
+                [
+                  66.90706543460914,
+                  9.212260826203869
+                ],
+                [
+                  66.90615427383825,
+                  9.219676662478042
+                ],
+                [
+                  66.90544559323868,
+                  9.225008640322496
+                ],
+                [
+                  66.90482971605094,
+                  9.230020024562382
+                ],
+                [
+                  66.90481284270335,
+                  9.230020024562382
+                ],
+                [
+                  66.90410416210375,
+                  9.235571355925757
+                ],
+                [
+                  66.90253494077612,
+                  9.248201056611121
+                ],
+                [
+                  66.90251806742852,
+                  9.248201056611121
+                ],
+                [
+                  66.90207936039067,
+                  9.25176133295663
+                ],
+                [
+                  66.9013706797911,
+                  9.256831773913143
+                ],
+                [
+                  66.90069574588674,
+                  9.262256555169449
+                ],
+                [
+                  66.89996175526575,
+                  9.267495729602055
+                ],
+                [
+                  66.89796226357407,
+                  9.283322929659333
+                ],
+                [
+                  66.89794539022647,
+                  9.283322929659333
+                ],
+                [
+                  66.89792851687885,
+                  9.283449479766402
+                ],
+                [
+                  66.89737169640775,
+                  9.28776062008051
+                ],
+                [
+                  66.89657864907014,
+                  9.294045942064876
+                ],
+                [
+                  66.89585309512294,
+                  9.299411666604552
+                ],
+                [
+                  66.89567592497305,
+                  9.300871211172732
+                ],
+                [
+                  66.89565905162544,
+                  9.300871211172732
+                ],
+                [
+                  66.89564217827782,
+                  9.3009977612798
+                ],
+                [
+                  66.89517816121858,
+                  9.30470989775379
+                ],
+                [
+                  66.89494193435205,
+                  9.30646472590513
+                ],
+                [
+                  66.89493349767825,
+                  9.306506909274153
+                ],
+                [
+                  66.88548442301719,
+                  9.30538483165815
+                ]
+              ]
+            ]
+          ]
+        },
+        "assets": {
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_086189_1895_COLOR/ESP_086189_1895_COLOR.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_086189_1895_COLOR Thumbnail"
+          },
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_086189_1895_COLOR/ESP_086189_1895_COLOR.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_086189_1895_COLOR"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_086189_1895_COLOR/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_086189_1895_COLOR/ESP_086189_1895_COLOR.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_083341_1890_RED",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2024-05-07T06:12:32.747000Z",
+        "start_datetime": "2024-05-07T06:12:32.747000Z",
+        "end_datetime": "2024-05-07T06:12:34.939000Z",
+        "gsd": 0.2503742750997462,
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              [
+                [
+                  66.99254220201024,
+                  8.898763952065613
+                ],
+                [
+                  66.98350713988737,
+                  8.897577017770836
+                ],
+                [
+                  66.98337619695805,
+                  8.89756434587445
+                ],
+                [
+                  66.98336774902711,
+                  8.897598137598145
+                ],
+                [
+                  66.9741806241476,
+                  8.89641965123429
+                ],
+                [
+                  66.97413416052753,
+                  8.896453442957984
+                ],
+                [
+                  66.96494281168256,
+                  8.895283404525053
+                ],
+                [
+                  66.9554388893934,
+                  8.894121814023046
+                ],
+                [
+                  66.95749596057331,
+                  8.877813083374862
+                ],
+                [
+                  66.96070195035885,
+                  8.851721648717048
+                ],
+                [
+                  66.96202827551389,
+                  8.8413095738536
+                ],
+                [
+                  66.96603681873717,
+                  8.808780815831932
+                ],
+                [
+                  66.96665774166006,
+                  8.803357244178924
+                ],
+                [
+                  66.96953003817411,
+                  8.780133882069702
+                ],
+                [
+                  66.97880586632833,
+                  8.781265904813475
+                ],
+                [
+                  66.98800143913877,
+                  8.782435943246405
+                ],
+                [
+                  66.98804367879339,
+                  8.78240215152271
+                ],
+                [
+                  66.99723080367289,
+                  8.783584861852027
+                ],
+                [
+                  66.99728149125843,
+                  8.783551070128333
+                ],
+                [
+                  67.00665447061827,
+                  8.784776020112268
+                ],
+                [
+                  67.00410319547932,
+                  8.80543121122069
+                ],
+                [
+                  67.00348649652189,
+                  8.810816767184543
+                ],
+                [
+                  66.99966380777892,
+                  8.841820673674482
+                ],
+                [
+                  66.9977503514247,
+                  8.856938246062425
+                ],
+                [
+                  66.99489917473795,
+                  8.880178504033497
+                ],
+                [
+                  66.99254220201024,
+                  8.898763952065613
+                ]
+              ],
+              [
+                [
+                  66.98623159761026,
+                  8.863122131498566
+                ],
+                [
+                  66.98624426950664,
+                  8.863096787705794
+                ],
+                [
+                  66.9862147017484,
+                  8.863101011671256
+                ],
+                [
+                  66.98623159761026,
+                  8.863122131498566
+                ]
+              ],
+              [
+                [
+                  66.98640478019418,
+                  8.863067219947562
+                ],
+                [
+                  66.98643857191789,
+                  8.863050324085716
+                ],
+                [
+                  66.98642167605604,
+                  8.863016532362021
+                ],
+                [
+                  66.98640478019418,
+                  8.863067219947562
+                ]
+              ],
+              [
+                [
+                  66.98668356191467,
+                  8.86299118856925
+                ],
+                [
+                  66.98670468174197,
+                  8.862948948914632
+                ],
+                [
+                  66.98665399415644,
+                  8.86297006874194
+                ],
+                [
+                  66.98668356191467,
+                  8.86299118856925
+                ]
+              ],
+              [
+                [
+                  66.98668356191467,
+                  8.862940500983706
+                ],
+                [
+                  66.98673002553474,
+                  8.86292360512186
+                ],
+                [
+                  66.98669200984558,
+                  8.862906709260011
+                ],
+                [
+                  66.98668356191467,
+                  8.862940500983706
+                ]
+              ],
+              [
+                [
+                  66.98681872880944,
+                  8.862856021674471
+                ],
+                [
+                  66.98683984863676,
+                  8.86280955805439
+                ],
+                [
+                  66.98678493708576,
+                  8.862839125812624
+                ],
+                [
+                  66.98681872880944,
+                  8.862856021674471
+                ]
+              ],
+              [
+                [
+                  66.98621892571386,
+                  8.85873765534917
+                ],
+                [
+                  66.98632452485042,
+                  8.858699639660015
+                ],
+                [
+                  66.9862273736448,
+                  8.858703863625475
+                ],
+                [
+                  66.98621892571386,
+                  8.85873765534917
+                ]
+              ],
+              [
+                [
+                  66.98618091002471,
+                  8.858733431383712
+                ],
+                [
+                  66.9862147017484,
+                  8.858733431383712
+                ],
+                [
+                  66.98620202985201,
+                  8.858699639660015
+                ],
+                [
+                  66.98618091002471,
+                  8.858733431383712
+                ]
+              ],
+              [
+                [
+                  66.98611755054277,
+                  8.85816319604636
+                ],
+                [
+                  66.98615979019739,
+                  8.85813362828813
+                ],
+                [
+                  66.98612599847371,
+                  8.858129404322666
+                ],
+                [
+                  66.98611755054277,
+                  8.85816319604636
+                ]
+              ],
+              [
+                [
+                  66.9867342495002,
+                  8.85738598640138
+                ],
+                [
+                  66.98676381725843,
+                  8.8573395227813
+                ],
+                [
+                  66.98672580156929,
+                  8.857343746746764
+                ],
+                [
+                  66.9867342495002,
+                  8.85738598640138
+                ]
+              ],
+              [
+                [
+                  66.9867342495002,
+                  8.85713254847367
+                ],
+                [
+                  66.98676804122391,
+                  8.85708608485359
+                ],
+                [
+                  66.98672580156929,
+                  8.857102980715437
+                ],
+                [
+                  66.9867342495002,
+                  8.85713254847367
+                ]
+              ],
+              [
+                [
+                  66.98675959329299,
+                  8.857081860888128
+                ],
+                [
+                  66.98676804122391,
+                  8.857035397268048
+                ],
+                [
+                  66.98674269743114,
+                  8.85703962123351
+                ],
+                [
+                  66.98675959329299,
+                  8.857081860888128
+                ]
+              ],
+              [
+                [
+                  66.98705527087532,
+                  8.856553865205397
+                ],
+                [
+                  66.98707216673715,
+                  8.856511625550779
+                ],
+                [
+                  66.98704682294438,
+                  8.85651584951624
+                ],
+                [
+                  66.98705527087532,
+                  8.856553865205397
+                ]
+              ],
+              [
+                [
+                  66.987089062599,
+                  8.856541193309013
+                ],
+                [
+                  66.98712285432269,
+                  8.856511625550779
+                ],
+                [
+                  66.98714819811546,
+                  8.856528521412626
+                ],
+                [
+                  66.98714819811546,
+                  8.85649050572347
+                ],
+                [
+                  66.987089062599,
+                  8.856503177619855
+                ],
+                [
+                  66.987089062599,
+                  8.856541193309013
+                ]
+              ],
+              [
+                [
+                  66.98626116536848,
+                  8.855447186254393
+                ],
+                [
+                  66.98629073312671,
+                  8.855438738323471
+                ],
+                [
+                  66.98627806123034,
+                  8.8554133945307
+                ],
+                [
+                  66.98626116536848,
+                  8.855447186254393
+                ]
+              ],
+              [
+                [
+                  66.9863371967468,
+                  8.85458972126564
+                ],
+                [
+                  66.98640478019418,
+                  8.85454325764556
+                ],
+                [
+                  66.98640478019418,
+                  8.854505241956403
+                ],
+                [
+                  66.9863583165741,
+                  8.854547481611021
+                ],
+                [
+                  66.98632874881588,
+                  8.854526361783712
+                ],
+                [
+                  66.9863371967468,
+                  8.85458972126564
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  66.92761562889623,
+                  8.890759537515418
+                ],
+                [
+                  66.9184200560858,
+                  8.889695098219033
+                ],
+                [
+                  66.91837359246571,
+                  8.889657082529874
+                ],
+                [
+                  66.90917801965527,
+                  8.888617987026262
+                ],
+                [
+                  66.91186868565447,
+                  8.86720248213471
+                ],
+                [
+                  66.91458469544644,
+                  8.8450182155291
+                ],
+                [
+                  66.91548017612435,
+                  8.838074016309827
+                ],
+                [
+                  66.91750767954603,
+                  8.82166813445602
+                ],
+                [
+                  66.92008852244322,
+                  8.800653906283344
+                ],
+                [
+                  66.92070944536611,
+                  8.79522188669941
+                ],
+                [
+                  66.92325227257415,
+                  8.774634279038377
+                ],
+                [
+                  66.9326674915886,
+                  8.7756944943693
+                ],
+                [
+                  66.93270550727776,
+                  8.775732510058457
+                ],
+                [
+                  66.94190530405366,
+                  8.776796949354843
+                ],
+                [
+                  66.960465408293,
+                  8.779039875015084
+                ],
+                [
+                  66.95759311177895,
+                  8.802275909020691
+                ],
+                [
+                  66.95697218885606,
+                  8.807699480673701
+                ],
+                [
+                  66.95305657287291,
+                  8.839484820774084
+                ],
+                [
+                  66.95122759582794,
+                  8.853930782653592
+                ],
+                [
+                  66.94841021086489,
+                  8.876921826662414
+                ],
+                [
+                  66.9463827074432,
+                  8.893015135072043
+                ],
+                [
+                  66.92761562889623,
+                  8.890759537515418
+                ]
+              ],
+              [
+                [
+                  66.94309646231389,
+                  8.880676931957995
+                ],
+                [
+                  66.94313447800306,
+                  8.88050797333952
+                ],
+                [
+                  66.93862750685525,
+                  8.87996308179494
+                ],
+                [
+                  66.93860638702795,
+                  8.879988425587712
+                ],
+                [
+                  66.93861061099342,
+                  8.880136264378878
+                ],
+                [
+                  66.94309646231389,
+                  8.880676931957995
+                ]
+              ]
+            ]
+          ]
+        },
+        "assets": {
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_083341_1890_RED/ESP_083341_1890_RED.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_083341_1890_RED Thumbnail"
+          },
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_083341_1890_RED/ESP_083341_1890_RED.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_083341_1890_RED"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_083341_1890_RED/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_083341_1890_RED/ESP_083341_1890_RED.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_083341_1890_COLOR",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2024-05-07T06:12:32.660000Z",
+        "start_datetime": "2024-05-07T06:12:32.660000Z",
+        "end_datetime": "2024-05-07T06:12:35.004000Z",
+        "gsd": 0.2500494946296555,
+        "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              [
+                [
+                  66.94209486357828,
+                  8.892504601508712
+                ],
+                [
+                  66.94205267871608,
+                  8.892504601508712
+                ],
+                [
+                  66.93978735161656,
+                  8.892226181418266
+                ],
+                [
+                  66.93697783979479,
+                  8.891892921006976
+                ],
+                [
+                  66.9368892515842,
+                  8.891880265548318
+                ],
+                [
+                  66.9368892515842,
+                  8.891863391603444
+                ],
+                [
+                  66.93744609176508,
+                  8.887463510477163
+                ],
+                [
+                  66.93746296570995,
+                  8.88733273740438
+                ],
+                [
+                  66.93747140268239,
+                  8.88733273740438
+                ],
+                [
+                  66.93758108332409,
+                  8.88646794772951
+                ],
+                [
+                  66.93826025960533,
+                  8.880933293810356
+                ],
+                [
+                  66.93895209134523,
+                  8.875529412963985
+                ],
+                [
+                  66.93957642730561,
+                  8.870471447987564
+                ],
+                [
+                  66.93976625918546,
+                  8.868859986251955
+                ],
+                [
+                  66.93978313313033,
+                  8.868792490472455
+                ],
+                [
+                  66.94023451115575,
+                  8.865016945306568
+                ],
+                [
+                  66.94083353619884,
+                  8.860207871017057
+                ],
+                [
+                  66.94091368743699,
+                  8.85951603927716
+                ],
+                [
+                  66.94092634289565,
+                  8.859414795607908
+                ],
+                [
+                  66.94093477986809,
+                  8.859414795607908
+                ],
+                [
+                  66.94093899835431,
+                  8.85938104771816
+                ],
+                [
+                  66.94152536793874,
+                  8.854517133107803
+                ],
+                [
+                  66.94206533417474,
+                  8.850150999871273
+                ],
+                [
+                  66.94208220811963,
+                  8.85001600831227
+                ],
+                [
+                  66.94209064509207,
+                  8.85001600831227
+                ],
+                [
+                  66.94220032573375,
+                  8.849096378316556
+                ],
+                [
+                  66.94286684655633,
+                  8.843958262101975
+                ],
+                [
+                  66.94322963637114,
+                  8.840988447803891
+                ],
+                [
+                  66.9432380733436,
+                  8.840920952024389
+                ],
+                [
+                  66.94324651031603,
+                  8.840920952024389
+                ],
+                [
+                  66.94326760274713,
+                  8.840752212575635
+                ],
+                [
+                  66.94437284613646,
+                  8.831724652067257
+                ],
+                [
+                  66.94438972008135,
+                  8.831589660508254
+                ],
+                [
+                  66.94439815705377,
+                  8.831589660508254
+                ],
+                [
+                  66.94442346797109,
+                  8.831387173169748
+                ],
+                [
+                  66.94554558530531,
+                  8.822233058074804
+                ],
+                [
+                  66.94555402227775,
+                  8.822233058074804
+                ],
+                [
+                  66.94615726580705,
+                  8.817352269519573
+                ],
+                [
+                  66.94669723204306,
+                  8.812838489265385
+                ],
+                [
+                  66.94671410598794,
+                  8.81277099348588
+                ],
+                [
+                  66.94684487906073,
+                  8.811653094637883
+                ],
+                [
+                  66.94747765199355,
+                  8.806565600257926
+                ],
+                [
+                  66.94810620644016,
+                  8.80110266060449
+                ],
+                [
+                  66.94874741634544,
+                  8.795951888931254
+                ],
+                [
+                  66.94900052551856,
+                  8.7938384273356
+                ],
+                [
+                  66.94902583643588,
+                  8.793703435776598
+                ],
+                [
+                  66.94942659262668,
+                  8.790379268636128
+                ],
+                [
+                  66.95000030675244,
+                  8.785768463198906
+                ],
+                [
+                  66.95016482771497,
+                  8.784393236691555
+                ],
+                [
+                  66.95017326468741,
+                  8.784393236691555
+                ],
+                [
+                  66.9501943571185,
+                  8.7842244972428
+                ],
+                [
+                  66.95094102917925,
+                  8.77811191071166
+                ],
+                [
+                  66.95096634009656,
+                  8.777909423373154
+                ],
+                [
+                  66.95097055858278,
+                  8.777892549428278
+                ],
+                [
+                  66.95098743252765,
+                  8.777892549428278
+                ],
+                [
+                  66.96039043830952,
+                  8.779027322221154
+                ],
+                [
+                  66.96043684165792,
+                  8.779035759193592
+                ],
+                [
+                  66.96043684165792,
+                  8.779065288597124
+                ],
+                [
+                  66.960187950971,
+                  8.781047977119991
+                ],
+                [
+                  66.95944127891026,
+                  8.787164782137351
+                ],
+                [
+                  66.95941174950674,
+                  8.787401017365609
+                ],
+                [
+                  66.95940331253429,
+                  8.787401017365609
+                ],
+                [
+                  66.9588886572156,
+                  8.79156888174985
+                ],
+                [
+                  66.95825588428276,
+                  8.796791367688808
+                ],
+                [
+                  66.95824744731031,
+                  8.796791367688808
+                ],
+                [
+                  66.95757670800153,
+                  8.802220559452493
+                ],
+                [
+                  66.9569439350687,
+                  8.807717246995677
+                ],
+                [
+                  66.95629006970476,
+                  8.812973480824388
+                ],
+                [
+                  66.95564042282706,
+                  8.818364706212101
+                ],
+                [
+                  66.95492328016985,
+                  8.824131376873295
+                ],
+                [
+                  66.95480516255573,
+                  8.825131158107165
+                ],
+                [
+                  66.95477141466598,
+                  8.82533364544567
+                ],
+                [
+                  66.95364929733176,
+                  8.834479323568178
+                ],
+                [
+                  66.953615549442,
+                  8.834681810906684
+                ],
+                [
+                  66.95248499513535,
+                  8.843907640267348
+                ],
+                [
+                  66.95247655816293,
+                  8.843907640267348
+                ],
+                [
+                  66.95234578509012,
+                  8.845000228198035
+                ],
+                [
+                  66.9516708272951,
+                  8.8502016217059
+                ],
+                [
+                  66.95132912991139,
+                  8.852994259582792
+                ],
+                [
+                  66.95132069293895,
+                  8.852994259582792
+                ],
+                [
+                  66.95127850807675,
+                  8.853331738480302
+                ],
+                [
+                  66.9503504411086,
+                  8.860967198536452
+                ],
+                [
+                  66.95017326468741,
+                  8.862397265364647
+                ],
+                [
+                  66.95016482771497,
+                  8.862397265364647
+                ],
+                [
+                  66.94969657574467,
+                  8.866185465989192
+                ],
+                [
+                  66.94904692886696,
+                  8.871606220780437
+                ],
+                [
+                  66.94901739946344,
+                  8.871842456008695
+                ],
+                [
+                  66.949008962491,
+                  8.871842456008695
+                ],
+                [
+                  66.94835509712708,
+                  8.877170404103127
+                ],
+                [
+                  66.94786575272568,
+                  8.881034537479609
+                ],
+                [
+                  66.94785731575325,
+                  8.881034537479609
+                ],
+                [
+                  66.94773919813913,
+                  8.881966822933977
+                ],
+                [
+                  66.9470853327752,
+                  8.88729477102841
+                ],
+                [
+                  66.94674363539147,
+                  8.889998820694704
+                ],
+                [
+                  66.94670988750173,
+                  8.890264585326491
+                ],
+                [
+                  66.94670145052929,
+                  8.890264585326491
+                ],
+                [
+                  66.94668879507063,
+                  8.890361610509528
+                ],
+                [
+                  66.94635975314556,
+                  8.892998164396321
+                ],
+                [
+                  66.94635553465933,
+                  8.893023475313631
+                ],
+                [
+                  66.94209486357828,
+                  8.892504601508712
+                ]
+              ]
+            ]
+          ]
+        },
+        "assets": {
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_083341_1890_COLOR/ESP_083341_1890_COLOR.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_083341_1890_COLOR Thumbnail"
+          },
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_083341_1890_COLOR/ESP_083341_1890_COLOR.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_083341_1890_COLOR"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_083341_1890_COLOR/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_083341_1890_COLOR/ESP_083341_1890_COLOR.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_066025_1890_RED",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2020-08-27T03:58:32.817000Z",
+        "start_datetime": "2020-08-27T03:58:32.817000Z",
+        "end_datetime": "2020-08-27T03:58:36.265000Z",
+        "gsd": 0.250233594051452,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                67.01,
+                8.7546
+              ],
+              [
+                66.9273,
+                8.7443
+              ],
+              [
+                66.9044,
+                8.9252
+              ],
+              [
+                66.9872,
+                8.9354
+              ],
+              [
+                67.01,
+                8.7546
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "assets": {
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_066025_1890_RED/ESP_066025_1890_RED.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_066025_1890_RED"
+          },
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_066025_1890_RED/ESP_066025_1890_RED.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_066025_1890_RED Thumbnail"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_066025_1890_RED/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_066025_1890_RED/ESP_066025_1890_RED.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_066025_1890_COLOR",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2020-08-27T03:58:32.731000Z",
+        "start_datetime": "2020-08-27T03:58:32.731000Z",
+        "end_datetime": "2020-08-27T03:58:36.381000Z",
+        "gsd": 0.2500575610775215,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                66.9733,
+                8.7508
+              ],
+              [
+                66.9547,
+                8.7485
+              ],
+              [
+                66.9318,
+                8.9294
+              ],
+              [
+                66.9504,
+                8.9317
+              ],
+              [
+                66.9733,
+                8.7508
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "assets": {
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_066025_1890_COLOR/ESP_066025_1890_COLOR.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_066025_1890_COLOR"
+          },
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_066025_1890_COLOR/ESP_066025_1890_COLOR.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_066025_1890_COLOR Thumbnail"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_066025_1890_COLOR/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_066025_1890_COLOR/ESP_066025_1890_COLOR.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_058469_1885_RED",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2019-01-16T09:30:16.369000Z",
+        "start_datetime": "2019-01-16T09:30:16.369000Z",
+        "end_datetime": "2019-01-16T09:30:18.999000Z",
+        "gsd": 0.2503153979688903,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                67.1856,
+                8.5163
+              ],
+              [
+                67.1009,
+                8.506
+              ],
+              [
+                67.0845,
+                8.6433
+              ],
+              [
+                67.1692,
+                8.6536
+              ],
+              [
+                67.1856,
+                8.5163
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "assets": {
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_058469_1885_RED/ESP_058469_1885_RED.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_058469_1885_RED"
+          },
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_058469_1885_RED/ESP_058469_1885_RED.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_058469_1885_RED Thumbnail"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_058469_1885_RED/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_058469_1885_RED/ESP_058469_1885_RED.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_052350_1890_RED",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2017-09-26T15:21:54.307000Z",
+        "start_datetime": "2017-09-26T15:21:54.307000Z",
+        "end_datetime": "2017-09-26T15:21:58.259000Z",
+        "gsd": 0.2502060188100464,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                67.3112,
+                8.5809
+              ],
+              [
+                67.2258,
+                8.5706
+              ],
+              [
+                67.2006,
+                8.7783
+              ],
+              [
+                67.2861,
+                8.7886
+              ],
+              [
+                67.3112,
+                8.5809
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "assets": {
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_052350_1890_RED/ESP_052350_1890_RED.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_052350_1890_RED"
+          },
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_052350_1890_RED/ESP_052350_1890_RED.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_052350_1890_RED Thumbnail"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_052350_1890_RED/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_052350_1890_RED/ESP_052350_1890_RED.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_052350_1890_COLOR",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2017-09-26T15:21:54.219000Z",
+        "start_datetime": "2017-09-26T15:21:54.219000Z",
+        "end_datetime": "2017-09-26T15:21:58.377000Z",
+        "gsd": 0.25005189804820677,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                67.2733,
+                8.5772
+              ],
+              [
+                67.254,
+                8.5749
+              ],
+              [
+                67.2289,
+                8.7825
+              ],
+              [
+                67.2481,
+                8.7848
+              ],
+              [
+                67.2733,
+                8.5772
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "assets": {
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_052350_1890_COLOR/ESP_052350_1890_COLOR.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_052350_1890_COLOR"
+          },
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_052350_1890_COLOR/ESP_052350_1890_COLOR.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_052350_1890_COLOR Thumbnail"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_052350_1890_COLOR/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_052350_1890_COLOR/ESP_052350_1890_COLOR.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_052139_1890_RED",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2017-09-10T04:44:24.788000Z",
+        "start_datetime": "2017-09-10T04:44:24.788000Z",
+        "end_datetime": "2017-09-10T04:44:28.695000Z",
+        "gsd": 0.2502058364314632,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                67.3092,
+                8.5848
+              ],
+              [
+                67.2258,
+                8.5745
+              ],
+              [
+                67.1999,
+                8.7797
+              ],
+              [
+                67.2834,
+                8.79
+              ],
+              [
+                67.3092,
+                8.5848
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "assets": {
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_052139_1890_RED/ESP_052139_1890_RED.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_052139_1890_RED"
+          },
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_052139_1890_RED/ESP_052139_1890_RED.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_052139_1890_RED Thumbnail"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_052139_1890_RED/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_052139_1890_RED/ESP_052139_1890_RED.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_052139_1890_COLOR",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2017-09-10T04:44:24.702000Z",
+        "start_datetime": "2017-09-10T04:44:24.702000Z",
+        "end_datetime": "2017-09-10T04:44:28.812000Z",
+        "gsd": 0.250053279321664,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                67.2722,
+                8.581
+              ],
+              [
+                67.2534,
+                8.5787
+              ],
+              [
+                67.2275,
+                8.7839
+              ],
+              [
+                67.2463,
+                8.7862
+              ],
+              [
+                67.2722,
+                8.581
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "assets": {
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_052139_1890_COLOR/ESP_052139_1890_COLOR.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_052139_1890_COLOR"
+          },
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_052139_1890_COLOR/ESP_052139_1890_COLOR.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_052139_1890_COLOR Thumbnail"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_052139_1890_COLOR/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_052139_1890_COLOR/ESP_052139_1890_COLOR.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_051216_1890_RED",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2017-06-30T06:40:31.897000Z",
+        "start_datetime": "2017-06-30T06:40:31.897000Z",
+        "end_datetime": "2017-06-30T06:40:37.296000Z",
+        "gsd": 0.500317136190913,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                67.3327,
+                8.964
+              ],
+              [
+                67.2417,
+                8.9532
+              ],
+              [
+                67.2063,
+                9.2378
+              ],
+              [
+                67.2975,
+                9.2485
+              ],
+              [
+                67.3327,
+                8.964
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "assets": {
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_051216_1890_RED/ESP_051216_1890_RED.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_051216_1890_RED"
+          },
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_051216_1890_RED/ESP_051216_1890_RED.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_051216_1890_RED Thumbnail"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_051216_1890_RED/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_051216_1890_RED/ESP_051216_1890_RED.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_051216_1890_COLOR",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2017-06-30T06:40:31.794000Z",
+        "start_datetime": "2017-06-30T06:40:31.794000Z",
+        "end_datetime": "2017-06-30T06:40:37.405000Z",
+        "gsd": 0.5000919483773403,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                67.2924,
+                8.9594
+              ],
+              [
+                67.2719,
+                8.957
+              ],
+              [
+                67.2365,
+                9.2415
+              ],
+              [
+                67.257,
+                9.2439
+              ],
+              [
+                67.2924,
+                8.9594
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "assets": {
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_051216_1890_COLOR/ESP_051216_1890_COLOR.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_051216_1890_COLOR"
+          },
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_051216_1890_COLOR/ESP_051216_1890_COLOR.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_051216_1890_COLOR Thumbnail"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_051216_1890_COLOR/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_051216_1890_COLOR/ESP_051216_1890_COLOR.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_050082_1895_RED",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2017-04-02T21:49:53.370000Z",
+        "start_datetime": "2017-04-02T21:49:53.370000Z",
+        "end_datetime": "2017-04-02T21:49:57.377000Z",
+        "gsd": 0.25020156440555097,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                67.2306,
+                9.0515
+              ],
+              [
+                67.1467,
+                9.0412
+              ],
+              [
+                67.1201,
+                9.2516
+              ],
+              [
+                67.2044,
+                9.262
+              ],
+              [
+                67.2306,
+                9.0515
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "assets": {
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_050082_1895_RED/ESP_050082_1895_RED.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_050082_1895_RED"
+          },
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_050082_1895_RED/ESP_050082_1895_RED.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_050082_1895_RED Thumbnail"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_050082_1895_RED/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_050082_1895_RED/ESP_050082_1895_RED.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_050082_1895_COLOR",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2017-04-02T21:49:53.283000Z",
+        "start_datetime": "2017-04-02T21:49:53.283000Z",
+        "end_datetime": "2017-04-02T21:49:57.494000Z",
+        "gsd": 0.2500524846143097,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                67.1934,
+                9.0477
+              ],
+              [
+                67.1745,
+                9.0454
+              ],
+              [
+                67.1481,
+                9.2559
+              ],
+              [
+                67.167,
+                9.2582
+              ],
+              [
+                67.1934,
+                9.0477
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "assets": {
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_050082_1895_COLOR/ESP_050082_1895_COLOR.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_050082_1895_COLOR"
+          },
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_050082_1895_COLOR/ESP_050082_1895_COLOR.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_050082_1895_COLOR Thumbnail"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_050082_1895_COLOR/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_050082_1895_COLOR/ESP_050082_1895_COLOR.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_049792_1885_RED",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2017-03-11T07:29:41.088000Z",
+        "start_datetime": "2017-03-11T07:29:41.088000Z",
+        "end_datetime": "2017-03-11T07:29:44.488000Z",
+        "gsd": 0.2502989508371177,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                67.2636,
+                8.5066
+              ],
+              [
+                67.1572,
+                8.4941
+              ],
+              [
+                67.1382,
+                8.6721
+              ],
+              [
+                67.2442,
+                8.6845
+              ],
+              [
+                67.2636,
+                8.5066
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "assets": {
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_049792_1885_RED/ESP_049792_1885_RED.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_049792_1885_RED"
+          },
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_049792_1885_RED/ESP_049792_1885_RED.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_049792_1885_RED Thumbnail"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_049792_1885_RED/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_049792_1885_RED/ESP_049792_1885_RED.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_049792_1885_COLOR",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2017-03-11T07:29:40.991000Z",
+        "start_datetime": "2017-03-11T07:29:40.991000Z",
+        "end_datetime": "2017-03-11T07:29:44.618000Z",
+        "gsd": 0.2500622793765489,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                67.2162,
+                8.5019
+              ],
+              [
+                67.1923,
+                8.4991
+              ],
+              [
+                67.1731,
+                8.6771
+              ],
+              [
+                67.197,
+                8.6799
+              ],
+              [
+                67.2162,
+                8.5019
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "assets": {
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_049792_1885_COLOR/ESP_049792_1885_COLOR.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_049792_1885_COLOR"
+          },
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_049792_1885_COLOR/ESP_049792_1885_COLOR.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_049792_1885_COLOR Thumbnail"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_049792_1885_COLOR/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_049792_1885_COLOR/ESP_049792_1885_COLOR.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_047524_1895_RED",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2016-09-15T13:47:05.684000Z",
+        "start_datetime": "2016-09-15T13:47:05.684000Z",
+        "end_datetime": "2016-09-15T13:47:10.454000Z",
+        "gsd": 0.2501654406413187,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                67.0472,
+                9.0375
+              ],
+              [
+                66.9639,
+                9.0273
+              ],
+              [
+                66.9323,
+                9.2783
+              ],
+              [
+                67.0158,
+                9.2886
+              ],
+              [
+                67.0472,
+                9.0375
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "assets": {
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_047524_1895_RED/ESP_047524_1895_RED.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_047524_1895_RED"
+          },
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_047524_1895_RED/ESP_047524_1895_RED.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_047524_1895_RED Thumbnail"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_047524_1895_RED/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_047524_1895_RED/ESP_047524_1895_RED.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_047524_1895_COLOR",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2016-09-15T13:47:05.597000Z",
+        "start_datetime": "2016-09-15T13:47:05.597000Z",
+        "end_datetime": "2016-09-15T13:47:10.571000Z",
+        "gsd": 0.2500473131247747,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                67.0102,
+                9.0338
+              ],
+              [
+                66.9915,
+                9.0315
+              ],
+              [
+                66.9599,
+                9.2826
+              ],
+              [
+                66.9787,
+                9.2849
+              ],
+              [
+                67.0102,
+                9.0338
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "assets": {
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_047524_1895_COLOR/ESP_047524_1895_COLOR.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_047524_1895_COLOR"
+          },
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_047524_1895_COLOR/ESP_047524_1895_COLOR.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_047524_1895_COLOR Thumbnail"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_047524_1895_COLOR/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_047524_1895_COLOR/ESP_047524_1895_COLOR.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      },
+      {
+        "id": "ESP_047023_1890_RED",
+        "collection": "mro_hirise_uncontrolled_observations",
+        "datetime": "2016-08-07T12:46:55.115000Z",
+        "start_datetime": "2016-08-07T12:46:55.115000Z",
+        "end_datetime": "2016-08-07T12:47:00.598000Z",
+        "gsd": 0.2501576131679091,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                67.3339,
+                8.533
+              ],
+              [
+                67.2398,
+                8.5219
+              ],
+              [
+                67.2058,
+                8.8109
+              ],
+              [
+                67.2997,
+                8.822
+              ],
+              [
+                67.3339,
+                8.533
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "assets": {
+          "image": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_047023_1890_RED/ESP_047023_1890_RED.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "roles": [
+              "data"
+            ],
+            "title": "ESP_047023_1890_RED"
+          },
+          "thumbnail": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_047023_1890_RED/ESP_047023_1890_RED.jpg",
+            "type": "image/jpeg",
+            "roles": [
+              "thumbnail"
+            ],
+            "title": "ESP_047023_1890_RED Thumbnail"
+          },
+          "provenance": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_047023_1890_RED/provenance.txt",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "Provenance"
+          },
+          "pds_label": {
+            "href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/hirise/uncontrolled/ESP_047023_1890_RED/ESP_047023_1890_RED.LBL",
+            "type": "text/plain",
+            "roles": [
+              "metadata"
+            ],
+            "title": "PDS 3 Label"
+          }
+        }
+      }
+    ],
+    "next_page_available": true,
+    "metadata_note": "HiRISE RDR imagery metadata only. This is not a stereo DTM and no image asset is downloaded here."
+  },
+  "interpretation": {
+    "discovery_is_not_processing": true,
+    "hires_rdr_is_not_dtm": true,
+    "product_binary_downloaded": false,
+    "rover_safety_assessed": false,
+    "mission_suitability_certified": false
+  }
+}

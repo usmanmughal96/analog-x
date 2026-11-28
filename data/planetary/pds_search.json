@@ -1,8 +1,8 @@
 {
   "schema_version": "1.1",
-  "generated_at_utc": "2026-11-28T14:36:56+00:00",
+  "generated_at_utc": "2026-11-28T14:54:25+00:00",
   "provider": "NASA Planetary Data System Search API",
-  "api": "https://pds.nasa.gov/api/search/1/products",
+  "api": "https://pds.mcp.nasa.gov/api/search/1/products",
   "query_class": "Product_Observational",
   "documentation": "https://nasa-pds.github.io/pds-api/guides/search.html",
   "access_note": "Public product metadata discovery. A result is not proof that a binary product is directly downloadable, calibrated, spatially complete or ready for scientific use.",
@@ -15,10 +15,10 @@
       "target_filter": "planet.mars",
       "purpose": "Discover PDS observational products whose target metadata references Mars.",
       "status": "query_error",
-      "query_url": null,
+      "query_url": "https://pds.mcp.nasa.gov/api/search/1/products?limit=25&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Aplanet.mars%22%29",
       "returned_count": 0,
       "raw_result_count": 0,
-      "error": "HTTPSConnectionPool(host='pds.mcp.nasa.gov', port=443): Max retries exceeded with url: /api/search/1/products?limit=100&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Aplanet.mars%22%29 (Caused by ResponseError('too many 500 error responses'))",
+      "error": "HTTPSConnectionPool(host='pds.mcp.nasa.gov', port=443): Max retries exceeded with url: /api/search/1/products?limit=25&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Aplanet.mars%22%29 (Caused by ResponseError('too many 500 error responses'))",
       "products": []
     },
     {
@@ -29,10 +29,10 @@
       "target_filter": "planet.mars",
       "purpose": "Search Mars-target observational products from the MGS MOLA instrument.",
       "status": "query_error",
-      "query_url": null,
+      "query_url": "https://pds.mcp.nasa.gov/api/search/1/products?limit=25&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_instrument+eq+%22urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Amgs.mola%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Aplanet.mars%22%29",
       "returned_count": 0,
       "raw_result_count": 0,
-      "error": "HTTPSConnectionPool(host='pds.mcp.nasa.gov', port=443): Max retries exceeded with url: /api/search/1/products?limit=100&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_instrument+eq+%22urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Amgs.mola%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Aplanet.mars%22%29 (Caused by ResponseError('too many 500 error responses'))",
+      "error": "HTTPSConnectionPool(host='pds.mcp.nasa.gov', port=443): Max retries exceeded with url: /api/search/1/products?limit=25&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_instrument+eq+%22urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Amgs.mola%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Aplanet.mars%22%29 (Caused by ResponseError('too many 500 error responses'))",
       "products": []
     },
     {
@@ -43,10 +43,10 @@
       "target_filter": "planet.mars",
       "purpose": "Search Mars-target observational products from the MRO HiRISE instrument.",
       "status": "query_error",
-      "query_url": null,
+      "query_url": "https://pds.mcp.nasa.gov/api/search/1/products?limit=25&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_instrument+eq+%22urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Ahirise.mro%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Aplanet.mars%22%29",
       "returned_count": 0,
       "raw_result_count": 0,
-      "error": "HTTPSConnectionPool(host='pds.mcp.nasa.gov', port=443): Max retries exceeded with url: /api/search/1/products?limit=100&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_instrument+eq+%22urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Ahirise.mro%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Aplanet.mars%22%29 (Caused by ResponseError('too many 500 error responses'))",
+      "error": "HTTPSConnectionPool(host='pds.mcp.nasa.gov', port=443): Max retries exceeded with url: /api/search/1/products?limit=25&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_instrument+eq+%22urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Ahirise.mro%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Aplanet.mars%22%29 (Caused by ResponseError('too many 500 error responses'))",
       "products": []
     },
     {
@@ -57,10 +57,10 @@
       "target_filter": "satellite.earth.moon",
       "purpose": "Discover PDS observational products whose target metadata references the Moon.",
       "status": "query_error",
-      "query_url": null,
+      "query_url": "https://pds.mcp.nasa.gov/api/search/1/products?limit=25&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Asatellite.earth.moon%22%29",
       "returned_count": 0,
       "raw_result_count": 0,
-      "error": "HTTPSConnectionPool(host='pds.mcp.nasa.gov', port=443): Max retries exceeded with url: /api/search/1/products?limit=100&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Asatellite.earth.moon%22%29 (Caused by ResponseError('too many 500 error responses'))",
+      "error": "HTTPSConnectionPool(host='pds.mcp.nasa.gov', port=443): Max retries exceeded with url: /api/search/1/products?limit=25&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Asatellite.earth.moon%22%29 (Caused by ResponseError('too many 500 error responses'))",
       "products": []
     },
     {
@@ -71,10 +71,10 @@
       "target_filter": "satellite.earth.moon",
       "purpose": "Search Moon-target observational products from the LRO LOLA instrument.",
       "status": "query_error",
-      "query_url": null,
+      "query_url": "https://pds.mcp.nasa.gov/api/search/1/products?limit=25&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_instrument+eq+%22urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Alro.lola%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Asatellite.earth.moon%22%29",
       "returned_count": 0,
       "raw_result_count": 0,
-      "error": "HTTPSConnectionPool(host='pds.mcp.nasa.gov', port=443): Max retries exceeded with url: /api/search/1/products?limit=100&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_instrument+eq+%22urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Alro.lola%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Asatellite.earth.moon%22%29 (Caused by ResponseError('too many 500 error responses'))",
+      "error": "HTTPSConnectionPool(host='pds.mcp.nasa.gov', port=443): Max retries exceeded with url: /api/search/1/products?limit=25&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_instrument+eq+%22urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Alro.lola%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Asatellite.earth.moon%22%29 (Caused by ResponseError('too many 500 error responses'))",
       "products": []
     },
     {
@@ -85,16 +85,18 @@
       "target_filter": "satellite.earth.moon",
       "purpose": "Search Moon-target observational products from the LRO Diviner instrument.",
       "status": "query_error",
-      "query_url": null,
+      "query_url": "https://pds.mcp.nasa.gov/api/search/1/products?limit=25&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_instrument+eq+%22urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Alro.dlre%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Asatellite.earth.moon%22%29",
       "returned_count": 0,
       "raw_result_count": 0,
-      "error": "HTTPSConnectionPool(host='pds.mcp.nasa.gov', port=443): Max retries exceeded with url: /api/search/1/products?limit=100&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_instrument+eq+%22urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Alro.dlre%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Asatellite.earth.moon%22%29 (Caused by ResponseError('too many 500 error responses'))",
+      "error": "HTTPSConnectionPool(host='pds.mcp.nasa.gov', port=443): Max retries exceeded with url: /api/search/1/products?limit=25&q=%28product_class+eq+%22Product_Observational%22+and+ref_lid_instrument+eq+%22urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Alro.dlre%22+and+ref_lid_target+eq+%22urn%3Anasa%3Apds%3Acontext%3Atarget%3Asatellite.earth.moon%22%29 (Caused by ResponseError('too many 500 error responses'))",
       "products": []
     }
   ],
   "query_count": 6,
-  "query_limit_per_search": 100,
+  "query_limit_per_search": 25,
   "results_returned": 0,
+  "query_error_count": 6,
+  "empty_query_count": 0,
   "unique_product_count": 0,
   "limitations": [
     "PDS documentation warns that the registry is not fully populated; zero results do not prove the archive lacks data.",
