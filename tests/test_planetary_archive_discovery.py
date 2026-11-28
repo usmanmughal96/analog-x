@@ -16,6 +16,7 @@ from scripts.fetch_planetary_archive_discovery import (
     parse_pds_label_text,
     _core_aoi_intersection,
     inspect_known_hirise_dtm_label,
+    build_known_dtm_reference,
 )
 import xml.etree.ElementTree as ET
 
@@ -106,6 +107,43 @@ END
             "east_lon": float(fields["EASTERNMOST_LONGITUDE"]),
         }
         self.assertTrue(_core_aoi_intersection(bounds))
+
+    def test_known_dtm_reference_promotes_verified_non_overlap_to_top_level(self):
+        inspection = {
+            "status": "label_verified_bounds_outside_core_aoi",
+            "core_mola_aoi_footprint_intersection": False,
+            "bounds": {
+                "min_lat": 8.650757405385,
+                "max_lat": 8.9115110029789,
+                "west_lon": 67.26487883,
+                "east_lon": 67.38538575,
+            },
+        }
+        record = build_known_dtm_reference(inspection)
+        self.assertIs(record["core_mola_aoi_footprint_intersection"], False)
+        self.assertIn("does not intersect", record["metadata_boundary"])
+        self.assertEqual(record["pds_label_inspection"], inspection)
+
+    def test_known_dtm_reference_preserves_unknown_when_label_bounds_are_incomplete(self):
+        inspection = {
+            "status": "label_read_but_geographic_bounds_incomplete",
+            "core_mola_aoi_footprint_intersection": None,
+        }
+        record = build_known_dtm_reference(inspection)
+        self.assertEqual(
+            record["core_mola_aoi_footprint_intersection"],
+            "not_yet_verified_from_product_label",
+        )
+        self.assertIn("unknown", record["metadata_boundary"])
+
+    def test_known_dtm_reference_handles_positive_intersection_explicitly(self):
+        inspection = {
+            "status": "label_verified_bounds_intersect_core_aoi",
+            "core_mola_aoi_footprint_intersection": True,
+        }
+        record = build_known_dtm_reference(inspection)
+        self.assertIs(record["core_mola_aoi_footprint_intersection"], True)
+        self.assertIn("intersects", record["metadata_boundary"])
 
     def test_dtm_label_bounds_can_confirm_no_overlap_with_core_aoi(self):
         bounds = {
