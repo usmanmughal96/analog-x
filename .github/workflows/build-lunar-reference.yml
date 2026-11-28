@@ -18,9 +18,9 @@ permissions:
   contents: write
 
 concurrency:
-  group: analogx-repository-data-refresh-${{ github.workflow }}
+  group: ${{ github.event_name == 'pull_request' && format('analogx-pr-{0}-{1}', github.workflow, github.event.pull_request.number) || 'analogx-repository-data-publish' }}
+  queue: max
   cancel-in-progress: false
-
 jobs:
   pull-request-tests:
     if: github.event_name == 'pull_request'
@@ -45,6 +45,7 @@ jobs:
       - name: Checkout current main
         uses: actions/checkout@v4
         with:
+          ref: main
           persist-credentials: true
 
       - name: Set up Python
