@@ -58,16 +58,26 @@ def convert_responses(
     if not isinstance(private_cases, dict):
         raise ValueError("Private case key must contain a cases object")
 
-    labels = list(existing.get("labels", []))
+    existing_labels = existing.get("labels", [])
+    if not isinstance(existing_labels, list) or any(not isinstance(row, dict) for row in existing_labels):
+        raise ValueError("Existing label file must contain a labels array of objects")
+    labels = list(existing_labels)
     existing_ids = {(row.get("target"), row.get("candidate_id")) for row in labels}
     added = {"positive": 0, "negative": 0, "inconclusive_or_blank": 0}
 
     for case in packet["cases"]:
+        if not isinstance(case, dict):
+            raise ValueError("Each reviewer packet case must be an object")
         review = case.get("independent_review") or {}
         if not isinstance(review, dict):
             raise ValueError(f"{case.get('review_case_id', 'unknown case')}: independent_review must be an object")
         label = review.get("label")
-        if label in (None, "") or label in NON_BINARY:
+        if label is None or label == "":
+            added["inconclusive_or_blank"] += 1
+            continue
+        if not isinstance(label, str):
+            raise ValueError(f"{case.get('review_case_id', 'unknown case')}: review label must be a string")
+        if label in NON_BINARY:
             added["inconclusive_or_blank"] += 1
             continue
         if label not in BINARY:
