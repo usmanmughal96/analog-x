@@ -481,6 +481,37 @@ def _core_aoi_intersection(bounds):
     return bool(lat_ok and lon_ok)
 
 
+def build_known_dtm_reference(label_inspection):
+    """Promote a verified PDS-label footprint result to the top-level record."""
+    record = {
+        **KNOWN_NILI_HIRISE_DTM,
+        "pds_label_inspection": label_inspection,
+    }
+    intersection = label_inspection.get("core_mola_aoi_footprint_intersection")
+    if isinstance(intersection, bool):
+        record["core_mola_aoi_footprint_intersection"] = intersection
+        if intersection:
+            record["metadata_boundary"] = (
+                "The complete PDS-label geographic bounding box intersects the original "
+                "MOLA comparison AOI. This is a bbox result only, not evidence of terrain "
+                "registration, scientific equivalence or rover suitability."
+            )
+        else:
+            record["metadata_boundary"] = (
+                "The complete PDS-label geographic bounding box does not intersect the "
+                "original MOLA comparison AOI. Treat this DTM as an adjacent high-resolution "
+                "dune-field reference, not as co-located MOLA terrain."
+            )
+    else:
+        record["core_mola_aoi_footprint_intersection"] = "not_yet_verified_from_product_label"
+        record["metadata_boundary"] = (
+            "The PDS-label footprint intersection is unknown because a complete geographic "
+            "bounding box was not available from the capped label inspection. Do not infer "
+            "overlap from the published center or the wider discovery search box."
+        )
+    return record
+
+
 def inspect_known_hirise_dtm_label(max_bytes=262144):
     """Read a bounded prefix of the official IMG file; never download the full DTM."""
     result = {
@@ -571,10 +602,7 @@ def main() -> None:
     # avoids downloading the large DTM raster merely to establish its bounds.
     time.sleep(0.5)
     dtm_label_inspection = inspect_known_hirise_dtm_label()
-    known_dtm_reference = {
-        **KNOWN_NILI_HIRISE_DTM,
-        "pds_label_inspection": dtm_label_inspection,
-    }
+    known_dtm_reference = build_known_dtm_reference(dtm_label_inspection)
     output = {
         "schema_version": "1.0.0",
         "generated_at_utc": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
