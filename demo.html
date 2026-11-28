@@ -206,7 +206,7 @@ a{color:#82e1ec;text-decoration:none}a:hover{text-decoration:underline}
   <div class="dataCard"><div class="dataTitle">Earth environment</div><div class="dataMetric">10 POWER · 4 Pakistan EO</div><p>Ten NASA POWER climatology snapshots. Four Pakistan windows also have Sentinel-2 L2A spectral-context profiles, local RGB previews and processed Copernicus GLO-30 terrain.</p></div>
   <div class="dataCard"><div class="dataTitle">Regional terrain discovery</div><div class="dataMetric">7,290 Earth windows</div><p>Ten existing Copernicus DEM regions subdivided into overlapping 5.55 km windows at about 925 m support. This is a regional scan, not an exhaustive global search.</p></div>
   <div class="dataCard"><div class="dataTitle">Planetary references</div><div class="dataMetric">729 Moon · 21 Mars</div><p>Shackleton Rim LOLA and Nili Patera MOLA regional windows. MOLA observed-cell coverage is 50.53% (567/1,122 cells), with 87 complete 3×3 neighbourhoods.</p></div>
-  <div class="dataCard"><div class="dataTitle">High-resolution lunar terrain</div><div class="dataMetric">5 m · 10.24M pixels</div><p>NASA PGDA Site04 elevation, return-count, slope and RMS-error layers on a 3,200 × 3,200 grid. Interpolated coverage is 100%; direct positive-return support is 9.154%.</p></div>
+  <div class="dataCard"><div class="dataTitle">Lunar terrain + environment</div><div class="dataMetric">5 m LOLA · 100 m WAC</div><p>Site04 has 10.24M terrain pixels (100% interpolated; 9.154% direct-return support). Historical WAC mean illumination is 24.86%; Diviner median annual average at 2 cm is 103.786 K. These are historical products, not mission-date forecasts.</p></div>
   <div class="dataCard"><div class="dataTitle">Global GLO-90 discovery</div><div class="dataMetric">26,475 / 26,475 tiles</div><p>Complete enumerated land-tile inventory; zero reported tile failures; 5,852,396 terrain windows evaluated. Separate Moon and Mars shortlists retain 1,200 candidates each.</p></div>
   <div class="dataCard"><div class="dataTitle">Independent validation</div><div class="dataMetric">96 blind cases · 0 labels</div><p>The review packet contains 48 Moon and 48 Mars cases. No external labels have been returned; the physical field-observation ledger is also empty.</p></div>
  </div>
@@ -256,8 +256,8 @@ a{color:#82e1ec;text-decoration:none}a:hover{text-decoration:underline}
   <div class="card">
    <div class="eyebrow">Compare four Pakistan profiles with a planetary reference</div>
    <div class="compareTargets">
-    <div class="targetBox"><small>MOON</small><b>Shackleton Rim</b><span>5 m Site04 + 80 m LOLA terrain; Diviner historical thermal context</span></div>
-    <div class="targetBox"><small>MARS</small><b>Nili Patera</b><span>MOLA terrain reference; limited observation coverage is exposed</span></div>
+    <div class="targetBox"><small>MOON</small><b>Shackleton Rim</b><span>5 m Site04 + 80 m LOLA; 100 m WAC historical illumination and Diviner model-derived thermal context</span></div>
+    <div class="targetBox"><small>MARS</small><b>Nili Patera</b><span>MOLA terrain reference (50.53% observed-cell coverage); HiRISE DTMs are catalogued separately and are not merged into this AOI without verified overlap</span></div>
    </div>
    <div class="cleanList">
     <div class="cleanItem"><i class="dot"></i><span><strong>Chagai small playas:</strong> salt-crust / evaporite facies mapping and orbital-to-ground spectral validation.</span></div>
@@ -326,7 +326,7 @@ a{color:#82e1ec;text-decoration:none}a:hover{text-decoration:underline}
  </div>
  <div class="storySplit" style="margin-top:10px">
   <div class="storyPanel breakthrough"><div class="storyLabel">WHY THIS IS DIFFERENT</div><h3>From “Mars-like place” to “testable mission rehearsal.”</h3><p>ANALOG-X does not hide uncertainty behind one score. It connects a named task to evidence, failure boundaries and the next measurement a researcher should collect.</p></div>
-  <div class="storyPanel problem"><div class="storyLabel">SCIENTIFIC BOUNDARIES / NEXT PHASE</div><h3>Independent review and field truth are still open.</h3><p>The 96-case blind packet (48 Moon / 48 Mars) has a reviewer interface but no returned labels; the field ledger has zero physical observations. No AUC, calibrated accuracy, field validation, rover trial or safety certification is claimed. Verified PSR geometry, mission-date SPICE illumination, field mineralogy and rover-scale mobility remain open.</p></div>
+  <div class="storyPanel problem"><div class="storyLabel">SCIENTIFIC BOUNDARIES / NEXT PHASE</div><h3>Independent review and field truth are still open.</h3><p>The 96-case blind packet (48 Moon / 48 Mars) has no returned labels; the field ledger has zero physical observations. AUC is withheld until a spatially independent holdout has at least five groups and at least two groups supporting each class. Historical WAC illumination and Diviner thermal context are included, but formal PSR geometry, mission-date SPICE illumination, field mineralogy, rover trials and safety certification remain open.</p></div>
  </div>
  <div class="judgeLenses">
   <div class="judgeLens"><b>IMPACT</b><span>Better experiment and field-site decisions</span></div>
