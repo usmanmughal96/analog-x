@@ -11,7 +11,6 @@ on:
       - "scripts/refresh_source_registry.py"
       - "tests/test_analog_label_validation.py"
       - "tests/test_validation_release.py"
-      - ".github/workflows/global-discovery.yml"
       - "tests/test_global_discovery.py"
   pull_request:
     paths:
@@ -29,7 +28,8 @@ permissions:
   actions: read
 
 concurrency:
-  group: ${{ github.event_name == 'pull_request' && format('analogx-pr-{0}-{1}', github.workflow, github.event.pull_request.number) || 'analogx-science-data-publish' }}
+  group: ${{ github.event_name == 'pull_request' && format('analogx-pr-{0}-{1}', github.workflow, github.event.pull_request.number) || 'analogx-repository-data-publish' }}
+  queue: max
   cancel-in-progress: false
 jobs:
   tests:
@@ -74,7 +74,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+        with:
+          ref: main
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -107,7 +108,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+        with:
+          ref: main
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
